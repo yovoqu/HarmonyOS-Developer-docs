@@ -8,21 +8,21 @@
 
  
 - 问题一：侧边按键被删除后如何恢复？例如日志按钮。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/FtmQHg6gSY-BQ7_PSgdwCA/zh-cn_image_0000002628565334.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=E7BDB865DC4FABF3AEE87717C10C676BBBA6415967823C586A9068FECD735653)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/FtmQHg6gSY-BQ7_PSgdwCA/zh-cn_image_0000002628565334.png?HW-CC-KV=V1&HW-CC-Date=20260811T005522Z&HW-CC-Expire=86400&HW-CC-Sign=49CC490B7A7B97A27436BC6D89879D5906D540875C482FA60FD9520EA54DE9C0)
 
 - 问题二：日志窗口侧边功能按钮被删除后如何恢复？
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/98uYHm-9Spen2XjAW0cAqQ/zh-cn_image_0000002628405432.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=DABA7241B260A5D880C84AB13DE3DE8636CFCAFD778BF9F10B9F65CF852ECCC3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/98uYHm-9Spen2XjAW0cAqQ/zh-cn_image_0000002628405432.png?HW-CC-KV=V1&HW-CC-Date=20260811T005522Z&HW-CC-Expire=86400&HW-CC-Sign=0639689230BCED529673F23FAB573E2B9CAEF300FE7C365FA88D3FD8D69EDD4C)
 
 - 问题三：需要结合断点和日志信息进行调试，如何设置调试界面和日志输出界面同时在底部展示？
 调试窗口：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/p06sgda9TB2uqzEeFg0ILw/zh-cn_image_0000002658924639.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=23B02752DC7E7662ECF554EBC5097680C1C7A295CF37DF62CEB9C5D39A42882D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/p06sgda9TB2uqzEeFg0ILw/zh-cn_image_0000002658924639.png?HW-CC-KV=V1&HW-CC-Date=20260811T005522Z&HW-CC-Expire=86400&HW-CC-Sign=CB8FC681B45C261CF35EF798618797761FA68DA9D7D90A6A5A5DF002AD9BB6DB)
 
 - 日志窗口：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/-Y-Ld9UORoS3lItaHOOhgg/zh-cn_image_0000002658804703.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=25F2A8046F2E54DED0826E53810E6A83AA78D6287C00AE15F913353B8F88DB9F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/-Y-Ld9UORoS3lItaHOOhgg/zh-cn_image_0000002658804703.png?HW-CC-KV=V1&HW-CC-Date=20260811T005522Z&HW-CC-Expire=86400&HW-CC-Sign=179C3FF7F782BFD725665D0A154A074100DB523AB204DA243940712CAB878487)
 
 
  - 问题四：日志窗口中按键分别对应什么能力？
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/VrHmLC6SQPSCaAB_dALu9A/zh-cn_image_0000002628565336.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=81E5B5E39E8FFE3D21936EFDD6370D5CD5A4FE5E74AAB4469ABBCAB2905780F1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/VrHmLC6SQPSCaAB_dALu9A/zh-cn_image_0000002628565336.png?HW-CC-KV=V1&HW-CC-Date=20260811T005522Z&HW-CC-Expire=86400&HW-CC-Sign=8DD4CB76BD7D45DE9811444A64E8328EE7AB48DB41FEB958B2BE5BEE865CD102)
 
 
  
@@ -38,31 +38,31 @@
  
 - 问题一：通过**视图**-**工具窗口**-**日志**或者**Ctrl+Alt+5**重新打开日志窗口。
 操作：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/AGkGFxOWRH-VcZUnKChzkA/zh-cn_image_0000002628405434.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=61CE635B3C713BE7C70E8BCD9A6B20D1607459AA8260A58CAC11C82367533C49)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/AGkGFxOWRH-VcZUnKChzkA/zh-cn_image_0000002628405434.png?HW-CC-KV=V1&HW-CC-Date=20260811T005522Z&HW-CC-Expire=86400&HW-CC-Sign=335C622AA2C444661C4916A9619A65B8A6BF29DF1DAAB0BD0ECEFC21CD7BC024)
 
 - 效果：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/QNrLZL_KTv-FtnyVCIKn9w/zh-cn_image_0000002658924641.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=ED1076C046DEE9C6400EBF4248F20AA1CD3408592B690D941CBA4091D75F8698)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/QNrLZL_KTv-FtnyVCIKn9w/zh-cn_image_0000002658924641.png?HW-CC-KV=V1&HW-CC-Date=20260811T005522Z&HW-CC-Expire=86400&HW-CC-Sign=CCBB96A68F828832672FDA58F5AB6FE4DBF250DDFBE7985EB55FEB4965A4F19C)
 
 
  - 问题二：通过将鼠标移动至日志窗口内，点击右上角三点显示菜单选项图标，或者鼠标右键点击日志窗口顶部，选中**显示工具栏**。
 操作：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/iJgak1kxTxWO8_R1-6U2nw/zh-cn_image_0000002658804705.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=3940B383345780C0F64397F148914EEB57E8B481388D2D9E141B56C2214A95E4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/iJgak1kxTxWO8_R1-6U2nw/zh-cn_image_0000002658804705.png?HW-CC-KV=V1&HW-CC-Date=20260811T005522Z&HW-CC-Expire=86400&HW-CC-Sign=422340F98D2A0CCF9C83B49DAB8DAA49BA1B11CBED6B2572C9E98E16BE768DAF)
 
 - 效果：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/3ntib4r4QKWFi6_KKMa1cw/zh-cn_image_0000002628565338.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=EF8E5CC60F7FCB05D2D40F635758B908CADB4B9F06DFE1891DC00D70998910A9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/3ntib4r4QKWFi6_KKMa1cw/zh-cn_image_0000002628565338.png?HW-CC-KV=V1&HW-CC-Date=20260811T005522Z&HW-CC-Expire=86400&HW-CC-Sign=17928635FD90ACFA020638E75D955580A5DB274C0C4F1062413707CE07EB36F2)
 
 
  - 问题三：通过将鼠标移动至日志窗口内，点击右上角三点显示菜单选项图标，或者鼠标右键点击日志窗口顶部，选中**移动到**，调整窗口位置，可选择**底部 右**。
 操作：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/mYwy_MxISQWMOBrnciQrEQ/zh-cn_image_0000002628405436.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=5C052E2D8437E0C66C605606F21B8164A2495CA516CE15D42C4262B4ECB45777)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/mYwy_MxISQWMOBrnciQrEQ/zh-cn_image_0000002628405436.png?HW-CC-KV=V1&HW-CC-Date=20260811T005522Z&HW-CC-Expire=86400&HW-CC-Sign=1D63834D07D096E571BADA687E4BDC0B552A7E2FC49F2D1CC8A02A8EA6C14644)
 
 - 效果：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/PStiqfL2SjOrKPQuRUU1kw/zh-cn_image_0000002658924643.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=BC37EBAA231517F314CF09D3450D15E9A4A938362DCEFFAE78002B85BF530442)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/PStiqfL2SjOrKPQuRUU1kw/zh-cn_image_0000002658924643.png?HW-CC-KV=V1&HW-CC-Date=20260811T005522Z&HW-CC-Expire=86400&HW-CC-Sign=4842CEF9C8361D7EDAAE06AB98E435D26811AC8961A5C003C1CFA69877D4C6BB)
 
 
  - 问题四：通过将鼠标移动至日志窗口内，点击右上角三点显示菜单选项图标，或者鼠标右键点击日志窗口顶部，点击**？帮助**，即可跳转至文档介绍。
 操作：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/rJJ9v-EwTbm5V2DbA6fadA/zh-cn_image_0000002658804707.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=F95C5E174A6EDA3AFF4DE9F7A19F86C0F3F7D8E20D77CCEA8B3836928EC9BCCC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/rJJ9v-EwTbm5V2DbA6fadA/zh-cn_image_0000002658804707.png?HW-CC-KV=V1&HW-CC-Date=20260811T005522Z&HW-CC-Expire=86400&HW-CC-Sign=B6B4E1499E6D7A709C56AB17FC353611F7E1E4DCAC0008402D5534E9F5AA19EB)
 
 - 效果：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/u7SnG3_WQFGnyinMzDoQCA/zh-cn_image_0000002628565340.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=4CBF921891634852B9F0047B13C571D0356F0D5E061D4E04D2ADA43B7702F362)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/u7SnG3_WQFGnyinMzDoQCA/zh-cn_image_0000002628565340.png?HW-CC-KV=V1&HW-CC-Date=20260811T005522Z&HW-CC-Expire=86400&HW-CC-Sign=28FAE1BB0EA78AD1206E8E0A99EEC658EA33DF47E408DB8379534D475DDF8700)

@@ -51,7 +51,7 @@ struct DrawingMixedGraphicsAndText {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/eG3zO1H5QvC9n8Jf6JOvdg/zh-cn_image_0000002628662310.png?HW-CC-KV=V1&HW-CC-Date=20260730T072439Z&HW-CC-Expire=86400&HW-CC-Sign=EC3C2F5BFDEB7CD1512610FE66944749AA41426F515778E376161E87DBDE2774)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/eG3zO1H5QvC9n8Jf6JOvdg/zh-cn_image_0000002628662310.png?HW-CC-KV=V1&HW-CC-Date=20260811T005712Z&HW-CC-Expire=86400&HW-CC-Sign=CE61A4686B32CA0410A37D4A9DC49589C3F18A2282359D4CEC07C1CDD20D913F)
 
 - 方案二：由于drawTextBlob不支持降级，可以通过接口drawSingleCharacter实现，drawSingleCharacter有字体退化处理的能力（在用户给的字体typeface不支持某些表情包时，可以退化查找其他已载入字体的typeface），没有设置字体会使用系统默认字体。具体使用可参考[drawSingleCharacter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas#drawsinglecharacter12)中的示例，将示例中绘制的字符串替换为emoji即可。
 

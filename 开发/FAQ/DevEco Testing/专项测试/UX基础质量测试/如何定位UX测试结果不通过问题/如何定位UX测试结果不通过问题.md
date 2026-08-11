@@ -9,33 +9,33 @@
 - 问题一：使用DevEco Testing执行UX测试结果显示“条件依赖”，报“arklayout文件存储失败”或“arklayout文件依赖调试版本应用”：测试结果：条件依赖。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/piqsw--uQESH8Spwud5Rew/zh-cn_image_0000002628563632.png?HW-CC-KV=V1&HW-CC-Date=20260730T072728Z&HW-CC-Expire=86400&HW-CC-Sign=0BCBAA9CA75A54059B0865F4D388E4560FB5BF0FEB5B2A289701041F29AFDA0F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/piqsw--uQESH8Spwud5Rew/zh-cn_image_0000002628563632.png?HW-CC-KV=V1&HW-CC-Date=20260811T005529Z&HW-CC-Expire=86400&HW-CC-Sign=3411BA3024C4CD5A3E440B55E3746D0749DA1F3B3F62D7E642DE000F65893C01)
 
 
   原因说明：arklayout文件存储失败。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/i4bTzWqRQr-tHPDuj9aubw/zh-cn_image_0000002658922937.png?HW-CC-KV=V1&HW-CC-Date=20260730T072728Z&HW-CC-Expire=86400&HW-CC-Sign=59CB9EDDDE63FDEEC5F7ABA2D7DAAA08A22DCB4E8DC7A7B4FF828E29EDDBFE3C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/i4bTzWqRQr-tHPDuj9aubw/zh-cn_image_0000002658922937.png?HW-CC-KV=V1&HW-CC-Date=20260811T005529Z&HW-CC-Expire=86400&HW-CC-Sign=4665D466B681CCE6387C692AEFEE1A3A07D14D3E7D710EF54F231580B9442F72)
 
 
   原因说明：arklayout文件依赖调试版本应用。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/3QEjao7FSq6yTJ8V9w0j1Q/zh-cn_image_0000002658802983.png?HW-CC-KV=V1&HW-CC-Date=20260730T072728Z&HW-CC-Expire=86400&HW-CC-Sign=8159A3B3BF0EC9478696DCA496317F774D801768333A0CF135D4D02D222AC0D6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/3QEjao7FSq6yTJ8V9w0j1Q/zh-cn_image_0000002658802983.png?HW-CC-KV=V1&HW-CC-Date=20260811T005529Z&HW-CC-Expire=86400&HW-CC-Sign=3F615019B47AFAF054422B6E05473CF593730219FF4105DE66FA542C330FE0FE)
 
 - 问题二：UX检测结果显示“条件依赖”，报“应用包不存在”是什么原因？原因显示说明：应用包不存在。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/2OIanelbQgKa0bohLaIi4w/zh-cn_image_0000002628403724.png?HW-CC-KV=V1&HW-CC-Date=20260730T072728Z&HW-CC-Expire=86400&HW-CC-Sign=ADC25B7729300EA2C709F4C603AC63992C4349704F89A1EB5707439FF59162D9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/2OIanelbQgKa0bohLaIi4w/zh-cn_image_0000002628403724.png?HW-CC-KV=V1&HW-CC-Date=20260811T005529Z&HW-CC-Expire=86400&HW-CC-Sign=D7CE960FEA44B2D9B54B16DFCCF944A0492080BACE876D5737EB7F212A9B4D39)
 
 - 问题三：UX检测结果显示“元服务胶囊热区冲突”不通过，导航栏过宽该如何解决？
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/41YfuJdRS427M9x5s6v4rQ/zh-cn_image_0000002628563634.png?HW-CC-KV=V1&HW-CC-Date=20260730T072728Z&HW-CC-Expire=86400&HW-CC-Sign=96D514E592E27152937623A63067B9803CAC106AA1EDF9F75B30D1A86198D805)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/41YfuJdRS427M9x5s6v4rQ/zh-cn_image_0000002628563634.png?HW-CC-KV=V1&HW-CC-Date=20260811T005529Z&HW-CC-Expire=86400&HW-CC-Sign=5B4411228E19B80B85DEC8C3D805B3C2F3FFB8A678707F155B21491DA905458C)
 
 - 问题四：UX检测结果显示“不涉及”该如何处理？
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/J2Ws_FaaQliPl4tMzMn9Aw/zh-cn_image_0000002658922939.png?HW-CC-KV=V1&HW-CC-Date=20260730T072728Z&HW-CC-Expire=86400&HW-CC-Sign=E16B6A76107CC17F8E43C7894B474905D796972F0BBDE31B8DDE5978AE971215)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/J2Ws_FaaQliPl4tMzMn9Aw/zh-cn_image_0000002658922939.png?HW-CC-KV=V1&HW-CC-Date=20260811T005529Z&HW-CC-Expire=86400&HW-CC-Sign=A3EC57D0EA2DDDDD35FE8E8D83B14F3A8EB6032788E78B8FFD3544F7A942A16C)
 
 - 问题五：UX检测结果显示“不通过”，如何定位和修复？
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/YGEb3aTTTRGzAgaG_tkbmQ/zh-cn_image_0000002658802985.png?HW-CC-KV=V1&HW-CC-Date=20260730T072728Z&HW-CC-Expire=86400&HW-CC-Sign=D4EE4BA5DA7C2D8DD002C50D0F99B6A76D93483EA8270C80483CA7FD0417AC01)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/YGEb3aTTTRGzAgaG_tkbmQ/zh-cn_image_0000002658802985.png?HW-CC-KV=V1&HW-CC-Date=20260811T005529Z&HW-CC-Expire=86400&HW-CC-Sign=F9F5222CD80CE3D1680D4D686412E62D01C3B84A78A9889A3BCDE2424722FD58)
 
 
  
@@ -49,21 +49,21 @@
 - 问题四解决方案：检测结果为不涉及代表测试用例的执行条件不满足，不会执行相关的测试场景，可以点击不涉及前面的“查看”进行详细查看。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/ZPLtJzYYR8iisPoM7ryxvA/zh-cn_image_0000002628403726.png?HW-CC-KV=V1&HW-CC-Date=20260730T072728Z&HW-CC-Expire=86400&HW-CC-Sign=42DA487F1CCACB4954FA65419E7D8928B8B9A2063358CA335842D69F0386A628)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/ZPLtJzYYR8iisPoM7ryxvA/zh-cn_image_0000002628403726.png?HW-CC-KV=V1&HW-CC-Date=20260811T005529Z&HW-CC-Expire=86400&HW-CC-Sign=EA7B432D876D7EB39C166BB0B28EC645D900DD20AE0A8221F3D36A30CC3D4C47)
 
 - 问题五解决方案：举例“典型手势时长设计”测试不通过，点击对应的“不通过数”->查看定位日志和修复指南。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/yzqhQ_iaRLyQDvKtCmppwQ/zh-cn_image_0000002628563636.png?HW-CC-KV=V1&HW-CC-Date=20260730T072728Z&HW-CC-Expire=86400&HW-CC-Sign=5B638A5E4B5E97DD061DE69B9E094AD5C563D30FBAA3EFF35EA22FA850BBAA26)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/yzqhQ_iaRLyQDvKtCmppwQ/zh-cn_image_0000002628563636.png?HW-CC-KV=V1&HW-CC-Date=20260811T005529Z&HW-CC-Expire=86400&HW-CC-Sign=D40B3445284968B6D02C766248514D4067EC12D3AC915876739424AF5B479DD1)
 
 
   定位日志查看：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/N23R9Rs7TyaeoJputlqoNw/zh-cn_image_0000002658922941.png?HW-CC-KV=V1&HW-CC-Date=20260730T072728Z&HW-CC-Expire=86400&HW-CC-Sign=6A4EC03481CCCD1ABE0AF115A833F4B613B5D6D03744F0671B0031EF1C891A06)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/N23R9Rs7TyaeoJputlqoNw/zh-cn_image_0000002658922941.png?HW-CC-KV=V1&HW-CC-Date=20260811T005529Z&HW-CC-Expire=86400&HW-CC-Sign=24D0538909047AB8DE9F0770AE243ED40C59E7955A78B22B12FA7E7E1A1E9A53)
 
 
   修复指南查看：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/MqY_im-qSw2GIGs0r0L_eA/zh-cn_image_0000002658802987.png?HW-CC-KV=V1&HW-CC-Date=20260730T072728Z&HW-CC-Expire=86400&HW-CC-Sign=DDD70C8552E4DA8DB388F77A4E619F1113DCA63555C194D6641BD304D2562EB2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/MqY_im-qSw2GIGs0r0L_eA/zh-cn_image_0000002658802987.png?HW-CC-KV=V1&HW-CC-Date=20260811T005529Z&HW-CC-Expire=86400&HW-CC-Sign=791B9EEBE7B652203B5D2AB1794291C8F8A4E6ADC860F9BE39BC015B63650703)

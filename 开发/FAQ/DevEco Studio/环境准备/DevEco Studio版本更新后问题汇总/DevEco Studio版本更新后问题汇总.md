@@ -34,14 +34,14 @@ DevEco Studio不支持自更新，需要开发者前往[官网链接](https://de
 - **场景一：项目无法正常启动，提示hvigor没能同步。**报错如下图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/jg5YNJOJRBCoKsRVpv767Q/zh-cn_image_0000002658804377.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=2896CF6ADC55092288601D0CE4A74962B8EED1DD0AFCDDA3E52E1D1191068327)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/jg5YNJOJRBCoKsRVpv767Q/zh-cn_image_0000002658804377.png?HW-CC-KV=V1&HW-CC-Date=20260811T005523Z&HW-CC-Expire=86400&HW-CC-Sign=3D72DE3C565B73A643ED50E90F4004AD6168739A2164FC9D7EF6AB2F34EB63D0)
 
 
   根据报错信息可知：问题原因是当前hvigor的开发态配置版本与IDE能支持的开发态配置版本不匹配。
 - **场景二：项目运行失败，报错“A page configured in 'test_pages.json' must have one and only one '@Entry' decorator”。**报错信息：A page configured in 'test_pages.json' must have one and only one '@Entry' decorator。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/Ca-vKq0eQ36qOqjQ7hRkOA/zh-cn_image_0000002628565014.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=C6ECC2E9684F04BD20EDD64AA6D648B50FBC9CF7AD6932205D73E71C4911CC37)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/Ca-vKq0eQ36qOqjQ7hRkOA/zh-cn_image_0000002628565014.png?HW-CC-KV=V1&HW-CC-Date=20260811T005523Z&HW-CC-Expire=86400&HW-CC-Sign=AEB93A5A3B8BBB0E017DA7A16B5E202B24CB3BEB5B27832632E84E16BC51A487)
 
 
   根据报错信息可知：问题原因是配置在test_pages.json里的页面必须有且只能有一个'@Entry'装饰器。

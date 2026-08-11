@@ -11,34 +11,34 @@ RichEditor设置固定高度，文本过多会出现滚动条，导致和父组�
 问题代码示例参考如下：
  
 ```text
-@Entry
-@Component
-struct Problem {
-  controller: RichEditorController = new RichEditorController();
-  scroller: Scroller = new Scroller();
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Problem </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">RichEditorController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RichEditorController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">scroller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Scroller </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Scroller</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Scroll(this.scroller) {
-        RichEditor({ controller: this.controller })
-          .borderWidth(1)
-          .borderColor(Color.Gray)
-          .height(120)
-          .width(200);
-      }
-      .height(100)
-      .scrollBar(BarState.On);
-    }
-    .height('100%')
-    .width('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Scroll</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scroller</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">RichEditor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderWidth</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Gray</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">120</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollBar</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BarState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">On</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/YB5BwIWWRXWxTHoe2plRjw/zh-cn_image_0000002658913883.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072323Z&HW-CC-Expire=86400&HW-CC-Sign=B1238BF3266657D199AE4425B4113179361F11DDD9AC5D498A5DFF1EA70EAC65)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/YB5BwIWWRXWxTHoe2plRjw/zh-cn_image_0000002658913883.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005750Z&HW-CC-Expire=86400&HW-CC-Sign=537A5EDEE8FEB2F2DD85EB5C2DFA8D97AE0E5F9DE9F38174E2EC514E0D7D4F25)
 
  
  
@@ -55,95 +55,95 @@ struct Problem {
 
 - **方案一**：设置父组件Scroll的高度大于等于子组件RichEditor的高度，此时只会出现子组件RichEditor的滚动条，RichEditor组件大小固定，否则只要子组件高度大于父组件高度，则父组件Scroll就会出现滚动条。
 ```text
-@Entry
-@Component
-struct OptionOne {
-  controller: RichEditorController = new RichEditorController();
-  scroller: Scroller = new Scroller();
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">OptionOne </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">RichEditorController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RichEditorController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">scroller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Scroller </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Scroller</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Scroll(this.scroller) {
-        RichEditor({ controller: this.controller })
-          .borderWidth(1)
-          .borderColor(Color.Gray)
-          .height(100)
-          .width(200);
-      }
-      .height(100)
-      .scrollBar(BarState.Off); <em>// </em><em>关掉Scroll组件的滚动条</em>
-    }
-    .height('100%')
-    .width('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Scroll</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scroller</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">RichEditor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderWidth</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Gray</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollBar</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BarState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Off</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">关掉</span><span style="color: rgb(128,128,128);">Scroll</span><span style="color: rgb(128,128,128);">组件的滚动条</span></em>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/T3HakB-xQsClVNhpNquz7w/zh-cn_image_0000002658793941.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072323Z&HW-CC-Expire=86400&HW-CC-Sign=E674500016F60AD08DEF9E653E77761E059E79828F2BE45FBE3B69C0C974E885)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/T3HakB-xQsClVNhpNquz7w/zh-cn_image_0000002658793941.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005750Z&HW-CC-Expire=86400&HW-CC-Sign=1740AB0541BA44D2037BC4738E8929FE371134C78EE0DEED8B40B75F35A62E86)
 
 
  
 - **方案二**：去掉子组件RichEditor的高度。此时RichEditor组件大小随着文本变化，超过父组件Scroll的高度后，只会出现父组件Scroll的滚动条，此时关掉Scroll组件的滚动条后就没有滚动条。
 ```text
-@Entry
-@Component
-struct OptionTwo {
-  controller: RichEditorController = new RichEditorController();
-  scroller: Scroller = new Scroller();
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">OptionTwo </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">RichEditorController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RichEditorController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">scroller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Scroller </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Scroller</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Scroll(this.scroller) {
-        RichEditor({ controller: this.controller })
-          .borderWidth(1)
-          .borderColor(Color.Gray)
-          .width(200);
-      }
-      .height(100)
-      .scrollBar(BarState.Off); <em>// </em><em>关掉Scroll组件的滚动条</em>
-    }
-    .height('100%')
-    .width('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Scroll</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scroller</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">RichEditor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderWidth</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Gray</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollBar</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BarState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Off</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">关掉</span><span style="color: rgb(128,128,128);">Scroll</span><span style="color: rgb(128,128,128);">组件的滚动条</span></em>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/vD2hDsL0RFGj8i5j5oWnTQ/zh-cn_image_0000002628394676.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072323Z&HW-CC-Expire=86400&HW-CC-Sign=8B7B227F7A731E2F660A4609C846111D5CB31B728CB81F9DBCB1BE2F6CFD0F4D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/vD2hDsL0RFGj8i5j5oWnTQ/zh-cn_image_0000002628394676.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005750Z&HW-CC-Expire=86400&HW-CC-Sign=D6B252A405B6AF749AC3581BAE58A74D9071B84571E10DC962D0EC45449B5B98)
 
 
  
 - **方案三**：去掉父组件Scroll的高度，此时只会出现子组件RichEditor的滚动条，RichEditor组件大小固定。
 ```text
-@Entry
-@Component
-struct OptionThree {
-  controller: RichEditorController = new RichEditorController();
-  scroller: Scroller = new Scroller();
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">OptionThree </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">RichEditorController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RichEditorController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">scroller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Scroller </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Scroller</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Scroll(this.scroller) {
-        RichEditor({ controller: this.controller })
-          .borderWidth(1)
-          .borderColor(Color.Gray)
-          .height(100)
-          .width(200);
-      }
-      .scrollBar(BarState.Off); <em>// </em><em>关掉Scroll组件的滚动条</em>
-    }
-    .height('100%')
-    .width('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Scroll</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scroller</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">RichEditor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderWidth</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Gray</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollBar</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BarState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Off</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">关掉</span><span style="color: rgb(128,128,128);">Scroll</span><span style="color: rgb(128,128,128);">组件的滚动条</span></em>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/M0dCcgYhTMynAp7gdAqhtw/zh-cn_image_0000002628554562.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072323Z&HW-CC-Expire=86400&HW-CC-Sign=131BCCA06FC7CAE51947113200B5FE651A757335897B83EB4E3180A76AB60747)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/M0dCcgYhTMynAp7gdAqhtw/zh-cn_image_0000002628554562.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005750Z&HW-CC-Expire=86400&HW-CC-Sign=DCF5BDBFF5BB1F824E4EEABF5E0B7C1312B12DF6D13D7F33466471DC314D886B)
 
 
  

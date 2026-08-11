@@ -120,7 +120,7 @@ struct Index {
 5. 实现效果，通过上述步骤成功在Entry模块拿到library的数据。如图所示：当点击'加法'时，调用library中定义的加法函数，计算结果为'15'。当点击'减法'时，调用library中定义的减法函数，计算结果为'5'。点击'英文'、'中文'时，分别调用library中定义的SharedLibraryConstants类中的'Hello'、'你好'。实现效果：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/PMtCjc3JSQSDXsbqX4bvkQ/zh-cn_image_0000002658927281.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=0D026BED97703C247E939D67F1BD20A4C0B6219509CB42553EBED815C5B64BE5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/PMtCjc3JSQSDXsbqX4bvkQ/zh-cn_image_0000002658927281.png?HW-CC-KV=V1&HW-CC-Date=20260811T005515Z&HW-CC-Expire=86400&HW-CC-Sign=85CF628DF6F3784986B0AB7E7B625B247BFC40A0C346D61FF4A41A5D2733EB3E)
 
  
  

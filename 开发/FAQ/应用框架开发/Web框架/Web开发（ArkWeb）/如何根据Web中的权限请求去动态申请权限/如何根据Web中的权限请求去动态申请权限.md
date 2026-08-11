@@ -129,7 +129,7 @@ struct WebPermissionsPage {
     }
 </script>
 <div>
-    message:  
+    <span>message: </span> <span id="container"></span>
 </div>
 </body>
 </html>

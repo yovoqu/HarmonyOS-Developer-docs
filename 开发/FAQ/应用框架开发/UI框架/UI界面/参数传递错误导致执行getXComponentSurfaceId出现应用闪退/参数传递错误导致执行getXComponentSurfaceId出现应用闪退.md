@@ -9,63 +9,63 @@
 创建XComponent后调用getXComponentSurfaceId方法出现Crash异常，并且onSurfaceCreated方法没有被执行，问题代码如下：
  
 ```json
-@Entry
-@Component
-struct Problem {
-  @State xcArray: CustomXComponentController[] = [];
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Problem </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CustomXComponentController</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
 
-  aboutToAppear(): void {
-    for (let i = 0; i < 2; i++) {
-      this.xcArray.push(new CustomXComponentController());
-    }
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span>new <span style="color: rgb(0,0,255);">CustomXComponentController</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
 
-  build() {
-    Column() {
-      XScreen({ xcArray: this.xcArray });
-    }
-    .height('100%')
-    .width('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">XScreen</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xcArray </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Component
-struct XScreen {
-  @Prop xcArray: CustomXComponentController[];
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">XScreen </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@Prop </span><span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CustomXComponentController</span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      ForEach(this.xcArray, (xc: CustomXComponentController, index: number) => {
-        Button('ButtonXc:' + index)
-          .onClick(() => {
-            console.info(`getXComponentSurfaceId = ${xc.getXComponentSurfaceId()}`);
-          });
-        XComponent({
-          id: 'XComponent' + index,
-          type: XComponentType.SURFACE,
-          controller: xc
-        })
-          .width('100%')
-          .height(200);
-      });
-    }.width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">xc</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CustomXComponentController</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'ButtonXc:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`getXComponentSurfaceId = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">xc</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getXComponentSurfaceId</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">XComponent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'XComponent' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">XComponentType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SURFACE</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">xc</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-class CustomXComponentController extends XComponentController {
-  onSurfaceCreated(surfaceId: string): void {
-    console.info(`onSurfaceCreated surfaceId: ${surfaceId}`);
-  }
+class <span style="color: rgb(0,0,255);">CustomXComponentController </span>extends <span style="color: rgb(0,0,255);">XComponentController </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">onSurfaceCreated</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`onSurfaceCreated surfaceId: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  onSurfaceChanged(surfaceId: string, rect: SurfaceRect): void {
-    console.info(`onSurfaceChanged surfaceId: ${surfaceId}, rect: ${JSON.stringify(rect)}}`);
-  }
+  <span style="color: rgb(0,0,255);">onSurfaceChanged</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">rect</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">SurfaceRect</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`onSurfaceChanged surfaceId: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, rect: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">rect</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">}`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  onSurfaceDestroyed(surfaceId: string): void {
-    console.info(`onSurfaceDestroyed surfaceId: ${surfaceId}`);
-  }
-}
+  <span style="color: rgb(0,0,255);">onSurfaceDestroyed</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`onSurfaceDestroyed surfaceId: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
 Crash日志如下：
@@ -75,12 +75,12 @@ Process name:com.example.xxx
 Process life time:3s
 Reason:Signal:SIGSEGV(SEGV_MAPERR)@0x0000000000000018  probably caused by NULL pointer dereference
 Fault thread info:
-Tid:29620, Name:250918175335021
-#00 pc 0000000000e2c300 /system/lib64/platformsdk/libace_compatible.z.so(OHOS::Ace::Framework::JSXComponentController::GetSurfaceId(OHOS::Ace::Framework::JsiCallbackInfo const&)+8)(eab4f4be93e4c3c88d2272a46b36c765)
-#01 pc 0000000000e2ca38 /system/lib64/platformsdk/libace_compatible.z.so(panda::Local<panda::JSValueRef> OHOS::Ace::Framework::JsiClass<OHOS::Ace::Framework::JSXComponentController>::InternalJSMemberFunctionCallback<OHOS::Ace::Framework::JSXComponentController>(panda::JsiRuntimeCallInfo*)+256)(eab4f4be93e4c3c88d2272a46b36c765)
-#02 pc 0000000000589f1c /system/lib64/platformsdk/libark_jsruntime.so(panda::Callback::RegisterCallback(panda::ecmascript::EcmaRuntimeCallInfo*)+272)(38230492305256c23dcf27a2aba6f771)
-#03 pc 0000000000445a2c /system/lib64/module/arkcompiler/stub.an(RTStub_PushCallArgsAndDispatchNative+40)
-#04 at anonymous (entry/src/main/ets/pages/XScreen.ets:22:49)
+Tid:<span style="color: rgb(0,0,255);">29620</span>, Name:<span style="color: rgb(0,0,255);">250918175335021</span>
+#<span style="color: rgb(0,0,255);">00 </span>pc 0000000000e2c300 /system/lib64/platformsdk/libace_compatible.z.so(OHOS::Ace::Framework::JSXComponentController::GetSurfaceId(OHOS::Ace::Framework::JsiCallbackInfo const&)<span style="color: rgb(0,0,255);">+8</span>)(eab4f4be93e4c3c88d2272a46b36c765)
+#<span style="color: rgb(0,0,255);">01 </span>pc 0000000000e2ca38 /system/lib64/platformsdk/libace_compatible.z.so(panda::Local<panda::JSValueRef> OHOS::Ace::Framework::JsiClass<OHOS::Ace::Framework::JSXComponentController>::InternalJSMemberFunctionCallback<OHOS::Ace::Framework::JSXComponentController>(panda::JsiRuntimeCallInfo*)<span style="color: rgb(0,0,255);">+256</span>)(eab4f4be93e4c3c88d2272a46b36c765)
+#<span style="color: rgb(0,0,255);">02 </span>pc 0000000000589f1c /system/lib64/platformsdk/libark_jsruntime.so(panda::Callback::RegisterCallback(panda::ecmascript::EcmaRuntimeCallInfo*)<span style="color: rgb(0,0,255);">+272</span>)(38230492305256c23dcf27a2aba6f771)
+#<span style="color: rgb(0,0,255);">03 </span>pc 0000000000445a2c /system/lib64/module/arkcompiler/stub.an(RTStub_PushCallArgsAndDispatchNative<span style="color: rgb(0,0,255);">+40</span>)
+#<span style="color: rgb(0,0,255);">04 </span>at anonymous (entry/src/main/ets/pages/XScreen.ets:<span style="color: rgb(0,0,255);">22</span>:49)
 ```
  
  
@@ -99,11 +99,11 @@ Tid:29620, Name:250918175335021
 3. 观察XComponent中xcArray来源，发现可能是由于参数传递不正确导致XComponent对象未正确创建。
 4. 修改代码，在XScreen页面构造xcArray对象进行尝试：
 ```text
-aboutToAppear(): void {
-    for (let i = 0; i < 2; i++) {
-    this.xcArray.push(new CustomXComponentController())
-  }
-}
+<span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span>void <span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">for </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">let i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">this</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">new </span><span style="color: rgb(0,0,255);">CustomXComponentController</span><span style="color: rgb(0,0,255);">())</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 5. 发现能够正确执行getXComponentSurfaceId方法，故可以得出结论：由于参数传递不正确导致应用闪退。
@@ -120,181 +120,181 @@ aboutToAppear(): void {
 
 - 方案一：xcArray对象在该场景未绑定UI，故不需要使用状态管理参数传递。
 ```json
-@Entry
-@Component
-struct Solution1 {
-  xcArray: CustomXComponentController1[] = [];
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Solution1 </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CustomXComponentController1</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
 
-  aboutToAppear(): void {
-    for (let i = 0; i < 2; i++) {
-      this.xcArray.push(new CustomXComponentController1());
-    }
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span>new <span style="color: rgb(0,0,255);">CustomXComponentController1</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
 
-  build() {
-    Column() {
-      XScreen1({ xcArray: this.xcArray });
-    }
-    .height('100%')
-    .width('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">XScreen1</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xcArray </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Component
-struct XScreen1 {
-  xcArray: CustomXComponentController1[] = [];
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">XScreen1 </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CustomXComponentController1</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      ForEach(this.xcArray, (xc: CustomXComponentController1, index: number) => {
-        Button('ButtonXc:' + index)
-          .onClick(() => {
-            console.info(`getXComponentSurfaceId = ${xc.getXComponentSurfaceId()}`);
-          });
-        XComponent({
-          id: 'XComponent' + index,
-          type: XComponentType.SURFACE,
-          controller: xc
-        })
-          .width('100%')
-          .height(200);
-      });
-    }.width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">xc</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CustomXComponentController1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'ButtonXc:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`getXComponentSurfaceId = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">xc</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getXComponentSurfaceId</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">XComponent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'XComponent' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">XComponentType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SURFACE</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">xc</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-class CustomXComponentController1 extends XComponentController {
-  onSurfaceCreated(surfaceId: string): void {
-    console.info(`onSurfaceCreated surfaceId: ${surfaceId}`);
-  }
+class <span style="color: rgb(0,0,255);">CustomXComponentController1 </span>extends <span style="color: rgb(0,0,255);">XComponentController </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">onSurfaceCreated</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`onSurfaceCreated surfaceId: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  onSurfaceChanged(surfaceId: string, rect: SurfaceRect): void {
-    console.info(`onSurfaceChanged surfaceId: ${surfaceId}, rect: ${JSON.stringify(rect)}}`);
-  }
+  <span style="color: rgb(0,0,255);">onSurfaceChanged</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">rect</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">SurfaceRect</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`onSurfaceChanged surfaceId: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, rect: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">rect</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">}`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  onSurfaceDestroyed(surfaceId: string): void {
-    console.info(`onSurfaceDestroyed surfaceId: ${surfaceId}`);
-  }
-}
+  <span style="color: rgb(0,0,255);">onSurfaceDestroyed</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`onSurfaceDestroyed surfaceId: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 - 方案二：不进行参数传递，在XScreen页面构造xcArray对象。
 ```json
-@Entry
-@Component
-struct Solution2 {
-  build() {
-    Column() {
-      XScreen2();
-    }
-    .height('100%')
-    .width('100%');
-  }
-}
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Solution2 </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">XScreen2</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Component
-struct XScreen2 {
-  xcArray: CustomXComponentController2[] = [];
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">XScreen2 </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CustomXComponentController2</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
 
-  aboutToAppear(): void {
-    for (let i = 0; i < 2; i++) {
-      this.xcArray.push(new CustomXComponentController2());
-    }
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span>new <span style="color: rgb(0,0,255);">CustomXComponentController2</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
 
-  build() {
-    Column() {
-      ForEach(this.xcArray, (xc: CustomXComponentController2, index: number) => {
-        Button('ButtonXc:' + index)
-          .onClick(() => {
-            console.info(`getXComponentSurfaceId = ${xc.getXComponentSurfaceId()}`);
-          });
-        XComponent({
-          id: 'XComponent' + index,
-          type: XComponentType.SURFACE,
-          controller: xc
-        })
-          .width('100%')
-          .height(200);
-      });
-    }.width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">xc</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CustomXComponentController2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'ButtonXc:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`getXComponentSurfaceId = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">xc</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getXComponentSurfaceId</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">XComponent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'XComponent' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">XComponentType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SURFACE</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">xc</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-class CustomXComponentController2 extends XComponentController {
-  onSurfaceCreated(surfaceId: string): void {
-    console.info(`onSurfaceCreated surfaceId: ${surfaceId}`);
-  }
+class <span style="color: rgb(0,0,255);">CustomXComponentController2 </span>extends <span style="color: rgb(0,0,255);">XComponentController </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">onSurfaceCreated</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`onSurfaceCreated surfaceId: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  onSurfaceChanged(surfaceId: string, rect: SurfaceRect): void {
-    console.info(`onSurfaceChanged surfaceId: ${surfaceId}, rect: ${JSON.stringify(rect)}}`);
-  }
+  <span style="color: rgb(0,0,255);">onSurfaceChanged</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">rect</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">SurfaceRect</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`onSurfaceChanged surfaceId: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, rect: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">rect</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">}`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  onSurfaceDestroyed(surfaceId: string): void {
-    console.info(`onSurfaceDestroyed surfaceId: ${surfaceId}`);
-  }
-}
+  <span style="color: rgb(0,0,255);">onSurfaceDestroyed</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`onSurfaceDestroyed surfaceId: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 - 方案三：若业务场景要求需要使用状态管理进行参数传递，可以使用@Link装饰器实现。
 ```json
-@Entry
-@Component
-struct Solution3 {
-  @State xcArray: CustomXComponentController3[] = [];
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Solution3 </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CustomXComponentController3</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
 
-  aboutToAppear(): void {
-    for (let i = 0; i < 2; i++) {
-      this.xcArray.push(new CustomXComponentController3());
-    }
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span>new <span style="color: rgb(0,0,255);">CustomXComponentController3</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
 
-  build() {
-    Column() {
-      XScreen3({ xcArray: this.xcArray });
-    }
-    .height('100%')
-    .width('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">XScreen3</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xcArray </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Component
-struct XScreen3 {
-  @Link xcArray: CustomXComponentController3[];
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">XScreen3 </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@Link </span><span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CustomXComponentController3</span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      ForEach(this.xcArray, (xc: CustomXComponentController3, index: number) => {
-        Button('ButtonXc:' + index)
-          .onClick(() => {
-            console.info(`getXComponentSurfaceId = ${xc.getXComponentSurfaceId()}`);
-          });
-        XComponent({
-          id: 'XComponent' + index,
-          type: XComponentType.SURFACE,
-          controller: xc
-        })
-          .width('100%')
-          .height(200);
-      });
-    }.width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">xcArray</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">xc</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CustomXComponentController3</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'ButtonXc:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`getXComponentSurfaceId = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">xc</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getXComponentSurfaceId</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">XComponent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'XComponent' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">XComponentType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SURFACE</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">xc</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-class CustomXComponentController3 extends XComponentController {
-  onSurfaceCreated(surfaceId: string): void {
-    console.info(`onSurfaceCreated surfaceId: ${surfaceId}`);
-  }
+class <span style="color: rgb(0,0,255);">CustomXComponentController3 </span>extends <span style="color: rgb(0,0,255);">XComponentController </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">onSurfaceCreated</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`onSurfaceCreated surfaceId: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  onSurfaceChanged(surfaceId: string, rect: SurfaceRect): void {
-    console.info(`onSurfaceChanged surfaceId: ${surfaceId}, rect: ${JSON.stringify(rect)}}`);
-  }
+  <span style="color: rgb(0,0,255);">onSurfaceChanged</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">rect</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">SurfaceRect</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`onSurfaceChanged surfaceId: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, rect: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">rect</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">}`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  onSurfaceDestroyed(surfaceId: string): void {
-    console.info(`onSurfaceDestroyed surfaceId: ${surfaceId}`);
-  }
-}
+  <span style="color: rgb(0,0,255);">onSurfaceDestroyed</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`onSurfaceDestroyed surfaceId: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">surfaceId</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

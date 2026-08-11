@@ -13,7 +13,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/3RMSyjMWSviXUcb_J3CWvg/zh-cn_image_0000002658955245.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072348Z&HW-CC-Expire=86400&HW-CC-Sign=658AFEEDE8E008B17B65D6A6B3735086C85315C23882E4DA21D47B2BBC88B014)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/3RMSyjMWSviXUcb_J3CWvg/zh-cn_image_0000002658955245.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005814Z&HW-CC-Expire=86400&HW-CC-Sign=236E6E45FA447E9D3FA8C8EB9042AFCC0290D69E1BA5AA551DC44730A0AF1578)
 
  
  
@@ -34,32 +34,32 @@
 
   
 ```text
-let para: Record<string, number> = { 'propA': 47 };
+let <span style="color: rgb(255,255,255);">para</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Record</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(132,63,161);">'propA'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">47 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-const storage: LocalStorage = new LocalStorage(para);
+const <span style="color: rgb(255,255,255);">storage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">LocalStorage </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">LocalStorage</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">para</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-export { storage };
+export <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">storage </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
 ```
  其他组件接收Storage实例，并通过应用逻辑方式修改数据。
 
   
 ```json
-import { storage } from './LocalStorageFatherOne';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">storage </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'./LocalStorageFatherOne'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-export struct LocalStorageChildOne {
-  @State link1: SubscribedAbstractProperty<number> = storage.link('propA');
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+export struct <span style="color: rgb(0,0,255);">LocalStorageChildOne </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">link1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">SubscribedAbstractProperty</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,255,255);">storage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">link</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'propA'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Text('子组件linkChild：' + JSON.stringify(this.link1.get()))
-        .onClick(() => {
-          this.link1.set(this.link1.get() + 1);
-        });
-    }.width('100%').height('100%').justifyContent(FlexAlign.Center);
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">子组件</span><span style="color: rgb(132,63,161);">linkChild</span><span style="color: rgb(132,63,161);">：</span><span style="color: rgb(132,63,161);">' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">link1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">()))</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">link1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">set</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">link1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 
@@ -73,24 +73,24 @@ export struct LocalStorageChildOne {
 
   
 ```text
-import { LocalStorageChildTwo } from './LocalStorageChildTwo';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">LocalStorageChildTwo </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'./LocalStorageChildTwo'</span><span style="color: rgb(181,106,1);">;</span>
 
-<em>// </em><em>创建新实例并使用给定对象初始化</em>
-let para: Record<string, number> = { 'propA': 47 };
-let storage: LocalStorage = new LocalStorage(para);
+<em>// </em><em><span style="color: rgb(128,128,128);">创建新实例并使用给定对象初始化</span></em>
+let <span style="color: rgb(255,255,255);">para</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Record</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(132,63,161);">'propA'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">47 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+let <span style="color: rgb(255,255,255);">storage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">LocalStorage </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">LocalStorage</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">para</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct LocalStorageFatherTwo {
-  @State storageFather: LocalStorage = storage;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">LocalStorageFatherTwo </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">storageFather</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">LocalStorage </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">storage</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column({ space: 15 }) {
-    <em>  // @Component子组件自动获得对LocalStorage实例的访问权限。</em>
-      LocalStorageChildTwo({ storageChild: this.storageFather });
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">15 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <em>  <span style="color: rgb(128,128,128);">// @Component</span><span style="color: rgb(128,128,128);">子组件自动获得对</span><span style="color: rgb(128,128,128);">LocalStorage</span><span style="color: rgb(128,128,128);">实例的访问权限。</span></em>
+      <span style="color: rgb(0,0,255);">LocalStorageChildTwo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">storageChild</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">storageFather </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  在需要获取LocalStorage实例的组件中，通过@Link装饰器将storageChild属性链接到父组件的LocalStorage实例，并且使用this.storageChild.link('propA')将link1状态链接到LocalStorage中名为propA的属性。为Text组件添加onClick事件处理程序，在每次点击时，都将更新link1的值，实现状态的共享和更新。
 
@@ -98,20 +98,20 @@ struct LocalStorageFatherTwo {
 
   
 ```json
-@Component
-export struct LocalStorageChildTwo {
-  @Link storageChild: LocalStorage;
-  @State link1: SubscribedAbstractProperty<number> = this.storageChild.link('propA');
+<span style="color: rgb(181,106,1);">@Component</span>
+export struct <span style="color: rgb(0,0,255);">LocalStorageChildTwo </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@Link </span><span style="color: rgb(255,255,255);">storageChild</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">LocalStorage</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">link1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">SubscribedAbstractProperty</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">storageChild</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">link</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'propA'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Text('子组件linkChild：' + JSON.stringify(this.link1.get()))
-        .onClick(() => {
-          this.link1.set(this.link1.get() + 1);
-        });
-    }.width('100%').height('100%').justifyContent(FlexAlign.Center);
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">子组件</span><span style="color: rgb(132,63,161);">linkChild</span><span style="color: rgb(132,63,161);">：</span><span style="color: rgb(132,63,161);">' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">link1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">()))</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">link1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">set</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">link1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 

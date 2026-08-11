@@ -35,7 +35,7 @@ struct StackPageOne {
  效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/x7ZF0kadST2_mzfO1wmccA/zh-cn_image_0000002659060259.png?HW-CC-KV=V1&HW-CC-Date=20260730T072416Z&HW-CC-Expire=86400&HW-CC-Sign=6BB45A74F5E2B5FEA51EADCBCC56105B28963A6851AC48E29E05FE6BB9565E70)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/x7ZF0kadST2_mzfO1wmccA/zh-cn_image_0000002659060259.png?HW-CC-KV=V1&HW-CC-Date=20260811T005751Z&HW-CC-Expire=86400&HW-CC-Sign=7B7ADF28812D02115C8738BE852824AB4D27277DF6D5CC19BA95448388F9571F)
 
 - 场景二：如何实现图片超出容器右上角展示效果？
 
@@ -88,7 +88,7 @@ struct StackPageTwo {
  效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/OMC4pBNYRImseiyxQGEOlQ/zh-cn_image_0000002628820886.png?HW-CC-KV=V1&HW-CC-Date=20260730T072416Z&HW-CC-Expire=86400&HW-CC-Sign=EEADA46A9E0512D192EDB40AF0B42F850FC76492759C7ACBEB29E72681691D5E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/OMC4pBNYRImseiyxQGEOlQ/zh-cn_image_0000002628820886.png?HW-CC-KV=V1&HW-CC-Date=20260811T005751Z&HW-CC-Expire=86400&HW-CC-Sign=5AE04D999ABA97F60EA8988F6DC7C78F9D6C247FB9873DCB1EBA9570BF41CD69)
 
 - 场景二：使用Stack容器的默认层叠布局模式结合子组件position属性实现图片超出父组件右上角堆叠效果。示例代码如下：
 
@@ -133,4 +133,4 @@ struct StackPageThree {
  效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/5MzM7zh0R1e6CbDYTDlQTA/zh-cn_image_0000002659020191.png?HW-CC-KV=V1&HW-CC-Date=20260730T072416Z&HW-CC-Expire=86400&HW-CC-Sign=9F1518182921EC1894AB8DCDB22FA6810C6949284EE5056AD85D4CC1D425AC5A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/5MzM7zh0R1e6CbDYTDlQTA/zh-cn_image_0000002659020191.png?HW-CC-KV=V1&HW-CC-Date=20260811T005751Z&HW-CC-Expire=86400&HW-CC-Sign=42F20ECDBE9229B21AFA6F5378CFA0B3A109803496DF9847F936C49881FBC2B3)

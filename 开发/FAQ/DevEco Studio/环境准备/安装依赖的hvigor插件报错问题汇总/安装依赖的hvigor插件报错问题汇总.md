@@ -26,7 +26,7 @@
 npm ERR! code ETIMEDOUT
 npm ERR! syscall connect
 npm ERR! errno ETIMEDOUT
-npm ERR! network request to https://registry.npmjs.org/@react-navigation%2Fnative failed, reason: connect ETIMEDOUT 104.16.25.34:443
+npm ERR! network request to https:<span style="color: rgb(128,128,128);">//registry.npmjs.org/@react-navigation%2Fnative failed, reason: connect ETIMEDOUT 104.16.25.34:443</span>
 npm ERR! network This is a problem related to network connectivity.
 npm ERR! network In most cases you are behind a proxy or have bad network settings.
 ```

@@ -11,41 +11,41 @@
 问题代码示例参考如下：
  
 ```text
-@Entry
-@Component
-struct SelectExample {
-  @State text: string = '这是实验组';
-  @State index: number = 0;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">SelectExample </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">这是实验组</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column({ space: 10 }) {
-    <em>  // icon可以使用其他有效资源</em>
-      Select([{ value: 'aaa', icon: $r('app.media.startIcon') }])
-        .selected(this.index)
-        .value(this.text)
-        .font({ size: 35 })
-        .optionWidth(200)
-        .optionHeight(300)
-        .onSelect((index: number, text?: string | undefined) => {
-          this.index = index;
-          if (text) {
-            this.text = text;
-          }
-        });
-      Text('这是对照组')
-        .fontSize(35);
-    }
-    .width('100%')
-    .height('100%')
-    .justifyContent(FlexAlign.Center);
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <em>  <span style="color: rgb(128,128,128);">// icon</span><span style="color: rgb(128,128,128);">可以使用其他有效资源</span></em>
+      <span style="color: rgb(0,0,255);">Select</span><span style="color: rgb(255,0,170);">([</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'aaa'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">icon</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.startIcon'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">])</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selected</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">font</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">size</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">35 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">optionWidth</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">optionHeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">300</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onSelect</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+          if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">text </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">这是对照组</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">35</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/xzHutsn4TrKpSL57Jyw5OA/zh-cn_image_0000002628603754.png?HW-CC-KV=V1&HW-CC-Date=20260730T072451Z&HW-CC-Expire=86400&HW-CC-Sign=F252FA572863F12AA9077F5A4AD35C7A2B267ECC932DBCF1FF034142282FD878)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/xzHutsn4TrKpSL57Jyw5OA/zh-cn_image_0000002628603754.png?HW-CC-KV=V1&HW-CC-Date=20260811T005647Z&HW-CC-Expire=86400&HW-CC-Sign=ABD497080235273B680333BE39C77287743C93C0AAA475049AB154320880555F)
 
  
  
@@ -53,7 +53,7 @@ struct SelectExample {
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/RUJ-RIz4Q8miaG3CYu5f0w/zh-cn_image_0000002658843019.png?HW-CC-KV=V1&HW-CC-Date=20260730T072451Z&HW-CC-Expire=86400&HW-CC-Sign=E98E5FB982392DE4364B53E7B26A5D2A62097F1DEE08387CE15D73F469D86A81)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/RUJ-RIz4Q8miaG3CYu5f0w/zh-cn_image_0000002658843019.png?HW-CC-KV=V1&HW-CC-Date=20260811T005647Z&HW-CC-Expire=86400&HW-CC-Sign=DA7AF9AF339770BE30FD00E48424B2D87481BAE8E26EA6AC6F8D27F7729A1779)
 
  
  
@@ -87,33 +87,33 @@ Select组件默认会加粗字体，值默认为FontWeight.Medium，若需要修
 完整示例参考如下：
  
 ```text
-@Entry
-@Component
-struct SelectBold {
-  @State text: string = '这是实验组';
-  @State index: number = 0;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">SelectBold </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">这是实验组</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column({ space: 10 }) {
-    <em>  // icon可以使用其他有效资源</em>
-      Select([{ value: 'aaa', icon: $r('app.media.startIcon') }])
-        .selected(this.index)
-        .value(this.text)
-        .font({ size: 35, weight: FontWeight.Normal })
-        .optionWidth(200)
-        .optionHeight(300)
-        .onSelect((index: number, text?: string | undefined) => {
-          this.index = index;
-          if (text) {
-            this.text = text;
-          }
-        });
-      Text('这是对照组')
-        .fontSize(35);
-    }
-    .width('100%')
-    .height('100%')
-    .justifyContent(FlexAlign.Center);
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <em>  <span style="color: rgb(128,128,128);">// icon</span><span style="color: rgb(128,128,128);">可以使用其他有效资源</span></em>
+      <span style="color: rgb(0,0,255);">Select</span><span style="color: rgb(255,0,170);">([</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'aaa'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">icon</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.startIcon'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">])</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selected</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">font</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">size</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">35</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">weight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Normal </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">optionWidth</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">optionHeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">300</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onSelect</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+          if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">text </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">这是对照组</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">35</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

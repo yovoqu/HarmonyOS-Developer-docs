@@ -11,7 +11,7 @@
 未实现时的效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/ez4_hqZPTiKKcUNHOni1Qg/zh-cn_image_0000002658911943.png?HW-CC-KV=V1&HW-CC-Date=20260730T072322Z&HW-CC-Expire=86400&HW-CC-Sign=0BF2A56370681C83B33EC5EB558EA575440BBFB04457094A79A87E73D05EADE9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/ez4_hqZPTiKKcUNHOni1Qg/zh-cn_image_0000002658911943.png?HW-CC-KV=V1&HW-CC-Date=20260811T005803Z&HW-CC-Expire=86400&HW-CC-Sign=6430DDAC0F51F78CE1EDA1FD70295A4BDCB2877A5F4CEB866A7545CE6C572C16)
 
  
  
@@ -31,7 +31,7 @@ bindPopup可以使用offset参数实现偏离，当给x轴设置正数偏移量�
 偏移量示意图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/2yUp0XWxTQqzD9BypxF7Uw/zh-cn_image_0000002628392734.png?HW-CC-KV=V1&HW-CC-Date=20260730T072322Z&HW-CC-Expire=86400&HW-CC-Sign=4F0001E7ED6356D05B9321C2E508FF7932FFA29590DA9514FB5E1587F80197A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/2yUp0XWxTQqzD9BypxF7Uw/zh-cn_image_0000002628392734.png?HW-CC-KV=V1&HW-CC-Date=20260811T005803Z&HW-CC-Expire=86400&HW-CC-Sign=1B394B0219FF00E678BF408C7F1DD6FD7570A8CE7CED0C57387520A50A150EFF)
 
  
 其中，nodeWidth为文本框宽度，popupWidth为气泡弹窗宽度，如果需要位移后的气泡弹窗能够在文本框中X方向居中，则X轴需要的偏移量为一半的气泡弹窗宽度+一半的文本框宽度；需要Y轴上出现在点击位置处，则Y轴需要的偏移量为点击处的Y坐标-气泡弹窗的Y坐标。

@@ -11,36 +11,36 @@
 问题代码示例参考如下：
  
 ```text
-@Entry
-@Component
-struct CanvasTestPage {
-  private settings: RenderingContextSettings = new RenderingContextSettings(true)
-  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)
-  drawText: string = 'Harmony你好\n测试一下换行的测试一下换行\n测试制表\t哈哈'
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">CanvasTestPage </span><span style="color: rgb(181,106,1);">{</span>
+  private <span style="color: rgb(255,255,255);">settings</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">RenderingContextSettings </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RenderingContextSettings</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span>
+  private <span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">CanvasRenderingContext2D </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CanvasRenderingContext2D</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">settings</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(255,255,255);">drawText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'Harmony</span><span style="color: rgb(132,63,161);">你好</span>\n<span style="color: rgb(132,63,161);">测试一下换行的测试一下换行</span>\n<span style="color: rgb(132,63,161);">测试制表</span>\t<span style="color: rgb(132,63,161);">哈哈</span><span style="color: rgb(132,63,161);">'</span>
 
-  build() {
-    Column() {
-      Canvas(this.context)
-        .width('100%')
-        .height('100%')
-        .onReady(() => {
-          this.context.font = '18vp sans-serif'
-          let text: TextMetrics = this.context.measureText(this.drawText)
-          this.context.fillStyle = 'rgba(0,0,0,0.3)'
-          this.context.fillRect(0, 100, text.width, text.height)
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Canvas</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">font </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'18vp sans-serif'</span>
+          let <span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TextMetrics </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">measureText</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">drawText</span><span style="color: rgb(255,0,170);">)</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fillStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'rgba(0,0,0,0.3)'</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillRect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(255,0,170);">)</span>
 
-          this.context.fillStyle = 'rgb(0,0,255)'
-          this.context.fillText(this.drawText, 0, 100 + text.height)
-        })
-    }.margin(10)
-  }
-}
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fillStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'rgb(0,0,255)'</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillText</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">drawText</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">100 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/NlPzk4jZSa2MO7vKdyIQvg/zh-cn_image_0000002658808969.png?HW-CC-KV=V1&HW-CC-Date=20260730T072341Z&HW-CC-Expire=86400&HW-CC-Sign=387A90C3186A05BC3B11BFCF0ECA82F34E36624C60C76879F7C5AF0CC7BBADD2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/NlPzk4jZSa2MO7vKdyIQvg/zh-cn_image_0000002658808969.png?HW-CC-KV=V1&HW-CC-Date=20260811T005742Z&HW-CC-Expire=86400&HW-CC-Sign=B5076FCEE26ED0234A5323C0DB475DAE42D912D06030073E6CCCB398D24BC8EA)
 
  
  
@@ -48,7 +48,7 @@ struct CanvasTestPage {
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/-pj3Yw94SOm11GbDuHgVNw/zh-cn_image_0000002628569606.png?HW-CC-KV=V1&HW-CC-Date=20260730T072341Z&HW-CC-Expire=86400&HW-CC-Sign=C88706D585D0597FE290C85E1672113018910B70A0C969D7B28019AD9498D6C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/-pj3Yw94SOm11GbDuHgVNw/zh-cn_image_0000002628569606.png?HW-CC-KV=V1&HW-CC-Date=20260811T005742Z&HW-CC-Expire=86400&HW-CC-Sign=EB5CE1A15631B0CE094C892C28287FB52481CA2E76A9AA101036EBCDA2067F02)
 
  
  
@@ -66,7 +66,7 @@ struct CanvasTestPage {
 根据问题代码运行效果可以看出：灰色矩形宽度和文本宽度一致，x轴起点保持一致，但是蓝色文字y轴起点和灰色矩形y轴起点不一致，可以发现问题出现在fillRect绘制的y轴起点上。
  
 ```text
-this.context.fillText(this.drawText, 0, 100 + text.height)
+this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillText</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">drawText</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">100 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(255,0,170);">)</span>
 ```
  
 该错误代码设置文本的y轴起点为“100+文本高度”。
@@ -84,28 +84,28 @@ this.context.fillText(this.drawText, 0, 100 + text.height)
 2. [textBaseline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#textbaseline)可以设置文本绘制中的水平对齐方式，将其设置成top对齐，实现文本基线在文本块的顶部。若不设置，则默认为alphabetic对齐（按字母对齐）。
  
 ```text
-@Entry
-@Component
-struct CanvasFillRectPage {
-  private settings: RenderingContextSettings = new RenderingContextSettings(true);
-  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
-  drawText: string = 'Harmony你好\n测试一下换行的测试一下换行\n测试制表\t哈哈';
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">CanvasFillRectPage </span><span style="color: rgb(181,106,1);">{</span>
+  private <span style="color: rgb(255,255,255);">settings</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">RenderingContextSettings </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RenderingContextSettings</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">CanvasRenderingContext2D </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CanvasRenderingContext2D</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">settings</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">drawText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'Harmony</span><span style="color: rgb(132,63,161);">你好</span>\n<span style="color: rgb(132,63,161);">测试一下换行的测试一下换行</span>\n<span style="color: rgb(132,63,161);">测试制表</span>\t<span style="color: rgb(132,63,161);">哈哈</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Canvas(this.context)
-        .width('100%')
-        .height('100%')
-        .onReady(() => {
-          this.context.font = '18vp sans-serif';
-          this.context.textBaseline = 'top';
-          let text: TextMetrics = this.context.measureText(this.drawText);
-          this.context.fillStyle = 'rgba(0,0,0,0.3)';
-          this.context.fillRect(0, 100, text.width, text.height);
-          this.context.fillStyle = 'rgb(0,0,255)';
-          this.context.fillText(this.drawText, 0, 100);
-        });
-    }.margin(10);
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Canvas</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">font </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'18vp sans-serif'</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textBaseline </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'top'</span><span style="color: rgb(181,106,1);">;</span>
+          let <span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TextMetrics </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">measureText</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">drawText</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fillStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'rgba(0,0,0,0.3)'</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillRect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">text</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fillStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'rgb(0,0,255)'</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillText</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">drawText</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

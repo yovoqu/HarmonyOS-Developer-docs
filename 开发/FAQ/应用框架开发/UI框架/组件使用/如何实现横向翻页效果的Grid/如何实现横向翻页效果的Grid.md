@@ -13,7 +13,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/UjgbOPBzTo2BZeZP71nyZA/zh-cn_image_0000002658968433.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072408Z&HW-CC-Expire=86400&HW-CC-Sign=189037F9EBA5BC81DB54AA639703F239700EEE331FEB35DEA179274AC1D44A03)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/UjgbOPBzTo2BZeZP71nyZA/zh-cn_image_0000002658968433.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005810Z&HW-CC-Expire=86400&HW-CC-Sign=33E3C06B6836788D6A8EF628EE33A94E2550D36A046888C610152ADD8BF8AA9F)
 
  
  
@@ -35,81 +35,81 @@
 4. Grid组件设置为4列5行，消除列间和行间间隙，宽度占满容器，高度固定。
  
 ```json
-@Entry
-@Component
-struct HorizontalGrid {
-  @State mainArray: Array<string> = ['待办', '人力服务', '薪资查询',
-    '信息', '员工贴士', '邮箱', '天翼爱渠道', '营销沙盘', '政企沙盘', '领导测评', 'i用焦点', '迁改管理', '通用报表',
-    '美好生活', '经营视窗', '企业知识库', '大模型',
-    '快速审批', '网运工具', '智慧党建', 'AI打卡', '楼长履职', '综合', '新待办', 'app测试',
-    '智慧网发', '人才云',
-    '资金稽核'];
-  @State currentIndex: number = 0;
-  private swiperController: SwiperController = new SwiperController();
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">HorizontalGrid </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">mainArray</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">待办</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">人力服务</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">薪资查询</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">信息</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">员工贴士</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">邮箱</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">天翼爱渠道</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">营销沙盘</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">政企沙盘</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">领导测评</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'i</span><span style="color: rgb(132,63,161);">用焦点</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">迁改管理</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">通用报表</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">美好生活</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">经营视窗</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">企业知识库</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">大模型</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">快速审批</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">网运工具</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">智慧党建</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'AI</span><span style="color: rgb(132,63,161);">打卡</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">楼长履职</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">综合</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">新待办</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'app</span><span style="color: rgb(132,63,161);">测试</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">智慧网发</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">人才云</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">资金稽核</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">currentIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(255,255,255);">swiperController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">SwiperController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">SwiperController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
 
- <em> // getGridData方法将mainArray数组分割成每页20个元素的子数组</em>
-  getGridData(arr: string[]): string[][] {
-    let result: string[][] = [];
-    for (let i = 0; i < arr.length; i += 20) {
-      result.push(arr.slice(i, i + 20));
-    }
-    return result;
-  }
+ <em> <span style="color: rgb(128,128,128);">// getGridData</span><span style="color: rgb(128,128,128);">方法将</span><span style="color: rgb(128,128,128);">mainArray</span><span style="color: rgb(128,128,128);">数组分割成每页</span><span style="color: rgb(128,128,128);">20</span><span style="color: rgb(128,128,128);">个元素的子数组</span></em>
+  <span style="color: rgb(0,0,255);">getGridData</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[])</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[][]</span> <span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">result</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[][]</span> <span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
+    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">result</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">slice</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    return <span style="color: rgb(255,255,255);">result</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    RelativeContainer() {
-      Swiper(this.swiperController) {
-        ForEach(this.getGridData(this.mainArray), (item: string[]) => {
-          Grid() {
-            ForEach(item, (service: string) => {
-              GridItem() {
-                Text(service)
-                  .fontSize(16)
-                  .backgroundColor(0xF9CF93)
-                  .width('calc(100% - 20vp)')
-                  .height('calc(100% - 20vp)')
-                  .margin(10)
-                  .textAlign(TextAlign.Center);
-              };
-            }, (service: string) => service);
-          }
-        <em>  // 此处增加距离也有效果</em>
-          .margin({ bottom: 10 })
-          .columnsTemplate('1fr 1fr 1fr 1fr')<em> </em><em>// 设置为四列五行</em>
-          .rowsTemplate('1fr 1fr 1fr 1fr 1fr')
-          .columnsGap(0)
-          .rowsGap(0)
-          .width('100%')
-          .backgroundColor(0xFAEEE0)
-          .height(300);
-        }, (item: string[]) => JSON.stringify(item));
-      }
-      .indicator(
-        new DotIndicator()
-          .bottom(0) <em>// </em><em>此处可以设置指示器属性，如果需要往上调可以通过这个</em>
-      )
-      .height('65%')
-      .cachedCount(2)
-      .index(0)
-      .autoPlay(true)
-      .interval(4000)
-      .loop(true)
-      .indicatorInteractive(true)
-      .duration(1000)
-      .itemSpace(0)
-      .curve(Curve.Linear)
-      .onChange(index => {
-        this.currentIndex = index;
-      })
-      .id('gridOut')
-      .alignRules({
-        top: { anchor: '__container__', align: VerticalAlign.Top },
-        left: { anchor: '__container__', align: HorizontalAlign.Start }
-      });
-    }
-    .height('100%')
-    .width('100%')
-    .backgroundColor(Color.Gray);
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Swiper</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">swiperController</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getGridData</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mainArray</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[]) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">Grid</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">service</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+              <span style="color: rgb(0,0,255);">GridItem</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+                <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">service</span><span style="color: rgb(255,0,170);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(0xF9CF93)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'calc(100% - 20vp)'</span><span style="color: rgb(255,0,170);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'calc(100% - 20vp)'</span><span style="color: rgb(255,0,170);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">service</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,255,255);">service</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span>
+        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">此处增加距离也有效果</span></em>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">columnsTemplate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'1fr 1fr 1fr 1fr'</span><span style="color: rgb(255,0,170);">)</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置为四列五行</span></em>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rowsTemplate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'1fr 1fr 1fr 1fr 1fr'</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">columnsGap</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rowsGap</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(0xFAEEE0)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">300</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[]) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indicator</span><span style="color: rgb(255,0,170);">(</span>
+        new <span style="color: rgb(0,0,255);">DotIndicator</span><span style="color: rgb(255,0,170);">()</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><em>// </em><em>此处可以设置指示器属性，如果需要往上调可以通过这个</em>
+      <span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'65%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cachedCount</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">autoPlay</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">interval</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">4000</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loop</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indicatorInteractive</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1000</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">itemSpace</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curve</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Linear</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'gridOut'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Top </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Start </span><span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Gray</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

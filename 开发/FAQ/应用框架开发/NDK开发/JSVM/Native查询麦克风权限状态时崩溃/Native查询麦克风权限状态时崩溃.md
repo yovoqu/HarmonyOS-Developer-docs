@@ -28,7 +28,7 @@ napi_value global;
 如上，在native层调用ArkTS API查询当前麦克风的权限状态时，会出现崩溃。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/ZVS2J2NpQfeZln7q9K7ewA/zh-cn_image_0000002628388614.png?HW-CC-KV=V1&HW-CC-Date=20260730T072316Z&HW-CC-Expire=86400&HW-CC-Sign=4EA96330554644300ACB57D00000B23487B381A5F683AE937185D5C736145361)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/ZVS2J2NpQfeZln7q9K7ewA/zh-cn_image_0000002628388614.png?HW-CC-KV=V1&HW-CC-Date=20260811T005636Z&HW-CC-Expire=86400&HW-CC-Sign=83630BD0C5EE884436CB1E04A817D602B4AAFD24BB99CA25426F11FBFCFEDEA4)
 
  
  
@@ -44,7 +44,7 @@ napi_value是一个C的结构体指针，表示一个JavaScript对象的引用�
 根据崩溃日志定位分析NULL pointer dereference原因。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/uGg2hGRyRPWUxniY0FpUCQ/zh-cn_image_0000002628548514.png?HW-CC-KV=V1&HW-CC-Date=20260730T072316Z&HW-CC-Expire=86400&HW-CC-Sign=72CA4881A14B0E6277DD29E93ECD5DAB171F963D9BEC82E9CA8BBE6900EC0BEF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/uGg2hGRyRPWUxniY0FpUCQ/zh-cn_image_0000002628548514.png?HW-CC-KV=V1&HW-CC-Date=20260811T005636Z&HW-CC-Expire=86400&HW-CC-Sign=CCFF80B7F148582201B1C790DB21E2F495785FADD7C5DDDDBB5803EA0D8E462F)
 
  
 对案例Demo进行debug分析可见abilityAccessCtrlModule获取出来是一个napi_undefined类型，而status = napi_get_named_property(env,abilityAccessCtrlModule,"createAtManager", &createAtManagerMethod)，期望abilityAccessCtrlModule是一个napi_value的object类型。

@@ -1,6 +1,6 @@
 # 使用DevEco Studio执行单元测试脚本常见问题和解决方案
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-05 01:58:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-40
 
@@ -9,7 +9,7 @@
 - **问题一：**单元测试debug运行时卡住：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/nLz4lqgbRti9HPyfF2yehg/zh-cn_image_0000002658928867.png?HW-CC-KV=V1&HW-CC-Date=20260730T072724Z&HW-CC-Expire=86400&HW-CC-Sign=3FEB94B92E8B372F72A747E7720DF47230723DFB4FCDB102792777BDA1D41B71)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/zlShtgbFSt-kGD00aIr_Iw/zh-cn_image_0000002688438687.png?HW-CC-KV=V1&HW-CC-Date=20260811T005518Z&HW-CC-Expire=86400&HW-CC-Sign=AEADFE04C294E293859C4A5427E6459921F912D0B6D74E3F5B1730F0D5D8C24B)
 
 - **问题二：**使用Instrument Test调用getContext()报错"Error in xxx, Parameter error. The context is invalid."。
 - **问题三：**在UI测试框架中如何通过resourceManager来获得string.json里的内容？
@@ -19,6 +19,7 @@
 - **问题七：**单元测试中调用SysTestKit.existKeyword方法，获取到的结果是一直false，如何解决？
 - **问题八：**单元测试用例执行15000ms后会超时退出，如何解决？
 - **问题九：**在src/main/module.json5中申请相关权限，执行Instrument Test用例会超时，如何解决？
+- **问题十：**执行模块单元测试时，ohosTest会同时编译全量包和模块测试包，多一轮全量编译导致单测执行速度较慢，如何指定只编译test包以提高单测效率？
 
  
  
@@ -28,7 +29,7 @@
 - **问题一解决方案：**单击工具栏help->Show Log in Explorer，跳转到previewer.log所在路径，找到previewer.log并打开，发现报错提示"module name not exist"：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/zX1d0l5KRcGqk6w4dIQ-yg/zh-cn_image_0000002628409652.png?HW-CC-KV=V1&HW-CC-Date=20260730T072724Z&HW-CC-Expire=86400&HW-CC-Sign=4B9E8CD03A90E4545662CA07A042FA77035D55BF722CABD13D3BA930B17C7216)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/vm7RPUhQRICYIZTR3OBGpg/zh-cn_image_0000002658559890.png?HW-CC-KV=V1&HW-CC-Date=20260811T005518Z&HW-CC-Expire=86400&HW-CC-Sign=F9CD0A2A453507C282858EA25CC0DD04799BC8BD23954DD5E7B7D5D6BFA08283)
 
 
   即用户引用了不存在的模块，建议用户排查工程中引用的模块，把报错模块的编译产物删除，再重新编译。
@@ -41,12 +42,16 @@
 - **问题八解决方案：**方案一：在DevEco Studio中Run/Debug Configurations中修改用例执行超时配置参数，避免用例执行超时。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/ase82nQ6RZSLw9QEyNb4NA/zh-cn_image_0000002658808913.png?HW-CC-KV=V1&HW-CC-Date=20260730T072724Z&HW-CC-Expire=86400&HW-CC-Sign=104AF3E7C7EB4C6AA8BB221AF8DDFC6CA892F9E13EE2ACF8A97A034E09384013)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/JXsuFFHRQLWtVh3c1Qn3lw/zh-cn_image_0000002688559699.png?HW-CC-KV=V1&HW-CC-Date=20260811T005518Z&HW-CC-Expire=86400&HW-CC-Sign=9E121AA36D941E84B9D378CEC489D95BEDA5D02034F6BC719587FC6FD3C0449F)
 
 
   方案二：用例执行超时时长配置参考以下命令，timeout为测试用例执行的超时时间，正整数（单位ms），如不设置默认为5000ms：hdc shell aa test -b xxx -m xxx -s unittest OpenHarmonyTestRunner -s timeout 15000。
 
   同时要确保用例代码逻辑正确，即使断言失败场景也能保证用例执行结束，这可以避免用例因未及时执行到done函数而导致的超时错误。
 
-  注：以上方案只支持Instrument Test测试用例，Local Test测试用例不支持修改超时时间。
+  
+> [!NOTE]
+> 以上方案只支持Instrument Test测试用例，Local Test测试用例不支持修改超时时间。
+
 - **问题九解决方案：**在Instrument Test中执行用例，src/ohosTest/module.json5中同样需要申请相关权限。具体可参考[在配置文件中声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions#在配置文件中声明权限)。
+- **问题十解决方案：**当前暂不支持指定只编译test包以提高单测效率。

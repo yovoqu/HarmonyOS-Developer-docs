@@ -71,7 +71,7 @@ session.uploadFromFile('xx.xx.xx.xx', new rcp.UploadFromFile(fileOrPath)) <em>//
  **场景1运行效果：使用uploadFromFile方法上传文件content-type系统默认为'application/octet-stream'，运行日志如下图所示。**
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/fb2BKRXVRvuuoJt5RbiH8w/zh-cn_image_0000002628772382.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=B87644CC83C83A89951E87C3D408A61106A9B4259B7F4D154D6096283E326093)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/fb2BKRXVRvuuoJt5RbiH8w/zh-cn_image_0000002628772382.png?HW-CC-KV=V1&HW-CC-Date=20260811T005942Z&HW-CC-Expire=86400&HW-CC-Sign=6CDF4C547C39E2C6F9C00BDBA2A38335EBB345DC193EE7749FE80FFEA1E2D552)
 
 - **场景2：使用读取文件数据回调函数作为入参上传文件，具体参考官方指南上传功能实现。**
 
@@ -120,7 +120,7 @@ uploadMultiPartFormFileForCommon(multiForm: rcp.MultipartForm) {
   使用沙箱路径上传表单文件，系统默认会根据文件名类型匹配content-type，此为图片类型文件上传，即为image/jpeg，运行日志如下图所示。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/DiTeUlAoSyC8al5bRxPXLg/zh-cn_image_0000002658971703.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=E8A30DE87099BEBB34C4A777C4097D6B17572F18084CD3BE20530DCB2D070717)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/DiTeUlAoSyC8al5bRxPXLg/zh-cn_image_0000002658971703.png?HW-CC-KV=V1&HW-CC-Date=20260811T005942Z&HW-CC-Expire=86400&HW-CC-Sign=7430D1C92F6503B486A879A236F61F9CFE23BB35CBDD83B0BE0C189E651E05C9)
 
 - **场景2：使用文件数据上传表单文件。**1. 基于文件URI将文件数据读取到ArrayBuffer中，并构建类型为FileContent的contentOrPath参数。
 ```text
@@ -148,10 +148,10 @@ let multiForm = new rcp.MultipartForm({ 'test': multiFormFieldValue, 'test1': mu
 
   
 如果配置参数remoteFileName，系统默认会根据文件名类型匹配content-type，此为图片类型文件上传，即为'image/jpeg'，运行日志如下图所示。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/_gLBD8yQRzKEREY-NMHLPA/zh-cn_image_0000002628612492.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=9B06E194913FD762AEA03C872CCA9582298A6462D7DA5ACAF5A9A4F0F94959BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/_gLBD8yQRzKEREY-NMHLPA/zh-cn_image_0000002628612492.png?HW-CC-KV=V1&HW-CC-Date=20260811T005942Z&HW-CC-Expire=86400&HW-CC-Sign=D02EECF1CAC26D8A593F2847AC83C93349C05CBDBF83B469D5E5B6F968A3081E)
 
 - 如果不配置参数remoteFileName，或者设置为undefined，系统无法识别为图片类型文件，即使设置contentType参数为'image/jpeg'，上传数据依然无法识别，运行日志如下图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/uTywycuXRCSSJzjmZKQi_w/zh-cn_image_0000002658851749.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=7813600DFB4C291B88C1D564609ACE1B27257E069228F4854B825457EAC7FF0C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/uTywycuXRCSSJzjmZKQi_w/zh-cn_image_0000002658851749.png?HW-CC-KV=V1&HW-CC-Date=20260811T005942Z&HW-CC-Expire=86400&HW-CC-Sign=A10B7E3F952B722DC40EEFAB82D8434D9339416F2D33FC7218456EF36EF0B81B)
 
 
  

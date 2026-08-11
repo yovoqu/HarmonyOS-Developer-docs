@@ -23,47 +23,47 @@
 可以通过getCurrentTopAbility获取当前应用顶部Ability，再获取其Context。示例代码如下：
  
 ```text
-import { describe, it } from '@ohos/hypium';
-import { relationalStore } from '@kit.ArkData';
-import { abilityDelegatorRegistry } from '@kit.TestKit';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">describe</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">it </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@ohos/hypium'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">relationalStore </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkData'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">abilityDelegatorRegistry </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.TestKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-const delegator = abilityDelegatorRegistry.getAbilityDelegator()
+const <span style="color: rgb(0,0,255);">delegator </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">abilityDelegatorRegistry</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getAbilityDelegator</span><span style="color: rgb(0,0,255);">()</span>
 
-export default function OhosGetContext() {
-  describe('OhosGetContextTest', () => {
+export default function <span style="color: rgb(0,0,255);">OhosGetContext</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">describe</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'OhosGetContextTest'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
     <em>// Defines a test suite. Two parameters are supported: test suite name and test suite function.</em>
-    it('GetContextTest', 0, async () => {
-      const STORE_CONFIG: relationalStore.StoreConfig = {
+    <span style="color: rgb(0,0,255);">it</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'GetContextTest'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      const <span style="color: rgb(0,0,255);">STORE_CONFIG</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">StoreConfig </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
         <em>// </em><em>数据库文件名</em>
-        name: 'RdbTest.db',
-        <em>// </em><em>数据库安全级别</em>
-        securityLevel: relationalStore.SecurityLevel.S3,
-      };
-      const SQL_CREATE_TABLE =
-        'CREATE TABLE IF NOT EXISTS EMPLOYEE (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT NOT NULL, AGE INTEGER, SALARY REAL, CODES BLOB, IDENTITY UNLIMITED INT)';
+        <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'RdbTest.db'</span><span style="color: rgb(181,106,1);">,</span>
+        <em>// </em><em><span style="color: rgb(128,128,128);">数据库安全级别</span></em>
+        <span style="color: rgb(0,0,255);">securityLevel</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SecurityLevel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">S3</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+      const <span style="color: rgb(0,0,255);">SQL_CREATE_TABLE </span><span style="color: rgb(181,106,1);">=</span>
+        <span style="color: rgb(255,0,170);">'CREATE TABLE IF NOT EXISTS EMPLOYEE (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT NOT NULL, AGE INTEGER, SALARY REAL, CODES BLOB, IDENTITY UNLIMITED INT)'</span><span style="color: rgb(181,106,1);">;</span>
 
-      let cont = await delegator.getCurrentTopAbility()
+      let <span style="color: rgb(0,0,255);">cont </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">delegator</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getCurrentTopAbility</span><span style="color: rgb(0,0,255);">()</span>
 
-      await new Promise<void>((resolve, reject) => {
-        relationalStore.getRdbStore(cont.context, STORE_CONFIG, async (err, store) => {
-          if (err) {
-            console.error(`Failed to get RdbStore. Code:${err.code}, message:${err.message}`);
-            reject(err);
-            return;
-          }
-          console.info('Succeeded in getting RdbStore.');
-          try {
-            await store.execute(SQL_CREATE_TABLE);
-            resolve();
-          } catch (e) {
-            console.error(`Failed to execute sql.`);
-            reject(e);
-          }
-        });
-      });
-    });
-  });
-}
+      await new <span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">reject</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">relationalStore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRdbStore</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cont</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">STORE_CONFIG</span><span style="color: rgb(181,106,1);">, </span>async <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">store</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to get RdbStore. Code:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">reject</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            return<span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Succeeded in getting RdbStore.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          try <span style="color: rgb(255,0,170);">{</span>
+            await <span style="color: rgb(0,0,255);">store</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">execute</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">SQL_CREATE_TABLE</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to execute sql.`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">reject</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
 > [!NOTE]
@@ -83,4 +83,4 @@ Q：Instrument Test测试文件的超时时间如何设置？
 A：在工具栏主菜单单击Run > Edit Configurations进入Run/Debug Configurations界面，选择左边下拉菜单Instrument Test里的测试文件（如Ability.test.ets），在Parameters中设置Time Out参数，并点击OK即可。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/DwK2eHdBQ1KAVe68_X00mg/zh-cn_image_0000002628569458.png?HW-CC-KV=V1&HW-CC-Date=20260730T072722Z&HW-CC-Expire=86400&HW-CC-Sign=CA12B095C68FC672646DACD9BFE3398171C14B88383B817FAF8EE884584A533D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/DwK2eHdBQ1KAVe68_X00mg/zh-cn_image_0000002628569458.png?HW-CC-KV=V1&HW-CC-Date=20260811T005518Z&HW-CC-Expire=86400&HW-CC-Sign=0034C13A65F4FA521C47AAD66EF62BB2099D3EC17C397AF7E9D198B8BDC1EAE0)

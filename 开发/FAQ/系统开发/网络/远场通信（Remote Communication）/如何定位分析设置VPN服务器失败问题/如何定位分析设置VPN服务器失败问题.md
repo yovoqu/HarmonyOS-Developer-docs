@@ -9,7 +9,7 @@
 设置VPN服务器时，出现“Timeout was reached”的提示信息，问题现象和错误日志如下。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/L64ZuG5ERQG1xwj2uPPUsA/zh-cn_image_0000002658851745.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=D2AA05FF734E185E14EB6A5DE0E4D0108F9491ACECB71D110C38E840E57F2361)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/L64ZuG5ERQG1xwj2uPPUsA/zh-cn_image_0000002658851745.png?HW-CC-KV=V1&HW-CC-Date=20260811T005942Z&HW-CC-Expire=86400&HW-CC-Sign=B151154802AB2E0EDAFB80331F44929701BEE8D8EBDD6DEA8C7E678CD4AF5794)
 
  
  
@@ -24,10 +24,10 @@ NK_CPP: [ERROR][OnLogMessage] SetSockOpt failed, errno:92, strerror:Protocol not
 #### 背景知识
 
 - VPN客户端与VPN服务端初次连接，主要包括6个阶段准备与初始化，建立传输层连接、协议握手与认证、安全隧道建立、网络配置、连接维护，如下图所示。准备与初始化包括客户端配置加载和DNS解析。传输层连接时基于TCP/UDP连接实现三次握手。协议握手与认证包括协议版本协商、身份验证。安全隧道建立包括密钥交换、加密通道建立。网络配置包括IP地址分配、路由配置、隧道接口创建。连接维护包括心跳与保活、连接就绪。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/W8TEcjIRRQ6Ph2ylFsAG-A/zh-cn_image_0000002628772380.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=B9B17E0FA99D76599A2427F7DA6FFB2C69822289D90BB1C4F19B26ED5D1475CC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/W8TEcjIRRQ6Ph2ylFsAG-A/zh-cn_image_0000002628772380.png?HW-CC-KV=V1&HW-CC-Date=20260811T005942Z&HW-CC-Expire=86400&HW-CC-Sign=3846AE2B12E4DC61581F8A043CEB6A5D5551EC230D7ACEDAC194CEE6B52640E4)
 
 - DNS解析通用过程如下图所示，第一优先级为使用本地缓存解析域名，其次是使用客户端配置本地DNS解析服务器查询，进一步依次查询根DNS服务器、NameServer服务器等。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/k2jMXwGvQZqzZSmhVfUaXg/zh-cn_image_0000002658971701.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=4283E780CB0EC0380308FFD4D51FD21D2E769436231DD132AB8B9EFBF5DE2A1D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/k2jMXwGvQZqzZSmhVfUaXg/zh-cn_image_0000002658971701.png?HW-CC-KV=V1&HW-CC-Date=20260811T005942Z&HW-CC-Expire=86400&HW-CC-Sign=0520BB290426C5AA2C9201260A06681A56EA0686A5032556B509E91471CD05EA)
 
 
  

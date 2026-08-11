@@ -76,7 +76,7 @@ private showTip(value: number) {
  实现效果：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/FRxFnzdsTS6HpEfnn1jkPQ/zh-cn_image_0000002628766436.png?HW-CC-KV=V1&HW-CC-Date=20260730T072407Z&HW-CC-Expire=86400&HW-CC-Sign=2AB20DFFB03292126F7151520BBAC587E768B7A370E5E662372CB3456BD22934)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/FRxFnzdsTS6HpEfnn1jkPQ/zh-cn_image_0000002628766436.png?HW-CC-KV=V1&HW-CC-Date=20260811T005807Z&HW-CC-Expire=86400&HW-CC-Sign=505448108C59EFA43E06C5B0AAB2348E9BBF6B47058C9355F120699E4FA34865)
 
 5. 完整代码：
 ```text

@@ -9,7 +9,7 @@
 在Grid组件中，通过设置onGetIrregularSizeByIndex属性实现第一个元素占据两行两列空间的效果，但是得到的结果却是只占据了一行两列，问题图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/Zox5_9c6S26Qr7Ikx69_kg/zh-cn_image_0000002685942295.png?HW-CC-KV=V1&HW-CC-Date=20260730T072322Z&HW-CC-Expire=86400&HW-CC-Sign=0EBA002CCB92B6D2AE523522DD646C1FD9D6D0272396116F3B85883FA8D09F4F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/Zox5_9c6S26Qr7Ikx69_kg/zh-cn_image_0000002685942295.png?HW-CC-KV=V1&HW-CC-Date=20260811T005815Z&HW-CC-Expire=86400&HW-CC-Sign=5113C5FB3CB210ECFDD6AC09A224B0515C23172DF1AD7315FA9BD79963915FF2)
 
  
 问题代码如下：
@@ -133,4 +133,4 @@ struct GridHeight {
 修改后效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/NcKxk5ChSGaRUGbW4qOfRQ/zh-cn_image_0000002686102381.png?HW-CC-KV=V1&HW-CC-Date=20260730T072322Z&HW-CC-Expire=86400&HW-CC-Sign=9F68BD70F1EC6A3BF8A280404611C3E50FE98526049CA17E27C20359AFCAD92D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/NcKxk5ChSGaRUGbW4qOfRQ/zh-cn_image_0000002686102381.png?HW-CC-KV=V1&HW-CC-Date=20260811T005815Z&HW-CC-Expire=86400&HW-CC-Sign=311657A6371830F567092E2A44DDAA431AAA091847AC60AF876AB37817FE25BF)

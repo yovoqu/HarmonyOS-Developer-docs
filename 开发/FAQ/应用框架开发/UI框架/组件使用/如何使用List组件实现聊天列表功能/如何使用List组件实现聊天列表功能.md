@@ -80,14 +80,14 @@ struct ListChat {
 ```
 
 - **效果图：**
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/J-_5ct6UTX6zSbMg1ZTeng/zh-cn_image_0000002658846237.png?HW-CC-KV=V1&HW-CC-Date=20260730T072407Z&HW-CC-Expire=86400&HW-CC-Sign=0C3D0802655E3171B7185DCC200588AD02C43CD5723CE304BA8DAC40EA50A44E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/J-_5ct6UTX6zSbMg1ZTeng/zh-cn_image_0000002658846237.png?HW-CC-KV=V1&HW-CC-Date=20260811T005804Z&HW-CC-Expire=86400&HW-CC-Sign=7F3A051A4C69F7B9ED446509BC383CC053AD58C545BD9DF2DE308F54CF0F3834)
 
 
  - **场景二**：**消息列表从底部开始加载，点击按钮回到最新位置**。
 **实现原理：** 将List组件的[stackFromEnd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#stackfromend19)属性设置为true可以实现列表从底部开始布局加载，给[scrollEdge](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrolledge)绑定List底部边界，实现跳转回到最新位置。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/M859cH-URXmig28lzdTJcA/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T072407Z&HW-CC-Expire=86400&HW-CC-Sign=80667115A1BDD7F613C5EA69BC21DF7303033D05AEFDCECC47C52397B37E686F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/M859cH-URXmig28lzdTJcA/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260811T005804Z&HW-CC-Expire=86400&HW-CC-Sign=7F2781C31CDEB0A516673B297FABF144E42ACF09D11D3772E3E37E8C5E4C6294)
  
 
   属性stackFromEnd从API version 19开始支持使用。
@@ -149,7 +149,7 @@ struct ListBottom {
 ```
 
 - **效果图：**
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/sHiaTu25TnaS9EUBS-KNpQ/zh-cn_image_0000002628766878.png?HW-CC-KV=V1&HW-CC-Date=20260730T072407Z&HW-CC-Expire=86400&HW-CC-Sign=6EDD5191057A1ACDCA9464E7A8643F36F53DA99865D03499126698B9ABCF4660)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/sHiaTu25TnaS9EUBS-KNpQ/zh-cn_image_0000002628766878.png?HW-CC-KV=V1&HW-CC-Date=20260811T005804Z&HW-CC-Expire=86400&HW-CC-Sign=BF7857CCE538163614BD41B60A1E54B361957B0283905EC4E6424623EA7BB3AC)
 
 
  

@@ -13,7 +13,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/QTkMBvsdTpKVXp0M7aMyIg/zh-cn_image_0000002628395468.png?HW-CC-KV=V1&HW-CC-Date=20260730T072327Z&HW-CC-Expire=86400&HW-CC-Sign=1A274924021126095B67B9D16A39A3CDF4529FDA012E0D482EA81601234521B2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/QTkMBvsdTpKVXp0M7aMyIg/zh-cn_image_0000002628395468.png?HW-CC-KV=V1&HW-CC-Date=20260811T005758Z&HW-CC-Expire=86400&HW-CC-Sign=FE6FF5EF834786EC4428567A8F4BC5BA567BE0D7EFB898F66EBDFF7B02AEB6E5)
 
  
  
@@ -33,158 +33,158 @@
 完整示例参考如下：
  
 ```text
-interface User {
-  id: string,
-  avatar: ResourceStr
-  nickname: string
-}
+interface <span style="color: rgb(0,0,255);">User </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">avatar</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ResourceStr</span>
+  <span style="color: rgb(0,0,255);">nickname</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-interface ImageInfo {
-  id: string;
-  title: string;
-  resource: ResourceStr;
-}
+interface <span style="color: rgb(0,0,255);">ImageInfo </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">resource</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ResourceStr</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-interface RichEditorSpanClass {
-  value?: string;
-  resourceValue?: ResourceStr;
-  type: 'text' | 'image' | 'builder';
-  data?: User | ImageInfo;
-}
+interface <span style="color: rgb(0,0,255);">RichEditorSpanClass </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">resourceValue</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">ResourceStr</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'text' </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(255,0,170);">'image' </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(255,0,170);">'builder'</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">User </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">ImageInfo</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Entry
-@Component
-struct RichEditorSpanExample {
-  controller: RichEditorController = new RichEditorController();
-  // 选中内容的终止位置
-  @State end: number = 0;
-  // 当前输入框内容
-  @State content: string = '';
-  // 定义一个内容长度
-  @State flag: number = 0;
-  @State contentList: Array<string> = [];
-  // 人员列表
-  private friends: User[] = [
-    { id: '0', avatar: $r('app.media.startIcon'), nickname: '测试1' },
-    { id: '1', avatar: $r('app.media.startIcon'), nickname: '测试2' },
-  ];
-  private builderSpans: RichEditorSpanClass[] = [];
-  // 人员点击事件
-  onAtFriendClick: (friend: User) => void = friend => {
-    const controller = this.controller;
-    const offset = controller.getCaretOffset();
-    const range: RichEditorRange = { start: offset - 1, end: offset };
-    if (offset !== 0 && (controller.getSpans(range)[0] as RichEditorTextSpanResult).value === '@') {
-      controller.deleteSpans(range);
-    }
-    controller.addBuilderSpan(() => this.AtSpan(friend.nickname), {
-      offset: controller.getCaretOffset()
-    });
-    this.setBuilderSpans(controller, friend);
-    this.contentList.push(friend.nickname);
-    this.content = '';
-    // 当前长度=插入@内容后的长度
-    this.flag = this.contentList.length;
-  };
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">RichEditorSpanExample </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RichEditorController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RichEditorController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">选中内容的终止位置</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">end</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当前输入框内容</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">定义一个内容长度</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">flag</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">contentList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">人员列表</span>
+  private <span style="color: rgb(0,0,255);">friends</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">User</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span>
+    <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">avatar</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nickname</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">测试</span><span style="color: rgb(255,0,170);">1' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">avatar</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nickname</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">测试</span><span style="color: rgb(255,0,170);">2' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">builderSpans</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RichEditorSpanClass</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">人员点击事件</span>
+  <span style="color: rgb(0,0,255);">onAtFriendClick</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">friend</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">User</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">friend </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    const <span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">;</span>
+    const <span style="color: rgb(0,0,255);">offset </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getCaretOffset</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    const <span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RichEditorRange </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">start</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">offset </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">end</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">offset </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">offset </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getSpans</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">range</span><span style="color: rgb(0,0,255);">)[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">] </span>as <span style="color: rgb(0,0,255);">RichEditorTextSpanResult</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">value </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'@'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">deleteSpans</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">range</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addBuilderSpan</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AtSpan</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">friend</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">nickname</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getCaretOffset</span><span style="color: rgb(0,0,255);">()</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setBuilderSpans</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">friend</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">friend</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">nickname</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">content </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当前长度</span><span style="color: rgb(128,128,128);">=</span><span style="color: rgb(128,128,128);">插入</span><span style="color: rgb(128,128,128);">@</span><span style="color: rgb(128,128,128);">内容后的长度</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">flag </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-  @Builder
-  AtSpan(nickname: string) {
-    Text(`@${nickname}`).fontColor(0xFF133667);
-  }
+  <span style="color: rgb(181,106,1);">@Builder</span>
+  <span style="color: rgb(0,0,255);">AtSpan</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">nickname</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`@</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">nickname</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(0,0,255);">(0xFF133667)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  // 创建builderSpan
-  setBuilderSpans(controller: RichEditorController, friend: User) {
-    const builderSpan: RichEditorSpanClass = {
-      value: `@${friend.nickname}`,
-      data: friend,
-      type: 'builder'
-    };
-    const range: RichEditorRange = { end: controller.getCaretOffset() };
-    const index = this.getBuilderSpanCount(controller, range) - 1;
-    this.builderSpans.splice(index, 0, builderSpan);
-  }
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建</span><span style="color: rgb(128,128,128);">builderSpan</span>
+  <span style="color: rgb(0,0,255);">setBuilderSpans</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RichEditorController</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">friend</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">User</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    const <span style="color: rgb(0,0,255);">builderSpan</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RichEditorSpanClass </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`@</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">friend</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">nickname</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">friend</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'builder'</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    const <span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RichEditorRange </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">end</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getCaretOffset</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    const <span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getBuilderSpanCount</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">range</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">builderSpans</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">splice</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">builderSpan</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  getBuilderSpanCount(controller: RichEditorController, range: RichEditorRange) {
-    return controller.getSpans(range).reduce((count: number, span) => {
-      return this.isBuilderSpan(span) ? count + 1 : count;
-    }, 0);
-  }
+  <span style="color: rgb(0,0,255);">getBuilderSpanCount</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RichEditorController</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RichEditorRange</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    return <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getSpans</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">range</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">reduce</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">count</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">span</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isBuilderSpan</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">span</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">count </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">count</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  isBuilderSpan(span: RichEditorImageSpanResult | RichEditorTextSpanResult): boolean {
-    return !(span as RichEditorTextSpanResult).value &&
-      !(span as RichEditorImageSpanResult).valueResourceStr?.toString().replaceAll(' ', '');
-  }
+  <span style="color: rgb(0,0,255);">isBuilderSpan</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">span</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RichEditorImageSpanResult </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">RichEditorTextSpanResult</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(255,0,170);">{</span>
+    return <span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">span </span>as <span style="color: rgb(0,0,255);">RichEditorTextSpanResult</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">value </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span>
+<span style="color: rgb(181,106,1);">      !</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">span </span>as <span style="color: rgb(0,0,255);">RichEditorImageSpanResult</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">valueResourceStr</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replaceAll</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">' '</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  onAtButtonClick: (event?: ClickEvent) => void = () => {
-    const controller = this.controller;
-    controller.addTextSpan('@', { offset: controller.getCaretOffset() });
-  };
+  <span style="color: rgb(0,0,255);">onAtButtonClick</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">ClickEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    const <span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addTextSpan</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'@'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getCaretOffset</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Column() {
-        Text('获取输入框内容：');
-        Text(this.contentList.toString());
-      }
-      .padding(16)
-      .justifyContent(FlexAlign.Start)
-      .alignItems(HorizontalAlign.Start)
-      .height('30%')
-      .width('98%')
-      .borderRadius(8)
-      .backgroundColor('#0d000000');
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">获取输入框内容：</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Start</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Start</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'30%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'98%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#0d000000'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-      List({ space: 20 }) {
-        ForEach(this.friends, (friend: User) => {
-          ListItem() {
-            Column({ space: 5 }) {
-              Image(friend.avatar).width(40);
-              Text(friend.nickname);
-            }
-            .onClick(() => this.onAtFriendClick(friend));
-          };
-        }, (friend: User) => friend.id);
-      }
-      .margin(16)
-      .listDirection(Axis.Horizontal)
-      .width('100%')
-      .height(70)
-      .align(Alignment.Start);
+      <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">friends</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">friend</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">User</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">friend</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avatar</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">40</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">friend</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">nickname</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAtFriendClick</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">friend</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">friend</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">User</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">friend</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">listDirection</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Axis</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Horizontal</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">70</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Start</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-      RichEditor({ controller: this.controller })
-        .aboutToIMEInput((value: RichEditorInsertValue) => {
-          if (value.insertValue === '@') {
-            this.onAtButtonClick();
-            return false;
-          }
-          return true;
-        })
-        .onDidChange((rangeAfter: TextRange) => {
-          this.end = rangeAfter.end ? rangeAfter.end : 0;
-          // 当点击删除按钮时，输入框内容随之删除
-          this.contentList.splice(this.end - 1, 1);
-        })
-        .onIMEInputComplete((value: RichEditorTextSpanResult) => {
-          // 输入框内容
-          this.content = value.value;
-          // 当刚开始输入时，将输入的文本内容push进去contentList
-          if (this.contentList.length === this.flag) {
-            this.contentList.push(this.content);
-          } else if (this.contentList.length - 1 === this.flag) {
-            this.contentList[this.contentList.length-1] = this.content;
-          }
-        })
-        .width('100%')
-        .height(100)
-        .backgroundColor('#0d000000')
-        .borderRadius(8)
-        .padding(16);
-    }
-    .width('100%')
-    .height('100%')
-    .padding(16);
-  }
-}
+      <span style="color: rgb(0,0,255);">RichEditor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">aboutToIMEInput</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RichEditorInsertValue</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">insertValue </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'@'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAtButtonClick</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+            return false<span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+          return true<span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDidChange</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">rangeAfter</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextRange</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">end </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">rangeAfter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">end </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">rangeAfter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">end </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当点击删除按钮时，输入框内容随之删除</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">splice</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">end </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onIMEInputComplete</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RichEditorTextSpanResult</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">输入框内容</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">content </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当刚开始输入时，将输入的文本内容</span><span style="color: rgb(128,128,128);">push</span><span style="color: rgb(128,128,128);">进去</span><span style="color: rgb(128,128,128);">contentList</span>
+          if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">=== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">flag</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">content</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">} </span>else if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">=== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">flag</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentList</span><span style="color: rgb(0,0,255);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">content</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#0d000000'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
  

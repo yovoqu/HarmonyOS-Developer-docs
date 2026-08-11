@@ -7,12 +7,12 @@
 #### 问题现象
 1. 执行命令：
 ```text
-wukong exec -s 10 -i 1000 -a 0.28 -t 0.72 -c 100
+<span style="color: rgb(255,255,255);">wukong exec </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,255,255);">s </span><span style="color: rgb(80,160,79);">10 </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(80,160,79);">1000 </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,255,255);">a </span><span style="color: rgb(80,160,79);">0.28 </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,255,255);">t </span><span style="color: rgb(80,160,79);">0.72 </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,255,255);">c </span><span style="color: rgb(80,160,79);">100</span>
 ```
  报错信息：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/ZeYiGpJlRmWjzc0Slb9C9A/zh-cn_image_0000002628569520.png?HW-CC-KV=V1&HW-CC-Date=20260730T072723Z&HW-CC-Expire=86400&HW-CC-Sign=AA5B06417C6AC41A1BAC351CD48E3CE8E83FC5FBAB98B25A84D23932E5B06220)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/ZeYiGpJlRmWjzc0Slb9C9A/zh-cn_image_0000002628569520.png?HW-CC-KV=V1&HW-CC-Date=20260811T005518Z&HW-CC-Expire=86400&HW-CC-Sign=B85BB4438078149459BA1B4E1EBA4ACD123F9D8DF4755691E02A40FFF1CE1A7F)
 
 2. 运行单元测试时报错"Error in testUiExample, Can not connect to AAMS"。
  
@@ -30,17 +30,17 @@ wukong exec -s 10 -i 1000 -a 0.28 -t 0.72 -c 100
 
   
 ```bash
-hdc shell
-ps -ef | grep uitest
-kill -9 uitest的进程号
+<span style="color: rgb(255,255,255);">hdc shell</span>
+<span style="color: rgb(255,255,255);">ps </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,255,255);">ef </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(255,255,255);">grep uitest</span>
+<span style="color: rgb(255,255,255);">kill </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(80,160,79);">9 </span><span style="color: rgb(255,255,255);">uitest</span><span style="color: rgb(255,255,255);">的进程号</span>
 ```
  如果要终止对应的DevEco Testing进程，可以按下面步骤执行：
 
   
 ```bash
-hdc shell
-ps -ef | grep uitest
-kill -9 uitest start-daemon singleness的进程号
+<span style="color: rgb(255,255,255);">hdc shell</span>
+<span style="color: rgb(255,255,255);">ps </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,255,255);">ef </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(255,255,255);">grep uitest</span>
+<span style="color: rgb(255,255,255);">kill </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(80,160,79);">9 </span><span style="color: rgb(255,255,255);">uitest start</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,255,255);">daemon singleness</span><span style="color: rgb(255,255,255);">的进程号</span>
 ```
 
  

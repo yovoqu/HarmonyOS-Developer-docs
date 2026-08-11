@@ -75,7 +75,7 @@ Q：APMS报错信息是混淆的，能否还原至原始代码？
 A：点击“还原堆栈”页签，可将混淆后的业务堆栈信息还原成用户可读信息。请确保已上传对应符号表文件。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/zRwcIjXPTZSILpn3PmKWKQ/zh-cn_image_0000002675224017.png?HW-CC-KV=V1&HW-CC-Date=20260730T072700Z&HW-CC-Expire=86400&HW-CC-Sign=CC9410547E5AB1097213B01D6BFB14002906239E931FCBD9A58C06FDA3B7D5BA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/zRwcIjXPTZSILpn3PmKWKQ/zh-cn_image_0000002675224017.png?HW-CC-KV=V1&HW-CC-Date=20260811T005620Z&HW-CC-Expire=86400&HW-CC-Sign=0B910C2A4BC9B7DE81ADA94D79748EDC4B9CB040E5B7FFC60E0CE16B28A08C01)
 
  
 Q：在APMS中为什么最新型号手机信息没有，导致异常日志搜索不到。
@@ -87,7 +87,7 @@ Q：本地调试的Debug版本崩溃日志也会上传APMS吗？是否能够设�
 A：应用接入异常管理后，可通过设置调试版本和发布版本的不同版本号进行区分。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/_NZYY-B6R7q65n6vOJ-YOA/zh-cn_image_0000002645184080.png?HW-CC-KV=V1&HW-CC-Date=20260730T072700Z&HW-CC-Expire=86400&HW-CC-Sign=796D8EBBA2D7E2F8D6A6C78F12801A0EDEC434426A609CF94C658CD22782BCDB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/_NZYY-B6R7q65n6vOJ-YOA/zh-cn_image_0000002645184080.png?HW-CC-KV=V1&HW-CC-Date=20260811T005620Z&HW-CC-Expire=86400&HW-CC-Sign=7510E1FF5DE714B310A1E821413FE316236CDFBA0A8C754A087EE8AF72C1DA29)
 
  
 Q：为什么收集到的崩溃信息的行号与源代码不一致？

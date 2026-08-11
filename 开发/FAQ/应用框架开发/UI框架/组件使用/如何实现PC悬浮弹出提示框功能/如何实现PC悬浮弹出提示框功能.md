@@ -11,7 +11,7 @@
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/ifKqpIC0RbW6N6_z4NksfA/zh-cn_image_0000002658920479.png?HW-CC-KV=V1&HW-CC-Date=20260730T072335Z&HW-CC-Expire=86400&HW-CC-Sign=5A89A048B85B96441CEA9E2948D70E3C7EBD6A268B57970A33EEFDB801107DE0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/ifKqpIC0RbW6N6_z4NksfA/zh-cn_image_0000002658920479.png?HW-CC-KV=V1&HW-CC-Date=20260811T005807Z&HW-CC-Expire=86400&HW-CC-Sign=D6F072F01FF36C18AA0EACD73CC092D6A0939C728D26546665FA2F4D7430595D)
 
  
  
@@ -60,7 +60,7 @@ struct HoverPopup1 {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/xQ81SUgzTs26pcdE82FLBg/zh-cn_image_0000002628401266.png?HW-CC-KV=V1&HW-CC-Date=20260730T072335Z&HW-CC-Expire=86400&HW-CC-Sign=63FD2F3AAB07E73A00F65A58B619F855E3CCA4245AB3DCC11EF6C0AA9D5A8803)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/xQ81SUgzTs26pcdE82FLBg/zh-cn_image_0000002628401266.png?HW-CC-KV=V1&HW-CC-Date=20260811T005807Z&HW-CC-Expire=86400&HW-CC-Sign=43EAA52C03AAB211050E8A1DB9925FEAE0498E65715F28DA7BB26A19F27FA1C2)
 
 - **方案二**：为图片组件绑定onHover悬浮事件监听与Popup控制气泡。当检测到有鼠标进入时，通过修改控制显示的状态变量来弹出气泡。
 ```text
@@ -103,7 +103,7 @@ struct HoverPopup2 {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/TFsfp0CoRBGPjiDJPn7lEw/zh-cn_image_0000002658800525.png?HW-CC-KV=V1&HW-CC-Date=20260730T072335Z&HW-CC-Expire=86400&HW-CC-Sign=0598E2885D3C0852B8AA442658EF7FC052D5EA7037D76765E28CAB8F1DE3B870)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/TFsfp0CoRBGPjiDJPn7lEw/zh-cn_image_0000002658800525.png?HW-CC-KV=V1&HW-CC-Date=20260811T005807Z&HW-CC-Expire=86400&HW-CC-Sign=A716F87C2E4D7A2E1E042A2F9D2880756EF6B0B5FC0E7A06E4A7BA392A5AD2D4)
 
 
  

@@ -59,68 +59,68 @@
 
 #### 问题定位
 1. 使用SmartPerf抓取或打开问题场景Trace文件，通过滑动Trace点H:APP_LIST_FLING确定应用滑动操作区间。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/8u4tg7cFRROv4EGnQsSfjQ/zh-cn_image_0000002658914265.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=8A844F74BB7CEC7474E88B702E54E7A544BBD241408A2586AEAE04C0DE804A8D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/8u4tg7cFRROv4EGnQsSfjQ/zh-cn_image_0000002658914265.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=DD7BBD9A2CC77CC1E4451E994DD53ED0AA301C8D3029913B0487F3B49C8D307A)
 
 2. 确定滑动区域内卡顿点。针对不同屏幕刷新率，Vsync信号的周期不同，120Hz对应8.33ms，90Hz对应11.11ms，60Hz对应16.67ms，滑动卡顿问题需要先确定Vsync信号的周期。
 
   查看滑动操作区间内的屏幕刷新率（找到render_service泳道中H:PreferredFrameRate对应的位置），如下图为120Hz，则在滑动区间内应用主线程接收Vsync信号周期（两个Vsync信号的起始点之间的间隔时间）为8.3ms，超出8.3ms的地方为卡顿点，需要分析排查其中耗时部分。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/0QKhbkA1QcmHH9obcoF0FA/zh-cn_image_0000002658794313.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=770ADD77E759E1E592C42CD5533794727FE7908141C7B727D443ECF885D005BF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/0QKhbkA1QcmHH9obcoF0FA/zh-cn_image_0000002658794313.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=3212FCAE8C08975D83C387D8DFE081BD5BEAF8DDB9FCC85E79BE3FD87734F241)
 
 3. 卡顿点可能存在以下情况：
 - 应用执行耗时操作：应用在两侧接收Vsync信号处理存在长时间的Running，如下图所示，此处应用在执行耗时操作，会导致卡顿。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/7HiLNkG5T5KJgG2HTXCtQw/zh-cn_image_0000002628554948.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=BBF01ADAA507806DDA21C26576ED497069844A760F5A6A228F925C5B1E1FC4C5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/7HiLNkG5T5KJgG2HTXCtQw/zh-cn_image_0000002628554948.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=51B88E0CF8452DE39351C3BC686277A2B9220D68A21265B9D79B00415ECAECA5)
 
 
 4. 应用执行耗时的ArkTS业务逻辑：如下图所示，应用在接收Vsync信号处理时耗时20.1ms，远远超出了8.3ms，耗时主要在H:ExecuteJS，运行ArkTS业务逻辑。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/ysp-UoxXR1modKfhL22pNQ/zh-cn_image_0000002628395048.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=6A6C471C07A698216065BFFFE84C020A0FEA7E00B76C99A7BD707DFCCDFD149A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/ysp-UoxXR1modKfhL22pNQ/zh-cn_image_0000002628395048.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=A5F1A7057ED7F837C3C45E8A5B2AB8C5084CD1872C58734E13C348B3BB2AC9D5)
 
 
 5. 应用组件复杂，测量、布局耗时：如下图所示，应用在接收Vsync信号处理时耗时10ms，超出了预期时间8.3ms，耗时主要集中在组件ListItem测量部分。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/fUB99yUJTd2sGub3kqZQEg/zh-cn_image_0000002658914267.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=32ADC277CFF104ADBE9F7A064EBD467FEDD9EB25E3C130EC94B10B4ABA3F9A2F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/fUB99yUJTd2sGub3kqZQEg/zh-cn_image_0000002658914267.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=1B8DB799EC84F76447EE6BF056449DC8190CF33EA88BFA3893EC1662D2D5256D)
 
 
   使用ArkUI Inspector工具查看该组件的层级，可看到该组件层级达到了10+，组件层级较多。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/eJJlwn5cRRO57neX-PjlVA/zh-cn_image_0000002658794315.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=530FF47C235D9D47EE15F19CCE199F6616376780D60016E0D9AF08F847AA5622)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/eJJlwn5cRRO57neX-PjlVA/zh-cn_image_0000002658794315.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=DA89A25D1F0B841195394B2922D3DC24AA326E16C9A877A4009F756407D56D9D)
 
 
 6. 应用以独立的帧率绘制更新UI页面：如下图所示，应用在接收Vsync信号处理时耗时14.3ms，超出了预期时间8.3ms，耗时主要集中在H:DispatchDisplaySync，推测应用进行了降帧率。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/UHKVi_TYTsqdBg2-QZSmuA/zh-cn_image_0000002628554950.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=68E6E130CDEBB7E04172151F2457FD31C63DDCF428C246E3F3EF96B566FEEB65)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/UHKVi_TYTsqdBg2-QZSmuA/zh-cn_image_0000002628554950.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=836E53D5BD65F90295C94F11ABAF53B067ECEB45E612FB7D3C0A59A98A8224C5)
 
 
   可以使用DevEco Profiler [Frame分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-frame)工具抓取该过程Trace信息，查看DispatchDisplaySync部分应用的调用栈，如下图可看到耗时集中在应用so文件的帧回调函数，应用有[请求自绘制内容绘制频率](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/displaysync-xcomponent)，该频率较低导致滑动卡顿问题。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/CHFeUGQ7Tl2VMyghnsjbAQ/zh-cn_image_0000002628395050.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=6F3FD62CAC6E288614D7E1755B907BAEEAB26A3E1DC52144BA04FB94D42DF70C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/CHFeUGQ7Tl2VMyghnsjbAQ/zh-cn_image_0000002628395050.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=EC3F795B60E06FF7BC3A4F970E8A8663126BF4731EB73C863629F0FED7B1C1B0)
 
 
 7. 滑动期间binder调用过多：如下图所示，应用接收Vsync信号的周期超过90ms，远大于预期的11.11ms，耗时主要集中在大量binder调用。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/Wsv26OVuTGu5dkPr7pLZIA/zh-cn_image_0000002658914269.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=78CFB1475CB7A33177DFF7255785495AAF592B79D026C47E909F9256A566D377)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/Wsv26OVuTGu5dkPr7pLZIA/zh-cn_image_0000002658914269.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=7A1CE5C1B1748CE1B4C9D2EDB8F391DE0CF42805F7AF693BE6E33BEC29A8CF0E)
 
 
 8. 状态变量变化，组件更新耗时多：如下图所示，应用在接收Vsync信号处理时耗时10.1ms，超出了预期时间8.3ms，耗时主要集中在H:FlushDirtyNodeUpdate，状态变量变化，组件更新耗时多。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/Xn4h0RVbQm6RLByfQeyUKA/zh-cn_image_0000002658794317.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=3F0B83E8DAA79C579AEA4AEC4D658254E3CCCC555CD5C2A94FCC305CC1CECDEB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/Xn4h0RVbQm6RLByfQeyUKA/zh-cn_image_0000002658794317.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=828DF82DD550C7B49FDCE525DEECED43578F5EE319AAC388ABFDD7750DF5C9A3)
 
 
   查看滑动过程中Trace信息，发现有大量状态变量更新、节点刷新，同时在日志中可以看到有大量State variable 'xxx' has changed during render日志打印，这是由于组件渲染绘制时有更新状态变量，一直触发节点刷新，导致滑动卡顿丢帧问题。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/9b31WHrJSzaGCunKmrIk6A/zh-cn_image_0000002628554952.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=6064661955D0DA92E7067C82AFEFAC927DD7342C50D459FA52920D08667C58D4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/9b31WHrJSzaGCunKmrIk6A/zh-cn_image_0000002628554952.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=50F51FA4305897DE1CE881A789DCE7A7D3847FDC41EE6CCFF8DF76C35CA34280)
 
 
   
@@ -139,7 +139,7 @@
 9. List组件多次测量布局：如下图所示，在滑动过程List组件有多次进行测量布局，测量布局耗时较多导致滑动卡顿。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/tIUVPkiCQnWPnTCmteCcxQ/zh-cn_image_0000002628395052.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=88CCC79AB5C0896115B522B259969CC6D422C5D7C5DE9BF5B44B5D4EAD0A5BA0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/tIUVPkiCQnWPnTCmteCcxQ/zh-cn_image_0000002628395052.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=0DC27A0E3B2D13A934F68BB285FB51D9B42467766749B87C3F9CA525550B4BFC)
 
 
   

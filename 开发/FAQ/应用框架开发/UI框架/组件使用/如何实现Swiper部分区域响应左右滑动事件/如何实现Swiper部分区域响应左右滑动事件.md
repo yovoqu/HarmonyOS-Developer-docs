@@ -13,7 +13,7 @@ Swiper设置居底高度自适应后，希望上方区域不再响应Swiper的�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/7qfQvzc3RYSnrjoH4KNbmg/zh-cn_image_0000002658849559.png?HW-CC-KV=V1&HW-CC-Date=20260730T072411Z&HW-CC-Expire=86400&HW-CC-Sign=83311873562BBE3768C2715499FB117BC54F089A4C13726363B630342AABB54D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/7qfQvzc3RYSnrjoH4KNbmg/zh-cn_image_0000002658849559.png?HW-CC-KV=V1&HW-CC-Date=20260811T005807Z&HW-CC-Expire=86400&HW-CC-Sign=F23A275F745B4F30AE4F26DD3B968B3DB7B8A005E7BFDA1ECF5FE1AB36D1B7C9)
 
  
  
@@ -37,95 +37,95 @@ Swiper设置居底高度自适应后，希望上方区域不再响应Swiper的�
 示例代码如下：
  
 ```text
-@Entry
-@Component
-struct SwiperDemo {
-  private controller: SwiperController = new SwiperController();
-  private list: string[] =
-    [
-      '我是第1个item，占1行',
-      '我是第2个item，\n' + '占2行',
-      '我是\n' + '第3个item，\n' + '占3行',
-    ];
-  @State map: Map<ESObject, number> = new Map(); // 存储Swiper自适应内容区域距离屏幕顶部的距离，用于设置触摸热区
-  @State currentIndex: number = 0;
-  @State region: Rectangle = {
-    x: 0,
-    y: 0,
-    width: '100%',
-    height: '100%'
-  };
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">SwiperDemo </span><span style="color: rgb(255,0,170);">{</span>
+  private <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">SwiperController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">SwiperController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">list</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">=</span>
+    <span style="color: rgb(0,0,255);">[</span>
+      <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">我是第</span><span style="color: rgb(255,0,170);">1</span><span style="color: rgb(255,0,170);">个</span><span style="color: rgb(255,0,170);">item</span><span style="color: rgb(255,0,170);">，占</span><span style="color: rgb(255,0,170);">1</span><span style="color: rgb(255,0,170);">行</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">我是第</span><span style="color: rgb(255,0,170);">2</span><span style="color: rgb(255,0,170);">个</span><span style="color: rgb(255,0,170);">item</span><span style="color: rgb(255,0,170);">，</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">占</span><span style="color: rgb(255,0,170);">2</span><span style="color: rgb(255,0,170);">行</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">我是</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">第</span><span style="color: rgb(255,0,170);">3</span><span style="color: rgb(255,0,170);">个</span><span style="color: rgb(255,0,170);">item</span><span style="color: rgb(255,0,170);">，</span>\n<span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">占</span><span style="color: rgb(255,0,170);">3</span><span style="color: rgb(255,0,170);">行</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">map</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Map</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">ESObject</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span>new <span style="color: rgb(0,0,255);">Map</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">存储</span><span style="color: rgb(128,128,128);">Swiper</span><span style="color: rgb(128,128,128);">自适应内容区域距离屏幕顶部的距离，用于设置触摸热区</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">currentIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">region</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Rectangle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'100%'</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    RelativeContainer() {
-      Column() {
-        Text('白色区域部分不希望响应Swiper拖动事件')
-          .fontSize(20)
-          .fontColor(Color.Black);
-      }
-      .justifyContent(FlexAlign.Center)
-      .alignRules({
-        left: { anchor: '__container__', align: HorizontalAlign.Start },
-        right: { anchor: '__container__', align: HorizontalAlign.End },
-        top: { anchor: '__container__', align: VerticalAlign.Top },
-        bottom: { anchor: '__container__', align: VerticalAlign.Bottom }
-      });
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">白色区域部分不希望响应</span><span style="color: rgb(255,0,170);">Swiper</span><span style="color: rgb(255,0,170);">拖动事件</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Black</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Start </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">End </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Top </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bottom </span><span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-      Swiper(this.controller) {
-        ForEach(this.list, (item: number, index: number) => {
-          Column() {
-            Column() {
-              Text(this.list[index])
-                .fontSize(30);
-            }
-            .backgroundColor("#f1f3f5")
-            .width('100%')
-            .borderRadius(6)
-            .onAreaChange((oldValue: Area, newValue: Area) => {
-              console.info('item', item);
-              console.info('oldValue', oldValue);
-              if (!this.map.get(index.toString())) {
-                // onAreaChange回调监听页面自适应高度变化，存储Swiper自适应内容区域距离屏幕顶部的距离。
-                this.map.set(index.toString(), newValue.position.y as number);
-                this.region = {
-                  width: '100%',
-                  height: '100%',
-                  x: 0,
-                  y: this.map.get(this.currentIndex.toString()) as number // 触摸热区的范围
-                };
-              }
-            });
-          }
-          .justifyContent(FlexAlign.End)
-          .width('100%')
-          .padding(10);
-        });
-      }
-      .onChange((index: number) => {
-        this.currentIndex = index;
-        // Swiper切换过程中动态设置触摸响应区域
-        this.region = {
-          width: '100%',
-          height: '100%',
-          x: 0,
-          y: this.map.get(this.currentIndex.toString()) as number
-        };
-      })
-      .indicator(false)
-      .autoPlay(false)
-      .loop(false)
-      .height('100%')
-      .responseRegion(
-        this.region
-      )
-      .alignRules({
-        left: { anchor: '__container__', align: HorizontalAlign.Start },
-        right: { anchor: '__container__', align: HorizontalAlign.End },
-        bottom: { anchor: '__container__', align: VerticalAlign.Bottom }
-      });
-    }
-    .width('100%')
-    .height('100%');
-  }
-}
+      <span style="color: rgb(0,0,255);">Swiper</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">list</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">list</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">])</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"#f1f3f5"</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">6</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAreaChange</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">oldValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Area</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">newValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Area</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'item'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'oldValue'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">oldValue</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">map</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())) </span><span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(128,128,128);">// onAreaChange</span><span style="color: rgb(128,128,128);">回调监听页面自适应高度变化，存储</span><span style="color: rgb(128,128,128);">Swiper</span><span style="color: rgb(128,128,128);">自适应内容区域距离屏幕顶部的距离。</span>
+                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">map</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">set</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">newValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">position</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">y </span>as <span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">region </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+                  <span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(181,106,1);">,</span>
+                  <span style="color: rgb(0,0,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(181,106,1);">,</span>
+                  <span style="color: rgb(0,0,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
+                  <span style="color: rgb(0,0,255);">y</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">map</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentIndex</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()) </span>as <span style="color: rgb(0,0,255);">number </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">触摸热区的范围</span>
+                <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">            }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">End</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(128,128,128);">// Swiper</span><span style="color: rgb(128,128,128);">切换过程中动态设置触摸响应区域</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">region </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">y</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">map</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentIndex</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()) </span>as <span style="color: rgb(0,0,255);">number</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indicator</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">autoPlay</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loop</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">responseRegion</span><span style="color: rgb(0,0,255);">(</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">region</span>
+      <span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Start </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">End </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bottom </span><span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

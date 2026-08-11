@@ -76,7 +76,7 @@ Image(this.path)
  可以看到展示结果中，URI的图片可以正常显示，而path的无法显示。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/4Qzl8ViUS0uX1ur7T0B3Vg/zh-cn_image_0000002628559670.png?HW-CC-KV=V1&HW-CC-Date=20260730T072333Z&HW-CC-Expire=86400&HW-CC-Sign=4F41090C8A70E4979C45BCB2FAAF70044FBB36D7E15E22653AC76834976F779C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/4Qzl8ViUS0uX1ur7T0B3Vg/zh-cn_image_0000002628559670.png?HW-CC-KV=V1&HW-CC-Date=20260811T005745Z&HW-CC-Expire=86400&HW-CC-Sign=D351C4A5526C56BB7E657CA8E072F0D38398DA1865EAA75C458C5DF0D80DEB94)
 
  
 完整示例代码如下：

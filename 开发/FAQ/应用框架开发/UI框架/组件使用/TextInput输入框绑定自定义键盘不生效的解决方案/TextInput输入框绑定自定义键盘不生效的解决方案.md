@@ -75,7 +75,7 @@ struct TextInputClearFocusExample {
 问题现象见下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/jTEfkAHzTQ270WGMnV7bGg/zh-cn_image_0000002664281407.png?HW-CC-KV=V1&HW-CC-Date=20260730T072415Z&HW-CC-Expire=86400&HW-CC-Sign=99D9A5A340E39A2AB507BB6335B01FE0615B2BEAA9F8E76492FD63C3293870A3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/jTEfkAHzTQ270WGMnV7bGg/zh-cn_image_0000002664281407.png?HW-CC-KV=V1&HW-CC-Date=20260811T005754Z&HW-CC-Expire=86400&HW-CC-Sign=25EF956ED4A4F0976BF8EDAE87111C5CB21CFFC48C8A4DE495D7F688FF588B24)
 
  
  

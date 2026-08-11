@@ -74,7 +74,7 @@ private controller: pdfViewManager.PdfController = new pdfViewManager.PdfControl
 效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/qfNvUrEzS7u9lyNNHbXfwg/zh-cn_image_0000002628554252.png?HW-CC-KV=V1&HW-CC-Date=20260730T072638Z&HW-CC-Expire=86400&HW-CC-Sign=04E59CB1D0A28D4F6D28CF1B5E095DF118B478EB2F3B300BAB3461793FFD5304)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/qfNvUrEzS7u9lyNNHbXfwg/zh-cn_image_0000002628554252.png?HW-CC-KV=V1&HW-CC-Date=20260811T005600Z&HW-CC-Expire=86400&HW-CC-Sign=E8BDDB26CA64B149B85FB06AE758F636EB3A7C37FE5A8A118DD11638F10BCEEE)
 
  
  
@@ -319,10 +319,10 @@ struct PDFPage {
 方案一效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/aZaM-mBzRsSNsz7Ip7zMxw/zh-cn_image_0000002658913571.png?HW-CC-KV=V1&HW-CC-Date=20260730T072638Z&HW-CC-Expire=86400&HW-CC-Sign=BC0B4FB9B7E3A19213A4B0E55C9C07DFD82C21D610E9B80615204ABCC724FDB3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/aZaM-mBzRsSNsz7Ip7zMxw/zh-cn_image_0000002658913571.png?HW-CC-KV=V1&HW-CC-Date=20260811T005600Z&HW-CC-Expire=86400&HW-CC-Sign=88ED3EF36550FDAF37CA4CCB5A4981FB0B02F580938F6C6A8744CC5443C85F82)
 
  
 方案二效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/dcNJu3XkRWqd1P_R7H1EOQ/zh-cn_image_0000002628394360.png?HW-CC-KV=V1&HW-CC-Date=20260730T072638Z&HW-CC-Expire=86400&HW-CC-Sign=953D018010AFFE45C6B5BB4EAA15FDF3B3E1A179E10B9A11C1C21E50C997E90A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/dcNJu3XkRWqd1P_R7H1EOQ/zh-cn_image_0000002628394360.png?HW-CC-KV=V1&HW-CC-Date=20260811T005600Z&HW-CC-Expire=86400&HW-CC-Sign=D46F8884A5A2D404F0ED259AEF4F9F3F2A5F21660F6ACD156E865B2BFD6FE3A2)

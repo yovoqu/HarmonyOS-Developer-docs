@@ -7,7 +7,7 @@
 #### 问题现象
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/WdFzQTbwR9evjM5HZmYzEQ/zh-cn_image_0000002628615110.png?HW-CC-KV=V1&HW-CC-Date=20260730T072607Z&HW-CC-Expire=86400&HW-CC-Sign=633E48192FC34BF860C06143897AC162D71B850A7E4D7BADC38D3BE9392F18C7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/WdFzQTbwR9evjM5HZmYzEQ/zh-cn_image_0000002628615110.png?HW-CC-KV=V1&HW-CC-Date=20260811T005921Z&HW-CC-Expire=86400&HW-CC-Sign=589E20BB65380C52BAD39937CB16CF6ED59F1517D50C8C866D4E65E2880A73A2)
 
  
 HarmonyOS PC应用接入状态栏后应该如何配置才能实现在鼠标悬停时弹出气泡提示？
@@ -35,10 +35,10 @@ let operation: statusBarManager.QuickOperation = {
 ```
  完整接入示例可参考官方教程：[接入状态栏开发](https://developer.huawei.com/consumer/cn/codelabsPortal/carddetails/tutorials_StatusBarExtensionKit)。
 2. 将上述[statusBarManager.QuickOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-manager#statusbarmanageraddtostatusbar)的moduleName参数设置为所在模块对应module.json5中module-name字段。要实现鼠标悬停于状态栏时弹出气泡提示，则当前moduleName不可缺省，若未配置moduleName参数，该参数默认为''，则鼠标悬停时不会显示气泡提示，如下图：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/hQ55kTxaS8GOycRlumQsyw/zh-cn_image_0000002628775006.png?HW-CC-KV=V1&HW-CC-Date=20260730T072607Z&HW-CC-Expire=86400&HW-CC-Sign=A9567A160C36AB30195C7B8E86A0DBCB3EB450DC86477810A9C15410E861103A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/hQ55kTxaS8GOycRlumQsyw/zh-cn_image_0000002628775006.png?HW-CC-KV=V1&HW-CC-Date=20260811T005921Z&HW-CC-Expire=86400&HW-CC-Sign=57841F87A782ECD78D17DAE2679442F0DF858983F47BB6D7E301E23812D33645)
 
 3. 设置状态栏悬停气泡展示内容：需在接入状态栏提供的模块名对应/moduleName/src/main目录下的module.json5文件中，找到对应的abilities-label字段，修改该关键字对应的value值。注意：状态栏label和应用窗口对应的名称是相同字段
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/oiF5JVgBRa2LR8oPfIm3gw/zh-cn_image_0000002658974319.png?HW-CC-KV=V1&HW-CC-Date=20260730T072607Z&HW-CC-Expire=86400&HW-CC-Sign=24C6128C96462C1AB5D1FD52CE48A21D32199346251687470600A53707A17E05)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/oiF5JVgBRa2LR8oPfIm3gw/zh-cn_image_0000002658974319.png?HW-CC-KV=V1&HW-CC-Date=20260811T005921Z&HW-CC-Expire=86400&HW-CC-Sign=0690AC12401DAFF11C733BFD8D30AD8C8440CBC2C7AE4DEDEEBCCC3BD4621FCE)
 
  
  

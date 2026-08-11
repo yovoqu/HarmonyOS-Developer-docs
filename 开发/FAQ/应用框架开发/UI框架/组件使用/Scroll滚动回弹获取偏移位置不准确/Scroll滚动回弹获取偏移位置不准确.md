@@ -47,7 +47,7 @@ struct ScrollerTest {
 滚动到边缘无法判定为0，现象如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/owNecs7wSJOIdCNGp3bhzQ/zh-cn_image_0000002628763648.png?HW-CC-KV=V1&HW-CC-Date=20260730T072400Z&HW-CC-Expire=86400&HW-CC-Sign=B308ECE05AD879EE1662D45493C2D44D573E7E422E2B723364185B767A6D7087)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/owNecs7wSJOIdCNGp3bhzQ/zh-cn_image_0000002628763648.png?HW-CC-KV=V1&HW-CC-Date=20260811T005750Z&HW-CC-Expire=86400&HW-CC-Sign=40D814926930C5B07D58A07C355B060601F571D6D12A963A131EA4EFEFC2DD95)
 
  
  
@@ -67,7 +67,7 @@ onWillScroll是滚动前触发的事件，滑动到边缘，触发弹性回弹�
 设置edgeEffect为None，效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/oOKg8lcrRHiykQ90vCFFhA/zh-cn_image_0000002658962963.png?HW-CC-KV=V1&HW-CC-Date=20260730T072400Z&HW-CC-Expire=86400&HW-CC-Sign=9E630B7355E8124F0D6965C0818C2C98428A3D3EE3CE5695E77386A8452ACC27)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/oOKg8lcrRHiykQ90vCFFhA/zh-cn_image_0000002658962963.png?HW-CC-KV=V1&HW-CC-Date=20260811T005750Z&HW-CC-Expire=86400&HW-CC-Sign=2FE2B5F7849E2D3A5C615B4A2700CCDE9740E2FAA8649B8AAD112DA8C2E1503D)
 
  
  
@@ -119,7 +119,7 @@ struct OptionOne {
   效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/P7QS7z7jSSqmTQbx1LtwCA/zh-cn_image_0000002628603748.png?HW-CC-KV=V1&HW-CC-Date=20260730T072400Z&HW-CC-Expire=86400&HW-CC-Sign=5C08079874D679CFE5611EB537984D585C14D69709F60B146806F3758754F44C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/P7QS7z7jSSqmTQbx1LtwCA/zh-cn_image_0000002628603748.png?HW-CC-KV=V1&HW-CC-Date=20260811T005750Z&HW-CC-Expire=86400&HW-CC-Sign=97F2179C81AABA5628F196B0047D13ACD9EE21D15D4C766E8685B3BBC43251F6)
 
 - 方案二：通过[onScrollEdge事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#onscrolledge)与[onScrollStop事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#onscrollstop9)判定是否滚动到边缘并停止：
 ```text
@@ -163,4 +163,4 @@ struct OptionTwo {
   效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/g-XO_fkZTMeZcyL9h-8a-Q/zh-cn_image_0000002658843015.png?HW-CC-KV=V1&HW-CC-Date=20260730T072400Z&HW-CC-Expire=86400&HW-CC-Sign=8F0D1A7FC3C876F3BEDA90681EC49C671BF8A908ED7ED5489DEAB40A9F4DC98A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/g-XO_fkZTMeZcyL9h-8a-Q/zh-cn_image_0000002658843015.png?HW-CC-KV=V1&HW-CC-Date=20260811T005750Z&HW-CC-Expire=86400&HW-CC-Sign=2B2F749554A5D131228A059DA0CE3D350767AD7D191CCDB178E925ECF04B2CFF)

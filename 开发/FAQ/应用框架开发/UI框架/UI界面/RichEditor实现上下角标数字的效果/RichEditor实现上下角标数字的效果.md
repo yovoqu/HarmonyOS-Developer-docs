@@ -13,7 +13,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/SMJAbSFxQ86Arkz78rHitg/zh-cn_image_0000002658794735.png?HW-CC-KV=V1&HW-CC-Date=20260730T072448Z&HW-CC-Expire=86400&HW-CC-Sign=677808695E74EA353EA973DA2EABCDA3CA0153B7FA9BF5B4EC950BA994A99073)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/SMJAbSFxQ86Arkz78rHitg/zh-cn_image_0000002658794735.png?HW-CC-KV=V1&HW-CC-Date=20260811T005646Z&HW-CC-Expire=86400&HW-CC-Sign=7F2A5B3DA001F36D87612BF421A807EABA9BE9C9B44351868575A1CF682DAE67)
 
  
  
@@ -35,41 +35,41 @@
 完整示例参考如下：
  
 ```text
-@Entry
-@Component
-struct RichEditorExample {
-  controller: RichEditorController = new RichEditorController();
-  options: RichEditorOptions = { controller: this.controller };
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">RichEditorExample </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">RichEditorController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RichEditorController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">RichEditorOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Row() {
-      Column() {
-        RichEditor(this.options)
-          .onReady(() => { <em>// 组件初始化完成后会触发onReady回调</em>
-          <em>  // 在addTextSpan第一个参数中输入文本值，在第二个参数添加style，style中fontFeature属性为subs</em>
-            this.controller.addTextSpan('下角标效果示例：二氧化碳，CO2\n',
-              {
-                style:
-                {
-                  fontSize: 20,
-                  fontFeature: '\"subs\"'
-                }
-              });
-            this.controller.addTextSpan('上角标效果示例：X的平方，X2\n',
-              {
-                style:
-                {
-                  fontSize: 20,
-                  fontFeature: '\"sups\"'
-                }
-              });
-          })
-          .borderWidth(1)
-          .padding(5)
-          .width('100%')
-      }
-      .width('100%')
-    }
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">RichEditor</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{ </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">组件初始化完成后会触发</span><span style="color: rgb(128,128,128);">onReady</span><span style="color: rgb(128,128,128);">回调</span></em>
+          <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">在</span><span style="color: rgb(128,128,128);">addTextSpan</span><span style="color: rgb(128,128,128);">第一个参数中输入文本值，在第二个参数添加</span><span style="color: rgb(128,128,128);">style</span><span style="color: rgb(128,128,128);">，</span><span style="color: rgb(128,128,128);">style</span><span style="color: rgb(128,128,128);">中</span><span style="color: rgb(128,128,128);">fontFeature</span><span style="color: rgb(128,128,128);">属性为</span><span style="color: rgb(128,128,128);">subs</span></em>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addTextSpan</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">下角标效果示例：二氧化碳，</span><span style="color: rgb(132,63,161);">CO2</span>\n<span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(181,106,1);">{</span>
+                <span style="color: rgb(255,255,255);">style</span><span style="color: rgb(181,106,1);">:</span>
+                <span style="color: rgb(181,106,1);">{</span>
+                  <span style="color: rgb(255,255,255);">fontSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">,</span>
+                  <span style="color: rgb(255,255,255);">fontFeature</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span>\"<span style="color: rgb(132,63,161);">subs</span>\"<span style="color: rgb(132,63,161);">'</span>
+                <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">              }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addTextSpan</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">上角标效果示例：</span><span style="color: rgb(132,63,161);">X</span><span style="color: rgb(132,63,161);">的平方，</span><span style="color: rgb(132,63,161);">X2</span>\n<span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(181,106,1);">{</span>
+                <span style="color: rgb(255,255,255);">style</span><span style="color: rgb(181,106,1);">:</span>
+                <span style="color: rgb(181,106,1);">{</span>
+                  <span style="color: rgb(255,255,255);">fontSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">,</span>
+                  <span style="color: rgb(255,255,255);">fontFeature</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span>\"<span style="color: rgb(132,63,161);">sups</span>\"<span style="color: rgb(132,63,161);">'</span>
+                <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">              }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderWidth</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">  }</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

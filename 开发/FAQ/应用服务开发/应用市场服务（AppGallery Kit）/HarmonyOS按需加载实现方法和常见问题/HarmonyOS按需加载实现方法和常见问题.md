@@ -38,7 +38,7 @@
 当动态模块为HSP时，基础功能Entry包的oh-package.json5中需要[添加依赖项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-dependencies)。添加HSP模块的动态依赖方式可参考[如何配置oh-package.json5动态依赖](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-48)。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/Uj8X8m1LSkGlaxNCMcj4Qg/zh-cn_image_0000002648285864.png?HW-CC-KV=V1&HW-CC-Date=20260730T072703Z&HW-CC-Expire=86400&HW-CC-Sign=61DFEB7D272834E1F15C9F0B5A8D21F76592451344E67841514122AB27CEB038)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/Uj8X8m1LSkGlaxNCMcj4Qg/zh-cn_image_0000002648285864.png?HW-CC-KV=V1&HW-CC-Date=20260811T005618Z&HW-CC-Expire=86400&HW-CC-Sign=6BBACB248D1C0A67EA89EDF257EBF0E24BDCD5D055BD0BD9024F28FD51B18FA2)
 
  
 **步骤二：按需加载下载安装扩展功能包。**
@@ -65,10 +65,10 @@ Q：按需加载[接入调试功能](https://developer.huawei.com/consumer/cn/do
  
 A：Device File Browser可访问的文件夹有五种类型：[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)、一般暂存区目录、日志目录、设备公共目录、媒体库目录。
  1. 按下图点击切换Device File Browser沙箱视图。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/BkImVmZ1QCyt2X4JfEnj8g/zh-cn_image_0000002648286216.png?HW-CC-KV=V1&HW-CC-Date=20260730T072703Z&HW-CC-Expire=86400&HW-CC-Sign=8EB05C0EDE1DF86F0BA8FB39909BBE9C31438906EDDD317E303EF7B2CA60D984)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/BkImVmZ1QCyt2X4JfEnj8g/zh-cn_image_0000002648286216.png?HW-CC-KV=V1&HW-CC-Date=20260811T005618Z&HW-CC-Expire=86400&HW-CC-Sign=A69E2A3CD2944C87C96F0A897FA2BD43B4BFD671E145D2C02B67A50D0485B8B0)
 
 2. 在//data/app/el2/base/cache/moduleinstall/下添加对应的动态模块。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/i30uGTa9SiC80OOFgmc9yA/zh-cn_image_0000002648126326.png?HW-CC-KV=V1&HW-CC-Date=20260730T072703Z&HW-CC-Expire=86400&HW-CC-Sign=EABDFB49AB6CFD32790DC303F469E64EC266A588C12E6C097D948A3843879521)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/i30uGTa9SiC80OOFgmc9yA/zh-cn_image_0000002648126326.png?HW-CC-KV=V1&HW-CC-Date=20260811T005618Z&HW-CC-Expire=86400&HW-CC-Sign=FA4C23827E9E795F99707F17BAF52C4D0143BC62C4AB5CAF16436E55035709C8)
 
  
 Q：应用未上架如何测试按需加载功能？

@@ -171,7 +171,7 @@ struct ListItemGroupExample {
   效果如下：长按即可拖拽。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/60djcc3GSnuOGJz_NyqZ3g/zh-cn_image_0000002628605358.png?HW-CC-KV=V1&HW-CC-Date=20260730T072403Z&HW-CC-Expire=86400&HW-CC-Sign=C8621C74021081FB487B39CC56B27C2B068C075458284C8DA94F5F20B7CF426A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/60djcc3GSnuOGJz_NyqZ3g/zh-cn_image_0000002628605358.png?HW-CC-KV=V1&HW-CC-Date=20260811T005819Z&HW-CC-Expire=86400&HW-CC-Sign=F7C13030FBC28308CE9A126E968FF3BD727A116527CFB7D5E122671164B63DDD)
 
  
  

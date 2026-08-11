@@ -13,7 +13,7 @@ RCP进行文件下载时，如何对下载进度实时监听？
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/JTiYw05CRq-LOP658KiVsA/zh-cn_image_0000002658851747.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=DECEB25EEC126C75A71B830BB1C64F87713FA8242DEB44E2D0C5922C403D8C24)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/JTiYw05CRq-LOP658KiVsA/zh-cn_image_0000002658851747.png?HW-CC-KV=V1&HW-CC-Date=20260811T005941Z&HW-CC-Expire=86400&HW-CC-Sign=8971879A078ABC55FBACDD6741575BBC4D1C83F6CA76A989B90B2BFD5F78CBF3)
 
  
  

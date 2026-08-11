@@ -31,34 +31,34 @@ Map Kit地图中，我的位置当前可以通过设置mapCommon.MyLocationDispl
 
 1. 设置我的位置图标自定义样式和移动效果，此方案场景，需设置displayType参数为mapCommon.MyLocationDisplayType.FOLLOW（我的位置图标不跟随或设备方向旋转）。
 ```text
-let style: mapCommon.MyLocationStyle = {
-  anchorU: 0.5,
-  anchorV: 0.5,
-  icon: $r('app.media.startIcon'), <em>// </em><em>此处替换为自定义的我的位置图标</em>
-  displayType: mapCommon.MyLocationDisplayType.FOLLOW
-};
-await this.mapController.setMyLocationStyle(style);
-this.mapController.setMyLocationEnabled(true);
+let <span style="color: rgb(255,255,255);">style</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MyLocationStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">anchorU</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0.5</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(255,255,255);">anchorV</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0.5</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(255,255,255);">icon</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.startIcon'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">此处替换为自定义的我的位置图标</span></em>
+  <span style="color: rgb(255,255,255);">displayType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MyLocationDisplayType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FOLLOW</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mapController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setMyLocationStyle</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">style</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mapController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setMyLocationEnabled</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
 
 2. 通过geoLocationManager.on('locationChange')监听当前设备的位置信息[Location](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager#location)，其中包括设备的移动方向信息（direction）。在监听回调中通过setMyLocation接口设置地图上我的位置图标的位置信息，其中包括显示我的位置图标方向为direction设备移动方向。
 ```text
-let requestInfo: geoLocationManager.LocationRequest = {
-  'priority': geoLocationManager.LocationRequestPriority.FIRST_FIX,
-  'scenario': geoLocationManager.LocationRequestScenario.UNSET,
-  'timeInterval': 1,
-  'distanceInterval': 0,
-  'maxAccuracy': 0
-};
-let locationChange = (location: geoLocationManager.Location): void => {
-  location.accuracy = 0;
-  this.mapController?.setMyLocation(location);
-};
-try {
-  geoLocationManager.on('locationChange', requestInfo, locationChange);
-} catch (err) {
-  console.error("errCode:" + err.code + ", message:" + err.message);
-}
+let <span style="color: rgb(255,255,255);">requestInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">geoLocationManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">LocationRequest </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(132,63,161);">'priority'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">geoLocationManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">LocationRequestPriority</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FIRST_FIX</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(132,63,161);">'scenario'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">geoLocationManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">LocationRequestScenario</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">UNSET</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(132,63,161);">'timeInterval'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(132,63,161);">'distanceInterval'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(132,63,161);">'maxAccuracy'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+let <span style="color: rgb(255,255,255);">locationChange </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">location</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">geoLocationManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Location</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">location</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">accuracy </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mapController</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">setMyLocation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">location</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+try <span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">geoLocationManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'locationChange'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">requestInfo</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">locationChange</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"errCode:" </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">", message:" </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
  
@@ -69,73 +69,73 @@ try {
 完整示例参考如下：
  
 ```text
-import { mapCommon, MapComponent, map } from '@kit.MapKit';
-import { AsyncCallback } from '@kit.BasicServicesKit';
-import { geoLocationManager } from '@kit.LocationKit';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">mapCommon</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">MapComponent</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">map </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.MapKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">AsyncCallback </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">geoLocationManager </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.LocationKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct MyLocationDirection {
-  private mapOptions?: mapCommon.MapOptions;
-  private callback?: AsyncCallback<map.MapComponentController>;
-  private mapController?: map.MapComponentController;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">MyLocationDirection </span><span style="color: rgb(181,106,1);">{</span>
+  private <span style="color: rgb(255,255,255);">mapOptions</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MapOptions</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(255,255,255);">callback</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">AsyncCallback</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">map</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MapComponentController</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(255,255,255);">mapController</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">map</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MapComponentController</span><span style="color: rgb(181,106,1);">;</span>
 
-  aboutToAppear(): void {
-   <em> // 地图初始化参数，设置地图中心点坐标及层级</em>
-    this.mapOptions = {
-      position: {
-        target: {
-          latitude: 39.9,
-          longitude: 116.4
-        },
-        zoom: 10
-      }
-    };
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">地图初始化参数，设置地图中心点坐标及层级</span></em>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mapOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">position</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">target</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">latitude</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">39.9</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(255,255,255);">longitude</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">116.4</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">zoom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10</span>
+      <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(181,106,1);">;</span>
 
-   <em> // 地图初始化的回调</em>
-    this.callback = async (err, mapController) => {
-      if (!err) {
-     <em>   // 获取地图的控制器类，用来操作地图</em>
-        this.mapController = mapController;
-        let style: mapCommon.MyLocationStyle = {
-          anchorU: 0.5,
-          anchorV: 0.5,
-          icon: $r('app.media.startIcon'),<em> </em><em>// </em><em>此处替换为自定义的我的位置图标</em>
-          displayType: mapCommon.MyLocationDisplayType.FOLLOW
-        };
-        await this.mapController.setMyLocationStyle(style);
-        this.mapController.setMyLocationEnabled(true);
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">地图初始化的回调</span></em>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">callback </span><span style="color: rgb(181,106,1);">= </span>async <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">mapController</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取地图的控制器类，用来操作地图</span></em>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mapController </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">mapController</span><span style="color: rgb(181,106,1);">;</span>
+        let <span style="color: rgb(255,255,255);">style</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MyLocationStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">anchorU</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0.5</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(255,255,255);">anchorV</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0.5</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(255,255,255);">icon</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.startIcon'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span></em><em>此处替换为自定义的我的位置图标</em>
+          <span style="color: rgb(255,255,255);">displayType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MyLocationDisplayType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FOLLOW</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+        await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mapController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setMyLocationStyle</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">style</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mapController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setMyLocationEnabled</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-        let requestInfo: geoLocationManager.LocationRequest = {
-          'priority': geoLocationManager.LocationRequestPriority.FIRST_FIX,
-          'scenario': geoLocationManager.LocationRequestScenario.UNSET,
-          'timeInterval': 1,
-          'distanceInterval': 0,
-          'maxAccuracy': 0
-        };
-        let locationChange = (location: geoLocationManager.Location): void => {
-          location.accuracy = 0;
-          this.mapController?.setMyLocation(location);
-        };
-        try {
-          geoLocationManager.on('locationChange', requestInfo, locationChange);
-        } catch (err) {
-          console.error("errCode:" + err.code + ", message:" + err.message);
-        }
-      }
-    };
-  }
+        let <span style="color: rgb(255,255,255);">requestInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">geoLocationManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">LocationRequest </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(132,63,161);">'priority'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">geoLocationManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">LocationRequestPriority</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FIRST_FIX</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(132,63,161);">'scenario'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">geoLocationManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">LocationRequestScenario</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">UNSET</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(132,63,161);">'timeInterval'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(132,63,161);">'distanceInterval'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(132,63,161);">'maxAccuracy'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+        let <span style="color: rgb(255,255,255);">locationChange </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">location</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">geoLocationManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Location</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">location</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">accuracy </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mapController</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">setMyLocation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">location</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+        try <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">geoLocationManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'locationChange'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">requestInfo</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">locationChange</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"errCode:" </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">", message:" </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">      }</span>
+<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Stack() {
-    <em>  // 调用MapComponent组件初始化地图</em>
-      MapComponent({
-        mapOptions: this.mapOptions,
-        mapCallback: this.callback,
-      })
-        .width('100%')
-        .height('100%');
-    }.height('100%')
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">调用</span><span style="color: rgb(128,128,128);">MapComponent</span><span style="color: rgb(128,128,128);">组件初始化地图</span></em>
+      <span style="color: rgb(0,0,255);">MapComponent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">mapOptions</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mapOptions</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">mapCallback</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">callback</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

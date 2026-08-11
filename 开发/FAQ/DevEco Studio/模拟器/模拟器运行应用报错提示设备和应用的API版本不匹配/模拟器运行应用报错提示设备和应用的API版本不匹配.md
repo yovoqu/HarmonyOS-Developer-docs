@@ -9,9 +9,9 @@
 新创建了工程后无法在模拟器上运行，提示Please try to match the API version of the device and the app。模拟器版本是HarmonyOS 5.0.1(13)，DevEco版本5.0.2Release，项目配置信息：
  
 ```text
-"compileSdkVersion": 14,
-"compatibleSdkVersion": 12,
-"runtimeOS": "OpenHarmony",
+<span style="color: rgb(255,0,170);">"compileSdkVersion"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">14</span><span style="color: rgb(181,106,1);">,</span>
+<span style="color: rgb(255,0,170);">"compatibleSdkVersion"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">12</span><span style="color: rgb(181,106,1);">,</span>
+<span style="color: rgb(255,0,170);">"runtimeOS"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">"OpenHarmony"</span><span style="color: rgb(181,106,1);">,</span>
 ```
  
  

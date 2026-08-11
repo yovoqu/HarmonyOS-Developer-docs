@@ -84,7 +84,7 @@ struct BackgroundColor {
  设置效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/tPs4sMsgQlOyomHQpjIyAw/zh-cn_image_0000002628405536.png?HW-CC-KV=V1&HW-CC-Date=20260730T072515Z&HW-CC-Expire=86400&HW-CC-Sign=257F5B15BDE2320C2DC54BC9F2656221E066678548318264B0CFC160F71BE537)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/tPs4sMsgQlOyomHQpjIyAw/zh-cn_image_0000002628405536.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=E9CBAD6A2D7FAE4E7AEEC2CC3C7B807351B8FBADEB81A0A40C9164EDD1F71869)
 
 - **场景二：TabBar设置背景色透明样式。**1. TabBar透明背景：在上述代码的基础上，利用barBackgroundColor设置透明度，并使用[barOverlap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#baroverlap10)设置TabBar背景变模糊并叠加在TabContent之上，展示出透明效果。使用代码如下：
 
@@ -130,7 +130,7 @@ struct TransparentBackgroundColor1 {
  设置效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/XYdjgU4pR7Cl9GJ6sgvLqQ/zh-cn_image_0000002658804809.png?HW-CC-KV=V1&HW-CC-Date=20260730T072515Z&HW-CC-Expire=86400&HW-CC-Sign=FE103D4EDF95A231CB42935D18B6A3069AA1A06E18B524CA6BC8FA1E2C9FBBC8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/XYdjgU4pR7Cl9GJ6sgvLqQ/zh-cn_image_0000002658804809.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=F929F9F78F21F3724BE96F48D654EA4BFD61A5EBF326D7A6AF8C925B510F6CB3)
 
 
 2. TabBar所有内容全透明：可以使用[setTabBarOpacity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#settabbaropacity13)设置TabBar的不透明度，包括背景、图标、文字。为了使透明样式更明显，此处依旧使用barOverlap设置叠加效果。与方案一不同点在于该方式不仅修改了背景的透明度，还修改了TabBar的文字透明度。使用代码如下：
@@ -178,7 +178,7 @@ struct TransparentBackgroundColor2 {
  设置效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/UJtyg6pESdq3L8H0DHfnQA/zh-cn_image_0000002628565444.png?HW-CC-KV=V1&HW-CC-Date=20260730T072515Z&HW-CC-Expire=86400&HW-CC-Sign=F168A230E9C4DF400E1E2DC5022F2A9272979A3A49FC0706F506304A0DCF6AB5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/UJtyg6pESdq3L8H0DHfnQA/zh-cn_image_0000002628565444.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=7022F832F51AC23A1F2CC3B657ACE86A7620457D5C88392DBF7279FC99065FB3)
 
 - **场景三：TabBar设置背景色渐变。**可以通过[linearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-gradient-color#lineargradient)方法实现Tabs组件整体的背景色渐变，当然，因为是对整个Tabs组件做了背景渐变色，导致该方式的弊端是只有在固定的角度才能呈现出渐变效果。所以推荐利用Stack堆叠容器，其子组件按照顺序依次入栈，后一个子组件覆盖前一个子组件的特性，叠加Column或其他容器组件于TabBar下方，对其他容器组件进行渐变背景色的设置。
 
@@ -234,7 +234,7 @@ struct GradientBackgroundColor2 {
  设置效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/ahQSbCwtR4OqqK198no66g/zh-cn_image_0000002658924751.png?HW-CC-KV=V1&HW-CC-Date=20260730T072515Z&HW-CC-Expire=86400&HW-CC-Sign=038B60D5B9993FE0F64C3BD3F691BAE1E33B2BCA399B2F5DC1EA239C51D54873)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/ahQSbCwtR4OqqK198no66g/zh-cn_image_0000002658924751.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=30CE1927E4AD0F7D0FF69C0D5144B78183ACF8AC781E3BAEECC50B75DC5436AE)
 
 - **场景四：TabBar设置背景图片。**设置背景图效果与上文中提到的设置渐变背景色原理相同，需要利用Stack组件，在TabBar下方设置Image组件，达到设置背景图效果。
 
@@ -317,7 +317,7 @@ struct BackgroundImage1 {
  设置效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/NaiP9WEVS6awyKK0LKGF5A/zh-cn_image_0000002628405544.png?HW-CC-KV=V1&HW-CC-Date=20260730T072515Z&HW-CC-Expire=86400&HW-CC-Sign=7A9028AEC83DA5430FE8B65929E015348F680960A238031006513065BC940A79)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/NaiP9WEVS6awyKK0LKGF5A/zh-cn_image_0000002628405544.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=2A060D912FBFBE7C98E8152AF541E821C846EC9FD48E7A0FCE58424EB474E1F7)
 
 
  

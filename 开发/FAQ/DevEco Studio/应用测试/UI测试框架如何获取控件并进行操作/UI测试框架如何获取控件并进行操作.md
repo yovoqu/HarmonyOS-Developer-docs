@@ -135,7 +135,7 @@ A：控件树中类型为空串的结点代表当前的屏幕信息，类型为r
 Q：UiTest中Component提供控件属性获取，但是只能获取id、文本信息、类型等少数属性，无法获取对齐方式AlignType、输入类型InputType等更多属性，如何获取这些属性？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/uot6P5jTQa6hNgeJd43NQg/zh-cn_image_0000002658808909.png?HW-CC-KV=V1&HW-CC-Date=20260730T072723Z&HW-CC-Expire=86400&HW-CC-Sign=28FB7B77065EB142E814275004F5897FCF2B407C9B41C4ACAB26B2290B7420E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/uot6P5jTQa6hNgeJd43NQg/zh-cn_image_0000002658808909.png?HW-CC-KV=V1&HW-CC-Date=20260811T005517Z&HW-CC-Expire=86400&HW-CC-Sign=BF737CC0934300997BFE09ED8023090EE0E7742DC034877FA7AAF2700075C31E)
 
  
 A：使用[getInspectorInfo](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/reference/apis-arkui/js-apis-arkui-frameNode.md#getinspectorinfo12)获取节点的结构信息，获取的信息和DevEco Studio内置ArkUI Inspector工具里面的一致（getInspectorInfo接口用于获取所有节点的信息，作为调试接口使用，频繁调用会导致性能下降）。

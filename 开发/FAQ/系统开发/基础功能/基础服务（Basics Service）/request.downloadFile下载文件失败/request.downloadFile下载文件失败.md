@@ -59,7 +59,7 @@ request.downloadFile(context, { url: this.url, filePath: tempDir }).then((downlo
 
 3. [request.agent.create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestagentcreate10)接口涵盖了uploadFile、downloadFile所有支持的能力，其支持断点续传、重定向（redirect）、代理（proxy）、覆盖已存在的文件（overwrite）等。
 - 在普通应用（也称三方应用）视角下，不仅可见的目录与文件数量限制了范围，并且可见的目录与文件路径也与系统进程等其他进程看到的不同。我们将普通应用视角下看到的“[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory#应用沙箱目录与应用沙箱路径)”下某个文件或某个具体目录的路径，称为“[应用沙箱路径](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory#应用沙箱目录与应用沙箱路径)”。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/JcEZb6wRQ-GCas-fWu3PFw/zh-cn_image_0000002628773308.png?HW-CC-KV=V1&HW-CC-Date=20260730T072600Z&HW-CC-Expire=86400&HW-CC-Sign=8542D1EBF2E18D472E3472C1B10479BD1661406C278821D946769B7976F2D53A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/JcEZb6wRQ-GCas-fWu3PFw/zh-cn_image_0000002628773308.png?HW-CC-KV=V1&HW-CC-Date=20260811T005917Z&HW-CC-Expire=86400&HW-CC-Sign=8536DC5BB270D95FE30ED763019BC05E0643CD915F0058B40AF6BF4CB58BD49B)
 
 
  
@@ -70,7 +70,7 @@ request.downloadFile(context, { url: this.url, filePath: tempDir }).then((downlo
 - 问题一：[13400001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-request#section13400001-文件操作异常)操作文件异常。
 场景一：filePath参数必须指向已存在的文件夹或具体文件路径，若文件夹不存在，接口不会自动创建。可以通过[fs.mkdir](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsmkdir)接口在沙箱路径下创建新文件，使用[fs.access](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioaccess)接口判断文件、目录存在后再执行下载任务。
 - 场景二：request接口中的filePath参数配置只支持沙箱路径，不支持用户uri地址。将用户uri地址修改为通过filesDir、cacheDir获取应用的文件路径即可，下载完成后IDE中查看下载文件位置：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/iADemKmGQ5y6lfpKZOe4TA/zh-cn_image_0000002658972625.png?HW-CC-KV=V1&HW-CC-Date=20260730T072600Z&HW-CC-Expire=86400&HW-CC-Sign=1B2384612FFC690F205040E416A0955CAB3821CA9CE0350EE6518777AF7199B9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/iADemKmGQ5y6lfpKZOe4TA/zh-cn_image_0000002658972625.png?HW-CC-KV=V1&HW-CC-Date=20260811T005917Z&HW-CC-Expire=86400&HW-CC-Sign=C0570AD6F2DD45ADA878D8C6034B15FE1BD274A928C41FE30A76C1261AF8966D)
 
 - 场景三：系统默认以url里最后一个'/'后面的字符串作为文件名，当文件名过长（最大支持255字节）时会导致报错，可通过配置filePath自定义文件名解决。
 

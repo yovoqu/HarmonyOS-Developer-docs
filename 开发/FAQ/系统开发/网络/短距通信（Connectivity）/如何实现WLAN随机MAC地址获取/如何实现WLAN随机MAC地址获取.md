@@ -51,7 +51,7 @@ struct Index {
 成功获取到WLAN随机MAC，输出结果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/wReieo7eT1KKn0rgroWDhA/zh-cn_image_0000002628772524.png?HW-CC-KV=V1&HW-CC-Date=20260730T072557Z&HW-CC-Expire=86400&HW-CC-Sign=657768BD90467F2BBC50608A95859B3134E2267276C25A681E7003233E699111)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/wReieo7eT1KKn0rgroWDhA/zh-cn_image_0000002628772524.png?HW-CC-KV=V1&HW-CC-Date=20260811T005932Z&HW-CC-Expire=86400&HW-CC-Sign=9B6E8BF36997C48EA6164071B7BB1A36297BD55FA1CA0FEB31FF67B7F270FF4D)
 
  
  

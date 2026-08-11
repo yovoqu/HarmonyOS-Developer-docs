@@ -11,13 +11,13 @@
 通过Text组件定义一个名为“这是一个全屏按钮”的视频控制器。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/VGnl-t3yRGGJ_vzde1_u5A/zh-cn_image_0000002658791779.png?HW-CC-KV=V1&HW-CC-Date=20260730T072320Z&HW-CC-Expire=86400&HW-CC-Sign=9CDA5301A5E441D67A05A58721A0D563C4AA063A513B9A1CCFAE4348D9A218C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/VGnl-t3yRGGJ_vzde1_u5A/zh-cn_image_0000002658791779.png?HW-CC-KV=V1&HW-CC-Date=20260811T005818Z&HW-CC-Expire=86400&HW-CC-Sign=DB12CF467FEE18B5C25654B884B8E3EFEE6DB730606251C644E11284177FDBF3)
 
  
 点击“这是一个全屏按钮”视频控制器，将视频进行横屏全屏播放。横屏后“这是一个全屏按钮”控制器会消失。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/4H0xXu5USaScbB3wjgu7Jg/zh-cn_image_0000002628552402.png?HW-CC-KV=V1&HW-CC-Date=20260730T072320Z&HW-CC-Expire=86400&HW-CC-Sign=C37F672937953CE8383536AD670465CC1064893B893DC09045BAE1E7960626FD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/4H0xXu5USaScbB3wjgu7Jg/zh-cn_image_0000002628552402.png?HW-CC-KV=V1&HW-CC-Date=20260811T005818Z&HW-CC-Expire=86400&HW-CC-Sign=A57B3B185C4782307DA44112B68915AEEE0ED4A80C61CE49BEE4046640649C1B)
 
  
 问题代码示例参考如下：
@@ -90,13 +90,13 @@ struct Index {
 修改完成后，竖屏播放效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/N0-M6xvcTrabmzgjB3M9dA/zh-cn_image_0000002628392512.png?HW-CC-KV=V1&HW-CC-Date=20260730T072320Z&HW-CC-Expire=86400&HW-CC-Sign=AC2A52212D02BFFBD9F01F7D0D2543080CCC30482599DE03FBB4EB6DBA25B735)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/N0-M6xvcTrabmzgjB3M9dA/zh-cn_image_0000002628392512.png?HW-CC-KV=V1&HW-CC-Date=20260811T005818Z&HW-CC-Expire=86400&HW-CC-Sign=88BFD50B4CD3FCB11C7AF6C56FBC88E6CD61FDDAD7CB824F8DFF8D3827E1AAE6)
 
  
 点击“全屏”按钮进入横屏播放效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/56_qIb1xTFOETlPMxCWgCQ/zh-cn_image_0000002658911729.png?HW-CC-KV=V1&HW-CC-Date=20260730T072320Z&HW-CC-Expire=86400&HW-CC-Sign=C09257A4320E1F11A7ED18190712F39C3E57BDCFB9BA28045730A3CE5E291C9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/56_qIb1xTFOETlPMxCWgCQ/zh-cn_image_0000002658911729.png?HW-CC-KV=V1&HW-CC-Date=20260811T005818Z&HW-CC-Expire=86400&HW-CC-Sign=42896C68CCECCF77D6AE186FF9B2833032D96BD03691420937DF01DBA4806854)
 
  
 视频横屏后，控制器依旧存在。

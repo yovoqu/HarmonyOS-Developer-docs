@@ -18,7 +18,7 @@ HarmonyOS Next应用上架应用市场后，用户在应用市场的评论数据
 
 #### 解决方案
 1. 操作路径：登录[应用推广引擎](https://developer.huawei.com/consumer/cn/service/apcs/aggrowth/chassis/resources/interactiveTools)，选择“用户经营-用户互动”，即可进入“评论评分”页面。默认展示“用户评论”数据。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/Tf6S4Cx8ROWZ4Mmk5fHMzw/zh-cn_image_0000002628394704.png?HW-CC-KV=V1&HW-CC-Date=20260730T072704Z&HW-CC-Expire=86400&HW-CC-Sign=79F7FEEBA3EB9A92D243C78BDC6645D7EDE9BAC3E27923C6D28836F9F359447D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/Tf6S4Cx8ROWZ4Mmk5fHMzw/zh-cn_image_0000002628394704.png?HW-CC-KV=V1&HW-CC-Date=20260811T005620Z&HW-CC-Expire=86400&HW-CC-Sign=94D720D0F305C376BB8766F0BD6272BBD2F9AF63BE9508F94BC45C836896183F)
 
 2. 除了查看评论数据，还可以进行评论数据的导出、回复等操作。具体参见[评论与评分](https://developer.huawei.com/consumer/cn/doc/app/comment-management-0000002246992933)。
  

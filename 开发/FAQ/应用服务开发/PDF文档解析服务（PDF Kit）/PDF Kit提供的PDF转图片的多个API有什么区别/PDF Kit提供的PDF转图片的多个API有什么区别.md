@@ -13,7 +13,7 @@ PDF Kit中的pdfService和pdfViewManager都提供了PDF转图片的API，它们�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/noHt5g-uRc-k4ksCWwL3qg/zh-cn_image_0000002628554246.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072638Z&HW-CC-Expire=86400&HW-CC-Sign=2917EB890B472DB7C702A15EFF4DA87C6EB5CE3E5F0AE6051BEB4056C80ABC64)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/noHt5g-uRc-k4ksCWwL3qg/zh-cn_image_0000002628554246.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005600Z&HW-CC-Expire=86400&HW-CC-Sign=47C607263C24C915AF7A98294D58DB6773EA0FBF45F655BE1161F4CF6D6AB4FC)
 
  
  
@@ -277,10 +277,10 @@ struct Index {
 效果预览图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/yvxLuU3EQoi4jPRZRK3UlQ/zh-cn_image_0000002658913563.png?HW-CC-KV=V1&HW-CC-Date=20260730T072638Z&HW-CC-Expire=86400&HW-CC-Sign=956AC4B945A2FDD8A4DE4C621D37D137913C7BA2BD7435FB1006A14F289025E2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/yvxLuU3EQoi4jPRZRK3UlQ/zh-cn_image_0000002658913563.png?HW-CC-KV=V1&HW-CC-Date=20260811T005600Z&HW-CC-Expire=86400&HW-CC-Sign=AC67A614CC5FAFDC3FDE86C2FF6F608F6B8DF335BCB3D1122854E05F351F3724)
 
  
 参考Device File Browser[操作步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-device-file-explorer#section165192211111)查看生成的图片：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/Nujw_TUsS1G-hAHbdrEJHQ/zh-cn_image_0000002628394350.png?HW-CC-KV=V1&HW-CC-Date=20260730T072638Z&HW-CC-Expire=86400&HW-CC-Sign=99A57C6505C767D0713B9A562ED88D140AE7845A7340703074AB6500511F042B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/Nujw_TUsS1G-hAHbdrEJHQ/zh-cn_image_0000002628394350.png?HW-CC-KV=V1&HW-CC-Date=20260811T005600Z&HW-CC-Expire=86400&HW-CC-Sign=701A45A56580F0E50057D50AB4CDF2DA551980D6D42BA83136860B1C1515596F)

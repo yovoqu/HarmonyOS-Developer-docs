@@ -231,4 +231,4 @@ struct SwiperArcPage {
 运行效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/TOOSinGlTeWi2vu_pB1Xtg/zh-cn_image_0000002658917859.png?HW-CC-KV=V1&HW-CC-Date=20260730T072331Z&HW-CC-Expire=86400&HW-CC-Sign=12117C17F1E6A326654018EA2C5B703F9AD30A43AD8A764C47DF2ACD190C8608)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/TOOSinGlTeWi2vu_pB1Xtg/zh-cn_image_0000002658917859.png?HW-CC-KV=V1&HW-CC-Date=20260811T005751Z&HW-CC-Expire=86400&HW-CC-Sign=53D25513A9996B7DC76C0D2486C44A0D31E585D24657B08863DE00798F3C6B01)

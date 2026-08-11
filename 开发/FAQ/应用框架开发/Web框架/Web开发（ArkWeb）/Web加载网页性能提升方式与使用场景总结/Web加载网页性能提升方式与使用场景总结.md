@@ -23,7 +23,7 @@ Web组件加载网页时，如何定位加载性能瓶颈，以及优化网页�
 想要提升Web组件加载网页性能，提升网页加载速度，首先需要了解Web组件加载网页流程：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/rrocmqUGTcCviEOTLPNG0A/zh-cn_image_0000002659258397.png?HW-CC-KV=V1&HW-CC-Date=20260730T072537Z&HW-CC-Expire=86400&HW-CC-Sign=8C2D8DF0FE5431A2970BEB35D1D158840F0866B3399D62F759E724AB89DFA42B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/rrocmqUGTcCviEOTLPNG0A/zh-cn_image_0000002659258397.png?HW-CC-KV=V1&HW-CC-Date=20260811T005836Z&HW-CC-Expire=86400&HW-CC-Sign=F170F088669B68C4B8D5BD169456A55DF466DE9F6B9B61DD1512C56DDF0B49D2)
 
  
 加载网页时，容易出现耗时的点有：
@@ -39,10 +39,10 @@ Web组件加载网页时，如何定位加载性能瓶颈，以及优化网页�
  
 可参考使用DevTools分析耗时区域DevTools->Performance工具进行耗时分析。
  1. 使用DevTools -> Performance选项卡中Record and reload录制Trace。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/ldhvdMVhTkCZEd0msH3w8w/zh-cn_image_0000002659138439.png?HW-CC-KV=V1&HW-CC-Date=20260730T072537Z&HW-CC-Expire=86400&HW-CC-Sign=F97B99B518F10F2A60FC1603A940891D1E09136B19A1DE914E3D29949955FAC9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/ldhvdMVhTkCZEd0msH3w8w/zh-cn_image_0000002659138439.png?HW-CC-KV=V1&HW-CC-Date=20260811T005836Z&HW-CC-Expire=86400&HW-CC-Sign=A45585130DC129454B2FFF705A4FF0F50F11CC128FE273A9262965C93467A477)
 
 2. 录制Trace后，Performance提供了多个泳道进行性能分析数据，常用泳道如下图所示。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/L7oOhb8gQGedEhwC-ZVoMA/zh-cn_image_0000002629059096.png?HW-CC-KV=V1&HW-CC-Date=20260730T072537Z&HW-CC-Expire=86400&HW-CC-Sign=62ED8FCB76F4C1AD6F318BD53FA20ECFAA1A2740CB7E44AB3B8E77BCDC022B5C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/L7oOhb8gQGedEhwC-ZVoMA/zh-cn_image_0000002629059096.png?HW-CC-KV=V1&HW-CC-Date=20260811T005836Z&HW-CC-Expire=86400&HW-CC-Sign=57B7D8DFDFF8DFF6877BF8FFD38965AD690F95D3C5C49B5D4ECB00C8F94CDCA8)
 
 
   
@@ -51,10 +51,10 @@ Main（主要）泳道：显示主线程上的任务活动情况，包括脚本�
 4. Frame（帧）泳道：显示每一帧的渲染情况，包括帧率与渲染时间，可以检测到页面中的卡顿和掉帧现象。
 5. Animation（动画）泳道：显示动画的执行情况。
 6. 关注Network泳道中带“红色三角标”阻塞请求、串行请求、耗时较长的请求等，可在该泳道中分析资源加载耗时情况。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/QEPQ4x09QgW38xChXHBR7g/zh-cn_image_0000002628899172.png?HW-CC-KV=V1&HW-CC-Date=20260730T072537Z&HW-CC-Expire=86400&HW-CC-Sign=0F6A57836D7AF86B831949C1D9C7CEAD63DE1F2AA2E39AC9C1D3EE462DD5C2AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/QEPQ4x09QgW38xChXHBR7g/zh-cn_image_0000002628899172.png?HW-CC-KV=V1&HW-CC-Date=20260811T005836Z&HW-CC-Expire=86400&HW-CC-Sign=D534F7ECAFFEFBAFFF6BB456679DF58B21D8ED3CC06BB786722070AFB0575A1B)
 
 7. 关注Main泳道带“红色三角标”长任务，长任务会阻塞UI渲染，导致页面白屏或显示未渲染完成的内容。同时关注火焰图顶层宽度越大该活动越可能存在性能问题。可在该泳道分析JS编译与执行、DOM解析等耗时情况。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/x8d0xWztQDqbN2cgEAqZ-Q/zh-cn_image_0000002659258399.png?HW-CC-KV=V1&HW-CC-Date=20260730T072537Z&HW-CC-Expire=86400&HW-CC-Sign=7137A6E153CE045D7DDFA32621DBE119BA920BC5669048E8B2FEF3BAA6001892)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/x8d0xWztQDqbN2cgEAqZ-Q/zh-cn_image_0000002659258399.png?HW-CC-KV=V1&HW-CC-Date=20260811T005836Z&HW-CC-Expire=86400&HW-CC-Sign=42832D87B2A67787AE4B6EB7C7D93DFDE5BC0490F24FBCFB56FE16454DDB107A)
 
  
 加载性能优化：
@@ -128,13 +128,13 @@ Q：开发地图应用，加载地图瓦片渲染，需要几十秒才能正常�
 A：通过Performance抓取Trace进行分析：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/iU1S1nKSSFOW3wNO0Ep97w/zh-cn_image_0000002659138441.png?HW-CC-KV=V1&HW-CC-Date=20260730T072537Z&HW-CC-Expire=86400&HW-CC-Sign=8C17652E7C609A5029058DDBC1E91B39C84569EE10B176E21A1B42B51E19412A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/iU1S1nKSSFOW3wNO0Ep97w/zh-cn_image_0000002659138441.png?HW-CC-KV=V1&HW-CC-Date=20260811T005836Z&HW-CC-Expire=86400&HW-CC-Sign=16423F1089CCB9038CB8B81CF535B785E685BC84C7A85182A430E48AE21A0837)
 
  
 跳转Network界面查看请求：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/5ujxmJe4TrKFN4o0o64vZA/zh-cn_image_0000002629059098.png?HW-CC-KV=V1&HW-CC-Date=20260730T072537Z&HW-CC-Expire=86400&HW-CC-Sign=A3C25900A3FA01692FC931DD5CF69EFBA00AD03640A15F36B58749D87378BC1D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/5ujxmJe4TrKFN4o0o64vZA/zh-cn_image_0000002629059098.png?HW-CC-KV=V1&HW-CC-Date=20260811T005836Z&HW-CC-Expire=86400&HW-CC-Sign=3F1A211F2DAB351532516FE9A5DB6EB38F0248CEE3B4A02E04D2AA5400D69D0E)
 
  
 从上面Trace分析，网络请求中存在串行阻塞请求，且请求不通，耗时30s，最终报502异常结束请求。请求阻塞期间，影响页面渲染，导致不能正常显示。将此异常请求修复正常后地图正常加载。

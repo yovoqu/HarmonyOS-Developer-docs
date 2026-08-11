@@ -13,7 +13,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/pRp7Q8H9TQ2L0X5ujK85pg/zh-cn_image_0000002628753942.png?HW-CC-KV=V1&HW-CC-Date=20260730T072347Z&HW-CC-Expire=86400&HW-CC-Sign=26BB19CDA284BD0B92AB0CF22BA93E656D72648C42BE8CACF8C1A0311B402277)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/pRp7Q8H9TQ2L0X5ujK85pg/zh-cn_image_0000002628753942.png?HW-CC-KV=V1&HW-CC-Date=20260811T005821Z&HW-CC-Expire=86400&HW-CC-Sign=C3D4E0D20DD5FF9E36C215524FF22C939E4A83BA8426AD659B52FD246130374F)
 
  
  
@@ -31,83 +31,83 @@
 给组件（如Toggle）绑定自定义拦截事件，在该拦截事件中执行弹窗逻辑，并在弹窗确认和取消事件中变更组件（如Toggle）状态。
  
 ```text
-@Entry
-@Component
-struct CustomDialogUser1 {
-  @State isToggleOn: boolean = false;
- <em> // 创建自定义弹窗控制器对象</em>
-  dialogController: CustomDialogController = new CustomDialogController({
-    builder: CustomDialogExample1({
-      confirm: () => {
-        this.onAccept();
-      },
-      reject: () => {
-        this.reject();
-      }
-    })
-  });
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">CustomDialogUser1 </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">isToggleOn</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建自定义弹窗控制器对象</span></em>
+  <span style="color: rgb(255,255,255);">dialogController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">CustomDialogController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CustomDialogController</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">builder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CustomDialogExample1</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">confirm</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAccept</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">reject</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">reject</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-  onAccept() {
-   <em> // 弹窗中点击确定执行的操作</em>
-    this.isToggleOn = !this.isToggleOn;
-  }
+  <span style="color: rgb(0,0,255);">onAccept</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">弹窗中点击确定执行的操作</span></em>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isToggleOn </span><span style="color: rgb(181,106,1);">= !</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isToggleOn</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  reject() {
-   <em> // 弹窗中点击取消执行的操作</em>
-  }
+  <span style="color: rgb(0,0,255);">reject</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">弹窗中点击取消执行的操作</span></em>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Column() {
-      Toggle({ type: ToggleType.Switch, isOn: this.isToggleOn })
-   <em>   // 调用onTouchIntercept修改该组件的HitTestMode属性</em>
-        .onTouchIntercept(() => {
-          this.dialogController.open();
-          return HitTestMode.None;
-        })
-        .onChange((isOn: boolean) => {
-          console.info(`isOn:${isOn}`);
-          if (isOn) {
-        <em>    // 需要执行的操作</em>
-          }
-        })
-        .margin({ top: 16 })
-    }
-    .height('100%')
-    .width('100%')
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Toggle</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ToggleType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Switch</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isOn</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isToggleOn </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">调用</span><span style="color: rgb(128,128,128);">onTouchIntercept</span><span style="color: rgb(128,128,128);">修改该组件的</span><span style="color: rgb(128,128,128);">HitTestMode</span><span style="color: rgb(128,128,128);">属性</span></em>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onTouchIntercept</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dialogController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">open</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+          return <span style="color: rgb(255,255,255);">HitTestMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">None</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">isOn</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`isOn:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">isOn</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isOn</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">需要执行的操作</span></em>
+          <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-<em>// </em><em>自定义弹窗</em>
-@CustomDialog
-struct CustomDialogExample1 {
-  controller?: CustomDialogController;
-  confirm?: () => void;
-  reject?: () => void;
+<em>// </em><em><span style="color: rgb(128,128,128);">自定义弹窗</span></em>
+<span style="color: rgb(181,106,1);">@CustomDialog</span>
+struct <span style="color: rgb(0,0,255);">CustomDialogExample1 </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">CustomDialogController</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">confirm</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">void</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">reject</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">void</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column({ space: 32 }) {
-      Text('确认执行此操作？').fontSize(24)
-      Row() {
-        Button('取消')
-          .onClick(() => {
-            this.controller?.close();
-            if (this.reject) {
-              this.reject();
-            }
-          })
-        Button('确认')
-          .onClick(() => {
-            this.controller?.close();
-            if (this.confirm) {
-              this.confirm();
-            }
-          })
-      }
-      .padding({ left: 32, right: 32 })
-      .width('100%')
-      .justifyContent(FlexAlign.SpaceEvenly)
-    }
-    .padding({ top: 32, bottom: 32 })
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">32 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">确认执行此操作？</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">24</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">取消</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+            if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">reject</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">reject</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">确认</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+            if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">confirm</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">confirm</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">32</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">32 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SpaceEvenly</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">32</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">32 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

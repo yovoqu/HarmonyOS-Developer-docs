@@ -9,7 +9,7 @@
 某些场景下的图片，如PC自由多窗模式下，左侧导航页签图标可以拖动，与使用习惯不符合。异常效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/mtp43iQtREuhcnJWGvs_vQ/zh-cn_image_0000002658965761.png?HW-CC-KV=V1&HW-CC-Date=20260730T072406Z&HW-CC-Expire=86400&HW-CC-Sign=3A05822CD23CA6D9D96B535997C764B2ABC4FD1D6D8C21C50B3A965326FD0F38)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/mtp43iQtREuhcnJWGvs_vQ/zh-cn_image_0000002658965761.png?HW-CC-KV=V1&HW-CC-Date=20260811T005742Z&HW-CC-Expire=86400&HW-CC-Sign=F758B37131211E51F963109E9BCAB2B6F2F7232B70E00963DA236F4A255D8795)
 
  
  
@@ -26,7 +26,7 @@
 
 #### 问题定位
 1. 使用DevEco Testing-实用工具-UIViewer查看页面布局，发现菜单栏Tabs组件下使用了Image组件。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/ELLWFYk_Ruiup1aXsweyjw/zh-cn_image_0000002628606550.png?HW-CC-KV=V1&HW-CC-Date=20260730T072406Z&HW-CC-Expire=86400&HW-CC-Sign=0CFBCF9A2F4B8E4039405D914A30B469DB270D61E232B36EA69EAD071EC37B27)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/ELLWFYk_Ruiup1aXsweyjw/zh-cn_image_0000002628606550.png?HW-CC-KV=V1&HW-CC-Date=20260811T005742Z&HW-CC-Expire=86400&HW-CC-Sign=CCB55ADB92E7CF8BB36B8C960339B833CE0DB5E084C5CCBDA36622D9C22A253C)
 
 2. 排查代码Image组件中draggable属性值是否为可拖拽状态。Image的draggable设置为true或者未设置，图片都是可拖动。示例代码如下：
 ```text
@@ -123,4 +123,4 @@ struct TabImageExample {
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/X_OiIAcrTseMaQNGFg_NxQ/zh-cn_image_0000002658845799.png?HW-CC-KV=V1&HW-CC-Date=20260730T072406Z&HW-CC-Expire=86400&HW-CC-Sign=0EBE6C7DB269F6786390D04B96045F6D43A7D38E4F2B55D9FE092839A639B52A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/X_OiIAcrTseMaQNGFg_NxQ/zh-cn_image_0000002658845799.png?HW-CC-KV=V1&HW-CC-Date=20260811T005742Z&HW-CC-Expire=86400&HW-CC-Sign=5C149C70A9FD38C68B5800CEF5EC9B327EB2AF9BF4F24EF0F04E923550FE0F04)

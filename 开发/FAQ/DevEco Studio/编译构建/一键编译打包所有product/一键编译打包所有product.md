@@ -23,18 +23,18 @@
 通过hvigorw命令实现一键编译打包所有product。对应的命令行如下（这里的default、default1、default2替换为对应的product，如有更多product，可按相同格式追加命令）：
  
 ```text
-hvigorw -p product=default -p buildMode=release assembleApp; hvigorw -p product=default1 -p buildMode=release assembleApp; hvigorw -p product=default2 -p buildMode=release assembleApp;
+<span style="color: rgb(0,0,255);">hvigorw </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">p product</span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(0,0,255);">default </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">p buildMode</span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(0,0,255);">release assembleApp</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">hvigorw </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">p product</span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(0,0,255);">default1 </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">p buildMode</span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(0,0,255);">release assembleApp</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">hvigorw </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">p product</span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(0,0,255);">default2 </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">p buildMode</span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(0,0,255);">release assembleApp</span><span style="color: rgb(181,106,1);">;</span>
 ```
  
 DevEco Studio配置的详细步骤如下：
  1. 编辑配置。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/XTD2U-AmQMSWazui9V4-Tw/zh-cn_image_0000002658928501.png?HW-CC-KV=V1&HW-CC-Date=20260730T072714Z&HW-CC-Expire=86400&HW-CC-Sign=7378CC2DF96DF463B8CAF0CEF5A4DC1B583987D61C75449B789E639FA1DFFEE2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/XTD2U-AmQMSWazui9V4-Tw/zh-cn_image_0000002658928501.png?HW-CC-KV=V1&HW-CC-Date=20260811T005526Z&HW-CC-Expire=86400&HW-CC-Sign=B8E0A8FBC119F68EB8FAD5976DBFB5C91696B8D3F096F7532DE726F8B760B505)
 
 2. 点击加号创建Shell Script。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/cRUx22M9RM-F44feRQ918w/zh-cn_image_0000002628409282.png?HW-CC-KV=V1&HW-CC-Date=20260730T072714Z&HW-CC-Expire=86400&HW-CC-Sign=A666F21AAD618B3404E87A4EF032700B17EB518E61E7DF126984F35723C50C7C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/cRUx22M9RM-F44feRQ918w/zh-cn_image_0000002628409282.png?HW-CC-KV=V1&HW-CC-Date=20260811T005526Z&HW-CC-Expire=86400&HW-CC-Sign=4D47D103E288CB631EAD7EA654972FD342BDDEC8A3A9528405D990ACC3C5300A)
 
 3. 选择Script text，将命令写入，多个命令用分号隔开。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/_KEspRFpSZCJpw8TwHOenw/zh-cn_image_0000002658808553.png?HW-CC-KV=V1&HW-CC-Date=20260730T072714Z&HW-CC-Expire=86400&HW-CC-Sign=1022EABC9833958F857ADABF4F54A90DF8653609310114C8B59076E12D91475A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/_KEspRFpSZCJpw8TwHOenw/zh-cn_image_0000002658808553.png?HW-CC-KV=V1&HW-CC-Date=20260811T005526Z&HW-CC-Expire=86400&HW-CC-Sign=DEC73DD0D37707D276BD57200EEA9005E4764A0E149E24F898ED51EE98BE3BC5)
 
 4. 切换创建的脚本，执行。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/gZQ8thPHSGSdkIaXMky7VQ/zh-cn_image_0000002628569178.png?HW-CC-KV=V1&HW-CC-Date=20260730T072714Z&HW-CC-Expire=86400&HW-CC-Sign=592C3DFEAE6DFB10F84E2429603157D54AD82CFE1C261A46C6A454728E1F8284)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/gZQ8thPHSGSdkIaXMky7VQ/zh-cn_image_0000002628569178.png?HW-CC-KV=V1&HW-CC-Date=20260811T005526Z&HW-CC-Expire=86400&HW-CC-Sign=F43225939D7CEA779F6F619936B9F8A18BB1C670BFADA002977E8E5F22F6C77E)

@@ -58,7 +58,7 @@ struct WebComponent {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/QP0KeAiYQm-qDYh48CTDBQ/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T072535Z&HW-CC-Expire=86400&HW-CC-Sign=5D8D1F9221CDD4DBDC9904780746D4CE7F379175F8AEAB1F9A3EB487291232B4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/QP0KeAiYQm-qDYh48CTDBQ/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260811T005834Z&HW-CC-Expire=86400&HW-CC-Sign=879B1BE8B64DF18D1911F88EBC1176274168E65B929C6CFBF92647B31A0895C7)
  
 
 访问在线网页时需添加网络权限：ohos.permission.INTERNET，具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions#在配置文件中声明权限)。

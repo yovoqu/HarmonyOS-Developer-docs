@@ -164,7 +164,7 @@ struct TopicSelectionPage {
   运行效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/oAtfDKWlTBeVnwBQBZG6IA/zh-cn_image_0000002630967766.png?HW-CC-KV=V1&HW-CC-Date=20260730T072356Z&HW-CC-Expire=86400&HW-CC-Sign=CD4416AC82A7FAD54209673DF363631E0634E9D0FF3001696A3101BF40D2F7ED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/oAtfDKWlTBeVnwBQBZG6IA/zh-cn_image_0000002630967766.png?HW-CC-KV=V1&HW-CC-Date=20260811T005814Z&HW-CC-Expire=86400&HW-CC-Sign=717CCA457EF342C2B36A258F934E6F5CAB6BEABC32CA1CB541B0D91BAA0137BB)
 
  
  

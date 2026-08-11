@@ -25,134 +25,134 @@ AudioRenderer可通过[on('writeData')](https://developer.huawei.com/consumer/cn
 
  
 ```text
-import { audio } from '@kit.AudioKit';
-import { common } from '@kit.AbilityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">audio </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.AudioKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">common </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BusinessError </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-let audioRenderer: audio.AudioRenderer;
-let audioStreamInfo: audio.AudioStreamInfo = {
-  samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_8000, <em>// 采样率。</em>
-  channels: audio.AudioChannel.CHANNEL_1,<em> </em><em>// 通道。</em>
-  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE,<em> </em><em>// 采样格式。</em>
-  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW <em>// </em><em>编码格式。</em>
-};
-let audioRendererInfo: audio.AudioRendererInfo = {
-  usage: audio.StreamUsage.STREAM_USAGE_MUSIC, <em>// 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。</em>
-  rendererFlags: 0 <em>// 音频渲染器标志。</em>
-};
-let audioRendererOptions: audio.AudioRendererOptions = {
-  streamInfo: audioStreamInfo,
-  rendererInfo: audioRendererInfo
-};
+let <span style="color: rgb(255,255,255);">audioRenderer</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRenderer</span><span style="color: rgb(181,106,1);">;</span>
+let <span style="color: rgb(255,255,255);">audioStreamInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioStreamInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">samplingRate</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioSamplingRate</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SAMPLE_RATE_8000</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">采样率。</span></em>
+  <span style="color: rgb(255,255,255);">channels</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioChannel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CHANNEL_1</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通道。</span></em>
+  <span style="color: rgb(255,255,255);">sampleFormat</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioSampleFormat</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SAMPLE_FORMAT_S16LE</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">采样格式。</span></em>
+  <span style="color: rgb(255,255,255);">encodingType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioEncodingType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ENCODING_TYPE_RAW </span><em>// </em><em><span style="color: rgb(128,128,128);">编码格式。</span></em>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+let <span style="color: rgb(255,255,255);">audioRendererInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRendererInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">usage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">StreamUsage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">STREAM_USAGE_MUSIC</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">音频流使用类型：音乐。根据业务场景配置，参考</span><span style="color: rgb(128,128,128);">StreamUsage</span><span style="color: rgb(128,128,128);">。</span></em>
+  <span style="color: rgb(255,255,255);">rendererFlags</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0 </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">音频渲染器标志。</span></em>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+let <span style="color: rgb(255,255,255);">audioRendererOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRendererOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">streamInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">audioStreamInfo</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(255,255,255);">rendererInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">audioRendererInfo</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-export struct PlayPcmDataDemo {
-  context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  audioData: Uint8Array = generateTestPCM(); <em>// 测试PCM数据，按需替换为其他音频数据源</em>
-  writeOffset = 0;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+export struct <span style="color: rgb(0,0,255);">PlayPcmDataDemo </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">audioData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Uint8Array </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">generateTestPCM</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">测试</span><span style="color: rgb(128,128,128);">PCM</span><span style="color: rgb(128,128,128);">数据，按需替换为其他音频数据源</span></em>
+  <span style="color: rgb(255,255,255);">writeOffset </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  async aboutToAppear(): Promise<void> {
-    audioRenderer = await audio.createAudioRenderer(audioRendererOptions);
-    await this.init(); <em>//初始化</em>
-  }
+  async <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">void</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">audioRenderer </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createAudioRenderer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">audioRendererOptions</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">init</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">//</span><span style="color: rgb(128,128,128);">初始化</span></em>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  async aboutToDisappear(): Promise<void> {
-    await audioRenderer.release();
-  }
+  async <span style="color: rgb(0,0,255);">aboutToDisappear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">void</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+    await <span style="color: rgb(255,255,255);">audioRenderer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">release</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Column({ space: 10 }) {
-      Button('播放音频数据')
-        .width('100%')
-        .onClick(async () => {
-          await audioRenderer.start();
-        });
-      Button('停止播放')
-        .width('100%')
-        .onClick(async () => {
-          console.info('renderer status' + audioRenderer.state);
-          this.stopAndFlush();
-        });
-    }
-    .padding(20)
-    .justifyContent(FlexAlign.Center)
-    .width('100%')
-    .height('100%');
-  }
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">播放音频数据</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(</span>async <span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          await <span style="color: rgb(255,255,255);">audioRenderer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">start</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">停止播放</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(</span>async <span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'renderer status' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">audioRenderer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">state</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stopAndFlush</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  async init() {
-    audioRenderer.on('writeData', (buffer: ArrayBuffer) => {
-      if (!this.audioData) {
-        return audio.AudioDataCallbackResult.INVALID;
-      }
-      let bufferView = new Uint8Array(buffer);
-      let writeLen = Math.min(buffer.byteLength, this.audioData.byteLength - this.writeOffset);
-      if (writeLen <= 0) {
-        this.writeOffset = 0;
-        console.info('Play Done');
-        return audio.AudioDataCallbackResult.INVALID;
-      }
-      bufferView.set(this.audioData.slice(this.writeOffset, this.writeOffset + writeLen));
-      this.writeOffset += writeLen;
-      return audio.AudioDataCallbackResult.VALID;
-    });
-  }
+  async <span style="color: rgb(0,0,255);">init</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">audioRenderer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'writeData'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ArrayBuffer</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">audioData</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        return <span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioDataCallbackResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">INVALID</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      let <span style="color: rgb(255,255,255);">bufferView </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(255,255,255);">writeLen </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">min</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">byteLength</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">audioData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">byteLength </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">writeOffset</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">writeLen </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">writeOffset </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Play Done'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        return <span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioDataCallbackResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">INVALID</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(255,255,255);">bufferView</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">set</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">audioData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">slice</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">writeOffset</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">writeOffset </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">writeLen</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">writeOffset </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(255,255,255);">writeLen</span><span style="color: rgb(181,106,1);">;</span>
+      return <span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioDataCallbackResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">VALID</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  async stopAndFlush() {
-    console.info('renderer status' + audioRenderer.state);
-    audioRenderer.stop().then(() => {
-      console.error('Renderer stop ok.');
-    }).catch((err: BusinessError) => {
-      console.error('Renderer stop failed. ', err);
-    })
-    ;
-    audioRenderer.flush().then(() => {
-      console.error('Renderer flush ok.');
-    }).catch((err: BusinessError) => {
-      console.error('renderer flush err. ' + err);
-    });
-    this.writeOffset = 0;
-  }
-}
+  async <span style="color: rgb(0,0,255);">stopAndFlush</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'renderer status' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">audioRenderer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">state</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">audioRenderer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stop</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Renderer stop ok.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Renderer stop failed. '</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">audioRenderer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">flush</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Renderer flush ok.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'renderer flush err. ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">writeOffset </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-function generateTestPCM(): Uint8Array {
-  const sampleRate = 8000;
-  const noteDuration = 0.5;
-  const amplitude = 0.35;
+function <span style="color: rgb(0,0,255);">generateTestPCM</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Uint8Array </span><span style="color: rgb(181,106,1);">{</span>
+  const <span style="color: rgb(255,255,255);">sampleRate </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">8000</span><span style="color: rgb(181,106,1);">;</span>
+  const <span style="color: rgb(255,255,255);">noteDuration </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0.5</span><span style="color: rgb(181,106,1);">;</span>
+  const <span style="color: rgb(255,255,255);">amplitude </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0.35</span><span style="color: rgb(181,106,1);">;</span>
 
-  const freqMap: Record<number, number> = {
-    1: 523.25, <em>// C5</em>
-    2: 587.33,<em> </em><em>// D5</em>
-    3: 659.25, <em>// E5</em>
-    4: 698.46,<em> </em><em>// F5</em>
-    5: 783.99,<em> </em><em>// G5</em>
-    6: 880.00 <em> </em><em>// A5</em>
-  };
+  const <span style="color: rgb(255,255,255);">freqMap</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Record</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">523.25</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// C5</span></em>
+    <span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">587.33</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// D5</span></em>
+    <span style="color: rgb(80,160,79);">3</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">659.25</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// E5</span></em>
+    <span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">698.46</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// F5</span></em>
+    <span style="color: rgb(80,160,79);">5</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">783.99</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// G5</span></em>
+    <span style="color: rgb(80,160,79);">6</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">880.00 </span><em> </em><em><span style="color: rgb(128,128,128);">// A5</span></em>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-  const melody = [
-    1, 1, 5, 5, 6, 6, 5, 0,
-    4, 4, 3, 3, 2, 2, 1, 0,
-    5, 5, 4, 4, 3, 3, 2, 0
-  ];
+  const <span style="color: rgb(255,255,255);">melody </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span>
+    <span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">6</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">6</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">3</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">3</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(80,160,79);">5</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">3</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">3</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span>
+  <span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
 
-  const samplesPerNote = Math.floor(sampleRate * noteDuration);<em> </em><em>// 4000</em>
-  const totalSamples = samplesPerNote * melody.length; <em>// 96,000</em>
-  const buffer = new ArrayBuffer(totalSamples * 2);<em> </em><em>// 192,000 bytes</em>
-  const view = new DataView(buffer);
+  const <span style="color: rgb(255,255,255);">samplesPerNote </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">floor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sampleRate </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">noteDuration</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// 4000</span></em>
+  const <span style="color: rgb(255,255,255);">totalSamples </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">samplesPerNote </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">melody</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// 96,000</span></em>
+  const <span style="color: rgb(255,255,255);">buffer </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">totalSamples </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// 192,000 bytes</span></em>
+  const <span style="color: rgb(255,255,255);">view </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">DataView</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-  let idx = 0;
-  for (const note of melody) {
-    const freq = note ? freqMap[note] : 0;
-    for (let i = 0; i < samplesPerNote; i++) {
-      const t = i / sampleRate;
-      const wave = freq ? amplitude * Math.sin(2 * Math.PI * freq * t) : 0;
-      const sample = Math.round(wave * 32767);
-      const clamped = Math.max(-32768, Math.min(32767, sample));
-      view.setInt16(idx * 2, clamped, true);
-      idx++;
-    }
-  }
-  return new Uint8Array(buffer);
-}
+  let <span style="color: rgb(255,255,255);">idx </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+  for <span style="color: rgb(255,0,170);">(</span>const <span style="color: rgb(255,255,255);">note </span>of <span style="color: rgb(255,255,255);">melody</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    const <span style="color: rgb(255,255,255);">freq </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">note </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">freqMap</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">note</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">samplesPerNote</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      const <span style="color: rgb(255,255,255);">t </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,255,255);">sampleRate</span><span style="color: rgb(181,106,1);">;</span>
+      const <span style="color: rgb(255,255,255);">wave </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">freq </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">amplitude </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">2 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PI </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">freq </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">t</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+      const <span style="color: rgb(255,255,255);">sample </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">round</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">wave </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">32767</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      const <span style="color: rgb(255,255,255);">clamped </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">max</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(80,160,79);">32768</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">min</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">32767</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">sample</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">view</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setInt16</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">idx </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">clamped</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">idx</span><span style="color: rgb(181,106,1);">++;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">  }</span>
+  return new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

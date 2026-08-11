@@ -36,12 +36,12 @@ AudioRenderer仅支持播放PCM格式的音频文件，播放其他音频格式�
 - **分析原因**：AudioRenderer会调用[AudioRendererWriteDataCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiorendererwritedatacallback12)方法来写入音频数据，如果数据未能填满回调buffer的长度就放入队列里播放，则会导致杂音、卡顿等现象。如下图所示，因为部分buffer未填满导致存在脏数据影响播放：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/yImVb8kjRKmzKPHnJ2z83A/zh-cn_image_0000002658911947.png?HW-CC-KV=V1&HW-CC-Date=20260730T072623Z&HW-CC-Expire=86400&HW-CC-Sign=67F5253713C69515060638A3647BF9ED2F7D5DCF1677BACE72BE585AB8D64580)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/yImVb8kjRKmzKPHnJ2z83A/zh-cn_image_0000002658911947.png?HW-CC-KV=V1&HW-CC-Date=20260811T005555Z&HW-CC-Expire=86400&HW-CC-Sign=52543EDF78CFE8B9147E874C953E9000B5317221796FA17C0D4DE89497E9BE3E)
 
 
   此时可以将buffer长度和写入数据长度打印出来，比较大小，相关日志如下：
 ```text
-06-12 10:51:56.358   3224-3224  A03d00/JSAPP com.examp...rrebuild  I  Read from file: 5988bytes, buffer length: 8916bytes
+<span style="color: rgb(255,0,0);">06</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">12 10</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">51</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">56.358   3224</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">3224  </span><span style="color: rgb(0,0,255);">A03d00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">rrebuild  I  Read from </span><span style="color: rgb(181,106,1);">file</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5988</span><span style="color: rgb(0,0,255);">bytes</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">buffer </span><span style="color: rgb(181,106,1);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8916</span><span style="color: rgb(0,0,255);">bytes</span>
 ```
 
 
@@ -53,10 +53,10 @@ AudioRenderer仅支持播放PCM格式的音频文件，播放其他音频格式�
 
   在无法填满回调所需长度数据的情况下，需要返回audio.AudioDataCallbackResult.INVALID，此时系统不会处理该段音频数据，然后会再次向应用请求数据，在确认数据填满后再返回audio.AudioDataCallbackResult.VALID进行播放，参考如下代码，可以判断写入数据是否已填满buffer，如果未填满就可以返回INVALID：
 ```text
-<em>// </em><em>如果开发者不希望播放某段buffer，返回audio.AudioDataCallbackResult.INVALID即可。</em>
-if (bufferLength < buffer.byteLength) {
-  return audio.AudioDataCallbackResult.INVALID;
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">如果开发者不希望播放某段</span><span style="color: rgb(128,128,128);">buffer</span><span style="color: rgb(128,128,128);">，返回</span><span style="color: rgb(128,128,128);">audio.AudioDataCallbackResult.INVALID</span><span style="color: rgb(128,128,128);">即可。</span></em>
+if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">bufferLength </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">byteLength</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+  return <span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AudioDataCallbackResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">INVALID</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 
@@ -69,17 +69,17 @@ if (bufferLength < buffer.byteLength) {
 - **分析原因**：在没有写入新的音频数据也没有停止AudioRenderer的情况下，则会循环播放缓冲区的历史数据，导致不断输出杂音，影响播放效果，如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/CttIZ8W6RESeVHEaAFB9GA/zh-cn_image_0000002628392738.png?HW-CC-KV=V1&HW-CC-Date=20260730T072623Z&HW-CC-Expire=86400&HW-CC-Sign=3AA7CCFDCF635FA3B167B9DD0D1767C02FFCA20C9307E5E1EDB9D07962899314)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/CttIZ8W6RESeVHEaAFB9GA/zh-cn_image_0000002628392738.png?HW-CC-KV=V1&HW-CC-Date=20260811T005555Z&HW-CC-Expire=86400&HW-CC-Sign=9D138BF0EF164AD1C06968D8A9A6E835459BFF23C6A4344C29B1746B51AE2C71)
 
 
   打印出日志如下图所示，在没有新数据写入也没有停止的情况下，会不断循环播放缓冲区数据：
 
   
 ```text
-06-16 15:07:45.322   13899-13899   A03d00/JSAPP com.examp...rrebuild  I     Read from file: 5988bytes, buffer length: 8916bytes
-06-16 15:07:45.322   13899-13899   A03d00/JSAPP com.examp...rrebuild  I     Read from file: 5988bytes, buffer length: 8916bytes
-06-16 15:07:45.329   13899-13899   A03d00/JSAPP com.examp...rrebuild  I     Read from file: 5988bytes, buffer length: 8916bytes
-06-16 15:07:45.329   13899-13899   A03d00/JSAPP com.examp...rrebuild  I     Read from file: 5988bytes, buffer length: 8916bytes
+<span style="color: rgb(255,0,0);">06</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">16 15</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">07</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">45.322   13899</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">13899   </span><span style="color: rgb(0,0,255);">A03d00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">rrebuild  I     Read from </span><span style="color: rgb(181,106,1);">file</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5988</span><span style="color: rgb(0,0,255);">bytes</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">buffer </span><span style="color: rgb(181,106,1);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8916</span><span style="color: rgb(0,0,255);">bytes</span>
+<span style="color: rgb(255,0,0);">06</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">16 15</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">07</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">45.322   13899</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">13899   </span><span style="color: rgb(0,0,255);">A03d00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">rrebuild  I     Read from </span><span style="color: rgb(181,106,1);">file</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5988</span><span style="color: rgb(0,0,255);">bytes</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">buffer </span><span style="color: rgb(181,106,1);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8916</span><span style="color: rgb(0,0,255);">bytes</span>
+<span style="color: rgb(255,0,0);">06</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">16 15</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">07</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">45.329   13899</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">13899   </span><span style="color: rgb(0,0,255);">A03d00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">rrebuild  I     Read from </span><span style="color: rgb(181,106,1);">file</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5988</span><span style="color: rgb(0,0,255);">bytes</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">buffer </span><span style="color: rgb(181,106,1);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8916</span><span style="color: rgb(0,0,255);">bytes</span>
+<span style="color: rgb(255,0,0);">06</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">16 15</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">07</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">45.329   13899</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">13899   </span><span style="color: rgb(0,0,255);">A03d00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">rrebuild  I     Read from </span><span style="color: rgb(181,106,1);">file</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5988</span><span style="color: rgb(0,0,255);">bytes</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">buffer </span><span style="color: rgb(181,106,1);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8916</span><span style="color: rgb(0,0,255);">bytes</span>
 ```
 
 
@@ -88,14 +88,14 @@ if (bufferLength < buffer.byteLength) {
 
   对于最后一帧，如果数据不够填满缓冲长度，开发者需要使用剩余数据拼接空数据的方式，将缓冲填满，不够的时候可以用0将数据填满，没有音频数据写入时返回INVALID，或停止AudioRenderer。参考示例代码如下：
 ```text
-<em>// </em><em>如果当前回调传入的数据不足一帧，空白区域需要使用静音数据填充，否则会导致播放出现杂音。</em>
-if (bufferLength < buffer.byteLength) {
-  let view = new DataView(buffer);
-  for (let i = bufferLength; i < buffer.byteLength; i++) {
-   <em> // 空白区域填充静音数据。当使用音频采样格式为SAMPLE_FORMAT_U8时0x7F为静音数据，使用其他采样格式时0为静音数据。</em>
-    view.setUint8(i, 0);
-  }
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">如果当前回调传入的数据不足一帧，空白区域需要使用静音数据填充，否则会导致播放出现杂音。</span></em>
+if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">bufferLength </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">byteLength</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+  let <span style="color: rgb(0,0,255);">view </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">DataView</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">bufferLength</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">byteLength</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">空白区域填充静音数据。当使用音频采样格式为</span><span style="color: rgb(128,128,128);">SAMPLE_FORMAT_U8</span><span style="color: rgb(128,128,128);">时</span><span style="color: rgb(128,128,128);">0x7F</span><span style="color: rgb(128,128,128);">为静音数据，使用其他采样格式时</span><span style="color: rgb(128,128,128);">0</span><span style="color: rgb(128,128,128);">为静音数据。</span></em>
+    <span style="color: rgb(0,0,255);">view</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setUint8</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 

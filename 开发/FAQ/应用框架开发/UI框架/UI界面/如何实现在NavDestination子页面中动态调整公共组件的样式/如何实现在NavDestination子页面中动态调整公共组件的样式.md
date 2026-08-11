@@ -23,156 +23,156 @@
 整体上来看，首先需要使用Navigation组件构建路由导航的根视图容器，然后使用NavDestination构建子页面。在子页面中，将公共组件抽离，并利用queryNavDestinationInfo方法查询组件所属的页面，进行动态调整。
  1. 使用Navigation组件构建路由导航的根视图容器。
 ```text
-<em>// </em><em>根容器</em>
-Navigation(this.navPathStack) {
-  Button('跳转第一个页面').onClick(() => {
-    this.navPathStack.pushPath({
-      name: 'one'
-    });
-  });
-  Button('跳转第二个页面').onClick(() => {
-    this.navPathStack.pushPath({
-      name: 'two'
-    });
-  });
-}.navDestination(this.myDestination);
+<em>// </em><em><span style="color: rgb(128,128,128);">根容器</span></em>
+<span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">navPathStack</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">跳转第一个页面</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">navPathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'one'</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">跳转第二个页面</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">navPathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'two'</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">navDestination</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">myDestination</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
 
 2. 使用NavDestination构建子页面。
 ```text
-@Component
-struct One {
-  @Consume('navPathStack') navPathStack: NavPathStack;
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">One </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@Consume</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'navPathStack'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(255,255,255);">navPathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    NavDestination() {
-      Text('第一个页面');
-      Common();
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">第一个页面</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Common</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Component
-struct Two {
-  @Consume('navPathStack') navPathStack: NavPathStack;
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Two </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@Consume</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'navPathStack'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(255,255,255);">navPathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    NavDestination() {
-      Text('第二个页面');
-      Common();
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">第二个页面</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Common</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 3. 抽离公共组件，利用queryNavDestinationInfo方法查询组件所属的页面，进行动态调整。
 ```text
-<em>// </em><em>公共组件</em>
-@Component
-struct Common {
-  navDesInfo: uiObserver.NavDestinationInfo | undefined;
+<em>// </em><em><span style="color: rgb(128,128,128);">公共组件</span></em>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Common </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">navDesInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">uiObserver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">NavDestinationInfo </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(181,106,1);">;</span>
 
-  aboutToAppear(): void {
-    this.navDesInfo = this.queryNavDestinationInfo();
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">navDesInfo </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">queryNavDestinationInfo</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Column() {
-      Text('这里是公共的组件');
-      Text("所属页面Name: " + this.navDesInfo?.name);
-    }.width(200)
-    .height(200)
-    .border({
-      width: 5
-    })
-  <em>  // 根据NavDestinationInfo动态调整样式</em>
-    .backgroundColor(this.navDesInfo?.name == 'one' ? Color.Blue : Color.Red);
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">这里是公共的组件</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"</span><span style="color: rgb(132,63,161);">所属页面</span><span style="color: rgb(132,63,161);">Name: " </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">navDesInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">border</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">5</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据</span><span style="color: rgb(128,128,128);">NavDestinationInfo</span><span style="color: rgb(128,128,128);">动态调整样式</span></em>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">navDesInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(132,63,161);">'one' </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Blue </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Red</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
  
 完整示例参考如下：
  
 ```text
-import { uiObserver } from '@kit.ArkUI';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">uiObserver </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Component
-@Entry
-struct DynamicallyAdjustPublicComponents {
-  @Provide('navPathStack') navPathStack: NavPathStack = new NavPathStack();
+<span style="color: rgb(181,106,1);">@Component</span>
+<span style="color: rgb(181,106,1);">@Entry</span>
+struct <span style="color: rgb(0,0,255);">DynamicallyAdjustPublicComponents </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@Provide</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'navPathStack'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(255,255,255);">navPathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-  @Builder
-  myDestination(name: string) {
-    if (name == 'one') {
-      One();
-    } else if (name == 'two') {
-      Two();
-    }
-  }
+  <span style="color: rgb(181,106,1);">@Builder</span>
+  <span style="color: rgb(0,0,255);">myDestination</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(132,63,161);">'one'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">One</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">} </span>else if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(132,63,161);">'two'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Two</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">  }</span>
 
-  build() {
-   <em> // 根容器</em>
-    Navigation(this.navPathStack) {
-      Button('跳转第一个页面').onClick(() => {
-        this.navPathStack.pushPath({
-          name: 'one'
-        });
-      });
-      Button('跳转第二个页面').onClick(() => {
-        this.navPathStack.pushPath({
-          name: 'two'
-        });
-      });
-    }.navDestination(this.myDestination);
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根容器</span></em>
+    <span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">navPathStack</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">跳转第一个页面</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">navPathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'one'</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">跳转第二个页面</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">navPathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'two'</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">navDestination</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">myDestination</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-  }
-}
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Component
-struct One {
-  @Consume('navPathStack') navPathStack: NavPathStack;
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">One </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@Consume</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'navPathStack'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(255,255,255);">navPathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    NavDestination() {
-      Text('第一个页面');
-      Common();
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">第一个页面</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Common</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Component
-struct Two {
-  @Consume('navPathStack') navPathStack: NavPathStack;
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Two </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@Consume</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'navPathStack'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(255,255,255);">navPathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    NavDestination() {
-      Text('第二个页面');
-      Common();
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">第二个页面</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Common</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-<em>// </em><em>公共组件</em>
-@Component
-struct Common {
-  navDesInfo: uiObserver.NavDestinationInfo | undefined;
+<em>// </em><em><span style="color: rgb(128,128,128);">公共组件</span></em>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Common </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">navDesInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">uiObserver</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">NavDestinationInfo </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(181,106,1);">;</span>
 
-  aboutToAppear(): void {
-    this.navDesInfo = this.queryNavDestinationInfo();
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">navDesInfo </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">queryNavDestinationInfo</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Column() {
-      Text('这里是公共的组件');
-      Text("所属页面Name: " + this.navDesInfo?.name);
-    }.width(200)
-    .height(200)
-    .border({
-      width: 5
-    })
-   <em> // 根据NavDestinationInfo动态调整样式</em>
-    .backgroundColor(this.navDesInfo?.name == 'one' ? Color.Blue : Color.Red);
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">这里是公共的组件</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"</span><span style="color: rgb(132,63,161);">所属页面</span><span style="color: rgb(132,63,161);">Name: " </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">navDesInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">border</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">5</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据</span><span style="color: rgb(128,128,128);">NavDestinationInfo</span><span style="color: rgb(128,128,128);">动态调整样式</span></em>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">navDesInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(132,63,161);">'one' </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Blue </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Red</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

@@ -13,7 +13,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/LMYfEoBVSwqyGu3RoBDlmA/zh-cn_image_0000002658969525.png?HW-CC-KV=V1&HW-CC-Date=20260730T072412Z&HW-CC-Expire=86400&HW-CC-Sign=8AB988A544BD8342E7E434C554B79A1FFA607965FDDEE3FBAED045F04F1AC0E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/LMYfEoBVSwqyGu3RoBDlmA/zh-cn_image_0000002658969525.png?HW-CC-KV=V1&HW-CC-Date=20260811T005804Z&HW-CC-Expire=86400&HW-CC-Sign=C4F6F3F472DD8839D4DB2303307F2BD5E84EF7B844B3F2DFCB91537A17D72C78)
 
  
  

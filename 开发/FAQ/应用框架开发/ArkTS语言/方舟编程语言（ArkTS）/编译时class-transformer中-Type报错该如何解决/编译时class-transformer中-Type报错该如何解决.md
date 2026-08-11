@@ -9,7 +9,7 @@
 在ArkTS中使用class-transformer库的@Type注解时，与ArkTS的V2版本状态管理中@Type的注解冲突，导致编译器代码检查不通过。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/mGWZTIseSXWyvGNcMTwL_w/zh-cn_image_0000002629058988.png?HW-CC-KV=V1&HW-CC-Date=20260730T072301Z&HW-CC-Expire=86400&HW-CC-Sign=431660EBE4EBE5E8A16F7D57386702BF05BB3BE1C5D89E7E6873F7A97080BBEC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/mGWZTIseSXWyvGNcMTwL_w/zh-cn_image_0000002629058988.png?HW-CC-KV=V1&HW-CC-Date=20260811T005636Z&HW-CC-Expire=86400&HW-CC-Sign=EFDC811A6D28CB8293F7E33E18C5A00BF2995D60511EAC989CF1394A6BF09376)
 
  
  

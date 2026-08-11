@@ -22,72 +22,72 @@
 1. 需要获取产物名称，根据产物配置对应的模块参数，因此应在最外层配置hvigorfile.ts文件。
 2. 根据如下代码获取应用配置参数，获取其中配置的产物名称。
 ```text
-const appNode: HvigorNode = getNode(__filename);
-const appContext = appNode.getContext(OhosPluginId.OHOS_APP_PLUGIN) as OhosAppContext;
-const bundleProduct = appContext.getCurrentProduct();
-const productName = bundleProduct.productName;
+const <span style="color: rgb(255,255,255);">appNode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">HvigorNode </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">getNode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">__filename</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+const <span style="color: rgb(255,255,255);">appContext </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">appNode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getContext</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">OhosPluginId</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OHOS_APP_PLUGIN</span><span style="color: rgb(255,0,170);">) </span>as <span style="color: rgb(181,106,1);">OhosAppContext</span><span style="color: rgb(181,106,1);">;</span>
+const <span style="color: rgb(255,255,255);">bundleProduct </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">appContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getCurrentProduct</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+const <span style="color: rgb(255,255,255);">productName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">bundleProduct</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">productName</span><span style="color: rgb(181,106,1);">;</span>
 ```
 
 3. 使用subNodes接口获取所有模块的环境信息，然后通过getContext接口分别获取hap包配置信息。
 ```text
-<em>// </em><em>获取hap模块上下文信息</em>
-const hapContext = hapNode.getContext(OhosPluginId.OHOS_HAP_PLUGIN) as OhosHapContext;
+<em>// </em><em><span style="color: rgb(128,128,128);">获取</span><span style="color: rgb(128,128,128);">hap</span><span style="color: rgb(128,128,128);">模块上下文信息</span></em>
+const <span style="color: rgb(255,255,255);">hapContext </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">hapNode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getContext</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">OhosPluginId</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OHOS_HAP_PLUGIN</span><span style="color: rgb(255,0,170);">) </span>as <span style="color: rgb(181,106,1);">OhosHapContext</span><span style="color: rgb(181,106,1);">;</span>
 ```
 
 4. 根据第2步获取的包名和第三步获取到的环境信息，使用getModuleJsonOpt获取对应模块下的module.json5配置，修改后，使用setModuleJsonOpt将修改后的配置信息写入。
 ```json
-if (moduleNameExample === moduleName) {
-  const moduleJsonOpt = hapContext?.getModuleJsonOpt();
-  if (moduleJsonOpt) {
-  <em>  // 根据产物变更参数值</em>
-    moduleJsonOpt.module.metadata = productName === productNameExample ?
-      [{ "name": "client_id", "value": "TestIdNo1" }] : [{ "name": "client_id", "value": "TestIdNo2" }];
- <em>   // 将obj对象设置回上下文对象以使能到构建的过程与结果中</em>
-    hapContext.setModuleJsonOpt(moduleJsonOpt);
-  }
-}
+if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">moduleNameExample </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">moduleName</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  const <span style="color: rgb(255,255,255);">moduleJsonOpt </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">hapContext</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getModuleJsonOpt</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">moduleJsonOpt</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据产物变更参数值</span></em>
+    <span style="color: rgb(255,255,255);">moduleJsonOpt</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">module</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">metadata </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">productName </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">productNameExample </span>?
+      <span style="color: rgb(255,0,170);">[</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">"client_id"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">"TestIdNo1" </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">"client_id"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">"TestIdNo2" </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
+ <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">obj</span><span style="color: rgb(128,128,128);">对象设置回上下文对象以使能到构建的过程与结果中</span></em>
+    <span style="color: rgb(255,255,255);">hapContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setModuleJsonOpt</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">moduleJsonOpt</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 5. 总体配置文件hvigorfile.ts，配置参考如下：
 ```json
-import { appTasks, OhosHapContext, OhosAppContext, OhosPluginId } from '@ohos/hvigor-ohos-plugin';
-import { getNode, hvigor, HvigorNode } from '@ohos/hvigor';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">appTasks</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">OhosHapContext</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">OhosAppContext</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">OhosPluginId </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@ohos/hvigor-ohos-plugin'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">getNode</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">hvigor</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">HvigorNode </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@ohos/hvigor'</span><span style="color: rgb(181,106,1);">;</span>
 
 
-<em>// </em><em>待修改的产物名</em>
-const productNameExample = 'default'
-<em>// </em><em>待修改的模块名</em>
-const moduleNameExample = 'entry'
+<em>// </em><em><span style="color: rgb(128,128,128);">待修改的产物名</span></em>
+const <span style="color: rgb(255,255,255);">productNameExample </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'default'</span>
+<em>// </em><em><span style="color: rgb(128,128,128);">待修改的模块名</span></em>
+const <span style="color: rgb(255,255,255);">moduleNameExample </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'entry'</span>
 
 
-hvigor.nodesEvaluated(() => {
-  const appNode: HvigorNode = getNode(__filename);
-  const appContext = appNode.getContext(OhosPluginId.OHOS_APP_PLUGIN) as OhosAppContext;
-  const bundleProduct = appContext.getCurrentProduct();
-  const productName = bundleProduct.productName;
+<span style="color: rgb(255,255,255);">hvigor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">nodesEvaluated</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+  const <span style="color: rgb(255,255,255);">appNode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">HvigorNode </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">getNode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">__filename</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  const <span style="color: rgb(255,255,255);">appContext </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">appNode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getContext</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">OhosPluginId</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OHOS_APP_PLUGIN</span><span style="color: rgb(255,0,170);">) </span>as <span style="color: rgb(181,106,1);">OhosAppContext</span><span style="color: rgb(181,106,1);">;</span>
+  const <span style="color: rgb(255,255,255);">bundleProduct </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">appContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getCurrentProduct</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  const <span style="color: rgb(255,255,255);">productName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">bundleProduct</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">productName</span><span style="color: rgb(181,106,1);">;</span>
 
- <em> // 遍历子节点</em>
-  appNode.subNodes((hapNode: HvigorNode) => {
-  <em>  // 获取hap模块上下文信息</em>
-    const hapContext = hapNode.getContext(OhosPluginId.OHOS_HAP_PLUGIN) as OhosHapContext;
-    const moduleName = hapContext?.getModuleName();
-    if (moduleNameExample === moduleName) {
-      const moduleJsonOpt = hapContext?.getModuleJsonOpt();
-      if (moduleJsonOpt) {
-    <em>    // 根据产物变更参数值</em>
-        moduleJsonOpt.module.metadata = productName === productNameExample ?
-          [{ "name": "client_id", "value": "TestIdNo1" }] : [{ "name": "client_id", "value": "TestIdNo2" }];
-    <em>    // 将obj对象设置回上下文对象以使能到构建的过程与结果中</em>
-        hapContext.setModuleJsonOpt(moduleJsonOpt);
-      }
-    }
-  });
-});
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">遍历子节点</span></em>
+  <span style="color: rgb(255,255,255);">appNode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">subNodes</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">hapNode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">HvigorNode</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取</span><span style="color: rgb(128,128,128);">hap</span><span style="color: rgb(128,128,128);">模块上下文信息</span></em>
+    const <span style="color: rgb(255,255,255);">hapContext </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">hapNode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getContext</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">OhosPluginId</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OHOS_HAP_PLUGIN</span><span style="color: rgb(255,0,170);">) </span>as <span style="color: rgb(181,106,1);">OhosHapContext</span><span style="color: rgb(181,106,1);">;</span>
+    const <span style="color: rgb(255,255,255);">moduleName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">hapContext</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getModuleName</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">moduleNameExample </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">moduleName</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      const <span style="color: rgb(255,255,255);">moduleJsonOpt </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">hapContext</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getModuleJsonOpt</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">moduleJsonOpt</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据产物变更参数值</span></em>
+        <span style="color: rgb(255,255,255);">moduleJsonOpt</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">module</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">metadata </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">productName </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">productNameExample </span>?
+          <span style="color: rgb(255,0,170);">[</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">"client_id"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">"TestIdNo1" </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">"client_id"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">"TestIdNo2" </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
+    <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">obj</span><span style="color: rgb(128,128,128);">对象设置回上下文对象以使能到构建的过程与结果中</span></em>
+        <span style="color: rgb(255,255,255);">hapContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setModuleJsonOpt</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">moduleJsonOpt</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">    }</span>
+<span style="color: rgb(181,106,1);">  }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-export default {
-  system: appTasks,
-  plugins: []
-}
+export default <span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">system</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">appTasks</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(255,255,255);">plugins</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[]</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
  

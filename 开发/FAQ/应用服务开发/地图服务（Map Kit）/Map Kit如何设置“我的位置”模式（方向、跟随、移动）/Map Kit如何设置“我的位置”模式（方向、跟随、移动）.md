@@ -41,7 +41,7 @@ this.mapController?.setMyLocationStyle(style);
  实现效果：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/7TTlbNm7T0ajD1rfGjCAbQ/zh-cn_image_0000002658913611.png?HW-CC-KV=V1&HW-CC-Date=20260730T072644Z&HW-CC-Expire=86400&HW-CC-Sign=7F125063E3B2F9B616E8258F81470A20F4AC27BDE45E136EE3434D6D7CD210EF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/7TTlbNm7T0ajD1rfGjCAbQ/zh-cn_image_0000002658913611.png?HW-CC-KV=V1&HW-CC-Date=20260811T005610Z&HW-CC-Expire=86400&HW-CC-Sign=BC9FB7942109916DDFA6C4FDDF29F7EF43D95AC455BC8D310C1476E7CDD12887)
 
 
   完整代码：

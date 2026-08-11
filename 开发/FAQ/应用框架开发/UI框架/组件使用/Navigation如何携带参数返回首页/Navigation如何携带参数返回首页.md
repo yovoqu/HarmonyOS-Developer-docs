@@ -88,7 +88,7 @@ struct PageOne {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/LhxJ-6l-TKCduwZ4m13Nsg/zh-cn_image_0000002669866387.png?HW-CC-KV=V1&HW-CC-Date=20260730T072325Z&HW-CC-Expire=86400&HW-CC-Sign=093A4366E059C21230006DB8052B844A238E15B0E0255CD6ABC087D6DEF78FB7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/LhxJ-6l-TKCduwZ4m13Nsg/zh-cn_image_0000002669866387.png?HW-CC-KV=V1&HW-CC-Date=20260811T005747Z&HW-CC-Expire=86400&HW-CC-Sign=37C67D62B70FB0E9C48FA00956491409735F5362609B1BBC29942FEA109E0523)
 
 - 场景2：首页跳转至其他页面之后，经过其他页面多次跳转，再立马返回首页。由于需要立马返回首页，无法一步步将路由栈中页面逐个出栈，所以无法通过出栈时的onPop回调，拿到上一个页面出栈时携带的参数。且首页无法推入路由栈，不能使用push类方法跳转，也没有onReady生命周期，所以也无法在onReady接收其他子页的传参。
 
@@ -208,7 +208,7 @@ struct PageTwo {
   效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/d06TsV_ITdCLnVxFjHuR9g/zh-cn_image_0000002669990323.png?HW-CC-KV=V1&HW-CC-Date=20260730T072325Z&HW-CC-Expire=86400&HW-CC-Sign=F26432E5062319C6C52F42A19F0A9D8B96655890D0CA1A4E1B6C84865EA7D886)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/d06TsV_ITdCLnVxFjHuR9g/zh-cn_image_0000002669990323.png?HW-CC-KV=V1&HW-CC-Date=20260811T005747Z&HW-CC-Expire=86400&HW-CC-Sign=0300EAEB200AA02C7A69E0B2FDD4FA3F24BC5B1BA1634082C720635126572B4D)
 
 - 方案2：在首页的aboutToAppear订阅事件，在clear清除路由栈时通过订阅的事件将参数传递回首页。
 ```json
@@ -296,7 +296,7 @@ struct PageTwo {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/qTF6H_buTmykzChGBfUAQA/zh-cn_image_0000002639837140.png?HW-CC-KV=V1&HW-CC-Date=20260730T072325Z&HW-CC-Expire=86400&HW-CC-Sign=271A7253C493B69AA796052D6633D59C2BA2DC237B05079F7963855DEB2D68F9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/qTF6H_buTmykzChGBfUAQA/zh-cn_image_0000002639837140.png?HW-CC-KV=V1&HW-CC-Date=20260811T005747Z&HW-CC-Expire=86400&HW-CC-Sign=7BDAE6D71DB31B249FBDFE3BF2F591505D48B6C570EE7693D70D3408FC733A1B)
 
 
  

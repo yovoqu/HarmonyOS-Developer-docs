@@ -38,19 +38,19 @@ Create AudioCapturer failed, error: {"code":6800301}
 如下图所示，如果权限没有正确申请，则会导致权限校验异常造成报错，这里取消了麦克风权限导致报错：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/Aq6YUIQ7STuNif_2EWKDzw/zh-cn_image_0000002658791891.png?HW-CC-KV=V1&HW-CC-Date=20260730T072623Z&HW-CC-Expire=86400&HW-CC-Sign=533EC26C1C9BA95AE9C93488EBEC9ED4D1FBD77D32CBE5E4B26924AEC06920E9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/Aq6YUIQ7STuNif_2EWKDzw/zh-cn_image_0000002658791891.png?HW-CC-KV=V1&HW-CC-Date=20260811T005557Z&HW-CC-Expire=86400&HW-CC-Sign=3F9794D345E79C3EE2EEF7BD8456F2FEDA7273E7696CCC4DB59C36DC239AF506)
 
  
 如下图所示，如果参数配置不正确，则会导致参数校验异常造成报错，音频采集参数的详细信息可以查看[AudioStreamInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiostreaminfo8)，这里配置了错误的采样率导致报错：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/4hCixKyCT8-aDwJBtk_sPw/zh-cn_image_0000002628552524.png?HW-CC-KV=V1&HW-CC-Date=20260730T072623Z&HW-CC-Expire=86400&HW-CC-Sign=6764DD463AD850A090603D8655E5F9DB18C70837E03CE28105DCC685A257D85E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/4hCixKyCT8-aDwJBtk_sPw/zh-cn_image_0000002628552524.png?HW-CC-KV=V1&HW-CC-Date=20260811T005557Z&HW-CC-Expire=86400&HW-CC-Sign=400DEC444F92EF2082028C9670866B4ED08BE129F64366C32BBC5B683C64685A)
 
  
 如下图所示，如果没有进行正确的初始化，则会导致状态检查异常造成系统报错，这里初始化步骤在申请权限之前导致报错：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/j3Cml7jXT-C1kR2dpG0-oA/zh-cn_image_0000002658911835.png?HW-CC-KV=V1&HW-CC-Date=20260730T072623Z&HW-CC-Expire=86400&HW-CC-Sign=F1AAFF00B6B5D9FEB68422BD0F0C054AF186CCA249C901C013DB06A5D16E17A5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/j3Cml7jXT-C1kR2dpG0-oA/zh-cn_image_0000002658911835.png?HW-CC-KV=V1&HW-CC-Date=20260811T005557Z&HW-CC-Expire=86400&HW-CC-Sign=98EAFFDA484FB595591CABD77D5BFBD2246AC0D71460E60DB4AA2DEB0913D225)
 
  
  

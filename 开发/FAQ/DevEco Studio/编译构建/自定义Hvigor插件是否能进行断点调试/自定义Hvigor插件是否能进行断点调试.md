@@ -56,32 +56,32 @@ export default {
 
 
 2. 打开Chrome调试页面：chrome://inspect/#devices：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/YbdCc0FdQlOBlwJmnoDt3Q/zh-cn_image_0000002658928587.png?HW-CC-KV=V1&HW-CC-Date=20260730T072717Z&HW-CC-Expire=86400&HW-CC-Sign=DFAB9A4E00969186D9C7EF183663C94352C0A5E18D1DB6CAED0EED558741F094)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/YbdCc0FdQlOBlwJmnoDt3Q/zh-cn_image_0000002658928587.png?HW-CC-KV=V1&HW-CC-Date=20260811T005528Z&HW-CC-Expire=86400&HW-CC-Sign=C2B0ED841C33F1D8BBFCDD574C4C48570EFE6F3A1BFCDB67219DE8EB930669C6)
 
 
 3. 勾选“Discover network targets”，点击Configure按钮：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/N1jgr0UITEeqKidK_LeAjw/zh-cn_image_0000002658808637.png?HW-CC-KV=V1&HW-CC-Date=20260730T072717Z&HW-CC-Expire=86400&HW-CC-Sign=C249EB9D85DC08C483FDB73F302AD88DA76081E186172DB01200AFB273C3693F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/N1jgr0UITEeqKidK_LeAjw/zh-cn_image_0000002658808637.png?HW-CC-KV=V1&HW-CC-Date=20260811T005528Z&HW-CC-Expire=86400&HW-CC-Sign=2A0598E3AED1776A265C94847583B1ACD23D3B17CD0CC9F78874B3F6DA6EED3C)
 
 
 4. 配置监听接口，勾选“Enable port forwarding”，点击Done：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/VdA7sXxeTNqD-xRuiVEC2w/zh-cn_image_0000002628569272.png?HW-CC-KV=V1&HW-CC-Date=20260730T072717Z&HW-CC-Expire=86400&HW-CC-Sign=9325DAC5DE6E70197161C84DC24FC0C5A9154F77CB8761EFB31FC4B8B4D1DB9B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/VdA7sXxeTNqD-xRuiVEC2w/zh-cn_image_0000002628569272.png?HW-CC-KV=V1&HW-CC-Date=20260811T005528Z&HW-CC-Expire=86400&HW-CC-Sign=0D437D32C482AA7D240891C19B04686771B05148F4FEB07D05A19DFBF64D365A)
 
 
 5. 回到DevEco Studio界面，执行构建：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/rYfBcWX3TGKcY-EWhQfNxg/zh-cn_image_0000002628409366.png?HW-CC-KV=V1&HW-CC-Date=20260730T072717Z&HW-CC-Expire=86400&HW-CC-Sign=70B19C4B7007A1625F1992B721CCEFCFE5ED2B75A72627049FD737F2ABC360FF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/rYfBcWX3TGKcY-EWhQfNxg/zh-cn_image_0000002628409366.png?HW-CC-KV=V1&HW-CC-Date=20260811T005528Z&HW-CC-Expire=86400&HW-CC-Sign=E404EA926FAB9CC8D3F973F759A8BBDC662C90FE5CF07B1EC81D36F93C9D454F)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/D3dmiQ4cQkenhUp07JQCgQ/zh-cn_image_0000002658928589.png?HW-CC-KV=V1&HW-CC-Date=20260730T072717Z&HW-CC-Expire=86400&HW-CC-Sign=F194053C46238223BF5F9CD7989F0070772E65FA599D72DF968D24FC592079CA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/D3dmiQ4cQkenhUp07JQCgQ/zh-cn_image_0000002658928589.png?HW-CC-KV=V1&HW-CC-Date=20260811T005528Z&HW-CC-Expire=86400&HW-CC-Sign=DA6F639A369CD783DEDA7875497176E629E571195EC5785BE0EF59B8A697E192)
 
 
 6. 切换至Chrome调试页面，点击“inspect”，即可开始调试：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/ysts6cKdTFqyHMtx6hr6zA/zh-cn_image_0000002658808639.png?HW-CC-KV=V1&HW-CC-Date=20260730T072717Z&HW-CC-Expire=86400&HW-CC-Sign=5364B774F3AA4DD73F9E993185EC095F8B8F5116A8388ABA19203E16F3AA9757)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/ysts6cKdTFqyHMtx6hr6zA/zh-cn_image_0000002658808639.png?HW-CC-KV=V1&HW-CC-Date=20260811T005528Z&HW-CC-Expire=86400&HW-CC-Sign=783F44C25DCCE4305D66DB339BD3E9B38E59353C820D3BA31F8C742FFC9CF32D)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/w1svjcfETAW0OLcaTUHxYg/zh-cn_image_0000002628569274.png?HW-CC-KV=V1&HW-CC-Date=20260730T072717Z&HW-CC-Expire=86400&HW-CC-Sign=3179E8FFED87EEB8F368C6CF1C39644D417233C840480563C6A3095CD778DCA2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/w1svjcfETAW0OLcaTUHxYg/zh-cn_image_0000002628569274.png?HW-CC-KV=V1&HW-CC-Date=20260811T005528Z&HW-CC-Expire=86400&HW-CC-Sign=DF81A32421D33C10DE187FC4CC9617EC0266D108EF0367CE1ADF67865F736DAA)
 
 
 7. 调试如果开启了[守护进程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-daemon)，二次构建时会因守护进程还在出现以下报错，[关闭当前工程的守护进程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-daemon#section298519112359)重新执行步骤5即可：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/D_zMFb2hQweuKgTCi9-MFQ/zh-cn_image_0000002628409368.png?HW-CC-KV=V1&HW-CC-Date=20260730T072717Z&HW-CC-Expire=86400&HW-CC-Sign=4EA9D6D4DDD94138B882E2423479C31A65B30FA9C2B035230FC8AAF4E143BB74)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/D_zMFb2hQweuKgTCi9-MFQ/zh-cn_image_0000002628409368.png?HW-CC-KV=V1&HW-CC-Date=20260811T005528Z&HW-CC-Expire=86400&HW-CC-Sign=632D7A25A2DB7A66CFE1F0465C8DB4EBCFA2BB9D2B8F2426038084800A87F636)

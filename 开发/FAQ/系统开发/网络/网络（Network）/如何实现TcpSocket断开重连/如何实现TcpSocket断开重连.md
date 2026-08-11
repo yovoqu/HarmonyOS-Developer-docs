@@ -21,90 +21,90 @@ TcpSocket异常断开连接后，如何实现循环重连？
 TcpSocket不具备自动回连机制，开发者需要通过业务逻辑实现循环重连，具体实现可参考如下代码：
  
 ```json
-import { socket } from '@kit.NetworkKit';
-import { BusinessError } from '@kit.BasicServicesKit';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">socket </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.NetworkKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct TcpSocketReconnect {
-  <em>// 1.tcpSocket实例</em>
-  @State tcpSocket: socket.TCPSocket | null = null;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">TcpSocketReconnect </span><span style="color: rgb(255,0,170);">{</span>
+  <em><span style="color: rgb(128,128,128);">// 1.tcpSocket</span><span style="color: rgb(128,128,128);">实例</span></em>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TCPSocket </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
 
- <em> // 2.创建socket实例</em>
-  createSocket() {
-    this.tcpSocket = socket.constructTCPSocketInstance();
-    this.registerEvents();
-  }
+ <em> <span style="color: rgb(128,128,128);">// 2.</span><span style="color: rgb(128,128,128);">创建</span><span style="color: rgb(128,128,128);">socket</span><span style="color: rgb(128,128,128);">实例</span></em>
+  <span style="color: rgb(0,0,255);">createSocket</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tcpSocket </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">constructTCPSocketInstance</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">registerEvents</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-<em>  // 3.注册事件监听</em>
-  registerEvents() {
-    this.tcpSocket?.on('close', () => {
-      console.info('Connection closed');
-      <em>// </em><em>获取当前tcpSocket连接状态</em>
-      this.tcpSocket?.getState((err: BusinessError, data: socket.SocketStateBase) => {
-        if (err) {
-          console.error('getState fail');
-          return;
-        }
-        console.info('getState success:', JSON.stringify(data));
-      <em>  // 如果tcpSocket未关闭连接，释放旧连接，然后开始重连</em>
-<em>        // 如果tcpSocket已关闭连接，说明用户需要主动断开，无需重连</em>
-        if (data.isConnected) {
-          try {
-            this.tcpSocket?.close();
-          } catch (err) {
-            console.error('Close error:', JSON.stringify(data));
-          }
-          <em>// </em><em>触发重连。注：此处应根据开发者业务所需，判断是否需要触发重连</em>
-          this.reconnect();
-        }
-      });
-    });
+<em>  <span style="color: rgb(128,128,128);">// 3.</span><span style="color: rgb(128,128,128);">注册事件监听</span></em>
+  <span style="color: rgb(0,0,255);">registerEvents</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'close'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Connection closed'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <em>// </em><em><span style="color: rgb(128,128,128);">获取当前</span><span style="color: rgb(128,128,128);">tcpSocket</span><span style="color: rgb(128,128,128);">连接状态</span></em>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getState</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SocketStateBase</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'getState fail'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          return<span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span>
+        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'getState success:'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">如果</span><span style="color: rgb(128,128,128);">tcpSocket</span><span style="color: rgb(128,128,128);">未关闭连接，释放旧连接，然后开始重连</span></em>
+<em>        <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">如果</span><span style="color: rgb(128,128,128);">tcpSocket</span><span style="color: rgb(128,128,128);">已关闭连接，说明用户需要主动断开，无需重连</span></em>
+        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isConnected</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+          try <span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Close error:'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+          <em>// </em><em><span style="color: rgb(128,128,128);">触发重连。注：此处应根据开发者业务所需，判断是否需要触发重连</span></em>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">reconnect</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-    this.tcpSocket?.on('error', (err: BusinessError) => {
-      console.error('Error occurred:', JSON.stringify(err));
-      this.reconnect();<em> </em><em>// 错误时触发重连</em>
-    });
-  }
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'error'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Error occurred:'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">reconnect</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">错误时触发重连</span></em>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-<em>  // 4.实现重连逻辑</em>
-  reconnect() {
-    console.info('Reconnecting...');
-   <em> // 创建新连接</em>
-    this.createSocket();
-    this.connectToServer();
+<em>  <span style="color: rgb(128,128,128);">// 4.</span><span style="color: rgb(128,128,128);">实现重连逻辑</span></em>
+  <span style="color: rgb(0,0,255);">reconnect</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Reconnecting...'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建新连接</span></em>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createSocket</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connectToServer</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-  }
+  <span style="color: rgb(255,0,170);">}</span>
 
-  <em>// 5.建立连接</em>
-  connectToServer() {
-    let address: socket.NetAddress = {
-      address: '36.137.xxx.xxx',
-      port: 8080
-    };
-    this.tcpSocket?.connect({ address, timeout: 5000 }, (err: BusinessError) => {
-      if (err) {
-        console.error('Connect failed:', JSON.stringify(err));
-        return;
-      }
-      console.info('Connect success');
-    });
-  }
+  <em><span style="color: rgb(128,128,128);">// 5.</span><span style="color: rgb(128,128,128);">建立连接</span></em>
+  <span style="color: rgb(0,0,255);">connectToServer</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">NetAddress </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'36.137.xxx.xxx'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8080</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">timeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5000 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Connect failed:'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+        return<span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Connect success'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    Column() {
-      Button('初始化实例/创建回连机制').onClick(() => {
-        <em>// </em><em>初始化实例/创建回连机制</em>
-        this.createSocket();
-      }).margin(15);
-      Button('建立连接').onClick(() => {
-     <em>   // 建立连接</em>
-        this.connectToServer();
-      });
-    }
-    .height('100%')
-    .width('100%')
-    .justifyContent(FlexAlign.SpaceAround);
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">初始化实例</span><span style="color: rgb(255,0,170);">/</span><span style="color: rgb(255,0,170);">创建回连机制</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <em>// </em><em><span style="color: rgb(128,128,128);">初始化实例</span><span style="color: rgb(128,128,128);">/</span><span style="color: rgb(128,128,128);">创建回连机制</span></em>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createSocket</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">15</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">建立连接</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">建立连接</span></em>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connectToServer</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SpaceAround</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

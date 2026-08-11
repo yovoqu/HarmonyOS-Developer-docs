@@ -23,7 +23,7 @@ MDM应用需要自定义息屏时间，通过[deviceSettings.setValue](https://d
 [deviceSettings](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-devicesettings)模块提供企业设备设置能力，包括设置、获取设备息屏时间等。使用[deviceSettings.setValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-devicesettings#devicesettingssetvalue)接口，item参数设置为screenOff，设置设备息屏策略。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/bzAuYgyeQSqdxZW-8FjA_g/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T072606Z&HW-CC-Expire=86400&HW-CC-Sign=71BCA53474059C092AF49CB80CE543790FD615E5767C6826686E1A36E1262EB6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/bzAuYgyeQSqdxZW-8FjA_g/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260811T005914Z&HW-CC-Expire=86400&HW-CC-Sign=F5ED392C58955DFC59B2BF24D58CC704365F28C4EAD43D58EC809DB2B8BBC633)
  
 
 - MDM应用开发需要[申请资质](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-guide#申请资质)，并使用对应的证书和Profile才可以使用接口。

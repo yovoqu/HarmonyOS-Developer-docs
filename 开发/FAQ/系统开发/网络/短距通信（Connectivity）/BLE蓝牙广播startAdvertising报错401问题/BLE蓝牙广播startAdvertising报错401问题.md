@@ -253,7 +253,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/XuSsexiBQPKSZfnI5A8eUg/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T072559Z&HW-CC-Expire=86400&HW-CC-Sign=856B5190FB3AC86EEA58C96DC53685DD789C1FC2EF5B94402EE1EC466490EFA0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/XuSsexiBQPKSZfnI5A8eUg/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260811T005931Z&HW-CC-Expire=86400&HW-CC-Sign=588DD557DFEABFA0FA0E722D5CCEF71B3275CB2388204BD1A2038FDDE0224F70)
  
 
 权限说明：需要在module.json5文件中配置允许应用接入蓝牙并使用蓝牙功能权限[ohos.permission.ACCESS_BLUETOOTH](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all-user#ohospermissionaccess_bluetooth)。

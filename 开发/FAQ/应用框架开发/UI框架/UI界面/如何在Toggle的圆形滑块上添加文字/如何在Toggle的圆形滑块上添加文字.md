@@ -28,91 +28,91 @@ Toggle的switchStyle仅支持设置圆形滑块半径或颜色，不支持添加
 示例代码如下：
  
 ```text
-<em>// </em><em>自定义开关样式接口</em>
-interface SwitchParam {
-  circleRadius: number,
-  borderRadius: number,
-  selectedCircleColor: ResourceColor,
-  unselectedCircleColor: ResourceColor,
-  selectedColor: ResourceColor,
-  unselectedColor: ResourceColor,
-  selectedLabel?: string,
-  unselectedLabel?: string,
-  labelColor?: ResourceColor,
-  labelSize?: number
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">自定义开关样式接口</span></em>
+interface <span style="color: rgb(0,0,255);">SwitchParam </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">circleRadius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">selectedCircleColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ResourceColor</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">unselectedCircleColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ResourceColor</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">selectedColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ResourceColor</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">unselectedColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ResourceColor</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">selectedLabel</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">unselectedLabel</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">labelColor</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">ResourceColor</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">labelSize</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">number</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-<em>// </em><em>开关样式接口的实现类</em>
-class MySwitchStyle implements ContentModifier<ToggleConfiguration> {
-  switchStyle: SwitchParam;
+<em>// </em><em><span style="color: rgb(128,128,128);">开关样式接口的实现类</span></em>
+class <span style="color: rgb(0,0,255);">MySwitchStyle </span>implements <span style="color: rgb(0,0,255);">ContentModifier</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">ToggleConfiguration</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">switchStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">SwitchParam</span><span style="color: rgb(181,106,1);">;</span>
 
-  constructor(switchStyle: SwitchParam) {
-    this.switchStyle = switchStyle;
-  }
+  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">switchStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">SwitchParam</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">switchStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">switchStyle</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  applyContent(): WrappedBuilder<[ToggleConfiguration]> {
-    return wrapBuilder(buildSwitch);
-  }
-}
-@Builder
-function buildSwitch(config: ToggleConfiguration) { <em>// 自定义Toggle内容区。</em>
-  Column() {
-    Button(config.isOn ? <em>// </em><em>配置圆形滑块的文字。</em>
-      (config.contentModifier as MySwitchStyle).switchStyle.selectedLabel ?? '' :
-      (config.contentModifier as MySwitchStyle).switchStyle.unselectedLabel ?? '',
-      { type: ButtonType.Circle })
-      .fontColor((config.contentModifier as MySwitchStyle).switchStyle.labelColor)
-      .fontSize((config.contentModifier as MySwitchStyle).switchStyle.labelSize)
-      .height((config.contentModifier as MySwitchStyle).switchStyle.circleRadius * 2)
-      .width((config.contentModifier as MySwitchStyle).switchStyle.circleRadius * 2)
-      .padding(0)
-      .backgroundColor(config.isOn ?
-      (config.contentModifier as MySwitchStyle).switchStyle.selectedCircleColor :
-      (config.contentModifier as MySwitchStyle).switchStyle.unselectedCircleColor)
-  }
-  .padding((config.contentModifier as MySwitchStyle).switchStyle.borderRadius -
-  (config.contentModifier as MySwitchStyle).switchStyle.circleRadius)
-  .alignItems(config.isOn ? HorizontalAlign.Start : HorizontalAlign.End)
-  .justifyContent(FlexAlign.Center)
-  .backgroundColor(config.isOn ?
-  (config.contentModifier as MySwitchStyle).switchStyle.selectedColor :
-  (config.contentModifier as MySwitchStyle).switchStyle.unselectedColor)
-  .borderRadius((config.contentModifier as MySwitchStyle).switchStyle.borderRadius)
-  .height((config.contentModifier as MySwitchStyle).switchStyle.borderRadius * 2)
-  .width((config.contentModifier as MySwitchStyle).switchStyle.borderRadius * 4 + 2)
-  .onClick(() => {
-    config.triggerChange(!config.isOn);
-  })
- <em> // 当开关切换时，存在背景色过渡动画。</em>
-  .animation({
-    duration: 200,
-    curve: Curve.Ease,
-    playMode: PlayMode.Normal
-  });
-}
-@Entry
-@Component
-struct ToggleTypeSwitch {
-  build() {
-    Column() {
-      Toggle({ type: ToggleType.Switch })
-        .enabled(true)
-        .contentModifier(new MySwitchStyle({
-          circleRadius: 9,
-          borderRadius: 10,
-          selectedCircleColor: Color.White,
-          unselectedCircleColor: Color.White,
-          selectedColor: '#ff5d7ef5',
-          unselectedColor: '#e4a0b4e7',
-          selectedLabel: '开',
-          unselectedLabel: '关',
-          labelColor: Color.Black,
-          labelSize: 12
-        }))
-        .onChange((isOn: boolean) => {
-          console.info(`Switch Log: ${isOn}`);
-        });
-    }.height('100%').width('100%').justifyContent(FlexAlign.Center);
-  }
-}
+  <span style="color: rgb(0,0,255);">applyContent</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WrappedBuilder</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">ToggleConfiguration</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    return <span style="color: rgb(0,0,255);">wrapBuilder</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buildSwitch</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(181,106,1);">@Builder</span>
+function <span style="color: rgb(0,0,255);">buildSwitch</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ToggleConfiguration</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{ </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">自定义</span><span style="color: rgb(128,128,128);">Toggle</span><span style="color: rgb(128,128,128);">内容区。</span></em>
+  <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isOn </span><span style="color: rgb(181,106,1);">? </span><em>// </em><em><span style="color: rgb(128,128,128);">配置圆形滑块的文字。</span></em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentModifier </span>as <span style="color: rgb(0,0,255);">MySwitchStyle</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">switchStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedLabel </span><span style="color: rgb(181,106,1);">?? </span><span style="color: rgb(255,0,170);">'' </span><span style="color: rgb(181,106,1);">:</span>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentModifier </span>as <span style="color: rgb(0,0,255);">MySwitchStyle</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">switchStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">unselectedLabel </span><span style="color: rgb(181,106,1);">?? </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Circle </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentModifier </span>as <span style="color: rgb(0,0,255);">MySwitchStyle</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">switchStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">labelColor</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentModifier </span>as <span style="color: rgb(0,0,255);">MySwitchStyle</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">switchStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">labelSize</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentModifier </span>as <span style="color: rgb(0,0,255);">MySwitchStyle</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">switchStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">circleRadius </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentModifier </span>as <span style="color: rgb(0,0,255);">MySwitchStyle</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">switchStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">circleRadius </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isOn </span>?
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentModifier </span>as <span style="color: rgb(0,0,255);">MySwitchStyle</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">switchStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedCircleColor </span><span style="color: rgb(181,106,1);">:</span>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentModifier </span>as <span style="color: rgb(0,0,255);">MySwitchStyle</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">switchStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">unselectedCircleColor</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentModifier </span>as <span style="color: rgb(0,0,255);">MySwitchStyle</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">switchStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius </span><span style="color: rgb(181,106,1);">-</span>
+  <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentModifier </span>as <span style="color: rgb(0,0,255);">MySwitchStyle</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">switchStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">circleRadius</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isOn </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Start </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">End</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isOn </span>?
+  <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentModifier </span>as <span style="color: rgb(0,0,255);">MySwitchStyle</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">switchStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedColor </span><span style="color: rgb(181,106,1);">:</span>
+  <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentModifier </span>as <span style="color: rgb(0,0,255);">MySwitchStyle</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">switchStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">unselectedColor</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentModifier </span>as <span style="color: rgb(0,0,255);">MySwitchStyle</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">switchStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentModifier </span>as <span style="color: rgb(0,0,255);">MySwitchStyle</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">switchStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentModifier </span>as <span style="color: rgb(0,0,255);">MySwitchStyle</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">switchStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">4 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">triggerChange</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isOn</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当开关切换时，存在背景色过渡动画。</span></em>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animation</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Ease</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">playMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PlayMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Normal</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">ToggleTypeSwitch </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Toggle</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ToggleType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Switch </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">enabled</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">contentModifier</span><span style="color: rgb(0,0,255);">(</span>new <span style="color: rgb(0,0,255);">MySwitchStyle</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">circleRadius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">9</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">selectedCircleColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">White</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">unselectedCircleColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">White</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">selectedColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'#ff5d7ef5'</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">unselectedColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'#e4a0b4e7'</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">selectedLabel</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">开</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">unselectedLabel</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">关</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">labelColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Black</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">labelSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">12</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">))</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">isOn</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Switch Log: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">isOn</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

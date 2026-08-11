@@ -24,7 +24,7 @@
 - [Web组件预览PDF文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-pdf-preview)：Web组件提供了在网页中预览PDF的能力。应用通过Web组件的[src](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-i#weboptions)参数和[loadUrl()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loadurl)接口加载PDF文档。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/kkQqpMhdSh-YvcUa_vivLw/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T072637Z&HW-CC-Expire=86400&HW-CC-Sign=3FF74B52E087D3E2BFAE2EA4FDB256CAABB3E3842B9A5ECB4DABFD53812DB5CC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/kkQqpMhdSh-YvcUa_vivLw/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260811T005601Z&HW-CC-Expire=86400&HW-CC-Sign=1781500B5151CD1EC6E0CC9397ABC1E90DE09713138311DA3F216BECAFD900FE)
  
 
   由于PDF预览页面会根据用户操作使用window.localStorage记录侧边导航栏的展开状态，因此需要开启文档对象模型存储[domStorageAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#domstorageaccess)权限。
@@ -39,13 +39,13 @@
 3. 搜索Web组件的[src](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-i#weboptions)参数和[loadUrl()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loadurl)接口，检查传入的URL是否正确。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/bC0YHd60SYmwknAg2CfylQ/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T072637Z&HW-CC-Expire=86400&HW-CC-Sign=532EEEF0FCB81766BB6A16A38C339D63D5BDC303E97896720C880A90F23BBCBC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/bC0YHd60SYmwknAg2CfylQ/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260811T005601Z&HW-CC-Expire=86400&HW-CC-Sign=F36067E38A9C3D6D0C2BC4D20FC899F9801CA7C543FE294D4159DA30FB7619C6)
  
 
   对于加载应用沙箱内PDF文档，检查是否开启应用中文件系统的访问[fileAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#fileaccess)权限。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/nIQ3OoWhSN6TQEngWMLL6w/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T072637Z&HW-CC-Expire=86400&HW-CC-Sign=A05661EEFA4D026008787C61CCFBB6C675A59F8BFEC2F9144A18A972F8A0F515)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/nIQ3OoWhSN6TQEngWMLL6w/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260811T005601Z&HW-CC-Expire=86400&HW-CC-Sign=A68E4AA65D00391D21A1F0B046D952DC2FD8D9258583D8A1B731282CB26E0F88)
  
 
   Web组件的第一个参数变量src不能通过状态变量（例如：@State）动态更改地址，如需更改，请通过loadUrl()重新加载。

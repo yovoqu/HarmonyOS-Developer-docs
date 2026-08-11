@@ -11,8 +11,8 @@
 错误信息如下：
  
 ```json
-LSP Client Warning
-Sync failed. The CPP language service will be provided using the cached compile_commands.json file, which may result in exceptions in certain cases. For the CPP language service to work correctly, make sure the sync is successful.
+<span style="color: rgb(0,0,255);">LSP Client Warning</span>
+<span style="color: rgb(0,0,255);">Sync failed</span><span style="color: rgb(181,106,1);">. </span><span style="color: rgb(0,0,255);">The CPP language service will be provided using the cached compile_commands</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">json file</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">which may result </span>in <span style="color: rgb(0,0,255);">exceptions </span>in <span style="color: rgb(0,0,255);">certain cases</span><span style="color: rgb(181,106,1);">. </span><span style="color: rgb(0,0,255);">For the CPP language service to work correctly</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">make sure the sync is successful</span><span style="color: rgb(181,106,1);">.</span>
 ```
  
 Sync虽然一直报错，但是构建打包都能正常使用（确认产物都正常输出了），Sync项目就是不成功。另外此问题在旧版本IDE上只报黄，最新版本的IDE会报红并在一段时间运行后出现NODE进程异常占用。

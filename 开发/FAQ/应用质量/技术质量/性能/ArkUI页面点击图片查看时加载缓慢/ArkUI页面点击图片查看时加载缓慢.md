@@ -67,7 +67,7 @@
   具体如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/kK9eP0TWQRWfzYMOyjsHrA/zh-cn_image_0000002658914273.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=936C09BEB7054104F753531CD6A9DC53C1606219E26C602357664FCF41313C83)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/kK9eP0TWQRWfzYMOyjsHrA/zh-cn_image_0000002658914273.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=CA1FC71E19C827DC1A1F4BF236D5869321CF23324F0CF1BDA2FD8DD13EBF4EDD)
 
 
  
@@ -87,28 +87,28 @@
 ```
 
 2. 如网络环境正常，使用DevEco Profiler ArkUI分析工具抓取点击图片到图片全屏显示完成的Trace信息，点击应用主线程泳道，在下方弹框中的Slice List页使用H:OnImageLoadSuccess来过滤图片加载完成的Trace信息，发现一共有7个Image组件加载图片资源完成。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/wxGNVwuCQgyn7dqI38GEJg/zh-cn_image_0000002658794319.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=1628275507C796C45DF22E1C6DF52E6BDE77481747C7BEEDE1AC774A6A1CEF30)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/wxGNVwuCQgyn7dqI38GEJg/zh-cn_image_0000002658794319.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=99B5FF5A64352A5C94D736649A06C72D5D75A77B65DD4B10752D19B4B8275572)
 
 
   由于无法确认何时图片全屏显示完成，使用Ark Inspector查看全屏显示完成后的Image组件，发现该组件Id为5505，在右侧Attributes中的输入框输入src确认图片数据源为网络图片。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/zSuuHLjETye5ic-e7agPpA/zh-cn_image_0000002628554954.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=85C36A049A463CAC5B3B8B51CD9AA4087E9A8A6537CD489876BB1448C2E00014)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/zSuuHLjETye5ic-e7agPpA/zh-cn_image_0000002628554954.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=B2EF0846582F6E0183D1052D6CBD376394014E5978C235FE0CBD670792C9F953)
 
 
   在Profiler上方搜索框中分别输入type=1和H:OnImageLoadSuccess[self:5505]找到点击图片、图片全屏显示完成的位置，如下图所示，两者时间间隔3.6s，页面切换过程400ms左右，可知点击图片后400ms切换到新页面，过了3.2s后图片才全屏显示完成。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/rq5uVMx7RTWzZoR32ofX0w/zh-cn_image_0000002628395054.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=4DFC5FEC465DA825C619F3F00B50092A785DB6F7BCCAB3A390BDEC5DABBCCFB4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/rq5uVMx7RTWzZoR32ofX0w/zh-cn_image_0000002628395054.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=28B79A7FC9AEBE28D9B48FFD66CDA0D13667C0EF2D9B210510A1B534AF3BFA15)
 
 3. 查看图片资源下载完成Trace点（H:DownloadImage）左侧的Runnable状态信息，可知应用主线程是由OS_NET_HttpWork线程唤醒，即该图片资源是应用通过http请求访问服务器下载的。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/g1dQmjNgS-yRRmyjnxQJxg/zh-cn_image_0000002658914275.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=6817E1054DFC12532ECEC31BEC78998C61B3956F2285F40EE940908BBFBBC604)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/g1dQmjNgS-yRRmyjnxQJxg/zh-cn_image_0000002658914275.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=CCC1EA6A0EE9A0DD1EC97C59CB3C34FD24CB982316E07BA5FB5FCA9B717A7C16)
 
 
   查看http请求Trace点信息，可知该图片下载耗时达到3.2s。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/N_L0_C6kTQiYu66zqzI-rg/zh-cn_image_0000002658794321.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=438A89478DCB58FCCA608E2312EF6550374FBDA2CF786DA4A02C41C49769F0D6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/N_L0_C6kTQiYu66zqzI-rg/zh-cn_image_0000002658794321.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=282A99C4FF66365D397991EEC4D2449D9662B0302767DA37574886FBA0A16BEC)
 
 
   排查日志中NETSTACK、Download image关键日志，发现该图片大小为6.95M，图片资源较大导致查看图片时图片加载慢的问题。

@@ -77,7 +77,7 @@ struct SliderExample {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/bJN22_adQu6b9gmp3_mCLw/zh-cn_image_0000002628609226.png?HW-CC-KV=V1&HW-CC-Date=20260730T072458Z&HW-CC-Expire=86400&HW-CC-Sign=EE352B8E643899B2E5F5F249325E1EB2A3F6A0259994C8F63051C822055F9B6F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/bJN22_adQu6b9gmp3_mCLw/zh-cn_image_0000002628609226.png?HW-CC-KV=V1&HW-CC-Date=20260811T005727Z&HW-CC-Expire=86400&HW-CC-Sign=92D59BDCF2D02CDC52E7C015CCB61ACC2B00747DE2B93DADB98532E006BAB7A3)
 
 - 场景二：实现Slider滑动切换图片的效果，通过[overlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-overlay)为Slider绑定图片，并监听onChange事件，根据滑动返回的value值动态切换对应图片。完整代码如下：
 ```text
@@ -130,7 +130,7 @@ struct SliderDemo {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/H0aEZifMQuSwOBJpcEYqSQ/zh-cn_image_0000002628769124.png?HW-CC-KV=V1&HW-CC-Date=20260730T072458Z&HW-CC-Expire=86400&HW-CC-Sign=2DB58574B2EE3B3DA295BC65752D3915999EAE75923B829ECE2A68C074BA1612)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/H0aEZifMQuSwOBJpcEYqSQ/zh-cn_image_0000002628769124.png?HW-CC-KV=V1&HW-CC-Date=20260811T005727Z&HW-CC-Expire=86400&HW-CC-Sign=1081F36D03BCF4D2F8707B5C8539E956D9CC9D2DB82A6DF485061C8951693DB4)
 
 - 场景三：监听Slider组件的onChange事件，获取滑动条的数值用[Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)显示出来，再通过offset属性使Text位置和滑块的位置一致，使用[animation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-animatorproperty)设置Text位置改变时的动画效果。完整代码如下：
 ```text
@@ -224,7 +224,7 @@ struct SliderPage1 {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/Muo-vrXVR5G2j5bn98OmAQ/zh-cn_image_0000002658968443.png?HW-CC-KV=V1&HW-CC-Date=20260730T072458Z&HW-CC-Expire=86400&HW-CC-Sign=853FE1C8C16B88AD25B49E51409D4192298E7E548B53F11D0E265B955B9BA1B7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/Muo-vrXVR5G2j5bn98OmAQ/zh-cn_image_0000002658968443.png?HW-CC-KV=V1&HW-CC-Date=20260811T005727Z&HW-CC-Expire=86400&HW-CC-Sign=4FD2FACEAF292498690AACF33C8964A576B64E73F1D81548DD4D8DD9A2ACFAE6)
 
 
  

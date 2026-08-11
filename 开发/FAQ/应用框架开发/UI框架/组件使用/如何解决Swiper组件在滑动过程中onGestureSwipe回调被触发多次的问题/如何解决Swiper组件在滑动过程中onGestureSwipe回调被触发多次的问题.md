@@ -13,7 +13,7 @@ Swiper组件在滑动过程中onGestureSwipe回调被触发多次，如何限制
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/nNMIOPJzQBmeiTOGOOH59Q/zh-cn_image_0000002658833295.png?HW-CC-KV=V1&HW-CC-Date=20260730T072347Z&HW-CC-Expire=86400&HW-CC-Sign=0E6BC1DC8EB19652A19D7574B763BFFD39B96350B387914B9AD1F5C35804AF9F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/nNMIOPJzQBmeiTOGOOH59Q/zh-cn_image_0000002658833295.png?HW-CC-KV=V1&HW-CC-Date=20260811T005817Z&HW-CC-Expire=86400&HW-CC-Sign=BBD100E1D9502E4C33F670C5A18030225DCFC84735D2C17571244FDAF14CD545)
 
  
  

@@ -1,6 +1,6 @@
 # API的版本兼容性适配和多设备兼容性适配
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-07-31 00:56:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-167
 
@@ -23,7 +23,7 @@
 2.[系统能力与API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#系统能力与-api)：
  
 - SysCap，全称SystemCapability，即系统能力，指操作系统中每一个相对独立的特性，如蓝牙，WIFI，NFC，摄像头等，都是系统能力之一。
-- HarmonyOS定义了API接口canIUse[判断API是否可以使用](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#判断-api-是否可以使用)，帮助开发者来判断该设备是否支持某个特定的SysCap。
+- HarmonyOS定义了API接口canIUse[判断API是否可以使用](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#使用能力查询接口判断api是否可用)，帮助开发者来判断该设备是否支持某个特定的SysCap。
 
  
  

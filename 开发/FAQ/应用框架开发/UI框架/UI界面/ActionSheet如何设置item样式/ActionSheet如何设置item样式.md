@@ -9,62 +9,62 @@
 ActionSheet默认的item样式间距过小，不便于交互，如何设置item样式？
  
 ```text
-@Entry
-@Component
-struct ShowActionSheetExample {
-  build() {
-    Column() {
-      Button('showActionSheet')
-        .margin(30)
-        .onClick(() => {
-          this.getUIContext().showActionSheet({
-            title: 'ActionSheet title',
-            message: 'message',
-            autoCancel: false,
-            width: 300,
-            height: 300,
-            cornerRadius: 20,
-            borderWidth: 1,
-            borderStyle: BorderStyle.Solid,
-            borderColor: Color.Blue,
-            backgroundColor: Color.White,
-            transition: TransitionEffect.asymmetric(TransitionEffect.OPACITY
-              .animation({ duration: 3000, curve: Curve.Sharp })
-              .combine(TransitionEffect.scale({ x: 1.5, y: 1.5 }).animation({ duration: 3000, curve: Curve.Sharp })),
-              TransitionEffect.OPACITY.animation({ duration: 100, curve: Curve.Smooth })
-                .combine(TransitionEffect.scale({ x: 0.5, y: 0.5 }).animation({ duration: 100, curve: Curve.Smooth }))),
-            confirm: {
-              value: 'Confirm button',
-              action: () => {
-                console.info('Get Alert Dialog handled');
-              }
-            },
-            alignment: DialogAlignment.Center,
-            sheets: [
-              {
-                title: 'apples',
-                action: () => {
-                  console.info('apples');
-                }
-              },
-              {
-                title: 'bananas',
-                action: () => {
-                  console.info('bananas');
-                }
-              },
-              {
-                title: 'pears',
-                action: () => {
-                  console.info('pears');
-                }
-              }
-            ]
-          });
-        })
-    }.width('100%').margin({ top: 5 })
-  }
-}
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">ShowActionSheetExample </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'showActionSheet'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showActionSheet</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'ActionSheet title'</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'message'</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">autoCancel</span><span style="color: rgb(181,106,1);">: </span>false<span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">300</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">300</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">cornerRadius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">borderWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">borderStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BorderStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Solid</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">borderColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Blue</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">White</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">transition</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TransitionEffect</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">asymmetric</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TransitionEffect</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OPACITY</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animation</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">3000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Sharp </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">combine</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TransitionEffect</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scale</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1.5</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1.5 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animation</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">3000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Sharp </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(0,0,255);">TransitionEffect</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OPACITY</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animation</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Smooth </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">combine</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TransitionEffect</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scale</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0.5</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0.5 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animation</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Smooth </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)))</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">confirm</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'Confirm button'</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(0,0,255);">action</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Get Alert Dialog handled'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">            }</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">DialogAlignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">sheets</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span>
+              <span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'apples'</span><span style="color: rgb(181,106,1);">,</span>
+                <span style="color: rgb(0,0,255);">action</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'apples'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">              }</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'bananas'</span><span style="color: rgb(181,106,1);">,</span>
+                <span style="color: rgb(0,0,255);">action</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'bananas'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">              }</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'pears'</span><span style="color: rgb(181,106,1);">,</span>
+                <span style="color: rgb(0,0,255);">action</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'pears'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">              }</span>
+            <span style="color: rgb(0,0,255);">]</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
  
@@ -72,7 +72,7 @@ struct ShowActionSheetExample {
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/9EIIahzkREC1mOkXjSEBDg/zh-cn_image_0000002658804039.png?HW-CC-KV=V1&HW-CC-Date=20260730T072507Z&HW-CC-Expire=86400&HW-CC-Sign=4B1A9A0A6273D75C97D3711EBE1CB74D1F654920D7D1C0CC2DB86307DA9F23EC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/9EIIahzkREC1mOkXjSEBDg/zh-cn_image_0000002658804039.png?HW-CC-KV=V1&HW-CC-Date=20260811T005640Z&HW-CC-Expire=86400&HW-CC-Sign=C5AFFDC070E6421B809FFD7B8B35FADDD11BF758B91EFDDE3150D6A9EA9088EA)
 
  
  
@@ -90,56 +90,56 @@ struct ShowActionSheetExample {
 ActionSheet的item之间的间距过小，可以给ActionSheet每个item的title添加换行符来实现，具体可参考如下代码：
  
 ```text
-@Entry
-@Component
-struct ShowActionSheetExample {
-  build() {
-    RelativeContainer() {
-      Button('showActionSheet')
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
-        .margin(30)
-        .onClick(() => {
-          this.getUIContext().showActionSheet({
-            title: '水果列表',
-            message: '以下为有货的水果',
-            autoCancel: false,
-            width: 300,
-            height: 300,
-            cornerRadius: 20,
-            backgroundColor: Color.White,
-            confirm: {
-              value: '确认',
-              action: () => {
-                console.info('Get Alert Dialog handled');
-              }
-            },
-            alignment: DialogAlignment.Center,
-            sheets: [
-              {
-                title: '\napples\n',
-                action: () => {
-                  console.info('apples');
-                }
-              },
-              {
-                title: '\nbananas\n',
-                action: () => {
-                  console.info('bananas');
-                }
-              },
-              {
-                title: '\npears\n',
-                action: () => {
-                  console.info('pears');
-                }
-              }
-            ]
-          });
-        });
-    }.width('100%').margin({ top: 5 });
-  }
-}
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">ShowActionSheetExample </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'showActionSheet'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showActionSheet</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">水果列表</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">以下为有货的水果</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">autoCancel</span><span style="color: rgb(181,106,1);">: </span>false<span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">300</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">300</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">cornerRadius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">White</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">confirm</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">确认</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(0,0,255);">action</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Get Alert Dialog handled'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">            }</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">DialogAlignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">sheets</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span>
+              <span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span>\n<span style="color: rgb(255,0,170);">apples</span>\n<span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
+                <span style="color: rgb(0,0,255);">action</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'apples'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">              }</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span>\n<span style="color: rgb(255,0,170);">bananas</span>\n<span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
+                <span style="color: rgb(0,0,255);">action</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'bananas'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">              }</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span>\n<span style="color: rgb(255,0,170);">pears</span>\n<span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
+                <span style="color: rgb(0,0,255);">action</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'pears'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">              }</span>
+            <span style="color: rgb(0,0,255);">]</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

@@ -11,7 +11,7 @@ Tabs组件的tabBar导航页签栏中第一个页签使用if/else条件渲染，
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/-8c2DuGxTLulf2P3g_a-mQ/zh-cn_image_0000002628602042.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072502Z&HW-CC-Expire=86400&HW-CC-Sign=DD3070DC68BF8A0C5910FB56D2FC6E725F827507F83439F381F9117299BE2B78)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/-8c2DuGxTLulf2P3g_a-mQ/zh-cn_image_0000002628602042.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005653Z&HW-CC-Expire=86400&HW-CC-Sign=4996581A65BAE8A935809B5773542635AA8351EF8DC5560007268F7443A9DDB6)
 
  
  
@@ -21,7 +21,7 @@ Tabs组件的tabBar导航页签栏中第一个页签使用if/else条件渲染，
 tabBar导航页签栏切换到其他页签之后再次切回第一个页签，动画效果仍存在：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/XE-hmRl2RM-P77Whkw9--w/zh-cn_image_0000002628761928.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072502Z&HW-CC-Expire=86400&HW-CC-Sign=7290570ECC24E1D6C4A397B06BF80ABFA0DCCCEF9A5D5563F535B153587E8480)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/XE-hmRl2RM-P77Whkw9--w/zh-cn_image_0000002628761928.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005653Z&HW-CC-Expire=86400&HW-CC-Sign=C2042F7357DF81BAB85BB9BDB2ECD361B23EE6CBE8F1EF631F25AD25DBC02F99)
 
  
  
@@ -43,72 +43,72 @@ tabBar导航页签栏切换到其他页签之后再次切回第一个页签，�
 由于if/else的渲染机制，切换页签后导致第一个页签被销毁重构从而导致动画停止，解决该问题可以在需要执行属性动画组件的onAppear事件中判断组件被销毁时是否在执行动画，如在执行动画则再次返回时给组件添加动画效果。
  
 ```text
-@Entry
-@Component
-struct TabBarNav {
-  @State dataSource: number[] = [0, 1, 2, 3, 4];
-  @State cIndex: number = 0;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">TabBarNav </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">dataSource</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">cIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Tabs() {
-      ForEach(this.dataSource, (item: number) => {
-        TabContent() {
-          Text(item.toString());
-        }.tabBar(this.myBar(item));
-      });
-    }
-    .onChange((index: number) => {
-      this.cIndex = index;
-    })
-    .height('100%')
-    .width('100%');
-  }
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Tabs</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dataSource</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">TabContent</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBar</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">myBar</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  @Builder
-  myBar(key: number) {
-    if (!(key === 0 && this.cIndex === 0)) {
-      Text(key.toString());
-    } else {
-      BarDemo();
-    }
-  }
-}
+  <span style="color: rgb(181,106,1);">@Builder</span>
+  <span style="color: rgb(0,0,255);">myBar</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">key </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">BarDemo</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Component
-struct BarDemo {
-  @State cHeight: number = 20;
-  @State cWidth: number = 20;
-  @StorageLink('isShow') isShow: boolean = false;
-  ctx = this.getUIContext();
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">BarDemo </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">cHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">cWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@StorageLink</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'isShow'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">isShow</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">ctx </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-  // 判断组件被销毁时是否在执行动画
-  animate() {
-    this.ctx.animateTo({
-      duration: 1000,
-      curve: Curve.Linear,
-      iterations: -1
-    }, () => {
-      if (this.isShow) {
-        this.cHeight = 30;
-        this.cWidth = 30;
-      }
-    });
-  }
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">判断组件被销毁时是否在执行动画</span>
+  <span style="color: rgb(0,0,255);">animate</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ctx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animateTo</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1000</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Linear</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">iterations</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(255,0,0);">1</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isShow</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(181,106,1);">;</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    Column() {
-      Image($r('app.media.startIcon'))
-        .height(this.cHeight)
-        .width(this.cWidth)
-        .onClick(() => {
-          // 改变状态
-          this.isShow = !this.isShow;
-          this.animate();
-        });
-    }
-    .onAppear(() => {
-      this.animate();
-    });
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">))</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cHeight</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cWidth</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">改变状态</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isShow </span><span style="color: rgb(181,106,1);">= !</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isShow</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animate</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAppear</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animate</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

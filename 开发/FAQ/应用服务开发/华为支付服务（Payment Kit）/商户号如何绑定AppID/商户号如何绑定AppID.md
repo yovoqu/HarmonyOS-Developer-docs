@@ -7,7 +7,7 @@
 #### 问题现象
 1. 华为支付配置过程中，商户号如何与AppID进行绑定？
 2. 登录华为支付商户平台后，商户中心没有证书管理和AppID管理的选项，如何解决？
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/KP3GVgYTS0OszbUaFu5AFg/zh-cn_image_0000002658793791.png?HW-CC-KV=V1&HW-CC-Date=20260730T072647Z&HW-CC-Expire=86400&HW-CC-Sign=F441BAA35BBE0A2EB3D4B603057DD38FFBA82C025738B67238F544802EFCC4DB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/KP3GVgYTS0OszbUaFu5AFg/zh-cn_image_0000002658793791.png?HW-CC-KV=V1&HW-CC-Date=20260811T005607Z&HW-CC-Expire=86400&HW-CC-Sign=22473781AAB1F7655B031DE47F11EA02503B7E0DAC13CA314C0B2375232A4C63)
 
  
  
@@ -30,4 +30,4 @@
 4. 出现此问题的原因是因为开发者是通过华为开发者联盟官网开通[商户服务](https://developer.huawei.com/consumer/cn/doc/app/open-0000001959074873)入网的商户，该方式申请的商户无法直接接入华为支付以及绑定AppID操作，需要在华为支付商户平台完成重新入网后才能接入。重新入网步骤：华为账号登录华为支付商户平台后在弹框右上角选择新商户入网申请完成后才可以[上传商户证书](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-certificates-config#上传商户证书)，具体如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/PKscxk9tTsmWwaJ6LslWUA/zh-cn_image_0000002628394524.png?HW-CC-KV=V1&HW-CC-Date=20260730T072647Z&HW-CC-Expire=86400&HW-CC-Sign=4F261DB330F4BB6C7DC3D70351940BFA0DAEF3E915A5971348FEBC4553C375A7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/PKscxk9tTsmWwaJ6LslWUA/zh-cn_image_0000002628394524.png?HW-CC-KV=V1&HW-CC-Date=20260811T005607Z&HW-CC-Expire=86400&HW-CC-Sign=81AF6CCBC10A66F85992D5A8A05E391D78CB5F4142C87DFC12CE8AF278D0A7F5)

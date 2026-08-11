@@ -10,10 +10,10 @@
  
 ```text
 > hvigor ERROR: ArkTS:ERROR Failed to execute es2abc.
-Error Message: Error: The input abc file '/Users/xxx/Desktop/Git/KnowChat_Harmony/oh_modules/.ohpm/wrapper@xnnuf1xhgb6dfmf+4nqatekk3somopridtvlx+rvty0=/oh_modules/wrapper/ets/modules.abc' owns a higher api version or a higher sdkReleaseType compared to current compilation process. [/Users/xxx/Desktop/Git/KnowChat_Harmony/oh_modules/.ohpm/wrapper@xnnuf1xhgb6dfmf+4nqatekk3somopridtvlx+rvty0=/oh_modules/wrapper/ets/modules.abc]
-Error: The input abc file '/Users/xxx/Desktop/Git/KnowChat_Harmony/oh_modules/.ohpm/@nertc+nertc_sdk@x07imzcfiusn4dyjfe46yg2t+btahwg70+p5ft9p+7y=/oh_modules/@nertc/nertc_sdk/ets/modules.abc' owns a higher api version or a higher sdkReleaseType compared to current compilation process. [/Users/xxx/Desktop/Git/KnowChat_Harmony/oh_modules/.ohpm/@nertc+nertc_sdk@x07imzcfiusn4dyjfe46yg2t+btahwg70+p5ft9p+7y=/oh_modules/@nertc/nertc_sdk/ets/modules.abc]
+Error Message: Error: The input abc file '/Users/xxx/Desktop/Git/KnowChat_Harmony/oh_modules/.ohpm/wrapper@xnnuf1xhgb6dfmf+4nqatekk3somopridtvlx+rvty0=/oh_modules/wrapper/ets/modules.abc' owns a higher api version or a higher sdkReleaseType compared to current compilation process. [/Users/xxx/Desktop/Git/KnowChat_Harmony/oh_modules/.ohpm/wrapper@xnnuf1xhgb6dfmf<span style="color: rgb(0,0,255);">+4</span>nqatekk3somopridtvlx<span style="color: rgb(0,0,255);">+</span>rvty0=/oh_modules/wrapper/ets/modules.abc]
+Error: The input abc file '/Users/xxx/Desktop/Git/KnowChat_Harmony/oh_modules/.ohpm/@nertc+nertc_sdk@x07imzcfiusn4dyjfe46yg2t+btahwg70+p5ft9p+7y=/oh_modules/@nertc/nertc_sdk/ets/modules.abc' owns a higher api version or a higher sdkReleaseType compared to current compilation process. [/Users/xxx/Desktop/Git/KnowChat_Harmony/oh_modules/.ohpm/@nertc<span style="color: rgb(0,0,255);">+</span>nertc_sdk@x07imzcfiusn4dyjfe46yg2t<span style="color: rgb(0,0,255);">+</span>btahwg70<span style="color: rgb(0,0,255);">+</span>p5ft9p<span style="color: rgb(0,0,255);">+7</span>y=/oh_modules/@nertc/nertc_sdk/ets/modules.abc]
 Error: The input abc file '/Users/xxx/Desktop/Git/KnowChat_Harmony/oh_modules/.ohpm/wrapper@xnnuf1xhgb6dfmf+4nqatekk3somopridtvlx+rvty0=/oh_modules/wrapper/ets/modules.abc' owns a higher api version or a higher sdkReleaseType compared to current compilation process.
-The size of programs is expected to be 434, but is 432
+The size of programs is expected to be <span style="color: rgb(0,0,255);">434</span>, but is <span style="color: rgb(0,0,255);">432</span>
 ```
  
  

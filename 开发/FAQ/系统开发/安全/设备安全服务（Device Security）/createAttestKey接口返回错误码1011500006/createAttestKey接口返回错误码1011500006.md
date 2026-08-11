@@ -11,7 +11,7 @@
 [1011500006 IPC通信失败](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-taas#section1011500006-ipc通信失败)可能原因和处理措施，无法指导开发者解决：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/lHbmPsFYTAuSrPSG5YSoIQ/zh-cn_image_0000002661522207.png?HW-CC-KV=V1&HW-CC-Date=20260730T072545Z&HW-CC-Expire=86400&HW-CC-Sign=B5E9058A9FB9A50078DEFFB3E2BCEECCBCAF058A1A4C358168A1E301F2055660)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/lHbmPsFYTAuSrPSG5YSoIQ/zh-cn_image_0000002661522207.png?HW-CC-KV=V1&HW-CC-Date=20260811T005927Z&HW-CC-Expire=86400&HW-CC-Sign=FDC8DE5D46776A0E6B4DFFD22FE82E41C4A359C5384E8CEC7DBC5BDBDEC26A94)
 
  
  
@@ -42,7 +42,7 @@
 参考[开通Device Security服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-deviceverify-activateservice)，引导开发者执行以下步骤：
  1. 申请“可信应用服务”白名单：将Developer ID、公司名称、应用名称、申请使用的服务和使用该服务的场景，发送到AGC官方邮箱。AGC运营将审核相关材料，通过后将配置受限开放服务使用的名单，审核周期为1-3个工作日。
 2. “可信应用服务”白名单申请通过后，在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)上开通可信应用服务。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/WOulb_uWQJ6Mx42eHeHU9A/zh-cn_image_0000002661522755.png?HW-CC-KV=V1&HW-CC-Date=20260730T072545Z&HW-CC-Expire=86400&HW-CC-Sign=B3FE3EB0DF74DEC41D8DA4AD6CE17090F519980AF0B30A31A152D69D51AC92AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/WOulb_uWQJ6Mx42eHeHU9A/zh-cn_image_0000002661522755.png?HW-CC-KV=V1&HW-CC-Date=20260811T005927Z&HW-CC-Expire=86400&HW-CC-Sign=FDD33BF510DF0569AD9F9EDD47F3391889F3DDD1D7D89FD75B7C36378AF2B09E)
 
 3. 在开通服务后，[重新申请profile（.p7b）文件](https://developer.huawei.com/consumer/cn/doc/app/agc-help-debug-profile-0000002248181278)。
 4. 本地替换profile签名文件，重新编译执行。

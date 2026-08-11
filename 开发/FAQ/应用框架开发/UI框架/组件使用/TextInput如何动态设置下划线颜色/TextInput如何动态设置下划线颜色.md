@@ -69,4 +69,4 @@ struct TextInputExample {
 运行效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/FXxgLN3bQF6QE5O2UxH0cw/zh-cn_image_0000002658804821.png?HW-CC-KV=V1&HW-CC-Date=20260730T072338Z&HW-CC-Expire=86400&HW-CC-Sign=FE12BB92B298D77BF17EF485410D4265B3454D12E0D1397328303522B76A74B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/FXxgLN3bQF6QE5O2UxH0cw/zh-cn_image_0000002658804821.png?HW-CC-KV=V1&HW-CC-Date=20260811T005753Z&HW-CC-Expire=86400&HW-CC-Sign=B2B36934C70F88D68B56FFC8E7B19E4D18B2C9A4C2AB322C40B92652A50C03D7)

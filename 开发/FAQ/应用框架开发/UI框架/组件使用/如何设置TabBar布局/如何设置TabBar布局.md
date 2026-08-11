@@ -97,7 +97,7 @@ struct TabBarLayoutInDifferentDirections {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/ZYul09dkSXi6sKdzJpCGkA/zh-cn_image_0000002628567120.png?HW-CC-KV=V1&HW-CC-Date=20260730T072338Z&HW-CC-Expire=86400&HW-CC-Sign=343E61045CC9507822351D9C36F18E94AEA1510992B8DA3ECA17034D219F8E30)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/ZYul09dkSXi6sKdzJpCGkA/zh-cn_image_0000002628567120.png?HW-CC-KV=V1&HW-CC-Date=20260811T005821Z&HW-CC-Expire=86400&HW-CC-Sign=647E5464AD3C1A52F00DC2A0EE77DC1A773C1BFBF5B16B621DB318711B9306D4)
 
 
   
@@ -212,7 +212,7 @@ export struct TabBarAlignLeftAndRight {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/n5G6E465ThyZOBHdTcRF8w/zh-cn_image_0000002658926419.png?HW-CC-KV=V1&HW-CC-Date=20260730T072338Z&HW-CC-Expire=86400&HW-CC-Sign=4629004F510FFF627A7E24E1988235E62D1FB2BCCFB997880810119FA1507DE2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/n5G6E465ThyZOBHdTcRF8w/zh-cn_image_0000002658926419.png?HW-CC-KV=V1&HW-CC-Date=20260811T005821Z&HW-CC-Expire=86400&HW-CC-Sign=52E5399DF4D0EB9355D5BC25AC6F9BA4FA764BC6FCAB4103E9235AC55F4535AA)
 
 - **场景四：实现每个页签宽度均不相同的布局效果。**通过将[barMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barmode10-1)设置为BarMode.Scrollable可滚动模式，tabBar的宽度即可以根据实际宽度显示。
 
@@ -261,7 +261,7 @@ struct TabBarLayoutUnevenly {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/pmohc6u-RH25GuWRLAde3w/zh-cn_image_0000002628407220.png?HW-CC-KV=V1&HW-CC-Date=20260730T072338Z&HW-CC-Expire=86400&HW-CC-Sign=773B863781E8D22436FEA66E678C238A710676A610443C395509E37AA4BB900A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/pmohc6u-RH25GuWRLAde3w/zh-cn_image_0000002628407220.png?HW-CC-KV=V1&HW-CC-Date=20260811T005821Z&HW-CC-Expire=86400&HW-CC-Sign=67851E874EC951BDEF4B9440798D2D4D8C2B99B729CC1B72B6809F51511A4AE6)
 
 
   更多实现方式和详情可参考示例：[如何给tabBar页签设置不同宽度](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-580)。

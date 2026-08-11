@@ -9,7 +9,7 @@
 HarmonyOS应用开发与测试环境中，可能会遇到DevEco Studio的国家码配置缺失或错误导致的部分功能不可用问题，常见于以下典型场景：
  
 - 场景一：在DevEco Studio中打开Tools菜单，未找到Device Manager入口。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/XuwlV-SoTjOaRTxJReBbeg/zh-cn_image_0000002631134494.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=93FCD52C1F115A123F0976A18AE5B78A56A0D694EFA375DA41F6A01347550F15)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/XuwlV-SoTjOaRTxJReBbeg/zh-cn_image_0000002631134494.png?HW-CC-KV=V1&HW-CC-Date=20260811T005523Z&HW-CC-Expire=86400&HW-CC-Sign=D893336F8CA2F641B95DAD2963E8FA46804C8CC9FAA9735DBD641282531F47AC)
 
 - 场景二：通过命令行执行模拟器镜像下载命令时，提示Currently, this capability is available only in the Chinese mainland.错误，导致镜像无法正常下载。
 
@@ -33,7 +33,7 @@ DevEco Studio的部分功能（如Device Manager和模拟器镜像下载）受�
  保存修改并重启DevEco Studio后，即可在Tools菜单中看到Device Manager入口。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/POIzsSQbRvi5nH6DNc76rQ/zh-cn_image_0000002661374419.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=2CCC2B1C6CD33BAA1B6BDCC60694B4B906DA897DD0FAC4B954A1F2D900922477)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/POIzsSQbRvi5nH6DNc76rQ/zh-cn_image_0000002661374419.png?HW-CC-KV=V1&HW-CC-Date=20260811T005523Z&HW-CC-Expire=86400&HW-CC-Sign=2EE6C0CCD0011D0CB95AE5320DCC24B957DB9173A3891E2F9908DE57A4081587)
 
 
  

@@ -11,7 +11,7 @@
 预期效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/4s28f7LDSWeeNwaDEoRU5A/zh-cn_image_0000002628595510.png?HW-CC-KV=V1&HW-CC-Date=20260730T072435Z&HW-CC-Expire=86400&HW-CC-Sign=94FE2336EADDC66592C3EDB26F92B7404B7CB514A34EC5915F2C83D67A262E25)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/4s28f7LDSWeeNwaDEoRU5A/zh-cn_image_0000002628595510.png?HW-CC-KV=V1&HW-CC-Date=20260811T005651Z&HW-CC-Expire=86400&HW-CC-Sign=CA4C4BC4072C6E9AC70D62BEA66F8065E86F7B67A8B900B574EABB875C4B3523)
 
  
  
@@ -31,7 +31,7 @@
 1. 实现可拖动Text组件：为了使Text组件可拖动，可以使用Scroll组件嵌套Text组件。原理如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/XxIwcXKxTy-3avwp1a-8ng/zh-cn_image_0000002628755404.png?HW-CC-KV=V1&HW-CC-Date=20260730T072435Z&HW-CC-Expire=86400&HW-CC-Sign=B705C9297127D58DDCB2B34936298BB1A303792AF7A0B317B411018F8806BEDD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/XxIwcXKxTy-3avwp1a-8ng/zh-cn_image_0000002628755404.png?HW-CC-KV=V1&HW-CC-Date=20260811T005651Z&HW-CC-Expire=86400&HW-CC-Sign=2BC3DF04E44A442888C6F6ED1720277F4BC9CCC520A2DFC2414235A79A14B017)
 
 
   在Text组件中文本量较大的情况下，如果设置了宽度，Text组件会自动拉高，将所有文字展示出来。同时，背景知识板块中提到：**当子组件的布局尺寸超过父组件的尺寸时**，Scroll组件内容可以滚动，因此可以给Scroll组件设置固定高度，且该高度要小于Text组件高度。
@@ -71,11 +71,11 @@ struct TextScrollBlurStyleOne {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/DGKi2wARRfiScCRtSgfs8A/zh-cn_image_0000002658954727.png?HW-CC-KV=V1&HW-CC-Date=20260730T072435Z&HW-CC-Expire=86400&HW-CC-Sign=3E8255EAE1DD2F762B60353A02A592088376AD7FDAEC8BD1EE447E4776C255B6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/DGKi2wARRfiScCRtSgfs8A/zh-cn_image_0000002658954727.png?HW-CC-KV=V1&HW-CC-Date=20260811T005651Z&HW-CC-Expire=86400&HW-CC-Sign=6C719BDC5F19AECE717C0212610D577570EB8A1B5E2BC3B2D82C94CFCD78DCE4)
 
 2. 滑动时添加边缘虚化样式：
 **方案一**：Text组件没有直接设置边缘虚化的属性，因此该效果需要自定义实现。边缘虚化原理如下：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/Jk6UMYKcSLODf3G0suKoEw/zh-cn_image_0000002658834767.png?HW-CC-KV=V1&HW-CC-Date=20260730T072435Z&HW-CC-Expire=86400&HW-CC-Sign=FBCC6F73C7A6DA87AD9F8BCB6875348AF8FB25B25D6EA286821BB13DB0B08811)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/Jk6UMYKcSLODf3G0suKoEw/zh-cn_image_0000002658834767.png?HW-CC-KV=V1&HW-CC-Date=20260811T005651Z&HW-CC-Expire=86400&HW-CC-Sign=732929939D41E4D9DDBC71CCD417D5380918C950F0FCE05579FAE8D3B6926430)
 
 
   在Scroll组件的上下两侧分别添加两个Row组件，并将它们设置成渐变白色（图示为了清晰，把渐变白变成了黑白渐变色）。
@@ -168,7 +168,7 @@ struct TextScrollBlurStyleTwo {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/H915me-gSS-14zSRBoG8mg/zh-cn_image_0000002628595512.png?HW-CC-KV=V1&HW-CC-Date=20260730T072435Z&HW-CC-Expire=86400&HW-CC-Sign=C349C36985ECF03F1F39B16422ABAA533B0698DA1470FB0ECE76798E9CC6A66C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/H915me-gSS-14zSRBoG8mg/zh-cn_image_0000002628595512.png?HW-CC-KV=V1&HW-CC-Date=20260811T005651Z&HW-CC-Expire=86400&HW-CC-Sign=AE620FD25F06134B46E01CF579901586271257FBBF91C1688ECDBBADD84D7128)
 
 3. **方案二**：添加属性fadingEdge(true, { fadingEdgeLength: LengthMetrics.vp(20) })。
 

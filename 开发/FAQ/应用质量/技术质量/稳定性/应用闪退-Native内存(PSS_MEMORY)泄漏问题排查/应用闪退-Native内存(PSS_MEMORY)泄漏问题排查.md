@@ -177,7 +177,7 @@ size       allocated         nmalloc         ndalloc
 
 
 4. 使用HiSmartPref分析内存栈文件memleak-native-[process_name]-[pid]-[timestamp].txt，拖拽导入，框选All Heap，选择Created & Existing，找到最大size的调用栈，分析业务代码确认泄漏点。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/oU71ag5bSByIAJBqLXq8dw/zh-cn_image_0000002628554906.png?HW-CC-KV=V1&HW-CC-Date=20260730T072252Z&HW-CC-Expire=86400&HW-CC-Sign=E041AEEBA5A067AA86EEE5935B9E80AFF4A876DB2399669BD25D44BBC8284E63)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/oU71ag5bSByIAJBqLXq8dw/zh-cn_image_0000002628554906.png?HW-CC-KV=V1&HW-CC-Date=20260811T005912Z&HW-CC-Expire=86400&HW-CC-Sign=C3E018BFF0269491544646118CEF4DD7560765DDB2FE60ADBEF544CEF69258F9)
 
 
  - 场景二：ashmem泄漏。
@@ -192,7 +192,7 @@ com.hx.example	12448	  616	328359	 12448	      dev/ashmem/Create PixelMap   1258
 
 
 2. 使用HiSmartPref分析内存栈文件memleak-native-[process_name]-[pid]-[timestamp].txt，拖拽导入，框选All Anonymous VM，选择Created & Existing，找到最大Virtual_size的调用栈，分析业务代码确认泄漏点。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/IZDK2UfvQwKdX5QL33lZaA/zh-cn_image_0000002628395006.png?HW-CC-KV=V1&HW-CC-Date=20260730T072252Z&HW-CC-Expire=86400&HW-CC-Sign=3011D37B705E5E5EEDE36650B9F524F2D402E49C8CA45DC0347842E9074D3A4C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/IZDK2UfvQwKdX5QL33lZaA/zh-cn_image_0000002628395006.png?HW-CC-KV=V1&HW-CC-Date=20260811T005912Z&HW-CC-Expire=86400&HW-CC-Sign=24731C6E30FE2D6742C5A62170A9649B41B25EA7DFF02A3BADF863098707D95A)
 
 
  

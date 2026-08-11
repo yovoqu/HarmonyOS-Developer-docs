@@ -81,7 +81,7 @@ struct AdjustComponentSizeByAreaChange17 {
 显示效果如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/J37349nCRry6o6u-1s8_ZQ/zh-cn_image_0000002658972599.png?HW-CC-KV=V1&HW-CC-Date=20260730T072436Z&HW-CC-Expire=86400&HW-CC-Sign=365E199CE370C83A0CF13C36B796130D77D179DE327D10AE7D5F0989B3EF187E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/J37349nCRry6o6u-1s8_ZQ/zh-cn_image_0000002658972599.png?HW-CC-KV=V1&HW-CC-Date=20260811T005717Z&HW-CC-Expire=86400&HW-CC-Sign=5A93AA6C0B0C392AFA7C54368CC2F2885483DEB52C0DC534AC55AC635F0420D2)
 
  
  

@@ -15,4 +15,4 @@
 DevEco Testing设置-基本设置，开启登录状态保活开关开启，本机登录的账户不发生变化时，7天内启动客户端无需输入账号密码。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/_qY-s3xsSKKzocy10CYlrw/zh-cn_image_0000002658803443.png?HW-CC-KV=V1&HW-CC-Date=20260730T072727Z&HW-CC-Expire=86400&HW-CC-Sign=8B32AB97B9BF88E5478E7D2CF65984DE7C270E6F00C0B2CE48CED1F404373566)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/_qY-s3xsSKKzocy10CYlrw/zh-cn_image_0000002658803443.png?HW-CC-KV=V1&HW-CC-Date=20260811T005530Z&HW-CC-Expire=86400&HW-CC-Sign=522B8950DA1000AC69EEE678A62E89899F0B6CE5CBAE24E35062D9FE27988500)

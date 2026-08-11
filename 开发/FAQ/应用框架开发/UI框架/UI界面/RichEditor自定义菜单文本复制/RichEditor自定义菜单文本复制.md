@@ -162,4 +162,4 @@ struct RichEditorExample {
 效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/KGP7XVAtR-aIqAMM7n2BCQ/zh-cn_image_0000002658955327.png?HW-CC-KV=V1&HW-CC-Date=20260730T072440Z&HW-CC-Expire=86400&HW-CC-Sign=4212A044E9C7A31EDDEBCDE337766F5EE532B3BDB3C17506A8EC792F036AD9F4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/KGP7XVAtR-aIqAMM7n2BCQ/zh-cn_image_0000002658955327.png?HW-CC-KV=V1&HW-CC-Date=20260811T005647Z&HW-CC-Expire=86400&HW-CC-Sign=885D99F66169F98BA6583DE1F78176D1D7CFFDEA9585276E032BC6E51B02C2C6)

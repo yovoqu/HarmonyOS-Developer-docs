@@ -9,7 +9,7 @@
 Web中登录界面，登录成功后，会触发弹出密码保险箱，提示保存密码，如何设置可以让密码保险箱不弹出？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/fBhVULwuQ3SlB9TnYtAffQ/zh-cn_image_0000002659258401.png?HW-CC-KV=V1&HW-CC-Date=20260730T072537Z&HW-CC-Expire=86400&HW-CC-Sign=94F306F57186360C72AC1ADC8913A99876C0635D1BC57F63D5481A26D6649BDF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/fBhVULwuQ3SlB9TnYtAffQ/zh-cn_image_0000002659258401.png?HW-CC-KV=V1&HW-CC-Date=20260811T005836Z&HW-CC-Expire=86400&HW-CC-Sign=2015BDF1FBA82C0F14B5626D2A8F38B661B6873EDA2FDB933831C225D69821CF)
 
  
  

@@ -36,7 +36,7 @@
 通过抓取TCPDump日志进行分析，关键日志如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/cY7XY_H8SMK9GemTUvMQVA/zh-cn_image_0000002658850169.png?HW-CC-KV=V1&HW-CC-Date=20260730T072550Z&HW-CC-Expire=86400&HW-CC-Sign=847FBDA4E21A77D27FF52A2C611274AAD787E6B87B59C4D96F1A26DECFF2F562)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/cY7XY_H8SMK9GemTUvMQVA/zh-cn_image_0000002658850169.png?HW-CC-KV=V1&HW-CC-Date=20260811T005939Z&HW-CC-Expire=86400&HW-CC-Sign=0D31486DB8CE7DCA78F79008CF4E73184E7D9967A8C0489478E2BAEC2B5D380B)
 
  
 结论如下：

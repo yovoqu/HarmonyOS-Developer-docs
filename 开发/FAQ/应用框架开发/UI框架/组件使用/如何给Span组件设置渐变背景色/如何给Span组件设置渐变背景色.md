@@ -9,40 +9,40 @@
 Text里面的某个Span想设置一个渐变背景色，发现不生效，实现方式如下：
  1. 给Span设置linearGradient属性，渐变色不生效。
 ```text
-Text() {
-  Span(this.goodsModel?.nameTag)
-    .alignSelf(ItemAlign.Center)
-    .width(30)
-    .linearGradient({
-      direction: GradientDirection.Right,
-      colors: [[0xFFE574, 0], [0xFFC906, 1]]
-    })
-  Span(this.goodsModel?.goodsName)
-}
+<span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(0,0,255);">Span</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">goodsModel</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">nameTag</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignSelf</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">ItemAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">linearGradient</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">direction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">GradientDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Right</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">colors</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[[0xFFE574</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">[0xFFC906</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">]]</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(0,0,255);">Span</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">goodsModel</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">goodsName</span><span style="color: rgb(255,0,170);">)</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 2. 通过CustomSpan自定义绘制Span，发现没有设置渐变色的方法。
 ```text
-onDraw(context: DrawContext, options: CustomSpanDrawInfo) {
-  let canvas = context.canvas;
-  const brush = new drawing.Brush();
- <em> // 此处是设置背景色的，但是没有设置渐变色的方法</em>
-  brush.setColor({ alpha: 255, red: 22, green: 22, blue: 22 });
-  const font = new drawing.Font();
-  font.setSize(25);
-  const textBlob = drawing.TextBlob.makeFromString(this.word, font, drawing.TextEncoding.TEXT_ENCODING_UTF8);
-  canvas.attachBrush(brush);
-  canvas.drawRect({
-    left: options.x+70,
-    right: options.x + gUIContext.vp2px(this.width),
-    top: options.lineTop ,
-    bottom: options.lineBottom
-  });
-  brush.setColor({ alpha: 255, red: 255, green: 255, blue: 255 });
-  canvas.attachBrush(brush);
-  canvas.drawTextBlob(textBlob, options.x + 20, options.lineBottom - 15);
-  canvas.detachBrush();
-}
+<span style="color: rgb(0,0,255);">onDraw</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">DrawContext</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">CustomSpanDrawInfo</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  let <span style="color: rgb(255,255,255);">canvas </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">;</span>
+  const <span style="color: rgb(255,255,255);">brush </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Brush</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">此处是设置背景色的，但是没有设置渐变色的方法</span></em>
+  <span style="color: rgb(255,255,255);">brush</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">alpha</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">255</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">red</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">22</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">green</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">22</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">blue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">22 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  const <span style="color: rgb(255,255,255);">font </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Font</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">font</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">25</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  const <span style="color: rgb(255,255,255);">textBlob </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TextBlob</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">makeFromString</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">word</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">font</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TextEncoding</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TEXT_ENCODING_UTF8</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">attachBrush</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">brush</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawRect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">+</span><span style="color: rgb(80,160,79);">70</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">x </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">gUIContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">vp2px</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">lineTop </span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">lineBottom</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">brush</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">alpha</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">255</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">red</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">255</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">green</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">255</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">blue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">255 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">attachBrush</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">brush</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawTextBlob</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">textBlob</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">x </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">lineBottom </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">15</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">detachBrush</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
  
@@ -64,282 +64,282 @@ onDraw(context: DrawContext, options: CustomSpanDrawInfo) {
 
   
 ```text
-<em>// </em><em>设置渐变背景色</em>
-let startPt: common2D.Point = { x: 0, y: 0 };
-let endPt: common2D.Point = { x: gUIContext.vp2px(this.width), y: gUIContext.vp2px(this.height) };
-let shaderEffect =
-  drawing.ShaderEffect.createLinearGradient(startPt, endPt, [0x3300FF00, 0x33FF0000], drawing.TileMode.REPEAT);
-brush.setShaderEffect(shaderEffect);
+<em>// </em><em><span style="color: rgb(128,128,128);">设置渐变背景色</span></em>
+let <span style="color: rgb(255,255,255);">startPt</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">common2D</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Point </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+let <span style="color: rgb(255,255,255);">endPt</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">common2D</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Point </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">gUIContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">vp2px</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">gUIContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">vp2px</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+let <span style="color: rgb(255,255,255);">shaderEffect </span><span style="color: rgb(181,106,1);">=</span>
+  <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ShaderEffect</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createLinearGradient</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startPt</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">endPt</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">[0x3300FF00</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">0x33FF0000]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TileMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">REPEAT</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,255,255);">brush</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setShaderEffect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">shaderEffect</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
  完整示例参考如下：
 
   
 ```text
-import { common2D, drawing } from '@kit.ArkGraphics2D';
-import { LengthMetrics } from '@kit.ArkUI';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">common2D</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">drawing </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkGraphics2D'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">LengthMetrics </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
 
-let gUIContext: UIContext;
+let <span style="color: rgb(255,255,255);">gUIContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">UIContext</span><span style="color: rgb(181,106,1);">;</span>
 
-class MyCustomSpan extends CustomSpan {
-  constructor(word: string, width: number, height: number) {
-    super();
-    this.word = word;
-    this.width = width;
-    this.height = height;
-  }
+class <span style="color: rgb(0,0,255);">MyCustomSpan </span>extends <span style="color: rgb(0,0,255);">CustomSpan </span><span style="color: rgb(181,106,1);">{</span>
+  constructor<span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">word</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    super<span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">word </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">word</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">height </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  onMeasure(): CustomSpanMetrics {
-    return { width: this.width, height: this.height };
-  }
+  <span style="color: rgb(0,0,255);">onMeasure</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">CustomSpanMetrics </span><span style="color: rgb(181,106,1);">{</span>
+    return <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">height </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  onDraw(context: DrawContext, options: CustomSpanDrawInfo) {
-    let canvas = context.canvas;
-    const brush = new drawing.Brush();
-   <em> // 设置渐变背景色</em>
-    let startPt: common2D.Point = { x: 0, y: 0 };
-    let endPt: common2D.Point = { x: gUIContext.vp2px(this.width), y: gUIContext.vp2px(this.height) };
-    let shaderEffect =
-      drawing.ShaderEffect.createLinearGradient(startPt, endPt, [0x3300FF00, 0x33FF0000], drawing.TileMode.REPEAT);
-    brush.setShaderEffect(shaderEffect);
-    const font = new drawing.Font();
-    font.setSize(50);
-    const textBlob = drawing.TextBlob.makeFromString(this.word, font, drawing.TextEncoding.TEXT_ENCODING_UTF8);
-    canvas.attachBrush(brush);
-    canvas.drawRect({
-      left: options.x + 10,
-      right: options.x + gUIContext.vp2px(this.width) - 10,
-      top: options.lineTop + 10,
-      bottom: options.lineBottom - 10
-    });
-    brush.setColor({
-      alpha: 255,
-      red: 23,
-      green: 169,
-      blue: 141
-    });
-    canvas.attachBrush(brush);
-    canvas.drawTextBlob(textBlob, options.x + 20, options.lineBottom - 15);
-    canvas.detachBrush();
-  }
+  <span style="color: rgb(0,0,255);">onDraw</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DrawContext</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">CustomSpanDrawInfo</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">canvas </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">;</span>
+    const <span style="color: rgb(255,255,255);">brush </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Brush</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置渐变背景色</span></em>
+    let <span style="color: rgb(255,255,255);">startPt</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">common2D</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Point </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">endPt</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">common2D</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Point </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">gUIContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">vp2px</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">gUIContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">vp2px</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">shaderEffect </span><span style="color: rgb(181,106,1);">=</span>
+      <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ShaderEffect</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createLinearGradient</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startPt</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">endPt</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">[0x3300FF00</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">0x33FF0000]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TileMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">REPEAT</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">brush</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setShaderEffect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">shaderEffect</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    const <span style="color: rgb(255,255,255);">font </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Font</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">font</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    const <span style="color: rgb(255,255,255);">textBlob </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TextBlob</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">makeFromString</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">word</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">font</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TextEncoding</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TEXT_ENCODING_UTF8</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">attachBrush</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">brush</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawRect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">x </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">x </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">gUIContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">vp2px</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">lineTop </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">lineBottom </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">10</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">brush</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">alpha</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">255</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">red</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">23</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">green</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">169</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">blue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">141</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">attachBrush</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">brush</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawTextBlob</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">textBlob</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">x </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">lineBottom </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">15</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">detachBrush</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  setWord(word: string) {
-    this.word = word;
-  }
+  <span style="color: rgb(0,0,255);">setWord</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">word</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">word </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">word</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  width: number = 160;
-  word: string = 'drawing';
-  height: number = 10;
-}
+  <span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">160</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">word</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'drawing'</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Entry
-@Component
-struct styled_string_demo6 {
-  customSpan1: MyCustomSpan = new MyCustomSpan('Hello', 80, 10);
-  customSpan2: MyCustomSpan = new MyCustomSpan('World', 80, 40);
-  style1: MutableStyledString = new MutableStyledString(this.customSpan1);
-  textController: TextController = new TextController();
-  isPageShow: boolean = true;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">styled_string_demo6 </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">customSpan1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">MyCustomSpan </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">MyCustomSpan</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Hello'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">80</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">customSpan2</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">MyCustomSpan </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">MyCustomSpan</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'World'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">80</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">40</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">style1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">MutableStyledString </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">MutableStyledString</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">customSpan1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">textController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TextController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TextController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">isPageShow</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
 
-  aboutToAppear() {
-    gUIContext = this.getUIContext();
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">gUIContext </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  async onPageShow() {
-    if (!this.isPageShow) {
-      return;
-    }
-    this.isPageShow = false;
-    this.style1.appendStyledString(new MutableStyledString('文本绘制 示例代码 CustomSpan', [
-      {
-        start: 0,
-        length: 5,
-        styledKey: StyledStringKey.FONT,
-        styledValue: new TextStyle({ fontColor: Color.Pink })
-      }, {
-      start: 5,
-      length: 5,
-      styledKey: StyledStringKey.FONT,
-      styledValue: new TextStyle({ fontColor: Color.Orange, fontStyle: FontStyle.Italic })
-    }, {
-      start: 10,
-      length: 500,
-      styledKey: StyledStringKey.FONT,
-      styledValue: new TextStyle({ fontColor: Color.Green, fontWeight: FontWeight.Bold })
-    }
-    ]));
-    this.style1.appendStyledString(new StyledString(this.customSpan2));
-    this.style1.appendStyledString(new StyledString('自定义绘制', [{
-      start: 0,
-      length: 5,
-      styledKey: StyledStringKey.FONT,
-      styledValue: new TextStyle({ fontColor: Color.Green, fontSize: LengthMetrics.px(50) })
-    }]));
-    this.textController.setStyledString(this.style1);
-  }
+  async <span style="color: rgb(0,0,255);">onPageShow</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isPageShow</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      return<span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isPageShow </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">style1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">appendStyledString</span><span style="color: rgb(255,0,170);">(</span>new <span style="color: rgb(0,0,255);">MutableStyledString</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">文本绘制 示例代码</span><span style="color: rgb(132,63,161);"> CustomSpan'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">[</span>
+      <span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">start</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">styledKey</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">StyledStringKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FONT</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">styledValue</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">TextStyle</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">fontColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Pink </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">start</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">styledKey</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">StyledStringKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FONT</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">styledValue</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">TextStyle</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">fontColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Orange</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fontStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">FontStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Italic </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">start</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">500</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">styledKey</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">StyledStringKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FONT</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">styledValue</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">TextStyle</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">fontColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Green</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fontWeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Bold </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(255,0,170);">]))</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">style1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">appendStyledString</span><span style="color: rgb(255,0,170);">(</span>new <span style="color: rgb(0,0,255);">StyledString</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">customSpan2</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">style1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">appendStyledString</span><span style="color: rgb(255,0,170);">(</span>new <span style="color: rgb(0,0,255);">StyledString</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">自定义绘制</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">start</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">styledKey</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">StyledStringKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FONT</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">styledValue</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">TextStyle</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">fontColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Green</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fontSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">LengthMetrics</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">]))</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setStyledString</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">style1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Row() {
-      Column() {
-        Text(undefined, { controller: this.textController })
-          .copyOption(CopyOptions.InApp)
-          .fontSize(30);
-        Button('invalidate').onClick(() => {
-          this.customSpan1.setWord('你好');
-          this.customSpan1.invalidate();
-        });
-      }
-      .width('100%');
-    }
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span>undefined<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textController </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copyOption</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">CopyOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">InApp</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'invalidate'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">customSpan1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setWord</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">你好</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">customSpan1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">invalidate</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/ubexCInDQ3eHjrqlP6hMLg/zh-cn_image_0000002658962961.png?HW-CC-KV=V1&HW-CC-Date=20260730T072400Z&HW-CC-Expire=86400&HW-CC-Sign=99CAADEFFBE00E2D415C9ABAE75FBDA9BB66C71BCE1228B877F454651180430C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/ubexCInDQ3eHjrqlP6hMLg/zh-cn_image_0000002658962961.png?HW-CC-KV=V1&HW-CC-Date=20260811T005814Z&HW-CC-Expire=86400&HW-CC-Sign=440634BFB13AE5E05D2191A53EDF686F136970E6D304E10C2DB966BF9CFB57AE)
 
 - **方案二**：可直接采用Text组件代替Span组件，实现渐变背景色设置。
 ```text
-@Entry
-@Component
-export struct OptionTwo {
-  build() {
-    Column() {
-      Row() {
-        Text() {
-          Span('Hello')
-            .fontSize(30)
-            .alignSelf(ItemAlign.Center)
-            .width(30);
-        }
-        .linearGradient({
-          direction: GradientDirection.Right,
-          colors: [['#ff46f6f6', 0], ['#ff46a4f6', 1]]
-        });
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+export struct <span style="color: rgb(0,0,255);">OptionTwo </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">Span</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Hello'</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignSelf</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">ItemAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">linearGradient</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">direction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">GradientDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Right</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(255,255,255);">colors</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[[</span><span style="color: rgb(132,63,161);">'#ff46f6f6'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">'#ff46a4f6'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">]]</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-        Text() {
-          Span(' World!')
-            .fontSize(30);
-        };
-      }
-      .margin({
-        left: 15
-      });
-    }
-    .justifyContent(FlexAlign.Center)
-    .width('100%')
-    .height('100%');
-  }
-}
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">Span</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">' World!'</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">15</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/YEA3YyPTRS-VjnKd3GADCw/zh-cn_image_0000002628603746.png?HW-CC-KV=V1&HW-CC-Date=20260730T072400Z&HW-CC-Expire=86400&HW-CC-Sign=E63E82AB58DAF0032B3BDF08651AD64EA8DF32DCAE67489CBB223ACBBC1140F3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/YEA3YyPTRS-VjnKd3GADCw/zh-cn_image_0000002628603746.png?HW-CC-KV=V1&HW-CC-Date=20260811T005814Z&HW-CC-Expire=86400&HW-CC-Sign=6D2C1D99FB77D09153F8FF378ABF8839ECA5ECD66FBCC820134B591C19D03B08)
 
 - **方案三**：将文本绘制成图片显示。
 
   通过drawing绘制出一张包含文字的渐变背景的图片，使用[ImageSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-imagespan)或者属性字符串的[ImageAttachment](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#imageattachment)显示文字图片。
 ```text
-import { common2D, drawing } from '@kit.ArkGraphics2D';
-import { image } from '@kit.ImageKit';
-import { LengthMetrics } from '@kit.ArkUI';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">common2D</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">drawing </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkGraphics2D'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">image </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ImageKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">LengthMetrics </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct OptionThree {
-  textController: TextController = new TextController();
-  @State pixelMap: image.PixelMap | undefined = undefined;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">OptionThree </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">textController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TextController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TextController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PixelMap </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
 
-  onPageShow() {
-    this.draw();<em> </em><em>// 页面显示时绘制</em>
-  }
+  <span style="color: rgb(0,0,255);">onPageShow</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">draw</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">页面显示时绘制</span></em>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Row() {
-      Column() {
-        Text() {
-          ImageSpan(this.pixelMap)
-            .width(40)
-            .height(16);
-          Span(' World!')
-            .baselineOffset(new LengthMetrics(0))
-            .fontSize(16);
-        }
-        .height(16)
-        .clip(true);
-      }
-      .width('100%');
-    }
-    .height('100%');
-  }
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">ImageSpan</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">40</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(0,0,255);">Span</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">' World!'</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">baselineOffset</span><span style="color: rgb(255,0,170);">(</span>new <span style="color: rgb(0,0,255);">LengthMetrics</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">))</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">clip</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  draw() {
-   <em> // 计算文本长款宽</em>
-    let size: SizeOptions =
-      this.getUIContext().getMeasureUtils().measureTextSize({ textContent: 'Hello', fontSize: 16 });
- <em>   // 绘制图片</em>
-    const color = new ArrayBuffer(200 * 200 * 4);
-    let opts: image.InitializationOptions = {
-      editable: true,
-      pixelFormat: 3,
-      size: {
-        height: size.height as number,
-        width: size.width as number
-      }
-    };
-    image.createPixelMap(color, opts).then((pixelMap: PixelMap) => {
-      let width: number = size.width as number;
-      let height: number = size.height as number;
-    <em>  // 1.构造canvas对象</em>
-      const canvas = new drawing.Canvas(pixelMap);
-   <em>   // 2.构造一个新的画刷对象，绘制背景</em>
-      const brush = new drawing.Brush();
-      let startPt: common2D.Point = { x: 0, y: 0 };
-      let endPt: common2D.Point = { x: width, y: height };
-      let shaderEffect =
-        drawing.ShaderEffect.createLinearGradient(startPt, endPt, [0x3300FF00, 0x33FF0000], drawing.TileMode.REPEAT);
-      brush.setShaderEffect(shaderEffect);
-      let path = new drawing.Path();
-      const rect: common2D.Rect = {
-        left: 0,
-        top: 0,
-        right: width,
-        bottom: height
-      };
-      let roundRect = new drawing.RoundRect(rect, 0, 0);
-      path.addRoundRect(roundRect, drawing.PathDirection.CLOCKWISE);
-      canvas.clipPath(path, drawing.ClipOp.INTERSECT, true);
-      canvas.drawBackground(brush);
-      canvas.attachBrush(brush);
-      canvas.drawPath(path);
-      canvas.detachBrush();
-     <em> // 3.构造一个新的画刷对象，绘制文字</em>
-      const brush2 = new drawing.Brush();
-      brush2.setColor({
-        alpha: 255,
-        red: 0,
-        green: 0,
-        blue: 0
-      });
-      const font = new drawing.Font();
-      font.setSize(50);
-      const textBlob = drawing.TextBlob.makeFromString('Hello', font, drawing.TextEncoding.TEXT_ENCODING_UTF8);
-      canvas.attachBrush(brush2);
-      canvas.drawTextBlob(textBlob, 0, height - this.getUIContext().vp2px(4)); <em>// 设置文字位置</em>
-      canvas.detachBrush();
-      this.pixelMap = pixelMap as PixelMap;
-    });
-  }
-}
+  <span style="color: rgb(0,0,255);">draw</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">计算文本长款宽</span></em>
+    let <span style="color: rgb(255,255,255);">size</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">SizeOptions </span><span style="color: rgb(181,106,1);">=</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getMeasureUtils</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">measureTextSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">textContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'Hello'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fontSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+ <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">绘制图片</span></em>
+    const <span style="color: rgb(255,255,255);">color </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">200 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">200 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">opts</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">InitializationOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">editable</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">pixelFormat</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">3</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">size</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">size</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">height </span>as <span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">size</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width </span>as <span style="color: rgb(181,106,1);">number</span>
+      <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createPixelMap</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">opts</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">PixelMap</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      let <span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">size</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width </span>as <span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">size</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">height </span>as <span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">;</span>
+    <em>  <span style="color: rgb(128,128,128);">// 1.</span><span style="color: rgb(128,128,128);">构造</span><span style="color: rgb(128,128,128);">canvas</span><span style="color: rgb(128,128,128);">对象</span></em>
+      const <span style="color: rgb(255,255,255);">canvas </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Canvas</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+   <em>   <span style="color: rgb(128,128,128);">// 2.</span><span style="color: rgb(128,128,128);">构造一个新的画刷对象，绘制背景</span></em>
+      const <span style="color: rgb(255,255,255);">brush </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Brush</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(255,255,255);">startPt</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">common2D</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Point </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(255,255,255);">endPt</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">common2D</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Point </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">height </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(255,255,255);">shaderEffect </span><span style="color: rgb(181,106,1);">=</span>
+        <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ShaderEffect</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createLinearGradient</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startPt</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">endPt</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">[0x3300FF00</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">0x33FF0000]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TileMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">REPEAT</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">brush</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setShaderEffect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">shaderEffect</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(255,255,255);">path </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Path</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+      const <span style="color: rgb(255,255,255);">rect</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">common2D</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Rect </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">height</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(255,255,255);">roundRect </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RoundRect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">rect</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">path</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addRoundRect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">roundRect</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PathDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CLOCKWISE</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">clipPath</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">path</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ClipOp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">INTERSECT</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawBackground</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">brush</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">attachBrush</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">brush</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawPath</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">path</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">detachBrush</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+     <em> <span style="color: rgb(128,128,128);">// 3.</span><span style="color: rgb(128,128,128);">构造一个新的画刷对象，绘制文字</span></em>
+      const <span style="color: rgb(255,255,255);">brush2 </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Brush</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">brush2</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">alpha</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">255</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">red</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">green</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">blue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      const <span style="color: rgb(255,255,255);">font </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Font</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">font</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      const <span style="color: rgb(255,255,255);">textBlob </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TextBlob</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">makeFromString</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Hello'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">font</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TextEncoding</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TEXT_ENCODING_UTF8</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">attachBrush</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">brush2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawTextBlob</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">textBlob</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">height </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">vp2px</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置文字位置</span></em>
+      <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">detachBrush</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pixelMap </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">pixelMap </span>as <span style="color: rgb(181,106,1);">PixelMap</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 
   效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/0RVs7A_6R3WtaxskSV1BZA/zh-cn_image_0000002658843013.png?HW-CC-KV=V1&HW-CC-Date=20260730T072400Z&HW-CC-Expire=86400&HW-CC-Sign=07D145C480C35069D8C1E2BA3736553C0786110DB0B46C7BFEA5F79194AB39BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/0RVs7A_6R3WtaxskSV1BZA/zh-cn_image_0000002658843013.png?HW-CC-KV=V1&HW-CC-Date=20260811T005814Z&HW-CC-Expire=86400&HW-CC-Sign=49D2690736A5DEEB6BEDDD8421246465F449F089BB08EFCBF04974DED12EBBFD)
 
 
  

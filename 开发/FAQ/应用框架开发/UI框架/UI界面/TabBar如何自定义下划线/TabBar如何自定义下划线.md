@@ -1,6 +1,6 @@
 # TabBar如何自定义下划线
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-08-05 03:30:07
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1004
 
@@ -40,8 +40,6 @@ TabBar的下划线不仅是视觉焦点，更是用户感知当前页面的关�
 方案二：基于tabBar(CustomBuilder)接口实现。有以下两种实现方式：
  
 - 方式一：参考官网示例[自定义页签切换联动](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例3自定义页签切换联动)的实现方式，每个页签的内容由[Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)文本和[Divider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-divider)下划线组成，若需要设置下划线宽度与页签文本宽度一致，则需要对官网示例做出以下修改：使用[onAreaChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-area-change-event#onareachange)获取Text文本宽度数据并使用状态变量保存，通过状态变量设置下划线的宽度与文本宽度一致。
-
-  
 ```json
 @Entry
 @Component
@@ -99,7 +97,7 @@ struct TabBarUnderLine {
       .barHeight(56)
       .animationDuration(400)
       .onChange((index: number) => {
-   <em>     // currentIndex控制TabContent显示页签</em>
+    <em>    // currentIndex控制TabContent显示页签</em>
         this.currentIndex = index;
         this.selectedIndex = index;
       })
@@ -108,7 +106,7 @@ struct TabBarUnderLine {
         if (index === targetIndex) {
           return;
         }
-      <em>  // selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
+    <em>    // selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
         this.selectedIndex = targetIndex;
       })
       .width(360)
@@ -121,15 +119,13 @@ struct TabBarUnderLine {
 ```
 
 - 方式二：参考官网示例[自定义TabBar切换动画](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例10自定义tabbar切换动画)的实现方式，不同于方式一为每个页签设置一个下划线，此示例使用[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)组件在Tabs上层设置一个下划线，在页签切换时改变下划线的位置，并保证下划线与当前页签文本宽度一致，且切换过程中实现了下划线的滑动动画。较方式一实现更复杂，但具有更好的动画效果。
-
- 
 - 说明：方式一、二仅改变了下划线宽度，若要实现方案一中颜色、间距等样式的定义，需设置下划线Divider的[color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-divider#color)、[margin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#margin)等属性。
 
  
 方案三：不使用官方提供的tabBar接口，使用其它组件（如[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Column](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column)等）组合实现TabBar页签。
- 
-- 可以参考[自定义Tabs样式，TabBar底部指示器如何对齐](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-891)的实现，其使用List实现TabBar页签栏，通过设置Column宽高和背景色实现页签下划线。在此示例中要实现更多下划线样式，需修改Column的color、margin等属性。
+- 可以参考[自定义Tabs样式，TabBar底部指示器如何对齐](https://developer.huawei.com/consumer/cn/doc/architecture-guides/common-v1_26-ts_97-0000002358873457)的实现，其使用List实现TabBar页签栏，通过设置Column宽高和背景色实现页签下划线。在此示例中要实现更多下划线样式，需修改Column的color、margin等属性。
 
+ 
  
  
 

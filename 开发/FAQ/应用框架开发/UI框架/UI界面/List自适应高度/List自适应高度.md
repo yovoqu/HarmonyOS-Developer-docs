@@ -73,7 +73,7 @@ struct listDemoFirst {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/wB60kjzRQyOCv8kSWrlrrw/zh-cn_image_0000002628600018.png?HW-CC-KV=V1&HW-CC-Date=20260730T072450Z&HW-CC-Expire=86400&HW-CC-Sign=0CB870FC5368137373FB98C131744CDEB00EEDA5F732D5C5A11A79F7187F8FDD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/wB60kjzRQyOCv8kSWrlrrw/zh-cn_image_0000002628600018.png?HW-CC-KV=V1&HW-CC-Date=20260811T005644Z&HW-CC-Expire=86400&HW-CC-Sign=55103F00941F3BE2096C170DA7A49B11139F3D575DF1549A03B7539BAFC42F03)
 
 2. 在父容器高度受限的场景下，可通过List组件的constraintSize接口中的[ConstraintSizeOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#constraintsizeoptions)属性设置maxHeight参数控制最大高度，实现动态伸缩布局。
 ```text
@@ -126,7 +126,7 @@ struct Index {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/2IXyqgVSRYSLNDecfyFHQg/zh-cn_image_0000002628759924.png?HW-CC-KV=V1&HW-CC-Date=20260730T072450Z&HW-CC-Expire=86400&HW-CC-Sign=A00CB411CBEF9CD86BE441E5726B9027EA8FFFE7289C9D7D73750C67AB2D991F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/2IXyqgVSRYSLNDecfyFHQg/zh-cn_image_0000002628759924.png?HW-CC-KV=V1&HW-CC-Date=20260811T005644Z&HW-CC-Expire=86400&HW-CC-Sign=921F7AB09096549392922249178DE815D666F0EB5F914D863767C750A9A0FD6D)
 
  
  

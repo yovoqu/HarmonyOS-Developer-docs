@@ -48,7 +48,7 @@ private options: mapCommon.MapOptions = {
   this.options.position.target.longitude = lon;
 ```
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/97djhFy5TvKl4rABQiPgDA/zh-cn_image_0000002629058992.png?HW-CC-KV=V1&HW-CC-Date=20260730T072304Z&HW-CC-Expire=86400&HW-CC-Sign=305D1DCCE2719CECEB256AF18E5ECA3064B4D56DBF40465DE8CEC1D9CBE6F8A0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/97djhFy5TvKl4rABQiPgDA/zh-cn_image_0000002629058992.png?HW-CC-KV=V1&HW-CC-Date=20260811T005633Z&HW-CC-Expire=86400&HW-CC-Sign=1D0CBB82D7E7E7612870EA91593FC5A069247D3B579042289EF51DB08FE1FBAC)
 
 - **场景三：** 对对象类型使用类型断言，DevEco Studio静态检查报错Object literal must correspond to some explicitly declared class or interface (arkts-no-untyped-obj-literals) ：
 ```text

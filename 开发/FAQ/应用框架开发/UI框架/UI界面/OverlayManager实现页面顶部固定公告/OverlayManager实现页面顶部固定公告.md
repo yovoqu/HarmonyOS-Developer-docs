@@ -19,7 +19,7 @@
 可以通过使用UIContext中的[getOverlayManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getoverlaymanager12)方法获取当前UI上下文关联的[OverlayManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager)对象，再通过该对象调用对应方法。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/Jm8HERZsRoCvADBtKzei4Q/zh-cn_image_0000002658964567.png?HW-CC-KV=V1&HW-CC-Date=20260730T072502Z&HW-CC-Expire=86400&HW-CC-Sign=66B40176909156ECEE245EEA91078EA57838AAA4A377000E0297E9A5A20909B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/Jm8HERZsRoCvADBtKzei4Q/zh-cn_image_0000002658964567.png?HW-CC-KV=V1&HW-CC-Date=20260811T005645Z&HW-CC-Expire=86400&HW-CC-Sign=DAF59039FAEE36FA7ED80A255315A14B8B295BDA76AA53BFB0A22A09E3F2F8BD)
 
  
  

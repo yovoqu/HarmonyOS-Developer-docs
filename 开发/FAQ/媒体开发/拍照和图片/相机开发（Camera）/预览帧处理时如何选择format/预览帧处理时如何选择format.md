@@ -9,11 +9,11 @@
 在双路预览开发时，可能会出现下面两种异常场景：
  
 - **画面色彩混乱、画面错位。** 画面出现大面积偏色或者局部色彩错误，甚至出现色块杂乱等情况，如下图所示（图一为正常图案，图二三为异常现象）：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/zNhl3NqVRVGBNJXqkplqZw/zh-cn_image_0000002658911805.png?HW-CC-KV=V1&HW-CC-Date=20260730T072614Z&HW-CC-Expire=86400&HW-CC-Sign=2994445522C3EB0972F8C9021B5D69E51036530726ED9DB4122B6EAB770AF07C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/zNhl3NqVRVGBNJXqkplqZw/zh-cn_image_0000002658911805.png?HW-CC-KV=V1&HW-CC-Date=20260811T005548Z&HW-CC-Expire=86400&HW-CC-Sign=E2A8EB1F4693290558DAFA21574533E3B1D7B4E851C9256B1063D0C72E4A1194)
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/TL0y_JCATyCHOfoJos6iaA/zh-cn_image_0000002628392596.png?HW-CC-KV=V1&HW-CC-Date=20260730T072614Z&HW-CC-Expire=86400&HW-CC-Sign=EC463C4E464D4529AF0A01AC3DEB60D8F78F034263EC2C44857B322AFEAB2708)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/TL0y_JCATyCHOfoJos6iaA/zh-cn_image_0000002628392596.png?HW-CC-KV=V1&HW-CC-Date=20260811T005548Z&HW-CC-Expire=86400&HW-CC-Sign=0E9585BA86760E9498035AEC3CA92F5040EBFBB14C062A9A27B85B405FA297F0)
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/rJia_y43TuSa1Yb3wXqF-A/zh-cn_image_0000002658791863.png?HW-CC-KV=V1&HW-CC-Date=20260730T072614Z&HW-CC-Expire=86400&HW-CC-Sign=C593890A6FB3962E10361984F09778FD9A582A248671553D4B77F0A11272B6FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/rJia_y43TuSa1Yb3wXqF-A/zh-cn_image_0000002658791863.png?HW-CC-KV=V1&HW-CC-Date=20260811T005548Z&HW-CC-Expire=86400&HW-CC-Sign=52C4BC57A0B672E8D3CFA0307BFE086D7ECFC204F978A3AC7ABD3E18366D08AD)
 
 - **预览界面直接闪退。** 相机预览界面打开后快速闪退，并伴有如下crash日志：
 ```ArkTS

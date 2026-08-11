@@ -21,7 +21,7 @@
 #### 解决方案
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/uGX2mijpRj2Bc-xgV29E8w/zh-cn_image_0000002643336236.png?HW-CC-KV=V1&HW-CC-Date=20260730T072649Z&HW-CC-Expire=86400&HW-CC-Sign=0F923A0E1B294584F1D4DB4308595872A61D0CE9929B4DCC059AB235B22B60B5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/uGX2mijpRj2Bc-xgV29E8w/zh-cn_image_0000002643336236.png?HW-CC-KV=V1&HW-CC-Date=20260811T005606Z&HW-CC-Expire=86400&HW-CC-Sign=E96BEB0522F539B179EC90721814E511B0F3C5969B621E17B779E6B72C715497)
 
  
 实现跨设备链接隔空传送分享流程如上，其中A设备应用为宿主应用，B设备应用为目标应用。需要分别实现目标方和宿主方应用配置。
@@ -57,7 +57,7 @@
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/y7pDcY7vSqWadze4cRCMrw/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T072649Z&HW-CC-Expire=86400&HW-CC-Sign=29C86D541F7F7230AFF955D71C8524478D6EAAB909AC71D7225D47141E4099AE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/y7pDcY7vSqWadze4cRCMrw/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260811T005606Z&HW-CC-Expire=86400&HW-CC-Sign=6B2BC7729E6F135D3F89EA6627D56234A7A789D73344F48E6BF4D538CAFEC106)
  
 
   
@@ -117,7 +117,7 @@ build() {
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/BKdlOkl6T8egdTsKGM_Bxg/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T072649Z&HW-CC-Expire=86400&HW-CC-Sign=19EF9310F3DC4C6F6FABAD6329A03439E63DA3F09987E81A56B6F2CC4CC7C5BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/BKdlOkl6T8egdTsKGM_Bxg/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260811T005606Z&HW-CC-Expire=86400&HW-CC-Sign=FD03E8F048632DAE59510B5AC61B53D863BFBC263BEBE7CEE83E8AFC9E2870F9)
  
 
   不能使用DevEco Studio的自动签名功能，必须使用[手动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section297715173233)，否则无法拉起应用。

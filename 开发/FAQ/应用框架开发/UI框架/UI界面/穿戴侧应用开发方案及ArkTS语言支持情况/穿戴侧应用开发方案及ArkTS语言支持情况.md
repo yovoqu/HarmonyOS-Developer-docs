@@ -1,6 +1,6 @@
 # 穿戴侧应用开发方案及ArkTS语言支持情况
 
-更新时间：2026-07-22 11:59:07
+更新时间：2026-07-31 00:56:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1520
 
@@ -22,7 +22,7 @@
 
 根据穿戴设备类型不同，采用不同实现方案进行应用开发：
  
-- 智能穿戴：支持HarmonyOS 5及以上的智能穿戴设备主要有[Watch 5](https://developer.huawei.com/consumer/cn/doc/doccenter-multi-device/bpta-smartwatch#section0753201313919)，使用ArkTS语言开发，可以参考[穿戴侧应用开发](https://developer.huawei.com/consumer/cn/doc/connectivity-Guides/watch-dev-0000001119195134)。
+- 智能穿戴：支持HarmonyOS 5及以上的智能穿戴设备主要有[Watch 5](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-smartwatch)，使用ArkTS语言开发，可以参考[穿戴侧应用开发](https://developer.huawei.com/consumer/cn/doc/connectivity-Guides/watch-dev-0000001119195134)。
 - 轻量级智能穿戴：如HUAWEI Watch GT系列、Watch D系列、Fit系列，可以参考[兼容JS的类Web开发范式（ArkUI.Lite）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkui-js-lite-comp)进行开发。
 - 智能穿戴设备兼容FA模型，可以将使用JS构建的轻量级智能穿戴项目迁移到智能穿戴设备上继续使用，实现功能的延续与适配。详细参考[FA工程迁移指导](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-smartwatch#section14111733132515)。
 
@@ -49,11 +49,11 @@ A：Watch5系列是支持的。当前Watch5系列已支持ArkTS开发，并且�
  
 Q：如何将使用JS构建的轻量级智能穿戴项目迁移到智能穿戴设备上继续使用，实现功能的延续与适配？
  
-A：以轻量级智能穿戴开发实践同源工程为例，按照如下步骤，可以将使用JS构建的项目迁移到智能穿戴设备上：[FA工程迁移指导](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-smartwatch#section14111733132515)。
+A：以轻量级智能穿戴开发实践同源工程为例，按照如下步骤，可以将使用JS构建的项目迁移到智能穿戴设备上：[FA工程迁移指导](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-smartwatch#section1219382121110)。
  
 Q：智能穿戴设备上可以开发哪些场景的APP功能？
  
-A：可以在智能穿戴设备上实现地图应用、短视频应用、车控应用等。更多场景可以参考项目。
+A：可以在智能穿戴设备上实现[地图应用](https://gitcode.com/HarmonyOS_Samples/SmartWatchMap)、[短视频应用](https://gitcode.com/HarmonyOS_Samples/SmartWatchShortVideo)、[车控应用](https://gitcode.com/HarmonyOS_Samples/SmartWatchCarControl)等。更多场景可以参考[项目](https://gitcode.com/HarmonyOS_Samples)。
  
 Q：是否所有华为手表都支持ArkWeb？
  

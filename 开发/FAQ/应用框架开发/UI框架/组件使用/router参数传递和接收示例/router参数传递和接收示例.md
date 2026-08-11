@@ -1,6 +1,6 @@
 # router参数传递和接收示例
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-05 01:18:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1528
 
@@ -17,6 +17,7 @@
 [router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)通过[pushUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushurl)、[replaceUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replaceurl)、[pushNamedRoute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushnamedroute)、[replaceNamedRoute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replacenamedroute)四种方式跳转并传递参数页面。
  
 跳转方法的参数形式：
+ 
 - pushUrl与replaceUrl描述页面信息的参数为[RouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routeroptions)，传递参数结构形式为：
 ```text
 {
@@ -26,8 +27,6 @@
 }
 ```
 
-
- 
 - pushNamedRoute与replaceNamedRoute描述页面信息的参数为[NamedRouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#namedrouteroptions10)，传递参数结构形式为：
 ```text
 {
@@ -36,12 +35,11 @@
   recoverable: true <em>// 页面是否可恢复，该参数为非必填参数，默认为true</em>
 }
 ```
- 
-> [!NOTE]
-> params不支持传递方法和系统返回的复杂对象。
 
 
  
+- 注意事项：params不支持传递方法和系统返回的复杂对象。
+
  
 获取参数的方式：[getParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#getparams)。获取的参数数据结构和传递的参数一致。
  
@@ -122,8 +120,6 @@ struct Index {
 }
 ```
 
-
- 
 - 页面二：
 ```text
 import { ParamInfo } from './Index';
@@ -135,12 +131,12 @@ struct Second {
   @State params: ParamInfo = this.getUIContext().getRouter().getParams() as ParamInfo;
 
   aboutToAppear(): void {
-    <em>// 方案一</em>
+ <em>   // 方案一</em>
     let params = (this.getUIContext().getRouter().getParams() as Record<string, object>);
     let name = params.name;
     let info = params.info;
     console.info(`Succeeded in completing PlanOne. params:{name: ${name}, info: ${info}}. `);
-    <em>// 方案二</em>
+  <em>  // 方案二</em>
     let paramInfo: ParamInfo = this.getUIContext().getRouter().getParams() as ParamInfo;
     console.info(`Succeeded in completing PlanTwo. params:{name: ${paramInfo.name}, info.age: ${paramInfo.info.age}}. `);
   }
@@ -157,16 +153,16 @@ struct Second {
   }
 }
 ```
+ 页面二参数接收有以下两种方式，对比如下：
 
-
- 
-页面二参数接收有以下两种方式，对比如下：
-  
 | 方案 | 优点 | 缺点 | 应用场景 |
+
 | --- | --- | --- | --- |
+
 | 方案一：转成Record | 无需定义数据类 | 遇到嵌套类型数据处理麻烦 | 适用于只有基本类型场景 |
+
 | 方案二：转成特定的类 | 嵌套类型数据处理简单 | 需要事先定义好数据类 | 适用于嵌套数据类型场景 |
- 
+
  
  
 
@@ -191,13 +187,13 @@ A：router不支持传递函数和嵌套复杂结构类型的数据，可使用[
 Q：router获取的参数为什么无法清空？
  
 A：router.getParams()获取的是路由记录中的只读参数副本，参数与页面实例绑定。每次onPageShow显示时都会读取同一份参数。需主动修改参数对象，每次跳转时强制传递新对象，参考代码如下：
+ 
 ```text
 this.getUIContext().getRouter().pushUrl({
   url: 'pages/Page',
   params: {} <em>// 若不传递参数，传空对象，覆盖旧对象。</em>
 });
 ```
- 
  
 Q：如何使用router.back()返回上一个界面并传参？
  

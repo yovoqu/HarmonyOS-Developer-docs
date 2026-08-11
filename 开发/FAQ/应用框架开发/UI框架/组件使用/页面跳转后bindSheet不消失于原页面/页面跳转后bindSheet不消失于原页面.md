@@ -13,7 +13,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/exZm3qYCQmyKccojDZJrMQ/zh-cn_image_0000002658791767.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072320Z&HW-CC-Expire=86400&HW-CC-Sign=EDC214F6FF6F83EF8926063E5B85659614E3BCE139986E576851BF813559C716)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/exZm3qYCQmyKccojDZJrMQ/zh-cn_image_0000002658791767.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005834Z&HW-CC-Expire=86400&HW-CC-Sign=BABE56FCCA441AAF5F249C642A312CAC1C10C583520AECDDFC32614C3AAADB02)
 
  
  
@@ -38,79 +38,79 @@
 页面一：
  
 ```text
-@Entry
-@Component
-struct PageOne {
-<em>  // 定义状态变量isShow控制bindSheet显隐</em>
-  @State isShow: Boolean = false;
-  pageInfo: NavPathStack = new NavPathStack();
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">PageOne </span><span style="color: rgb(181,106,1);">{</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">定义状态变量</span><span style="color: rgb(128,128,128);">isShow</span><span style="color: rgb(128,128,128);">控制</span><span style="color: rgb(128,128,128);">bindSheet</span><span style="color: rgb(128,128,128);">显隐</span></em>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">isShow</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">pageInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-  @Builder
-  myBuilder() {
-    Column() {
-      Button('ToSecondPage').fontSize(15).height(50).onClick(() => {
-        this.isShow = false;
-        this.pageInfo.pushPathByName('SecondPage', '', (onPop) => {
-          this.isShow = (onPop.result as number) === 1;
-        });
-      });
+  <span style="color: rgb(181,106,1);">@Builder</span>
+  <span style="color: rgb(0,0,255);">myBuilder</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'ToSecondPage'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">15</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isShow </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPathByName</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'SecondPage'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">onPop</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isShow </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">onPop</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">result </span>as <span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-    };
-  }
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Navigation(this.pageInfo) {
-      Column() {
-        Button('bindSheet')
-          .onClick(() => {
-            this.isShow = true;
-          })
-          .fontSize(20)
-          .margin(10)
-          .bindSheet($$this.isShow, this.myBuilder(), {
-            height: SheetSize.MEDIUM,
-            blurStyle: BlurStyle.Thick,
-            showClose: true,
-            title: { title: 'title', subtitle: 'subtitle' },
-            preferType: SheetType.CENTER,
-          });
-      };
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageInfo</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'bindSheet'</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isShow </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">bindSheet</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">$$this</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isShow</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">myBuilder</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">SheetSize</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MEDIUM</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(255,255,255);">blurStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">BlurStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Thick</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(255,255,255);">showClose</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'title'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">subtitle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'subtitle' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(255,255,255);">preferType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">SheetType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CENTER</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  
 页面二：
  
 ```text
-@Builder
-export function SecondPageBulider() {
-  SecondPage();
-}
+<span style="color: rgb(181,106,1);">@Builder</span>
+export function <span style="color: rgb(0,0,255);">SecondPageBulider</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(0,0,255);">SecondPage</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Entry
-@Component
-export struct SecondPage {
-  pageInfo = new NavPathStack();
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+export struct <span style="color: rgb(0,0,255);">SecondPage </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">pageInfo </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-  onBackPress(): boolean | void {
-  }
+  <span style="color: rgb(0,0,255);">onBackPress</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+<span style="color: rgb(181,106,1);">  }</span>
 
-  build() {
-    NavDestination() {
-      Column() {
-        Button('ToSecondPage').fontSize(15).height(50).onClick(() => {
-          this.pageInfo.pop(1);
-        });
-      };
-    }
-    .onReady((navctx) => {
-      this.pageInfo = navctx.pathStack;
-    })
-    .width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'ToSecondPage'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">15</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pop</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">navctx</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">navctx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pathStack</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  
 在“src/main”目录下的工程配置文件module.json5中的module字段里配置"routerMap": "$profile:router_map"，并在“src/main/resources/base/profile”目录下新增router_map.json。
@@ -119,11 +119,11 @@ router_map.json：
  
 ```ArkTS
 {
-  "routerMap": [
+  <span style="color: rgb(132,63,161);">"routerMap"</span><span style="color: rgb(181,106,1);">: </span>[
     {
-      "name": "SecondPage",
-      "pageSourceFile": "src/main/ets/pages/PageTwo.ets",
-      "buildFunction": "SecondPageBulider"
+      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"SecondPage"</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(132,63,161);">"pageSourceFile"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"src/main/ets/pages/PageTwo.ets"</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(132,63,161);">"buildFunction"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"SecondPageBulider"</span>
     }
   ]
 }

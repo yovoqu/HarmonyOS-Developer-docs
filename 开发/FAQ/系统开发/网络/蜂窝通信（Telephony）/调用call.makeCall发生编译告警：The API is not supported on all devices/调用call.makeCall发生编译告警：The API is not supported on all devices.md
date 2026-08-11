@@ -9,7 +9,7 @@
 调用Telephony Kit（蜂窝通信服务）的[call.makeCall](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-call#callmakecall7)方法会有编译告警：
  
 ```text
-The API is not supported on all devices. Use the canIUse condition to determine whether the API is supported. <ArkTSCheck>
+<span style="color: rgb(0,0,255);">The API is not supported on all devices</span><span style="color: rgb(181,106,1);">. </span><span style="color: rgb(0,0,255);">Use the canIUse condition to determine whether the API is supported</span><span style="color: rgb(181,106,1);">. </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">ArkTSCheck</span><span style="color: rgb(181,106,1);">></span>
 ```
  
  
@@ -28,37 +28,37 @@ The API is not supported on all devices. Use the canIUse condition to determine 
  
 - **方案一**：调用系统API之前可以先判断是否具备系统能力，可以防止运行时报错。
 ```text
-import { call } from '@kit.TelephonyKit';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">call </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.TelephonyKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct CallPhoneTest {
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">CallPhoneTest </span><span style="color: rgb(255,0,170);">{</span>
 
-  build() {
-    Row() {
-      Column() {
-        Button('Call Phone')
-          .fontSize(50)
-          .fontWeight(FontWeight.Bold)
-          .onClick(() => {
-            let result: boolean = call.hasVoiceCapability();
-            if (result) {
-              call.makeCall('135****1234', () => {
-              });
-            }
-          });
-      }
-      .width('100%');
-    }
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Call Phone'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            let <span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">call</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hasVoiceCapability</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">call</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">makeCall</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'135****1234'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+<span style="color: rgb(255,0,170);">              }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 - **方案二**：在module.json5可以移除未使用的设备类型。由于DevEco Studio默认创建的项目会包含phone，tablet，2in1三种设备类型。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/Zl-OxdNuR5uAqvvMjsKl0A/zh-cn_image_0000002628773306.png?HW-CC-KV=V1&HW-CC-Date=20260730T072559Z&HW-CC-Expire=86400&HW-CC-Sign=5E5D67EAE0564107A724661F8ED7371E5C0CC8D86ABF1823F58362773D0AF273)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/Zl-OxdNuR5uAqvvMjsKl0A/zh-cn_image_0000002628773306.png?HW-CC-KV=V1&HW-CC-Date=20260811T005941Z&HW-CC-Expire=86400&HW-CC-Sign=0046D45D13220CC9ABC9E4758D506F4AB8648DB0A52A0C57D2512D0117D7217B)
 
 
   tablet和2in1不具备SystemCapability.Applications.Contacts能力。

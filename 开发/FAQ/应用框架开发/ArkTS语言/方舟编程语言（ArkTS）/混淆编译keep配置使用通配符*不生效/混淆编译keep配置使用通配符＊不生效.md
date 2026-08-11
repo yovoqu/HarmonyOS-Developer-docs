@@ -43,17 +43,17 @@
 1. [开启源码混淆](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide#开启源码混淆)后，分别不使用保留选项（-keep-file-name和-keep）和使用保留选项，使用release模式构建hap包后，[查看混淆效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide#查看混淆效果)得到以下结果：不使用保留选项：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/JdY1L5_tTfqNRJUlDH8mYw/zh-cn_image_0000002659138341.png?HW-CC-KV=V1&HW-CC-Date=20260730T072302Z&HW-CC-Expire=86400&HW-CC-Sign=4EC0F00E907D1EC454601DF105E9F29857514190FD5AA17F3E0A7F13EE147B14)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/JdY1L5_tTfqNRJUlDH8mYw/zh-cn_image_0000002659138341.png?HW-CC-KV=V1&HW-CC-Date=20260811T005636Z&HW-CC-Expire=86400&HW-CC-Sign=D03E79F6E5DB7F5491C3340762EA7408E91F651B65B00BE3A3527EAC4AE8A39F)
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/sVTOA-RITHGyhjqbxy1F7Q/zh-cn_image_0000002629058990.png?HW-CC-KV=V1&HW-CC-Date=20260730T072302Z&HW-CC-Expire=86400&HW-CC-Sign=F99FEEF32FB975355581CB6AB357B016BA269208607661B2A50D295B6694D0E9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/sVTOA-RITHGyhjqbxy1F7Q/zh-cn_image_0000002629058990.png?HW-CC-KV=V1&HW-CC-Date=20260811T005636Z&HW-CC-Expire=86400&HW-CC-Sign=B8F45858C369E0D4449CD12A43206407D4E8172752A0860ACA668DA353C61016)
 
 
   使用保留选项：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/-_OW7-DzT1Ozfhsi1JsIVg/zh-cn_image_0000002628899072.png?HW-CC-KV=V1&HW-CC-Date=20260730T072302Z&HW-CC-Expire=86400&HW-CC-Sign=CF0BA9228446E101EC48B3A4E7EF93270E3BD577E1D0EC358B52B5FD3644D532)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/-_OW7-DzT1Ozfhsi1JsIVg/zh-cn_image_0000002628899072.png?HW-CC-KV=V1&HW-CC-Date=20260811T005636Z&HW-CC-Expire=86400&HW-CC-Sign=5BA5D3B898F891D5D0EB19411848C654FDCF0A474806266E2C379A6178AF4216)
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/gYB2XRUQTDuEDOlrFzxFGg/zh-cn_image_0000002659258283.png?HW-CC-KV=V1&HW-CC-Date=20260730T072302Z&HW-CC-Expire=86400&HW-CC-Sign=EA48DB3F46EA94E076A4E79F3B7674F4EA422E95DB4A1B4D8D09319E67F57F58)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/gYB2XRUQTDuEDOlrFzxFGg/zh-cn_image_0000002659258283.png?HW-CC-KV=V1&HW-CC-Date=20260811T005636Z&HW-CC-Expire=86400&HW-CC-Sign=7B325614B7B07850B6946D3E62819C10DBECA23CB6D906B9C8E888B38898A116)
 
 
   对比两者，使用保留选项后，文件夹及文件名被混淆，而变量名、类名、属性名未被混淆，即-keep生效，而-keep-file-name未生效。

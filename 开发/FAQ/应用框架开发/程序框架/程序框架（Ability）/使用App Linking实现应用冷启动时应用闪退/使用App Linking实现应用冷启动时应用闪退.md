@@ -119,7 +119,7 @@ export default class EntryAbility extends UIAbility {
 #### 总结
 
 - 应用冷启动的流程和几个重要的生命周期。应用冷启动的过程大致可分成以下四个阶段：应用进程创建&初始化、Application&Ability初始化、Ability/AbilityStage生命周期、加载绘制首页，如下图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/dp45E5CjSJaqA_6NRL5uwA/zh-cn_image_0000002628789246.png?HW-CC-KV=V1&HW-CC-Date=20260730T072308Z&HW-CC-Expire=86400&HW-CC-Sign=5097CD48559DC66C609EAD26BFBBADC52E52653C84D5A5B0600BBB7690FD0D9D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/dp45E5CjSJaqA_6NRL5uwA/zh-cn_image_0000002628789246.png?HW-CC-KV=V1&HW-CC-Date=20260811T005855Z&HW-CC-Expire=86400&HW-CC-Sign=F59D2771957AD5F86ADD9CC2A152CCA761A555558C92DF292C9AB620A9F67125)
 
 
   这个问题是在Ability/AbilityStage生命周期：该阶段主要是AbilityStage/Ability的启动生命周期，执行相应的生命周期回调。

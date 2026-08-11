@@ -9,7 +9,7 @@
 列表如何实现树视图折叠交互，并支持展开/折叠父项查看子项？示例图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/xCZdCvrgQy6jVjz_wAZIdg/zh-cn_image_0000002658795051.png?HW-CC-KV=V1&HW-CC-Date=20260730T072454Z&HW-CC-Expire=86400&HW-CC-Sign=B8B0B635ED7FF85CEA7E3A0DBB03E0282A95C880687C609BAF9BAC9972185E15)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/xCZdCvrgQy6jVjz_wAZIdg/zh-cn_image_0000002658795051.png?HW-CC-KV=V1&HW-CC-Date=20260811T005643Z&HW-CC-Expire=86400&HW-CC-Sign=5E472AF3A23FE16FEB1943275419A08D803F07A0CCCD6802D94FEA218FE6D0AB)
 
  
  
@@ -28,164 +28,164 @@
 
   
 ```text
-@Entry
-@Component
-struct ListTest {
-  private arr: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  @State isContentShow: boolean = true;
-  @State selectItem: number = 0;
-  uiContext: UIContext | undefined = undefined;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">ListTest </span><span style="color: rgb(255,0,170);">{</span>
+  private <span style="color: rgb(0,0,255);">arr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">5</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">6</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">7</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">9</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">isContentShow</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">selectItem</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">UIContext </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
 
-  aboutToAppear() {
-    this.uiContext = this.getUIContext();
-    if (!this.uiContext) {
-      console.warn('no uiContext');
-      return;
-    }
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uiContext </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">warn</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'no uiContext'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      return<span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
 
-  build() {
-    Column() {
-      List({ initialIndex: 0 }) {
-        ForEach(this.arr, (item: number, index: number) => {
-          ListItem() {
-            Column() {
-              Row() {
-                Text(item.toString());
-                Button(this.isContentShow && this.selectItem === item ? '收起' : '展开')
-                  .onClick(() => {
-                    console.info('index', index);
-                    this.uiContext?.animateTo({
-                      duration: 300,
-                      onFinish: () => {
-                        console.info('animation end');
-                      }
-                    }, () => {
-                      this.isContentShow = !this.isContentShow;
-                      this.selectItem = item;
-                    });
-                  });
-              }
-              .width('100%')
-              .justifyContent(FlexAlign.SpaceBetween);
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">initialIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">arr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isContentShow </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectItem </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">item </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">收起</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">展开</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'index'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">animateTo</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+                      <span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">300</span><span style="color: rgb(181,106,1);">,</span>
+                      <span style="color: rgb(0,0,255);">onFinish</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'animation end'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">                    }</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isContentShow </span><span style="color: rgb(181,106,1);">= !</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isContentShow</span><span style="color: rgb(181,106,1);">;</span>
+                      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectItem </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">;</span>
+                    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(255,0,170);">}</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SpaceBetween</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-              if (this.isContentShow && this.selectItem === item) {
-                Text('这是内容区域')
-                  .backgroundColor(Color.Gray)
-                  .width('100%')
-                  .height(100);
-              }
-            }
-            .backgroundColor(0xFFFFFF)
-            .width('100%')
-            .padding({
-              top: 12,
-              bottom: 12
-            })
-            .margin({ top: 10 });
-          };
-        }, (item: string) => item.toString());
-      }
-      .scrollBar(BarState.Off)
-      .height('100%')
-      .width('100%');
-    }
-    .backgroundColor(0xF1F3F5)
-    .padding(12);
-  }
-}
+              if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isContentShow </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectItem </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">这是内容区域</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Gray</span><span style="color: rgb(0,0,255);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">            }</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(0xFFFFFF)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">12</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">12</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollBar</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">BarState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Off</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(0xF1F3F5)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">12</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/kNbgKl7WQb6x_aYvFla_Qg/zh-cn_image_0000002628555684.png?HW-CC-KV=V1&HW-CC-Date=20260730T072454Z&HW-CC-Expire=86400&HW-CC-Sign=A529964193F5DA3E953303C5CF1DF70AAAB40D839CD0C0728AAEDADE20F0383E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/kNbgKl7WQb6x_aYvFla_Qg/zh-cn_image_0000002628555684.png?HW-CC-KV=V1&HW-CC-Date=20260811T005643Z&HW-CC-Expire=86400&HW-CC-Sign=777A05AA16CB0DA0240B8EF37F635EF8AA63A8C8C4F401DAF085165B5D88D438)
 
 - **方案二**：
 
   参考[TreeView](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-treeview)，作为一种分层显示的列表，适合显示嵌套结构。拥有父列表项和子列表项，可展开或折叠。
 ```text
-import { TreeController, TreeView } from '@kit.ArkUI';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">TreeController</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">TreeView </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct Index {
-  private treeController: TreeController = new TreeController();
-  clickId: number = 0;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
+  private <span style="color: rgb(0,0,255);">treeController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TreeController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TreeController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">clickId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  aboutToAppear(): void {
-    this.treeController
-      .addNode({
-        parentNodeId: -1,
-        currentNodeId: 1,
-        isFolder: true,
-        primaryTitle: '目录1',
-        secondaryTitle: '2'
-      })
-      .addNode({
-        parentNodeId: 1,
-        currentNodeId: 2,
-        isFolder: false,
-        primaryTitle: '项目1_1'
-      })
-      .addNode({
-        parentNodeId: 1,
-        currentNodeId: 3,
-        isFolder: false,
-        primaryTitle: '项目1_2'
-      })
-      .addNode({
-        parentNodeId: -1,
-        currentNodeId: 24,
-        isFolder: false,
-        primaryTitle: '项目2'
-      })
-      .addNode({
-        parentNodeId: -1,
-        currentNodeId: 32,
-        isFolder: true,
-        primaryTitle: '目录3',
-        secondaryTitle: '0'
-      })
-      .addNode({
-        parentNodeId: 32,
-        currentNodeId: 35,
-        isFolder: true,
-        primaryTitle: '目录3-1',
-        secondaryTitle: '0'
-      })
-      .addNode({
-        parentNodeId: -1,
-        currentNodeId: 33,
-        isFolder: true,
-        primaryTitle: '目录4',
-        secondaryTitle: '0'
-      })
-      .addNode({
-        parentNodeId: 33,
-        currentNodeId: 34,
-        isFolder: false,
-        primaryTitle: '项目5'
-      })
-      .buildDone();
-    this.treeController.refreshNode(-1, '父节点', '子节点');
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">treeController</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addNode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">parentNodeId</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">currentNodeId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">isFolder</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">primaryTitle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">目录</span><span style="color: rgb(255,0,170);">1'</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">secondaryTitle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'2'</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addNode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">parentNodeId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">currentNodeId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">isFolder</span><span style="color: rgb(181,106,1);">: </span>false<span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">primaryTitle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">项目</span><span style="color: rgb(255,0,170);">1_1'</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addNode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">parentNodeId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">currentNodeId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">isFolder</span><span style="color: rgb(181,106,1);">: </span>false<span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">primaryTitle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">项目</span><span style="color: rgb(255,0,170);">1_2'</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addNode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">parentNodeId</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">currentNodeId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">24</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">isFolder</span><span style="color: rgb(181,106,1);">: </span>false<span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">primaryTitle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">项目</span><span style="color: rgb(255,0,170);">2'</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addNode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">parentNodeId</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">currentNodeId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">32</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">isFolder</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">primaryTitle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">目录</span><span style="color: rgb(255,0,170);">3'</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">secondaryTitle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'0'</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addNode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">parentNodeId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">32</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">currentNodeId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">35</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">isFolder</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">primaryTitle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">目录</span><span style="color: rgb(255,0,170);">3-1'</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">secondaryTitle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'0'</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addNode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">parentNodeId</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">currentNodeId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">33</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">isFolder</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">primaryTitle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">目录</span><span style="color: rgb(255,0,170);">4'</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">secondaryTitle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'0'</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addNode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">parentNodeId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">33</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">currentNodeId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">34</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">isFolder</span><span style="color: rgb(181,106,1);">: </span>false<span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">primaryTitle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">项目</span><span style="color: rgb(255,0,170);">5'</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buildDone</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">treeController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">refreshNode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">父节点</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">子节点</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    Column() {
-      SideBarContainer(SideBarContainerType.Embed) {
-        TreeView({ treeController: this.treeController });
-      }
-      .sideBarWidth('100%')
-      .focusable(true)
-      .showControlButton(false)
-      .showSideBar(true);
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">SideBarContainer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">SideBarContainerType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Embed</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">TreeView</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">treeController</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">treeController </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sideBarWidth</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">focusable</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showControlButton</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showSideBar</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 
   效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/IGMME5YXQx2ICj_jtKGMVA/zh-cn_image_0000002658915007.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072454Z&HW-CC-Expire=86400&HW-CC-Sign=DEDEF62BF3B24B50F58C9E4698978E8B8D959632D211F2CCFEF1F8800CD7B359)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/IGMME5YXQx2ICj_jtKGMVA/zh-cn_image_0000002658915007.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005643Z&HW-CC-Expire=86400&HW-CC-Sign=EEEEA363870A82F432F556CFDFF596FE7236E832643EB34761E3ED854C2153E2)

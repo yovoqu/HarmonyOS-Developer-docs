@@ -11,22 +11,22 @@
 问题代码示例参考如下：
  
 ```text
-closeDialog() {
-  if (DialogUtils.contentNode) {
-    let uiContext: UIContext | undefined = AppStorage.get<UIContext>('uiContext')
-    if (uiContext) {
-      uiContext.getPromptAction().closeCustomDialog(DialogUtils.contentNode)
-     <em> // 关闭一个弹窗就清空了，后面调用就都是null，所以关不掉</em>
-      DialogUtils.contentNode = null
-    }
-  }
-}
+<span style="color: rgb(0,0,255);">closeDialog</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+  if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">contentNode</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">UIContext </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">UIContext</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'uiContext'</span><span style="color: rgb(255,0,170);">)</span>
+    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeCustomDialog</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">contentNode</span><span style="color: rgb(255,0,170);">)</span>
+     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">关闭一个弹窗就清空了，后面调用就都是</span><span style="color: rgb(128,128,128);">null</span><span style="color: rgb(128,128,128);">，所以关不掉</span></em>
+      <span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">contentNode </span><span style="color: rgb(181,106,1);">= </span>null
+    <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">  }</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/7tvLM56yS66EQEFeNlsZqw/zh-cn_image_0000002658958965.png?HW-CC-KV=V1&HW-CC-Date=20260730T072438Z&HW-CC-Expire=86400&HW-CC-Sign=3A503702B2E5D8C92539EB77FB8AE884A4548317B302A6BDC9F73BE094809AE3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/7tvLM56yS66EQEFeNlsZqw/zh-cn_image_0000002658958965.png?HW-CC-KV=V1&HW-CC-Date=20260811T005641Z&HW-CC-Expire=86400&HW-CC-Sign=FE2B85BA6478B26BD55E50AD6675D296B00538FE5E78D79E604FA9767A7AD0FB)
 
  
  
@@ -34,7 +34,7 @@ closeDialog() {
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/C6l5SSHORJi5WNRsZTYpQQ/zh-cn_image_0000002658839015.png?HW-CC-KV=V1&HW-CC-Date=20260730T072438Z&HW-CC-Expire=86400&HW-CC-Sign=0C9F323D6251540D6CCA8313AC09DC4573E31D0D451B47A745D09F53CE90052C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/C6l5SSHORJi5WNRsZTYpQQ/zh-cn_image_0000002658839015.png?HW-CC-KV=V1&HW-CC-Date=20260811T005641Z&HW-CC-Expire=86400&HW-CC-Sign=D11C8591A03401F60073075C77E2B831036E7705A04A024876A9EDC451079882)
 
  
  
@@ -57,156 +57,156 @@ closeDialog() {
 完整示例参考如下：
  1. DialogUtils.ets。
 ```text
-import { ComponentContent, promptAction } from '@kit.ArkUI';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">ComponentContent</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">promptAction </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
 
-export class Params {
-  content: string = '';
-  callback: (isGranted: boolean, msg?: string) => void = (): void => {
-  };
+export class <span style="color: rgb(0,0,255);">Params </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">callback</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isGranted</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">msg</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+<span style="color: rgb(181,106,1);">  }</span><span style="color: rgb(181,106,1);">;</span>
 
-  constructor(content: string, callback: (isGranted: boolean, msg?: string) => void) {
-    this.content = content;
-    this.callback = callback;
-  }
-}
+  constructor<span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">callback</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isGranted</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">msg</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">void</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">content </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">callback </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">callback</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Builder
-export function buildText(params: Params) {
-  Column() {
-    Column() {
-    <em>  // 内容</em>
-      Text(params.content)
-        .width('100%')
-        .textAlign(TextAlign.Start)
-        .padding(15)
-        .fontSize(18)
-        .fontColor('#2c2c2c')
+<span style="color: rgb(181,106,1);">@Builder</span>
+export function <span style="color: rgb(0,0,255);">buildText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Params</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">内容</span></em>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Start</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">15</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">18</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#2c2c2c'</span><span style="color: rgb(255,0,170);">)</span>
 
-      Column()
-        .width('100%')
-        .height(0.5)
-        .backgroundColor('#E6E6E6')
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">()</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0.5</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#E6E6E6'</span><span style="color: rgb(255,0,170);">)</span>
 
-    <em>  // 取消、确定按钮</em>
-      Row() {
-     <em>   // 取消按钮</em>
-        Text('取消按钮')
-          .width(0)
-          .layoutWeight(1)
-          .textAlign(TextAlign.Center)
-          .padding({ top: 20, bottom: 20 })
-          .fontColor('#BDBDBD')
-          .borderRadius({ bottomLeft: 5 })
-          .fontSize(15)
-          .onClick(() => {
-            DialogUtils.closeDialog();
-          })
-        Text('确定按钮')
-          .width(0)
-          .layoutWeight(1)
-          .textAlign(TextAlign.Center)
-          .padding({ top: 20, bottom: 20 })
-          .fontColor('#BDBDBD')
-          .borderRadius({ bottomLeft: 5 })
-          .fontSize(15)
-          .onClick(() => {
-            DialogUtils.closeDialog();
-            params.callback(false, 'okk');
-          })
-      }
-      .width('100%')
-      .alignItems(VerticalAlign.Center)
-      .justifyContent(FlexAlign.SpaceAround)
-    }
-    .backgroundColor(Color.White)
-    .borderRadius(5)
-    .margin({ left: 15, right: 15 })
-  }
-  .height('100%')
-  .width('100%')
-  .justifyContent(FlexAlign.Center)
-  .backgroundColor(Color.Transparent)
-}
+    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">取消、确定按钮</span></em>
+      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">取消按钮</span></em>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">取消按钮</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#BDBDBD'</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">bottomLeft</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">5 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">15</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeDialog</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">确定按钮</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#BDBDBD'</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">bottomLeft</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">5 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">15</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeDialog</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">callback</span><span style="color: rgb(255,0,170);">(</span>false<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'okk'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SpaceAround</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">White</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">15</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">15 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">}</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Transparent</span><span style="color: rgb(255,0,170);">)</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-export default class DialogUtils {
-  static contentNode: ComponentContent<Params> | null = null;
-  static contentNodes: Array<ComponentContent<Params>> = [];
+export default class <span style="color: rgb(0,0,255);">DialogUtils </span><span style="color: rgb(181,106,1);">{</span>
+  static <span style="color: rgb(255,255,255);">contentNode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ComponentContent</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">Params</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> | </span><span style="color: rgb(181,106,1);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
+  static <span style="color: rgb(255,255,255);">contentNodes</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">ComponentContent</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">Params</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
 
-  static showDialog(content: string, callback: (isGranted: boolean, msg?: string) => void) {
-    let uiContext: UIContext | undefined = AppStorage.get<UIContext>('uiContext');
+  static <span style="color: rgb(0,0,255);">showDialog</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">callback</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isGranted</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">msg</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">void</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">UIContext </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">UIContext</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'uiContext'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-    if (uiContext) {
-      let promptAction = uiContext.getPromptAction();
-      DialogUtils.contentNode = new ComponentContent(uiContext, wrapBuilder(buildText), new Params(content, callback));
-      DialogUtils.contentNodes.push(DialogUtils.contentNode);
+    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      let <span style="color: rgb(255,255,255);">promptAction </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">contentNode </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ComponentContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">wrapBuilder</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">buildText</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span>new <span style="color: rgb(0,0,255);">Params</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">callback</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">contentNodes</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">contentNode</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-      let options: promptAction.BaseDialogOptions = {
-        alignment: DialogAlignment.Top,
-        autoCancel: false,
-        maskColor: '#cd000000',
-      };
-      promptAction.openCustomDialog(DialogUtils.contentNode, options);
-    }
-  }
+      let <span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">promptAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">BaseDialogOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">alignment</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">DialogAlignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Top</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">autoCancel</span><span style="color: rgb(181,106,1);">: </span>false<span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">maskColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#cd000000'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">promptAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openCustomDialog</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">contentNode</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">  }</span>
 
-  public static closeDialog() {
-    if (DialogUtils.contentNode) {
-      let uiContext: UIContext | undefined = AppStorage.get<UIContext>('uiContext');
-      if (uiContext) {
-        let promptAction = uiContext.getPromptAction();
-        promptAction.closeCustomDialog(DialogUtils.contentNode);
-        if (DialogUtils.contentNodes.length > 0) {
-          DialogUtils.contentNodes.pop();
-          if (DialogUtils.contentNodes.length > 0) {
-            DialogUtils.contentNode = DialogUtils.contentNodes[DialogUtils.contentNodes.length - 1];
-          } else {
-            DialogUtils.contentNode = null;
-          }
-        }
-      }
-    }
-  }
-}
+  public static <span style="color: rgb(0,0,255);">closeDialog</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">contentNode</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      let <span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">UIContext </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">UIContext</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'uiContext'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        let <span style="color: rgb(255,255,255);">promptAction </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,255,255);">promptAction</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeCustomDialog</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">contentNode</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">contentNodes</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">contentNodes</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pop</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+          if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">contentNodes</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">contentNode </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">contentNodes</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">contentNodes</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">contentNode </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">        }</span>
+<span style="color: rgb(181,106,1);">      }</span>
+<span style="color: rgb(181,106,1);">    }</span>
+<span style="color: rgb(181,106,1);">  }</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 2. Index.ets。
 ```text
-import DialogUtils from './DialogUtils';
+import <span style="color: rgb(255,255,255);">DialogUtils </span>from <span style="color: rgb(132,63,161);">'./DialogUtils'</span><span style="color: rgb(181,106,1);">;</span>
 
-AppStorage.setOrCreate('uiContext', undefined);
+<span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'uiContext'</span><span style="color: rgb(181,106,1);">, </span>undefined<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct Index {
-  pageInfos: NavPathStack = new NavPathStack();
-  @StorageLink('uiContext') uiContext: UIContext | undefined = undefined;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">pageInfos</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@StorageLink</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'uiContext'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">UIContext </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Navigation(this.pageInfos) {
-      RelativeContainer() {
-        Text('首页')
-          .fontSize(22)
-          .alignRules({
-            center: { anchor: '__container__', align: VerticalAlign.Center },
-            middle: { anchor: '__container__', align: HorizontalAlign.Center }
-          })
-      }
-      .width('100%')
-      .height('100%')
-      .backgroundColor(Color.White)
-    }
-    .hideTitleBar(false)
-    .hideToolBar(false)
-  }
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageInfos</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">首页</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">22</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(255,255,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center </span><span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">White</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideTitleBar</span><span style="color: rgb(255,0,170);">(</span>false<span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideToolBar</span><span style="color: rgb(255,0,170);">(</span>false<span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  aboutToAppear(): void {
-    this.uiContext = this.getUIContext();
-    let nums: number = 8;
-    for (let i = 0; i < nums; i++) {
-      DialogUtils.showDialog(`hello world: ${i}`, (isGrant: boolean, msg?: string) => {
-        console.log(`${isGrant}--------${msg}`);
-      });
-    }
-  }
-}
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">uiContext </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">nums</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">8</span><span style="color: rgb(181,106,1);">;</span>
+    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">nums</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">DialogUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showDialog</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`hello world: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isGrant</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">msg</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">isGrant</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">--------</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">msg</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">  }</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

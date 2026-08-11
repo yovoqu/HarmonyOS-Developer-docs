@@ -11,51 +11,51 @@
 问题代码如下：
  
 ```text
-@Component
-struct Child {
-  @Prop propMessage: string = '';
-  callback: () => Promise<void> = () => {
-    return Promise.resolve();
-  };
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Child </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@Prop </span><span style="color: rgb(0,0,255);">propMessage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">callback</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    return <span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Button(this.propMessage)
-        .onClick(() => {
-          this.callback().then(() => {
-            console.info('from Child callback Prop', this.propMessage);
-            this.getUIContext().getPromptAction().showToast({ message: this.propMessage });
-          });
-        });
-    }
-    .justifyContent(FlexAlign.Center)
-    .width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">propMessage</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">callback</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'from Child callback Prop'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">propMessage</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">propMessage </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Entry
-@Component
-struct Parent {
-  @State stateMessage: string = '初始值';
-  parentFunc = () => {
-    const updatePromise: Promise<void> = new Promise((resolve: Function) => {
-      this.stateMessage = '变更值';
-      console.info('from Parent State', this.stateMessage);
-      resolve();
-    });
-    return updatePromise;
-  };
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Parent </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">stateMessage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">初始值</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">parentFunc </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    const <span style="color: rgb(0,0,255);">updatePromise</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span>new <span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Function</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stateMessage </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">变更值</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'from Parent State'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stateMessage</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(0,0,255);">updatePromise</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Child({
-        propMessage: this.stateMessage,
-        callback: this.parentFunc
-      });
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Child</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">propMessage</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stateMessage</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">callback</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parentFunc</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
 期待的效果：点击Button后，Button中、弹框提示和日志输出文本均为“变更值”。
@@ -65,14 +65,14 @@ struct Parent {
 当首次点击Button时，Button中文本“初始值”变更为“变更值”，UI刷新成功，但弹窗showToast和输出日志的“from Child callback Prop”的值仍为“初始值”，只有再次点击后，弹窗showToast和输出日志的“from Child callback Prop”的值才会变更为“变更值”。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/pqouZ4BeSUeBCwd8aTIqkw/zh-cn_image_0000002628777478.png?HW-CC-KV=V1&HW-CC-Date=20260730T072439Z&HW-CC-Expire=86400&HW-CC-Sign=CA78730616C1C6E90171C474B2E4D28B454C47240DF188D37FC308FA44430BA3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/pqouZ4BeSUeBCwd8aTIqkw/zh-cn_image_0000002628777478.png?HW-CC-KV=V1&HW-CC-Date=20260811T005640Z&HW-CC-Expire=86400&HW-CC-Sign=E7E7D48009648D97573DFC5F06AF02C781E5A79549E5D820D80C6004ABDCE20B)
 
  
 ```text
-12-22 15:41:50.041   13492-13492   A03d00/JSAPP                    com.examp...42649434  I     from Parent State 变更值
-12-22 15:41:50.042   13492-13492   A03d00/JSAPP                    com.examp...42649434  I     from Child callback Prop 初始值
-12-22 15:41:51.793   13492-13492   A03d00/JSAPP                    com.examp...42649434  I     from Parent State 变更值
-12-22 15:41:51.793   13492-13492   A03d00/JSAPP                    com.examp...42649434  I     from Child callback Prop 变更值
+<span style="color: rgb(255,0,0);">12</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">22 15</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">41</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">50.041   13492</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">13492   </span><span style="color: rgb(0,0,255);">A03d00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP                    com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(255,0,0);">42649434  </span><span style="color: rgb(0,0,255);">I     from Parent State </span><span style="color: rgb(0,0,255);">变更值</span>
+<span style="color: rgb(255,0,0);">12</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">22 15</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">41</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">50.042   13492</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">13492   </span><span style="color: rgb(0,0,255);">A03d00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP                    com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(255,0,0);">42649434  </span><span style="color: rgb(0,0,255);">I     from Child callback Prop </span><span style="color: rgb(0,0,255);">初始值</span>
+<span style="color: rgb(255,0,0);">12</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">22 15</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">41</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">51.793   13492</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">13492   </span><span style="color: rgb(0,0,255);">A03d00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP                    com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(255,0,0);">42649434  </span><span style="color: rgb(0,0,255);">I     from Parent State </span><span style="color: rgb(0,0,255);">变更值</span>
+<span style="color: rgb(255,0,0);">12</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">22 15</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">41</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">51.793   13492</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">13492   </span><span style="color: rgb(0,0,255);">A03d00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP                    com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(255,0,0);">42649434  </span><span style="color: rgb(0,0,255);">I     from Child callback Prop </span><span style="color: rgb(0,0,255);">变更值</span>
 ```
  
  
@@ -104,79 +104,79 @@ UI可以正常刷新，说明@Prop的值已经被修改，但弹窗showToast和�
 以下示例代码通过@Watch回调的触发时机来观察@Link和@Prop的刷新时机。
  
 ```text
-@Component
-struct Child {
-  @Prop @Watch('onPropChange') propMessage: string;
-  @Link @Watch('onLinkChange') linkMessage: string;
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Child </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@Prop @Watch</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'onPropChange'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">propMessage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@Link @Watch</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'onLinkChange'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">linkMessage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
 
-  onPropChange() {
-    console.info('from Child Prop', this.propMessage);
-  }
+  <span style="color: rgb(0,0,255);">onPropChange</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'from Child Prop'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">propMessage</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  onLinkChange() {
-    console.info('from Child Link', this.linkMessage);
-  }
+  <span style="color: rgb(0,0,255);">onLinkChange</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'from Child Link'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">linkMessage</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  callback: () => Promise<void> = () => {
-    return Promise.resolve();
-  };
+  <span style="color: rgb(0,0,255);">callback</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    return <span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Button(this.propMessage)
-        .onClick(() => {
-          this.callback().then(() => {
-            console.info('from Child callback Prop', this.propMessage);
-            console.info('from Child callback Link', this.linkMessage);
-            this.getUIContext().getPromptAction().showToast({ message: this.linkMessage });
-          });
-        });
-    }
-    .justifyContent(FlexAlign.Center)
-    .width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">propMessage</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">callback</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'from Child callback Prop'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">propMessage</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'from Child callback Link'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">linkMessage</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">linkMessage </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Entry
-@Component
-struct Parent {
-  @State stateMessage: string = '初始值';
-  parentFunc = () => {
-    const updatePromise: Promise<void> = new Promise((resolve: Function) => {
-      this.stateMessage = '变更值';
-      console.info('from Parent State', this.stateMessage);
-      resolve();
-    });
-    return updatePromise;
-  };
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Parent </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">stateMessage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">初始值</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">parentFunc </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    const <span style="color: rgb(0,0,255);">updatePromise</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span>new <span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Function</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stateMessage </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">变更值</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'from Parent State'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stateMessage</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(0,0,255);">updatePromise</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Child({
-        propMessage: this.stateMessage,
-        linkMessage: this.stateMessage,
-        callback: this.parentFunc
-      });
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Child</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">propMessage</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stateMessage</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">linkMessage</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stateMessage</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">callback</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parentFunc</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
 第一次点击Button后，弹窗显示内容为“变更值”。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/MoUpH1h8QOuZ1S_BLYdPQw/zh-cn_image_0000002658976793.png?HW-CC-KV=V1&HW-CC-Date=20260730T072439Z&HW-CC-Expire=86400&HW-CC-Sign=ED106E7150DAC002F48F93E07F9D0CBA24216EAECA396D16A681F000D77FB37E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/MoUpH1h8QOuZ1S_BLYdPQw/zh-cn_image_0000002658976793.png?HW-CC-KV=V1&HW-CC-Date=20260811T005640Z&HW-CC-Expire=86400&HW-CC-Sign=035A17DFA1CBB60161F1F5CBBEE29A98E427E4E73B39A4520D3666713C3CBB93)
 
  
 打印日志如下：
  
 ```text
-12-22 15:47:04.556   20280-20280   A03d00/JSAPP                    com.examp...42649434  I     from Child Link 变更值
-12-22 15:47:04.556   20280-20280   A03d00/JSAPP                    com.examp...42649434  I     from Parent State 变更值
-12-22 15:47:04.556   20280-20280   A03d00/JSAPP                    com.examp...42649434  I     from Child callback Prop 初始值
-12-22 15:47:04.556   20280-20280   A03d00/JSAPP                    com.examp...42649434  I     from Child callback Link 变更值
-12-22 15:47:04.565   20280-20280   A03d00/JSAPP                    com.examp...42649434  I     from Child Prop 变更值
+<span style="color: rgb(255,0,0);">12</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">22 15</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">47</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">04.556   20280</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">20280   </span><span style="color: rgb(0,0,255);">A03d00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP                    com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(255,0,0);">42649434  </span><span style="color: rgb(0,0,255);">I     from Child Link </span><span style="color: rgb(0,0,255);">变更值</span>
+<span style="color: rgb(255,0,0);">12</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">22 15</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">47</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">04.556   20280</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">20280   </span><span style="color: rgb(0,0,255);">A03d00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP                    com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(255,0,0);">42649434  </span><span style="color: rgb(0,0,255);">I     from Parent State </span><span style="color: rgb(0,0,255);">变更值</span>
+<span style="color: rgb(255,0,0);">12</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">22 15</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">47</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">04.556   20280</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">20280   </span><span style="color: rgb(0,0,255);">A03d00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP                    com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(255,0,0);">42649434  </span><span style="color: rgb(0,0,255);">I     from Child callback Prop </span><span style="color: rgb(0,0,255);">初始值</span>
+<span style="color: rgb(255,0,0);">12</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">22 15</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">47</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">04.556   20280</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">20280   </span><span style="color: rgb(0,0,255);">A03d00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP                    com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(255,0,0);">42649434  </span><span style="color: rgb(0,0,255);">I     from Child callback Link </span><span style="color: rgb(0,0,255);">变更值</span>
+<span style="color: rgb(255,0,0);">12</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">22 15</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">47</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">04.565   20280</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">20280   </span><span style="color: rgb(0,0,255);">A03d00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP                    com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(255,0,0);">42649434  </span><span style="color: rgb(0,0,255);">I     from Child Prop </span><span style="color: rgb(0,0,255);">变更值</span>
 ```
  
 查看上述日志的触发时间，发现在同一时间，子组件通过@Link接收父组件中传来的值时，这个值的变更与父组件中值的变更是同步的。而@Prop虽然也能感知父组件中值的变化并更新变量，但由于需要进行深拷贝，所以会略晚于@Link的同步更新。
@@ -202,68 +202,68 @@ struct Parent {
 完整示例代码如下：
  
 ```text
-<em>// </em><em>定义controller类</em>
-class ChildController {
-  message: string = '';
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">定义</span><span style="color: rgb(128,128,128);">controller</span><span style="color: rgb(128,128,128);">类</span></em>
+class <span style="color: rgb(0,0,255);">ChildController </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Component
-struct Child {
-  @State private message: string = '初始值';
-  private controller: ChildController = new ChildController();
-  callback: () => Promise<void> = () => {
-    return Promise.resolve();
-  };
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Child </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span>private <span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">初始值</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ChildController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ChildController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">callback</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    return <span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Button(this.message)
-        .onClick(() => {
-          this.callback().then(() => {
-            if (this.controller) {
-              this.message = this.controller.message;
-            }
-            console.info('from Child ', this.message);
-            this.getUIContext().getPromptAction().showToast({ message: this.message });
-          });
-        });
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">callback</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'from Child '</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Entry
-@Component
-struct Parent {
-  private childRef = new ChildController();
-  parentFunc = () => {
-    const updatePromise: Promise<void> = new Promise((resolve: Function) => {
-      this.childRef.message = '变更值';
-      console.info('from Parent State', this.childRef.message);
-      resolve();
-    });
-    return updatePromise;
-  };
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Parent </span><span style="color: rgb(255,0,170);">{</span>
+  private <span style="color: rgb(0,0,255);">childRef </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ChildController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">parentFunc </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    const <span style="color: rgb(0,0,255);">updatePromise</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span>new <span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Function</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">childRef</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">变更值</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'from Parent State'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">childRef</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(0,0,255);">updatePromise</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Child({ controller: this.childRef, callback: this.parentFunc });
-    }
-    .justifyContent(FlexAlign.Center)
-    .width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Child</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">childRef</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">callback</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parentFunc </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
 点击Button时，弹窗显示“变更值”。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/bT8PNFCIQN2n5H54XT4kSg/zh-cn_image_0000002658856853.png?HW-CC-KV=V1&HW-CC-Date=20260730T072439Z&HW-CC-Expire=86400&HW-CC-Sign=4B278188B14408826F8B70AEF8A2D55DFA1753028FBAE70BFCA2BA7193DED644)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/bT8PNFCIQN2n5H54XT4kSg/zh-cn_image_0000002658856853.png?HW-CC-KV=V1&HW-CC-Date=20260811T005640Z&HW-CC-Expire=86400&HW-CC-Sign=E24F63AA03D3ADF7DA3A37C25E3D841A4FEBC5B4CBE069A1147885F4DF75C4C2)
 
  
 日志输出如下：
  
 ```text
-12-22 15:52:19.572   21177-21177   A03d00/JSAPP                    com.examp...42649434  I     from Parent State 变更值
-12-22 15:52:19.573   21177-21177   A03d00/JSAPP                    com.examp...42649434  I     from Child  变更值
+<span style="color: rgb(255,0,0);">12</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">22 15</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">52</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">19.572   21177</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">21177   </span><span style="color: rgb(0,0,255);">A03d00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP                    com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(255,0,0);">42649434  </span><span style="color: rgb(0,0,255);">I     from Parent State </span><span style="color: rgb(0,0,255);">变更值</span>
+<span style="color: rgb(255,0,0);">12</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">22 15</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">52</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">19.573   21177</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">21177   </span><span style="color: rgb(0,0,255);">A03d00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP                    com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">examp</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(255,0,0);">42649434  </span><span style="color: rgb(0,0,255);">I     from Child  </span><span style="color: rgb(0,0,255);">变更值</span>
 ```

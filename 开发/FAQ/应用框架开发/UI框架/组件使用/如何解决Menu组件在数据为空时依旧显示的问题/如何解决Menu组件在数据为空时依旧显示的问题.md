@@ -9,7 +9,7 @@
 当Menu组件内数据为空时，点击蓝色的菜单按钮，左下角依旧弹出一个白色圆点，如下图所示。该现象符合组件设计逻辑，当展示组件内容为空时，仍然弹出空白的Menu组件容器。但如果需求要求菜单为空时不显示菜单，则该现象不符合要求。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/CDydxzdgSpmGIAlc9pyjLQ/zh-cn_image_0000002633439122.png?HW-CC-KV=V1&HW-CC-Date=20260730T072341Z&HW-CC-Expire=86400&HW-CC-Sign=BF7ECB93CD845394D0668CA51145F743AFE663F59842AC45E8628747DAE59B8A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/CDydxzdgSpmGIAlc9pyjLQ/zh-cn_image_0000002633439122.png?HW-CC-KV=V1&HW-CC-Date=20260811T005816Z&HW-CC-Expire=86400&HW-CC-Sign=1A1A7F90A092D4E91EF7046DF21542EF0BB51665E3ECE3568FBC330CC0D020E3)
 
  
  
@@ -93,13 +93,13 @@ struct VisibilitySolution {
 
   
 visibility = Visible：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/GXJD-ve5R6ewq5vhBgkcSw/zh-cn_image_0000002663798967.png?HW-CC-KV=V1&HW-CC-Date=20260730T072341Z&HW-CC-Expire=86400&HW-CC-Sign=E452EF2C01997A890CD646BFBB0112164A5574FC5E3D2AA243AF43AEA557FB3A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/GXJD-ve5R6ewq5vhBgkcSw/zh-cn_image_0000002663798967.png?HW-CC-KV=V1&HW-CC-Date=20260811T005816Z&HW-CC-Expire=86400&HW-CC-Sign=34183312D7E2A97E998C8612F482C9F4EDC4CB5D5D68F540B8F75FE2E4D6A7A2)
 
 - visibility = Hidden：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/t_JTWsBHTjCZ9WtjQQRdHA/zh-cn_image_0000002633599772.png?HW-CC-KV=V1&HW-CC-Date=20260730T072341Z&HW-CC-Expire=86400&HW-CC-Sign=05282C349AFDFDD2271B086F47C2038C84C0848B70FB5B842E49398C4D0E3249)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/t_JTWsBHTjCZ9WtjQQRdHA/zh-cn_image_0000002633599772.png?HW-CC-KV=V1&HW-CC-Date=20260811T005816Z&HW-CC-Expire=86400&HW-CC-Sign=0D3A0D77F819D75E5B69F4E2C6FD688ABF8BE16DA60735BC97DC781772D5B310)
 
 - visibility = None：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/KEoMdwl2QHOTGBGo_Le-nA/zh-cn_image_0000002663799007.png?HW-CC-KV=V1&HW-CC-Date=20260730T072341Z&HW-CC-Expire=86400&HW-CC-Sign=D7DCD4546A63E83A15642B444B10E02BBEAF3625039D9C08938C3EF58837E31B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/KEoMdwl2QHOTGBGo_Le-nA/zh-cn_image_0000002663799007.png?HW-CC-KV=V1&HW-CC-Date=20260811T005816Z&HW-CC-Expire=86400&HW-CC-Sign=801E263DC9E6C5DC15536F175E71900917999C8D98A4EB03F7D1002DE27D4F32)
 
 
  - **禁用控制：**
@@ -138,10 +138,10 @@ struct EnableSolution {
 
   
 enabled = true：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/jU1FnYS0TcWq2u8w2HoxaA/zh-cn_image_0000002633440070.png?HW-CC-KV=V1&HW-CC-Date=20260730T072341Z&HW-CC-Expire=86400&HW-CC-Sign=6DAFB24537860F9C5CC75EAECFE7B9540AED67A1A51F1550850791977BA6B9F0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/jU1FnYS0TcWq2u8w2HoxaA/zh-cn_image_0000002633440070.png?HW-CC-KV=V1&HW-CC-Date=20260811T005816Z&HW-CC-Expire=86400&HW-CC-Sign=E13D7218FCC8A75E89EDA326900A8ED2543AE47B727C1FA4F7AB9B3E6BCA8BAD)
 
 - enabled = false：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/vPHTQPp3RoCiD01YD3u7_w/zh-cn_image_0000002633600014.png?HW-CC-KV=V1&HW-CC-Date=20260730T072341Z&HW-CC-Expire=86400&HW-CC-Sign=F20498CBCD35FBBEA37E382E7D55BD2033F8D8E388EA98229FAEB22559A5C154)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/vPHTQPp3RoCiD01YD3u7_w/zh-cn_image_0000002633600014.png?HW-CC-KV=V1&HW-CC-Date=20260811T005816Z&HW-CC-Expire=86400&HW-CC-Sign=BC0431EEA6F2422B3701D3BEE30C75E2404CC3F491F01659C1E61684912D8CF6)
 
 
  - **触摸测试控制：**
@@ -184,10 +184,10 @@ struct HitTestBehaviorSolution {
 
   
 HitTestMode = Default：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/ceLaTjrvRsW9KWl_rKPOdQ/zh-cn_image_0000002633600724.png?HW-CC-KV=V1&HW-CC-Date=20260730T072341Z&HW-CC-Expire=86400&HW-CC-Sign=C52CE0A5C0119C108B3F2FF50A1FB3804D7AF872D54FD2087D926CEEBC34471F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/ceLaTjrvRsW9KWl_rKPOdQ/zh-cn_image_0000002633600724.png?HW-CC-KV=V1&HW-CC-Date=20260811T005816Z&HW-CC-Expire=86400&HW-CC-Sign=7D94CB2F1102CA0A5BBA0A2248FC65FA5644419100532B200AA63E7F9028E997)
 
 - HitTestMode = None：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/8Ldg130fQmCcYzB_IPKujQ/zh-cn_image_0000002663719991.png?HW-CC-KV=V1&HW-CC-Date=20260730T072341Z&HW-CC-Expire=86400&HW-CC-Sign=A755B5D99A43EE62B8A9711F3BF4162AFBFF916F7F433DC38069C7FB3982A6CA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/8Ldg130fQmCcYzB_IPKujQ/zh-cn_image_0000002663719991.png?HW-CC-KV=V1&HW-CC-Date=20260811T005816Z&HW-CC-Expire=86400&HW-CC-Sign=3FB07EB9A868732307C55840FCE48DAE82ED3804E3AE39CB0B3E9153C7006FB2)
 
 
  

@@ -9,7 +9,7 @@
 使用RCP接口下载文件，onDownloadProgress会重复回调同一个进度，导致业务逻辑重复执行。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/5NTcbRGkTMWga7vlTmLVLQ/zh-cn_image_0000002628612488.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=770F7C53A5D6F5B4612E1A54D741CC5EBCC89CB13F7B6E544FA631A9BC145C16)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/5NTcbRGkTMWga7vlTmLVLQ/zh-cn_image_0000002628612488.png?HW-CC-KV=V1&HW-CC-Date=20260811T005941Z&HW-CC-Expire=86400&HW-CC-Sign=E4C763B7BF7C7058904FF649CDAF73673B606D26C8D4EE9BDAFAB8ADA2553114)
 
  
  

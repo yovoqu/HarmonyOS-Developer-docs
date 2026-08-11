@@ -1,6 +1,6 @@
 # HarmonyOS中Navigation组件单栏与分栏模式动态切换及横屏布局异常解决方案
 
-更新时间：2026-07-09 02:04:37
+更新时间：2026-07-31 00:56:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1644
 
@@ -105,7 +105,7 @@ struct NavPageOne {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/0qV2LWHOSlybAAWXDbJz_w/zh-cn_image_0000002663720495.png?HW-CC-KV=V1&HW-CC-Date=20260730T072447Z&HW-CC-Expire=86400&HW-CC-Sign=90FD8AE7FF371134A286A78DAAE5D023656D785F95D20A5CCD12DFF30CF3C2B8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/PydJbd40Sc6SBZUKLjA-mA/zh-cn_image_0000002663720495.png?HW-CC-KV=V1&HW-CC-Date=20260811T005642Z&HW-CC-Expire=86400&HW-CC-Sign=112794DC017A121B69DBD3D33E1355226C4C1892B5294FDD892F056AD3108BA8)
 
 - **场景二：跳转不同页面采用不同的模式设置。**在推送子页时修改 Navigation 模式，需要单栏显示的页面设置为 false，需要分栏显示的页面设置为 true。参考场景一，修改代码如下：
 
@@ -219,7 +219,7 @@ A：目前没有直接的接口获取分栏的宽度，可以参考链接中[Nav
  
 Q：Navigation如何禁用分栏模式？
  
-A：Navigation组件默认处于Auto模式，其样式会根据应用窗口尺寸在单栏和双栏之间自动切换，想要禁用双栏模式，将Navigation的mode属性值置为Stack即可，其它更丰富的实现方式可参考官网：[实现单双栏的显示效果](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-settings-application-page#如何实现单双栏的显示效果)。
+A：Navigation组件默认处于Auto模式，其样式会根据应用窗口尺寸在单栏和双栏之间自动切换，想要禁用双栏模式，将Navigation的mode属性值置为Stack即可，其它更丰富的实现方式可参考官网：[实现单双栏的显示效果](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-settings-application-page)。
  
 Q：分栏模式下点击导航栏的页面推送导致右侧内容区渲染了多个相同的页面，返回时会多次返回相同的页面，有什么方式可以防止这种现象发生？
  

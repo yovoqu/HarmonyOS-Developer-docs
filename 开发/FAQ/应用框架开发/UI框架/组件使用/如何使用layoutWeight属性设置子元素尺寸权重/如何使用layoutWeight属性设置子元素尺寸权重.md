@@ -57,7 +57,7 @@ struct BottomWithBar {
  效果图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/8M0zNtbGSnmoNR-LpUc3Mw/zh-cn_image_0000002628609224.png?HW-CC-KV=V1&HW-CC-Date=20260730T072409Z&HW-CC-Expire=86400&HW-CC-Sign=96F12B6B15D98922EA1452AD5BEB19B9EE238BF5EC00F3BCDE11E447CF8EE123)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/8M0zNtbGSnmoNR-LpUc3Mw/zh-cn_image_0000002628609224.png?HW-CC-KV=V1&HW-CC-Date=20260811T005804Z&HW-CC-Expire=86400&HW-CC-Sign=922936AF97243068A3606706910F0ABB44B4F656FB3B8579781E777BF1CA83BD)
 
 - Column容器：**垂直布局**（从上到下），通过layoutWeight设置子元素在**垂直方向**的占比。
 ```text
@@ -91,7 +91,7 @@ struct BottomWithBar2 {
  效果图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/UFBDsRhgQdSHozRnvtMC7A/zh-cn_image_0000002628769122.png?HW-CC-KV=V1&HW-CC-Date=20260730T072409Z&HW-CC-Expire=86400&HW-CC-Sign=63E7D8DA08DC71D7B36C9FAE42DAFA9E4E15A82B1C125C37CFB8F71B56449472)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/UFBDsRhgQdSHozRnvtMC7A/zh-cn_image_0000002628769122.png?HW-CC-KV=V1&HW-CC-Date=20260811T005804Z&HW-CC-Expire=86400&HW-CC-Sign=8578B5531942B26EE92948A33779A8CC39270C313EB8A45185974F184ACC91E1)
 
 
  

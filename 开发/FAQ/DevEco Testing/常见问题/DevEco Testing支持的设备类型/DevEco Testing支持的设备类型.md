@@ -17,10 +17,10 @@ DevEco Testing从5.0版本开始不支持除OpenHarmony和HarmonyOS Next外的�
 [DevEco Testing](https://developer.huawei.com/consumer/cn/download/deveco-testing?ha_source=sousuo&ha_sourceId=89000251)下载中心可查看版本号。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/GIU4wZNnSE-QGymfjgOYEg/zh-cn_image_0000002628404184.png?HW-CC-KV=V1&HW-CC-Date=20260730T072727Z&HW-CC-Expire=86400&HW-CC-Sign=B3D4B1DEAA66F613B59B2ED2358F4C83987566D450B1606FECA65966A774632B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/GIU4wZNnSE-QGymfjgOYEg/zh-cn_image_0000002628404184.png?HW-CC-KV=V1&HW-CC-Date=20260811T005530Z&HW-CC-Expire=86400&HW-CC-Sign=742E630F11F37670D8C13227AAA2D32571DF33CCC970C380E7BAD9811CF9EEF8)
 
  
 已安装DevEco Testing，可以在设置-关于查看版本。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/dCwLNEYaTDy4zBGpBA-sUw/zh-cn_image_0000002628564088.png?HW-CC-KV=V1&HW-CC-Date=20260730T072727Z&HW-CC-Expire=86400&HW-CC-Sign=DE573F8F48D51B85255C8A7B4EAD1AA054A46EA24679977C308368E8A812F5C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/dCwLNEYaTDy4zBGpBA-sUw/zh-cn_image_0000002628564088.png?HW-CC-KV=V1&HW-CC-Date=20260811T005530Z&HW-CC-Expire=86400&HW-CC-Sign=FD53A5DC0C0BCB4C78B734D720624802F2489F537D712A2986FE69EE5906AE6C)

@@ -14,7 +14,7 @@
 {
   "ret":
   {
-    "code": 204144691,
+    "code": <span style="color: rgb(0,0,255);">204144691</span>,
     "msg": "[amis] update version information failed, additional msg is [[AppGalleryConnectAppMetaInfoService]Harmony test apiLevel check failed, support apiLevel at least 10]"
   }
 }

@@ -18,23 +18,23 @@
 
 #### 问题定位
 1. 查看运行环境上依赖的安装包是否存在，版本是否正确，执行pip list命令查看xdevice、hypium。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/1uS250WySi2e4X0DLBhyHA/zh-cn_image_0000002658923399.png?HW-CC-KV=V1&HW-CC-Date=20260730T072727Z&HW-CC-Expire=86400&HW-CC-Sign=09F0CB7477855E1546AD64441228BDA3E1A1D4BFFB3C1A14E357D6D4A9E7EE6E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/1uS250WySi2e4X0DLBhyHA/zh-cn_image_0000002658923399.png?HW-CC-KV=V1&HW-CC-Date=20260811T005530Z&HW-CC-Expire=86400&HW-CC-Sign=2F37595440FCAE248FFBF2913301C519C5B2C154529EF52975B6C47B0E1A9B17)
 
 
   安装成功后示例如下（具体版本号根据实际情况检查）：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/XgrJxh0aQ3qcGWWkDatALA/zh-cn_image_0000002658803449.png?HW-CC-KV=V1&HW-CC-Date=20260730T072727Z&HW-CC-Expire=86400&HW-CC-Sign=3284F3D648A03C7643155F21BEF3EA1FB1A93C8EA80BE455D46264EE24CB09C4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/XgrJxh0aQ3qcGWWkDatALA/zh-cn_image_0000002658803449.png?HW-CC-KV=V1&HW-CC-Date=20260811T005530Z&HW-CC-Expire=86400&HW-CC-Sign=563B0F8641D2E119B20F34CB3CEF06E4F932FD12C9667E92CB036A462F47F5F2)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/m8XBC1ArSh6ZF66CgaZrQw/zh-cn_image_0000002628404186.png?HW-CC-KV=V1&HW-CC-Date=20260730T072727Z&HW-CC-Expire=86400&HW-CC-Sign=35412CC64BBDB4391D3B47D2B43E6D9E60BB3925FC3EBF99865651B8C7F467AB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/m8XBC1ArSh6ZF66CgaZrQw/zh-cn_image_0000002628404186.png?HW-CC-KV=V1&HW-CC-Date=20260811T005530Z&HW-CC-Expire=86400&HW-CC-Sign=4797D561CDBA84862D4D4B407AE300EB27FA93060FF3AB68405BFEAF2460AE80)
 
 
   而伙伴的xdevice版本显示为0.0.0。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/jptzGVDTQfWPGUxVRjs0lw/zh-cn_image_0000002628564090.png?HW-CC-KV=V1&HW-CC-Date=20260730T072727Z&HW-CC-Expire=86400&HW-CC-Sign=00590FB007202CCE0C8E98DE7D25BEE0A0063A17866B04D15CC7948852FEE1C6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/jptzGVDTQfWPGUxVRjs0lw/zh-cn_image_0000002628564090.png?HW-CC-KV=V1&HW-CC-Date=20260811T005530Z&HW-CC-Expire=86400&HW-CC-Sign=F87ED2D756CE81668DAF085AC11881F2F4D3338CB689EE6B646A8B7A4C7A7140)
 
 2. 检查import的导入方法使用是否正确。找到Hypium插件的安装包路径，打开hypium_api的md文件（举例D:\devecotesting-hypium-6.0.7.202\hypium-6.0.7.202\doc下的hypium_api_6.0.7.202.md）。
 
@@ -58,4 +58,4 @@
   python -m pip uninstall -y xdevice
 2. 按照[安装向导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hypium-python-guidelines#section191615399595)中的“安装Hypium”指导，重新进行xdevice和hypium的安装。
 3. 基于已安装的Hypium版本，使用“from hypium import UiDriver”或md文件中的“from hypium.action.device.uidriver import UiDriver”导入，举例：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/hGfxjnVmQy2tWzu9BMVMJg/zh-cn_image_0000002658923401.png?HW-CC-KV=V1&HW-CC-Date=20260730T072727Z&HW-CC-Expire=86400&HW-CC-Sign=07A6585A79556248C19A3099C3B5C06A47B721C80F1F8F1197D238297EA7AA39)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/hGfxjnVmQy2tWzu9BMVMJg/zh-cn_image_0000002658923401.png?HW-CC-KV=V1&HW-CC-Date=20260811T005530Z&HW-CC-Expire=86400&HW-CC-Sign=AA42BBA58645DE11D47A1B64F7E21FA4C1916101389263782CA52CCC284128C8)

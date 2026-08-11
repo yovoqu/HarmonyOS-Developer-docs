@@ -134,7 +134,7 @@ libnet.so: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamica
 
 
 6. 在windows中可使用llvm-objdump --headers libnet.so（llvm-objdump工具在DevEco Studio安装的时候会自带），查看是否有debug字段，有则说明带上了符号表，没有则说明无符号表：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/2YI7hVeTT5iIJEn9AuyhWw/zh-cn_image_0000002628554888.png?HW-CC-KV=V1&HW-CC-Date=20260730T072250Z&HW-CC-Expire=86400&HW-CC-Sign=03D92FB94229FC2744FB771229579ADAE9FBD6FB7E9ADAD11C0B0B06B38048B4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/2YI7hVeTT5iIJEn9AuyhWw/zh-cn_image_0000002628554888.png?HW-CC-KV=V1&HW-CC-Date=20260811T005909Z&HW-CC-Expire=86400&HW-CC-Sign=3945B14B1705A07F40E1AB7F7385CE9BFBBC7387B69F1BF03A0CB5A192F20DDC)
 
 
 7. 使用编译出来的带符号表的libnet.so使用llvm-addr2line进行崩溃行号定位：

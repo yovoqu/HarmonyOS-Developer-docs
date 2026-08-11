@@ -11,7 +11,7 @@
 同时可以看到后台的APP是白屏状态（深色模式下为黑屏），并且点击后仍会继续跳转到设置页。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/vML3YGvFQSKkF6xsiwmX1A/zh-cn_image_0000002628629348.png?HW-CC-KV=V1&HW-CC-Date=20260730T072309Z&HW-CC-Expire=86400&HW-CC-Sign=D4071B0A9BBFD601700F1B3EFC40B2444A9A0A36669E6A5CAAE839FCE5839166)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/vML3YGvFQSKkF6xsiwmX1A/zh-cn_image_0000002628629348.png?HW-CC-KV=V1&HW-CC-Date=20260811T005857Z&HW-CC-Expire=86400&HW-CC-Sign=ED40D3AF9DF26138C42C8A43C0A314AF5054443BE99261FCFDEE4947BF35588E)
 
  
  

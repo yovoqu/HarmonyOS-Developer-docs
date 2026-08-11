@@ -9,7 +9,7 @@
 stateStyles多态样式，父组件和子组件都设置了stateStyles，子组件满足stateStyles状态时，父组件也同样满足，也会跟着改变，效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/Jn6WxA_1SYaf8rHlhJOE6g/zh-cn_image_0000002663716957.png?HW-CC-KV=V1&HW-CC-Date=20260730T072335Z&HW-CC-Expire=86400&HW-CC-Sign=300A22B7703B2521455E2C29FF23AF9A4E4CEFDE09C516B5692C737E65F26643)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/Jn6WxA_1SYaf8rHlhJOE6g/zh-cn_image_0000002663716957.png?HW-CC-KV=V1&HW-CC-Date=20260811T005758Z&HW-CC-Expire=86400&HW-CC-Sign=A414C9775F245082040CCFBF80193036411734DE134BF237ED280B61B78C333A)
 
  
 - 蓝色背景为父组件，绿色背景为子组件。
@@ -104,7 +104,7 @@ struct StateStylesDemo {
 按压子组件后，不会触发父组件stateStyles的按压设置效果，效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/DLAsk2IBR4eWUfaAz_upLQ/zh-cn_image_0000002663797649.png?HW-CC-KV=V1&HW-CC-Date=20260730T072335Z&HW-CC-Expire=86400&HW-CC-Sign=20F61E8E94FB97E8F907E30940715EEE5B45EC69C95721104A222D3BC9F77392)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/DLAsk2IBR4eWUfaAz_upLQ/zh-cn_image_0000002663797649.png?HW-CC-KV=V1&HW-CC-Date=20260811T005758Z&HW-CC-Expire=86400&HW-CC-Sign=FD59A1ADAA55C0D6140C58B9701E4A836894E063536788E1DC763CC9771FBC86)
 
  
  

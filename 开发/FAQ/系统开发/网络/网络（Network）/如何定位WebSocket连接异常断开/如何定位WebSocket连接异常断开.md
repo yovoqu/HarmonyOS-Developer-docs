@@ -68,7 +68,7 @@ Lws client connection error conn fail: 110中的110在网络通信中代表连�
 
 
  - WebSocket在连接成功后，随机断开。抓包分析TCP交互，在wireshark中使用ip.src == [服务器ip地址] || ip.dst == [服务器ip地址]过滤数据包，率先发送[FIN, ACK]数据包的为主动断开方。比如下图为101.201.**.**服务端主动断开连接，再结合业务日志分析具体的断开原因。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/UasGFTf_SAWnR23YhVnVEQ/zh-cn_image_0000002658970475.png?HW-CC-KV=V1&HW-CC-Date=20260730T072552Z&HW-CC-Expire=86400&HW-CC-Sign=E25ADFDB3CBBA84896BA11A04058CA420AB9C988EB4A7FCF3B41C459EDC6A543)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/UasGFTf_SAWnR23YhVnVEQ/zh-cn_image_0000002658970475.png?HW-CC-KV=V1&HW-CC-Date=20260811T005938Z&HW-CC-Expire=86400&HW-CC-Sign=B26457F50DE3A0C17DD019161FFB05AE6CAA285F729F6837233E3E2F9A16D749)
 
 
  

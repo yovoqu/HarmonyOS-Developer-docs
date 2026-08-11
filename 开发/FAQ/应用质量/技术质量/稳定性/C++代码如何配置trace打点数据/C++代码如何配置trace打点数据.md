@@ -29,16 +29,16 @@ OH_HiTrace_StartTraceEx用于标记一个同步跟踪耗时任务的开始。同
 OH_HiTrace_StartAsyncTraceEx标记一个异步跟踪耗时任务的开始。用于在异步操作前调用进行开始打点，异步跟踪开始和结束数据由于不是顺序发生的，所以解析时需要通过一个唯一的taskId进行识别。必须和OH_HiTrace_FinishAsyncTraceEx配对使用，参数name和taskId相同的开始与结束打点相匹配，构成一个异步跟踪耗时任务。
  
 - OH_HiTrace_StartTraceEx和OH_HiTrace_FinishTraceEx配套使用，要用cpu insight才能看到trace信息。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/NTx7vmLAT4iCwDFQ9EFq1A/zh-cn_image_0000002677871739.png?HW-CC-KV=V1&HW-CC-Date=20260730T072251Z&HW-CC-Expire=86400&HW-CC-Sign=389A17D5409E0CF628661672F80FF578E6ABC6ED723C25E3C15586C9D4D99532)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/NTx7vmLAT4iCwDFQ9EFq1A/zh-cn_image_0000002677871739.png?HW-CC-KV=V1&HW-CC-Date=20260811T005906Z&HW-CC-Expire=86400&HW-CC-Sign=624E251F193DBB53ED72305F28BFAAE2012F2A194FFA74FA43BA18AEFA9EB55C)
 
 - OH_HiTrace_StartAsyncTraceEx和OH_HiTrace_FinishAsyncTraceEx配套使用，Time insight和cpu insight都可以看到trace信息。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/4bC_gXSwSuq5nNT77pHCIg/zh-cn_image_0000002677872197.png?HW-CC-KV=V1&HW-CC-Date=20260730T072251Z&HW-CC-Expire=86400&HW-CC-Sign=98E43063CA614362C76AC7A26DF7EDEA2DB11099D23CBA68924AD72D93DE71E0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/4bC_gXSwSuq5nNT77pHCIg/zh-cn_image_0000002677872197.png?HW-CC-KV=V1&HW-CC-Date=20260811T005906Z&HW-CC-Expire=86400&HW-CC-Sign=BC39EB8A1EEBB96B64D7C973630D4D32F7AABB159C9FF5DF12F8A4489F4B3BD5)
 
 - 如果是配合ArkTS/HarmonyOS排查函数耗时，用OH_HiTrace_StartAsyncTraceEx和OH_HiTrace_FinishAsyncTraceEx进行打点，然后使用Profiler的Time insight模板就可以看到。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/BMotM155TVCld1vKGc_ZVw/zh-cn_image_0000002647792546.png?HW-CC-KV=V1&HW-CC-Date=20260730T072251Z&HW-CC-Expire=86400&HW-CC-Sign=1F5D7D02B75825EF88E19BBFF801933900F56186904738DDD34419B218F5BDF1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/BMotM155TVCld1vKGc_ZVw/zh-cn_image_0000002647792546.png?HW-CC-KV=V1&HW-CC-Date=20260811T005906Z&HW-CC-Expire=86400&HW-CC-Sign=E6900F67A538A92F2329E3B0E2BD999AD90DCC35EA1019F6325604A4E5ADAFBE)
 
 - 运行hitrace打点，要在这里添加libhitrace_ndk.z.so。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/R-5SXBzlT2yFRA7HTPss_g/zh-cn_image_0000002647792624.png?HW-CC-KV=V1&HW-CC-Date=20260730T072251Z&HW-CC-Expire=86400&HW-CC-Sign=7DFE1021E12C14CE4E2A6B31D31C7C11B059A954EB3CD23B705357ED574ADBBB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/R-5SXBzlT2yFRA7HTPss_g/zh-cn_image_0000002647792624.png?HW-CC-KV=V1&HW-CC-Date=20260811T005906Z&HW-CC-Expire=86400&HW-CC-Sign=41F7DEDFE2651F8D716F4BDD89D2A8C07F94A6BCCD6E189F4A08CB954B3E58C0)
 
 
  

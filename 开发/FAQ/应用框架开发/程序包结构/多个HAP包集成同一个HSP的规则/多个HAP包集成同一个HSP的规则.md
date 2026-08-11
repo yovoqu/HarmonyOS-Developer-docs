@@ -26,13 +26,13 @@
 3. 关于后续演进，请参考下面场景：场景一：业务工程不涉及改动，但基础工程需要演进（功能增强/修复bug等）。只需要修改基础工程中的versionCode、minAPIVersion（如果涉及的话）。其他业务工程后续迭代时，增加对应业务工程的versionCode版本，使之与基础工程中的versionCode版本一致。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/AyJMQv_pTUaFgbsLWhkbkQ/zh-cn_image_0000002628788120.png?HW-CC-KV=V1&HW-CC-Date=20260730T072300Z&HW-CC-Expire=86400&HW-CC-Sign=7A78584DC588170BC1618C0203D4C8F4273A4E4DE6427411FCD581B0E0409FB5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/AyJMQv_pTUaFgbsLWhkbkQ/zh-cn_image_0000002628788120.png?HW-CC-KV=V1&HW-CC-Date=20260811T005852Z&HW-CC-Expire=86400&HW-CC-Sign=10DA660912DD6A79C3A2F2DB3FB9BDDB6D139EED37D659F8FB2CDA33A5B63ACB)
 
 
   场景二：基础工程不涉及改动，业务工程需要演进（功能增强/修复bug等）。不仅需要增加业务工程中的versionCode，同时需要修改基础工程中的versionCode。如果涉及到minAPIVersion改动，同理，也需要两者一起修改。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/uibmRC9XRze_FuGUfqPtyw/zh-cn_image_0000002658987443.png?HW-CC-KV=V1&HW-CC-Date=20260730T072300Z&HW-CC-Expire=86400&HW-CC-Sign=B69D4F204CC172DCD8DC4E5EA7C5EEB7E7F12936721DCF8347714443B488F380)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/uibmRC9XRze_FuGUfqPtyw/zh-cn_image_0000002658987443.png?HW-CC-KV=V1&HW-CC-Date=20260811T005852Z&HW-CC-Expire=86400&HW-CC-Sign=69D30849A0E8FD6AA1B5A21AB9FDC5A3B69A240BED490850C53151298B1C6A1B)
 
  
  

@@ -15,25 +15,25 @@ HarmonyOS系统使用TextInput输入手机号，通过onChange函数实现手机
 当前效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/X9F05EM9R7Wi2xT7xq7bMg/zh-cn_image_0000002658794575.png?HW-CC-KV=V1&HW-CC-Date=20260730T072326Z&HW-CC-Expire=86400&HW-CC-Sign=78C255A92BE6F1D77C0F405322A4FAB1477E9F1B6150DF5C89C4058F19E8194C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/X9F05EM9R7Wi2xT7xq7bMg/zh-cn_image_0000002658794575.png?HW-CC-KV=V1&HW-CC-Date=20260811T005754Z&HW-CC-Expire=86400&HW-CC-Sign=B7A2A8F2310908930D02150FFCE77740B3048712A7AB1B7AFB2FDE869EB210EC)
 
  
 针对号码123/4567/8910，删除了7和8之间的空格，TextInput空格先被删除，之后value值刷新，展示：123/4567/8910，光标位于末尾。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/rjp-5Xc7SHmvDZzYrXsUUg/zh-cn_image_0000002628555208.png?HW-CC-KV=V1&HW-CC-Date=20260730T072326Z&HW-CC-Expire=86400&HW-CC-Sign=27199C86DD75713B7DB1789C57A0313F3AB964766121E8417429B88A5C767827)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/rjp-5Xc7SHmvDZzYrXsUUg/zh-cn_image_0000002628555208.png?HW-CC-KV=V1&HW-CC-Date=20260811T005754Z&HW-CC-Expire=86400&HW-CC-Sign=89B4FB0204E2F227A518BBAC6D577F2939C1E1C5691D49B4FC6848C7DAF15E92)
 
  
 预期效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/VRVn8rm4Ste9DzqRjaRpdw/zh-cn_image_0000002658914529.png?HW-CC-KV=V1&HW-CC-Date=20260730T072326Z&HW-CC-Expire=86400&HW-CC-Sign=F691BC32843D343F75F98D37542ACA075661BCF6DFD25F16A8E04103CA919A0C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/VRVn8rm4Ste9DzqRjaRpdw/zh-cn_image_0000002658914529.png?HW-CC-KV=V1&HW-CC-Date=20260811T005754Z&HW-CC-Expire=86400&HW-CC-Sign=50C35D6F059F14535E69CC66AF51AB72D4BB06145D60A0A2D346037B809B3527)
 
  
 针对号码123/4567/8910，删除了7和8之间的空格，实际删除数字7，展示：123/4568/910，光标在数字6后面。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/kGsL-WIATLCHVY37itlqIg/zh-cn_image_0000002628395304.png?HW-CC-KV=V1&HW-CC-Date=20260730T072326Z&HW-CC-Expire=86400&HW-CC-Sign=42A6F61CD354CC597C72F9013CCE6A17A10815AC49BCEC5D56F1ADA5B430FC45)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/kGsL-WIATLCHVY37itlqIg/zh-cn_image_0000002628395304.png?HW-CC-KV=V1&HW-CC-Date=20260811T005754Z&HW-CC-Expire=86400&HW-CC-Sign=689001886F3CC03056CAA28CC3F7C58DD74B2785D1D27C7E1C10E3BC2B776FEE)
 
  
 删除数字6，展示123/4578/910，光标位于数字5后面。

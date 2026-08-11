@@ -11,85 +11,85 @@
 问题代码示例参考如下：
  
 ```text
-import { display } from '@kit.ArkUI'
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">display </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span>
 
-@ComponentV2
-@Entry
-export struct CanvasInListComponent {
- <em> // 动画</em>
-  @Local radianTest: number = 0
-  private settings: RenderingContextSettings = new RenderingContextSettings(true)
-  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)
-  private offCanvas: OffscreenCanvas = new OffscreenCanvas(600, 600)
-  canvasTest = (): void => {
-    let offContext = this.offCanvas.getContext('2d', this.settings)
-    offContext.lineCap = 'round'
-    offContext.lineWidth = 14
-    offContext.beginPath()
-    offContext.arc(
-      (this.getUIContext().px2vp(display.getDefaultDisplaySync().width) - 2 * 14) / 2.0,
-      180,
-      100,
-      (225 - 90) * Math.PI / 180,
-      (135 - 90) * Math.PI / 180
-    )
-    offContext.strokeStyle = '#EAF2FF'
-    offContext.stroke()
-    offContext.beginPath()
-    offContext.arc(
-      (this.getUIContext().px2vp(display.getDefaultDisplaySync().width) - 2 * 14) / 2.0,
-      180,
-      100,
-      (225 - 90) * (Math.PI / 180),
-      this.radianTest === 0 ? (135 - 90) * (Math.PI / 180) : (135 - 270 * (1 - this.radianTest) - 90) * (Math.PI / 180)
-    )
-    offContext.strokeStyle = '#337DFF'
-    offContext.stroke()
-    let image = this.offCanvas.transferToImageBitmap()
-    this.context.transferFromImageBitmap(image)
-   <em> // 使用setTimeout模拟帧刷新</em>
-    setTimeout(() => {
-      this.radianTest = Number(this.radianTest + 0.005)
-      if (this.radianTest > 1) {
-        this.radianTest = 0
-      } else {
-        this.canvasTest()
-      }
-    }, 10)
-  }
+<span style="color: rgb(181,106,1);">@ComponentV2</span>
+<span style="color: rgb(181,106,1);">@Entry</span>
+export struct <span style="color: rgb(0,0,255);">CanvasInListComponent </span><span style="color: rgb(255,0,170);">{</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">动画</span></em>
+  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(0,0,255);">radianTest</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span>
+  private <span style="color: rgb(0,0,255);">settings</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RenderingContextSettings </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RenderingContextSettings</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+  private <span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CanvasRenderingContext2D </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CanvasRenderingContext2D</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">settings</span><span style="color: rgb(0,0,255);">)</span>
+  private <span style="color: rgb(0,0,255);">offCanvas</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">OffscreenCanvas </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">OffscreenCanvas</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">600</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">600</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(0,0,255);">canvasTest </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">offContext </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offCanvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getContext</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'2d'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">settings</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineCap </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'round'</span>
+    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">14</span>
+    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">beginPath</span><span style="color: rgb(0,0,255);">()</span>
+    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">arc</span><span style="color: rgb(0,0,255);">(</span>
+<span style="color: rgb(0,0,255);">      (</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">display</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDefaultDisplaySync</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">2 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">14</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">2.0</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,0,0);">180</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,0,0);">100</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">225 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">90</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PI </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">180</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">135 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">90</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PI </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">180</span>
+    <span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'#EAF2FF'</span>
+    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(0,0,255);">()</span>
+    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">beginPath</span><span style="color: rgb(0,0,255);">()</span>
+    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">arc</span><span style="color: rgb(0,0,255);">(</span>
+<span style="color: rgb(0,0,255);">      (</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">display</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDefaultDisplaySync</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">2 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">14</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">2.0</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,0,0);">180</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,0,0);">100</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">225 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">90</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PI </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">180</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radianTest </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">135 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">90</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PI </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">180</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">135 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">270 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radianTest</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">90</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PI </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">180</span><span style="color: rgb(0,0,255);">)</span>
+<span style="color: rgb(0,0,255);">    )</span>
+    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'#337DFF'</span>
+    <span style="color: rgb(0,0,255);">offContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(0,0,255);">()</span>
+    let <span style="color: rgb(0,0,255);">image </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offCanvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">transferToImageBitmap</span><span style="color: rgb(0,0,255);">()</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">transferFromImageBitmap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">image</span><span style="color: rgb(0,0,255);">)</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使用</span><span style="color: rgb(128,128,128);">setTimeout</span><span style="color: rgb(128,128,128);">模拟帧刷新</span></em>
+    <span style="color: rgb(0,0,255);">setTimeout</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radianTest </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Number</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radianTest </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">0.005</span><span style="color: rgb(0,0,255);">)</span>
+      if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radianTest </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radianTest </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span>
+      <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">canvasTest</span><span style="color: rgb(0,0,255);">()</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    List() {
-      ForEach([1, 2, 3, 4, 5, 6, 7, 8, 9], (item: number) => {
-        ListItem() {
-          Row() {
-            Text(item.toString())
-          }
-          .height(200)
-        }
-      })
-      ListItem() {
-        Canvas(this.context)
-          .width('100%')
-          .height(300)
-          .onReady(this.canvasTest)
-          .position({ x: 0, y: 0 })
-      }
-      .onClick(() => {
-        this.canvasTest()
-      })
-    }
-    .width('100%')
-    .height('100%')
-    .alignListItem(ListItemAlign.Center)
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">([</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">5</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">6</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">7</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">9</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())</span>
+          <span style="color: rgb(255,0,170);">}</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Canvas</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">300</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">canvasTest</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">position</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">canvasTest</span><span style="color: rgb(0,0,255);">()</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignListItem</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ListItemAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/a4_jAgGCSFKGgxrNR84sUA/zh-cn_image_0000002628555364.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072454Z&HW-CC-Expire=86400&HW-CC-Sign=46C9F097CB8C698E9B2E048AA17E61E3CF2FE4C92AA310541AC0A6AD3852484B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/a4_jAgGCSFKGgxrNR84sUA/zh-cn_image_0000002628555364.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005643Z&HW-CC-Expire=86400&HW-CC-Sign=4DC1672C5B93575995D27AE79959E76F90EF261DC6F985B0155AA07A7AECB721)
 
  
  
@@ -97,7 +97,7 @@ export struct CanvasInListComponent {
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/dCYy0T8YRiaNJ-0UcJZ4Gg/zh-cn_image_0000002628395470.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072454Z&HW-CC-Expire=86400&HW-CC-Sign=08D0336445EF2DDCC006629C55D95AB6763BADB908B4E5A784FE6075C4EAEB53)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/dCYy0T8YRiaNJ-0UcJZ4Gg/zh-cn_image_0000002628395470.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005643Z&HW-CC-Expire=86400&HW-CC-Sign=D78096507C3443B5DFD098664B7958AD8083E773A1FC8F7DAFC819A7DAFA36E4)
 
  
  
@@ -113,7 +113,7 @@ export struct CanvasInListComponent {
 
 #### 问题定位
 1. 通过抓取性能Trace图，观察到在橙色标记的时间段内，存在多个方法执行耗时超出预期的情况。其中，Canvas的FireReadyEvent方法出现在关键路径上，表明当前帧的绘制任务未能按时完成，导致渲染延迟，从而引发界面卡顿。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/KATGwxH4TECVXj27EpWyFg/zh-cn_image_0000002658914687.png?HW-CC-KV=V1&HW-CC-Date=20260730T072454Z&HW-CC-Expire=86400&HW-CC-Sign=65C04E56B4AF0E5C3882347EEA874D6057508DEAC54E3422CDA641352DE45330)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/KATGwxH4TECVXj27EpWyFg/zh-cn_image_0000002658914687.png?HW-CC-KV=V1&HW-CC-Date=20260811T005643Z&HW-CC-Expire=86400&HW-CC-Sign=5486794DD73404B9618845571935E581DAEBB6B2075D34AFDF94C28F628A25FC)
 
 2. 分析onReady中绘制方法：排查到使用了OffscreenCanvasRenderingContext2D方法，根据背景知识了解到离屏绘制的绘制速度较慢，尝试修改为在屏绘制，抖动消失。
  
@@ -132,77 +132,77 @@ Canvas采用了离屏绘制，使用CPU进行绘制，绘制速度较慢，导�
 完整示例参考如下：
  
 ```text
-import { display } from '@kit.ArkUI';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">display </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
 
-@ComponentV2
-@Entry
-struct DrawWithScreen {
-  <em>// </em><em>动画</em>
-  @Local radianTest: number = 0;
-  private settings: RenderingContextSettings = new RenderingContextSettings(true);
-  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
-  private offCanvas: OffscreenCanvas = new OffscreenCanvas(600, 600);
-  canvasTest = (): void => {
-   <em> // 原先的离屏绘制改为在屏绘制</em>
-    let ctx = this.context;
-    ctx.reset();
-    ctx.lineCap = 'round';
-    ctx.lineWidth = 14;
-    ctx.beginPath();
-    ctx.arc(
-      (this.getUIContext().px2vp(display.getDefaultDisplaySync().width) - 2 * 14) / 2.0,
-      180,
-      100,
-      (225 - 90) * Math.PI / 180,
-      (135 - 90) * Math.PI / 180
-    );
-    ctx.strokeStyle = '#EAF2FF';
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.arc(
-      (this.getUIContext().px2vp(display.getDefaultDisplaySync().width) - 2 * 14) / 2.0,
-      180,
-      100,
-      (225 - 90) * (Math.PI / 180),
-      this.radianTest === 0 ? (135 - 90) * (Math.PI / 180) : (135 - 270 * (1 - this.radianTest) - 90) * (Math.PI / 180),
-    );
-    ctx.strokeStyle = '#337DFF';
-    ctx.stroke();
-   <em> // 使用setTimeout模拟帧刷新</em>
-    setTimeout(() => {
-      this.radianTest = Number(this.radianTest + 0.05);
-      if (this.radianTest > 1) {
-        this.radianTest = 0;
-      } else {
-        this.canvasTest();
-      }
-    }, 20);
-  };
+<span style="color: rgb(181,106,1);">@ComponentV2</span>
+<span style="color: rgb(181,106,1);">@Entry</span>
+struct <span style="color: rgb(0,0,255);">DrawWithScreen </span><span style="color: rgb(255,0,170);">{</span>
+  <em>// </em><em><span style="color: rgb(128,128,128);">动画</span></em>
+  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(0,0,255);">radianTest</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">settings</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RenderingContextSettings </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RenderingContextSettings</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CanvasRenderingContext2D </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CanvasRenderingContext2D</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">settings</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">offCanvas</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">OffscreenCanvas </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">OffscreenCanvas</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">600</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">600</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">canvasTest </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">原先的离屏绘制改为在屏绘制</span></em>
+    let <span style="color: rgb(0,0,255);">ctx </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">ctx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">reset</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">ctx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineCap </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'round'</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">ctx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">14</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">ctx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">beginPath</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">ctx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">arc</span><span style="color: rgb(0,0,255);">(</span>
+<span style="color: rgb(0,0,255);">      (</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">display</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDefaultDisplaySync</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">2 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">14</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">2.0</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,0,0);">180</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,0,0);">100</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">225 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">90</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PI </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">180</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">135 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">90</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PI </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">180</span>
+    <span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">ctx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'#EAF2FF'</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">ctx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">ctx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">beginPath</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">ctx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">arc</span><span style="color: rgb(0,0,255);">(</span>
+<span style="color: rgb(0,0,255);">      (</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">display</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDefaultDisplaySync</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">2 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">14</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">2.0</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,0,0);">180</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,0,0);">100</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">225 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">90</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PI </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">180</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radianTest </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">135 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">90</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PI </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">180</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">135 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">270 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radianTest</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">90</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PI </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">180</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">ctx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'#337DFF'</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">ctx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使用</span><span style="color: rgb(128,128,128);">setTimeout</span><span style="color: rgb(128,128,128);">模拟帧刷新</span></em>
+    <span style="color: rgb(0,0,255);">setTimeout</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radianTest </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Number</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radianTest </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">0.05</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radianTest </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">radianTest </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">canvasTest</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    List() {
-      ForEach([1, 2, 3, 4, 5, 6, 7, 8, 9], (item: number) => {
-        ListItem() {
-          Row() {
-            Text(item.toString());
-          }
-          .height(200);
-        };
-      });
-      ListItem() {
-        Canvas(this.context)
-          .width('100%')
-          .height(300)
-          .onReady(this.canvasTest)
-          .position({ x: 0, y: 0 });
-      }
-      .onClick(() => {
-        this.canvasTest();
-      });
-    }
-    .width('100%')
-    .height('100%')
-    .alignListItem(ListItemAlign.Center);
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">([</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">5</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">6</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">7</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">9</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Canvas</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">300</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">canvasTest</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">position</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">canvasTest</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignListItem</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ListItemAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

@@ -53,305 +53,305 @@ TabBar角标的各种样式、消失功能、更新数据功能实现方案如�
 
 1. Badge组件实现红点类型角标。
 ```text
-<em>// </em><em>定义单个Tab的数据结构</em>
-interface DotsBadgeItem {
-  id: string; <em>// 唯一标识符</em>
-  targetIndex: number; <em>// 每个页签所属的index</em>
-  title: string; <em>// tabBar标题</em>
-  img: Resource;<em> </em><em>// icon图片仅供示例，开发者可以根据实际需求替换</em>
-  content: string;<em> </em><em>// tabBar对应的内容（可根据实际需求扩展）</em>
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">定义单个</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的数据结构</span></em>
+interface DotsBadgeItem <span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">唯一标识符</span></em>
+  <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每个页签所属的</span><span style="color: rgb(128,128,128);">index</span></em>
+  <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// tabBar</span><span style="color: rgb(128,128,128);">标题</span></em>
+  <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// icon</span><span style="color: rgb(128,128,128);">图片仅供示例，开发者可以根据实际需求替换</span></em>
+  <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// tabBar</span><span style="color: rgb(128,128,128);">对应的内容（可根据实际需求扩展）</span></em>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Entry
-@Component
-struct DotsBadge {
-  controller: TabsController = new TabsController();
-<em>  // 模拟后端返回的数据</em>
-  private tabList: DotsBadgeItem[] = [
-    {
-      id: '0',
-      targetIndex: 0,
-      title: '首页',
-      content: '首页内容',
-      img: $r('app.media.house_fill')<em> </em><em>// 图片资源$r('app.media.house_fill')仅供示例，开发者可根据需求替换</em>
-    },
-    {
-      id: '1',
-      targetIndex: 1,
-      title: '消息',
-      content: '消息内容',
-      img: $r('app.media.ellipsis_message') <em>// 图片资源$r('app.media.ellipsis_message')仅供示例，开发者可根据需求替换</em>
-    },
-    {
-      id: '2',
-      targetIndex: 2,
-      title: '相册',
-      content: '相册内容',
-      img: $r('app.media.rectangle_on_rectangle') <em>// 图片资源$r('app.media.rectangle_on_rectangle')仅供示例，开发者可根据需求替换</em>
-    }
-  ];
- <em> // 控制TabContent页签</em>
-  @State currentIndex: number = 0;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">DotsBadge </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TabsController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TabsController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">模拟后端返回的数据</span></em>
+  private <span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsBadgeItem</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span>
+    <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'0'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">首页</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">首页内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.house_fill'</span><span style="color: rgb(255,0,170);">)</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.house_fill')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'1'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.ellipsis_message'</span><span style="color: rgb(255,0,170);">) </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.ellipsis_message')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'2'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">相册</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">相册内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.rectangle_on_rectangle'</span><span style="color: rgb(255,0,170);">) </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.rectangle_on_rectangle')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    <span style="color: rgb(181,106,1);">}</span>
+  <span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">控制</span><span style="color: rgb(128,128,128);">TabContent</span><span style="color: rgb(128,128,128);">页签</span></em>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">currentIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  <em>// 红点型</em>
-  @Builder
-  dotsBadge(params: DotsBadgeItem) {
-    Column() {
-      Badge({
-        value: '',
-        position: { x: 26 },
-        style: { badgeSize: 6, badgeColor: '#FA2A2D' }
-      }) {
-        Image(params.img)
-          .width(32)
-          .height(32)
-          .fillColor(this.currentIndex === params.targetIndex ? '#0A59F7' : Color.Black);
-      };
+  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">红点型</span></em>
+  <span style="color: rgb(181,106,1);">@Builder</span>
+  <span style="color: rgb(0,0,255);">dotsBadge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsBadgeItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Badge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">position</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">26 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">style</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">badgeSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">6</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">badgeColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#FA2A2D' </span><span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">32</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">32</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillColor</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">targetIndex </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(132,63,161);">'#0A59F7' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Black</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-      Text(params.title)
-        .width('100%')
-        .textAlign(TextAlign.Center)
-        .fontSize(20)
-        .margin(5);
-    }
-    .width('100%')
-    .height('100%')
-    .justifyContent(FlexAlign.Center);
-  }
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Column() {
-      Tabs({ barPosition: BarPosition.End, controller: this.controller }) {
-      <em>  // 循环生成TabContent,标题由每个item的title决定</em>
-        ForEach(this.tabList, (item: DotsBadgeItem) => {
-          TabContent() {
-         <em>   // 每个Tab的内容,可以根据需求替换</em>
-            Text(item.content)
-              .layoutWeight(1)
-              .padding(16)
-              .layoutWeight(1)
-              .textAlign(TextAlign.Center);
-          }
-          .tabBar(this.dotsBadge(item));
-        }, (item: DotsBadgeItem) => item.id);
-      }
-      .animationDuration(0)
-      .barMode(BarMode.Fixed)
-      .onChange((index: number) => {
-        this.currentIndex = index;
-      });
-    }
-    .width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Tabs</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">barPosition</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">BarPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">End</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">循环生成</span><span style="color: rgb(128,128,128);">TabContent,</span><span style="color: rgb(128,128,128);">标题由每个</span><span style="color: rgb(128,128,128);">item</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">title</span><span style="color: rgb(128,128,128);">决定</span></em>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsBadgeItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">TabContent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+         <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每个</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的内容</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">可以根据需求替换</span></em>
+            <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBar</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dotsBadge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsBadgeItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animationDuration</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">barMode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BarMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Fixed</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/M0FNKhQeS6ih1eLeL0JMVw/zh-cn_image_0000002628564716.png?HW-CC-KV=V1&HW-CC-Date=20260730T072514Z&HW-CC-Expire=86400&HW-CC-Sign=CA0849777764A9C59A24524F6F13C8DEF6EC82C33AE3E11911DE9F311FD66157)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/M0FNKhQeS6ih1eLeL0JMVw/zh-cn_image_0000002628564716.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=39C1A5141C40FB9B48A0411484CBE23F863FB6806CB17F63D92A7414BF2B02D6)
 
 
 2. Badge组件实现字符类型角标。
 ```text
-<em>// </em><em>定义单个Tab的数据结构</em>
-interface StringBadgeItem {
-  id: string;<em> </em><em>// 唯一标识符</em>
-  targetIndex: number; <em>// 每个页签所属的index</em>
-  title: string; <em>// tabBar标题</em>
-  img: Resource; <em>// icon</em><em>图片仅供示例，开发者可以根据实际需求替换</em>
-  content: string;<strong style="color: rgb(181,106,1);"> </strong><em>// tabBar对应的内容（可根据实际需求扩展）</em>
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">定义单个</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的数据结构</span></em>
+interface StringBadgeItem <span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">唯一标识符</span></em>
+  <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每个页签所属的</span><span style="color: rgb(128,128,128);">index</span></em>
+  <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// tabBar</span><span style="color: rgb(128,128,128);">标题</span></em>
+  <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource</span><span style="color: rgb(181,106,1);">; </span><em>// icon</em><em><span style="color: rgb(128,128,128);">图片仅供示例，开发者可以根据实际需求替换</span></em>
+  <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span><strong style="color: rgb(181,106,1);"> </strong><em><span style="color: rgb(128,128,128);">// tabBar</span><span style="color: rgb(128,128,128);">对应的内容（可根据实际需求扩展）</span></em>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Entry
-@Component
-struct StringBadge {
-  controller: TabsController = new TabsController();
- <em> // 模拟后端返回的数据</em>
-  private tabList: StringBadgeItem[] = [
-    {
-      id: '0',
-      targetIndex: 0,
-      title: '首页',
-      content: '首页内容',
-      img: $r('app.media.house_fill') <em>// 图片资源$r('app.media.house_fill')仅供示例，开发者可根据需求替换</em>
-    },
-    {
-      id: '1',
-      targetIndex: 1,
-      title: '消息',
-      content: '消息内容',
-      img: $r('app.media.ellipsis_message') <em>// 图片资源$r('app.media.ellipsis_message')仅供示例，开发者可根据需求替换</em>
-    },
-    {
-      id: '2',
-      targetIndex: 2,
-      title: '相册',
-      content: '相册内容',
-      img: $r('app.media.rectangle_on_rectangle')<em> </em><em>// 图片资源$r('app.media.rectangle_on_rectangle')仅供示例，开发者可根据需求替换</em>
-    }
-  ];
- <em> // 控制TabContent页签</em>
-  @State currentIndex: number = 0;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">StringBadge </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TabsController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TabsController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">模拟后端返回的数据</span></em>
+  private <span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">StringBadgeItem</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span>
+    <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'0'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">首页</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">首页内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.house_fill'</span><span style="color: rgb(255,0,170);">) </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.house_fill')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'1'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.ellipsis_message'</span><span style="color: rgb(255,0,170);">) </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.ellipsis_message')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'2'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">相册</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">相册内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.rectangle_on_rectangle'</span><span style="color: rgb(255,0,170);">)</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.rectangle_on_rectangle')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    <span style="color: rgb(181,106,1);">}</span>
+  <span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">控制</span><span style="color: rgb(128,128,128);">TabContent</span><span style="color: rgb(128,128,128);">页签</span></em>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">currentIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  <em>// 红点型</em>
-  @Builder
-  dotsBadge(params: StringBadgeItem) {
-    Column() {
-      Badge({
-        value: 'New',
-        position: { x: 26 },
-        style: { badgeSize: 16, badgeColor: '#FA2A2D' }
-      }) {
-        Image(params.img)
-          .width(32)
-          .height(32)
-          .fillColor(this.currentIndex === params.targetIndex ? '#0A59F7' : Color.Black);
-      };
+  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">红点型</span></em>
+  <span style="color: rgb(181,106,1);">@Builder</span>
+  <span style="color: rgb(0,0,255);">dotsBadge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">StringBadgeItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Badge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'New'</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">position</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">26 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">style</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">badgeSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">badgeColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#FA2A2D' </span><span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">32</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">32</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillColor</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">targetIndex </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(132,63,161);">'#0A59F7' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Black</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-      Text(params.title)
-        .width('100%')
-        .textAlign(TextAlign.Center)
-        .fontSize(20)
-        .margin(5);
-    }
-    .width('100%')
-    .height('100%')
-    .justifyContent(FlexAlign.Center);
-  }
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Column() {
-      Tabs({ barPosition: BarPosition.End, controller: this.controller }) {
-      <em>  // 循环生成TabContent,标题由每个item的title决定</em>
-        ForEach(this.tabList, (item: StringBadgeItem) => {
-          TabContent() {
-         <em>   // 每个Tab的内容,可以根据需求替换</em>
-            Text(item.content)
-              .layoutWeight(1)
-              .padding(16)
-              .layoutWeight(1)
-              .textAlign(TextAlign.Center);
-          }
-          .tabBar(this.dotsBadge(item));
-        }, (item: StringBadgeItem) => item.id);
-      }
-      .animationDuration(0)
-      .barMode(BarMode.Fixed)
-      .onChange((index: number) => {
-        this.currentIndex = index;
-      });
-    }
-    .width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Tabs</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">barPosition</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">BarPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">End</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">循环生成</span><span style="color: rgb(128,128,128);">TabContent,</span><span style="color: rgb(128,128,128);">标题由每个</span><span style="color: rgb(128,128,128);">item</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">title</span><span style="color: rgb(128,128,128);">决定</span></em>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">StringBadgeItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">TabContent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+         <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每个</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的内容</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">可以根据需求替换</span></em>
+            <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBar</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dotsBadge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">StringBadgeItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animationDuration</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">barMode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BarMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Fixed</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/2R6fyfmUQ9O5-ijxokLXtg/zh-cn_image_0000002658924021.png?HW-CC-KV=V1&HW-CC-Date=20260730T072514Z&HW-CC-Expire=86400&HW-CC-Sign=818DD01F700458FE4C075E3856AA2E1BBD1413E220A24E5B36B2F2D29CE02EBA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/2R6fyfmUQ9O5-ijxokLXtg/zh-cn_image_0000002658924021.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=0F7434BD3A7A893DD43A0B5A9D88F52A994947A716727EBBE70B8468BC39060A)
 
 
 3. Badge组件实现数字类型角标。
 ```text
-<em>// </em><em>定义单个Tab的数据结构</em>
-interface NumberBadgeItem {
-  id: string;<em> </em><em>// 唯一标识符</em>
-  targetIndex: number; <em>// 每个页签所属的index</em>
-  title: string;<em> </em><em>// tabBar标题</em>
-  img: Resource;<em> </em><em>// icon图片仅供示例，开发者可以根据实际需求替换</em>
-  content: string;<em> </em><em>// tabBar对应的内容（可根据实际需求扩展）</em>
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">定义单个</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的数据结构</span></em>
+interface NumberBadgeItem <span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">唯一标识符</span></em>
+  <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每个页签所属的</span><span style="color: rgb(128,128,128);">index</span></em>
+  <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// tabBar</span><span style="color: rgb(128,128,128);">标题</span></em>
+  <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// icon</span><span style="color: rgb(128,128,128);">图片仅供示例，开发者可以根据实际需求替换</span></em>
+  <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// tabBar</span><span style="color: rgb(128,128,128);">对应的内容（可根据实际需求扩展）</span></em>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Entry
-@Component
-struct NumberBadge {
-  controller: TabsController = new TabsController();
- <em> // 模拟后端返回的数据</em>
-  private tabList: NumberBadgeItem[] = [
-    {
-      id: '0',
-      targetIndex: 0,
-      title: '首页',
-      content: '首页内容',
-      img: $r('app.media.house_fill')<em> </em><em>// 图片资源$r('app.media.house_fill')仅供示例，开发者可根据需求替换</em>
-    },
-    {
-      id: '1',
-      targetIndex: 1,
-      title: '消息',
-      content: '消息内容',
-      img: $r('app.media.ellipsis_message') <em>// 图片资源$r('app.media.ellipsis_message')仅供示例，开发者可根据需求替换</em>
-    },
-    {
-      id: '2',
-      targetIndex: 2,
-      title: '相册',
-      content: '相册内容',
-      img: $r('app.media.rectangle_on_rectangle')<em> </em><em>// 图片资源$r('app.media.rectangle_on_rectangle')仅供示例，开发者可根据需求替换</em>
-    }
-  ];
-<em>  // 控制TabContent页签</em>
-  @State currentIndex: number = 0;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">NumberBadge </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TabsController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TabsController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">模拟后端返回的数据</span></em>
+  private <span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NumberBadgeItem</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span>
+    <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'0'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">首页</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">首页内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.house_fill'</span><span style="color: rgb(255,0,170);">)</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.house_fill')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'1'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.ellipsis_message'</span><span style="color: rgb(255,0,170);">) </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.ellipsis_message')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'2'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">相册</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">相册内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.rectangle_on_rectangle'</span><span style="color: rgb(255,0,170);">)</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.rectangle_on_rectangle')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    <span style="color: rgb(181,106,1);">}</span>
+  <span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">控制</span><span style="color: rgb(128,128,128);">TabContent</span><span style="color: rgb(128,128,128);">页签</span></em>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">currentIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
 
- <em> // 红点型</em>
-  @Builder
-  dotsBadge(params: NumberBadgeItem) {
-    Column() {
-      Badge({
-        count: 1,
-        position: { x: 26 },
-        style: { badgeSize: 16, badgeColor: '#FA2A2D' }
-      }) {
-        Image(params.img)
-          .width(32)
-          .height(32)
-          .fillColor(this.currentIndex === params.targetIndex ? '#0A59F7' : Color.Black);
-      };
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">红点型</span></em>
+  <span style="color: rgb(181,106,1);">@Builder</span>
+  <span style="color: rgb(0,0,255);">dotsBadge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NumberBadgeItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Badge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">count</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">position</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">26 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">style</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">badgeSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">badgeColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#FA2A2D' </span><span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">32</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">32</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillColor</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">targetIndex </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(132,63,161);">'#0A59F7' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Black</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-      Text(params.title)
-        .width('100%')
-        .textAlign(TextAlign.Center)
-        .fontSize(20)
-        .margin(5);
-    }
-    .width('100%')
-    .height('100%')
-    .justifyContent(FlexAlign.Center);
-  }
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Column() {
-      Tabs({ barPosition: BarPosition.End, controller: this.controller }) {
-     <em>   // 循环生成TabContent,标题由每个item的title决定</em>
-        ForEach(this.tabList, (item: NumberBadgeItem) => {
-          TabContent() {
-          <em>  // 每个Tab的内容,可以根据需求替换</em>
-            Text(item.content)
-              .layoutWeight(1)
-              .padding(16)
-              .layoutWeight(1)
-              .textAlign(TextAlign.Center);
-          }
-          .tabBar(this.dotsBadge(item));
-        }, (item: NumberBadgeItem) => item.id);
-      }
-      .animationDuration(0)
-      .barMode(BarMode.Fixed)
-      .onChange((index: number) => {
-        this.currentIndex = index;
-      });
-    }
-    .width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Tabs</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">barPosition</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">BarPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">End</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">循环生成</span><span style="color: rgb(128,128,128);">TabContent,</span><span style="color: rgb(128,128,128);">标题由每个</span><span style="color: rgb(128,128,128);">item</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">title</span><span style="color: rgb(128,128,128);">决定</span></em>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NumberBadgeItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">TabContent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+          <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每个</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的内容</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">可以根据需求替换</span></em>
+            <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBar</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dotsBadge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NumberBadgeItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animationDuration</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">barMode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BarMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Fixed</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/zQRkOuRHR6qSDDjYqYx8FA/zh-cn_image_0000002628404812.png?HW-CC-KV=V1&HW-CC-Date=20260730T072514Z&HW-CC-Expire=86400&HW-CC-Sign=EA00DB0C1F9F967B721542EDDA81208063F63EE0321DB38416CE32326549BE3A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/zQRkOuRHR6qSDDjYqYx8FA/zh-cn_image_0000002628404812.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=99B1DC86B4FCAC75F116B1289D60C1C839B05B6658F39B4350B8327C448A9FCF)
 
 - **场景二**：实现点击清除角标的功能。上述三种类型的角标均可通过点击清除，接下来将以红点型角标为例，详细介绍其实现方式。
 
@@ -364,347 +364,347 @@ struct NumberBadge {
 
   
 ```text
-<em>// </em><em>定义单个Tab的数据结构</em>
-class DotsBadgeDisappearItem {
-  id: string; <em>// 唯一标识符</em>
-  targetIndex: number; <em>// 每个页签所属的index</em>
-  title: string; <em>// tabBar</em><em>标题</em>
-  content: string;<em> </em><em>// tabBar对应的内容（可根据实际需求扩展）</em>
-  img: Resource;<em> </em><em>// icon图片仅供示例，开发者可以根据实际需求替换</em>
-  badgeVisible: boolean;<em> </em><em>// 控制渲染角标</em>
+<em>// </em><em><span style="color: rgb(128,128,128);">定义单个</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的数据结构</span></em>
+class <span style="color: rgb(0,0,255);">DotsBadgeDisappearItem </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">唯一标识符</span></em>
+  <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每个页签所属的</span><span style="color: rgb(128,128,128);">index</span></em>
+  <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">; </span><em>// tabBar</em><em><span style="color: rgb(128,128,128);">标题</span></em>
+  <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// tabBar</span><span style="color: rgb(128,128,128);">对应的内容（可根据实际需求扩展）</span></em>
+  <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// icon</span><span style="color: rgb(128,128,128);">图片仅供示例，开发者可以根据实际需求替换</span></em>
+  <span style="color: rgb(255,255,255);">badgeVisible</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">控制渲染角标</span></em>
 
-  constructor(id: string, targetIndex: number, title: string, content: string, img: Resource, badgeVisible: boolean) {
-    this.id = id;
-    this.targetIndex = targetIndex;
-    this.title = title;
-    this.content = content;
-    this.img = img;
-    this.badgeVisible = badgeVisible;
-  }
-}
+  constructor<span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">badgeVisible</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">targetIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">content </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">badgeVisible </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">badgeVisible</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Entry
-@Component
-struct DotsBadgeDisappear {
-  controller: TabsController = new TabsController();
- <em> // 控制TabContent页签</em>
-  @State currentIndex: number = 0;
-<em>  // 模拟后端返回的数据</em>
-  @State tabList: DotsBadgeDisappearItem[] = [
- <em> // 图片资源$r('app.media.house_fill')仅供示例，开发者可根据需求替换</em>
-    new DotsBadgeDisappearItem('0', 0, '首页', '首页的内容', $r('app.media.house_fill'), true),
-  <em>  // 图片资源$r('app.media.rectangle_on_rectangle')仅供示例，开发者可根据需求替换</em>
-    new DotsBadgeDisappearItem('1', 1, '相册', '相册的内容', $r('app.media.rectangle_on_rectangle'), true),
-   <em> // 图片资源$r('app.media.ellipsis_message')仅供示例，开发者可根据需求替换</em>
-    new DotsBadgeDisappearItem('2', 2, '消息', '消息的内容', $r('app.media.ellipsis_message'), true)
-  ];
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">DotsBadgeDisappear </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TabsController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TabsController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">控制</span><span style="color: rgb(128,128,128);">TabContent</span><span style="color: rgb(128,128,128);">页签</span></em>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">currentIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">模拟后端返回的数据</span></em>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsBadgeDisappearItem</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.house_fill')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    new <span style="color: rgb(0,0,255);">DotsBadgeDisappearItem</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'0'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">首页</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">首页的内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.house_fill'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.rectangle_on_rectangle')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    new <span style="color: rgb(0,0,255);">DotsBadgeDisappearItem</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">相册</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">相册的内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.rectangle_on_rectangle'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.ellipsis_message')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    new <span style="color: rgb(0,0,255);">DotsBadgeDisappearItem</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息的内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.ellipsis_message'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span>
+<span style="color: rgb(255,0,170);">  ]</span><span style="color: rgb(181,106,1);">;</span>
 
- <em> // 红点型</em>
-  @Builder
-  dotsBadge(params: DotsBadgeDisappearItem, index: number) {
-    Column() {
-      if (this.tabList[index].badgeVisible) {
-        Badge({
-          value: '',
-          position: { x: 72 },
-          style: { badgeSize: 16, badgeColor: '#FA2A2D' }
-        }) {
-          Text('')
-            .width(0)
-            .height(0);
-        };
-      }
-      Image(params.img)
-        .width(32)
-        .height(32)
-        .fillColor(this.currentIndex === params.targetIndex ? '#0A59F7' : Color.Black);
-      Text(params.title)
-        .width('100%')
-        .textAlign(TextAlign.Center)
-        .fontSize(20)
-        .margin(5);
-    }
-    .width('100%')
-    .height('100%')
-    .justifyContent(FlexAlign.Center);
-  }
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">红点型</span></em>
+  <span style="color: rgb(181,106,1);">@Builder</span>
+  <span style="color: rgb(0,0,255);">dotsBadge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsBadgeDisappearItem</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">badgeVisible</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Badge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(255,255,255);">position</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">72 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(255,255,255);">style</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">badgeSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">badgeColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#FA2A2D' </span><span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">32</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">32</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillColor</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">targetIndex </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(132,63,161);">'#0A59F7' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Black</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
- <em> // 清除角标方法</em>
-  clearTips(index: number) {
- <em>   // 创建新数组</em>
-    const newList = this.tabList.map((item, i) =>
-    new DotsBadgeDisappearItem(
-      item.id,
-      item.targetIndex,
-      item.title,
-      item.content,
-      item.img,
-      i === index ? false : item.badgeVisible
-    ));
-  <em>  // 强制更新数组</em>
-    this.tabList = newList;
-  }
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">清除角标方法</span></em>
+  <span style="color: rgb(0,0,255);">clearTips</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+ <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建新数组</span></em>
+    const <span style="color: rgb(255,255,255);">newList </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">map</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span>
+    new <span style="color: rgb(0,0,255);">DotsBadgeDisappearItem</span><span style="color: rgb(255,0,170);">(</span>
+      <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">? </span>false <span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">badgeVisible</span>
+    <span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">强制更新数组</span></em>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">newList</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Column() {
-      Tabs({ barPosition: BarPosition.End, controller: this.controller }) {
-      <em>  // 循环生成TabContent,标题由每个item的title决定</em>
-        ForEach(this.tabList, (item: DotsBadgeDisappearItem, index: number) => {
-          TabContent() {
-         <em>   // 每个Tab的内容,可以根据需求替换</em>
-            Text(item.content)
-              .layoutWeight(1)
-              .padding(16)
-              .layoutWeight(1)
-              .textAlign(TextAlign.Center);
-          }
-          .tabBar(this.dotsBadge(item, index));
-        }, (item: DotsBadgeDisappearItem) => item.id);
-      }
-      .animationDuration(0)
-      .barMode(BarMode.Fixed)
-      .onChange((index: number) => {
-        this.currentIndex = index;
-      <em>  // 立即执行清除操作</em>
-        this.clearTips(index);
-      });
-    }
-    .width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Tabs</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">barPosition</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">BarPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">End</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">循环生成</span><span style="color: rgb(128,128,128);">TabContent,</span><span style="color: rgb(128,128,128);">标题由每个</span><span style="color: rgb(128,128,128);">item</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">title</span><span style="color: rgb(128,128,128);">决定</span></em>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsBadgeDisappearItem</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">TabContent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+         <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每个</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的内容</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">可以根据需求替换</span></em>
+            <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBar</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dotsBadge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsBadgeDisappearItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animationDuration</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">barMode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BarMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Fixed</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">立即执行清除操作</span></em>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">clearTips</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 - **方案二**：visibility属性控制。通过visibility通用属性控制Badge组件的显隐。
 
   
 ```text
-<em>// </em><em>定义单个Tab的数据结构</em>
-class DotsBadgeDisappearItem2 {
-  id: string; <em>// 唯一标识符</em>
-  targetIndex: number;<em> </em><em>// 每个页签所属的index</em>
-  title: string; <em>// tabBar标题</em>
-  content: string; <em>// tabBar对应的内容（可根据实际需求扩展）</em>
-  img: Resource;<em> </em><em>// icon图片仅供示例，开发者可以根据实际需求替换</em>
-  badgeVisible: boolean;<em> </em><em>// 控制渲染角标</em>
+<em>// </em><em><span style="color: rgb(128,128,128);">定义单个</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的数据结构</span></em>
+class <span style="color: rgb(0,0,255);">DotsBadgeDisappearItem2 </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">唯一标识符</span></em>
+  <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每个页签所属的</span><span style="color: rgb(128,128,128);">index</span></em>
+  <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// tabBar</span><span style="color: rgb(128,128,128);">标题</span></em>
+  <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// tabBar</span><span style="color: rgb(128,128,128);">对应的内容（可根据实际需求扩展）</span></em>
+  <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// icon</span><span style="color: rgb(128,128,128);">图片仅供示例，开发者可以根据实际需求替换</span></em>
+  <span style="color: rgb(255,255,255);">badgeVisible</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">控制渲染角标</span></em>
 
-  constructor(id: string, targetIndex: number, title: string, content: string, img: Resource, badgeVisible: boolean) {
-    this.id = id;
-    this.targetIndex = targetIndex;
-    this.title = title;
-    this.content = content;
-    this.img = img;
-    this.badgeVisible = badgeVisible;
-  }
-}
+  constructor<span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">badgeVisible</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">targetIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">content </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">badgeVisible </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">badgeVisible</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Entry
-@Component
-struct DotsBadgeDisappear2 {
-  controller: TabsController = new TabsController();
- <em> // 控制TabContent页签</em>
-  @State currentIndex: number = 0;
- <em> // 模拟后端返回的数据</em>
-  @State tabList: DotsBadgeDisappearItem2[] = [
- <em> // 图片资源$r('app.media.house_fill')仅供示例，开发者可根据需求替换</em>
-    new DotsBadgeDisappearItem2('0', 0, '首页', '首页的内容', $r('app.media.house_fill'), true),
-   <em> // 图片资源$r('app.media.rectangle_on_rectangle')仅供示例，开发者可根据需求替换</em>
-    new DotsBadgeDisappearItem2('1', 1, '相册', '相册的内容', $r('app.media.rectangle_on_rectangle'), true),
-  <em>  // 图片资源$r('app.media.ellipsis_message')仅供示例，开发者可根据需求替换</em>
-    new DotsBadgeDisappearItem2('2', 2, '消息', '消息的内容', $r('app.media.ellipsis_message'), true)
-  ];
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">DotsBadgeDisappear2 </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TabsController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TabsController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">控制</span><span style="color: rgb(128,128,128);">TabContent</span><span style="color: rgb(128,128,128);">页签</span></em>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">currentIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">模拟后端返回的数据</span></em>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsBadgeDisappearItem2</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.house_fill')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    new <span style="color: rgb(0,0,255);">DotsBadgeDisappearItem2</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'0'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">首页</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">首页的内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.house_fill'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.rectangle_on_rectangle')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    new <span style="color: rgb(0,0,255);">DotsBadgeDisappearItem2</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">相册</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">相册的内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.rectangle_on_rectangle'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.ellipsis_message')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    new <span style="color: rgb(0,0,255);">DotsBadgeDisappearItem2</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息的内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.ellipsis_message'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span>
+<span style="color: rgb(255,0,170);">  ]</span><span style="color: rgb(181,106,1);">;</span>
 
-<em>  // 红点型</em>
-  @Builder
-  dotsBadge(params: DotsBadgeDisappearItem2, index: number) {
-    Column() {
-      Badge({
-        value: '',
-        position: { x: 72 },
-        style: { badgeSize: 16, badgeColor: '#FA2A2D' }
-      }) {
-        Text('')
-          .width(0)
-          .height(0);
-      }
-      .visibility(this.tabList[index].badgeVisible ? Visibility.Visible : Visibility.None);
-      Image(params.img)
-        .width(32)
-        .height(32)
-        .fillColor(this.currentIndex === params.targetIndex ? '#0A59F7' : Color.Black);
-      Text(params.title)
-        .width('100%')
-        .textAlign(TextAlign.Center)
-        .fontSize(20)
-        .margin(5);
-    }
-    .width('100%')
-    .height('100%')
-    .justifyContent(FlexAlign.Center);
-  }
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">红点型</span></em>
+  <span style="color: rgb(181,106,1);">@Builder</span>
+  <span style="color: rgb(0,0,255);">dotsBadge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsBadgeDisappearItem2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Badge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">position</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">72 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">style</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">badgeSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">badgeColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#FA2A2D' </span><span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">visibility</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">badgeVisible </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Visible </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">None</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">32</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">32</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillColor</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">targetIndex </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(132,63,161);">'#0A59F7' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Black</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
- <em> // 清除角标方法</em>
-  clearTips(index: number) {
-   <em> // 创建新数组</em>
-    const newList = this.tabList.map((item, i) =>
-    new DotsBadgeDisappearItem2(
-      item.id,
-      item.targetIndex,
-      item.title,
-      item.content,
-      item.img,
-      i === index ? false : item.badgeVisible
-    ));
-   <em> // 强制更新数组</em>
-    this.tabList = newList;
-  }
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">清除角标方法</span></em>
+  <span style="color: rgb(0,0,255);">clearTips</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建新数组</span></em>
+    const <span style="color: rgb(255,255,255);">newList </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">map</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span>
+    new <span style="color: rgb(0,0,255);">DotsBadgeDisappearItem2</span><span style="color: rgb(255,0,170);">(</span>
+      <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">? </span>false <span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">badgeVisible</span>
+    <span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">强制更新数组</span></em>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">newList</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Column() {
-      Tabs({ barPosition: BarPosition.End, controller: this.controller }) {
-      <em>  // 循环生成TabContent,标题由每个item的title决定</em>
-        ForEach(this.tabList, (item: DotsBadgeDisappearItem2, index: number) => {
-          TabContent() {
-          <em>  // 每个Tab的内容,可以根据需求替换</em>
-            Text(item.content)
-              .layoutWeight(1)
-              .padding(16)
-              .layoutWeight(1)
-              .textAlign(TextAlign.Center);
-          }
-          .tabBar(this.dotsBadge(item, index));
-        }, (item: DotsBadgeDisappearItem2) => item.id);
-      }
-      .animationDuration(0)
-      .barMode(BarMode.Fixed)
-      .onChange((index: number) => {
-        this.currentIndex = index;
-      <em>  // 立即执行清除操作</em>
-        this.clearTips(index);
-      });
-    }
-    .width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Tabs</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">barPosition</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">BarPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">End</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">循环生成</span><span style="color: rgb(128,128,128);">TabContent,</span><span style="color: rgb(128,128,128);">标题由每个</span><span style="color: rgb(128,128,128);">item</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">title</span><span style="color: rgb(128,128,128);">决定</span></em>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsBadgeDisappearItem2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">TabContent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+          <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每个</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的内容</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">可以根据需求替换</span></em>
+            <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBar</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dotsBadge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsBadgeDisappearItem2</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animationDuration</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">barMode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BarMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Fixed</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">立即执行清除操作</span></em>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">clearTips</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 - **方案三**：使用@ObservedV2和@Trace对数据模型直接观测。数据模型中，对控制渲染角标的属性深度观测。
 
   
 ```text
-<em>// </em><em>定义单个Tab的数据结构</em>
-@ObservedV2
-class DotsBadgeDisappearItem3 {
-  id: string;<em> </em><em>// 唯一标识符</em>
-  targetIndex: number;<em> </em><em>// 每个页签所属的index</em>
-  title: string;<em> </em><em>// tabBar标题</em>
-  content: string; <em>// tabBar对应的内容（可根据实际需求扩展）</em>
-  img: Resource; <em>// icon</em><em>图片仅供示例，开发者可以根据实际需求替换</em>
-  @Trace badgeVisible: boolean;<em> </em><em>// 控制渲染角标</em>
+<em>// </em><em><span style="color: rgb(128,128,128);">定义单个</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的数据结构</span></em>
+<span style="color: rgb(181,106,1);">@ObservedV2</span>
+class <span style="color: rgb(0,0,255);">DotsBadgeDisappearItem3 </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">唯一标识符</span></em>
+  <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每个页签所属的</span><span style="color: rgb(128,128,128);">index</span></em>
+  <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// tabBar</span><span style="color: rgb(128,128,128);">标题</span></em>
+  <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// tabBar</span><span style="color: rgb(128,128,128);">对应的内容（可根据实际需求扩展）</span></em>
+  <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource</span><span style="color: rgb(181,106,1);">; </span><em>// icon</em><em><span style="color: rgb(128,128,128);">图片仅供示例，开发者可以根据实际需求替换</span></em>
+  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(255,255,255);">badgeVisible</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">控制渲染角标</span></em>
 
-  constructor(id: string, targetIndex: number, title: string, content: string, img: Resource, badgeVisible: boolean) {
-    this.id = id;
-    this.targetIndex = targetIndex;
-    this.title = title;
-    this.content = content;
-    this.img = img;
-    this.badgeVisible = badgeVisible;
-  }
-}
+  constructor<span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">badgeVisible</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">targetIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">content </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">badgeVisible </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">badgeVisible</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Entry
-@ComponentV2
-struct DotsBadgeDisappear3 {
-  controller: TabsController = new TabsController();
- <em> // 控制TabContent页签</em>
-  @Local currentIndex: number = 0;
- <em> // 模拟后端返回的数据</em>
-  @Local tabList: DotsBadgeDisappearItem3[] = [
-<em>  // 图片资源$r('app.media.house_fill')仅供示例，开发者可根据需求替换</em>
-    new DotsBadgeDisappearItem3('0', 0, '首页', '首页的内容', $r('app.media.house_fill'), true),
-   <em> // 图片资源$r('app.media.rectangle_on_rectangle')仅供示例，开发者可根据需求替换</em>
-    new DotsBadgeDisappearItem3('1', 1, '相册', '相册的内容', $r('app.media.rectangle_on_rectangle'), true),
-  <em>  // 图片资源$r('app.media.ellipsis_message')仅供示例，开发者可根据需求替换</em>
-    new DotsBadgeDisappearItem3('2', 2, '消息', '消息的内容', $r('app.media.ellipsis_message'), true)
-  ];
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@ComponentV2</span>
+struct <span style="color: rgb(0,0,255);">DotsBadgeDisappear3 </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TabsController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TabsController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">控制</span><span style="color: rgb(128,128,128);">TabContent</span><span style="color: rgb(128,128,128);">页签</span></em>
+  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(255,255,255);">currentIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">模拟后端返回的数据</span></em>
+  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsBadgeDisappearItem3</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.house_fill')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    new <span style="color: rgb(0,0,255);">DotsBadgeDisappearItem3</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'0'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">首页</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">首页的内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.house_fill'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.rectangle_on_rectangle')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    new <span style="color: rgb(0,0,255);">DotsBadgeDisappearItem3</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">相册</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">相册的内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.rectangle_on_rectangle'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.ellipsis_message')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    new <span style="color: rgb(0,0,255);">DotsBadgeDisappearItem3</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息的内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.ellipsis_message'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span>
+<span style="color: rgb(255,0,170);">  ]</span><span style="color: rgb(181,106,1);">;</span>
 
- <em> // 红点型</em>
-  @Builder
-  dotsBadge(params: DotsBadgeDisappearItem3) {
-    Column() {
-      Badge({
-        value: '',
-        position: { x: 72 },
-        style: { badgeSize: 16, badgeColor: '#FA2A2D' }
-      }) {
-        Text('')
-          .width(0)
-          .height(0);
-      }
-      .visibility(params.badgeVisible ? Visibility.Visible : Visibility.None);
-      Image(params.img)
-        .width(32)
-        .height(32)
-        .fillColor(this.currentIndex === params.targetIndex ? '#0A59F7' : Color.Black);
-      Text(params.title)
-        .width('100%')
-        .textAlign(TextAlign.Center)
-        .fontSize(20)
-        .margin(5);
-    }
-    .width('100%')
-    .height('100%')
-    .justifyContent(FlexAlign.Center);
-  }
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">红点型</span></em>
+  <span style="color: rgb(181,106,1);">@Builder</span>
+  <span style="color: rgb(0,0,255);">dotsBadge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsBadgeDisappearItem3</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Badge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">position</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">72 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">style</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">badgeSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">badgeColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#FA2A2D' </span><span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">visibility</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">badgeVisible </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Visible </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">None</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">32</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">32</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillColor</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">targetIndex </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(132,63,161);">'#0A59F7' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Black</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
- <em> // 清除角标方法</em>
-  clearTips(index: number) {
- <em>   // 直接修改原对象属性</em>
-    this.tabList.forEach((item, i) =>
-    new DotsBadgeDisappearItem3(
-      item.id,
-      item.targetIndex,
-      item.title,
-      item.content,
-      item.img,
-      item.badgeVisible = i === index ? false : item.badgeVisible
-    ));
-  }
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">清除角标方法</span></em>
+  <span style="color: rgb(0,0,255);">clearTips</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+ <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">直接修改原对象属性</span></em>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">forEach</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span>
+    new <span style="color: rgb(0,0,255);">DotsBadgeDisappearItem3</span><span style="color: rgb(255,0,170);">(</span>
+      <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">badgeVisible </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">? </span>false <span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">badgeVisible</span>
+    <span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Column() {
-      Tabs({ barPosition: BarPosition.End, controller: this.controller }) {
-      <em>  // 循环生成TabContent,标题由每个item的title决定</em>
-        ForEach(this.tabList, (item: DotsBadgeDisappearItem3) => {
-          TabContent() {
-         <em>   // 每个Tab的内容,可以根据需求替换</em>
-            Text(item.content)
-              .layoutWeight(1)
-              .padding(16)
-              .layoutWeight(1)
-              .textAlign(TextAlign.Center);
-          }
-          .tabBar(this.dotsBadge(item));
-        }, (item: DotsBadgeDisappearItem3) => item.id);
-      }
-      .animationDuration(0)
-      .barMode(BarMode.Fixed)
-      .onChange((index: number) => {
-        this.currentIndex = index;
-    <em>    // 立即执行清除操作</em>
-        this.clearTips(index);
-      });
-    }
-    .width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Tabs</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">barPosition</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">BarPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">End</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">循环生成</span><span style="color: rgb(128,128,128);">TabContent,</span><span style="color: rgb(128,128,128);">标题由每个</span><span style="color: rgb(128,128,128);">item</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">title</span><span style="color: rgb(128,128,128);">决定</span></em>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsBadgeDisappearItem3</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">TabContent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+         <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每个</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的内容</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">可以根据需求替换</span></em>
+            <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBar</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dotsBadge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsBadgeDisappearItem3</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animationDuration</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">barMode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BarMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Fixed</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+    <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">立即执行清除操作</span></em>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">clearTips</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  上述三种方案效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/5QjC9o7lT-Kgw71Oms4xfg/zh-cn_image_0000002658804081.png?HW-CC-KV=V1&HW-CC-Date=20260730T072514Z&HW-CC-Expire=86400&HW-CC-Sign=ED7C69C33C1B1958589458C4C82AA4933A49A43C47F8390CD2F0DA51D1B10150)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/5QjC9o7lT-Kgw71Oms4xfg/zh-cn_image_0000002658804081.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=63A93D2A41518B138E14E0D80B1707ED5B678D73043B9F6C6641ED3B9186AB73)
 
 
  - **场景三**：实现角标数据更新功能。
@@ -712,183 +712,183 @@ struct DotsBadgeDisappear3 {
 
   
 ```text
-import { ComponentContent } from '@kit.ArkUI';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">ComponentContent </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
 
-class UpdateNumberBadgeItem {
-  id: string;<em> </em><em>// 唯一标识符</em>
-  targetIndex: number;<em> </em><em>// 每个页签所属的index</em>
-  title: string; <em>// tabBar标题</em>
-  img: Resource; <em>// icon图片仅供示例，开发者可以根据实际需求替换</em>
-  badgeValue: number; <em>// 角标值</em>
+class <span style="color: rgb(0,0,255);">UpdateNumberBadgeItem </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">唯一标识符</span></em>
+  <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每个页签所属的</span><span style="color: rgb(128,128,128);">index</span></em>
+  <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// tabBar</span><span style="color: rgb(128,128,128);">标题</span></em>
+  <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// icon</span><span style="color: rgb(128,128,128);">图片仅供示例，开发者可以根据实际需求替换</span></em>
+  <span style="color: rgb(255,255,255);">badgeValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">角标值</span></em>
 
-  constructor(id: string, targetIndex: number, title: string, img: Resource, badgeValue: number) {
-    this.id = id;
-    this.targetIndex = targetIndex;
-    this.title = title;
-    this.img = img;
-    this.badgeValue = badgeValue;
-  }
-}
+  constructor<span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">badgeValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">targetIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">badgeValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">badgeValue</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-<em>// </em><em>数字型</em>
-@Builder
-function numberBadge(params: UpdateNumberBadgeItem) {
-  Column() {
-    Badge({
-      count: params.badgeValue,
-      position: BadgePosition.RightTop,
-      style: { badgeSize: 16, badgeColor: '#FA2A2D' }
-    }) {
-      Image(params.img)
-        .width(32)
-        .height(32);
-    }
-    .width(32)
-    .height(32)
-    .margin({ bottom: 4 });
+<em>// </em><em><span style="color: rgb(128,128,128);">数字型</span></em>
+<span style="color: rgb(181,106,1);">@Builder</span>
+function <span style="color: rgb(0,0,255);">numberBadge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">UpdateNumberBadgeItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Badge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">count</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">badgeValue</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">position</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">BadgePosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">RightTop</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">style</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">badgeSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">badgeColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#FA2A2D' </span><span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">32</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">32</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">32</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">32</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">4 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-    Text(params.title)
-      .width('100%')
-      .textAlign(TextAlign.Center)
-      .fontSize(20)
-      .margin(5);
-  }
-  .width('100%')
-  .height('100%')
-  .justifyContent(FlexAlign.Center);
-}
+    <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Entry
-@Component
-struct UpdateNumberBadge1 {
-  context: UIContext = this.getUIContext();
-  controller: TabsController = new TabsController();
- <em> // 模拟后端返回的数据</em>
-  private tabList: UpdateNumberBadgeItem[] = [
- <em> // 图片资源$r('app.media.house_fill')仅供示例，开发者可根据需求替换</em>
-    new UpdateNumberBadgeItem('0', 0, '首页', $r('app.media.house_fill'), 0),
-  <em>  // 图片资源$r('app.media.rectangle_on_rectangle')仅供示例，开发者可根据需求替换</em>
-    new UpdateNumberBadgeItem('1', 1, '相册', $r('app.media.rectangle_on_rectangle'), 0),
-  <em>  // 图片资源$r('app.media.ellipsis_message')仅供示例，开发者可根据需求替换</em>
-    new UpdateNumberBadgeItem('2', 2, '消息', $r('app.media.ellipsis_message'), 1)
-  ];
- <em> // 红点型</em>
-  numberTabBar1: ComponentContent<UpdateNumberBadgeItem> =
-    new ComponentContent<UpdateNumberBadgeItem>(this.context, wrapBuilder<[UpdateNumberBadgeItem]>(numberBadge),
-      this.tabList[0]);
-  numberTabBar2: ComponentContent<UpdateNumberBadgeItem> =
-    new ComponentContent<UpdateNumberBadgeItem>(this.context, wrapBuilder<[UpdateNumberBadgeItem]>(numberBadge),
-      this.tabList[1]);
-  numberTabBar3: ComponentContent<UpdateNumberBadgeItem> =
-    new ComponentContent<UpdateNumberBadgeItem>(this.context, wrapBuilder<[UpdateNumberBadgeItem]>(numberBadge),
-      this.tabList[2]);
-<em>  // 控制TabContent页签</em>
-  @State currentIndex: number = 0;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">UpdateNumberBadge1 </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">UIContext </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TabsController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TabsController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">模拟后端返回的数据</span></em>
+  private <span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">UpdateNumberBadgeItem</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.house_fill')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    new <span style="color: rgb(0,0,255);">UpdateNumberBadgeItem</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'0'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">首页</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.house_fill'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.rectangle_on_rectangle')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    new <span style="color: rgb(0,0,255);">UpdateNumberBadgeItem</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">相册</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.rectangle_on_rectangle'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.ellipsis_message')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    new <span style="color: rgb(0,0,255);">UpdateNumberBadgeItem</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.ellipsis_message'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+<span style="color: rgb(255,0,170);">  ]</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">红点型</span></em>
+  <span style="color: rgb(255,255,255);">numberTabBar1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ComponentContent</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">UpdateNumberBadgeItem</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> =</span>
+    new <span style="color: rgb(0,0,255);">ComponentContent</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">UpdateNumberBadgeItem</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">wrapBuilder</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(181,106,1);">UpdateNumberBadgeItem</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">numberBadge</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">numberTabBar2</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ComponentContent</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">UpdateNumberBadgeItem</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> =</span>
+    new <span style="color: rgb(0,0,255);">ComponentContent</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">UpdateNumberBadgeItem</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">wrapBuilder</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(181,106,1);">UpdateNumberBadgeItem</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">numberBadge</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">numberTabBar3</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ComponentContent</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">UpdateNumberBadgeItem</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> =</span>
+    new <span style="color: rgb(0,0,255);">ComponentContent</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">UpdateNumberBadgeItem</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">wrapBuilder</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(181,106,1);">UpdateNumberBadgeItem</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">numberBadge</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">控制</span><span style="color: rgb(128,128,128);">TabContent</span><span style="color: rgb(128,128,128);">页签</span></em>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">currentIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
 
- <em> // 模拟后端数据更新</em>
-  updateBadgeValue(action: string, item: UpdateNumberBadgeItem) {
-    switch (action) {
-      case 'reset':
-        item.badgeValue = 0;
-        break;
-      case 'increment':
-        item.badgeValue += 10;
-        break;
-      case 'decrement':
-        if (item.badgeValue - 10 < 0) {
-          item.badgeValue = 0;
-        } else {
-          item.badgeValue -= 10;
-        }
-        break;
-      case 'set99':
-        item.badgeValue = 99;
-        break;
-      default:
-        console.info('Succeeded in changing badgeValue.');
-    }
-  <em>  // 更新WrappedBuilder对象封装的builder函数参数</em>
-    this.numberTabBar3.update(this.tabList[2]);
-  }
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">模拟后端数据更新</span></em>
+  <span style="color: rgb(0,0,255);">updateBadgeValue</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">action</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">UpdateNumberBadgeItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    switch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">action</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      case <span style="color: rgb(132,63,161);">'reset'</span><span style="color: rgb(181,106,1);">:</span>
+        <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">badgeValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+        break<span style="color: rgb(181,106,1);">;</span>
+      case <span style="color: rgb(132,63,161);">'increment'</span><span style="color: rgb(181,106,1);">:</span>
+        <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">badgeValue </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(181,106,1);">;</span>
+        break<span style="color: rgb(181,106,1);">;</span>
+      case <span style="color: rgb(132,63,161);">'decrement'</span><span style="color: rgb(181,106,1);">:</span>
+        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">badgeValue </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">10 </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">badgeValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">badgeValue </span><span style="color: rgb(181,106,1);">-= </span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span>
+        break<span style="color: rgb(181,106,1);">;</span>
+      case <span style="color: rgb(132,63,161);">'set99'</span><span style="color: rgb(181,106,1);">:</span>
+        <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">badgeValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">99</span><span style="color: rgb(181,106,1);">;</span>
+        break<span style="color: rgb(181,106,1);">;</span>
+      default<span style="color: rgb(181,106,1);">:</span>
+        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Succeeded in changing badgeValue.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">更新</span><span style="color: rgb(128,128,128);">WrappedBuilder</span><span style="color: rgb(128,128,128);">对象封装的</span><span style="color: rgb(128,128,128);">builder</span><span style="color: rgb(128,128,128);">函数参数</span></em>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">numberTabBar3</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">update</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Column() {
-      Tabs({ barPosition: BarPosition.Start, controller: this.controller }) {
-        TabContent() {
-          Column()
-            .margin({ top: 16 })
-            .width('100%')
-            .height('100%');
-        }
-        .tabBar(new SubTabBarStyle(this.numberTabBar1)
-          .indicator({ marginTop: 12, width: 32 })
-        );
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Tabs</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">barPosition</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">BarPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Start</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">TabContent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">()</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBar</span><span style="color: rgb(255,0,170);">(</span>new <span style="color: rgb(0,0,255);">SubTabBarStyle</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">numberTabBar1</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indicator</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">marginTop</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">12</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">32 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+<span style="color: rgb(255,0,170);">        )</span><span style="color: rgb(181,106,1);">;</span>
 
-        TabContent() {
-          Column()
-            .width('100%')
-            .height('100%');
-        }
-        .tabBar(new SubTabBarStyle(this.numberTabBar2)
-          .indicator({ marginTop: 12, width: 32 })
-        );
+        <span style="color: rgb(0,0,255);">TabContent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">()</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBar</span><span style="color: rgb(255,0,170);">(</span>new <span style="color: rgb(0,0,255);">SubTabBarStyle</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">numberTabBar2</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indicator</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">marginTop</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">12</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">32 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+<span style="color: rgb(255,0,170);">        )</span><span style="color: rgb(181,106,1);">;</span>
 
-        TabContent() {
-          Column({ space: 16 }) {
-            Button('消息99')
-              .padding({ bottom: 16, top: 16 })
-              .width('60%')
-              .height('50vp')
-              .onClick(() => {
-                this.updateBadgeValue('set99', this.tabList[2]);
-              });
-            Button('消息归零')
-              .padding({ bottom: 16, top: 16 })
-              .width('60%')
-              .height('50vp')
-              .onClick(() => {
-                this.updateBadgeValue('reset', this.tabList[2]);
-              });
-            Button('消息增加10')
-              .padding({ bottom: 16, top: 16 })
-              .width('60%')
-              .height('50vp')
-              .onClick(() => {
-                this.updateBadgeValue('increment', this.tabList[2]);
-              });
-            Button('消息减少10')
-              .padding({ bottom: 16, top: 16 })
-              .width('60%')
-              .height('50vp')
-              .onClick(() => {
-                this.updateBadgeValue('decrement', this.tabList[2]);
-              });
-          }
-          .width('100%')
-          .height('100%')
-          .margin({ top: 50 });
-        }
-        .tabBar(new SubTabBarStyle(this.numberTabBar3)
-          .indicator({ marginTop: 12, width: 32 })
-        );
-      }
-      .barHeight(100)
-      .vertical(false)
-      .barMode(BarMode.Fixed)
-      .animationMode(AnimationMode.NO_ANIMATION)
-      .onChange((index: number) => {
-        this.currentIndex = index;
-      });
-    }
-    .width('100%')
-    .height('100%');
-  }
-}
+        <span style="color: rgb(0,0,255);">TabContent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息</span><span style="color: rgb(132,63,161);">99'</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'60%'</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'50vp'</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">updateBadgeValue</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'set99'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息归零</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'60%'</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'50vp'</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">updateBadgeValue</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'reset'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息增加</span><span style="color: rgb(132,63,161);">10'</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'60%'</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'50vp'</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">updateBadgeValue</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'increment'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息减少</span><span style="color: rgb(132,63,161);">10'</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'60%'</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'50vp'</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">updateBadgeValue</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'decrement'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">50 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBar</span><span style="color: rgb(255,0,170);">(</span>new <span style="color: rgb(0,0,255);">SubTabBarStyle</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">numberTabBar3</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indicator</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">marginTop</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">12</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">32 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+<span style="color: rgb(255,0,170);">        )</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">barHeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">vertical</span><span style="color: rgb(255,0,170);">(</span>false<span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">barMode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BarMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Fixed</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animationMode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">AnimationMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">NO_ANIMATION</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/VsjBjmWqQuGQDEew1qi9RQ/zh-cn_image_0000002628564718.png?HW-CC-KV=V1&HW-CC-Date=20260730T072514Z&HW-CC-Expire=86400&HW-CC-Sign=6694C067C7B4207B3143D65DFE7F369BEC781FE8EB66891BEDC754CC31F854D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/VsjBjmWqQuGQDEew1qi9RQ/zh-cn_image_0000002628564718.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=2D8615B7156E8C1D9E878C90528D61C5BFF3F74F99AFBE637184BF6D9C4827AD)
 
 - **方案二**：使用@ObservedV2和@Trace对数据模型直接观测。该方案与场景二方案三的实现方式类似，不再赘述。
 
@@ -898,105 +898,105 @@ struct UpdateNumberBadge1 {
 
   
 ```text
-<em>// </em><em>定义单个Tab的数据结构</em>
-interface DotsCustomItem {
-  id: string;<em> </em><em>// 唯一标识符</em>
-  targetIndex: number;<em> </em><em>// 每个页签所属的index</em>
-  title: string; <em>// tabBar标题</em>
-  img: Resource; <em>// icon图片仅供示例，开发者可以根据实际需求替换</em>
-  content: string;<em> </em><em>// tabBar对应的内容（可根据实际需求扩展）</em>
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">定义单个</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的数据结构</span></em>
+interface DotsCustomItem <span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">唯一标识符</span></em>
+  <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每个页签所属的</span><span style="color: rgb(128,128,128);">index</span></em>
+  <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// tabBar</span><span style="color: rgb(128,128,128);">标题</span></em>
+  <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// icon</span><span style="color: rgb(128,128,128);">图片仅供示例，开发者可以根据实际需求替换</span></em>
+  <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// tabBar</span><span style="color: rgb(128,128,128);">对应的内容（可根据实际需求扩展）</span></em>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Entry
-@Component
-struct DotsCustom {
-  controller: TabsController = new TabsController();
- <em> // 控制TabContent页签</em>
-  @State currentIndex: number = 0;
- <em> // 模拟后端返回的数据</em>
-  private tabList: DotsCustomItem[] = [
-    {
-      id: '0',
-      targetIndex: 0,
-      title: '首页',
-      content: '首页内容',
-      img: $r('app.media.house_fill') <em>// 图片资源$r('app.media.house_fill')仅供示例，开发者可根据需求替换</em>
-    },
-    {
-      id: '1',
-      targetIndex: 1,
-      title: '消息',
-      content: '消息内容',
-      img: $r('app.media.ellipsis_message') <em>// 图片资源$r('app.media.ellipsis_message')仅供示例，开发者可根据需求替换</em>
-    },
-    {
-      id: '2',
-      targetIndex: 2,
-      title: '相册',
-      content: '相册内容',
-      img: $r('app.media.rectangle_on_rectangle')<em> </em><em>// 图片资源$r('app.media.rectangle_on_rectangle')仅供示例，开发者可根据需求替换</em>
-    }
-  ];
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">DotsCustom </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TabsController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TabsController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">控制</span><span style="color: rgb(128,128,128);">TabContent</span><span style="color: rgb(128,128,128);">页签</span></em>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">currentIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">模拟后端返回的数据</span></em>
+  private <span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsCustomItem</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span>
+    <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'0'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">首页</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">首页内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.house_fill'</span><span style="color: rgb(255,0,170);">) </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.house_fill')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'1'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">消息内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.ellipsis_message'</span><span style="color: rgb(255,0,170);">) </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.ellipsis_message')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'2'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">相册</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">相册内容</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.rectangle_on_rectangle'</span><span style="color: rgb(255,0,170);">)</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源</span><span style="color: rgb(128,128,128);">$r('app.media.rectangle_on_rectangle')</span><span style="color: rgb(128,128,128);">仅供示例，开发者可根据需求替换</span></em>
+    <span style="color: rgb(181,106,1);">}</span>
+  <span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
 
- <em> // 红点型</em>
-  @Builder
-  dotsBadge(item: DotsCustomItem) {
-    Stack() {
-      Column({ space: 10 }) {
-        Image(item.img)
-          .size({ height: 26, width: 26 })
-          .fillColor(this.currentIndex === item.targetIndex ? '#0A59F7' : Color.Black);
-        Text(item.title)
-          .fontSize(16)
-          .fontColor(this.currentIndex === item.targetIndex ? '#0A59F7' : Color.Black);
-      }
-      .width('100%')
-      .height('100%')
-      .justifyContent(FlexAlign.Center);
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">红点型</span></em>
+  <span style="color: rgb(181,106,1);">@Builder</span>
+  <span style="color: rgb(0,0,255);">dotsBadge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsCustomItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">26</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">26 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillColor</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">targetIndex </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(132,63,161);">'#0A59F7' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Black</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">targetIndex </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(132,63,161);">'#0A59F7' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Black</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-    <em>  // 小红点</em>
-      Text('')
-        .textAlign(TextAlign.Center)
-        .fontSize(12)
-        .width(8)
-        .height(8)
-        .borderRadius(4)
-        .backgroundColor('#FA2A2D')
-        .position({ x: 70, y: 0 });
-    }
-    .key(item.id.toString());
-  }
+    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">小红点</span></em>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">12</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">8</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">8</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#FA2A2D'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">position</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">70</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Column() {
-      Tabs({ barPosition: BarPosition.End, controller: this.controller }) {
-      <em>  // 循环生成TabContent,标题由每个item的title决定</em>
-        ForEach(this.tabList, (item: DotsCustomItem) => {
-          TabContent() {
-         <em>   // 每个Tab的内容,可以根据需求替换</em>
-            Text(item.content)
-              .layoutWeight(1)
-              .padding(16)
-              .layoutWeight(1)
-              .textAlign(TextAlign.Center);
-          }
-          .tabBar(this.dotsBadge(item));
-        }, (item: DotsCustomItem) => item.id);
-      }
-      .animationDuration(0)
-      .barMode(BarMode.Fixed)
-      .onChange((index: number) => {
-        this.currentIndex = index;
-      });
-    }
-    .width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Tabs</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">barPosition</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">BarPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">End</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">循环生成</span><span style="color: rgb(128,128,128);">TabContent,</span><span style="color: rgb(128,128,128);">标题由每个</span><span style="color: rgb(128,128,128);">item</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">title</span><span style="color: rgb(128,128,128);">决定</span></em>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsCustomItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">TabContent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+         <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每个</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的内容</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">可以根据需求替换</span></em>
+            <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBar</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dotsBadge</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DotsCustomItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animationDuration</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">barMode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BarMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Fixed</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/HPTWNwFVQNGK_ziwg772VQ/zh-cn_image_0000002658924025.png?HW-CC-KV=V1&HW-CC-Date=20260730T072514Z&HW-CC-Expire=86400&HW-CC-Sign=921CE566D8DE6CCCAC81C9923EF5B4C5B6522049055E0EE9D68094FF172D8231)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/HPTWNwFVQNGK_ziwg772VQ/zh-cn_image_0000002658924025.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=82D209BFFE111B7910EE00638351FEB7D186E1C72AE098FD5E78CA63F8517112)
 
 - 场景二、三：实现角标清除与更新。自定义角标的清除与数据更新功能，实现方式与Badge组件类似，此处不再赘述。

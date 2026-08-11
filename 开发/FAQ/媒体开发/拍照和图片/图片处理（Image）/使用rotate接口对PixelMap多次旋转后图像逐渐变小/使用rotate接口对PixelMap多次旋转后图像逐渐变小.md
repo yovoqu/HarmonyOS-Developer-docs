@@ -9,7 +9,7 @@
 使用[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)组件显示[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)图像数据，对PixelMap图像使用[rotate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#rotate9)接口多次旋转后，图片逐渐变小，直到几乎消失不见。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/ImulG6fERCa1oi0XYPmojw/zh-cn_image_0000002628552512.png?HW-CC-KV=V1&HW-CC-Date=20260730T072620Z&HW-CC-Expire=86400&HW-CC-Sign=34C22BBE773F8966916ABFC43F35833A06699E8DE1D3F934A1732BFD02D157D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/ImulG6fERCa1oi0XYPmojw/zh-cn_image_0000002628552512.png?HW-CC-KV=V1&HW-CC-Date=20260811T005541Z&HW-CC-Expire=86400&HW-CC-Sign=4FD09650F9B454EF8E95BE8DE3E489DBEA44B2D87C200DAE846F6B7980C1493F)
 
  
  

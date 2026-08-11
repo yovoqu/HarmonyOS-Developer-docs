@@ -1,6 +1,6 @@
 # 文件隔离后被隔离文件能否通过系统文管或系统UI查看和操作
 
-更新时间：2026-07-24 01:16:00
+更新时间：2026-07-31 00:58:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-privacy-and-security-1
 

@@ -9,7 +9,7 @@
 如何在环形DataPanel组件上显示百分比信息，即DataPanel组件与百分比联动。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/lMLTCnI4Q8WUpC-51YY-eg/zh-cn_image_0000002658801071.png?HW-CC-KV=V1&HW-CC-Date=20260730T072336Z&HW-CC-Expire=86400&HW-CC-Sign=E853E3D89EDCED1BBCEB1CFC991483573E75F9BE33978EF1AE39DC5ACA920D05)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/lMLTCnI4Q8WUpC-51YY-eg/zh-cn_image_0000002658801071.png?HW-CC-KV=V1&HW-CC-Date=20260811T005805Z&HW-CC-Expire=86400&HW-CC-Sign=D5CF3B57C63EFF15B55059C88BA9733B9BF7992459494455840968E17F786C60)
 
  
  
@@ -17,7 +17,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/m02YrxjZSsaP4quNJGQEfg/zh-cn_image_0000002628401804.png?HW-CC-KV=V1&HW-CC-Date=20260730T072336Z&HW-CC-Expire=86400&HW-CC-Sign=E8E36FC62AD42C181EC9467C2F7D70E98668F3FA5F0939FB6E0E62FEC5EDE8ED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/m02YrxjZSsaP4quNJGQEfg/zh-cn_image_0000002628401804.png?HW-CC-KV=V1&HW-CC-Date=20260811T005805Z&HW-CC-Expire=86400&HW-CC-Sign=80CB364B58D9D30904E5E4AA4E03B29705991C5B7D0E0D374D70FACC87DCE19F)
 
  
  
@@ -36,110 +36,110 @@
 可以使用[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)堆叠布局将百分比文本信息和DataPanel组件居中显示，让百分比文本刚好在环形数据面板中心。通过sin/cos还有距离和角度计算出文本相对圆环中心的坐标，[offset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#offset)控制文本根据坐标偏移。刚好让百分比信息显示在环形DataPanel组件上对应的位置。文本和坐标信息计算步骤如下：
  1. 通过reduce计算从0到每段数据结尾的总和，用该总和/圆环整体的值得到当前数据结尾所在的弧度。
 ```text
-<em>// </em><em>获取从0到各个数据段结尾的弧度</em>
-getRadian() {
-  for (let i = 0; i < this.dataPanelList.length; i++) {
-    let count = this.dataPanelList.reduce((accumulator, value, index) => {
-      if (index <= i) {
-        return accumulator + value;
-      } else {
-        return accumulator;
-      }
-    });
-    this.radianList[i] = count / this.sum * Math.PI * 2;
-  }
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">获取从</span><span style="color: rgb(128,128,128);">0</span><span style="color: rgb(128,128,128);">到各个数据段结尾的弧度</span></em>
+<span style="color: rgb(0,0,255);">getRadian</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+  for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPanelList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPanelList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">reduce</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">accumulator</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        return <span style="color: rgb(255,255,255);">accumulator </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
+        return <span style="color: rgb(255,255,255);">accumulator</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radianList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sum </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PI </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 2. 获取每段数据的百分比文本。
 ```text
-<em>// </em><em>获取百分比的文本</em>
-getText() {
-  let count = 0;
-  for (let i = 0; i < this.dataPanelList.length - 1; i++) {
-    this.textList[i] = Math.round(this.dataPanelList[i] / this.sum * 100);
-    count += this.textList[i];
-  }
-  this.textList[this.dataPanelList.length-1] = 100 - count;
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">获取百分比的文本</span></em>
+<span style="color: rgb(0,0,255);">getText</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+  let <span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+  for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPanelList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">round</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPanelList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sum </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">+= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textList</span><span style="color: rgb(255,0,170);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPanelList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">100 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">count</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 3. 通过DataPanel组件的尺寸的一半减去strokeWidth可以得到圆环的半径。
 4. sin(弧度)*圆环半径和cos(弧度)*圆环半径的方式可以得到当前弧度下圆环外层的坐标信息，向内偏移半个strokeWidth就是百分比信息文本显示的位置。
 ```text
-<em>// x</em><em>坐标：sin(弧度)*半径，y坐标：-cos(弧度)*半径</em>
-.offset({
-  x: Math.sin(item) * (this.dataPaneRadius - this.strokeWidth / 2),
-  y: -Math.cos(item) * (this.dataPaneRadius - this.strokeWidth / 2)
-})
+<em>// x</em><em><span style="color: rgb(128,128,128);">坐标：</span><span style="color: rgb(128,128,128);">sin(</span><span style="color: rgb(128,128,128);">弧度</span><span style="color: rgb(128,128,128);">)*</span><span style="color: rgb(128,128,128);">半径，</span><span style="color: rgb(128,128,128);">y</span><span style="color: rgb(128,128,128);">坐标：</span><span style="color: rgb(128,128,128);">-cos(</span><span style="color: rgb(128,128,128);">弧度</span><span style="color: rgb(128,128,128);">)*</span><span style="color: rgb(128,128,128);">半径</span></em>
+<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPaneRadius </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">strokeWidth </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cos</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPaneRadius </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">strokeWidth </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
 ```
 
  
 完整示例参考如下：
  
 ```text
-@Entry
-@Component
-struct DataPanelExample {
-  @State dataPanelList: number[] = [10, 20, 40, 30];
-  sum: number = this.dataPanelList.reduce((accumulator, value) => accumulator + value);
-  @State radianList: number[] = [];<em> </em><em>// 从0到各个分段结尾的弧度</em>
-  @State textList: number[] = [];<em> </em><em>// 每个数据分段的百分比文本</em>
-  dataPanelSize: number = 300; <em>// 数据面板组件宽度</em>
-  strokeWidth: number = 40; <em>// </em><em>圆环粗细，不能超过dataPanelSize/4</em>
-  dataPaneRadius: number = this.dataPanelSize / 2 - this.strokeWidth; <em>// 数据面板中圆环的半径</em>
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">DataPanelExample </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">dataPanelList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">40</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">sum</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPanelList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">reduce</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">accumulator</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,255,255);">accumulator </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">radianList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">从</span><span style="color: rgb(128,128,128);">0</span><span style="color: rgb(128,128,128);">到各个分段结尾的弧度</span></em>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">textList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每个数据分段的百分比文本</span></em>
+  <span style="color: rgb(255,255,255);">dataPanelSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">300</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">数据面板组件宽度</span></em>
+  <span style="color: rgb(255,255,255);">strokeWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">40</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">圆环粗细，不能超过</span><span style="color: rgb(128,128,128);">dataPanelSize/4</span></em>
+  <span style="color: rgb(255,255,255);">dataPaneRadius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPanelSize </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2 </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">strokeWidth</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">数据面板中圆环的半径</span></em>
 
-  aboutToAppear(): void {
-    this.getRadian();
-    this.getText();
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRadian</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getText</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
- <em> // 获取从0到各个数据段结尾的弧度</em>
-  getRadian() {
-    for (let i = 0; i < this.dataPanelList.length; i++) {
-      let count = this.dataPanelList.reduce((accumulator, value, index) => {
-        if (index <= i) {
-          return accumulator + value;
-        } else {
-          return accumulator;
-        }
-      });
-      this.radianList[i] = count / this.sum * Math.PI * 2;
-    }
-  }
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取从</span><span style="color: rgb(128,128,128);">0</span><span style="color: rgb(128,128,128);">到各个数据段结尾的弧度</span></em>
+  <span style="color: rgb(0,0,255);">getRadian</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPanelList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      let <span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPanelList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">reduce</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">accumulator</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+          return <span style="color: rgb(255,255,255);">accumulator </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
+          return <span style="color: rgb(255,255,255);">accumulator</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radianList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sum </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PI </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">  }</span>
 
-  <em>// 获取百分比的文本</em>
-  getText() {
-    let count = 0;
-    for (let i = 0; i < this.dataPanelList.length - 1; i++) {
-      this.textList[i] = Math.round(this.dataPanelList[i] / this.sum * 100);
-      count += this.textList[i];
-    }
-    this.textList[this.dataPanelList.length-1] = 100 - count;
-  }
+  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取百分比的文本</span></em>
+  <span style="color: rgb(0,0,255);">getText</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPanelList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">round</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPanelList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sum </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">+= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textList</span><span style="color: rgb(255,0,170);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPanelList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">100 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">count</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Column() {
-      Stack({ alignContent: Alignment.Center }) {
-        DataPanel({ values: this.dataPanelList, max: 0, type: DataPanelType.Circle })
-          .width(this.dataPanelSize)
-          .height(this.dataPanelSize)
-          .strokeWidth(this.strokeWidth)
-          .backgroundColor('#ffd6f7ff');
-        ForEach(this.radianList, (item: number, index: number) => {
-          Text(`${this.textList[index]}%`)
-        <em>  // x坐标：sin(弧度)*半径，y坐标：-cos(弧度)*半径</em>
-            .offset({
-              x: Math.sin(item) * (this.dataPaneRadius - this.strokeWidth / 2),
-              y: -Math.cos(item) * (this.dataPaneRadius - this.strokeWidth / 2)
-            })
-            .fontColor('#fff')
-            .fontSize(this.strokeWidth / 2.5); <em>// 文本大小根据圆环粗细设置</em>
-        });
-      };
-    }
-    .width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">alignContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">DataPanel</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">values</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPanelList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">max</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">DataPanelType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Circle </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPanelSize</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPanelSize</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeWidth</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">strokeWidth</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#ffd6f7ff'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radianList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">%`</span><span style="color: rgb(255,0,170);">)</span>
+        <em>  <span style="color: rgb(128,128,128);">// x</span><span style="color: rgb(128,128,128);">坐标：</span><span style="color: rgb(128,128,128);">sin(</span><span style="color: rgb(128,128,128);">弧度</span><span style="color: rgb(128,128,128);">)*</span><span style="color: rgb(128,128,128);">半径，</span><span style="color: rgb(128,128,128);">y</span><span style="color: rgb(128,128,128);">坐标：</span><span style="color: rgb(128,128,128);">-cos(</span><span style="color: rgb(128,128,128);">弧度</span><span style="color: rgb(128,128,128);">)*</span><span style="color: rgb(128,128,128);">半径</span></em>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+              <span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPaneRadius </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">strokeWidth </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cos</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dataPaneRadius </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">strokeWidth </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#fff'</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">strokeWidth </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2.5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">文本大小根据圆环粗细设置</span></em>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

@@ -22,27 +22,27 @@ ImageBitmap对象仅接受实际文件路径（如“ets/common/test.jpg”）�
  
 - 对于本地路径图片，可直接将图片路径地址传入ImageBitmap中。
 ```text
-let img: ImageBitmap = new ImageBitmap('common/image/testImage.jpg'); <em>// testImage.jpg仅供参考使用，开发者可替换为实际使用图片</em>
+let <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ImageBitmap </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ImageBitmap</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'common/image/testImage.jpg'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// testImage.jpg</span><span style="color: rgb(128,128,128);">仅供参考使用，开发者可替换为实际使用图片</span></em>
 ```
 
 - 对于资源目录（/resource）下的图片，需要通过图片解码将其转化为新的PixelMap实例再加载到ImageBitmap中。
 ```text
-getImageBitmapByMediaResource(context: Context, resource: Resource) {
-  let fileData: Uint8Array = context.resourceManager.getMediaContentSync(resource.id);
-  let imageSource: image.ImageSource = image.createImageSource(fileData.buffer);
-  let options: image.DecodingOptions = { editable: true, desiredPixelFormat: image.PixelMapFormat.RGBA_8888 };
-  let pixelMap: image.PixelMap = imageSource.createPixelMapSync(options);
-  return new ImageBitmap(pixelMap);
-}
+<span style="color: rgb(0,0,255);">getImageBitmapByMediaResource</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">resource</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Resource</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  let <span style="color: rgb(255,255,255);">fileData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Uint8Array </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getMediaContentSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">resource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ImageSource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createImageSource</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">fileData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DecodingOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">editable</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">desiredPixelFormat</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PixelMapFormat</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">RGBA_8888 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PixelMap </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createPixelMapSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  return new <span style="color: rgb(0,0,255);">ImageBitmap</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 - 对于沙箱路径图片，保存后存放于haps中（如“/data/storage/el2/base/haps/entry/files/img.png”），不能直接用于ImageBitmap渲染处理，需要获取到图片沙箱路径后，使用图片编解码将其转为ImageBitmap对象，使用Canvas加载ImageBitmap：
 ```text
-getImageBitmapByLocalFile(filePath: string) {
-  const imageSource: image.ImageSource = image.createImageSource(filePath);
-  const pixelMap: image.PixelMap = imageSource.createPixelMapSync();
-  return new ImageBitmap(pixelMap);
-}
+<span style="color: rgb(0,0,255);">getImageBitmapByLocalFile</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">filePath</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  const <span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ImageSource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createImageSource</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">filePath</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  const <span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PixelMap </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createPixelMapSync</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  return new <span style="color: rgb(0,0,255);">ImageBitmap</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 - 对于相册路径图片（如“file://media/Photo/5/IMG_1750126638_004/test.jpg”）可以直接使用ImageBitmap加载路径使用。
@@ -52,94 +52,94 @@ getImageBitmapByLocalFile(filePath: string) {
 ImageBitmap加载本地路径图片、资源目录图片、沙箱路径图片三种场景的完整示例参考如下：
  
 ```json
-import { image } from '@kit.ImageKit';
-import { common } from '@kit.AbilityKit';
-import fs from '@ohos.file.fs';
-import { resourceManager } from '@kit.LocalizationKit';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">image </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ImageKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">common </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,255,255);">fs </span>from <span style="color: rgb(132,63,161);">'@ohos.file.fs'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">resourceManager </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.LocalizationKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct Index {
-<em>  // 用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿，true表明开启抗锯齿。</em>
-  private settings: RenderingContextSettings = new RenderingContextSettings(true);
-<em>  // 用来创建CanvasRenderingContext2D对象，通过在canvas中调用CanvasRenderingContext2D对象来绘制。</em>
-  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
-<em>  // testImage.jpg需要替换为本地资源文件</em>
-  private imageFileName: string = 'testImage.jpg';
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(181,106,1);">{</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">用来配置</span><span style="color: rgb(128,128,128);">CanvasRenderingContext2D</span><span style="color: rgb(128,128,128);">对象的参数，包括是否开启抗锯齿，</span><span style="color: rgb(128,128,128);">true</span><span style="color: rgb(128,128,128);">表明开启抗锯齿。</span></em>
+  private <span style="color: rgb(255,255,255);">settings</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">RenderingContextSettings </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RenderingContextSettings</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">用来创建</span><span style="color: rgb(128,128,128);">CanvasRenderingContext2D</span><span style="color: rgb(128,128,128);">对象，通过在</span><span style="color: rgb(128,128,128);">canvas</span><span style="color: rgb(128,128,128);">中调用</span><span style="color: rgb(128,128,128);">CanvasRenderingContext2D</span><span style="color: rgb(128,128,128);">对象来绘制。</span></em>
+  private <span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">CanvasRenderingContext2D </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CanvasRenderingContext2D</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">settings</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<em>  <span style="color: rgb(128,128,128);">// testImage.jpg</span><span style="color: rgb(128,128,128);">需要替换为本地资源文件</span></em>
+  private <span style="color: rgb(255,255,255);">imageFileName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'testImage.jpg'</span><span style="color: rgb(181,106,1);">;</span>
 
-<em>  // 将media目录下的图片文件复制到沙箱目录</em>
-  mediaImageFileToLocalFile(fileName: Resource) {
-    let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-    const resourceMgr: resourceManager.ResourceManager = context.resourceManager;
-    let buff = resourceMgr.getMediaContentSync(fileName.id);
-    let localFileUri: string = context.filesDir + '/' + this.imageFileName;
-    let file: fs.File | null = null;
-    try {
-      file = fs.openSync(localFileUri, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
-      fs.writeSync(file.fd, buff.buffer);
-      console.info('file path is :', file.path);
-    } catch (e) {
-      console.error('fs.openSync failed error is : ', JSON.stringify(e));
-    } finally {
-      if (file !== null) {
-        fs.closeSync(file);
-      }
-    }
-  }
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">media</span><span style="color: rgb(128,128,128);">目录下的图片文件复制到沙箱目录</span></em>
+  <span style="color: rgb(0,0,255);">mediaImageFileToLocalFile</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">fileName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+    const <span style="color: rgb(255,255,255);">resourceMgr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ResourceManager </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">buff </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">resourceMgr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getMediaContentSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">fileName</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">localFileUri</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">filesDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">'/' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imageFileName</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">File </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
+    try <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">file </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">localFileUri</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">READ_WRITE </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CREATE</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">buff</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'file path is :'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">path</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'fs.openSync failed error is : '</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">} </span>finally <span style="color: rgb(181,106,1);">{</span>
+      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file </span><span style="color: rgb(181,106,1);">!== </span>null<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">    }</span>
+<span style="color: rgb(181,106,1);">  }</span>
 
- <em> // 将media目录下面的图片转化为ImageBitmap</em>
-  getImageBitmapByMediaResource(context: Context, resource: Resource) {
-    let fileData: Uint8Array = context.resourceManager.getMediaContentSync(resource.id);
-    let imageSource: image.ImageSource = image.createImageSource(fileData.buffer);
-    let options: image.DecodingOptions = { editable: true, desiredPixelFormat: image.PixelMapFormat.RGBA_8888 };
-    let pixelMap: image.PixelMap = imageSource.createPixelMapSync(options);
-    return new ImageBitmap(pixelMap);
-  }
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">media</span><span style="color: rgb(128,128,128);">目录下面的图片转化为</span><span style="color: rgb(128,128,128);">ImageBitmap</span></em>
+  <span style="color: rgb(0,0,255);">getImageBitmapByMediaResource</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">resource</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">fileData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Uint8Array </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getMediaContentSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">resource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ImageSource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createImageSource</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">fileData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DecodingOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">editable</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">desiredPixelFormat</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PixelMapFormat</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">RGBA_8888 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PixelMap </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createPixelMapSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return new <span style="color: rgb(0,0,255);">ImageBitmap</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
 
- <em> // 将沙箱目录下的图片转化为ImageBitmap</em>
-  getImageBitmapByLocalFile(filePath: string) {
-    const imageSource: image.ImageSource = image.createImageSource(filePath);
-    const pixelMap: image.PixelMap = imageSource.createPixelMapSync();
-    return new ImageBitmap(pixelMap);
-  }
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将沙箱目录下的图片转化为</span><span style="color: rgb(128,128,128);">ImageBitmap</span></em>
+  <span style="color: rgb(0,0,255);">getImageBitmapByLocalFile</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">filePath</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    const <span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ImageSource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createImageSource</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">filePath</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    const <span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PixelMap </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createPixelMapSync</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    return new <span style="color: rgb(0,0,255);">ImageBitmap</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  aboutToAppear(): void {
-    this.mediaImageFileToLocalFile($r('app.media.testImage')); <em>// testImage</em><em>仅供参考使用，开发者可替换为实际使用图片</em>
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mediaImageFileToLocalFile</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.testImage'</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">; </span><em>// testImage</em><em><span style="color: rgb(128,128,128);">仅供参考使用，开发者可替换为实际使用图片</span></em>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Column() {
-      Text('ImageBitmap加载三种不同来源的图片')
-        .margin({ top: 10 })
-        .fontSize(20);
-      Canvas(this.context)
-        .width('80%')
-        .height('100%')
-        .onReady(async () => {
-       <em>   // 加载工程目录ets/common/image下面的图片</em>
-          let img: ImageBitmap = new ImageBitmap('common/image/testImage.jpg'); <em>// testImage.jpg仅供参考使用，开发者可替换为实际使用图片</em>
-          this.context.font = 'normal normal 60px sans-serif';
-          this.context.fillText('common', 120, 15);
-          this.context.drawImage(img, 0, 25);
-        <em>  // 资源目录（/resource）下的图片</em>
-          let imageBitmap1 =
-            this.getImageBitmapByMediaResource(this.getUIContext().getHostContext() as common.UIAbilityContext,
-              $r('app.media.testImage')); <em>// testImage仅供参考使用，开发者可替换为实际使用图片</em>
-          this.context.fillText('resource', 120, 130);
-          this.context.drawImage(imageBitmap1, 0, 140);
-        <em>  // 沙箱路径的图片</em>
-          let uiContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
-          let filePath = uiContext.filesDir + '/' + this.imageFileName;
-          let imageBitmap2 = this.getImageBitmapByLocalFile(filePath);
-          this.context.fillText('沙箱路径', 120, 250);
-          this.context.drawImage(imageBitmap2, 0, 260);
-        });
-    }
-    .height('100%')
-    .width('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'ImageBitmap</span><span style="color: rgb(132,63,161);">加载三种不同来源的图片</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Canvas</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'80%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(255,0,170);">(</span>async <span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+       <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">加载工程目录</span><span style="color: rgb(128,128,128);">ets/common/image</span><span style="color: rgb(128,128,128);">下面的图片</span></em>
+          let <span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ImageBitmap </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ImageBitmap</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'common/image/testImage.jpg'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// testImage.jpg</span><span style="color: rgb(128,128,128);">仅供参考使用，开发者可替换为实际使用图片</span></em>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">font </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'normal normal 60px sans-serif'</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'common'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">120</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">15</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawImage</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">img</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">25</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">资源目录（</span><span style="color: rgb(128,128,128);">/resource</span><span style="color: rgb(128,128,128);">）下的图片</span></em>
+          let <span style="color: rgb(255,255,255);">imageBitmap1 </span><span style="color: rgb(181,106,1);">=</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getImageBitmapByMediaResource</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.testImage'</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// testImage</span><span style="color: rgb(128,128,128);">仅供参考使用，开发者可替换为实际使用图片</span></em>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'resource'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">120</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">130</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawImage</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">imageBitmap1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">140</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">沙箱路径的图片</span></em>
+          let <span style="color: rgb(255,255,255);">uiContext </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+          let <span style="color: rgb(255,255,255);">filePath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">filesDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">'/' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imageFileName</span><span style="color: rgb(181,106,1);">;</span>
+          let <span style="color: rgb(255,255,255);">imageBitmap2 </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getImageBitmapByLocalFile</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">filePath</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">沙箱路径</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">120</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">250</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawImage</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">imageBitmap2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">260</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  
  

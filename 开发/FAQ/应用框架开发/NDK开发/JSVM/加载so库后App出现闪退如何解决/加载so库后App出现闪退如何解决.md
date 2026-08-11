@@ -20,41 +20,41 @@
 1. 查看crash日志。如下图，本次闪退为cppcrash，说明so加载链接完成，但是在代码运行时出现错误，根据下图Reason反馈得知由于空指针访问导致的报错。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/8uLypro5RXyF-nJYyd36gw/zh-cn_image_0000002658907821.png?HW-CC-KV=V1&HW-CC-Date=20260730T072316Z&HW-CC-Expire=86400&HW-CC-Sign=C931D51C48F2EA8608596759143290B1E2932F8B7DDFB05BB44851B32A6011D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/8uLypro5RXyF-nJYyd36gw/zh-cn_image_0000002658907821.png?HW-CC-KV=V1&HW-CC-Date=20260811T005637Z&HW-CC-Expire=86400&HW-CC-Sign=9D399C88192CE65BB828B047F53A98218E046894BA6402F24FBDFC17FE116844)
 
 
   若闪退并非cppcrash而是jscrash，如下图，则说明js在访问so或者so加载链接出现问题，需要进一步定位。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/_q4c8sfmTFWD8lvKRpzQ8w/zh-cn_image_0000002658787883.png?HW-CC-KV=V1&HW-CC-Date=20260730T072316Z&HW-CC-Expire=86400&HW-CC-Sign=FEDE3F2F746ADCDFC624E48F58420DEA8F441FE79FE247D52921C24BCE0FA648)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/_q4c8sfmTFWD8lvKRpzQ8w/zh-cn_image_0000002658787883.png?HW-CC-KV=V1&HW-CC-Date=20260811T005637Z&HW-CC-Expire=86400&HW-CC-Sign=55C2A0648D8CABB178CBDA14A37E3F80EE825A78BBBC14421C8006766D8D9D97)
 
 
   ArkTS出错位置和so对外导出的头文件如下二图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/r0MKY5jaQP-a8fqy5cwVOw/zh-cn_image_0000002628388610.png?HW-CC-KV=V1&HW-CC-Date=20260730T072316Z&HW-CC-Expire=86400&HW-CC-Sign=C8C4C264598B7A4D647229C54E6D53A239FBB4A6C360D55CC9DC4EF20C8E88D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/r0MKY5jaQP-a8fqy5cwVOw/zh-cn_image_0000002628388610.png?HW-CC-KV=V1&HW-CC-Date=20260811T005637Z&HW-CC-Expire=86400&HW-CC-Sign=CC012133ABF60BE4297D993232CF2AC1F4EEE39CDFB482D3205FE6DEDD632C0A)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/UWf1ynCfSH2JGwdba-7Fug/zh-cn_image_0000002628548510.png?HW-CC-KV=V1&HW-CC-Date=20260730T072316Z&HW-CC-Expire=86400&HW-CC-Sign=7FBC4E0B59A4700F5C36B425F432A270C8AAB2A63E726F1F5278E09EEB691F53)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/UWf1ynCfSH2JGwdba-7Fug/zh-cn_image_0000002628548510.png?HW-CC-KV=V1&HW-CC-Date=20260811T005637Z&HW-CC-Expire=86400&HW-CC-Sign=BFA45D55DF4DE4CAD772861DE45333F922490C8FE7115894BFEBBA558B52E796)
 
 2. 解压HAP包，查看lib目录下是否存在对应的so文件。
 - 在HAP文件后添加.rar扩展名，点击压缩文件打开。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/u9cDoYf4Qj2kllu4X1mqww/zh-cn_image_0000002658907823.png?HW-CC-KV=V1&HW-CC-Date=20260730T072316Z&HW-CC-Expire=86400&HW-CC-Sign=2585A9BFB545D89AF302E1C9F49CE25FEBCE45C150552FE50643CDAC5F557352)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/u9cDoYf4Qj2kllu4X1mqww/zh-cn_image_0000002658907823.png?HW-CC-KV=V1&HW-CC-Date=20260811T005637Z&HW-CC-Expire=86400&HW-CC-Sign=07DFE92C24BA3C229C9B71B4B899B98D85EFA0563C8EEA82BE03B047B06FEE13)
 
 
 3. 查看libs\arm64-v8a目录下是否存在对应的so文件，如果缺失so文件说明在编译链接过程中没有将so文件打包进HAP，需要定位具体原因。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/qKtEBRQXQt27LXR5z9ICLw/zh-cn_image_0000002658787885.png?HW-CC-KV=V1&HW-CC-Date=20260730T072316Z&HW-CC-Expire=86400&HW-CC-Sign=FFDAF4CB889B82290B45DFE66F656FC28158FC29FC6D38B3FDD8B7C08AF11728)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/qKtEBRQXQt27LXR5z9ICLw/zh-cn_image_0000002658787885.png?HW-CC-KV=V1&HW-CC-Date=20260811T005637Z&HW-CC-Expire=86400&HW-CC-Sign=921E88493B769C8B18E200E5333F75C7905F33B0BC5EC093B04D15FDC6CEBDED)
 
 - 确认HAP中的so文件是真实的库文件。由于在不同平台中软链接格式不同，此处以Linux为例。在Linux平台进行交叉编译时，一些源码通过编译链接后会生成多个链接文件，如下图。libjpeg.so/libjpeg.so.62均为链接文件，占用空间很小，而实际的so文件则为libjpeg.so.62.4.0,如果只拷贝链接文件会导致无法链接到真正的so文件。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/jCn9uSyWQy-CH8E16Gc1YA/zh-cn_image_0000002628388612.png?HW-CC-KV=V1&HW-CC-Date=20260730T072316Z&HW-CC-Expire=86400&HW-CC-Sign=C3D9F454ED8429439AEAC57B4362F92728CD0E00C86A8ED04E25FD3CD1BF5765)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/jCn9uSyWQy-CH8E16Gc1YA/zh-cn_image_0000002628388612.png?HW-CC-KV=V1&HW-CC-Date=20260811T005637Z&HW-CC-Expire=86400&HW-CC-Sign=D5D04D53CC3D1E6FD16627832A43102F1CF2DFCB26EFE6F1A1E45C0DEDF683FE)
 
 - 确认so文件依赖so文件均已导入进HAP包中。通过readelf -d xxx.so命令可以读取so文件中依赖的so文件，以下图libavcodec.so为例。该so同时依赖了libswreasample.so\libavutil.so\libz.so\libc.so，需要确保如上so均打包进入HAP中或者存在于HarmonyOS的系统库中。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/XvxjwQ3XQDiigieiantz-Q/zh-cn_image_0000002628548512.png?HW-CC-KV=V1&HW-CC-Date=20260730T072316Z&HW-CC-Expire=86400&HW-CC-Sign=D59D55904ED8FEA5EB2A4571B71AFC7DE700CD9969A14484AE5569F494B8CC23)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/XvxjwQ3XQDiigieiantz-Q/zh-cn_image_0000002628548512.png?HW-CC-KV=V1&HW-CC-Date=20260811T005637Z&HW-CC-Expire=86400&HW-CC-Sign=F9D4B36F947F20B3EE5343E39DFCA5E13C708B6BC4A24EA82ECF896D90E557DF)
 
 
  

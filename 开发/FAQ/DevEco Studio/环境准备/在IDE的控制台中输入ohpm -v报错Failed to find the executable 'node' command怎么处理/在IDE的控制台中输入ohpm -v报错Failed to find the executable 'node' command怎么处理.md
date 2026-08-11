@@ -10,13 +10,13 @@
  
 ```text
 PS D:\MyApplication2> node -v
-v18.20.1
+v18<span style="color: rgb(0,0,255);">.20.1</span>
 PS D:\MyApplication2> npm -v
-10.5.0
+<span style="color: rgb(0,0,255);">10.5.0</span>
 PS D:\MyApplication2> ohpm -v
 ERROR: Failed to find the executable 'node' command, please check the following possible causes:
-  1. NodeJS is not installed.
-  2. 'node' command not added to PATH
+  <span style="color: rgb(0,0,255);">1. </span>NodeJS is not installed.
+  <span style="color: rgb(0,0,255);">2. </span>'node' command not added to PATH
   and the 'NODE_HOME' variable is not set in the environment variables to match your NodeJs installation Location.
 ```
  

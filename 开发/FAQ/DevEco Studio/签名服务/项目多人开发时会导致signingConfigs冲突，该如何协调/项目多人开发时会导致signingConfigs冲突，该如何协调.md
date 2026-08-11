@@ -48,7 +48,7 @@ at E:\work\1200_iabp_harmonyos\build-profile.json5
 #### 修改建议
 
 - **方式一：signingConfigs中使用相对路径。**
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/myx9dLZFQwWmLZKCgPN81w/zh-cn_image_0000002677866951.png?HW-CC-KV=V1&HW-CC-Date=20260730T072717Z&HW-CC-Expire=86400&HW-CC-Sign=E6CC1C6256EBF7919A4C3DFC7A980E081DC2F18483FF0E744AE4B964AF2E3C8A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/myx9dLZFQwWmLZKCgPN81w/zh-cn_image_0000002677866951.png?HW-CC-KV=V1&HW-CC-Date=20260811T005525Z&HW-CC-Expire=86400&HW-CC-Sign=DEC5577AC798BF9CDEED64623DBDEE92F6BB2015C25BDAF0753DBABB2BF480FF)
 
 
   签名使用相对路径可以做到多人共用签名、git不冲突、可以将团队内设备的udid都添加到该签名中就可以直接安装。但是可能存在的问题：
@@ -57,7 +57,7 @@ at E:\work\1200_iabp_harmonyos\build-profile.json5
 
 2. 当新增权限（需要ACL提权的）、新增设备的udid都需要管理该签名的人重签名一份上传，其他人有需要时再重新拉取代码。
 - **方式二：使用自定义构建任务动态修改signingConfigs。**
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/BX9UOrydTkKPU5gTSoXJbQ/zh-cn_image_0000002678026805.png?HW-CC-KV=V1&HW-CC-Date=20260730T072717Z&HW-CC-Expire=86400&HW-CC-Sign=81968F322671B862CE49F97BA8ABABEF335E9455F850038C41EB8B6EBE00E9EE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/BX9UOrydTkKPU5gTSoXJbQ/zh-cn_image_0000002678026805.png?HW-CC-KV=V1&HW-CC-Date=20260811T005525Z&HW-CC-Expire=86400&HW-CC-Sign=07B2DE11558C60E628E3421406DD5431F7C5BC9F85D499CBDE859CB64BE35733)
 
 
   这种方式可以将签名配置信息独立出来，git不冲突，每人也可使用自己的签名，流水线构建时使用专属签名即可。

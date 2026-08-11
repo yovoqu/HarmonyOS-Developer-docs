@@ -11,7 +11,7 @@
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/xDuRdR7nSYSO52dOQrvIyQ/zh-cn_image_0000002658969515.png?HW-CC-KV=V1&HW-CC-Date=20260730T072452Z&HW-CC-Expire=86400&HW-CC-Sign=39FD1E2C224D978C6DB6CCB5C551916BEFEF6E31448EC0FD671C8E6C7E16B806)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/xDuRdR7nSYSO52dOQrvIyQ/zh-cn_image_0000002658969515.png?HW-CC-KV=V1&HW-CC-Date=20260811T005710Z&HW-CC-Expire=86400&HW-CC-Sign=09C82D781B02838373D18F5BC87F05B66FEB0141A2F4D9B035989666E8D01BF4)
 
  
  
@@ -19,7 +19,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/3Ejc15GRREKm7UL1o2Yk8A/zh-cn_image_0000002628610296.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072452Z&HW-CC-Expire=86400&HW-CC-Sign=F677B64218E5713A0CD30E2B20505837C78C5316975F197DED1A97CE3B264116)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/3Ejc15GRREKm7UL1o2Yk8A/zh-cn_image_0000002628610296.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005710Z&HW-CC-Expire=86400&HW-CC-Sign=AABF3C9A559988022AB3AE73ED2AA715B0274DC12703DB86209A9752852B970A)
 
  
  
@@ -35,66 +35,66 @@
 在aboutToAppear中使用for循环动态初始化SelectDialog的radioContent。
  
 ```text
-import { SelectDialog } from '@kit.ArkUI';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">SelectDialog </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct SelectDialogDemo {
- <em> // title数组</em>
-  titleList: string[] = [];
- <em> // SelectDialog的radioContent进行初始化</em>
-  radioContent: Array<SheetInfo> = [];
-<em>  // 设置默认选中radio的index</em>
-  radioIndex = 0;
-  dialogControllerList: CustomDialogController = new CustomDialogController({
-    builder: SelectDialog({
-      title: '文本标题',
-      selectedIndex: this.radioIndex,
-      confirm: {
-        value: '取消',
-        action: () => {
-        },
-      },
-   <em>   // 将初始化后的radioContent赋值给SelectDialog的radioContent属性</em>
-      radioContent: this.radioContent
-    }),
-  });
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">SelectDialogDemo </span><span style="color: rgb(181,106,1);">{</span>
+ <em> <span style="color: rgb(128,128,128);">// title</span><span style="color: rgb(128,128,128);">数组</span></em>
+  <span style="color: rgb(255,255,255);">titleList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// SelectDialog</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">radioContent</span><span style="color: rgb(128,128,128);">进行初始化</span></em>
+  <span style="color: rgb(255,255,255);">radioContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">SheetInfo</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置默认选中</span><span style="color: rgb(128,128,128);">radio</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">index</span></em>
+  <span style="color: rgb(255,255,255);">radioIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">dialogControllerList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">CustomDialogController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CustomDialogController</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">builder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">SelectDialog</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">文本标题</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">selectedIndex</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radioIndex</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">confirm</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">取消</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">action</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将初始化后的</span><span style="color: rgb(128,128,128);">radioContent</span><span style="color: rgb(128,128,128);">赋值给</span><span style="color: rgb(128,128,128);">SelectDialog</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">radioContent</span><span style="color: rgb(128,128,128);">属性</span></em>
+      <span style="color: rgb(255,255,255);">radioContent</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radioContent</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Row() {
-      Stack() {
-        Column() {
-          Button('纯列表弹出框')
-            .width(96)
-            .height(40)
-            .onClick(() => {
-              this.titleList.push('文本');
-              this.titleList.push('文本文本');
-              this.titleList.push('文本文本文本');
-              this.titleList.push('文本文本文本文本');
-              this.titleList.push('文本文本文本文本文本');
-              this.titleList.push('文本文本文本文本文本文本');
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">纯列表弹出框</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">96</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">40</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">titleList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">文本</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">titleList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">文本文本</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">titleList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">文本文本文本</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">titleList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">文本文本文本文本</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">titleList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">文本文本文本文本文本</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">titleList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">文本文本文本文本文本文本</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-          <em>    // 赋值给radioContent</em>
-              this.titleList.forEach((value: string, index: number) => {
-                let sheetInfo: SheetInfo = {
-                  title: value,
-                  action: () => {
-                    this.radioIndex = index;
-                  }
-                };
-                this.radioContent.push(sheetInfo);
-              });
-              this.dialogControllerList.open();
-            });
-        }.margin({ bottom: 300 });
-      }
-      .align(Alignment.Bottom)
-      .width('100%')
-      .height('100%');
-    }
-    .backgroundImageSize({ width: '100%', height: '100%' })
-    .height('100%');
-  }
-}
+          <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">赋值给</span><span style="color: rgb(128,128,128);">radioContent</span></em>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">titleList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">forEach</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                let <span style="color: rgb(255,255,255);">sheetInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">SheetInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+                  <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">,</span>
+                  <span style="color: rgb(255,255,255);">action</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radioIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">                }</span><span style="color: rgb(181,106,1);">;</span>
+                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radioContent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sheetInfo</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dialogControllerList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">open</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">300 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Bottom</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundImageSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'100%' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

@@ -11,10 +11,10 @@ APP中使用Web组件加载在线网页，网页内部会跳转到新网页，JS
 关键代码如下：
  
 ```text
-.onControllerAttached(() => {
-  this.controller.registerJavaScriptProxy(this.webTestObj, "objTestName", ["webTest", "webString"]);
-  this.controller.refresh();
-})
+<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onControllerAttached</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">registerJavaScriptProxy</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">webTestObj</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"objTestName"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">"webTest"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"webString"</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
+  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">refresh</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
 ```
  
  
@@ -46,61 +46,61 @@ APP中使用Web组件加载在线网页，网页内部会跳转到新网页，JS
 需要监听页面url是否发生变化，如果发生变化就重新注入对象。
  
 ```text
-import { webview } from '@kit.ArkWeb';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">webview </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkWeb'</span><span style="color: rgb(181,106,1);">;</span>
 
-<em>// </em><em>模拟注入数据，需要根据业务修改注入的对象</em>
-class WebObj {
-  constructor() {
-  }
+<em>// </em><em><span style="color: rgb(128,128,128);">模拟注入数据，需要根据业务修改注入的对象</span></em>
+class <span style="color: rgb(0,0,255);">WebObj </span><span style="color: rgb(255,0,170);">{</span>
+  constructor<span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+<span style="color: rgb(255,0,170);">  }</span>
 
-  webTest(): string {
-    console.info('Web test');
-    return 'Web test';
-  }
+  <span style="color: rgb(0,0,255);">webTest</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Web test'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(255,0,170);">'Web test'</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  webString(): void {
-    console.info('Web test toString');
-  }
-}
+  <span style="color: rgb(0,0,255);">webString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Web test toString'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Entry
-@Component
-struct WebRedirect {
-  private controller: webview.WebviewController = new webview.WebviewController();
-  @State webTestObj: WebObj = new WebObj();
-  @State loadUrl: string = '';
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">WebRedirect </span><span style="color: rgb(255,0,170);">{</span>
+  private <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">webTestObj</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WebObj </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">WebObj</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">loadUrl</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      <em>// src需替换为相应业务的网址</em>
-      Web({ src: 'www.example.com', controller: this.controller })
-        .domStorageAccess(true)
-        .javaScriptAccess(true)
-        .fileAccess(false)
-        .geolocationAccess(false)
-        .onControllerAttached(() => {
-          this.controller.registerJavaScriptProxy(this.webTestObj, "objTestName", ["webTest", "webString"]);
-          this.controller.refresh();
-        })
-        .onLoadIntercept((event) => {
-          if (this.loadUrl === null) {
-            console.info('loginfo: 首次加载');
-            this.loadUrl = event.data.getRequestUrl();
-          } else if (this.loadUrl !== event.data.getRequestUrl()) {
-            console.info(`loginfo: 两次url不一样——上次加载 url：${this.loadUrl == null ? 'null' :
-            this.loadUrl} ---- 本次加载 URL：${event.data.getRequestUrl()}`);
-            this.loadUrl = event.data.getRequestUrl();
-            <em>// </em><em>重新注册JS对象</em>
-            this.controller.registerJavaScriptProxy(this.webTestObj, "objTestName", ["webTest", "webString"]);
-            this.controller.refresh();
-          } else {
-            console.info('两次url相同，未发生重定向');
-          }
-          return false;
-        });
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <em><span style="color: rgb(128,128,128);">// src</span><span style="color: rgb(128,128,128);">需替换为相应业务的网址</span></em>
+      <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'www.example.com'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">domStorageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">javaScriptAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">geolocationAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onControllerAttached</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">registerJavaScriptProxy</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">webTestObj</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"objTestName"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">"webTest"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"webString"</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">refresh</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onLoadIntercept</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadUrl </span><span style="color: rgb(181,106,1);">=== </span>null<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'loginfo: </span><span style="color: rgb(255,0,170);">首次加载</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadUrl </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRequestUrl</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">} </span>else if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadUrl </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRequestUrl</span><span style="color: rgb(0,0,255);">()) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`loginfo: </span><span style="color: rgb(255,0,170);">两次</span><span style="color: rgb(255,0,170);">url</span><span style="color: rgb(255,0,170);">不一样</span><span style="color: rgb(255,0,170);">——</span><span style="color: rgb(255,0,170);">上次加载</span><span style="color: rgb(255,0,170);"> url</span><span style="color: rgb(255,0,170);">：</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadUrl </span><span style="color: rgb(181,106,1);">== </span>null <span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,170);">'null' </span><span style="color: rgb(181,106,1);">:</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadUrl</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> ---- </span><span style="color: rgb(255,0,170);">本次加载</span><span style="color: rgb(255,0,170);"> URL</span><span style="color: rgb(255,0,170);">：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRequestUrl</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadUrl </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRequestUrl</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+            <em>// </em><em><span style="color: rgb(128,128,128);">重新注册</span><span style="color: rgb(128,128,128);">JS</span><span style="color: rgb(128,128,128);">对象</span></em>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">registerJavaScriptProxy</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">webTestObj</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"objTestName"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">"webTest"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"webString"</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">refresh</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">两次</span><span style="color: rgb(255,0,170);">url</span><span style="color: rgb(255,0,170);">相同，未发生重定向</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+          return false<span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
  
@@ -112,54 +112,54 @@ Q：ArkWeb如何判断发生了重定向？
 A：在ArkTS WebView中判断请求是否发生重定向，可以通过[onLoadIntercept](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onloadintercept10)拦截网络请求，再通过[isRedirect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webresourcerequest#isredirect)请求是否重定向。
  
 ```text
-import { webview } from '@kit.ArkWeb';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">webview </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkWeb'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct WebRedirectJudge {
-  controller: webview.WebviewController = new webview.WebviewController();
-  @State loadUrl: string | null = null; <em>// </em><em>记录加载的url</em>
-  isRedirect: boolean = false; <em>// </em><em>是否发生重定向</em>
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">WebRedirectJudge </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">loadUrl</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">记录加载的</span><span style="color: rgb(128,128,128);">url</span></em>
+  <span style="color: rgb(0,0,255);">isRedirect</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">是否发生重定向</span></em>
 
-  build() {
-    Column() {
-     <em> // scr需替换为相应业务的网址</em>
-      Web({ src: 'www.example.com', controller: this.controller })
-        .domStorageAccess(true)
-        .javaScriptAccess(true)
-        .fileAccess(false)
-        .geolocationAccess(false)
-        .onLoadIntercept((event) => {
-          console.info(`onLoadIntercept, url is ${event.data.getRequestUrl()}`);
-          if (this.loadUrl === null) { <em>// </em><em>首次加载</em>
-            console.info('首次加载');
-            this.loadUrl = event.data.getRequestUrl(); <em>// 将此次加载路径保存入变量中，为下次对比做参照</em>
-            this.isRedirect = false;
-          } else { <em>// 非首次加载</em>
-            if (this.loadUrl === event.data.getRequestUrl()) { <em>// </em><em>和上一次跳转的url相同</em>
-              console.info('两次url相同，未发生重定向');
-              this.isRedirect = false;
-            } else { <em>// </em><em>和上一次跳转的url不同</em>
-              if (event.data.isRedirect()) {<em> </em><em>// 判断服务器重定向</em>
-                console.info('服务器重定向');
-                this.isRedirect = true;
-              } else {
-                if (event.data.isRequestGesture()) { <em>// </em><em>判断是否发生了交互，未交互就跳转认定为代码重定向，发生了交互认定为正常页面跳转</em>
-                  console.info('页面跳转'); <em>// </em><em>用户交互发生的页面跳转属于正常页面跳转，不属于重定向</em>
-                  this.isRedirect = false;
-                } else {
-                  console.info('客户端页面代码重定向'); <em>// </em><em>若未发生交互，直接进行页面跳转则认定发生了重定向</em>
-                  this.isRedirect = true;
-                }
-              }
-              this.loadUrl = event.data.getRequestUrl(); <em>// </em><em>将此次加载路径保存入变量中，为下次对比做参照</em>
-            }
-          }
-          return this.isRedirect;
-        });
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+     <em> <span style="color: rgb(128,128,128);">// scr</span><span style="color: rgb(128,128,128);">需替换为相应业务的网址</span></em>
+      <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'www.example.com'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">domStorageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">javaScriptAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">geolocationAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onLoadIntercept</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`onLoadIntercept, url is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRequestUrl</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadUrl </span><span style="color: rgb(181,106,1);">=== </span>null<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{ </span><em>// </em><em><span style="color: rgb(128,128,128);">首次加载</span></em>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">首次加载</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadUrl </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRequestUrl</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将此次加载路径保存入变量中，为下次对比做参照</span></em>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isRedirect </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{ </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">非首次加载</span></em>
+            if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadUrl </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRequestUrl</span><span style="color: rgb(0,0,255);">()) </span><span style="color: rgb(255,0,170);">{ </span><em>// </em><em><span style="color: rgb(128,128,128);">和上一次跳转的</span><span style="color: rgb(128,128,128);">url</span><span style="color: rgb(128,128,128);">相同</span></em>
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">两次</span><span style="color: rgb(255,0,170);">url</span><span style="color: rgb(255,0,170);">相同，未发生重定向</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isRedirect </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{ </span><em>// </em><em><span style="color: rgb(128,128,128);">和上一次跳转的</span><span style="color: rgb(128,128,128);">url</span><span style="color: rgb(128,128,128);">不同</span></em>
+              if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isRedirect</span><span style="color: rgb(0,0,255);">()) </span><span style="color: rgb(255,0,170);">{</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">判断服务器重定向</span></em>
+                <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">服务器重定向</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isRedirect </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+                if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isRequestGesture</span><span style="color: rgb(0,0,255);">()) </span><span style="color: rgb(255,0,170);">{ </span><em>// </em><em><span style="color: rgb(128,128,128);">判断是否发生了交互，未交互就跳转认定为代码重定向，发生了交互认定为正常页面跳转</span></em>
+                  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">页面跳转</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">用户交互发生的页面跳转属于正常页面跳转，不属于重定向</span></em>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isRedirect </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+                  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">客户端页面代码重定向</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">若未发生交互，直接进行页面跳转则认定发生了重定向</span></em>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isRedirect </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">              }</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadUrl </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRequestUrl</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">将此次加载路径保存入变量中，为下次对比做参照</span></em>
+            <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">          }</span>
+          return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isRedirect</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
  

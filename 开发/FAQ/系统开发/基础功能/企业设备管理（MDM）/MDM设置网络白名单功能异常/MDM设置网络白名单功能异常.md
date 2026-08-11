@@ -27,7 +27,7 @@ MDM应用可以通过[addAllowedWifiList](https://developer.huawei.com/consumer/
 有问题的操作步骤如下：
  1. 确保[restrictions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions)中启用Wi-Fi，wifiManager确保没有[Disallowed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager#wifimanageradddisallowedwifilist19)和[Allowed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager#wifimanageraddallowedwifilist19)的Wi-Fi。
 2. 使用[addAllowedWifiList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager#wifimanageraddallowedwifilist19)添加一个Wi-Fi白名单，其参数类似[{"ssid":"mate60","BSSID":"92:EF:1C:F1:21:81"}]，BSSID值在此处获取：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/jWg97mpiStmHNOpVr_99dw/zh-cn_image_0000002633616294.png?HW-CC-KV=V1&HW-CC-Date=20260730T072606Z&HW-CC-Expire=86400&HW-CC-Sign=B812965FF7A086E51D7540073003AFD6453B93F02222652E6C8A5335303B250E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/jWg97mpiStmHNOpVr_99dw/zh-cn_image_0000002633616294.png?HW-CC-KV=V1&HW-CC-Date=20260811T005914Z&HW-CC-Expire=86400&HW-CC-Sign=AE3465A072C363BC4E7DA8847E8CF09908494DA05260DAE4508AED657D31DDDB)
 
 3. 设置后，Wi-Fi白名单未生效。
  
@@ -35,10 +35,10 @@ MDM应用可以通过[addAllowedWifiList](https://developer.huawei.com/consumer/
  
 BSSID的正确获取方法：
  1. 打开“开发者选项”-->"开启wlan详细日志记录"：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/IMirVKWqTYOqGKZruiAqbQ/zh-cn_image_0000002633456400.png?HW-CC-KV=V1&HW-CC-Date=20260730T072606Z&HW-CC-Expire=86400&HW-CC-Sign=23A47E9360E6DCB482DED20158002FEA6D1B8248B34638739979D68F6733258A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/IMirVKWqTYOqGKZruiAqbQ/zh-cn_image_0000002633456400.png?HW-CC-KV=V1&HW-CC-Date=20260811T005914Z&HW-CC-Expire=86400&HW-CC-Sign=313924FFD2A6E3F02AB12C35C749D470405C069AB495374DFF4F043AC99C622A)
 
 2. 查看BSSID：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/a6PUkImwT3OMO88QPD7j_Q/zh-cn_image_0000002663855485.png?HW-CC-KV=V1&HW-CC-Date=20260730T072606Z&HW-CC-Expire=86400&HW-CC-Sign=A3C9CF1E08C88E120071F53A472444A25C67C331E90503C7B9195E140FDBD1EC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/a6PUkImwT3OMO88QPD7j_Q/zh-cn_image_0000002663855485.png?HW-CC-KV=V1&HW-CC-Date=20260811T005914Z&HW-CC-Expire=86400&HW-CC-Sign=27BC4EC245A644DDBFE492AC80730466A98AF429AA907223EB828785D8246D62)
 
  
  

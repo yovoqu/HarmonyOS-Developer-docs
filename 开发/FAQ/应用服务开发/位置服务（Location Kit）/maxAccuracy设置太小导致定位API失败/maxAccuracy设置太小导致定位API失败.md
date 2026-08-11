@@ -10,7 +10,7 @@
  
 ```text
 {
-  "code": 3301200,
+  "code": <span style="color: rgb(0,0,255);">3301200</span>,
   "message": "BusinessError 3301200: Failed to obtain the geographical location."
 }
 ```
@@ -19,11 +19,11 @@
 问题代码如下：
  
 ```text
-let requestInfo: geoLocationManager.CurrentLocationRequest = {
-  'priority': geoLocationManager.LocationRequestPriority.FIRST_FIX,
-  'maxAccuracy': 4
-};
-return geoLocationManager.getCurrentLocation(requestInfo)
+let <span style="color: rgb(0,0,255);">requestInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">geoLocationManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CurrentLocationRequest </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(255,0,170);">'priority'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">geoLocationManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">LocationRequestPriority</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">FIRST_FIX</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(255,0,170);">'maxAccuracy'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">4</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+return <span style="color: rgb(0,0,255);">geoLocationManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getCurrentLocation</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">requestInfo</span><span style="color: rgb(0,0,255);">)</span>
 ```
  
 

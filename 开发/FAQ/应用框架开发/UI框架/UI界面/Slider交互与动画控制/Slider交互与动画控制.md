@@ -117,7 +117,7 @@ struct ListItemComponent {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/jt9helzVTwmdHQA-UZ8SWA/zh-cn_image_0000002628567386.png?HW-CC-KV=V1&HW-CC-Date=20260730T072520Z&HW-CC-Expire=86400&HW-CC-Sign=9733ECF58F4FE67EE3E56EDFABEC7DE4C31787469683D36BE1E5F8757589E6AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/jt9helzVTwmdHQA-UZ8SWA/zh-cn_image_0000002628567386.png?HW-CC-KV=V1&HW-CC-Date=20260811T005647Z&HW-CC-Expire=86400&HW-CC-Sign=C50CE87D66D48C285D9FB584BB4BE895C0C76637CCF4FCC03F7C97A3E35DC070)
 
 - 场景二：可通过定时器逐步递减滑块数值，模拟松手后的回弹动画。当用户松手时，若当前进度未达到预设值（如60）则以固定步长持续减小当前值直至归零，实现平滑回退；若进度大于或等于预设值，则保持当前值正常显示。示例代码如下：
 
@@ -189,4 +189,4 @@ struct SliderPage2 {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/TEuxyL1CQm2zHGpCONY4og/zh-cn_image_0000002658926703.png?HW-CC-KV=V1&HW-CC-Date=20260730T072520Z&HW-CC-Expire=86400&HW-CC-Sign=11452E4B7E4F00358CD9F99D9F7F2ABC9E61814238A46B3E1A8D27F0CA423519)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/TEuxyL1CQm2zHGpCONY4og/zh-cn_image_0000002658926703.png?HW-CC-KV=V1&HW-CC-Date=20260811T005647Z&HW-CC-Expire=86400&HW-CC-Sign=ACE83D55DFBE48F9D020DC4C9BE7ADDBB1B755812102AD6145696AD00C3AD035)

@@ -65,7 +65,7 @@ const interval = setInterval(() => {
  无需准备完整数据才能上传，可以将部分待上传数据写入缓存区，缓存区数据立即实时上传更新，使用抓包工具抓包效果如下。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/xOAtnrVVS9ikZze3eje1Zw/zh-cn_image_0000002658971705.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=2B5D1E6173E820E0AAB361861759A3D4B38ED1DD9BFA0F4BC49E013B56B262A7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/xOAtnrVVS9ikZze3eje1Zw/zh-cn_image_0000002658971705.png?HW-CC-KV=V1&HW-CC-Date=20260811T005942Z&HW-CC-Expire=86400&HW-CC-Sign=3B374B20141C44A749F9078547E35BB00F53AE275ACE832E798A5CD845BCCB57)
 
 - **场景2：实时数据流获取**实时数据流获取能力经常应用于大模型对话场景，将本地用户数据向服务端对应大模型API接口发起post请求后，实时获取数据流数据，实现流式输出效果。
 
@@ -131,7 +131,7 @@ try {
  日志打印如下，OnDataReceive类型函数不停接收来自服务器的数据，并打印如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/_ILtoaGtREayPrGborMhGQ/zh-cn_image_0000002628612494.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=FB2FC14A38F1BFBECEC7B023097F64399FEBEB72FB4F8B62653E326EDC318F2B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/_ILtoaGtREayPrGborMhGQ/zh-cn_image_0000002628612494.png?HW-CC-KV=V1&HW-CC-Date=20260811T005942Z&HW-CC-Expire=86400&HW-CC-Sign=2D6E3091671E6249C39885561F4361660D9A4B230E830EF982854C89D17AE002)
 
 
  

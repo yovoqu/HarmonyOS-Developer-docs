@@ -6,21 +6,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-9"
   },
   {
-    "slug": "faqs-vision-9",
-    "name": "AI字幕控件和AI识图的多语言配置以及依赖问题",
-    "file": "机器学习/场景化视觉（Vision）/AI字幕控件和AI识图的多语言配置以及依赖问题.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-9"
-  },
-  {
     "slug": "faqs-vision-11",
     "name": "AI识图识别沙箱图片",
     "file": "机器学习/场景化视觉（Vision）/AI识图识别沙箱图片/AI识图识别沙箱图片.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-11"
-  },
-  {
-    "slug": "faqs-vision-11",
-    "name": "AI识图识别沙箱图片",
-    "file": "机器学习/场景化视觉（Vision）/AI识图识别沙箱图片.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-11"
   },
   {
@@ -30,21 +18,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-15"
   },
   {
-    "slug": "faqs-vision-15",
-    "name": "人脸活体检测结果mPixelMap的获取",
-    "file": "机器学习/场景化视觉（Vision）/人脸活体检测结果mPixelMap的获取.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-15"
-  },
-  {
     "slug": "faqs-vision-1",
     "name": "人脸活体检测结果获取方法",
     "file": "机器学习/场景化视觉（Vision）/人脸活体检测结果获取方法/人脸活体检测结果获取方法.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-1"
-  },
-  {
-    "slug": "faqs-vision-1",
-    "name": "人脸活体检测结果获取方法",
-    "file": "机器学习/场景化视觉（Vision）/人脸活体检测结果获取方法.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-1"
   },
   {
@@ -54,21 +30,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-4"
   },
   {
-    "slug": "faqs-vision-4",
-    "name": "使用活体检测API报错闪退",
-    "file": "机器学习/场景化视觉（Vision）/使用活体检测API报错闪退.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-4"
-  },
-  {
     "slug": "faqs-vision-3",
     "name": "如何区分CardRecognition的取消和失败",
     "file": "机器学习/场景化视觉（Vision）/如何区分CardRecognition的取消和失败/如何区分CardRecognition的取消和失败.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-3"
-  },
-  {
-    "slug": "faqs-vision-3",
-    "name": "如何区分CardRecognition的取消和失败",
-    "file": "机器学习/场景化视觉（Vision）/如何区分CardRecognition的取消和失败.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-3"
   },
   {
@@ -78,21 +42,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-12"
   },
   {
-    "slug": "faqs-vision-12",
-    "name": "如何屏蔽卡证识别CardRecognition图库选择入口",
-    "file": "机器学习/场景化视觉（Vision）/如何屏蔽卡证识别CardRecognition图库选择入口.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-12"
-  },
-  {
     "slug": "faqs-vision-10",
     "name": "如何解决活体检测报错1008302000",
     "file": "机器学习/场景化视觉（Vision）/如何解决活体检测报错1008302000/如何解决活体检测报错1008302000.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-10"
-  },
-  {
-    "slug": "faqs-vision-10",
-    "name": "如何解决活体检测报错1008302000",
-    "file": "机器学习/场景化视觉（Vision）/如何解决活体检测报错1008302000.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-10"
   },
   {
@@ -102,21 +54,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-13"
   },
   {
-    "slug": "faqs-vision-13",
-    "name": "对卡证识别结果的处理",
-    "file": "机器学习/场景化视觉（Vision）/对卡证识别结果的处理.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-13"
-  },
-  {
     "slug": "faqs-vision-14",
     "name": "扫描表格，未生成EXCEL格式文档",
     "file": "机器学习/场景化视觉（Vision）/扫描表格，未生成EXCEL格式文档/扫描表格，未生成EXCEL格式文档.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-14"
-  },
-  {
-    "slug": "faqs-vision-14",
-    "name": "扫描表格，未生成EXCEL格式文档",
-    "file": "机器学习/场景化视觉（Vision）/扫描表格，未生成EXCEL格式文档.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-14"
   },
   {
@@ -126,21 +66,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-6"
   },
   {
-    "slug": "faqs-vision-6",
-    "name": "文档扫描后保存图片预览页面空白",
-    "file": "机器学习/场景化视觉（Vision）/文档扫描后保存图片预览页面空白.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-6"
-  },
-  {
     "slug": "faqs-vision-5",
     "name": "活体检测动作个数常见问题",
     "file": "机器学习/场景化视觉（Vision）/活体检测动作个数常见问题/活体检测动作个数常见问题.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-5"
-  },
-  {
-    "slug": "faqs-vision-5",
-    "name": "活体检测动作个数常见问题",
-    "file": "机器学习/场景化视觉（Vision）/活体检测动作个数常见问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-5"
   },
   {
@@ -150,21 +78,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-8"
   },
   {
-    "slug": "faqs-vision-8",
-    "name": "活体检测完成返回指定Navigation路由页面功能实现",
-    "file": "机器学习/场景化视觉（Vision）/活体检测完成返回指定Navigation路由页面功能实现.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-8"
-  },
-  {
     "slug": "faqs-vision-7",
     "name": "活体检测返回后没有沉浸式如何解决",
     "file": "机器学习/场景化视觉（Vision）/活体检测返回后没有沉浸式如何解决/活体检测返回后没有沉浸式如何解决.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-7"
-  },
-  {
-    "slug": "faqs-vision-7",
-    "name": "活体检测返回后没有沉浸式如何解决",
-    "file": "机器学习/场景化视觉（Vision）/活体检测返回后没有沉浸式如何解决.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-7"
   },
   {
@@ -174,21 +90,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-2"
   },
   {
-    "slug": "faqs-vision-2",
-    "name": "通过页面跳转将CardRecognition控件拍照界面关闭",
-    "file": "机器学习/场景化视觉（Vision）/通过页面跳转将CardRecognition控件拍照界面关闭.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-2"
-  },
-  {
     "slug": "faqs-speech-3",
     "name": "如何修改TextReader控件在屏幕纵向的起始位置",
     "file": "机器学习/场景化语音（Speech）/如何修改TextReader控件在屏幕纵向的起始位置/如何修改TextReader控件在屏幕纵向的起始位置.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-speech-3"
-  },
-  {
-    "slug": "faqs-speech-3",
-    "name": "如何修改TextReader控件在屏幕纵向的起始位置",
-    "file": "机器学习/场景化语音（Speech）/如何修改TextReader控件在屏幕纵向的起始位置.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-speech-3"
   },
   {
@@ -198,21 +102,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-speech-1"
   },
   {
-    "slug": "faqs-speech-1",
-    "name": "如何解决朗读控件TextReader的跳跃播放问题",
-    "file": "机器学习/场景化语音（Speech）/如何解决朗读控件TextReader的跳跃播放问题.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-speech-1"
-  },
-  {
     "slug": "faqs-speech-2",
     "name": "如何解决朗读控件播放列表中加载失败的问题",
     "file": "机器学习/场景化语音（Speech）/如何解决朗读控件播放列表中加载失败的问题/如何解决朗读控件播放列表中加载失败的问题.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-speech-2"
-  },
-  {
-    "slug": "faqs-speech-2",
-    "name": "如何解决朗读控件播放列表中加载失败的问题",
-    "file": "机器学习/场景化语音（Speech）/如何解决朗读控件播放列表中加载失败的问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-speech-2"
   },
   {
@@ -222,21 +114,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-vision-4"
   },
   {
-    "slug": "faqs-core-vision-4",
-    "name": "AI服务Cannot read property xxx of undefined报错",
-    "file": "机器学习/基础视觉（Core Vision）/AI服务Cannot read property xxx of undefined报错.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-vision-4"
-  },
-  {
     "slug": "faqs-core-vision-1",
     "name": "人脸检测FaceRectangle坐标值偏差问题",
     "file": "机器学习/基础视觉（Core Vision）/人脸检测FaceRectangle坐标值偏差问题/人脸检测FaceRectangle坐标值偏差问题.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-vision-1"
-  },
-  {
-    "slug": "faqs-core-vision-1",
-    "name": "人脸检测FaceRectangle坐标值偏差问题",
-    "file": "机器学习/基础视觉（Core Vision）/人脸检测FaceRectangle坐标值偏差问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-vision-1"
   },
   {
@@ -246,21 +126,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-vision-3"
   },
   {
-    "slug": "faqs-core-vision-3",
-    "name": "图片文字识别方法及识别准确度优化",
-    "file": "机器学习/基础视觉（Core Vision）/图片文字识别方法及识别准确度优化.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-vision-3"
-  },
-  {
     "slug": "faqs-core-vision-6",
     "name": "如何判断skeletonDetection（骨骼点检测）能否使用设备的NPU运行",
     "file": "机器学习/基础视觉（Core Vision）/如何判断skeletonDetection（骨骼点检测）能否使用设备的NPU运行/如何判断skeletonDetection（骨骼点检测）能否使用设备的NPU运行.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-vision-6"
-  },
-  {
-    "slug": "faqs-core-vision-6",
-    "name": "如何判断skeletonDetection（骨骼点检测）能否使用设备的NPU运行",
-    "file": "机器学习/基础视觉（Core Vision）/如何判断skeletonDetection（骨骼点检测）能否使用设备的NPU运行.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-vision-6"
   },
   {
@@ -270,21 +138,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-vision-5"
   },
   {
-    "slug": "faqs-core-vision-5",
-    "name": "如何对文本识别的文本行增加边框描边",
-    "file": "机器学习/基础视觉（Core Vision）/如何对文本识别的文本行增加边框描边.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-vision-5"
-  },
-  {
     "slug": "faqs-core-vision-2",
     "name": "如何解决主体分割保存的图片背景非透明的问题",
     "file": "机器学习/基础视觉（Core Vision）/如何解决主体分割保存的图片背景非透明的问题/如何解决主体分割保存的图片背景非透明的问题.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-vision-2"
-  },
-  {
-    "slug": "faqs-core-vision-2",
-    "name": "如何解决主体分割保存的图片背景非透明的问题",
-    "file": "机器学习/基础视觉（Core Vision）/如何解决主体分割保存的图片背景非透明的问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-vision-2"
   },
   {
@@ -294,21 +150,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-10"
   },
   {
-    "slug": "faqs-core-speech-10",
-    "name": "textToSpeech文本转语音播报音量无法调节",
-    "file": "机器学习/基础语音（Core Speech）/textToSpeech文本转语音播报音量无法调节.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-10"
-  },
-  {
     "slug": "faqs-core-speech-5",
     "name": "初始化语音识别引擎报错",
     "file": "机器学习/基础语音（Core Speech）/初始化语音识别引擎报错/初始化语音识别引擎报错.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-5"
-  },
-  {
-    "slug": "faqs-core-speech-5",
-    "name": "初始化语音识别引擎报错",
-    "file": "机器学习/基础语音（Core Speech）/初始化语音识别引擎报错.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-5"
   },
   {
@@ -318,21 +162,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-4"
   },
   {
-    "slug": "faqs-core-speech-4",
-    "name": "实时语音识别与音频文件识别的功能实现",
-    "file": "机器学习/基础语音（Core Speech）/实时语音识别与音频文件识别的功能实现.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-4"
-  },
-  {
     "slug": "faqs-core-speech-8",
     "name": "文本转语音textToSpeech中onData未触发如何解决",
     "file": "机器学习/基础语音（Core Speech）/文本转语音textToSpeech中onData未触发如何解决/文本转语音textToSpeech中onData未触发如何解决.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-8"
-  },
-  {
-    "slug": "faqs-core-speech-8",
-    "name": "文本转语音textToSpeech中onData未触发如何解决",
-    "file": "机器学习/基础语音（Core Speech）/文本转语音textToSpeech中onData未触发如何解决.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-8"
   },
   {
@@ -342,21 +174,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-2"
   },
   {
-    "slug": "faqs-core-speech-2",
-    "name": "文本转语音如何区分是否为手动停止播报",
-    "file": "机器学习/基础语音（Core Speech）/文本转语音如何区分是否为手动停止播报.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-2"
-  },
-  {
     "slug": "faqs-core-speech-1",
     "name": "文本转语音引擎使用问题",
     "file": "机器学习/基础语音（Core Speech）/文本转语音引擎使用问题/文本转语音引擎使用问题.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-1"
-  },
-  {
-    "slug": "faqs-core-speech-1",
-    "name": "文本转语音引擎使用问题",
-    "file": "机器学习/基础语音（Core Speech）/文本转语音引擎使用问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-1"
   },
   {
@@ -366,21 +186,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-7"
   },
   {
-    "slug": "faqs-core-speech-7",
-    "name": "文本转语音男声音色无效",
-    "file": "机器学习/基础语音（Core Speech）/文本转语音男声音色无效.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-7"
-  },
-  {
     "slug": "faqs-core-speech-11",
     "name": "语音识别1002200010报错",
     "file": "机器学习/基础语音（Core Speech）/语音识别1002200010报错/语音识别1002200010报错.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-11"
-  },
-  {
-    "slug": "faqs-core-speech-11",
-    "name": "语音识别1002200010报错",
-    "file": "机器学习/基础语音（Core Speech）/语音识别1002200010报错.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-11"
   },
   {
@@ -390,21 +198,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-3"
   },
   {
-    "slug": "faqs-core-speech-3",
-    "name": "语音识别数据源问题",
-    "file": "机器学习/基础语音（Core Speech）/语音识别数据源问题.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-3"
-  },
-  {
     "slug": "faqs-core-speech-6",
     "name": "语音识别是否能够根据音色区分人物",
     "file": "机器学习/基础语音（Core Speech）/语音识别是否能够根据音色区分人物/语音识别是否能够根据音色区分人物.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-6"
-  },
-  {
-    "slug": "faqs-core-speech-6",
-    "name": "语音识别是否能够根据音色区分人物",
-    "file": "机器学习/基础语音（Core Speech）/语音识别是否能够根据音色区分人物.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-6"
   },
   {
@@ -414,21 +210,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-9"
   },
   {
-    "slug": "faqs-core-speech-9",
-    "name": "语音识别结果没有纠正如何解决",
-    "file": "机器学习/基础语音（Core Speech）/语音识别结果没有纠正如何解决.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-9"
-  },
-  {
     "slug": "faqs-core-speech-12",
     "name": "语音识别自动停止或初始化失败问题解决方案",
     "file": "机器学习/基础语音（Core Speech）/语音识别自动停止或初始化失败问题解决方案/语音识别自动停止或初始化失败问题解决方案.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-12"
-  },
-  {
-    "slug": "faqs-core-speech-12",
-    "name": "语音识别自动停止或初始化失败问题解决方案",
-    "file": "机器学习/基础语音（Core Speech）/语音识别自动停止或初始化失败问题解决方案.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-12"
   },
   {
@@ -438,21 +222,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-intents-kit-6"
   },
   {
-    "slug": "faqs-intents-kit-6",
-    "name": "InsightIntent debugging什么时候会被调用",
-    "file": "机器学习/意图框架服务（Intents Kit）/InsightIntent debugging什么时候会被调用.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-intents-kit-6"
-  },
-  {
     "slug": "faqs-intents-kit-1",
     "name": "POI场景近场服务接入",
     "file": "机器学习/意图框架服务（Intents Kit）/POI场景近场服务接入/POI场景近场服务接入.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-intents-kit-1"
-  },
-  {
-    "slug": "faqs-intents-kit-1",
-    "name": "POI场景近场服务接入",
-    "file": "机器学习/意图框架服务（Intents Kit）/POI场景近场服务接入.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-intents-kit-1"
   },
   {
@@ -462,21 +234,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-intents-kit-2"
   },
   {
-    "slug": "faqs-intents-kit-2",
-    "name": "小艺开放平台意图注册审核“APP名称”与应用名称不一致如何解决",
-    "file": "机器学习/意图框架服务（Intents Kit）/小艺开放平台意图注册审核“APP名称”与应用名称不一致如何解决.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-intents-kit-2"
-  },
-  {
     "slug": "faqs-intents-kit-3",
     "name": "意图框架意图共享功能中insightIntent.shareIntent与意图共享接口的区别",
     "file": "机器学习/意图框架服务（Intents Kit）/意图框架意图共享功能中insightIntent.shareIntent与意图共享接口的区别/意图框架意图共享功能中insightIntent.shareIntent与意图共享接口的区别.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-intents-kit-3"
-  },
-  {
-    "slug": "faqs-intents-kit-3",
-    "name": "意图框架意图共享功能中insightIntent.shareIntent与意图共享接口的区别",
-    "file": "机器学习/意图框架服务（Intents Kit）/意图框架意图共享功能中insightIntent.shareIntent与意图共享接口的区别.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-intents-kit-3"
   },
   {
@@ -486,21 +246,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-intents-kit-5"
   },
   {
-    "slug": "faqs-intents-kit-5",
-    "name": "意图框架接入流程问题",
-    "file": "机器学习/意图框架服务（Intents Kit）/意图框架接入流程问题.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-intents-kit-5"
-  },
-  {
     "slug": "faqs-intents-kit-4",
     "name": "自定义意图如何上架",
     "file": "机器学习/意图框架服务（Intents Kit）/自定义意图如何上架/自定义意图如何上架.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-intents-kit-4"
-  },
-  {
-    "slug": "faqs-intents-kit-4",
-    "name": "自定义意图如何上架",
-    "file": "机器学习/意图框架服务（Intents Kit）/自定义意图如何上架.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-intents-kit-4"
   },
   {
@@ -510,33 +258,15 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-machine-learning-1"
   },
   {
-    "slug": "faqs-machine-learning-1",
-    "name": "拉起智能体对话框，通过queryText预设的问题没生效如何解决",
-    "file": "机器学习/拉起智能体对话框，通过queryText预设的问题没生效如何解决.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-machine-learning-1"
-  },
-  {
     "slug": "faqs-natural-language-2",
     "name": "AI中英文语义分词功能",
     "file": "机器学习/自然语言理解（Natural Language）/AI中英文语义分词功能/AI中英文语义分词功能.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-natural-language-2"
   },
   {
-    "slug": "faqs-natural-language-2",
-    "name": "AI中英文语义分词功能",
-    "file": "机器学习/自然语言理解（Natural Language）/AI中英文语义分词功能.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-natural-language-2"
-  },
-  {
     "slug": "faqs-natural-language-1",
     "name": "Natural Language Kit获取Entity中缺少rrule字段",
     "file": "机器学习/自然语言理解（Natural Language）/Natural Language Kit获取Entity中缺少rrule字段/Natural Language Kit获取Entity中缺少rrule字段.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-natural-language-1"
-  },
-  {
-    "slug": "faqs-natural-language-1",
-    "name": "Natural Language Kit获取Entity中缺少rrule字段",
-    "file": "机器学习/自然语言理解（Natural Language）/Natural Language Kit获取Entity中缺少rrule字段.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-natural-language-1"
   },
   {
@@ -552,21 +282,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cann-kit-1"
   },
   {
-    "slug": "faqs-cann-kit-1",
-    "name": "CANN Kit离线模型转换工具使用报错",
-    "file": "计算平台/CANN异构计算框架（CANN Kit）/CANN Kit离线模型转换工具使用报错.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cann-kit-1"
-  },
-  {
     "slug": "faqs-cann-kit-3",
     "name": "使用CANN Kit加载ONNX模型转换后的OM模型报错",
     "file": "计算平台/CANN异构计算框架（CANN Kit）/使用CANN Kit加载ONNX模型转换后的OM模型报错/使用CANN Kit加载ONNX模型转换后的OM模型报错.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cann-kit-3"
-  },
-  {
-    "slug": "faqs-cann-kit-3",
-    "name": "使用CANN Kit加载ONNX模型转换后的OM模型报错",
-    "file": "计算平台/CANN异构计算框架（CANN Kit）/使用CANN Kit加载ONNX模型转换后的OM模型报错.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cann-kit-3"
   },
   {
@@ -576,21 +294,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cann-kit-2"
   },
   {
-    "slug": "faqs-cann-kit-2",
-    "name": "使用OMG工具将ONNX模型转换为OM离线模型报错",
-    "file": "计算平台/CANN异构计算框架（CANN Kit）/使用OMG工具将ONNX模型转换为OM离线模型报错.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cann-kit-2"
-  },
-  {
     "slug": "faqs-mindspore-lite-1",
     "name": "MindSpore Lite Kit使用三方框架模型的方法",
     "file": "计算平台/昇思推理框架（MindSpore Lite）/MindSpore Lite Kit使用三方框架模型的方法/MindSpore Lite Kit使用三方框架模型的方法.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mindspore-lite-1"
-  },
-  {
-    "slug": "faqs-mindspore-lite-1",
-    "name": "MindSpore Lite Kit使用三方框架模型的方法",
-    "file": "计算平台/昇思推理框架（MindSpore Lite）/MindSpore Lite Kit使用三方框架模型的方法.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mindspore-lite-1"
   },
   {
@@ -600,21 +306,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-agent-framework-4"
   },
   {
-    "slug": "faqs-agent-framework-4",
-    "name": "如何使用“真机测试”中的agent_login_session_id字段",
-    "file": "计算平台/智能体框架（Agent Framework）/如何使用“真机测试”中的agent_login_session_id字段.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-agent-framework-4"
-  },
-  {
     "slug": "faqs-agent-framework-5",
     "name": "如何查看智能体AgentID",
     "file": "计算平台/智能体框架（Agent Framework）/如何查看智能体AgentID/如何查看智能体AgentID.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-agent-framework-5"
-  },
-  {
-    "slug": "faqs-agent-framework-5",
-    "name": "如何查看智能体AgentID",
-    "file": "计算平台/智能体框架（Agent Framework）/如何查看智能体AgentID.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-agent-framework-5"
   },
   {
@@ -624,21 +318,9 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-agent-framework-6"
   },
   {
-    "slug": "faqs-agent-framework-6",
-    "name": "小艺开放平台云插件调用云函数报错“域名只支持HTTPS和WSS协议，且须为公网地址”如何解决",
-    "file": "计算平台/智能体框架（Agent Framework）/小艺开放平台云插件调用云函数报错“域名只支持HTTPS和WSS协议，且须为公网地址”如何解决.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-agent-framework-6"
-  },
-  {
     "slug": "faqs-agent-framework-3",
     "name": "应用内呼出智能体提示“智能体未授权给该应用”",
     "file": "计算平台/智能体框架（Agent Framework）/应用内呼出智能体提示“智能体未授权给该应用”/应用内呼出智能体提示“智能体未授权给该应用”.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-agent-framework-3"
-  },
-  {
-    "slug": "faqs-agent-framework-3",
-    "name": "应用内呼出智能体提示“智能体未授权给该应用”",
-    "file": "计算平台/智能体框架（Agent Framework）/应用内呼出智能体提示“智能体未授权给该应用”.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-agent-framework-3"
   },
   {
@@ -648,33 +330,15 @@
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-agent-framework-2"
   },
   {
-    "slug": "faqs-agent-framework-2",
-    "name": "智能体卡片变量问题",
-    "file": "计算平台/智能体框架（Agent Framework）/智能体卡片变量问题.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-agent-framework-2"
-  },
-  {
     "slug": "faqs-agent-framework-8",
     "name": "智能体如何在真机上显示markdown格式文档",
     "file": "计算平台/智能体框架（Agent Framework）/智能体如何在真机上显示markdown格式文档/智能体如何在真机上显示markdown格式文档.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-agent-framework-8"
   },
   {
-    "slug": "faqs-agent-framework-8",
-    "name": "智能体如何在真机上显示markdown格式文档",
-    "file": "计算平台/智能体框架（Agent Framework）/智能体如何在真机上显示markdown格式文档.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-agent-framework-8"
-  },
-  {
     "slug": "faqs-agent-framework-1",
     "name": "智能体如何获取华为账号手机号",
     "file": "计算平台/智能体框架（Agent Framework）/智能体如何获取华为账号手机号/智能体如何获取华为账号手机号.md",
-    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-agent-framework-1"
-  },
-  {
-    "slug": "faqs-agent-framework-1",
-    "name": "智能体如何获取华为账号手机号",
-    "file": "计算平台/智能体框架（Agent Framework）/智能体如何获取华为账号手机号.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-agent-framework-1"
   },
   {

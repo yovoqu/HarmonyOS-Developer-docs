@@ -27,36 +27,36 @@ Socket数据传输仅支持string或ArrayBuffer数据类型，与服务器进行
 
   客户端发送普通字符串数据，但服务端需要接收二进制数据。可在Socket发送前将字符串转为Unicode，最后转换为ArrayBuffer类型数据。
 ```text
-function strToArrayBuffer(str: string) {
-  let buf = new ArrayBuffer(str.length * 2);
-  let bufView = new Uint16Array(buf);
-  for (let i = 0, strLen = str.length; i < strLen; i++) {
-    bufView[i] = str.charCodeAt(i);
-  }
-  console.info(`bufView ${bufView}`);
-  return bufView.buffer;
-}
+function <span style="color: rgb(0,0,255);">strToArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  let <span style="color: rgb(255,255,255);">buf </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">bufView </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint16Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">buf</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">strLen </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">strLen</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">bufView</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">charCodeAt</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`bufView </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">bufView</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  return <span style="color: rgb(255,255,255);">bufView</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-let inputValue = 'This is a plain string';
-strToArrayBuffer(inputValue);
+let <span style="color: rgb(255,255,255);">inputValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'This is a plain string'</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">strToArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">inputValue</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
 
 - **场景三**：
 
   客户端发送十六进制字符串数据如[FA AF 11 C5 FE FF...]，服务端需要接收8位有符号整数数值如[-6, -81, 17, -59, 3, -1...]，可在Socket发送前将十六进制字符转成8位有符号整数（元素取值范围-128至127）。
 ```text
-function strToInt8ArrayBuffer(str: string) {
-  const arr = str.split(' ').map(hex => {
-    let num = parseInt(hex, 16);
-    return num > 127 ? num - 256 : num;
-  });
-  const typedArray = new Int8Array(arr);
-  console.info(`typedArray ${typedArray}`);
-  return typedArray.buffer;
-}
+function <span style="color: rgb(0,0,255);">strToInt8ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  const <span style="color: rgb(255,255,255);">arr </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">split</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">' '</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">map</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">hex </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">num </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">parseInt</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">hex</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(255,255,255);">num </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">127 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">num </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">256 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">num</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  const <span style="color: rgb(255,255,255);">typedArray </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Int8Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`typedArray </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">typedArray</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  return <span style="color: rgb(255,255,255);">typedArray</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-let hexString = 'FA AF 11 C5 FE FF FF FF FF FF FF F0 53 C8 B9 25 E1 A7 67 46 68 94 1D 72 BC';
-strToInt8ArrayBuffer(hexString);
+let <span style="color: rgb(255,255,255);">hexString </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'FA AF 11 C5 FE FF FF FF FF FF FF F0 53 C8 B9 25 E1 A7 67 46 68 94 1D 72 BC'</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">strToInt8ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">hexString</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
  
 > [!NOTE]
@@ -66,18 +66,18 @@ strToInt8ArrayBuffer(hexString);
 
   客户端发送十六进制字符串数据如[FA AF 11 C5 FE FF...]，服务端需要接收8位无符号整数数值如[250, 175, 17, 197, 254, 255...]，可在Socket发送前将十六进制字符转成8位无符号整数（元素取值范围0至255）。
 ```text
-function strToUint8ArrayBuffer(str: string) {
-  const arr = str.split(' ').map(hex => {
-    let num = parseInt(hex, 16);
-    return num;
-  });
-  const typedArray = new Uint8Array(arr);
-  console.info(`typedArray ${typedArray}`);
-  return typedArray.buffer;
-}
+function <span style="color: rgb(0,0,255);">strToUint8ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  const <span style="color: rgb(255,255,255);">arr </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">split</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">' '</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">map</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">hex </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">num </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">parseInt</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">hex</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(255,255,255);">num</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  const <span style="color: rgb(255,255,255);">typedArray </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`typedArray </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">typedArray</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  return <span style="color: rgb(255,255,255);">typedArray</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-let hexValue = 'FA AF 11 C5 FE FF FF FF FF FF FF F0 53 C8 B9 25 E1 A7 67 46 68 94 1D 72 BC';
-strToUint8ArrayBuffer(hexValue);
+let <span style="color: rgb(255,255,255);">hexValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'FA AF 11 C5 FE FF FF FF FF FF FF F0 53 C8 B9 25 E1 A7 67 46 68 94 1D 72 BC'</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">strToUint8ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">hexValue</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
  
 > [!NOTE]
@@ -89,64 +89,64 @@ strToUint8ArrayBuffer(hexValue);
 完整示例参考如下：
  
 ```text
-function strToArrayBuffer(str: string) {
-  let buf = new ArrayBuffer(str.length * 2);
-  let bufView = new Uint16Array(buf);
-  for (let i = 0, strLen = str.length; i < strLen; i++) {
-    bufView[i] = str.charCodeAt(i);
-  }
-  console.info(`bufView ${bufView}`);
-  return bufView.buffer;
-}
+function <span style="color: rgb(0,0,255);">strToArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  let <span style="color: rgb(255,255,255);">buf </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">bufView </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint16Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">buf</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">strLen </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">strLen</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">bufView</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">charCodeAt</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`bufView </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">bufView</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  return <span style="color: rgb(255,255,255);">bufView</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-let inputValue = 'This is a plain string';
-strToArrayBuffer(inputValue);
+let <span style="color: rgb(255,255,255);">inputValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'This is a plain string'</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">strToArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">inputValue</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-function strToInt8ArrayBuffer(str: string) {
-  const arr = str.split(' ').map(hex => {
-    let num = parseInt(hex, 16);
-    return num > 127 ? num - 256 : num;
-  });
-  const typedArray = new Int8Array(arr);
-  console.info(`typedArray ${typedArray}`);
-  return typedArray.buffer;
-}
+function <span style="color: rgb(0,0,255);">strToInt8ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  const <span style="color: rgb(255,255,255);">arr </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">split</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">' '</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">map</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">hex </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">num </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">parseInt</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">hex</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(255,255,255);">num </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">127 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">num </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">256 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">num</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  const <span style="color: rgb(255,255,255);">typedArray </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Int8Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`typedArray </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">typedArray</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  return <span style="color: rgb(255,255,255);">typedArray</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-let hexString = 'FA AF 11 C5 FE FF FF FF FF FF FF F0 53 C8 B9 25 E1 A7 67 46 68 94 1D 72 BC';
-strToInt8ArrayBuffer(hexString);
+let <span style="color: rgb(255,255,255);">hexString </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'FA AF 11 C5 FE FF FF FF FF FF FF F0 53 C8 B9 25 E1 A7 67 46 68 94 1D 72 BC'</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">strToInt8ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">hexString</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-function strToUint8ArrayBuffer(str: string) {
-  const arr = str.split(' ').map(hex => {
-    let num = parseInt(hex, 16);
-    return num;
-  });
-  const typedArray = new Uint8Array(arr);
-  console.info(`typedArray ${typedArray}`);
-  return typedArray.buffer;
-}
+function <span style="color: rgb(0,0,255);">strToUint8ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  const <span style="color: rgb(255,255,255);">arr </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">split</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">' '</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">map</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">hex </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">num </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">parseInt</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">hex</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(255,255,255);">num</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  const <span style="color: rgb(255,255,255);">typedArray </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`typedArray </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">typedArray</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  return <span style="color: rgb(255,255,255);">typedArray</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-let hexValue = 'FA AF 11 C5 FE FF FF FF FF FF FF F0 53 C8 B9 25 E1 A7 67 46 68 94 1D 72 BC';
-strToUint8ArrayBuffer(hexValue);
+let <span style="color: rgb(255,255,255);">hexValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'FA AF 11 C5 FE FF FF FF FF FF FF F0 53 C8 B9 25 E1 A7 67 46 68 94 1D 72 BC'</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">strToUint8ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">hexValue</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@ComponentV2
-struct SocketTest {
-  build() {
-    Column() {
-      Button('普通字符串转buffer').onClick(() => {
-        strToArrayBuffer(inputValue);
-      });
-      Button('16进制字符转Int8ArrayBuffer').onClick(() => {
-        strToInt8ArrayBuffer(hexString);
-      });
-      Button('16进制字符转Uint8ArrayBuffer').onClick(() => {
-        strToUint8ArrayBuffer(hexValue);
-      });
-    }
-    .width('100%')
-    .height('100%');
-  }
-}
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@ComponentV2</span>
+struct <span style="color: rgb(0,0,255);">SocketTest </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">普通字符串转</span><span style="color: rgb(132,63,161);">buffer'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">strToArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">inputValue</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'16</span><span style="color: rgb(132,63,161);">进制字符转</span><span style="color: rgb(132,63,161);">Int8ArrayBuffer'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">strToInt8ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">hexString</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'16</span><span style="color: rgb(132,63,161);">进制字符转</span><span style="color: rgb(132,63,161);">Uint8ArrayBuffer'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">strToUint8ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">hexValue</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  
  

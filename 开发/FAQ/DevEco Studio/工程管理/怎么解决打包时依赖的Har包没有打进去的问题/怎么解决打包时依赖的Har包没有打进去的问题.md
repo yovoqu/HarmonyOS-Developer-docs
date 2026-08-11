@@ -37,17 +37,17 @@ SDK项目中对功能做模块化拆分，如library、har1、har2，library依�
 2. 编译构建har1、har2，得到编译产物har1.har和har2.har。在library模块中新建文件夹libs（或其他名称），将编译产物har1.har和har2.har拷贝到libs文件夹中，在library模块中添加依赖指向模块内的两个har文件，编译构建library模块，此时har1和har2会被打包进library.har，可以供其他项目使用。
  
 - 开发工程结构：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/LpqP9KfEQlWYoIZ_uG0xew/zh-cn_image_0000002628567956.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=9BB5BFB1CC03A04D3A25951CF0228371743651A1D6DF86BF52EF832EA11C6A68)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/LpqP9KfEQlWYoIZ_uG0xew/zh-cn_image_0000002628567956.png?HW-CC-KV=V1&HW-CC-Date=20260811T005516Z&HW-CC-Expire=86400&HW-CC-Sign=6E202E021B35D46FE6DEC5A1F7822A5AF556CB646DC454D36206EA6F732A67E7)
 
 
  
 - library模块的oh-package-lock.json5：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/45rljVwuQj-RDpoMui1hRg/zh-cn_image_0000002658927279.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=80C4E23DCD3D712EF9EF0887AC62D839CD4B3F88D9E396D11E937C962C937723)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/45rljVwuQj-RDpoMui1hRg/zh-cn_image_0000002658927279.png?HW-CC-KV=V1&HW-CC-Date=20260811T005516Z&HW-CC-Expire=86400&HW-CC-Sign=3D851A060C8BD1BCCC2172D9DA5B567802D8821113F69CAF6AD5A25E03F00A68)
 
 
  
 - 编译工程结构：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/iDkpwMR3RXWWW9Irxmp6Fw/zh-cn_image_0000002658807323.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=40323655D8633917112E4E3DE8ADAB60809D1F371A916AD0556BC170CE55912F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/iDkpwMR3RXWWW9Irxmp6Fw/zh-cn_image_0000002658807323.png?HW-CC-KV=V1&HW-CC-Date=20260811T005516Z&HW-CC-Expire=86400&HW-CC-Sign=73A9D284E041F67C8B5E8737DCD92E93974A7F0775FC4F5E0E314A678ED1A8A1)
 
 
  

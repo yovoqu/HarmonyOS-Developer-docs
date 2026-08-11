@@ -10,7 +10,7 @@
  
 - 参照官方文档在AGC中已经配置了通讯录读写权限，工程中也配置了通讯录读权限，但是在启动调试或运行应用/服务时，安装HAP出现错误，提示：
 ```text
-error: install failed due to grant request permissions failed
+<span style="color: rgb(181,106,1);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">install failed due to grant request permissions failed</span>
 ```
 
 - 根据电话号码使用contact.queryContactsByPhoneNumber查出来的联系人缺少name信息。
@@ -48,21 +48,21 @@ Contacts Kit可以帮助开发者轻松实现联系人的增删改查等功能�
 
   
 ```json
-<em>// 1.</em><em>调用联系人接口，拉起联系人列表，用户点击对应的联系人后返回</em>
-if (canIUse('SystemCapability.Applications.Contacts')) {
-  contact.selectContacts({
-    isMultiSelect: false
-  }, (err: BusinessError, data) => {
-    if (err) {
-      console.error('selectContact callback, errCode:' + err.code + ', errMessage:' + err.message);
-      return;
-    }
-  <em>  // 2.完成操作，返回想要的data数据</em>
-    console.info(`selectContact callback: success data->${JSON.stringify(data)}`);
-  });
-} else {
-  console.error('The current device does not support contact queries.');
-}
+<em>// 1.</em><em><span style="color: rgb(128,128,128);">调用联系人接口，拉起联系人列表，用户点击对应的联系人后返回</span></em>
+if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">canIUse</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'SystemCapability.Applications.Contacts'</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectContacts</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">isMultiSelect</span><span style="color: rgb(181,106,1);">: </span>false
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'selectContact callback, errCode:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">', errMessage:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      return<span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+  <em>  <span style="color: rgb(128,128,128);">// 2.</span><span style="color: rgb(128,128,128);">完成操作，返回想要的</span><span style="color: rgb(128,128,128);">data</span><span style="color: rgb(128,128,128);">数据</span></em>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`selectContact callback: success data-</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'The current device does not support contact queries.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 - 使用[@ohos.contact API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-contact)查询联系人信息：
@@ -72,43 +72,43 @@ Contacts Kit当前能力受限开放，需要申请受限开放权限ohos.permis
 
  - 使用[@ohos.contact API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-contact)查询联系人信息：此方式需要关注使用的接口的入参是否含有attrs联系人的属性列表。以contact.queryContact接口为例，attrs不传默认查询所有联系人属性，如果传了就需要包含contact.Attribute.ATTR_NAME接口才会返回name。
 ```json
-let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-const permissions: Array<Permissions> = ['ohos.permission.READ_CONTACTS'];
-abilityAccessCtrl.createAtManager()
-  .requestPermissionsFromUser(context, permissions)
-  .then((result: PermissionRequestResult) => {
-    if (result.authResults[0] !== 0) { <em>// 0 表示请求权限成功，其他任何非零值表示请求失败</em>
-      console.error('request contact permissions failed');
-      return;
-    }
-    if (canIUse('SystemCapability.Applications.ContactsData')) {
-      contact.queryContactsByPhoneNumber(context, '138xxxxxxxx', {
-        attributes: [contact.Attribute.ATTR_NAME, contact.Attribute.ATTR_PHONE]
-      }, (err: BusinessError, data) => {
-        if (err) {
-          console.error(`Failed to query Contacts By PhoneNumber. Code: ${err.code}, message: ${err.message}`);
-          return;
-        }
-        console.info(`Succeeded in querying Contacts By PhoneNumber. data->${JSON.stringify(data)}`);
-        if (data.length !== 0) {
-          contact.queryContact(context, data[0].key, {
-            attributes: [contact.Attribute.ATTR_NAME, contact.Attribute.ATTR_PHONE]
-          }, (err: BusinessError, data) => {
-            if (err) {
-              console.error(`Failed to query Contact. Code: ${err.code}, message: ${err.message}`);
-              return;
-            }
-            console.info(`Succeeded in querying Contact. data->${JSON.stringify(data)}`);
-          });
-        }
-      });
-    } else {
-      console.error('The current device does not support contact queries.');
-    }
-  })
-  .catch((err: BusinessError) => {
-    console.error(`Failed to queryContactsByPhoneNumber. Code: ${err.code}, message: ${err.message}`);
-  });
+let <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+const <span style="color: rgb(0,0,255);">permissions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">Permissions</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'ohos.permission.READ_CONTACTS'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">abilityAccessCtrl</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createAtManager</span><span style="color: rgb(0,0,255);">()</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">requestPermissionsFromUser</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">permissions</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PermissionRequestResult</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">authResults</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{ </span><em><span style="color: rgb(128,128,128);">// 0 </span><span style="color: rgb(128,128,128);">表示请求权限成功，其他任何非零值表示请求失败</span></em>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'request contact permissions failed'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      return<span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">canIUse</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'SystemCapability.Applications.ContactsData'</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">queryContactsByPhoneNumber</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'138xxxxxxxx'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">attributes</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Attribute</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ATTR_NAME</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Attribute</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ATTR_PHONE</span><span style="color: rgb(0,0,255);">]</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to query Contacts By PhoneNumber. Code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          return<span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span>
+        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Succeeded in querying Contacts By PhoneNumber. data-</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">queryContact</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">attributes</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Attribute</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ATTR_NAME</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Attribute</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ATTR_PHONE</span><span style="color: rgb(0,0,255);">]</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to query Contact. Code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              return<span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Succeeded in querying Contact. data-</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'The current device does not support contact queries.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to queryContactsByPhoneNumber. Code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
 
 
@@ -117,78 +117,78 @@ abilityAccessCtrl.createAtManager()
 完整示例参考如下：
  
 ```json
-import { BusinessError } from '@kit.BasicServicesKit';
-import { contact } from '@kit.ContactsKit';
-import { abilityAccessCtrl, common, PermissionRequestResult, Permissions } from '@kit.AbilityKit';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">contact </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ContactsKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">abilityAccessCtrl</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">PermissionRequestResult</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Permissions </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct ContactExample {
-  build() {
-    Column({ space: 20 }) {
-      Button('使用Picker选择联系人')
-        .onClick(() => {
-          <em>// 1.调用联系人接口，拉起联系人列表，用户点击对应的联系人后返回</em>
-          if (canIUse('SystemCapability.Applications.Contacts')) {
-            contact.selectContacts({
-              isMultiSelect: false
-            }, (err: BusinessError, data) => {
-              if (err) {
-                console.error('selectContact callback, errCode:' + err.code + ', errMessage:' + err.message);
-                return;
-              }
-            <em>  // 2.完成操作，返回想要的data数据</em>
-              console.info(`selectContact callback: success data->${JSON.stringify(data)}`);
-            });
-          } else {
-            console.error('The current device does not support contact queries.');
-          }
-        });
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">ContactExample </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">使用</span><span style="color: rgb(255,0,170);">Picker</span><span style="color: rgb(255,0,170);">选择联系人</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          <em><span style="color: rgb(128,128,128);">// 1.</span><span style="color: rgb(128,128,128);">调用联系人接口，拉起联系人列表，用户点击对应的联系人后返回</span></em>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">canIUse</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'SystemCapability.Applications.Contacts'</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectContacts</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">isMultiSelect</span><span style="color: rgb(181,106,1);">: </span>false
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+              if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'selectContact callback, errCode:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">', errMessage:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                return<span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(255,0,170);">}</span>
+            <em>  <span style="color: rgb(128,128,128);">// 2.</span><span style="color: rgb(128,128,128);">完成操作，返回想要的</span><span style="color: rgb(128,128,128);">data</span><span style="color: rgb(128,128,128);">数据</span></em>
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`selectContact callback: success data-</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'The current device does not support contact queries.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-      Button('根据电话号码和attrs查询联系人')
-        .onClick(() => {
-          let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-          const permissions: Array<Permissions> = ['ohos.permission.READ_CONTACTS'];
-          abilityAccessCtrl.createAtManager()
-            .requestPermissionsFromUser(context, permissions)
-            .then((result: PermissionRequestResult) => {
-              if (result.authResults[0] !== 0) { <em>// 0 表示请求权限成功，其他任何非零值表示请求失败</em>
-                console.error('request contact permissions failed');
-                return;
-              }
-              if (canIUse('SystemCapability.Applications.ContactsData')) {
-                contact.queryContactsByPhoneNumber(context, '138xxxxxxxx', {
-                  attributes: [contact.Attribute.ATTR_NAME, contact.Attribute.ATTR_PHONE]
-                }, (err: BusinessError, data) => {
-                  if (err) {
-                    console.error(`Failed to query Contacts By PhoneNumber. Code: ${err.code}, message: ${err.message}`);
-                    return;
-                  }
-                  console.info(`Succeeded in querying Contacts By PhoneNumber. data->${JSON.stringify(data)}`);
-                  if (data.length !== 0) {
-                    contact.queryContact(context, data[0].key, {
-                      attributes: [contact.Attribute.ATTR_NAME, contact.Attribute.ATTR_PHONE]
-                    }, (err: BusinessError, data) => {
-                      if (err) {
-                        console.error(`Failed to query Contact. Code: ${err.code}, message: ${err.message}`);
-                        return;
-                      }
-                      console.info(`Succeeded in querying Contact. data->${JSON.stringify(data)}`);
-                    });
-                  }
-                });
-              } else {
-                console.error('The current device does not support contact queries.');
-              }
-            })
-            .catch((err: BusinessError) => {
-              console.error(`Failed to queryContactsByPhoneNumber. Code: ${err.code}, message: ${err.message}`);
-            });
-        });
-    }
-    .height('100%')
-    .width('100%')
-    .justifyContent(FlexAlign.Center);
-  }
-}
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">根据电话号码和</span><span style="color: rgb(255,0,170);">attrs</span><span style="color: rgb(255,0,170);">查询联系人</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          let <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+          const <span style="color: rgb(0,0,255);">permissions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">Permissions</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'ohos.permission.READ_CONTACTS'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(0,0,255);">abilityAccessCtrl</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createAtManager</span><span style="color: rgb(0,0,255);">()</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">requestPermissionsFromUser</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">permissions</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PermissionRequestResult</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+              if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">authResults</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{ </span><em><span style="color: rgb(128,128,128);">// 0 </span><span style="color: rgb(128,128,128);">表示请求权限成功，其他任何非零值表示请求失败</span></em>
+                <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'request contact permissions failed'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                return<span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(255,0,170);">}</span>
+              if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">canIUse</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'SystemCapability.Applications.ContactsData'</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">queryContactsByPhoneNumber</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'138xxxxxxxx'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{</span>
+                  <span style="color: rgb(0,0,255);">attributes</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Attribute</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ATTR_NAME</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Attribute</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ATTR_PHONE</span><span style="color: rgb(0,0,255);">]</span>
+                <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+                    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to query Contacts By PhoneNumber. Code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                    return<span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(255,0,170);">}</span>
+                  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Succeeded in querying Contacts By PhoneNumber. data-</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+                    <span style="color: rgb(0,0,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">queryContact</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{</span>
+                      <span style="color: rgb(0,0,255);">attributes</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Attribute</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ATTR_NAME</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Attribute</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ATTR_PHONE</span><span style="color: rgb(0,0,255);">]</span>
+                    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+                        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to query Contact. Code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                        return<span style="color: rgb(181,106,1);">;</span>
+                      <span style="color: rgb(255,0,170);">}</span>
+                      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Succeeded in querying Contact. data-</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">                }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'The current device does not support contact queries.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">            }</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to queryContactsByPhoneNumber. Code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

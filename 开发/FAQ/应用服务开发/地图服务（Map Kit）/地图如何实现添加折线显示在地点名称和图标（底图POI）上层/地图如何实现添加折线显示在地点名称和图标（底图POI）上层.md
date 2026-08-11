@@ -9,7 +9,7 @@
 地图添加折线后，折线显示在了地点名称和图标（底图POI）的下层，对折线有遮挡，如何让折线显示在上层。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/TTW8dMxeTPuDBqZ-mAxbPQ/zh-cn_image_0000002658913579.png?HW-CC-KV=V1&HW-CC-Date=20260730T072642Z&HW-CC-Expire=86400&HW-CC-Sign=989809536357FA0988CA21ECB02595850E5393C5F16E87008E2F8DB9C9CEEA42)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/TTW8dMxeTPuDBqZ-mAxbPQ/zh-cn_image_0000002658913579.png?HW-CC-KV=V1&HW-CC-Date=20260811T005611Z&HW-CC-Expire=86400&HW-CC-Sign=5B9E16D64C058D2D321E0A280B3424563FE93EB0CF9E3B24D6790F3BAB8C3E63)
 
  
  
@@ -27,72 +27,72 @@
 调整元素显示顺序，让OVERLAY（包括折线）元素显示在POI的上层。
  
 ```text
-let mapElementTypeArr: Array<mapCommon.MapElementType> = [
-  mapCommon.MapElementType.POI,
-  mapCommon.MapElementType.OVERLAY,
-  mapCommon.MapElementType.CUSTOM_POI,
-  mapCommon.MapElementType.MARKER];
-this.mapController?.setDisplayOrder(mapElementTypeArr);
+let <span style="color: rgb(0,0,255);">mapElementTypeArr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MapElementType</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[</span>
+  <span style="color: rgb(0,0,255);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MapElementType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">POI</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MapElementType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OVERLAY</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MapElementType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CUSTOM_POI</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MapElementType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MARKER</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mapController</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">setDisplayOrder</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">mapElementTypeArr</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
  
 完整代码：
  
 ```text
-import { map, mapCommon, MapComponent } from '@kit.MapKit';
-import { AsyncCallback } from '@kit.BasicServicesKit';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">map</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">mapCommon</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">MapComponent </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.MapKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">AsyncCallback </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct AddPolylineOrder {
-  private mapOptions?: mapCommon.MapOptions;
-  private mapController?: map.MapComponentController;
-  private callback?: AsyncCallback<map.MapComponentController>;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">AddPolylineOrder </span><span style="color: rgb(255,0,170);">{</span>
+  private <span style="color: rgb(0,0,255);">mapOptions</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MapOptions</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">mapController</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">map</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MapComponentController</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">callback</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">AsyncCallback</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">map</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MapComponentController</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">;</span>
 
-  aboutToAppear(): void {
-    // 地图初始化参数
-    this.mapOptions = {
-      position: {
-        target: {
-          latitude: 31.984410259206815,
-          longitude: 118.76625379397866
-        },
-        zoom: 15
-      }
-    };
-    this.callback = async (err, mapController) => {
-      if (!err) {
-        this.mapController = mapController;
-        let mapElementTypeArr: Array<mapCommon.MapElementType> = [
-          mapCommon.MapElementType.POI,
-          mapCommon.MapElementType.OVERLAY,
-          mapCommon.MapElementType.CUSTOM_POI,
-          mapCommon.MapElementType.MARKER];
-        this.mapController?.setDisplayOrder(mapElementTypeArr);
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">地图初始化参数</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mapOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">position</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">latitude</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">31.984410259206815</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">longitude</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">118.76625379397866</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">zoom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">15</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">callback </span><span style="color: rgb(181,106,1);">= </span>async <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">mapController</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mapController </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">mapController</span><span style="color: rgb(181,106,1);">;</span>
+        let <span style="color: rgb(0,0,255);">mapElementTypeArr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MapElementType</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[</span>
+          <span style="color: rgb(0,0,255);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MapElementType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">POI</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MapElementType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OVERLAY</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MapElementType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CUSTOM_POI</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MapElementType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MARKER</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mapController</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">setDisplayOrder</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">mapElementTypeArr</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-        let polylineOption: mapCommon.MapPolylineOptions = {
-          points: [
-            { latitude: 31.984410259206815, longitude: 118.76625379397866 },
-            { latitude: 31.979410259206815, longitude: 118.75625379397866 },
-          ],
-          clickable: true,
-          startCap: mapCommon.CapStyle.BUTT,
-          endCap: mapCommon.CapStyle.BUTT,
-          jointType: mapCommon.JointType.BEVEL,
-          color: 0xFF0A59F7,
-          width: 20
-        };
-        let polyline = await this.mapController?.addPolyline(polylineOption);
-        console.info(`add polyline success, polyline is ${polyline}`);
-      }
-    };
-  }
+        let <span style="color: rgb(0,0,255);">polylineOption</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MapPolylineOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">points</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span>
+            <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">latitude</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">31.984410259206815</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">longitude</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">118.76625379397866 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">latitude</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">31.979410259206815</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">longitude</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">118.75625379397866 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">clickable</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">startCap</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CapStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BUTT</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">endCap</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CapStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BUTT</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">jointType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">mapCommon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">JointType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BEVEL</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">0xFF0A59F7</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+        let <span style="color: rgb(0,0,255);">polyline </span><span style="color: rgb(181,106,1);">= </span>await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mapController</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">addPolyline</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">polylineOption</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`add polyline success, polyline is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">polyline</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    Stack() {
-      Column() {
-        MapComponent({ mapOptions: this.mapOptions, mapCallback: this.callback })
-      }.width('100%')
-    }.height('100%')
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">MapComponent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">mapOptions</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mapOptions</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">mapCallback</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">callback </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

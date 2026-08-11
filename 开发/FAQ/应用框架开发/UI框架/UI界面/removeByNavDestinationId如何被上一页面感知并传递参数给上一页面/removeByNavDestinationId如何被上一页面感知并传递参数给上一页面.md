@@ -13,7 +13,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/5cH7U7cJQFuGxoAzVvb5Aw/zh-cn_image_0000002658916943.png?HW-CC-KV=V1&HW-CC-Date=20260730T072500Z&HW-CC-Expire=86400&HW-CC-Sign=555B62F1A26BBD0BE42C000FD37030F43696034E0254C1F252D0343454835ACD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/5cH7U7cJQFuGxoAzVvb5Aw/zh-cn_image_0000002658916943.png?HW-CC-KV=V1&HW-CC-Date=20260811T005652Z&HW-CC-Expire=86400&HW-CC-Sign=40D68D7B15C1372DA1C6D549B768FAF2EA870128127D5B14E0314B3FCC002AE5)
 
  
  
@@ -37,137 +37,137 @@
  
 - 自定义MyNavPathStack类并重写removeByNavDestinationId方法。
 ```text
-class MyNavPathStack extends NavPathStack {
-  removeByNavDestinationId(navDestinationId: string, result?: object): boolean {
-    if (result) {
-      this.notifyRemove(navDestinationId, result);
-    }
-    return super.removeByNavDestinationId(navDestinationId);
-  }
+class <span style="color: rgb(0,0,255);">MyNavPathStack </span>extends <span style="color: rgb(0,0,255);">NavPathStack </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">removeByNavDestinationId</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">navDestinationId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">object</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">notifyRemove</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">navDestinationId</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    return super<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">removeByNavDestinationId</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">navDestinationId</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  private notifyRemove(navDestinationId: string, result: object) {
-    let remove = this.getPathStack().filter(item => item.navDestinationId === navDestinationId);
-    if (remove.length <= 0) {
-      return;
-    }
-    let info = remove[0];
-    info.onPop?.({ info: info, result: result }); <em>// </em><em>调用onPop回调</em>
-  }
-}
+  private <span style="color: rgb(0,0,255);">notifyRemove</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">navDestinationId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">object</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">remove </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPathStack</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filter</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">navDestinationId </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">navDestinationId</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">remove</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      return<span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    let <span style="color: rgb(0,0,255);">info </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">remove</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onPop</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">result </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">调用</span><span style="color: rgb(128,128,128);">onPop</span><span style="color: rgb(128,128,128);">回调</span></em>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 - 页面跳转逻辑代码如下：
 ```json
-<em>// </em><em>页面间传递的参数类型</em>
-class PageParams {
-  name = '';
-  remove = '';
+<em>// </em><em><span style="color: rgb(128,128,128);">页面间传递的参数类型</span></em>
+class <span style="color: rgb(0,0,255);">PageParams </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">name </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">remove </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
 
-  constructor(name?: string, remove?: string) {
-    this.name = name === undefined ? '' : name;
-    this.remove = remove === undefined ? '' : remove;
-  }
-}
+  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">remove</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">name </span><span style="color: rgb(181,106,1);">=== </span>undefined <span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,170);">'' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">remove </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">remove </span><span style="color: rgb(181,106,1);">=== </span>undefined <span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,170);">'' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">remove</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Entry
-@Component
-struct NavigationPage {
-  pathStack: MyNavPathStack = new MyNavPathStack();
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">NavigationPage </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">MyNavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">MyNavPathStack</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-  @Builder
-  routeMap(param: string) {
-    if (param === 'PageA') {
-      PageA();
-    } else if (param === 'PageB') {
-      PageB();
-    } else if (param === 'PageC') {
-      PageC();
-    }
-  }
+  <span style="color: rgb(181,106,1);">@Builder</span>
+  <span style="color: rgb(0,0,255);">routeMap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">param </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'PageA'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">PageA</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>else if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">param </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'PageB'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">PageB</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>else if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">param </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'PageC'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">PageC</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
 
-  build() {
-    Navigation(this.pathStack) {
-      Button('跳转')
-        .onClick(() => {
-          this.pathStack.pushPath({ name: 'PageA', param: new PageParams('A') });
-        });
-    }.navDestination(this.routeMap);
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">跳转</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'PageA'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">PageParams</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'A'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">navDestination</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">routeMap</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Component
-struct PageA {
-  pathStack: MyNavPathStack = new MyNavPathStack();
-  @State param: PageParams = new PageParams();
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">PageA </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">MyNavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">MyNavPathStack</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PageParams </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">PageParams</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    NavDestination() {
-      Column({ space: 10 }) {
-        Text(`当前页面：` + this.param.name);
-        Text(`待移除id：` + (this.param.remove || '-'));
-        Button('开启监听并跳转').onClick(() => {
-        <em>  // 跳转PageB页面并设置onPop回调</em>
-          this.pathStack.pushPath({
-            name: 'PageB', param: new PageParams('B'), onPop: (res) => {
-              console.info('A页面触发移除方法');
-              this.getUIContext()
-                .showAlertDialog({ message: `页面${this.param.name}中触发的回调，参数为:${JSON.stringify(res)}` });
-            }
-          });
-        });
-      };
-    }.onReady(context => {
-      this.param = context.pathInfo.param as PageParams;
-      this.pathStack = context.pathStack as MyNavPathStack;
-    });
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">当前页面：</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">待移除</span><span style="color: rgb(255,0,170);">id</span><span style="color: rgb(255,0,170);">：</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">remove </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,170);">'-'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">开启监听并跳转</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">跳转</span><span style="color: rgb(128,128,128);">PageB</span><span style="color: rgb(128,128,128);">页面并设置</span><span style="color: rgb(128,128,128);">onPop</span><span style="color: rgb(128,128,128);">回调</span></em>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'PageB'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">PageParams</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'B'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">onPop</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">res</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'A</span><span style="color: rgb(255,0,170);">页面触发移除方法</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showAlertDialog</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">页面</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">中触发的回调，参数为</span><span style="color: rgb(255,0,170);">:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">res</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param </span>as <span style="color: rgb(0,0,255);">PageParams</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack </span>as <span style="color: rgb(0,0,255);">MyNavPathStack</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Component
-struct PageB {
-  pathStack: MyNavPathStack = new MyNavPathStack();
-  @State param: PageParams = new PageParams('', '');
-  private navDestinationId: string = '';
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">PageB </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">MyNavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">MyNavPathStack</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PageParams </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">PageParams</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">navDestinationId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    NavDestination() {
-      Column({ space: 10 }) {
-        Text(`当前页面：` + this.param.name);
-        Text(`待移除id：` + (this.param.remove || '-'));
-        Button('跳转页面C').onClick(() => {
-          <em>// </em><em>跳转PageC页面并传递PageB的navDestinationId</em>
-          this.pathStack.pushPath({ name: 'PageC', param: new PageParams('C', this.navDestinationId) });
-        });
-      };
-    }.onReady(context => {
-      this.param = context.pathInfo.param as PageParams;
-      this.navDestinationId = context.navDestinationId!;
-      this.pathStack = context.pathStack as MyNavPathStack;
-    });
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">当前页面：</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">待移除</span><span style="color: rgb(255,0,170);">id</span><span style="color: rgb(255,0,170);">：</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">remove </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,170);">'-'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">跳转页面</span><span style="color: rgb(255,0,170);">C'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          <em>// </em><em><span style="color: rgb(128,128,128);">跳转</span><span style="color: rgb(128,128,128);">PageC</span><span style="color: rgb(128,128,128);">页面并传递</span><span style="color: rgb(128,128,128);">PageB</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">navDestinationId</span></em>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'PageC'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">PageParams</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'C'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">navDestinationId</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param </span>as <span style="color: rgb(0,0,255);">PageParams</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">navDestinationId </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">navDestinationId</span><span style="color: rgb(181,106,1);">!;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack </span>as <span style="color: rgb(0,0,255);">MyNavPathStack</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Component
-struct PageC {
-  pathStack: MyNavPathStack = new MyNavPathStack();
-  @State param: PageParams = new PageParams('', '');
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">PageC </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">MyNavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">MyNavPathStack</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PageParams </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">PageParams</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    NavDestination() {
-      Column({ space: 10 }) {
-        Text(`当前页面：` + this.param.name);
-        Text(`待移除id：` + (this.param.remove || '-'));
-        if (this.param.remove) {
-          Button('移除上一页面').onClick(() => {
-       <em>     // 移除PageB页面，需要设置传递的参数，否则onPop回调不会触发</em>
-            this.pathStack.removeByNavDestinationId(this.param.remove, new PageParams());
-          });
-        }
-      };
-    }.onReady(context => {
-      this.param = context.pathInfo.param as PageParams;
-      this.pathStack = context.pathStack as MyNavPathStack;
-    });
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">当前页面：</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">待移除</span><span style="color: rgb(255,0,170);">id</span><span style="color: rgb(255,0,170);">：</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">remove </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,170);">'-'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+        if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">remove</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">移除上一页面</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+       <em>     <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">移除</span><span style="color: rgb(128,128,128);">PageB</span><span style="color: rgb(128,128,128);">页面，需要设置传递的参数，否则</span><span style="color: rgb(128,128,128);">onPop</span><span style="color: rgb(128,128,128);">回调不会触发</span></em>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">removeByNavDestinationId</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">remove</span><span style="color: rgb(181,106,1);">, </span>new <span style="color: rgb(0,0,255);">PageParams</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param </span>as <span style="color: rgb(0,0,255);">PageParams</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStack </span>as <span style="color: rgb(0,0,255);">MyNavPathStack</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

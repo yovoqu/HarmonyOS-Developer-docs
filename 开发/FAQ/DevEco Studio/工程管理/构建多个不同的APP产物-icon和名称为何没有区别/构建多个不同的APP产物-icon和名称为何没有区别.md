@@ -16,13 +16,13 @@ app.json5中的icon和label改变的是设置中显示的图标和名称。例�
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/gAOo_avISAONBxi6pQc5iw/zh-cn_image_0000002658807325.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=E1877F56650FE33CC1021E619DBB12CED26BE29A38140F739DA7C15E0C5A4D92)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/gAOo_avISAONBxi6pQc5iw/zh-cn_image_0000002658807325.png?HW-CC-KV=V1&HW-CC-Date=20260811T005516Z&HW-CC-Expire=86400&HW-CC-Sign=87271895C82CDF05D84BE1C5343AC39DC2262A563E259F7801768FC909194B7A)
 
  
 正常使用DevEco Studio推送安装到手机的是HAP包，而HAP包里的icon和label是由module.json5文件决定的。例如：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/RzSwgEkSRuiwx4DCfJyryA/zh-cn_image_0000002628408064.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=E8994DA4EED7A359C1BDB8DA654E44643476110F3E3F1BD5491E02DB6A81807A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/RzSwgEkSRuiwx4DCfJyryA/zh-cn_image_0000002628408064.png?HW-CC-KV=V1&HW-CC-Date=20260811T005516Z&HW-CC-Expire=86400&HW-CC-Sign=550D22BFF509EC8BBF2D205285099DD9B9D39006AC959FEE03CAB9F36B0DCC70)
 
  
 要在工程级build-profile.json5文件products中配置不同的APP产物，并配置对应icon和label来覆盖app.json5里面的默认内容：
@@ -37,16 +37,16 @@ app.json5中的icon和label改变的是设置中显示的图标和名称。例�
         "signingConfig": "default",
         "compatibleSdkVersion": "5.0.0(12)",
         "runtimeOS": "HarmonyOS",
-        "icon":"$media:default_icon", <em>// 定义default的icon</em>
-        "label":"$string:default_name", <em>// </em><em>定义default的label</em>
+        "icon":"$media:default_icon", <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">定义</span><span style="color: rgb(128,128,128);">default</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">icon</span></em>
+        "label":"$string:default_name", <em>// </em><em><span style="color: rgb(128,128,128);">定义</span><span style="color: rgb(128,128,128);">default</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">label</span></em>
       },
       {
         "name": "productA",
         "signingConfig": "default",
         "compatibleSdkVersion": "5.0.0(12)",
         "runtimeOS": "HarmonyOS",
-        "icon":"$media:productA_icon",<em> // 定义productA的icon</em>
-        "label":"$string:productA_name", <em>// 定义productA的label</em>
+        "icon":"$media:productA_icon",<em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">定义</span><span style="color: rgb(128,128,128);">productA</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">icon</span></em>
+        "label":"$string:productA_name", <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">定义</span><span style="color: rgb(128,128,128);">productA</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">label</span></em>
       },
     ],
     "buildModeSet": [
@@ -137,19 +137,19 @@ product中的icon和label改变设置中显示的图标和名称，应用桌面�
 可通过打包后的产物来检查是否配置正确：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/7Uzub7JtQRu7uF72nYfanw/zh-cn_image_0000002628567960.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=83DD256F7B4545407EB4A9687B5F3E5A337058DE34053497A10495640035FB03)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/7Uzub7JtQRu7uF72nYfanw/zh-cn_image_0000002628567960.png?HW-CC-KV=V1&HW-CC-Date=20260811T005516Z&HW-CC-Expire=86400&HW-CC-Sign=9C6371D880DDA8D18B89D0B7BDCEBF88A7DD651F7B3CE4B55AE8C30CC693F3AC)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/wAf_cV1ySEGcbrviipokCw/zh-cn_image_0000002658927283.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=32BAAB92DC2E7422EFF9CAA7ED7D198B97185BD57C50E94C26F2613DECBAF759)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/wAf_cV1ySEGcbrviipokCw/zh-cn_image_0000002658927283.png?HW-CC-KV=V1&HW-CC-Date=20260811T005516Z&HW-CC-Expire=86400&HW-CC-Sign=9C59826EEFCEB07B85D450F136B952FE51DFCEC7D16DBC4E7AC5E8C3B85F9CA8)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/K_Kbh2KNRM6_l49yBvkzdA/zh-cn_image_0000002658807327.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=73C6671959B1C29E5827864C6B588C0466A48936ED5224D64303710EC196F15B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/K_Kbh2KNRM6_l49yBvkzdA/zh-cn_image_0000002658807327.png?HW-CC-KV=V1&HW-CC-Date=20260811T005516Z&HW-CC-Expire=86400&HW-CC-Sign=CAF73C8F339C90D31F33065566C60AB00E43EF1E357F6E688958F9E94169B734)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/AQF5q4xQRsmAO2jctZjuJg/zh-cn_image_0000002628408066.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=212F0AAF4F44F34711E6ACE4452EDE3400897373954383F7E9A3E949A7EF38D9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/AQF5q4xQRsmAO2jctZjuJg/zh-cn_image_0000002628408066.png?HW-CC-KV=V1&HW-CC-Date=20260811T005516Z&HW-CC-Expire=86400&HW-CC-Sign=16EAC6BBFA9D45628449E1D78A954EDC736AD3B9E05FA2D829241C73275AA1F9)
 
  
 附：配置多目标产物-[定义产物的icon、label、launchType](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-customized-multi-targets-and-products-guides#section82111917125413)。

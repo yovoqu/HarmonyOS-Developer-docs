@@ -9,7 +9,7 @@
 Python已安装4个Hypium离线包，使用PyCharm创建的DevEco Testing Hypium工程报错，显示“未解析的引用'devicetest'”。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/303aZtytR9Gdp0t2f3BpCQ/zh-cn_image_0000002628409430.png?HW-CC-KV=V1&HW-CC-Date=20260730T072720Z&HW-CC-Expire=86400&HW-CC-Sign=B620894232FCDEB231742F9FA83FD1ED974C94671849B64ED3583FB17EE19A2F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/303aZtytR9Gdp0t2f3BpCQ/zh-cn_image_0000002628409430.png?HW-CC-KV=V1&HW-CC-Date=20260811T005520Z&HW-CC-Expire=86400&HW-CC-Sign=340FAA79A03A6D9E4039EF3DE764B82234A184D09E40172EAE7DC7454CAD98AF)
 
  
  
@@ -35,10 +35,10 @@ xdevice-devicetest；
 xdevice-ohos；
  
 - 方式一：打开PyCharm点击“File”>“Settings”在“Project:YourProjectName”>“Python Interpreter”部分。查看已安装包如下图：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/Kav5sNN7Rne2vwD9qTk-1A/zh-cn_image_0000002658808697.png?HW-CC-KV=V1&HW-CC-Date=20260730T072720Z&HW-CC-Expire=86400&HW-CC-Sign=E65DD7A04FA6B418761EEAD8A3FD5A4B0A3B9607AF533E7E93715B2A77F0C1EA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/Kav5sNN7Rne2vwD9qTk-1A/zh-cn_image_0000002658808697.png?HW-CC-KV=V1&HW-CC-Date=20260811T005520Z&HW-CC-Expire=86400&HW-CC-Sign=5744374A0EBB49CA8DE0E5807AB303E0595508F4757C13DA42974D6AE19D1509)
 
 - 方式二：在PyCharm中，打开Terminal（底部工具栏的Terminal图标）PyCharm会自动引导到当前虚拟环境。通过pip list命令方式查看已安装包如下图：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/yhcV-QyyRXGp2Xy3oRUsrQ/zh-cn_image_0000002628569336.png?HW-CC-KV=V1&HW-CC-Date=20260730T072720Z&HW-CC-Expire=86400&HW-CC-Sign=DEC7C7F697450557799147DDEDA3BF42BE53A4C9AE1580EE8C907E60CA2203FD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/yhcV-QyyRXGp2Xy3oRUsrQ/zh-cn_image_0000002628569336.png?HW-CC-KV=V1&HW-CC-Date=20260811T005520Z&HW-CC-Expire=86400&HW-CC-Sign=CF3EB8CA298BE0B8AB340D78BC7C69AA1EE196D0A51B19F946578EDDBF812609)
 
 
  
@@ -63,7 +63,7 @@ xdevice包需要安装到当前项目配置的虚拟环境中，才能解析引�
   python -m pip install hypium-5.0.7.200.tar.gz
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/mhfOqzEnReiUgQkbF_sqLg/zh-cn_image_0000002658928655.png?HW-CC-KV=V1&HW-CC-Date=20260730T072720Z&HW-CC-Expire=86400&HW-CC-Sign=988200B59B7BB94515EFFCE33F1DA3A0478E12196A9D614D7F50CF68D04A4EA6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/mhfOqzEnReiUgQkbF_sqLg/zh-cn_image_0000002658928655.png?HW-CC-KV=V1&HW-CC-Date=20260811T005520Z&HW-CC-Expire=86400&HW-CC-Sign=668A75834CE3B2C5DCC1515E3CCE4339DBDDB15CA31719F7473E6CF2309B3EBA)
 
 - 方式二：切换已经安装xdevice包的虚拟环境。打开PyCharm点击“File” > “Settings”在“Project:YourProjectName” > “Python Interpreter”。右侧Python Interpreter下拉框中选择了已安装xdevice包的解释器，点击OK保存设置关闭窗口。PyCharm将会自动切换到选择的虚拟环境，并且所有包管理和运行配置都会基于这个新的解释器。
 
@@ -73,9 +73,9 @@ xdevice包需要安装到当前项目配置的虚拟环境中，才能解析引�
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/v0J7YR_iRdiWM7SYaJC_Vw/zh-cn_image_0000002628409432.png?HW-CC-KV=V1&HW-CC-Date=20260730T072720Z&HW-CC-Expire=86400&HW-CC-Sign=B118BB1DFBA88086EA630540E1AC62633D56993EC94D58615DFAD04D37C90D2A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/v0J7YR_iRdiWM7SYaJC_Vw/zh-cn_image_0000002628409432.png?HW-CC-KV=V1&HW-CC-Date=20260811T005520Z&HW-CC-Expire=86400&HW-CC-Sign=23CC98A977AEC75F8A139E31DCD57E2ABDB9F4343F14CCAA50A2101EF513AA47)
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/tc7JWkX9Sn2ck2B4jOxDfw/zh-cn_image_0000002658808699.png?HW-CC-KV=V1&HW-CC-Date=20260730T072720Z&HW-CC-Expire=86400&HW-CC-Sign=4F943BAF25E187F5C24356AD9A9CD72B10E663ACB45FA9CBFC6AF0EE142E9B42)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/tc7JWkX9Sn2ck2B4jOxDfw/zh-cn_image_0000002658808699.png?HW-CC-KV=V1&HW-CC-Date=20260811T005520Z&HW-CC-Expire=86400&HW-CC-Sign=6E4E22AC6DAE6849DEE7015FF7F9CA2E311FA24C1EAE4BDE8F26774FAE3890DC)
 
 
  

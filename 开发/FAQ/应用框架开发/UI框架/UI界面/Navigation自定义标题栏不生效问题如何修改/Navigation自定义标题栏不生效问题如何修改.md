@@ -11,7 +11,7 @@
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/tri6awaVTkOYHr-eEUEa2w/zh-cn_image_0000002628399758.png?HW-CC-KV=V1&HW-CC-Date=20260730T072442Z&HW-CC-Expire=86400&HW-CC-Sign=2957AC81D60444924798F40B22DD9E88295ED5DA790F0068286FE0E1A1F2A7DB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/tri6awaVTkOYHr-eEUEa2w/zh-cn_image_0000002628399758.png?HW-CC-KV=V1&HW-CC-Date=20260811T005645Z&HW-CC-Expire=86400&HW-CC-Sign=1BFACB8A944E06D1E64F721661BB18E7960B6C996183FDB4946E0BAC6AFF980D)
 
  
 问题代码示例参考如下：
@@ -61,7 +61,7 @@ struct Index {
 使用ArkUI Inspector查看应用布局，发现TitleBar不可见，标题栏未创建。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/Ji6AST-WSoe94WQ6chcO8Q/zh-cn_image_0000002658799027.png?HW-CC-KV=V1&HW-CC-Date=20260730T072442Z&HW-CC-Expire=86400&HW-CC-Sign=54F39C45935576C18A35B5A7FA96DF8CD3D13D2EB7ED2A8287C5EE3635213BD4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/Ji6AST-WSoe94WQ6chcO8Q/zh-cn_image_0000002658799027.png?HW-CC-KV=V1&HW-CC-Date=20260811T005645Z&HW-CC-Expire=86400&HW-CC-Sign=0000E13FE92504152B9B74B8260ED0AD6F52ED9BF6D006D153BD73DDD8C625F1)
 
  
 查看[title](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#title)传入参数类型，其中NavigationCustomTitle和CustomBuilder这两种类型均支持自定义标题栏样式。
@@ -104,7 +104,7 @@ struct NavTitleSolution1 {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/rMk62wiUToC76vrcmLw15Q/zh-cn_image_0000002628559674.png?HW-CC-KV=V1&HW-CC-Date=20260730T072442Z&HW-CC-Expire=86400&HW-CC-Sign=6F323A8852BB27C51C2AA67B514DCF5CD8356063A213898A977974AD96CFAB0A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/rMk62wiUToC76vrcmLw15Q/zh-cn_image_0000002628559674.png?HW-CC-KV=V1&HW-CC-Date=20260811T005645Z&HW-CC-Expire=86400&HW-CC-Sign=1432EFF27DD2A44ECD333DA6E8F0939537A1836A4A906CBC1CC1288E934AB37E)
 
 - **方案二**：在title中直接传入自定义布局的方法。
 ```text
@@ -140,7 +140,7 @@ struct NavTitleSolution2 {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/2CquOetPTdOMgtO70jb4ag/zh-cn_image_0000002658918981.png?HW-CC-KV=V1&HW-CC-Date=20260730T072442Z&HW-CC-Expire=86400&HW-CC-Sign=56C8924FB12543E5ADEBACE5CB7C23A4A36008334B229B5F6108E57FC66E9833)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/2CquOetPTdOMgtO70jb4ag/zh-cn_image_0000002658918981.png?HW-CC-KV=V1&HW-CC-Date=20260811T005645Z&HW-CC-Expire=86400&HW-CC-Sign=1D50F94F59E8EA6507BCA0CF6F1160D84224BC0FE9C1E1079915FBC855A332C3)
 
 
  

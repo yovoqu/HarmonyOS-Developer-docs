@@ -133,10 +133,10 @@ struct Index1 {
 
   双向认证是指客户端和服务器端都需要验证对方的身份，在建立HTTPS连接的过程中，握手的过程比单向认证多了几步。
 单向认证的流程是：客户端（浏览器）请求服务端，服务端返回证书，客户端验证证书合法性后，开始通信。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/v0cIgGIeSKmAZv3uxYIPqw/zh-cn_image_0000002639521234.png?HW-CC-KV=V1&HW-CC-Date=20260730T072538Z&HW-CC-Expire=86400&HW-CC-Sign=1CB80018EB3CB2120DD4F882D1613C17FA8199601025A1103FB705094167B06D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/v0cIgGIeSKmAZv3uxYIPqw/zh-cn_image_0000002639521234.png?HW-CC-KV=V1&HW-CC-Date=20260811T005837Z&HW-CC-Expire=86400&HW-CC-Sign=C2C806B8BF52A546D06F9A547CE11E5AF63E861A502E6AF87920AE7E1CB6A2EA)
 
 - 双向认证的流程是：除单向认证步骤外，服务端还会验证客户端提供证书，验证通过后，开始通信。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/OQZdYj4MSEOOYrL0xm7nOA/zh-cn_image_0000002669681273.png?HW-CC-KV=V1&HW-CC-Date=20260730T072538Z&HW-CC-Expire=86400&HW-CC-Sign=37F092831656327E5348FF86E36071F608014B1629DF4FCBB6F248F84E5ADF9F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/OQZdYj4MSEOOYrL0xm7nOA/zh-cn_image_0000002669681273.png?HW-CC-KV=V1&HW-CC-Date=20260811T005837Z&HW-CC-Expire=86400&HW-CC-Sign=98D64D16ACD77A2B35EFA4F22D31FDD6AA7CB36254F81B773B371EDBD9BF801B)
 
 
  

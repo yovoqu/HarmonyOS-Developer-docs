@@ -8,8 +8,8 @@
 1. 开发者模式已打开“开启蓝牙hci信息收集日志”开关。
 2. 通过如下hdc命令，未获取到蓝牙hci日志，获取日志数量为0：
 ```text
-hdc file recv /data/log/bt ./
-FileTransfer finish, Size 0, File count = 0, time:1ms rate:0.00kB/s
+<span style="color: rgb(0,0,255);">hdc file recv </span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">bt </span><span style="color: rgb(181,106,1);">./</span>
+<span style="color: rgb(0,0,255);">FileTransfer finish</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Size </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">File count </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">time</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">ms </span><span style="color: rgb(181,106,1);">rate</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">0.00</span><span style="color: rgb(0,0,255);">kB</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">s</span>
 ```
 
  
@@ -30,7 +30,7 @@ FileTransfer finish, Size 0, File count = 0, time:1ms rate:0.00kB/s
   开启并授权后，HarmonyOS设备才能连接到计算机进行调试，可用于在计算机和设备之间复制数据、在设备上安装或卸载调试应用、以及读取日志数据等。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/-VwM2XKXR-SXgyPkzyaOww/zh-cn_image_0000002628394988.png?HW-CC-KV=V1&HW-CC-Date=20260730T072250Z&HW-CC-Expire=86400&HW-CC-Sign=D2F912A660A8839CEBF7D33420AAAAB73C58F6878C3370ED9A1722775BC9B945)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/-VwM2XKXR-SXgyPkzyaOww/zh-cn_image_0000002628394988.png?HW-CC-KV=V1&HW-CC-Date=20260811T005908Z&HW-CC-Expire=86400&HW-CC-Sign=B686B5B4E25611701283BE3AC76559B36C42DD1E9BFD8F3C6434CE57E193C24E)
 
 3. 根据背景知识中的hdc命令工具链接，检查hdc命令是否正确。
 4. 查看是否存在报错返回，根据报错信息分析，可借助背景知识中的hdc命令工具中hdc错误码进行初步解决。
@@ -50,13 +50,13 @@ FileTransfer finish, Size 0, File count = 0, time:1ms rate:0.00kB/s
 蓝牙hci日志：
  
 ```text
-hdc file recv /data/log/bt
+<span style="color: rgb(0,0,255);">hdc file recv </span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">bt</span>
 ```
  
 hilog日志：
  
 ```text
-hdc file recv /data/log/hilog
+<span style="color: rgb(0,0,255);">hdc file recv </span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">hilog</span>
 ```
  
 日志默认下载位置为执行该hdc命令的当前目录下。

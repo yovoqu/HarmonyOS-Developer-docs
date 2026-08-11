@@ -13,7 +13,7 @@ PdfView组件加载一个PDF文件，对这个文件做编辑操作，如何使�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/AAyxDq4CT4iXEpCbHQGI8w/zh-cn_image_0000002658793615.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072638Z&HW-CC-Expire=86400&HW-CC-Sign=CDDD072D24799D565832AF4F1A26E4C2DD2A2356C6BDFF0973F68B446D17B8EF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/AAyxDq4CT4iXEpCbHQGI8w/zh-cn_image_0000002658793615.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005600Z&HW-CC-Expire=86400&HW-CC-Sign=8F71A054D0173FE2940767AE46C01F065E067A12EA03C102762F8463E0673F4E)
 
  
  

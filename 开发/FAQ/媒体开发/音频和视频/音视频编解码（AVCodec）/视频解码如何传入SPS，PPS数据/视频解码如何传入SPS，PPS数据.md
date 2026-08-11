@@ -21,7 +21,7 @@ SPS和PPS都为H264编码中的重要数据信息。
 H264原始码流是由若干NALU组成的结构，如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/7Rgl6J79RMmnom5Yji7RRw/zh-cn_image_0000002658791637.png?HW-CC-KV=V1&HW-CC-Date=20260730T072633Z&HW-CC-Expire=86400&HW-CC-Sign=B56348DEB5280534AAC9E9A4F6F277EB4AAF75970D65A196B97C4312992E2A5D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/7Rgl6J79RMmnom5Yji7RRw/zh-cn_image_0000002658791637.png?HW-CC-KV=V1&HW-CC-Date=20260811T005554Z&HW-CC-Expire=86400&HW-CC-Sign=76B322660B37A273C352F6EE4C4613BB9BA372FF720BC67C9FF432D5A1DC1BE4)
 
  
 - NALU（Network Abstraction Layer Units）：网络抽象层。每个NAL单元是一个有一定语法元素的可变长字节字符串，包括一个字节的NAL Header（用来表示数据类型），以及若干整数字节的原始字节序列负荷（RBSP）。在实际的H264数据帧中，往往帧前面带有00 00 00 01或00 00 01的分隔符，其后跟随NAL单元数据。一个NAL单元可以携带一个编码片，I帧、P帧、B帧、一个序列参数集（SPS）、或一个图像参数集（PPS）。

@@ -52,7 +52,7 @@ Access to XMLHttpRequest at 'xxx' from origin 'resource://rawfile' has been bloc
   设置路径列表时，有以下注意点：
 
 1. 如果设置跨域的路径为resourceDir，对应静态资源目录为应用resources目录下的resfile目录（与rawfile目录同级）；
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/Z760_4JgTsWyEBWS6R_1GQ/zh-cn_image_0000002659138445.png?HW-CC-KV=V1&HW-CC-Date=20260730T072538Z&HW-CC-Expire=86400&HW-CC-Sign=7B79A54B5953DE4DC5101439ABAB672F20F31117559BC49A9D5F3F6715194619)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/Z760_4JgTsWyEBWS6R_1GQ/zh-cn_image_0000002659138445.png?HW-CC-KV=V1&HW-CC-Date=20260811T005834Z&HW-CC-Expire=86400&HW-CC-Sign=5701E707D57FC730A990EEF43E7C83A7D36A125EA99D8DFB0639759B5663BD03)
 
 
 2. 如果设置跨域路径为应用文件目录的子目录，不能直接指定应用沙箱目录，需要指定应用沙箱目录的子目录。例如不能直接指定沙箱文件目录/data/storage/el2/base/haps/entry/files，需要指定文件目录下的子目录，如：/data/storage/el2/base/haps/entry/files/example。

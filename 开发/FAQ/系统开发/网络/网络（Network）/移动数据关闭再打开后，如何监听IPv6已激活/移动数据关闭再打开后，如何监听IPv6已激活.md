@@ -11,26 +11,26 @@
 问题代码如下：
  
 ```json
-let conn = connection.createNetConnection();
-conn.register((error: BusinessError) => {});
-conn.on('netAvailable', ((netHandle: connection.NetHandle) => {
-  let properties = connection.getConnectionPropertiesSync(netHandle);
-  if (properties && properties.linkAddresses) {
-    console.info(LOG_TAG, JSON.stringify(properties.linkAddresses))
-  }
-  // 连接socket
-  this.connect()
-}));
+let <span style="color: rgb(0,0,255);">conn </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">connection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createNetConnection</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">conn</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">register</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">conn</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'netAvailable'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">netHandle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">connection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">NetHandle</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  let <span style="color: rgb(0,0,255);">properties </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">connection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getConnectionPropertiesSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">netHandle</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">properties </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">properties</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">linkAddresses</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">properties</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">linkAddresses</span><span style="color: rgb(0,0,255);">))</span>
+  <span style="color: rgb(255,0,170);">}</span>
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">连接</span><span style="color: rgb(128,128,128);">socket</span>
+  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(0,0,255);">()</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
 ```
  
 日志打印：
  
 ```text
-03-27 11:10:24.179   A03D00/com.exa...pv6test/JSAPP  apppool               I     ipv6_test [{"address":{"address":"10.74.xxx.6","family":1,"port":0},"prefixLength":32},{"address":{"address":"2409:8915:xxxx:xxxx:8e49","family":2,"port":0},"prefixLength":128}]
-03-27 11:10:24.227   A03D00/com.exa...pv6test/JSAPP  com.example.ipv6test  I     ipv6_test socket connect result:true
-03-27 11:10:30.012   A03D00/com.exa...pv6test/JSAPP  com.example.ipv6test  I     ipv6_test [{"address":{"address":"10.103.xxx.203","family":1,"port":0},"prefixLength":32}]
-03-27 11:10:30.015   A03D00/com.exa...pv6test/JSAPP  com.example.ipv6test  I     ipv6_test tcp connect error:{"code":2301101,"message":"Network unreachable"}
-03-27 11:10:30.015   A03D00/com.exa...pv6test/JSAPP  com.example.ipv6test  I     ipv6_test socket connect result:false
+<span style="color: rgb(255,0,0);">03</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">27 11</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">24.179   </span><span style="color: rgb(0,0,255);">A03D00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">exa</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">pv6test</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP  apppool               I     ipv6_test </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(255,0,170);">"address"</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(255,0,170);">"address"</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,170);">"10.74.xxx.6"</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(255,0,170);">"family"</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(255,0,170);">"port"</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(255,0,170);">"prefixLength"</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">32</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(255,0,170);">"address"</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(255,0,170);">"address"</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,170);">"2409:8915:xxxx:xxxx:8e49"</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(255,0,170);">"family"</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(255,0,170);">"port"</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(255,0,170);">"prefixLength"</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">128</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">]</span>
+<span style="color: rgb(255,0,0);">03</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">27 11</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">24.227   </span><span style="color: rgb(0,0,255);">A03D00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">exa</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">pv6test</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP  com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">example</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ipv6test  I     ipv6_test socket connect </span><span style="color: rgb(181,106,1);">result</span><span style="color: rgb(181,106,1);">:</span>true
+<span style="color: rgb(255,0,0);">03</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">27 11</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">30.012   </span><span style="color: rgb(0,0,255);">A03D00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">exa</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">pv6test</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP  com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">example</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ipv6test  I     ipv6_test </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(255,0,170);">"address"</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(255,0,170);">"address"</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,170);">"10.103.xxx.203"</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(255,0,170);">"family"</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(255,0,170);">"port"</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(255,0,170);">"prefixLength"</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">32</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">]</span>
+<span style="color: rgb(255,0,0);">03</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">27 11</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">30.015   </span><span style="color: rgb(0,0,255);">A03D00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">exa</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">pv6test</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP  com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">example</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ipv6test  I     ipv6_test tcp connect </span><span style="color: rgb(181,106,1);">error</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(255,0,170);">"code"</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">2301101</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(255,0,170);">"message"</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,170);">"Network unreachable"</span><span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,0);">03</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">27 11</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">30.015   </span><span style="color: rgb(0,0,255);">A03D00</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">exa</span><span style="color: rgb(181,106,1);">...</span><span style="color: rgb(0,0,255);">pv6test</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">JSAPP  com</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">example</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ipv6test  I     ipv6_test socket connect </span><span style="color: rgb(181,106,1);">result</span><span style="color: rgb(181,106,1);">:</span>false
 ```
  
  
@@ -55,204 +55,204 @@ conn.on('netAvailable', ((netHandle: connection.NetHandle) => {
 
   
 ```json
-conn.on('netConnectionPropertiesChange', ((date: connection.NetConnectionPropertyInfo) => {
-  for (let i = 0; i < date.connectionProperties.linkAddresses.length; i++) {
-    console.info(LOG_TAG, JSON.stringify(date.connectionProperties.linkAddresses));
-    if (date.connectionProperties.linkAddresses[i].address.family === 2) {
-      this.flag = true;
-      this.connect();
-      break;
-    } else {
-      this.flag = false;
-    }
-  }
-}));
+<span style="color: rgb(0,0,255);">conn</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'netConnectionPropertiesChange'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">date</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">connection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">NetConnectionPropertyInfo</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connectionProperties</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">linkAddresses</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connectionProperties</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">linkAddresses</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connectionProperties</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">linkAddresses</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">family </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">flag </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      break<span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">flag </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
 ```
  日志打印：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/5siwOP6TQoGkIKuufJbNVQ/zh-cn_image_0000002628610904.png?HW-CC-KV=V1&HW-CC-Date=20260730T072550Z&HW-CC-Expire=86400&HW-CC-Sign=A72D80BC3F10F8FECEA4587C56DFD4B3E68719304323491B71D23721F55B1079)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/5siwOP6TQoGkIKuufJbNVQ/zh-cn_image_0000002628610904.png?HW-CC-KV=V1&HW-CC-Date=20260811T005940Z&HW-CC-Expire=86400&HW-CC-Sign=4E828C0E851485EAA0E5E68F9733E5F872FBAB843A4D8964E02B3416B2D276CF)
 
  
 完整样例参考：
  
 ```json
-import { socket } from '@kit.NetworkKit';
-import { connection } from '@kit.NetworkKit';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">socket </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.NetworkKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">connection </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.NetworkKit'</span><span style="color: rgb(181,106,1);">;</span>
 
 
-const LOG_TAG = 'hm-->';
+const <span style="color: rgb(0,0,255);">LOG_TAG </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'hm--</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct Index {
-  flag: boolean = false;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">flag</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
 
-  /**
-   * connect
-   */
-  connect() {
-    // 需替换有效的IPv6地址
-    let address = '2409:8C3C:0904:x::x:xx';
-    let port = 8206;
-    // 创建相应协议的Socket对象
-    let tcpSocket = new TcpSocket();
-    tcpSocket.createSocket();
-    // 连接服务器ip
-    tcpSocket.connectSocket(address, port).then(res => {
-      console.info(LOG_TAG, 'socket connect result:', res);
-    }).catch((rej: Error) => {
-      console.info(LOG_TAG, 'socket connect error:', rej);
-    });
-  }
+  <span style="color: rgb(128,128,128);">/**</span>
+<span style="color: rgb(128,128,128);">   * connect</span>
+<span style="color: rgb(128,128,128);">   */</span>
+  <span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">需替换有效的</span><span style="color: rgb(128,128,128);">IPv6</span><span style="color: rgb(128,128,128);">地址</span>
+    let <span style="color: rgb(0,0,255);">address </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'2409:8C3C:0904:x::x:xx'</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">port </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">8206</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建相应协议的</span><span style="color: rgb(128,128,128);">Socket</span><span style="color: rgb(128,128,128);">对象</span>
+    let <span style="color: rgb(0,0,255);">tcpSocket </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TcpSocket</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createSocket</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">连接服务器</span><span style="color: rgb(128,128,128);">ip</span>
+    <span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connectSocket</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">res </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'socket connect result:'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">res</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">rej</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'socket connect error:'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">rej</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  aboutToAppear(): void {
-    let conn = connection.createNetConnection();
-    conn.register(() => {
-    });
-    conn.on('netConnectionPropertiesChange', ((date: connection.NetConnectionPropertyInfo) => {
-      for (let i = 0; i < date.connectionProperties.linkAddresses.length; i++) {
-        console.info(LOG_TAG, JSON.stringify(date.connectionProperties.linkAddresses));
-        if (date.connectionProperties.linkAddresses[i].address.family === 2) {
-          this.flag = true;
-          this.connect();
-          break;
-        } else {
-          this.flag = false;
-        }
-      }
-    }));
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">conn </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">connection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createNetConnection</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">conn</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">register</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">conn</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'netConnectionPropertiesChange'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">date</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">connection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">NetConnectionPropertyInfo</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connectionProperties</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">linkAddresses</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connectionProperties</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">linkAddresses</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connectionProperties</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">linkAddresses</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">family </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">flag </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+          break<span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">flag </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">      }</span>
+<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    Column() {
-      Button('连接tcpSocket')
-        .onClick(() => {
-          if (this.flag) {
-            this.connect();
-          }
-        })
-    }
-    .width('100%')
-    .height('100%')
-    .justifyContent(FlexAlign.Center)
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">连接</span><span style="color: rgb(255,0,170);">tcpSocket'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">flag</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-class TcpSocket implements BaseSocket {
-  private tcpSocket: socket.TCPSocket | null = null;
+class <span style="color: rgb(0,0,255);">TcpSocket </span>implements <span style="color: rgb(0,0,255);">BaseSocket </span><span style="color: rgb(255,0,170);">{</span>
+  private <span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TCPSocket </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
 
-  /**
-   * 创建Socket
-   */
-  async createSocket(): Promise<boolean> {
-    try {
-      if (this.tcpSocket) {
-        this.tcpSocket.close();
-        this.tcpSocket = null;
-      }
-      this.tcpSocket = socket.constructTCPSocketInstance();
-      return true;
-    } catch (e) {
-      console.info(LOG_TAG, 'create socket error', e);
-    }
-    return false;
-  }
+  <span style="color: rgb(128,128,128);">/**</span>
+<span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">创建</span><span style="color: rgb(128,128,128);">Socket</span>
+<span style="color: rgb(128,128,128);">   */</span>
+  async <span style="color: rgb(0,0,255);">createSocket</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    try <span style="color: rgb(255,0,170);">{</span>
+      if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tcpSocket </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tcpSocket </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">constructTCPSocketInstance</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      return true<span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'create socket error'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    return false<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  /**
-   * 连接Socket
-   */
-  async connectSocket(address: string, port: number): Promise<boolean> {
-    try {
-      if (!this.tcpSocket) {
-        return false;
-      }
+  <span style="color: rgb(128,128,128);">/**</span>
+<span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">连接</span><span style="color: rgb(128,128,128);">Socket</span>
+<span style="color: rgb(128,128,128);">   */</span>
+  async <span style="color: rgb(0,0,255);">connectSocket</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    try <span style="color: rgb(255,0,170);">{</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        return false<span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
 
-      if (await this.isConnected()) {
-        return true;
-      }
-      //ipv4和ipv6类型设置
-      let familyValue = 1;
-      if (this.isValidIPv6Format(address)) {
-        familyValue = 2;
-      }
-      await this.tcpSocket.connect({
-        address: {
-          address: address,
-          port: port,
-          family: familyValue
-        },
-        timeout: 6000,
-      });
-      await this.tcpSocket.setExtraOptions({
-        keepAlive: true,
-        receiveBufferSize: 1024 * 34,
-        sendBufferSize: 1024 * 8,
-        socketTimeout: 6000
-      });
-      return true;
-    } catch (e) {
-      console.info(LOG_TAG, 'tcp connect error', e);
-    }
-    return false;
-  };
+      if <span style="color: rgb(0,0,255);">(</span>await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isConnected</span><span style="color: rgb(0,0,255);">()) </span><span style="color: rgb(255,0,170);">{</span>
+        return true<span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(128,128,128);">//ipv4</span><span style="color: rgb(128,128,128);">和</span><span style="color: rgb(128,128,128);">ipv6</span><span style="color: rgb(128,128,128);">类型设置</span>
+      let <span style="color: rgb(0,0,255);">familyValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
+      if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isValidIPv6Format</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">address</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">familyValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">family</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">familyValue</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">timeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">6000</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setExtraOptions</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">keepAlive</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">receiveBufferSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1024 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">34</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">sendBufferSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1024 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">socketTimeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">6000</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      return true<span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LOG_TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'tcp connect error'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    return false<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-  /**
-   * 判断是否连接
-   */
-  async isConnected(): Promise<boolean> {
-    if (!this.tcpSocket) {
-      return false;
-    }
-    ;
+  <span style="color: rgb(128,128,128);">/**</span>
+<span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">判断是否连接</span>
+<span style="color: rgb(128,128,128);">   */</span>
+  async <span style="color: rgb(0,0,255);">isConnected</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      return false<span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">;</span>
 
-    try {
-      let state: socket.SocketStateBase = await this.tcpSocket.getState();
-      if (state.isConnected) {
-        return true;
-      }
-    } catch (e) {
-    }
-    return false;
-  };
+    try <span style="color: rgb(255,0,170);">{</span>
+      let <span style="color: rgb(0,0,255);">state</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SocketStateBase </span><span style="color: rgb(181,106,1);">= </span>await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getState</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">state</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isConnected</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        return true<span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    } </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+<span style="color: rgb(255,0,170);">    }</span>
+    return false<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-  /**
-   * 判断是否是IPv6
-   */
-  private isValidIPv6Format(ip: string): boolean {
-    const IPv4Segment = '(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])';
-    const IPv4Address = `(${IPv4Segment}[.]){3}${IPv4Segment}`;
-    const IPv6Segment = '(?:[0-9a-fA-F]{1,4})';
-    const ipRegex = new RegExp('^(' +
-      `(?:${IPv6Segment}:){7}(?:${IPv6Segment}|:)|` +
-      `(?:${IPv6Segment}:){6}(?:${IPv4Address}|:${IPv6Segment}|:)|` +
-      `(?:${IPv6Segment}:){5}(?::${IPv4Address}|(:${IPv6Segment}){1,2}|:)|` +
-      `(?:${IPv6Segment}:){4}(?:(:${IPv6Segment}){0,1}:${IPv4Address}|(:${IPv6Segment}){1,3}|:)|` +
-      `(?:${IPv6Segment}:){3}(?:(:${IPv6Segment}){0,2}:${IPv4Address}|(:${IPv6Segment}){1,4}|:)|` +
-      `(?:${IPv6Segment}:){2}(?:(:${IPv6Segment}){0,3}:${IPv4Address}|(:${IPv6Segment}){1,5}|:)|` +
-      `(?:${IPv6Segment}:){1}(?:(:${IPv6Segment}){0,4}:${IPv4Address}|(:${IPv6Segment}){1,6}|:)|` +
-      `(?::((?::${IPv6Segment}){0,5}:${IPv4Address}|(?::${IPv6Segment}){1,7}|:))` +
-      ')(%[0-9a-zA-Z.]{1,})?$');
-    let flag = ipRegex.test(ip);
-    return flag;
-  };
-}
+  <span style="color: rgb(128,128,128);">/**</span>
+<span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">判断是否是</span><span style="color: rgb(128,128,128);">IPv6</span>
+<span style="color: rgb(128,128,128);">   */</span>
+  private <span style="color: rgb(0,0,255);">isValidIPv6Format</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ip</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(255,0,170);">{</span>
+    const <span style="color: rgb(0,0,255);">IPv4Segment </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'(?:[0-9]|[1-9]</span><span style="color: rgb(255,0,170);">[0-9]|1[0-9]</span><span style="color: rgb(255,0,170);">[0-9]|2[0-4]</span><span style="color: rgb(255,0,170);">[0-9]|25[0-5]</span><span style="color: rgb(255,0,170);">)'</span><span style="color: rgb(181,106,1);">;</span>
+    const <span style="color: rgb(0,0,255);">IPv4Address </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">`(</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv4Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">[.]){3}</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv4Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
+    const <span style="color: rgb(0,0,255);">IPv6Segment </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'(?:[0-9a-fA-F]{1,4})'</span><span style="color: rgb(181,106,1);">;</span>
+    const <span style="color: rgb(0,0,255);">ipRegex </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RegExp</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'^(' </span><span style="color: rgb(181,106,1);">+</span>
+      <span style="color: rgb(255,0,170);">`(?:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">:){7}(?:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">|:)|` </span><span style="color: rgb(181,106,1);">+</span>
+      <span style="color: rgb(255,0,170);">`(?:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">:){6}(?:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv4Address</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">|:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">|:)|` </span><span style="color: rgb(181,106,1);">+</span>
+      <span style="color: rgb(255,0,170);">`(?:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">:){5}(?::</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv4Address</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">|(:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">){1,2}|:)|` </span><span style="color: rgb(181,106,1);">+</span>
+      <span style="color: rgb(255,0,170);">`(?:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">:){4}(?:(:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">){0,1}:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv4Address</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">|(:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">){1,3}|:)|` </span><span style="color: rgb(181,106,1);">+</span>
+      <span style="color: rgb(255,0,170);">`(?:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">:){3}(?:(:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">){0,2}:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv4Address</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">|(:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">){1,4}|:)|` </span><span style="color: rgb(181,106,1);">+</span>
+      <span style="color: rgb(255,0,170);">`(?:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">:){2}(?:(:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">){0,3}:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv4Address</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">|(:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">){1,5}|:)|` </span><span style="color: rgb(181,106,1);">+</span>
+      <span style="color: rgb(255,0,170);">`(?:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">:){1}(?:(:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">){0,4}:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv4Address</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">|(:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">){1,6}|:)|` </span><span style="color: rgb(181,106,1);">+</span>
+      <span style="color: rgb(255,0,170);">`(?::((?::</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">){0,5}:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv4Address</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">|(?::</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">IPv6Segment</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">){1,7}|:))` </span><span style="color: rgb(181,106,1);">+</span>
+      <span style="color: rgb(255,0,170);">')(%[0-9a-zA-Z.]{1,})?$'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">flag </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">ipRegex</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">test</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ip</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(0,0,255);">flag</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-/**
- * Socket协议类型
- */
-export enum SocketType {
-  TCP,
-  TLS
-}
-;
+<span style="color: rgb(128,128,128);">/**</span>
+<span style="color: rgb(128,128,128);"> * Socket</span><span style="color: rgb(128,128,128);">协议类型</span>
+<span style="color: rgb(128,128,128);"> */</span>
+export enum <span style="color: rgb(0,0,255);">SocketType </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">TCP</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">TLS</span>
+<span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(181,106,1);">;</span>
 
-/**
- * 实现统一的接口(tcp/tls)
- */
-export interface BaseSocket {
-  createSocket(localIp: string, port: number): Promise<boolean>;
+<span style="color: rgb(128,128,128);">/**</span>
+<span style="color: rgb(128,128,128);"> * </span><span style="color: rgb(128,128,128);">实现统一的接口</span><span style="color: rgb(128,128,128);">(tcp/tls)</span>
+<span style="color: rgb(128,128,128);"> */</span>
+export interface <span style="color: rgb(0,0,255);">BaseSocket </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">createSocket</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">localIp</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">;</span>
 
-  connectSocket(address: string, port: number): Promise<boolean>;
-}
+  <span style="color: rgb(0,0,255);">connectSocket</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

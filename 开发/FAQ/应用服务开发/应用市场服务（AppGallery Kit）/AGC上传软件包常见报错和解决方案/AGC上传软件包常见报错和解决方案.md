@@ -10,7 +10,7 @@
  
 - 常见的错误码：
 上传软件包，提示软件包无效缺少依赖的包，错误码9。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/iR6b6hlnT162VnCIJs91AA/zh-cn_image_0000002628394646.png?HW-CC-KV=V1&HW-CC-Date=20260730T072703Z&HW-CC-Expire=86400&HW-CC-Sign=F8838B43169305C819D79A50148F9DA80B04CF0784BA20739A823E8CEA277650)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/iR6b6hlnT162VnCIJs91AA/zh-cn_image_0000002628394646.png?HW-CC-KV=V1&HW-CC-Date=20260811T005616Z&HW-CC-Expire=86400&HW-CC-Sign=052EE450E6DBA373718BD31C8CDE928317E3E13F42AD44499B6B4CA0960A1D55)
 
 - 上传软件包，提示非法软件包，错误码991。
 - 使用Profile打包，上传软件包报错误码993。
@@ -48,7 +48,7 @@
 - 检查签名和证书是否匹配，可以重新生成p12文件还有p7b和cer文件，然后再打包上传。
 - hap包的名字与pack.info中name值不同。
 - 在File > Project Structure > Project > Signing Configs窗口中，取消勾选“Automatically generate signature”（如果是HarmonyOS应用，请勾选“Support HarmonyOS”）然后配置工程的签名信息。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/X60BRpPDSwKAMfKxRCW6Bw/zh-cn_image_0000002628554538.png?HW-CC-KV=V1&HW-CC-Date=20260730T072703Z&HW-CC-Expire=86400&HW-CC-Sign=D3FE8A5E5E3EEAA3E99BDE4D7B9BFC632305EB37A09EDFE4FABC5AFB1F6A260F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/X60BRpPDSwKAMfKxRCW6Bw/zh-cn_image_0000002628554538.png?HW-CC-KV=V1&HW-CC-Date=20260811T005616Z&HW-CC-Expire=86400&HW-CC-Sign=E98D62604462B21017D97368F21C200D948DB0C941381EBAC2A0A537E5BBC188)
 
 
  - [错误码993](https://developer.huawei.com/consumer/cn/doc/app/agc-help-package-errorcode-0000002312513009#section411361491513)，表示Profile文件非法，出现此错误涉及多种原因，请根据[官网步骤](https://developer.huawei.com/consumer/cn/doc/app/agc-help-package-errorcode-0000002312513009#section411361491513)排查。若排查后依旧报错，可能有以下原因：

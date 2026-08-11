@@ -9,7 +9,7 @@
 在DevEco Studio 新建 / 打开工程，反复执行“Updating indexes”、“Indexing”。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/WJy5OxbKTlSIfrXRulnuSQ/zh-cn_image_0000002654797779.png?HW-CC-KV=V1&HW-CC-Date=20260730T072708Z&HW-CC-Expire=86400&HW-CC-Sign=AE8097F448BA89117F0E939C4ABF5DBF935227A96D4F4CF66A98C965F50DDBD7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/WJy5OxbKTlSIfrXRulnuSQ/zh-cn_image_0000002654797779.png?HW-CC-KV=V1&HW-CC-Date=20260811T005524Z&HW-CC-Expire=86400&HW-CC-Sign=B6ABD503C6CCF17674CFBF23F6D3BE331B79676154B739635E553D93ECAD7FFA)
 
  
 **解决措施**

@@ -65,7 +65,7 @@ session.get(urlWithParam).then((response) => {
   运行日志如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/6Y2APZd_SCimYuOiDDs3cQ/zh-cn_image_0000002658851751.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=DD634ACBF78B1E4243E93567942B2765213092FD99C1B78641DDA360D23C7E2C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/6Y2APZd_SCimYuOiDDs3cQ/zh-cn_image_0000002658851751.png?HW-CC-KV=V1&HW-CC-Date=20260811T005942Z&HW-CC-Expire=86400&HW-CC-Sign=076232311A1947AA5E6BDA558AB9901E548CF141FF9513D2FF9E445DBA89CD29)
 
 - **方案2：使用rcp模块中的Form类型数据传输表单数据。**1. 使用参数新建Form类。
 ```text
@@ -96,7 +96,7 @@ session.post('xxx.xxx.xxx', simpleForm).then((response) => { <em>// 开发者自
   运行日志如下，如果用户不在请求头设置数据大小，rcp模块会自动计算：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/qQ4RedmrTtuecbwQhV7j4A/zh-cn_image_0000002628772386.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=5C31BF730B3ED6695E7EA60DDFECAD9D4E196E5DEB95CFC1B53940DA41E6AADF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/qQ4RedmrTtuecbwQhV7j4A/zh-cn_image_0000002628772386.png?HW-CC-KV=V1&HW-CC-Date=20260811T005942Z&HW-CC-Expire=86400&HW-CC-Sign=6FB96A17C7983B646B23E69ADFAB7416342D9EF9C62CC636463A96FA87C177A8)
 
 
  
@@ -134,7 +134,7 @@ multiForm.boundary = '--MULTIPARTFORM BEGIN AND END BOUNDARY'; <em>// 开发者�
 运行日志如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/e-4kdRXcThujukXX7MQCiA/zh-cn_image_0000002658971707.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=EE9F76F1C38A256761B6ECF0B29BDA4895DC35F583250E03E0FF54C839165541)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/e-4kdRXcThujukXX7MQCiA/zh-cn_image_0000002658971707.png?HW-CC-KV=V1&HW-CC-Date=20260811T005942Z&HW-CC-Expire=86400&HW-CC-Sign=0F3D4E781F4146E96A6A96EFB5244A05F5A37960C42DDE60897A3798ADBC2638)
 
  
 完整示例代码如下：

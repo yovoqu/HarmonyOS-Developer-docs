@@ -9,7 +9,7 @@
 使用TextAlign.Justify或TextAlign.Start均未实现两端对齐的效果，不同字符间距大小不一。如图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/EEhmsB2DSU29i1cvA2OOhg/zh-cn_image_0000002658911365.png?HW-CC-KV=V1&HW-CC-Date=20260730T072440Z&HW-CC-Expire=86400&HW-CC-Sign=1CD13A979205C13CA671B3FA4ED12C60F2E5F8D325C73915DD26FD80E9B0E4D1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/EEhmsB2DSU29i1cvA2OOhg/zh-cn_image_0000002658911365.png?HW-CC-KV=V1&HW-CC-Date=20260811T005714Z&HW-CC-Expire=86400&HW-CC-Sign=D51C11C8AB6CB9FD2CFF8272ECF172C3F7DCF6A4A34B0B77579E19FFA23957FC)
 
  
  

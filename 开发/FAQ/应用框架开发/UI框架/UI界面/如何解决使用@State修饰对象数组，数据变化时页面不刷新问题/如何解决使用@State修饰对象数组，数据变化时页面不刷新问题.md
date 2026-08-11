@@ -226,7 +226,7 @@ struct SceneThree {
  场景三问题现象如下，当想要将小张的年龄第二次修改为88时（89修改为88）UI不刷新：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/YZlwmk1mS7K1LVBhbqfe3g/zh-cn_image_0000002628407230.png?HW-CC-KV=V1&HW-CC-Date=20260730T072518Z&HW-CC-Expire=86400&HW-CC-Sign=86F09B7468A32243954B650AE20C882DE7AC6E7FA75D201258F9F9EE02882259)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/YZlwmk1mS7K1LVBhbqfe3g/zh-cn_image_0000002628407230.png?HW-CC-KV=V1&HW-CC-Date=20260811T005714Z&HW-CC-Expire=86400&HW-CC-Sign=BFAA0FA7E0349DA8A113BF642E524A61F8EB316DFA2CE751947D0E25B401F383)
 
 
  
@@ -324,7 +324,7 @@ struct SceneOne {
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/6ILoIri9RwaCwqmeF5urVA/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T072518Z&HW-CC-Expire=86400&HW-CC-Sign=04EA3A144FC03F756F9F45F6FDB2A3D6A7061C665BCE60CBB1D205833B6B6267)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/6ILoIri9RwaCwqmeF5urVA/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260811T005714Z&HW-CC-Expire=86400&HW-CC-Sign=93A238CD568500106D55ACE20795E4107D09A36AC255F22DF1BB8993B55C7F23)
  
 
   如果存在@Observed装饰的类没有使用new操作符实例化的情况、或者存在无法使用@Observed装饰器装饰类的情况时，也无法刷新页面。可以通过[makeV1observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makev1observed19)、[makeObserved](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makeobserved)方法将对象转化为可深度观测的对象，再进行刷新。适用的场景详见官网链接：[概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved#概述)。
@@ -332,7 +332,7 @@ struct SceneOne {
   场景一实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/d6cqQHTlQ1GWVL7R2YW5lA/zh-cn_image_0000002658806489.png?HW-CC-KV=V1&HW-CC-Date=20260730T072518Z&HW-CC-Expire=86400&HW-CC-Sign=DF2E07497CA9EA9FA4D629F14E0F71569735200A51822F605BD9667B1CEAC809)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/d6cqQHTlQ1GWVL7R2YW5lA/zh-cn_image_0000002658806489.png?HW-CC-KV=V1&HW-CC-Date=20260811T005714Z&HW-CC-Expire=86400&HW-CC-Sign=DCD1D25350A7F9D1648AF2023306A3E135A9B49D8602FE78DB9279E9BCFECA0A)
 
 
  
@@ -444,7 +444,7 @@ struct SceneTwo {
  场景二实现效果如下，嵌套对象的每个层级的属性都可以实现UI刷新：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/Oy8uaNKhRxK2tBL93N5tKg/zh-cn_image_0000002628567138.png?HW-CC-KV=V1&HW-CC-Date=20260730T072518Z&HW-CC-Expire=86400&HW-CC-Sign=413B5F6B781E03E54D29DA9BBF41E8799ABB5BEE59E082E77501B386EA4389AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/Oy8uaNKhRxK2tBL93N5tKg/zh-cn_image_0000002628567138.png?HW-CC-KV=V1&HW-CC-Date=20260811T005714Z&HW-CC-Expire=86400&HW-CC-Sign=C84A96F60B6F084DAD1F3A9C07EC5D91907EAC49420AA10E9D738F15019547B3)
 
 
  
@@ -481,7 +481,7 @@ struct SceneTwo {
 | 姓名小王 年龄15 | 3__{"name":"小王","age":15} |
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/2s7FSuiGRBqKol69gNBecQ/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T072518Z&HW-CC-Expire=86400&HW-CC-Sign=EFD12FDE15B80FE28C558268F63575F34F39663765C9E18E3A6E4E60330DD90B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/2s7FSuiGRBqKol69gNBecQ/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260811T005714Z&HW-CC-Expire=86400&HW-CC-Sign=21BAB0EE02802DA1735E6227F107259AD46E8D884B99B72B64CF9B0AC85FA45F)
  
 
   对象数组中对象属性的修改不会刷新keyGenerator，只有修改数组会触发ForEach重新刷新，从而刷新keyGenerator。此时刷新不依靠组件重建，而是依靠状态管理刷新。
@@ -501,7 +501,7 @@ struct SceneTwo {
 | 姓名小王 年龄15 | 3__{"name":"小王","age":15} |
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/96npjnjHQ1O_j3oz20dDGA/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T072518Z&HW-CC-Expire=86400&HW-CC-Sign=4AD18D4E4C4F3563F6F03954917D47FFE165AFBC182C51E2D0D9AB0B58D87147)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/96npjnjHQ1O_j3oz20dDGA/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260811T005714Z&HW-CC-Expire=86400&HW-CC-Sign=F0F7185087346E7620F6307D34331ED400E5E3023CB869F9708B85530EDFF22C)
  
 
   修改的数组项，会触发keyGenerator刷新，使得ForEach重建小张所在的组件，并将小张的年龄刷新为88。
@@ -682,7 +682,7 @@ struct SceneThreeOptionTwo {
  场景三修复效果如下，重复上述第5步时，发现可以重建刷新UI将小张的年龄从89重置为88：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/NusJZJ6ZSmWVGK4_FJfstQ/zh-cn_image_0000002658926439.png?HW-CC-KV=V1&HW-CC-Date=20260730T072518Z&HW-CC-Expire=86400&HW-CC-Sign=9E274F136997A5D0B8B5140CF018BBB87C80888863A8E9D9D18065C07020D734)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/NusJZJ6ZSmWVGK4_FJfstQ/zh-cn_image_0000002658926439.png?HW-CC-KV=V1&HW-CC-Date=20260811T005714Z&HW-CC-Expire=86400&HW-CC-Sign=58256BD78AD372052397FA952CF6711888FF2941CD3B9048D5925AA352FD9567)
 
 
  

@@ -1,32 +1,29 @@
-# Grid如何实现根据屏幕宽度自适应列数
+# 如何实现根据屏幕宽度自适应列数
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-07 09:43:07
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1465
 
 #### 问题现象
 
-如何实现一个能够上拉加载更多的Grid列表，并且可以根据不同的屏幕大小适配不同展示列数？
+如何实现多尺寸多设备的动态布局，比如根据屏幕大小适配不同展示列数？
  
  
 
 #### 背景知识
 
 - [栅格容器组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-gridrow)(GridRow)仅可以和[栅格子组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-gridcol)(GridCol)在栅格布局场景中使用。栅格布局可以为布局提供规律性的结构，解决多尺寸多设备的动态布局问题，保证不同设备上各个模块的布局一致性。
-- 可通过GridCol的span属性设置占用列数，xs、sm、md、lg分别对应不同栅格大小设备上栅格容器组件的栅格列数。
+- 可通过GridCol的[span](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-gridcol#span)属性设置占用列数，xs、sm、md、lg分别对应不同栅格大小设备上栅格容器组件的栅格列数。
 
  
  
 
 #### 解决方案
 
-- 可以通过栅格布局来实现Grid组件对不同屏幕大小的适配，具体实现方式及示例代码如下：1. 配置栅格容器组件(GridRow)的columns参数，即设定栅格布局的列数，默认API version 20之前为12列。
-
+可以通过栅格布局实现对不同屏幕大小的适配，具体实现方式及示例代码如下：1. 配置栅格容器组件(GridRow)的columns参数，即设定栅格布局的列数，默认API version 20之前为12列。
 2. 配置栅格子组件(GridCol)的span参数，设定不同栅格大小设备对应的栅格列数，可根据屏幕越大对应显示的列数越多来设定xs、sm、md、lg的值。
-
 3. 通过[onScrollStop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#onscrollstop9)回调，触发加载更多数据。
-
-  
+ 
 ```text
 let tmpData: number[] =
   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,];
@@ -90,13 +87,3 @@ struct GridRowAdaptiveColumnCount {
   }
 }
 ```
-
-- 在三种不同屏幕下的运行效果图如下：
-手机设备下对应span参数值为sm，可显示两列：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/IvZ83Nd1R-uZmp6DX-xZvA/zh-cn_image_0000002658964565.png?HW-CC-KV=V1&HW-CC-Date=20260701T041241Z&HW-CC-Expire=86400&HW-CC-Sign=BA161E4B03170CB0A99B93FAEFDB3469E690A94A3D89D2E5D830621210065A5A)
-
-- 折叠屏设备下对应span参数值为md，可显示四列：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/Gb9rm8NzSZyuVJIVkW2GVw/zh-cn_image_0000002628605356.png?HW-CC-KV=V1&HW-CC-Date=20260701T041241Z&HW-CC-Expire=86400&HW-CC-Sign=0ECEB64D48F7A58EF78EBBDACAF6D36501636FD1E722E93FA234FE11AF5583B7)
-
-- 平板设备下对应span参数值为lg，可显示六列：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/mWxjnUeXQEuAsMGvsj_6jA/zh-cn_image_0000002658844613.png?HW-CC-KV=V1&HW-CC-Date=20260701T041241Z&HW-CC-Expire=86400&HW-CC-Sign=65CE71E4264F5E0A3E2B7487071DCEA237D0B360ABA412EE0AFF2347EE4FBAF3)

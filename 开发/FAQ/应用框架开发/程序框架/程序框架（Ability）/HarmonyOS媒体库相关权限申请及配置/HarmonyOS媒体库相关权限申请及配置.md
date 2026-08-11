@@ -1,6 +1,6 @@
 # HarmonyOS媒体库相关权限申请及配置
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-07-31 00:56:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-163
 
@@ -15,7 +15,7 @@
 应用在访问数据或者执行操作时，需要评估该行为是否需要应用具备相关的权限。如果确认需要目标权限，则需要在应用安装包中申请目标权限，开发者可以依据下述流程图判断是否可以申请[受限权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions)。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/b900YoHdQnG0aa81wG_IBQ/zh-cn_image_0000002628631568.png?HW-CC-KV=V1&HW-CC-Date=20260730T072310Z&HW-CC-Expire=86400&HW-CC-Sign=805AEE7E7E78295B8A3EA3127D66BE09D7CA1A3167A00DBBBE5050D6C627F236)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/2_QJ3DTqR1yyuCUG7k5BeQ/zh-cn_image_0000002628631568.png?HW-CC-KV=V1&HW-CC-Date=20260811T005855Z&HW-CC-Expire=86400&HW-CC-Sign=87E3FAF047E2FC953804653B727B32A2B4E92BF4D960F8C86EEABF8A993A0D9C)
 
  
  
@@ -68,4 +68,4 @@ A：克隆的场景，如换机场景；备份或同步的场景，如云端备�
 
 #### 总结
 
-受限权限需要在应用市场申请权限，权限申请流程繁琐。在开发测试阶段建议使用不需要权限的替代方案，常见情况如保存图片到相册可以使用[安全控件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-savebutton#使用安全控件保存媒体库资源)或[弹窗授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-savebutton#使用弹窗授权保存媒体库资源)进行保存，相册管理可以使用[photoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-photoaccesshelper#photoaccesshelpergetphotoaccesshelper)进行相册图片选择等。
+受限权限需要在应用市场申请权限，权限申请流程繁琐。在开发测试阶段建议使用不需要权限的替代方案，常见情况如保存图片到相册可以使用[安全控件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-savebutton#使用安全控件保存媒体库资源)或[弹窗授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-savebutton#使用弹窗授权保存媒体库资源)进行保存，相册管理可以使用[photoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sendablephotoaccesshelper#photoaccesshelper)进行相册图片选择等。

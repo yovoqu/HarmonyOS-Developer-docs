@@ -103,7 +103,7 @@ Q：在AGC创建应用链接时错出现报错：源JSON文件中的index字段�
 A：报错是由于applinking.json文件中类型不对导致的，比如HarmonyOS应用在applinking.json文件中类型为atomicServices，或者元服务应用在applinking.json文件中类型为apps。需要改为对应的正确类型。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/N6Fm-tJhQsC3qrMUuWMm4w/zh-cn_image_0000002628554440.png?HW-CC-KV=V1&HW-CC-Date=20260730T072655Z&HW-CC-Expire=86400&HW-CC-Sign=4194339F177DE550370FA57F249C1128886D04AB305FA8661C1D5CA15EFE2144)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/N6Fm-tJhQsC3qrMUuWMm4w/zh-cn_image_0000002628554440.png?HW-CC-KV=V1&HW-CC-Date=20260811T005625Z&HW-CC-Expire=86400&HW-CC-Sign=7D6E9003AB1BA77FC4A365A10A2E49830494DFDB5A7C39DB39545FCE8E31D07F)
 
  
 Q：应用链接发布失败后，在域名服务器上重新完成了applinking.json配置文件放置，为何AGC显示的状态仍然是“失败”？

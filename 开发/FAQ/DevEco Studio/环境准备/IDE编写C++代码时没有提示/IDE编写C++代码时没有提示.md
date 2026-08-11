@@ -9,11 +9,11 @@
 IDE编写C++代码没有自动补全提示，点击变量名也无法快速定位或者跳转，且IDE右下角服务点为红色。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/Ib52u4HFRomLqqAu8qsr9g/zh-cn_image_0000002658924309.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=9B89A0428C5F5E72081E3A234DA0EE5D698631A2FCC70D96CD1CCAE475597B33)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/Ib52u4HFRomLqqAu8qsr9g/zh-cn_image_0000002658924309.png?HW-CC-KV=V1&HW-CC-Date=20260811T005523Z&HW-CC-Expire=86400&HW-CC-Sign=3105E4AA433ECAD68250C54955582DCAA5D59A958D0D0FB319E3C77D84E555DA)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/9e39VDdBQtWJ7ii0lIqsXw/zh-cn_image_0000002658804363.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=3A46505B3158B39FD3A352D821EFF9540195C8BBBEDED257D3745DC03AF6B5B8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/9e39VDdBQtWJ7ii0lIqsXw/zh-cn_image_0000002658804363.png?HW-CC-KV=V1&HW-CC-Date=20260811T005523Z&HW-CC-Expire=86400&HW-CC-Sign=454960E0221A5C1EF7E698C8B3D09EA330289CF7C34B0AC2B84E459B78D81A38)
 
  
  

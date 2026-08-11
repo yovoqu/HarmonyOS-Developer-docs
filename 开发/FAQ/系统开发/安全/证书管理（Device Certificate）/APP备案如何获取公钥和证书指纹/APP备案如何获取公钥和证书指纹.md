@@ -9,7 +9,7 @@
 移动端应用在各大平台使用云资源时，需要在对应的平台进行应用备案，平台会要求提供应用对应的公钥和证书md5指纹的信息。示例如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/qgEnFkzRR_yChPhLUwteNg/zh-cn_image_0000002628609894.png?HW-CC-KV=V1&HW-CC-Date=20260730T072545Z&HW-CC-Expire=86400&HW-CC-Sign=84813BCFCD38989920072B50139CE8259B7EFCC38945D9CCA8DC4C6DB653FB8F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/qgEnFkzRR_yChPhLUwteNg/zh-cn_image_0000002628609894.png?HW-CC-KV=V1&HW-CC-Date=20260811T005928Z&HW-CC-Expire=86400&HW-CC-Sign=C82D7F351E4874474D002E1C0EB045119D9F9151D3CBBB648FA97DDFC3FB9823)
 
  
  
@@ -22,18 +22,18 @@
 
 #### 解决方案
 1. 登录AppGallery Connect，点击“证书、APP ID和Profile”，在页面左侧点击“证书”，下载需要备案的HarmonyOS应用的发布证书。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/l2JXGW8IRi62kajvO8bxeA/zh-cn_image_0000002658969109.png?HW-CC-KV=V1&HW-CC-Date=20260730T072545Z&HW-CC-Expire=86400&HW-CC-Sign=B6BC13945B3A905EC21A1492AD6457A8A9D47B42EE6BD8474535FA3586B2935C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/l2JXGW8IRi62kajvO8bxeA/zh-cn_image_0000002658969109.png?HW-CC-KV=V1&HW-CC-Date=20260811T005928Z&HW-CC-Expire=86400&HW-CC-Sign=BBB31C267F2660E38B820DD762E78C978D141F2618DDEB4F36AFCB2C169FC6BA)
 
 2. 使用文本编辑器（如记事本）打开已下载的证书，删除前两段证书（根证书和中间证书），只保留最后一段证书（叶子证书），点击保存。
 3. 双击打开已保存的证书，点击“详细信息-公钥”，获取APP的公钥信息。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/ImwWqkliT1SDYzSdm-d7Jw/zh-cn_image_0000002658849157.png?HW-CC-KV=V1&HW-CC-Date=20260730T072545Z&HW-CC-Expire=86400&HW-CC-Sign=93ADD51B6375B75FA33AD23A4C3F937520E7FD05560AA470640D2651ABFE79B8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/ImwWqkliT1SDYzSdm-d7Jw/zh-cn_image_0000002658849157.png?HW-CC-KV=V1&HW-CC-Date=20260811T005928Z&HW-CC-Expire=86400&HW-CC-Sign=849275AC6B16570594CF9AC05A49212CBC61F395A7EC7CDC53B80A724155002D)
 
 4. 双击打开已保存的证书点击“详细信息-指纹”，获取APP的指纹信息。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/0WDfVq8xROiwBVn7NPrbsw/zh-cn_image_0000002628769790.png?HW-CC-KV=V1&HW-CC-Date=20260730T072545Z&HW-CC-Expire=86400&HW-CC-Sign=67EC0E569B25E83EB5EFA1EB80D8E5202C32D5FD59046E48E33F9EAEE634C7DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/0WDfVq8xROiwBVn7NPrbsw/zh-cn_image_0000002628769790.png?HW-CC-KV=V1&HW-CC-Date=20260811T005928Z&HW-CC-Expire=86400&HW-CC-Sign=701671F05FCE0B07A1D95D73AE08FF926FA0F9ACC0F14EAA2A30AC0A92BC7488)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/9BC9Nw8iRVqwVWghT03j0w/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T072545Z&HW-CC-Expire=86400&HW-CC-Sign=E8EFBFFD634E9950BCC9B9493BE8E3ABDF8B5D29F0D2E0E77F4138EDD416617D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/9BC9Nw8iRVqwVWghT03j0w/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260811T005928Z&HW-CC-Expire=86400&HW-CC-Sign=0B088FD81CE8F14E78BCBFAA33BF630ED5AFD59BCDBCE7627126015007A1B572)
  
 
   这里的指纹是sha1指纹，通常可以通过它作为md5值去备案。

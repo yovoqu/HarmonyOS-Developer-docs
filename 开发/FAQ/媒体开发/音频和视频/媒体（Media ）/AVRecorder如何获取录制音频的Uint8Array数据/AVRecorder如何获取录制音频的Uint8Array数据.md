@@ -25,124 +25,124 @@
 完整示例参考如下：
  
 ```json
-import { fileIo } from '@kit.CoreFileKit';
-import { media } from '@kit.MediaKit';
-import { common } from '@kit.AbilityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { util } from '@kit.ArkTS';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">fileIo </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.CoreFileKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">media </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.MediaKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">util </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct Index {
-  private context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  private filesDir: string = this.context.filesDir;
-  private avRecorder: media.AVRecorder | undefined = undefined;
-  private curFile: fileIo.File | undefined = undefined;
-  private avProfile: media.AVRecorderProfile = {
-    audioBitrate: 100000, <em>// 音频比特率</em>
-    audioChannels: 2, <em>// </em><em>音频声道数</em>
-    audioCodec: media.CodecMimeType.AUDIO_AAC,<em> </em><em>// 音频编码格式，当前只支持aac</em>
-    audioSampleRate: 48000, <em>// 音频采样率</em>
-    fileFormat: media.ContainerFormatType.CFT_MPEG_4A, <em>// 封装格式，当前只支持m4a</em>
-  };
-  private avConfig: media.AVRecorderConfig = {
-    audioSourceType: media.AudioSourceType.AUDIO_SOURCE_TYPE_MIC, <em>// </em><em>音频输入源，这里设置为麦克风</em>
-    profile: this.avProfile,
-    url: '',<em> </em><em>// 参考应用文件访问与管理开发示例新建并读写一个文件</em>
-  };
-  textTimerController: TextTimerController = new TextTimerController();
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
+  private <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">filesDir</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filesDir</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">avRecorder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">media</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AVRecorder </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">curFile</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">File </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">avProfile</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">media</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AVRecorderProfile </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">audioBitrate</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">100000</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">音频比特率</span></em>
+    <span style="color: rgb(0,0,255);">audioChannels</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">音频声道数</span></em>
+    <span style="color: rgb(0,0,255);">audioCodec</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">media</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CodecMimeType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AUDIO_AAC</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">音频编码格式，当前只支持</span><span style="color: rgb(128,128,128);">aac</span></em>
+    <span style="color: rgb(0,0,255);">audioSampleRate</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">48000</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">音频采样率</span></em>
+    <span style="color: rgb(0,0,255);">fileFormat</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">media</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ContainerFormatType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CFT_MPEG_4A</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">封装格式，当前只支持</span><span style="color: rgb(128,128,128);">m4a</span></em>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">avConfig</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">media</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AVRecorderConfig </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">audioSourceType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">media</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AudioSourceType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AUDIO_SOURCE_TYPE_MIC</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">音频输入源，这里设置为麦克风</span></em>
+    <span style="color: rgb(0,0,255);">profile</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avProfile</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">参考应用文件访问与管理开发示例新建并读写一个文件</span></em>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">textTimerController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextTimerController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TextTimerController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Row() {
-      Column() {
-        Text('按住说话')
-          .fontSize(20)
-          .fontWeight(FontWeight.Normal)
-          .width(300)
-          .height(40)
-          .textAlign(TextAlign.Center)
-          .backgroundColor(Color.Orange)
-          .border({ radius: 20 }) <em>// </em><em>单指长按文本触发该手势事件</em>
-          .gesture(
-            LongPressGesture({ repeat: false })
-              .onAction(async (event?: GestureEvent) => {
-                console.info(`LongPressGesture onAction.${JSON.stringify(event)}`);
-               <em> // 长按录音</em>
-                await this.startRecordingProcess();
-              }) <em>// </em><em>长按动作一结束触发</em>
-              .onActionEnd(async () => {
-                console.info(`LongPressGesture onActionEnd.`);
-                await this.stopRecordingProcess();
-              })
-          );
-      }
-      .width('100%');
-    }
-    .height('100%');
-  }
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">按住说话</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Normal</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">300</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">40</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Orange</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">border</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">radius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span> <em>// </em><em><span style="color: rgb(128,128,128);">单指长按文本触发该手势事件</span></em>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gesture</span><span style="color: rgb(0,0,255);">(</span>
+            <span style="color: rgb(0,0,255);">LongPressGesture</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">repeat</span><span style="color: rgb(181,106,1);">: </span>false <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAction</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">GestureEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`LongPressGesture onAction.</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+               <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">长按录音</span></em>
+                await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startRecordingProcess</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span> <em>// </em><em><span style="color: rgb(128,128,128);">长按动作一结束触发</span></em>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onActionEnd</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`LongPressGesture onActionEnd.`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stopRecordingProcess</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+<span style="color: rgb(0,0,255);">          )</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
- <em> // 开始录制对应的流程</em>
-  async startRecordingProcess() {
-    try {
-      if (this.avRecorder == undefined) {
-        <em>// 1.创建录制实例</em>
-        this.avRecorder = await media.createAVRecorder();
-      }
-      this.setAudioRecorderCallback();
-     <em> // 2.获取录制文件fd赋予avConfig里的url；参考FilePicker文档</em>
-      this.curFile = fileIo.openSync(this.filesDir + '/Audio_' + new Date().getTime() + '.mp4',
-        fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);
-      this.avConfig.url = 'fd://' + this.curFile.fd;
-    <em>  // 3.配置录制参数完成准备工作</em>
-      await this.avRecorder.prepare(this.avConfig);
-      <em>// 4.开始录制</em>
-      this.textTimerController.start();
-      await this.avRecorder.start();
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">开始录制对应的流程</span></em>
+  async <span style="color: rgb(0,0,255);">startRecordingProcess</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    try <span style="color: rgb(255,0,170);">{</span>
+      if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avRecorder </span><span style="color: rgb(181,106,1);">== </span>undefined<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <em><span style="color: rgb(128,128,128);">// 1.</span><span style="color: rgb(128,128,128);">创建录制实例</span></em>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avRecorder </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">media</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createAVRecorder</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setAudioRecorderCallback</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+     <em> <span style="color: rgb(128,128,128);">// 2.</span><span style="color: rgb(128,128,128);">获取录制文件</span><span style="color: rgb(128,128,128);">fd</span><span style="color: rgb(128,128,128);">赋予</span><span style="color: rgb(128,128,128);">avConfig</span><span style="color: rgb(128,128,128);">里的</span><span style="color: rgb(128,128,128);">url</span><span style="color: rgb(128,128,128);">；参考</span><span style="color: rgb(128,128,128);">FilePicker</span><span style="color: rgb(128,128,128);">文档</span></em>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curFile </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filesDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/Audio_' </span><span style="color: rgb(181,106,1);">+ </span>new <span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getTime</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'.mp4'</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">READ_WRITE </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CREATE</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avConfig</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">url </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'fd://' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curFile</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(181,106,1);">;</span>
+    <em>  <span style="color: rgb(128,128,128);">// 3.</span><span style="color: rgb(128,128,128);">配置录制参数完成准备工作</span></em>
+      await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avRecorder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">prepare</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avConfig</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <em><span style="color: rgb(128,128,128);">// 4.</span><span style="color: rgb(128,128,128);">开始录制</span></em>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textTimerController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">start</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avRecorder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">start</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-    } catch (err) {
-      console.info('startRecordingProcess' + JSON.stringify(err));
-    }
-  }
+    <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'startRecordingProcess' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
 
-  <em>// </em><em>停止录制对应的流程</em>
-  async stopRecordingProcess() {
-    if (this.avRecorder != undefined) {
-     <em> // 1. 停止录制</em>
-      if (this.avRecorder.state === 'started'
-        || this.avRecorder.state === 'paused') {<em> </em><em>// 仅在started或者paused状态下调用stop为合理状态切换</em>
-        await this.avRecorder.stop();
-      }
-      await this.avRecorder.reset();
-      this.textTimerController.reset();
-    <em>  // 3.释放录制实例</em>
-      await this.avRecorder.release();
-     <em> // 转Uint8Array</em>
-      let bytes: Uint8Array = this.stringToUint8Array(this.avConfig.url);
-      console.info(`${bytes}`);
-     <em> // 4.关闭录制文件fd</em>
-      fileIo.closeSync(this.curFile);
-      this.avRecorder = undefined;
-    }
-  }
+  <em>// </em><em><span style="color: rgb(128,128,128);">停止录制对应的流程</span></em>
+  async <span style="color: rgb(0,0,255);">stopRecordingProcess</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avRecorder </span><span style="color: rgb(181,106,1);">!= </span>undefined<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+     <em> <span style="color: rgb(128,128,128);">// 1. </span><span style="color: rgb(128,128,128);">停止录制</span></em>
+      if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avRecorder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">state </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'started'</span>
+        <span style="color: rgb(181,106,1);">|| </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avRecorder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">state </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'paused'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">仅在</span><span style="color: rgb(128,128,128);">started</span><span style="color: rgb(128,128,128);">或者</span><span style="color: rgb(128,128,128);">paused</span><span style="color: rgb(128,128,128);">状态下调用</span><span style="color: rgb(128,128,128);">stop</span><span style="color: rgb(128,128,128);">为合理状态切换</span></em>
+        await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avRecorder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stop</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avRecorder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">reset</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textTimerController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">reset</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <em>  <span style="color: rgb(128,128,128);">// 3.</span><span style="color: rgb(128,128,128);">释放录制实例</span></em>
+      await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avRecorder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">release</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+     <em> <span style="color: rgb(128,128,128);">//</span><span style="color: rgb(128,128,128);"> 转</span><span style="color: rgb(128,128,128);">Uint8Array</span></em>
+      let <span style="color: rgb(0,0,255);">bytes</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringToUint8Array</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avConfig</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">bytes</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+     <em> <span style="color: rgb(128,128,128);">// 4.</span><span style="color: rgb(128,128,128);">关闭录制文件</span><span style="color: rgb(128,128,128);">fd</span></em>
+      <span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curFile</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avRecorder </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
 
-  <em>// </em><em>注册audioRecorder回调函数</em>
-  setAudioRecorderCallback() {
-    if (this.avRecorder != undefined) {
-     <em> // 状态机变化回调函数</em>
-      this.avRecorder.on('stateChange', (state: media.AVRecorderState, reason: media.StateChangeReason) => {
-        console.info(`AudioRecorder current state is ${state}`);
-        console.info(`${reason}`);
-      });
-     <em> // 错误上报回调函数</em>
-      this.avRecorder.on('error', (err: BusinessError) => {
-        console.error(`AudioRecorder failed, code is ${err.code}, message is ${err.message}`);
-      });
-    }
-  }
+  <em>// </em><em><span style="color: rgb(128,128,128);">注册</span><span style="color: rgb(128,128,128);">audioRecorder</span><span style="color: rgb(128,128,128);">回调函数</span></em>
+  <span style="color: rgb(0,0,255);">setAudioRecorderCallback</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avRecorder </span><span style="color: rgb(181,106,1);">!= </span>undefined<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">状态机变化回调函数</span></em>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avRecorder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'stateChange'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">state</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">media</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AVRecorderState</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">reason</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">media</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">StateChangeReason</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`AudioRecorder current state is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">state</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">reason</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">错误上报回调函数</span></em>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">avRecorder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'error'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`AudioRecorder failed, code is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
 
-  stringToUint8Array(str: string): Uint8Array {
-    let textEncoder = new util.TextEncoder();
-    return textEncoder.encodeInto(str);
-  }
-}
+  <span style="color: rgb(0,0,255);">stringToUint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array </span><span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">textEncoder </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TextEncoder</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(0,0,255);">textEncoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encodeInto</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

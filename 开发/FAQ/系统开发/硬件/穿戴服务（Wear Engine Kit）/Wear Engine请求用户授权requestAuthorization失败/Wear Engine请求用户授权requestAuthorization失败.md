@@ -43,7 +43,7 @@ authClient.requestAuthorization(request).then(result => {
 - 调用Wear Engine服务前，需要在开发者联盟接入Wear Engine服务能力：[申请接入Wear Engine服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wearengine_apply)。
 - [配置Client ID](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/configuration_client_id)。
 - 需要用户授权的权限枚举如下：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/aMx61y2SSfmiXCwG4LAhAQ/zh-cn_image_0000002628775058.png?HW-CC-KV=V1&HW-CC-Date=20260730T072609Z&HW-CC-Expire=86400&HW-CC-Sign=854C2E0C44B82E18B758F5123D89C606A89513940997718CF8C0DB53B18009B2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/aMx61y2SSfmiXCwG4LAhAQ/zh-cn_image_0000002628775058.png?HW-CC-KV=V1&HW-CC-Date=20260811T005930Z&HW-CC-Expire=86400&HW-CC-Sign=F0267F1CB1663BD48DE6293B44CFF8728FDC9A34CD787A236A7432EF50B97456)
 
 
  
@@ -52,7 +52,7 @@ authClient.requestAuthorization(request).then(result => {
 #### 问题定位
 1. 日志显示报错，The app does not have the required scopes or permission.no scope permission。
 2. 确认申请的Wear Engine服务权限仅勾选了“设备基础信息”。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/1aPGyb1qTGuvn8id01iv1A/zh-cn_image_0000002658974375.png?HW-CC-KV=V1&HW-CC-Date=20260730T072609Z&HW-CC-Expire=86400&HW-CC-Sign=8E2956903C69ADF36077D9DC213407BD2AED6CC315A6E263F1D8E99245A75D3C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/1aPGyb1qTGuvn8id01iv1A/zh-cn_image_0000002658974375.png?HW-CC-KV=V1&HW-CC-Date=20260811T005930Z&HW-CC-Expire=86400&HW-CC-Sign=D303B3DE51BF4AC8C37A520BFD887F1E04A8145BDDA08E411870E70ABE599714)
 
 3. 查看USER_STATUS对应的服务权限为“获取用户状态权限”。
  

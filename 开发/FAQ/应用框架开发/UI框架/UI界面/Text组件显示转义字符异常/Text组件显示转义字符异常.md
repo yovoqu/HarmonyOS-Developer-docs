@@ -31,7 +31,7 @@ struct TextIndex1 {
 例子中‘\n’并未实现换行：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/r746AjwTSn2nxbAI7o_CqA/zh-cn_image_0000002628597978.png?HW-CC-KV=V1&HW-CC-Date=20260730T072457Z&HW-CC-Expire=86400&HW-CC-Sign=EBCB8B7BB3730D5B6978A564B715D4F44A5E8FA83646FF23D1FEA66BF18781F4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/r746AjwTSn2nxbAI7o_CqA/zh-cn_image_0000002628597978.png?HW-CC-KV=V1&HW-CC-Date=20260811T005651Z&HW-CC-Expire=86400&HW-CC-Sign=1895A722816DC9CBF5E8F10D461C1E5E47F4E9F1BB9F269622056C482661794F)
 
  
  

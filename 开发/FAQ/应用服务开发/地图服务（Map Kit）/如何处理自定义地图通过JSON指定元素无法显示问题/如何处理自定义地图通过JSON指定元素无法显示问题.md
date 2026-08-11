@@ -38,7 +38,7 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/I-nLdF9bSDqe5nV99y4iVQ/zh-cn_image_0000002658793645.png?HW-CC-KV=V1&HW-CC-Date=20260730T072643Z&HW-CC-Expire=86400&HW-CC-Sign=78039D56687062C5D545067435F543E38796022457F9F85DD02C006EBB4FD462)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/I-nLdF9bSDqe5nV99y4iVQ/zh-cn_image_0000002658793645.png?HW-CC-KV=V1&HW-CC-Date=20260811T005613Z&HW-CC-Expire=86400&HW-CC-Sign=6D4A70F1BCC7D436C395C079D08F7FC709E7CB2606B64609A7AF5E2C2497C31F)
 
  
  
@@ -98,7 +98,7 @@
 ```
 
 - JSON文件放入..\entry\src\main\resources\rawfile下。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/4b-UL1guRrW-cCP1GsHIPQ/zh-cn_image_0000002628554280.png?HW-CC-KV=V1&HW-CC-Date=20260730T072643Z&HW-CC-Expire=86400&HW-CC-Sign=C9603C646E2D71A216022F34A7B736DDFCD94A258651DAC2B6C8F03D8E1B3A9D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/4b-UL1guRrW-cCP1GsHIPQ/zh-cn_image_0000002628554280.png?HW-CC-KV=V1&HW-CC-Date=20260811T005613Z&HW-CC-Expire=86400&HW-CC-Sign=CFA79CD269089892CE4FE6A8BF48DA1E86A48ABB51BD8F27FEB808FB88A33581)
 
 - 代码示例如下：
 ```json

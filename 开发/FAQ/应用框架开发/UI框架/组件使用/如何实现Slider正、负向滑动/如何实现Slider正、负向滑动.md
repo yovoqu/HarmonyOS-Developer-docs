@@ -215,4 +215,4 @@ function buildSlider(config: SliderConfiguration) {
 运行效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/5BUqaS6DQiGZ0WFYZ0sjdA/zh-cn_image_0000002628554544.png?HW-CC-KV=V1&HW-CC-Date=20260730T072323Z&HW-CC-Expire=86400&HW-CC-Sign=3A5C6E3F830218B2CA55073B5E00CFADBB7DCB776FEC2A75D27B5D83E50CF491)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/5BUqaS6DQiGZ0WFYZ0sjdA/zh-cn_image_0000002628554544.png?HW-CC-KV=V1&HW-CC-Date=20260811T005807Z&HW-CC-Expire=86400&HW-CC-Sign=9B00F49806CDE46E9A83D3547DF3EA4280A40BC356B8E5B9DCEF4B253B2C70B9)

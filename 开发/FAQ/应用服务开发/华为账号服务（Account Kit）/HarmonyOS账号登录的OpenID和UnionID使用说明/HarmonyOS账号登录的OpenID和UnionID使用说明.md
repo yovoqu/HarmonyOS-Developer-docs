@@ -1,6 +1,6 @@
 # HarmonyOS账号登录的OpenID和UnionID使用说明
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-05 01:58:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-6
 
@@ -13,6 +13,8 @@
 **场景三**：HarmonyOS 4.3及以下版本和HarmonyOS 5及以上版本获取的OpenID不相同，UnionID相同，如何通过用户OpenID获取UnionID？
  
 **场景四**：用户更换绑定华为账号的手机号码，华为账号一键登录返回的UnionID是否会变？
+ 
+**场景五**：应用在主体迁移后，UnionID是否会改变？
  
  
 
@@ -37,3 +39,7 @@
 **场景四：**
  
 用户更换绑定华为账号的手机号码，华为账号一键登录返回的UnionID不会变，可以作为用户的唯一标识。
+ 
+**场景五：**
+ 
+UnionID是同一个开发者账号下的用户唯一标识，当应用转移到另外一个账号主体后，UnionID值也会变化。参考[UnionID介绍](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/unionid-introduction-0000001125697651)。

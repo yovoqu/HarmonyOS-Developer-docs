@@ -27,191 +27,191 @@ DatePicker可以用于在指定日期范围内选择日期，但是开发过程�
 
 - 场景一解决方案：使用多列非联动数据选择器。可以给TextPicker多列分别设置为年和月，即可模拟DatePicker日期选择效果。
 ```json
-@Entry
-@Component
-struct TextPickerExample1 {
-  private years: string[] =
-    ['2015年', '2016年', '2017年', '2018年', '2019年', '2020年', '2021年', '2022年', '2023年',
-      '2024年', '2025年', '2026年', '2027年', '2028年', '2029年', '2030年'];
-  private months: string[] = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
-  private multi: string[][] = [this.years, this.months];
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">TextPickerExample1 </span><span style="color: rgb(255,0,170);">{</span>
+  private <span style="color: rgb(0,0,255);">years</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">=</span>
+    <span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'2015</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2016</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2017</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2018</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2019</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2020</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2021</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2022</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2023</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,0,170);">'2024</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2025</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2026</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2027</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2028</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2029</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2030</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">months</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'1</span><span style="color: rgb(255,0,170);">月</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'2</span><span style="color: rgb(255,0,170);">月</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'3</span><span style="color: rgb(255,0,170);">月</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'4</span><span style="color: rgb(255,0,170);">月</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'5</span><span style="color: rgb(255,0,170);">月</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'6</span><span style="color: rgb(255,0,170);">月</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'7</span><span style="color: rgb(255,0,170);">月</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'8</span><span style="color: rgb(255,0,170);">月</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'9</span><span style="color: rgb(255,0,170);">月</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'10</span><span style="color: rgb(255,0,170);">月</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'11</span><span style="color: rgb(255,0,170);">月</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'12</span><span style="color: rgb(255,0,170);">月</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">multi</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[][]</span> <span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">years</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">months</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      TextPicker({ range: this.multi })
-        .onChange((value: string | string[], index: number | number[]) => {
-          console.info(`TextPicker 多列:onChange ${JSON.stringify(value)} , index: ${JSON.stringify(index)}`);
-        }).margin({ top: 250 });
-    }
-    .width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">TextPicker</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">multi </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">[]) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`TextPicker </span><span style="color: rgb(255,0,170);">多列</span><span style="color: rgb(255,0,170);">:onChange </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> , index: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">250 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/cU5-8QDYTu-7fZKtEWswYw/zh-cn_image_0000002628762570.png?HW-CC-KV=V1&HW-CC-Date=20260730T072435Z&HW-CC-Expire=86400&HW-CC-Sign=E35AEEC8D74E9745E516C0BFC16F041303946F2C60B311A13E5A2FA991E591B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/cU5-8QDYTu-7fZKtEWswYw/zh-cn_image_0000002628762570.png?HW-CC-KV=V1&HW-CC-Date=20260811T005655Z&HW-CC-Expire=86400&HW-CC-Sign=B3F7B60052324CCA9FA65854615FE033E727F09F33251B72F1DBC8F5F353F0A6)
 
 
  
 - 场景二解决方案：使用单列联动选择器实现年的选择，多列联动选择器实现年月或月日的选择。
 ```text
-@Entry
-@Component
-struct TextPickerExample2 {
-  @State generateYearMonth: TextCascadePickerRangeContent [] = [];
-  @State generateMonthDay: TextCascadePickerRangeContent [] = [];
-  @State generateYear: TextCascadePickerRangeContent [] = [];
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">TextPickerExample2 </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">generateYearMonth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextCascadePickerRangeContent </span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">generateMonthDay</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextCascadePickerRangeContent </span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">generateYear</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextCascadePickerRangeContent </span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
 
-  generateYearMonthRange(startYear: number, endYear: number): TextCascadePickerRangeContent[] {
-    const range: TextCascadePickerRangeContent[] = [];
-    for (let year = startYear; year <= endYear; year++) {
-      const months: TextCascadePickerRangeContent[] = [];
-      for (let month = 1; month <= 12; month++) {
-        months.push({
-          text: `${month.toString().padStart(2, '0')}月` // 确保月份是两位数
-        });
-      }
-      // 只有当月份数组不为空时，才添加到range中
-      if (months.length > 0) {
-        range.push({
-          text: `${year}年`, // 使用年份作为文本
-          children: months // 只有当月份不为空时，才设置children属性
-        });
-      }
-    }
-    return range; // 返回一维数组
-  }
+  <span style="color: rgb(0,0,255);">generateYearMonthRange</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">startYear</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">endYear</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextCascadePickerRangeContent</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(255,0,170);">{</span>
+    const <span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextCascadePickerRangeContent</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+    for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">year </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">startYear</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">year </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">endYear</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">year</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      const <span style="color: rgb(0,0,255);">months</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextCascadePickerRangeContent</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+      for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">month </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">month </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">12</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">month</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">months</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">month</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padStart</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">月</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">确保月份是两位数</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">只有当月份数组不为空时，才添加到</span><span style="color: rgb(128,128,128);">range</span><span style="color: rgb(128,128,128);">中</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">months</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">year</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使用年份作为文本</span>
+          <span style="color: rgb(0,0,255);">children</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">months </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">只有当月份不为空时，才设置</span><span style="color: rgb(128,128,128);">children</span><span style="color: rgb(128,128,128);">属性</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span>
+    return <span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">返回一维数组</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  generateMonthDayRange(year: number): TextCascadePickerRangeContent[] {
-    const range: TextCascadePickerRangeContent[] = [];
-    // 生成月份
-    for (let month = 1; month <= 12; month++) {
-      const days: TextCascadePickerRangeContent[] = [];
-      // 计算每个月的天数
-      let daysInMonth = new Date(year, month, 0).getDate();
-      for (let day = 1; day <= daysInMonth; day++) {
-        days.push({
-          text: `${day.toString().padStart(2, '0')}日` // 确保天数是两位数
-        });
-      }
-      range.push({
-        text: `${month.toString().padStart(2, '0')}月`, // 使用月份作为文本
-        children: days
-      });
-    }
-    return range;
-  }
+  <span style="color: rgb(0,0,255);">generateMonthDayRange</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">year</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextCascadePickerRangeContent</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(255,0,170);">{</span>
+    const <span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextCascadePickerRangeContent</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">生成月份</span>
+    for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">month </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">month </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">12</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">month</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      const <span style="color: rgb(0,0,255);">days</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextCascadePickerRangeContent</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">计算每个月的天数</span>
+      let <span style="color: rgb(0,0,255);">daysInMonth </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">year</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">month</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDate</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">day </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">day </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">daysInMonth</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">day</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">days</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">day</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padStart</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">日</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">确保天数是两位数</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">month</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padStart</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">月</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使用月份作为文本</span>
+        <span style="color: rgb(0,0,255);">children</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">days</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    return <span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  generateYearRange(startYear: number, endYear: number): TextCascadePickerRangeContent[] {
-    const range: TextCascadePickerRangeContent[] = [];
-    for (let year = startYear; year <= endYear; year++) {
-      range.push({
-        text: `${year}年`
-      });
-    }
-    return range;
-  }
+  <span style="color: rgb(0,0,255);">generateYearRange</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">startYear</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">endYear</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextCascadePickerRangeContent</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(255,0,170);">{</span>
+    const <span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextCascadePickerRangeContent</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+    for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">year </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">startYear</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">year </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">endYear</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">year</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">year</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">`</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    return <span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  aboutToAppear(): void {
-    this.generateYear = this.generateYearRange(2000, 2025);
-    this.generateYearMonth = this.generateYearMonthRange(2000, 2025);
-    this.generateMonthDay = this.generateMonthDayRange(2025);
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateYear </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateYearRange</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">2000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2025</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateYearMonth </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateYearMonthRange</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">2000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2025</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateMonthDay </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateMonthDayRange</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">2025</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    Column() {
-      Button('指定【年】区间列表');
-      TextPicker({ range: this.generateYear });
-      Button('指定【年】【月】区间列表');
-      TextPicker({ range: this.generateYearMonth });
-      Button('【月】【日】区间列表');
-      TextPicker({ range: this.generateMonthDay });
-    }
-    .height('100%')
-    .width('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">指定【年】区间列表</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">TextPicker</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateYear </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">指定【年】【月】区间列表</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">TextPicker</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateYearMonth </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">【月】【日】区间列表</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">TextPicker</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateMonthDay </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/9cc7KtmHQheisHaOMTW6bA/zh-cn_image_0000002658961883.png?HW-CC-KV=V1&HW-CC-Date=20260730T072435Z&HW-CC-Expire=86400&HW-CC-Sign=231C2333CC4A2959248A22DFEFA9CFE012C39118EC0D65FDF4921D36F18BA641)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/9cc7KtmHQheisHaOMTW6bA/zh-cn_image_0000002658961883.png?HW-CC-KV=V1&HW-CC-Date=20260811T005655Z&HW-CC-Expire=86400&HW-CC-Sign=272A78D9F7B373A4E6BF7DC92CFC693524C518DAECB3182781AFBF2250705B3C)
 
 
  
  
 - 场景三解决方案：当多列联动选择器触发[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textpicker#onchange18)时，判断如果年份发生改变，就把月份设置为之前的月。
 ```text
-@Entry
-@Component
-struct TextPickerExample3 {
-  @State generateYearMonth: TextCascadePickerRangeContent [] = [];
-  curYear: number = 0;
-  curMonth: number = 0;
-  @State curYearIndex: number = 0;
-  @State curMonthIndex: number = 0;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">TextPickerExample3 </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">generateYearMonth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextCascadePickerRangeContent </span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">curYear</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">curMonth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">curYearIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">curMonthIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  generateYearMonthRange(startYear: number, endYear: number): TextCascadePickerRangeContent[] {
-    const range: TextCascadePickerRangeContent[] = [];
-    for (let year = startYear; year <= endYear; year++) {
-      const months: TextCascadePickerRangeContent[] = [];
-      for (let month = 1; month <= (year !== endYear ? 12 : this.curMonth); month++) {
-        months.push({
-          text: `${month.toString().padStart(2, '0')}月` // 确保月份是两位数
-        });
-      }
-      // 只有当月份数组不为空时，才添加到range中
-      if (months.length > 0) {
-        range.push({
-          text: `${year}年`, // 使用年份作为文本
-          children: months // 只有当月份不为空时，才设置children属性
-        });
-      }
-    }
-    return range; // 多列联动数据
-  }
+  <span style="color: rgb(0,0,255);">generateYearMonthRange</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">startYear</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">endYear</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextCascadePickerRangeContent</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(255,0,170);">{</span>
+    const <span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextCascadePickerRangeContent</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+    for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">year </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">startYear</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">year </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">endYear</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">year</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      const <span style="color: rgb(0,0,255);">months</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextCascadePickerRangeContent</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+      for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">month </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">month </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">year </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(0,0,255);">endYear </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,0);">12 </span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curMonth</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">month</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">months</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">month</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padStart</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">月</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">确保月份是两位数</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">只有当月份数组不为空时，才添加到</span><span style="color: rgb(128,128,128);">range</span><span style="color: rgb(128,128,128);">中</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">months</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">year</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">年</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使用年份作为文本</span>
+          <span style="color: rgb(0,0,255);">children</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">months </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">只有当月份不为空时，才设置</span><span style="color: rgb(128,128,128);">children</span><span style="color: rgb(128,128,128);">属性</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span>
+    return <span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">多列联动数据</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  aboutToAppear(): void {
-    // 创建当前日期对象
-    const currentDate: Date = new Date();
-    // 获取当前月份（注意：月份从0开始，0=1月，11=12月）
-    this.curYear = currentDate.getFullYear();
-    this.curMonth = currentDate.getMonth() + 1;
-    // 生成2000年-当前时间的【年月】日历
-    this.generateYearMonth = this.generateYearMonthRange(2000, this.curYear);
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建当前日期对象</span>
+    const <span style="color: rgb(0,0,255);">currentDate</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Date </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取当前月份（注意：月份从</span><span style="color: rgb(128,128,128);">0</span><span style="color: rgb(128,128,128);">开始，</span><span style="color: rgb(128,128,128);">0=1</span><span style="color: rgb(128,128,128);">月，</span><span style="color: rgb(128,128,128);">11=12</span><span style="color: rgb(128,128,128);">月）</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curYear </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">currentDate</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getFullYear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curMonth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">currentDate</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getMonth</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">生成</span><span style="color: rgb(128,128,128);">2000</span><span style="color: rgb(128,128,128);">年</span><span style="color: rgb(128,128,128);">-</span><span style="color: rgb(128,128,128);">当前时间的【年月】日历</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateYearMonth </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateYearMonthRange</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">2000</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curYear</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    Column() {
-      TextPicker({ range: this.generateYearMonth })
-        .selectedIndex([this.curYearIndex, this.curMonthIndex])
-        .onChange((value: string | string[], index: number | number[]) => {
-          console.info(`TextPicker 多列:onChange ${value}, index: ${index}`);
-          if (this.curYearIndex === (index as number[])[0]) {
-            // 改变月份时更新当前选择的月份索引值
-            this.curMonthIndex = (index as number[])[1];
-          } else {
-            // 改变年份时更新当前选择的年份索引值
-            this.curYearIndex = (index as number[])[0];
-            // 获取当前选择年份的月份列表长度
-            let monthLength: number = this.generateYearMonth[this.curYearIndex].children!.length;
-            // 更新选择的月份索引值
-            // 例如原先选择的2024年9月，改变年份为2025年后月份只有1-8月，则月份默认值修改为距离最近的8月
-            // 例如原先选择的2024年5月改变年份为2025年后，则月份索引值保持原来选择的5月
-            this.curMonthIndex = this.curMonthIndex > monthLength - 1 ? monthLength - 1 : this.curMonthIndex;
-          }
-        })
-        .margin({ top: 250 })
-        .canLoop(false);
-    }
-    .width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">TextPicker</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">range</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateYearMonth </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedIndex</span><span style="color: rgb(0,0,255);">([</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curYearIndex</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curMonthIndex</span><span style="color: rgb(0,0,255);">])</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">[]) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`TextPicker </span><span style="color: rgb(255,0,170);">多列</span><span style="color: rgb(255,0,170);">:onChange </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, index: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curYearIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index </span>as <span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">[])[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">改变月份时更新当前选择的月份索引值</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curMonthIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index </span>as <span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">[])[</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">改变年份时更新当前选择的年份索引值</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curYearIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index </span>as <span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">[])[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取当前选择年份的月份列表长度</span>
+            let <span style="color: rgb(0,0,255);">monthLength</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateYearMonth</span><span style="color: rgb(0,0,255);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curYearIndex</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">children</span><span style="color: rgb(181,106,1);">!.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">更新选择的月份索引值</span>
+            <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">例如原先选择的</span><span style="color: rgb(128,128,128);">2024</span><span style="color: rgb(128,128,128);">年</span><span style="color: rgb(128,128,128);">9</span><span style="color: rgb(128,128,128);">月，改变年份为</span><span style="color: rgb(128,128,128);">2025</span><span style="color: rgb(128,128,128);">年后月份只有</span><span style="color: rgb(128,128,128);">1-8</span><span style="color: rgb(128,128,128);">月，则月份默认值修改为距离最近的</span><span style="color: rgb(128,128,128);">8</span><span style="color: rgb(128,128,128);">月</span>
+            <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">例如原先选择的</span><span style="color: rgb(128,128,128);">2024</span><span style="color: rgb(128,128,128);">年</span><span style="color: rgb(128,128,128);">5</span><span style="color: rgb(128,128,128);">月改变年份为</span><span style="color: rgb(128,128,128);">2025</span><span style="color: rgb(128,128,128);">年后，则月份索引值保持原来选择的</span><span style="color: rgb(128,128,128);">5</span><span style="color: rgb(128,128,128);">月</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curMonthIndex </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curMonthIndex </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">monthLength </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">monthLength </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curMonthIndex</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">250 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">canLoop</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/ogdDIe6gRtWc4BqF_v5AJg/zh-cn_image_0000002628602672.png?HW-CC-KV=V1&HW-CC-Date=20260730T072435Z&HW-CC-Expire=86400&HW-CC-Sign=D7F8ACB4B46A3139A61EB29BD28642FE2BC8D13D6D9967F1E5BF977CD0ACFE92)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/ogdDIe6gRtWc4BqF_v5AJg/zh-cn_image_0000002628602672.png?HW-CC-KV=V1&HW-CC-Date=20260811T005655Z&HW-CC-Expire=86400&HW-CC-Sign=B6DB0CF825489C868F63E5E81925B43973965A2AD7B856511DA88F796A2B4C5A)

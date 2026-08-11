@@ -9,7 +9,7 @@
 问题一：测试机A开启热点，测试机B连接后，测试机A断网，然后测试机B在同一个时间段对同一个地址进行访问时，会分别返回三种不同的错误码，是什么原因？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/ufg5Zn0rQuu_VQKPmFSeKQ/zh-cn_image_0000002661423817.png?HW-CC-KV=V1&HW-CC-Date=20260730T072547Z&HW-CC-Expire=86400&HW-CC-Sign=EDC5CF6B7E5C6AC6E00C8B38D3ACA939C51B56BDD8A07425F8D979FA16C3D467)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/ufg5Zn0rQuu_VQKPmFSeKQ/zh-cn_image_0000002661423817.png?HW-CC-KV=V1&HW-CC-Date=20260811T005940Z&HW-CC-Expire=86400&HW-CC-Sign=7E2823EF3CFFC6811C55215C5B98EE06D593ED692A63E42662A648AD7BA76BEA)
 
  
 问题二：错误码1007900056要怎么排查？

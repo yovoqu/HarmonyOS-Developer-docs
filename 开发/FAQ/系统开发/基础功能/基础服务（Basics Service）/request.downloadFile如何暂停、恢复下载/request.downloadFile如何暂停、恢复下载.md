@@ -20,180 +20,180 @@ request.downloadFile接口下载文件怎么暂停、恢复下载？
 
 - 可以用request.downloadFile创建的DownloadTask下载任务中[suspend](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#suspend9-1)、[restore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#restore9)接口对下载任务进行暂停和恢复。
 ```json
-import { BusinessError, request, systemDateTime } from '@kit.BasicServicesKit';
-import { common } from '@kit.AbilityKit';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">systemDateTime </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
 
 
-interface DownloadResult {
-  isSuccess: boolean,
-  msg: string
-}
-@Entry
-@Component
-struct downloadFileCase {
- <em> // 请在组件内获取context，确保this.getUIContext().getHostContext()返回结果为UIAbilityContext</em>
-  context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  <em>// 需要手动将url替换为真实服务器的HTTP协议地址</em>
-  downloadUrl: string =
-    'http://xxx/xxx.mp4';
-  @State filePath: string = '';
-  @State downloadTask: request.DownloadTask | undefined = undefined;
+interface <span style="color: rgb(0,0,255);">DownloadResult </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">isSuccess</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span>
+<span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">downloadFileCase </span><span style="color: rgb(255,0,170);">{</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">请在组件内获取</span><span style="color: rgb(128,128,128);">context</span><span style="color: rgb(128,128,128);">，确保</span><span style="color: rgb(128,128,128);">this.getUIContext().getHostContext()</span><span style="color: rgb(128,128,128);">返回结果为</span><span style="color: rgb(128,128,128);">UIAbilityContext</span></em>
+  <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">需要手动将</span><span style="color: rgb(128,128,128);">url</span><span style="color: rgb(128,128,128);">替换为真实服务器的</span><span style="color: rgb(128,128,128);">HTTP</span><span style="color: rgb(128,128,128);">协议地址</span></em>
+  <span style="color: rgb(0,0,255);">downloadUrl</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">=</span>
+    <span style="color: rgb(255,0,170);">'http://xxx/xxx.mp4'</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">downloadTask</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DownloadTask </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
 
-  DownloadFile(url: string, savePath: string): Promise<DownloadResult> {
-    return new Promise(async () => {
-      const fileName = `${systemDateTime.getTime(true)}.mp4`;
-      this.filePath = savePath + '/' + fileName;
-      console.info('filePath:', JSON.stringify(this.filePath));
-      this.downloadTask = await request.downloadFile(this.context, {
-        url,
-        filePath: this.filePath,
-      });
-    });
-  }
-  build() {
-    Column({ space: 10 }) {
-      Button('download下载').onClick(() => {
-        this.DownloadFile(this.downloadUrl, `${this.context.filesDir}/testDir`);
-      });
-      Button('download暂停').onClick(() => {
-       <em> // 暂停下载</em>
-        if (!this.downloadTask) return;
-        try {
-          this.downloadTask.suspend();
-          console.info(`Succeeded in pause the download task.`);
-        } catch (err) {
-          console.error(`Failed to pause the download task. Code: ${err}, message: ${err.message}`);
-        }
-      });
-      Button('download继续').onClick(() => {
-       <em> // 继续下载</em>
-        if (!this.downloadTask) return;
+  <span style="color: rgb(0,0,255);">DownloadFile</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">savePath</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">DownloadResult</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    return new <span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      const <span style="color: rgb(0,0,255);">fileName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">systemDateTime</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getTime</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">.mp4`</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filePath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">savePath </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">fileName</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'filePath:'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">downloadTask </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">downloadFile</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'download</span><span style="color: rgb(255,0,170);">下载</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DownloadFile</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">downloadUrl</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filesDir</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">/testDir`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'download</span><span style="color: rgb(255,0,170);">暂停</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+       <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">暂停下载</span></em>
+        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">downloadTask</span><span style="color: rgb(0,0,255);">) </span>return<span style="color: rgb(181,106,1);">;</span>
+        try <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">downloadTask</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">suspend</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Succeeded in pause the download task.`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to pause the download task. Code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'download</span><span style="color: rgb(255,0,170);">继续</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+       <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">继续下载</span></em>
+        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">downloadTask</span><span style="color: rgb(0,0,255);">) </span>return<span style="color: rgb(181,106,1);">;</span>
 
-        this.downloadTask.restore().then((result: boolean) => {
-          console.info(`Succeeded in resuming the download task.${result.valueOf()}`);
-        }).catch((err: BusinessError) => {
-          console.error(`Failed to resume the download task. Code: ${err.code}, message: ${err.message}`);
-        });
-      });
-    }
-    .height('100%')
-    .width('100%');
-  }
-}
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">downloadTask</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">restore</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Succeeded in resuming the download task.</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">valueOf</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to resume the download task. Code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 
  
 - 若想使用request.agent.create创建下载任务，也可用[pause](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#pause10)、[resume](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#resume10)接口来实现下载任务的暂停与恢复，暂停任务后会同步释放HTTP连接。
 ```json
-import { BusinessError, request } from '@kit.BasicServicesKit';
-import { common } from '@kit.AbilityKit';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">request </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct RequestAgentDemo {
-  context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">RequestAgentDemo </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
 
-  @State downloadTask: request.agent.Task | null = null;
-  @State progressInfo: string = "等待开始...";
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">downloadTask</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">agent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Task </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">progressInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">"</span><span style="color: rgb(255,0,170);">等待开始</span><span style="color: rgb(255,0,170);">..."</span><span style="color: rgb(181,106,1);">;</span>
 
-  <em>// 配置对象</em>
-  config: request.agent.Config = {
-    action: request.agent.Action.DOWNLOAD,
-    url: 'http://xxx/xxx.mp4',
-    mode: request.agent.Mode.BACKGROUND,
-    overwrite: true,<em> </em><em>// 建议设为 true，方便多次测试</em>
-    method: "GET",
-    saveas: "./"<em> </em><em>// 下载到应用私有目录</em>
-  };
+  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">配置对象</span></em>
+  <span style="color: rgb(0,0,255);">config</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">agent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Config </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">action</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">agent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Action</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DOWNLOAD</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'http://xxx/xxx.mp4'</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">mode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">agent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Mode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BACKGROUND</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">overwrite</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">建议设为</span><span style="color: rgb(128,128,128);"> true</span><span style="color: rgb(128,128,128);">，方便多次测试</span></em>
+    <span style="color: rgb(0,0,255);">method</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">"GET"</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">saveas</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">"./"</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">下载到应用私有目录</span></em>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    RelativeContainer() {
-      Column({ space: 20 }) {
-        Text(this.progressInfo)
-          .fontSize(16)
-          .textAlign(TextAlign.Center)
-          .width('90%')
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">progressInfo</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'90%'</span><span style="color: rgb(0,0,255);">)</span>
 
-        Row({ space: 10 }) {
-        <em>  // 1. 开始按钮</em>
-          Button('开始')
-            .onClick(() => {
-             <em> // 防止重复创建</em>
-              if (this.downloadTask) return;
-              request.agent.create(this.context, this.config)
-                .then((task: request.agent.Task) => {
-                  this.downloadTask = task;
+        <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <em>  <span style="color: rgb(128,128,128);">// 1. </span><span style="color: rgb(128,128,128);">开始按钮</span></em>
+          <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">开始</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+             <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">防止重复创建</span></em>
+              if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">downloadTask</span><span style="color: rgb(0,0,255);">) </span>return<span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">agent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">create</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(0,0,255);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">task</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">agent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Task</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">downloadTask </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">task</span><span style="color: rgb(181,106,1);">;</span>
 
-               <em>   // 注册监听（为了看效果）</em>
-                  task.on('progress', (progress) => {
-                 <em>   // 进度显示</em>
-                    this.progressInfo = `进度: ${progress.processed}/${progress.sizes[0]}`;
-                  });
-                  task.on('completed', () => {
-                    this.progressInfo = "下载完成";
-                    this.downloadTask = null;<em> </em><em>// 下载完重置</em>
-                  });
-                  task.on('failed', (err) => {
-                    this.progressInfo = `失败: ${JSON.stringify(err)}`;
-                  });
+               <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">注册监听（为了看效果）</span></em>
+                  <span style="color: rgb(0,0,255);">task</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'progress'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">progress</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                 <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">进度显示</span></em>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">progressInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">进度</span><span style="color: rgb(255,0,170);">: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">progress</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">processed</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">/</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">progress</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sizes</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(0,0,255);">task</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'completed'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">progressInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">"</span><span style="color: rgb(255,0,170);">下载完成</span><span style="color: rgb(255,0,170);">"</span><span style="color: rgb(181,106,1);">;</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">downloadTask </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">下载完重置</span></em>
+                  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(0,0,255);">task</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'failed'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">progressInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">失败</span><span style="color: rgb(255,0,170);">: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-                <em>  // 启动任务</em>
-                  task.start((err: BusinessError) => {
-                    if (err) {
-                      console.error(`Start failed: ${err.message}`);
-                      return;
-                    }
-                    console.info(`Succeeded in starting task. tid: ${task.tid}`);
-                    this.progressInfo = "下载已启动";
-                  });
-                })
-                .catch((err: BusinessError) => {
-                  console.error(`Create failed: ${err.message}`);
-                });
-            })
+                <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">启动任务</span></em>
+                  <span style="color: rgb(0,0,255);">task</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">start</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+                      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Start failed: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                      return<span style="color: rgb(181,106,1);">;</span>
+                    <span style="color: rgb(255,0,170);">}</span>
+                    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Succeeded in starting task. tid: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">task</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tid</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">progressInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">"</span><span style="color: rgb(255,0,170);">下载已启动</span><span style="color: rgb(255,0,170);">"</span><span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Create failed: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
 
-        <em>  // 2. 暂停按钮</em>
-          Button('暂停')
-            .onClick(() => {
-              if (!this.downloadTask) return;
+        <em>  <span style="color: rgb(128,128,128);">// 2. </span><span style="color: rgb(128,128,128);">暂停按钮</span></em>
+          <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">暂停</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+              if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">downloadTask</span><span style="color: rgb(0,0,255);">) </span>return<span style="color: rgb(181,106,1);">;</span>
 
-              this.downloadTask.pause((err: BusinessError) => {
-                if (err) {
-                  console.error(`Pause failed: ${err.message}`);
-                } else {
-                  console.info('Succeeded in pausing task.');
-                  this.progressInfo = "已暂停";
-                }
-              });
-            })
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">downloadTask</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pause</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+                  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Pause failed: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+                  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Succeeded in pausing task.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">progressInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">"</span><span style="color: rgb(255,0,170);">已暂停</span><span style="color: rgb(255,0,170);">"</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">              }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
 
-        <em>  // 3. 重启（恢复）按钮</em>
-          Button('恢复')
-            .onClick(() => {
-              if (!this.downloadTask) return;
-              this.downloadTask.resume((err: BusinessError) => {
-                if (err) {
-                  console.error(`Resume failed: ${err.message}`);
-                } else {
-                  console.info('Succeeded in resuming task.');
-                  this.progressInfo = "已恢复下载";
-                }
-              });
-            })
-        }
-        .justifyContent(FlexAlign.Center)
-        .width('100%')
-      }
-      .alignRules({
-        center: { anchor: '__container__', align: VerticalAlign.Center },
-        middle: { anchor: '__container__', align: HorizontalAlign.Center }
-      })
-    }
-    .height('100%')
-    .width('100%')
-  }
-}
+        <em>  <span style="color: rgb(128,128,128);">// 3. </span><span style="color: rgb(128,128,128);">重启（恢复）按钮</span></em>
+          <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">恢复</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+              if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">downloadTask</span><span style="color: rgb(0,0,255);">) </span>return<span style="color: rgb(181,106,1);">;</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">downloadTask</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resume</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+                  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Resume failed: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+                  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Succeeded in resuming task.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">progressInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">"</span><span style="color: rgb(255,0,170);">已恢复下载</span><span style="color: rgb(255,0,170);">"</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">              }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(255,0,170);">}</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 

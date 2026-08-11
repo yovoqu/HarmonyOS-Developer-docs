@@ -9,7 +9,7 @@
 如何实现类似Slider组件，且要求滑块和进度解耦。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/6PfqO3TZRP2g15TlQPELew/zh-cn_image_0000002628820888.png?HW-CC-KV=V1&HW-CC-Date=20260730T072416Z&HW-CC-Expire=86400&HW-CC-Sign=9926B2DEC52012ADE042E221B2FA719A2222F0EE294860106509F88CC8C72533)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/6PfqO3TZRP2g15TlQPELew/zh-cn_image_0000002628820888.png?HW-CC-KV=V1&HW-CC-Date=20260811T005823Z&HW-CC-Expire=86400&HW-CC-Sign=CB5704E6E66E807036184FDCAF45048D2A7B42F4C787F6882ABA137F8C28442C)
 
  
  

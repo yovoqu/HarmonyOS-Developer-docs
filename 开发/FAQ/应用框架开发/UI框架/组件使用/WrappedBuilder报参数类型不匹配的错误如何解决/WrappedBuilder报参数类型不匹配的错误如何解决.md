@@ -11,142 +11,142 @@
 报错提示如下：
  
 ```text
-Argument of type 'DialogCustomV2<T>' is not assignable to parameter of type 'MAPPER_VALUE'.
-  The types of 'wrapped.builder' are incompatible between these types.
-    Type '(args_0: T) => void' is not assignable to type '(args_0: BaseCustomDialogParam) => void'.
-      Types of parameters 'args_0' and 'args_0' are incompatible.
-        Type 'BaseCustomDialogParam' is not assignable to type 'T'.
-          'BaseCustomDialogParam' is assignable to the constraint of type 'T', but 'T' could be instantiated with a different subtype of constraint 'BaseCustomDialogParam'.
+<span style="color: rgb(0,0,255);">Argument of type </span><span style="color: rgb(255,0,170);">'DialogCustomV2</span><span style="color: rgb(255,0,170);"><</span><span style="color: rgb(255,0,170);">T</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(0,0,255);">is not assignable to parameter of type </span><span style="color: rgb(255,0,170);">'MAPPER_VALUE'</span><span style="color: rgb(181,106,1);">.</span>
+<span style="color: rgb(0,0,255);">  The types of </span><span style="color: rgb(255,0,170);">'wrapped.builder' </span><span style="color: rgb(0,0,255);">are incompatible between these types</span><span style="color: rgb(181,106,1);">.</span>
+<span style="color: rgb(0,0,255);">    Type </span><span style="color: rgb(255,0,170);">'(args_0: T) =</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"> void' </span><span style="color: rgb(0,0,255);">is not assignable to type </span><span style="color: rgb(255,0,170);">'(args_0: BaseCustomDialogParam) =</span><span style="color: rgb(255,0,170);">></span><span style="color: rgb(255,0,170);"> void'</span><span style="color: rgb(181,106,1);">.</span>
+<span style="color: rgb(0,0,255);">      Types of parameters </span><span style="color: rgb(255,0,170);">'args_0' </span><span style="color: rgb(0,0,255);">and </span><span style="color: rgb(255,0,170);">'args_0' </span><span style="color: rgb(0,0,255);">are incompatible</span><span style="color: rgb(181,106,1);">.</span>
+<span style="color: rgb(0,0,255);">        Type </span><span style="color: rgb(255,0,170);">'BaseCustomDialogParam' </span><span style="color: rgb(0,0,255);">is not assignable to type </span><span style="color: rgb(255,0,170);">'T'</span><span style="color: rgb(181,106,1);">.</span>
+<span style="color: rgb(255,0,170);">          'BaseCustomDialogParam' </span><span style="color: rgb(0,0,255);">is assignable to the constraint of type </span><span style="color: rgb(255,0,170);">'T'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">but </span><span style="color: rgb(255,0,170);">'T' </span><span style="color: rgb(0,0,255);">could be instantiated </span>with <span style="color: rgb(0,0,255);">a different subtype of constraint </span><span style="color: rgb(255,0,170);">'BaseCustomDialogParam'</span><span style="color: rgb(181,106,1);">.</span>
 ```
  
 解释：报错提示泛型参数类型不匹配，类型“DialogCustomV2&lt;T&gt;”不能分配给类型“DialogCustomV2&lt;BaseCustomDialogParam&gt;”。错误代码如下：
  
 ```text
-import { ComponentContent, UIContext } from '@kit.ArkUI';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">ComponentContent</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">UIContext </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
 
-<em>// </em><em>定义基础接口</em>
-namespace Param {
-  export interface BaseDialogParamV2 {
-    alignment?: DialogAlignment
-    mask?: boolean
-    cornerRadius?: Dimension,
-    autoCancel?: boolean,
-    width?: Dimension,
-    height?: Dimension,
-  }
+<em>// </em><em><span style="color: rgb(128,128,128);">定义基础接口</span></em>
+namespace <span style="color: rgb(0,0,255);">Param </span><span style="color: rgb(255,0,170);">{</span>
+  export interface <span style="color: rgb(0,0,255);">BaseDialogParamV2 </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">DialogAlignment</span>
+    <span style="color: rgb(0,0,255);">mask</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean</span>
+    <span style="color: rgb(0,0,255);">cornerRadius</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Dimension</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">autoCancel</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Dimension</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">height</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Dimension</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  export interface BaseCustomDialogParam {
-    dialogFunc?: () => boolean;
-  }
-}
+  export interface <span style="color: rgb(0,0,255);">BaseCustomDialogParam </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">dialogFunc</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-function simpleUUID(): string {
-  return 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
-    const r = Math.random() * 16 | 0;
-    const v = c === 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);
-  });
-}
+function <span style="color: rgb(0,0,255);">simpleUUID</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(255,0,170);">{</span>
+  return <span style="color: rgb(255,0,170);">'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replace</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">/[xy]/g</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">c</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    const <span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">random</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">16 </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+    const <span style="color: rgb(0,0,255);">v </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">c </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'x' </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">0x3 </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">0x8)</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-<em>// </em><em>定义泛型类DialogCustomV2</em>
-class DialogCustomV2<T extends Param.BaseCustomDialogParam> {
-  uiContext: UIContext = new UIContext;
-  wrapped: WrappedBuilder<[T]>;
-  param: T;
-  dialogParam: Param.BaseDialogParamV2;
-  private _id: string;
+<em>// </em><em><span style="color: rgb(128,128,128);">定义泛型类</span><span style="color: rgb(128,128,128);">DialogCustomV2</span></em>
+class <span style="color: rgb(0,0,255);">DialogCustomV2</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">T </span>extends <span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseCustomDialogParam</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">UIContext </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">UIContext</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">wrapped</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WrappedBuilder</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">dialogParam</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseDialogParamV2</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">_id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
 
-  public get id(): string {
-    return this._id;
-  }
+  public get <span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(255,0,170);">{</span>
+    return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">_id</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  constructor(wrapped: WrappedBuilder<[T]>, param: T, dialogParam?: Param.BaseDialogParamV2) {
-    this.wrapped = wrapped;
-    this.param = param;
-    this.dialogParam = dialogParam ?? {};
-    this._id = simpleUUID();
-  }
+  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">wrapped</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WrappedBuilder</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">dialogParam</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseDialogParamV2</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">wrapped </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">wrapped</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dialogParam </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">dialogParam </span><span style="color: rgb(181,106,1);">?? </span><span style="color: rgb(255,0,170);">{}</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">_id </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">simpleUUID</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  open() {
-    let view = new ComponentContent(this.uiContext, this.wrapped, this.param);
-    this.uiContext.getPromptAction().openCustomDialog(view, this.dialogParam);
-  }
-}
+  <span style="color: rgb(0,0,255);">open</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">view </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ComponentContent</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">wrapped</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openCustomDialog</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">view</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dialogParam</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-export function showCustomV2<T extends Param.BaseCustomDialogParam>(wrapped: WrappedBuilder<[T]>, param: T,
-  dialogParam?: Param.BaseDialogParamV2) {
-  const dialog: DialogCustomV2<T> = new DialogCustomV2<T>(wrapped, param, dialogParam);
-  <em>// </em><em>缓存弹窗映射</em>
-  type MAPPER_VALUE = DialogCustomV2<Param.BaseCustomDialogParam>;
-  const MAPPER = new Map<string, MAPPER_VALUE>();
- <em> // 弹框堆栈</em>
-  const STACK: Array<string> = [];
-  MAPPER.set(dialog.id, dialog);
-  STACK.push(dialog.id);
-  dialog.open();
-}
+export function <span style="color: rgb(0,0,255);">showCustomV2</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">T </span>extends <span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseCustomDialogParam</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">wrapped</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WrappedBuilder</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">dialogParam</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseDialogParamV2</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+  const <span style="color: rgb(0,0,255);">dialog</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">DialogCustomV2</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span>new <span style="color: rgb(0,0,255);">DialogCustomV2</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">wrapped</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">dialogParam</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <em>// </em><em><span style="color: rgb(128,128,128);">缓存弹窗映射</span></em>
+  type <span style="color: rgb(128,128,128);">MAPPER_VALUE </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">DialogCustomV2</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseCustomDialogParam</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">;</span>
+  const <span style="color: rgb(0,0,255);">MAPPER </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Map</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">MAPPER_VALUE</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">弹框堆栈</span></em>
+  const <span style="color: rgb(0,0,255);">STACK</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">MAPPER</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">set</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">dialog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">dialog</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">STACK</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">dialog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">dialog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">open</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Builder
-function MyBuilder(param: Param.BaseCustomDialogParam) {
-  Column() {
-    Text('Hello from Dialog!')
-      .fontSize(24)
-      .fontWeight(FontWeight.Bold)
-      .margin({ bottom: 20 });
+<span style="color: rgb(181,106,1);">@Builder</span>
+function <span style="color: rgb(0,0,255);">MyBuilder</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseCustomDialogParam</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Hello from Dialog!'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">24</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-    Button('点此执行自定义方法')
-      .onClick(() => {
-        if (param.dialogFunc) {
-          const shouldClose = param.dialogFunc();
-          if (shouldClose) {
-            console.info('自定义方法被执行');
-          }
-        }
-      })
-      .margin({ top: 10 });
-  }
-  .backgroundColor(Color.White)
-  .borderRadius(32)
-  .padding(20)
-  .alignItems(HorizontalAlign.Center);
-}
+    <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">点此执行自定义方法</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dialogFunc</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+          const <span style="color: rgb(0,0,255);">shouldClose </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dialogFunc</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">shouldClose</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">自定义方法被执行</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span>
+<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">White</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">32</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-let globalBuilder: WrappedBuilder<[Param.BaseCustomDialogParam]> = wrapBuilder(MyBuilder);
+let <span style="color: rgb(0,0,255);">globalBuilder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WrappedBuilder</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseCustomDialogParam</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">wrapBuilder</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">MyBuilder</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct TestPage {
-  build() {
-    Column() {
-      Button('打开弹窗')
-        .onClick(() => {
-         <em> // globalBuilder作为WrappedBuilder参数</em>
-          const param: Param.BaseCustomDialogParam = {
-            dialogFunc: () => {
-           <em>   // 这里可以加逻辑，比如提示、上报等</em>
-              console.info('这里可以执行自定义方法');
-             <em> // 返回true表示允许关闭</em>
-              return true;
-            }
-          };
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">TestPage </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">打开弹窗</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+         <em> <span style="color: rgb(128,128,128);">// globalBuilder</span><span style="color: rgb(128,128,128);">作为</span><span style="color: rgb(128,128,128);">WrappedBuilder</span><span style="color: rgb(128,128,128);">参数</span></em>
+          const <span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseCustomDialogParam </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">dialogFunc</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+           <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">这里可以加逻辑，比如提示、上报等</span></em>
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">这里可以执行自定义方法</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+             <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">返回</span><span style="color: rgb(128,128,128);">true</span><span style="color: rgb(128,128,128);">表示允许关闭</span></em>
+              return true<span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(181,106,1);">;</span>
 
-          <em>// 弹窗样式参数</em>
-          const dialogParam: Param.BaseDialogParamV2 = {
-            width: 300,
-            height: 200,
-            cornerRadius: 16,
-            mask: true,
-            autoCancel: true,
-            alignment: DialogAlignment.Center
-          };
+          <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">弹窗样式参数</span></em>
+          const <span style="color: rgb(0,0,255);">dialogParam</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseDialogParamV2 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">300</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">cornerRadius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">mask</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">autoCancel</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">DialogAlignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-          <em>// 调用showCustomV2，传入globalBuilder和参数</em>
-          showCustomV2(globalBuilder, param, dialogParam);
-        });
-    }
-    .width('100%');
-  }
-}
+          <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">调用</span><span style="color: rgb(128,128,128);">showCustomV2</span><span style="color: rgb(128,128,128);">，传入</span><span style="color: rgb(128,128,128);">globalBuilder</span><span style="color: rgb(128,128,128);">和参数</span></em>
+          <span style="color: rgb(0,0,255);">showCustomV2</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">globalBuilder</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">dialogParam</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
  
@@ -162,29 +162,29 @@ struct TestPage {
 查看报错部分代码：
  
 ```text
-export function showCustomV2<T extends Param.BaseCustomDialogParam>(wrapped: WrappedBuilder<[T]>, param: T,
-  dialogParam?: Param.BaseDialogParamV2) {
-  const dialog: DialogCustomV2<T> = new DialogCustomV2<T>(wrapped, param, dialogParam);
- <em> // 缓存弹窗映射</em>
-  type MAPPER_VALUE = DialogCustomV2<Param.BaseCustomDialogParam>;
-  const MAPPER = new Map<string, MAPPER_VALUE>();
- <em> // 弹框堆栈</em>
-  const STACK: Array<string> = [];
-  MAPPER.set(dialog.id, dialog);
-  STACK.push(dialog.id);
-  dialog.open();
-}
+export function <span style="color: rgb(0,0,255);">showCustomV2</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">T </span>extends <span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseCustomDialogParam</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">wrapped</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WrappedBuilder</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">dialogParam</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseDialogParamV2</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+  const <span style="color: rgb(0,0,255);">dialog</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">DialogCustomV2</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span>new <span style="color: rgb(0,0,255);">DialogCustomV2</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">wrapped</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">dialogParam</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">缓存弹窗映射</span></em>
+  type <span style="color: rgb(128,128,128);">MAPPER_VALUE </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">DialogCustomV2</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseCustomDialogParam</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">;</span>
+  const <span style="color: rgb(0,0,255);">MAPPER </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Map</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">MAPPER_VALUE</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">弹框堆栈</span></em>
+  const <span style="color: rgb(0,0,255);">STACK</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">MAPPER</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">set</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">dialog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">dialog</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">STACK</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">dialog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">dialog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">open</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
 查看DialogCustomV2的构造函数：
  
 ```text
-constructor(wrapped: WrappedBuilder<[T]>, param: T, dialogParam?: Param.BaseDialogParamV2) {
-  this.wrapped = wrapped;
-  this.param = param;
-  this.dialogParam = dialogParam ?? {};
-  this._id = simpleUUID();
-}
+<span style="color: rgb(0,0,255);">constructor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">wrapped</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WrappedBuilder</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">[</span>T<span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">dialogParam</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseDialogParamV2</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">wrapped </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">wrapped</span><span style="color: rgb(181,106,1);">;</span>
+  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">;</span>
+  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dialogParam </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">dialogParam </span><span style="color: rgb(181,106,1);">?? </span><span style="color: rgb(255,0,170);">{}</span><span style="color: rgb(181,106,1);">;</span>
+  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">_id </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">simpleUUID</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
 可以看到，DialogCustomV2包含了一个WrappedBuilder类型的成员wrapped，而使用WrappedBuilder时需要指定一个明确的类型。
@@ -204,134 +204,134 @@ constructor(wrapped: WrappedBuilder<[T]>, param: T, dialogParam?: Param.BaseDial
 完整示例参考如下：
  
 ```text
-import { ComponentContent, UIContext } from '@kit.ArkUI';
-import { cryptoFramework } from '@kit.CryptoArchitectureKit';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">ComponentContent</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">UIContext </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">cryptoFramework </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.CryptoArchitectureKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-<em>// </em><em>定义基础接口</em>
-namespace Param {
-  export interface BaseDialogParamV2 {
-    alignment?: DialogAlignment
-    mask?: boolean
-    cornerRadius?: Dimension,
-    autoCancel?: boolean,
-    width?: Dimension,
-    height?: Dimension,
-  }
+<em>// </em><em><span style="color: rgb(128,128,128);">定义基础接口</span></em>
+namespace <span style="color: rgb(0,0,255);">Param </span><span style="color: rgb(255,0,170);">{</span>
+  export interface <span style="color: rgb(0,0,255);">BaseDialogParamV2 </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">DialogAlignment</span>
+    <span style="color: rgb(0,0,255);">mask</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean</span>
+    <span style="color: rgb(0,0,255);">cornerRadius</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Dimension</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">autoCancel</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Dimension</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">height</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Dimension</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  export interface BaseCustomDialogParam {
-    dialogFunc?: () => boolean;
-  }
-}
+  export interface <span style="color: rgb(0,0,255);">BaseCustomDialogParam </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">dialogFunc</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-function simpleUUID(): string {
-  let rand = cryptoFramework.createRandom();
-  let randData = rand.generateRandomSync(1);
-  return 'xxxx'.replace(/[xy]/g, (str) => {
-    const temp = randData.data[0] * 16 / 255 | 0;
-    const value = str === 'x' ? temp : (temp & 0x3 | 0x8);
-    return value.toString(16);
-  });
-}
+function <span style="color: rgb(0,0,255);">simpleUUID</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(255,0,170);">{</span>
+  let <span style="color: rgb(0,0,255);">rand </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createRandom</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">randData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">rand</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateRandomSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  return <span style="color: rgb(255,0,170);">'xxxx'</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replace</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">/[xy]/g</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    const <span style="color: rgb(0,0,255);">temp </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">randData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">16 </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">255 </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+    const <span style="color: rgb(0,0,255);">value </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">str </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'x' </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">temp </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">temp </span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">0x3 </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">0x8)</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-<em>// </em><em>定义泛型类DialogCustomV2</em>
-class DialogCustomV2<T extends Param.BaseCustomDialogParam> {
-  uiContext: UIContext = new UIContext;
-  wrapped: WrappedBuilder<[T]>;
-  param: T;
-  dialogParam: Param.BaseDialogParamV2;
-  private _id: string;
+<em>// </em><em><span style="color: rgb(128,128,128);">定义泛型类</span><span style="color: rgb(128,128,128);">DialogCustomV2</span></em>
+class <span style="color: rgb(0,0,255);">DialogCustomV2</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">T </span>extends <span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseCustomDialogParam</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">UIContext </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">UIContext</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">wrapped</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WrappedBuilder</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">dialogParam</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseDialogParamV2</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">_id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
 
-  public get id(): string {
-    return this._id;
-  }
+  public get <span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(255,0,170);">{</span>
+    return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">_id</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  constructor(wrapped: WrappedBuilder<[T]>, param: T, dialogParam?: Param.BaseDialogParamV2) {
-    this.wrapped = wrapped;
-    this.param = param;
-    this.dialogParam = dialogParam ?? {};
-    this._id = simpleUUID();
-  }
+  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">wrapped</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WrappedBuilder</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">dialogParam</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseDialogParamV2</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">wrapped </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">wrapped</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dialogParam </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">dialogParam </span><span style="color: rgb(181,106,1);">?? </span><span style="color: rgb(255,0,170);">{}</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">_id </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">simpleUUID</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  open() {
-    let view = new ComponentContent(this.uiContext, this.wrapped, this.param);
-    this.uiContext.getPromptAction().openCustomDialog(view, this.dialogParam);
-  }
-}
+  <span style="color: rgb(0,0,255);">open</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">view </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ComponentContent</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">wrapped</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openCustomDialog</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">view</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dialogParam</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-export function showCustomV2<T extends Param.BaseCustomDialogParam>(wrapped: WrappedBuilder<[Param.BaseCustomDialogParam]>,
-  param: T,
-  dialogParam?: Param.BaseDialogParamV2) {
-  const dialog: DialogCustomV2<Param.BaseCustomDialogParam> =
-    new DialogCustomV2<Param.BaseCustomDialogParam>(wrapped, param, dialogParam);
- <em> // 缓存弹窗映射</em>
-  type MAPPER_VALUE = DialogCustomV2<Param.BaseCustomDialogParam>;
-  const MAPPER = new Map<string, MAPPER_VALUE>();
- <em> // 弹框堆栈</em>
-  const STACK: Array<string> = [];
-  MAPPER.set(dialog.id, dialog);
-  STACK.push(dialog.id);
-  dialog.open();
-}
+export function <span style="color: rgb(0,0,255);">showCustomV2</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">T </span>extends <span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseCustomDialogParam</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">wrapped</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WrappedBuilder</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseCustomDialogParam</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">T</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">dialogParam</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseDialogParamV2</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+  const <span style="color: rgb(0,0,255);">dialog</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">DialogCustomV2</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseCustomDialogParam</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> =</span>
+    new <span style="color: rgb(0,0,255);">DialogCustomV2</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseCustomDialogParam</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">wrapped</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">dialogParam</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">缓存弹窗映射</span></em>
+  type <span style="color: rgb(128,128,128);">MAPPER_VALUE </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">DialogCustomV2</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseCustomDialogParam</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">;</span>
+  const <span style="color: rgb(0,0,255);">MAPPER </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Map</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">MAPPER_VALUE</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">弹框堆栈</span></em>
+  const <span style="color: rgb(0,0,255);">STACK</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">MAPPER</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">set</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">dialog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">dialog</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">STACK</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">dialog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">dialog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">open</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Builder
-function MyBuilder(param: Param.BaseCustomDialogParam) {
-  Column() {
-    Text('Hello from Dialog!')
-      .fontSize(24)
-      .fontWeight(FontWeight.Bold)
-      .margin({ bottom: 20 });
+<span style="color: rgb(181,106,1);">@Builder</span>
+function <span style="color: rgb(0,0,255);">MyBuilder</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseCustomDialogParam</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Hello from Dialog!'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">24</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-    Button('点此执行自定义方法')
-      .onClick(() => {
-        if (param.dialogFunc) {
-          const shouldClose = param.dialogFunc();
-          if (shouldClose) {
-            console.info('自定义方法被执行');
-          }
-        }
-      })
-      .margin({ top: 10 });
-  }
-  .backgroundColor(Color.White)
-  .borderRadius(32)
-  .padding(20)
-  .alignItems(HorizontalAlign.Center);
-}
+    <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">点此执行自定义方法</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dialogFunc</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+          const <span style="color: rgb(0,0,255);">shouldClose </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dialogFunc</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">shouldClose</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">自定义方法被执行</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span>
+<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">White</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">32</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-let globalBuilder: WrappedBuilder<[Param.BaseCustomDialogParam]> = wrapBuilder(MyBuilder);
+let <span style="color: rgb(0,0,255);">globalBuilder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">WrappedBuilder</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseCustomDialogParam</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">wrapBuilder</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">MyBuilder</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct TestPage {
-  build() {
-    Column() {
-      Button('打开弹窗')
-        .onClick(() => {
-         <em> // globalBuilder作为WrappedBuilder参数</em>
-          const param: Param.BaseCustomDialogParam = {
-            dialogFunc: () => {
-             <em> // 这里可以加逻辑，比如提示、上报等</em>
-              console.info('这里可以执行自定义方法');
-           <em>   // 返回true表示允许关闭</em>
-              return true;
-            }
-          };
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">TestPage </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">打开弹窗</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+         <em> <span style="color: rgb(128,128,128);">// globalBuilder</span><span style="color: rgb(128,128,128);">作为</span><span style="color: rgb(128,128,128);">WrappedBuilder</span><span style="color: rgb(128,128,128);">参数</span></em>
+          const <span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseCustomDialogParam </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">dialogFunc</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+             <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">这里可以加逻辑，比如提示、上报等</span></em>
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">这里可以执行自定义方法</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+           <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">返回</span><span style="color: rgb(128,128,128);">true</span><span style="color: rgb(128,128,128);">表示允许关闭</span></em>
+              return true<span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(181,106,1);">;</span>
 
-         <em> // 弹窗样式参数</em>
-          const dialogParam: Param.BaseDialogParamV2 = {
-            width: 300,
-            height: 200,
-            cornerRadius: 16,
-            mask: true,
-            autoCancel: true,
-            alignment: DialogAlignment.Center
-          };
+         <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">弹窗样式参数</span></em>
+          const <span style="color: rgb(0,0,255);">dialogParam</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BaseDialogParamV2 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">300</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">cornerRadius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">mask</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">autoCancel</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">DialogAlignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-        <em>  // 调用showCustomV2，传入globalBuilder和参数</em>
-          showCustomV2(globalBuilder, param, dialogParam);
-        });
-    }
-    .width('100%');
-  }
-}
+        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">调用</span><span style="color: rgb(128,128,128);">showCustomV2</span><span style="color: rgb(128,128,128);">，传入</span><span style="color: rgb(128,128,128);">globalBuilder</span><span style="color: rgb(128,128,128);">和参数</span></em>
+          <span style="color: rgb(0,0,255);">showCustomV2</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">globalBuilder</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">param</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">dialogParam</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

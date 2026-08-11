@@ -22,7 +22,7 @@ JWT的生成和密钥中的私钥相关，因此需要先[下载密钥](https://
  
 创建JWT格式的token分为下面三个步骤：
  1. [创建JWT header](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-jwt-description#创建jwt-header)需要填写三个必填参数alg、typ和kid，前两个参数分别为固定值ES256和JWT，需要关注的是kid参数的填写，该参数对应的是密钥ID，密钥ID的获取可在[创建密钥](https://developer.huawei.com/consumer/cn/doc/app/key-0000001959074877)时获取。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/xEsjVtVdTNu00tQCSTqMQw/zh-cn_image_0000002658913789.png?HW-CC-KV=V1&HW-CC-Date=20260730T072656Z&HW-CC-Expire=86400&HW-CC-Sign=A7F7301FA89754CB61786861DEAE8A2A33E027180172872BB7CBBC0F076FE98C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/xEsjVtVdTNu00tQCSTqMQw/zh-cn_image_0000002658913789.png?HW-CC-KV=V1&HW-CC-Date=20260811T005615Z&HW-CC-Expire=86400&HW-CC-Sign=D1DB136F57E7323FD4E44179D44F1E9BE9FDAF15DCF448AC7E768C1B2AE00164)
 
 
   创建密钥时需注意密钥名称长度不超过50字符，且只允许字母、数字和下划线，否则会提示创建失败。

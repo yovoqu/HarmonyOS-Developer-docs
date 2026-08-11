@@ -11,19 +11,19 @@
 ArkTS侧创建对象：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/jiJx6WNyS26z5yWxXTkaCw/zh-cn_image_0000002658907827.png?HW-CC-KV=V1&HW-CC-Date=20260730T072316Z&HW-CC-Expire=86400&HW-CC-Sign=ABAEF6A3BC53AC1994093BBA12866C63E5F47EA9E9FC0B14410A167DCC8A6C6A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/jiJx6WNyS26z5yWxXTkaCw/zh-cn_image_0000002658907827.png?HW-CC-KV=V1&HW-CC-Date=20260811T005637Z&HW-CC-Expire=86400&HW-CC-Sign=DD93A39E4B608563964F8D19AC5B608C45B005593CE212527D1AF772A7BA84DB)
 
  
 C++侧构造函数和析构函数：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/hGQLAUr_TRO7h7gM6_gcZw/zh-cn_image_0000002658787891.png?HW-CC-KV=V1&HW-CC-Date=20260730T072316Z&HW-CC-Expire=86400&HW-CC-Sign=A5E4124CE849BA4D90C337E2FB336F0E05D0A570C312D8B3E652BB83D2C73423)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/hGQLAUr_TRO7h7gM6_gcZw/zh-cn_image_0000002658787891.png?HW-CC-KV=V1&HW-CC-Date=20260811T005637Z&HW-CC-Expire=86400&HW-CC-Sign=0B45B43B11662F7995BE1D6E4D6D016499B1B43441A56A21912C99F31D43B37C)
 
  
 napi_wrap绑定ArkTS对象与C++对象：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/WJPFwFjBSxKAHnt_4sHulw/zh-cn_image_0000002628388616.png?HW-CC-KV=V1&HW-CC-Date=20260730T072316Z&HW-CC-Expire=86400&HW-CC-Sign=93EB809F485D33CAD18D21C09143AF01DBAAD530C70E9B2C74F6630E98F903EB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/WJPFwFjBSxKAHnt_4sHulw/zh-cn_image_0000002628388616.png?HW-CC-KV=V1&HW-CC-Date=20260811T005637Z&HW-CC-Expire=86400&HW-CC-Sign=3962B6EF56C473D175817CAEB89AC11B478E9CEC534C52EED4776B51E015B5E3)
 
  
  
@@ -42,7 +42,7 @@ napi_wrap绑定ArkTS对象与C++对象：
 多次创建对象，析构执行后，再次创建对象不会再执行析构。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/8A97zFsWQsKF6qfWQpA1nQ/zh-cn_image_0000002628548516.png?HW-CC-KV=V1&HW-CC-Date=20260730T072316Z&HW-CC-Expire=86400&HW-CC-Sign=58109B713D2EF7522E003B709611621D851F7104D28A52C123101F097B3F3CF1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/8A97zFsWQsKF6qfWQpA1nQ/zh-cn_image_0000002628548516.png?HW-CC-KV=V1&HW-CC-Date=20260811T005637Z&HW-CC-Expire=86400&HW-CC-Sign=3C6DB60AC460B75E5061145D4949AAD8220A056F06E33B412AAF64BA596D134F)
 
  
  

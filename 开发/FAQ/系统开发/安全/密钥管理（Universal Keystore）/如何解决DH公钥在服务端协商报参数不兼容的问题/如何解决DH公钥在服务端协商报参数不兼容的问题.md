@@ -40,7 +40,7 @@ class TestDh {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/VS0x-vEJTv6KCORPLMynUg/zh-cn_image_0000002658849153.png?HW-CC-KV=V1&HW-CC-Date=20260730T072543Z&HW-CC-Expire=86400&HW-CC-Sign=67A098AD1E2A4C4143FE562DF95CDE086924E04E777B109284E4A44AE5A8A175)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/VS0x-vEJTv6KCORPLMynUg/zh-cn_image_0000002658849153.png?HW-CC-KV=V1&HW-CC-Date=20260811T005926Z&HW-CC-Expire=86400&HW-CC-Sign=87AA50D2AD88597A1A17062401BF942CF06168A7F5C20E226D83478ACC28436A)
 
  
  
@@ -50,7 +50,7 @@ class TestDh {
 [DH密钥协商算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-agreement-overview#dh)流程如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/0jsdf1ErT4KsXEZdG_BQ_Q/zh-cn_image_0000002628769786.png?HW-CC-KV=V1&HW-CC-Date=20260730T072543Z&HW-CC-Expire=86400&HW-CC-Sign=A191F4FC797BD5BC54BA2C321041E7C55348245FD77AECA09E75AB8DED942C9F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/0jsdf1ErT4KsXEZdG_BQ_Q/zh-cn_image_0000002628769786.png?HW-CC-KV=V1&HW-CC-Date=20260811T005926Z&HW-CC-Expire=86400&HW-CC-Sign=929C437561A8BE85C9B8781C53E3978F6D80A932D59472FBB15FEC4B4D89B2A2)
 
  
  
@@ -99,7 +99,7 @@ DH密钥交换算法，务必按照定位思路中的三个步骤，逐个检查
 协商成功的截图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/KL14H8AGSZ67DuZj30BFxg/zh-cn_image_0000002628609890.png?HW-CC-KV=V1&HW-CC-Date=20260730T072543Z&HW-CC-Expire=86400&HW-CC-Sign=2EFDEF1F418F1CB196CCD7DA347C612BD1D81711967E48655DDDCF9A525259C2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/KL14H8AGSZ67DuZj30BFxg/zh-cn_image_0000002628609890.png?HW-CC-KV=V1&HW-CC-Date=20260811T005926Z&HW-CC-Expire=86400&HW-CC-Sign=50BBC2BA85A214E63E04DDC8BD8078123620564D7FFCD4723AD50429251F7668)
 
  
 这里提供HarmonyOS密钥协商的正确代码实现：

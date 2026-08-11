@@ -17,13 +17,13 @@
 - [position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#position)：设置组件相对于父组件内容区的位置。
 - 自定义页签可以利用容器组件的排列方式实现TabBar居左显示，以下提供两种方法：
 将页签按Row（横向从左往右）的方向放置在弹性布局[Flex](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-flex-layout)容器内，利用Flex容器实现TabBar居左的效果。Flex容器内子元素的布局方向如下图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/9FZjSuz1QGyFWdgbD-GMlw/zh-cn_image_0000002658976865.png?HW-CC-KV=V1&HW-CC-Date=20260730T072436Z&HW-CC-Expire=86400&HW-CC-Sign=6E4ED611A1071A0967B20A01C0C10F16CB76B83AFD44EC291E1AB8C004B33005)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/9FZjSuz1QGyFWdgbD-GMlw/zh-cn_image_0000002658976865.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=E207A5541C2ADFFD7DA0171D858AAC278681A02EFAFCB7AA82C2395640B2718C)
 
 
   因此使用Flex容器实现问题描述中的期望目标可以拆解成如下结构：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/w9dCYC8MTwu2DPAtLUObvw/zh-cn_image_0000002658856923.png?HW-CC-KV=V1&HW-CC-Date=20260730T072436Z&HW-CC-Expire=86400&HW-CC-Sign=7101151AFF07DFB44C60D356EF955FF4C9E7BAA0AF27593EAB1BA3061EB07C35)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/w9dCYC8MTwu2DPAtLUObvw/zh-cn_image_0000002658856923.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=62783C806DFF31BE3ED5482E7D6B7E6C72A19341FA3E63CFEF24D3380A39045B)
 
 - 通过横向的Scroll组件实现自定义TabBar。
 
@@ -126,7 +126,7 @@ struct LeftTabBar {
   参考图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/XQWh0A3cRzWQ94bzxR9m0Q/zh-cn_image_0000002628617652.png?HW-CC-KV=V1&HW-CC-Date=20260730T072436Z&HW-CC-Expire=86400&HW-CC-Sign=905796BB990F796967DC4992E369F76996DC58FC86AD190AA474C6539D80EB85)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/XQWh0A3cRzWQ94bzxR9m0Q/zh-cn_image_0000002628617652.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=E70CDD4CC78AF56E4EEC54CD808B715D3275D010F7FD93CB338E9E339DA88F52)
 
 - **方案二：Scroll容器实现自定义TabBar居左样式。**1. 自定义TabBar样式。
 
@@ -241,7 +241,7 @@ struct LeftTabBar2 {
   参考图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/XRaOcX6ZT0-1oxzKdXO14w/zh-cn_image_0000002628777550.png?HW-CC-KV=V1&HW-CC-Date=20260730T072436Z&HW-CC-Expire=86400&HW-CC-Sign=A3DCEE2AD7EF1CDFF4036028A4FF437997AFD2DF816A11AE02C4F90614FE3DE9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/XRaOcX6ZT0-1oxzKdXO14w/zh-cn_image_0000002628777550.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=B1DAB1B4D95A766B2AEABF62BB213B1322B24E4ADB23FD96FE2931E754CBA667)
 
 - **方案三：行列与堆叠容器实现自定义TabBar居左样式**。实现方式参考demo[基于Tabs组件实现常见导航样式](https://gitee.com/harmonyos_samples/multi-tab-navigation)。
 **Flex容器实现自定义TabBar居左样式。**1. 自定义TabBar样式。
@@ -327,7 +327,7 @@ struct LeftTabBar3 {
   参考图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/DqnmvhzbQDy-wsaKbwpIzg/zh-cn_image_0000002658976867.png?HW-CC-KV=V1&HW-CC-Date=20260730T072436Z&HW-CC-Expire=86400&HW-CC-Sign=565979C722EA7F8B450D8E9712B50D039629AABD25F11FD1BB315CCA73F9D36E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/DqnmvhzbQDy-wsaKbwpIzg/zh-cn_image_0000002658976867.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=69F0CEAE627E59CA0A4588648E1912B71BEF0AA642C1871BB8EF4CF4810603E4)
 
 
  
@@ -420,7 +420,7 @@ struct LeftTabBar4 {
   参考图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/-aqycpF9SvqYel0Ms1Nxww/zh-cn_image_0000002658856925.png?HW-CC-KV=V1&HW-CC-Date=20260730T072436Z&HW-CC-Expire=86400&HW-CC-Sign=813AA9572BB2C4DEF5C6EE7FD2C9FD718AE025A95D023F9C7CE45D14A8AA0C54)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/-aqycpF9SvqYel0Ms1Nxww/zh-cn_image_0000002658856925.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=D0FB7173400416BDCE307F992D5564B94BB421F1BEF93021BB8C093958511F62)
 
 
  

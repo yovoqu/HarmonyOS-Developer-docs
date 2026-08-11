@@ -19,7 +19,7 @@ OH_VideoCaptureInfo videocapinfo = {
 问题显示如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/6JfZxv8NStum0iy4C_UWlw/zh-cn_image_0000002628552652.png?HW-CC-KV=V1&HW-CC-Date=20260730T072629Z&HW-CC-Expire=86400&HW-CC-Sign=5DD40A2037FF89CD302DBBD697D0534DEF25A8090620C0570D5E25C5B6D6BF77)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/6JfZxv8NStum0iy4C_UWlw/zh-cn_image_0000002628552652.png?HW-CC-KV=V1&HW-CC-Date=20260811T005549Z&HW-CC-Expire=86400&HW-CC-Sign=21447552628863EB3F10D52FF521C9487585AA6727D581B186439D2788712BE0)
 
  
  

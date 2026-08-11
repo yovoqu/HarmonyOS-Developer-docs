@@ -1,6 +1,6 @@
 # 如何解决Repeat渲染数据重复显示问题
 
-更新时间：2026-07-22 11:59:07
+更新时间：2026-07-31 00:56:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-609
 
@@ -14,10 +14,10 @@
 | 场景二 | Repeat与@Builder混用场景下，传参错误，导致数据重复。 |
  
 1. 场景一：滑动加载新数据，在aboutToAppear方法里处理数据逻辑，问题如图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/rv9yWOpnRXass4h0Tx18eQ/zh-cn_image_0000002673095881.png?HW-CC-KV=V1&HW-CC-Date=20260730T072512Z&HW-CC-Expire=86400&HW-CC-Sign=FA4F7C5CE7AD84E2D63BDB33FE35F834C3A55ACE06A3FFE16B5BEDF7AB0F62B5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/6uzIpgxhTTSrIx5f3RxTzg/zh-cn_image_0000002673095881.png?HW-CC-KV=V1&HW-CC-Date=20260811T005713Z&HW-CC-Expire=86400&HW-CC-Sign=8A70B189AFB94A1A664A43C76C9EFC88877E342A37503506A3E2883CF89C1F03)
 
 2. 场景二：进行Repeat与@Builder混用场景下，传参使用错误，导致数据重复，问题如图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/MaOdyVm6SxyujPkmxyWOEA/zh-cn_image_0000002643056034.png?HW-CC-KV=V1&HW-CC-Date=20260730T072512Z&HW-CC-Expire=86400&HW-CC-Sign=8BF34015E2C33FF1D657DE270041B34500DA3998B4A485B1CB86588380AB3FF2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/oPacz8KNQwuRurF_PQwCig/zh-cn_image_0000002643056034.png?HW-CC-KV=V1&HW-CC-Date=20260811T005713Z&HW-CC-Expire=86400&HW-CC-Sign=FF678E1D1AF3686ECDEFED1E519B158DB0DA67A7D3BC7E5CA44B54AE1245C7B2)
 
  
  
@@ -274,10 +274,10 @@ function getItemData(start: number, count: number): ItemDataV2[] {
 场景一：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/sKTQb3P1Qk2yBbf2cz0AVQ/zh-cn_image_0000002673098375.png?HW-CC-KV=V1&HW-CC-Date=20260730T072512Z&HW-CC-Expire=86400&HW-CC-Sign=73587511E032052E17ABEC019FFB27EEE55523F5EB9713FCF679E8FEB2EDD2CE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/UlmqEPpeS6mW4i52nJJmNQ/zh-cn_image_0000002673098375.png?HW-CC-KV=V1&HW-CC-Date=20260811T005713Z&HW-CC-Expire=86400&HW-CC-Sign=2FCCAC3386E74EE3017A9930B73B1694D7157C347930C7FBDE0A2A2C4D95FE4D)
 
  
 场景二：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/Ddkvw-GaRmm4uUTWrhUZAQ/zh-cn_image_0000002643058520.png?HW-CC-KV=V1&HW-CC-Date=20260730T072512Z&HW-CC-Expire=86400&HW-CC-Sign=25D54EE4416CE585AC5536469C7E1ED9FE76CB5B3B37C693BE8731E03076B0D0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/FN4gQPQoRz-yKc1lClw2XQ/zh-cn_image_0000002643058520.png?HW-CC-KV=V1&HW-CC-Date=20260811T005713Z&HW-CC-Expire=86400&HW-CC-Sign=91F41BA86C1B5330204042518D578C3EE7AA6180C4A7ABE86DC4AF93AA7F1D43)

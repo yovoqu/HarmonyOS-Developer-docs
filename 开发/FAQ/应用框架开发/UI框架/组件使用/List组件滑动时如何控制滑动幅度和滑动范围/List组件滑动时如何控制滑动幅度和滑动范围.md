@@ -40,7 +40,7 @@ List组件，如何控制滑动的幅度和范围。
   控制offsetRemain，滑动速度很缓慢，效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/qxNjTFdoR_GJvIPBQKDkPg/zh-cn_image_0000002658832837.png?HW-CC-KV=V1&HW-CC-Date=20260730T072346Z&HW-CC-Expire=86400&HW-CC-Sign=2966B3DBD791E9DAD70427779DE04A8959FD17C3DDC9E7B72BFA0C1C1D07501E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/qxNjTFdoR_GJvIPBQKDkPg/zh-cn_image_0000002658832837.png?HW-CC-KV=V1&HW-CC-Date=20260811T005747Z&HW-CC-Expire=86400&HW-CC-Sign=C6D556997AF0EC974B5E791CA0B723033BC53DD5D025A494C89FCD054BAD32D8)
 
 - onScrollIndex的入参firstIndex超过预期值时，表示已经滑动出了预期范围，用this.scroller.scrollToIndex()把滑动强制拉回到预期值。
 
@@ -57,7 +57,7 @@ List组件，如何控制滑动的幅度和范围。
   下滑超过10之后继续滑动，会强制跳回10，效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/FoaBAMl8QzaSrdbr8TLkjg/zh-cn_image_0000002628593596.png?HW-CC-KV=V1&HW-CC-Date=20260730T072346Z&HW-CC-Expire=86400&HW-CC-Sign=2F8A118F6B7852B1881A542743B8AAA972E0A5F22921DE0CFB2F80C98D143816)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/FoaBAMl8QzaSrdbr8TLkjg/zh-cn_image_0000002628593596.png?HW-CC-KV=V1&HW-CC-Date=20260811T005747Z&HW-CC-Expire=86400&HW-CC-Sign=B763443EAF804D9AD1F666EE931CDEEB17211D6EBFCE9A67B15D6CADEF72D635)
 
 
  

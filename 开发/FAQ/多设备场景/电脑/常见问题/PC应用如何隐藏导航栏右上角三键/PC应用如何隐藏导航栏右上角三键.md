@@ -19,10 +19,10 @@ PC应用非全屏状态下或者自由多窗模式下如何不显示右上角三
 #### 解决方案
 1. 配置定时任务间隔，通过[onMouse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-mouse-key#onmouse)事件判断鼠标在应用中是否保持静止。
 2. 若鼠标静止，获取应用窗口实例，使用[setWindowDecorVisible](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowdecorvisible11)主动隐藏状态栏。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/q8YT7SveSUePqrsocquaVA/zh-cn_image_0000002680372243.png?HW-CC-KV=V1&HW-CC-Date=20260730T072243Z&HW-CC-Expire=86400&HW-CC-Sign=85DDE762191EC40D8C1441FA11FDC0304F032F5DC947D8B48BE8D56FA973A59B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/q8YT7SveSUePqrsocquaVA/zh-cn_image_0000002680372243.png?HW-CC-KV=V1&HW-CC-Date=20260811T005538Z&HW-CC-Expire=86400&HW-CC-Sign=2CDDD28C8B1B5CD9445FDEE5F7903D4A3D0D2CFDCAEB5688723D4D0A69C830B1)
 
 3. 如上图窗口右上角三键此时未隐藏，使用[setWindowTitleButtonVisible](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowtitlebuttonvisible14)主动隐藏三键，以获取沉浸式体验。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/M1OAl2AVSsCleGqfH7d6_Q/zh-cn_image_0000002680212499.png?HW-CC-KV=V1&HW-CC-Date=20260730T072243Z&HW-CC-Expire=86400&HW-CC-Sign=6E22048ACCB5E75FC1A5FBA426C399178CA2070DFDE82AC71149E9517CFD5E19)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/M1OAl2AVSsCleGqfH7d6_Q/zh-cn_image_0000002680212499.png?HW-CC-KV=V1&HW-CC-Date=20260811T005538Z&HW-CC-Expire=86400&HW-CC-Sign=ED3B0183CF7281998E3285763D8230F6A63EB4863BA49B5BCF66948470559739)
 
 
   

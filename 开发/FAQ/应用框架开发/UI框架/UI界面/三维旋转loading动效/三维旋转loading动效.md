@@ -161,4 +161,4 @@ struct RotatingAnimationDemo {
  效果图为：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/_5iN7d2eRaOI5lOG40Utsg/zh-cn_image_0000002628394516.png?HW-CC-KV=V1&HW-CC-Date=20260730T072500Z&HW-CC-Expire=86400&HW-CC-Sign=E696A1A02F8059B6B50B407AA067598A1F49610E2BF27F9CC009862FACF58311)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/_5iN7d2eRaOI5lOG40Utsg/zh-cn_image_0000002628394516.png?HW-CC-KV=V1&HW-CC-Date=20260811T005653Z&HW-CC-Expire=86400&HW-CC-Sign=6CC2197EB3D66A5DCFC08FB3A93A910F6A6B9AA3731123CEB0A45C9848EF77DF)

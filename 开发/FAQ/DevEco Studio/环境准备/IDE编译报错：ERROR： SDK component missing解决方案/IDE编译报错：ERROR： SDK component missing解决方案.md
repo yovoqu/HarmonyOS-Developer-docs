@@ -37,31 +37,31 @@
  - **方案二：**通过以下步骤进行排查。
 
 1. 找到SDK所在目录，在IDE的Terminal中输入echo $env:DEVECO_SDK_HOME，SDK根目录不要指向default目录！！！
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/Z9ZbF0_JS6eu50IW9Uq6BQ/zh-cn_image_0000002628565000.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=7FD950C2CB14E3DE7176938B65B8047E117A3E0CDFB1C3D99B505A5D94581FFC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/Z9ZbF0_JS6eu50IW9Uq6BQ/zh-cn_image_0000002628565000.png?HW-CC-KV=V1&HW-CC-Date=20260811T005523Z&HW-CC-Expire=86400&HW-CC-Sign=4CA1B88506ACC7F2AB835A6064E119C8AF8B497689EA9FED9E9B13F9D19FA814)
 
 
 2. 检查SDK路径下的文件放置顺序是否正确。检查各文件、目录是否有缺失，如有缺失，请将对应的文件补齐。确保这些文件和文件夹的名称都是正确的并存在，目录结构如下：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/gBM0HetbRtKKtZT92kBfuA/zh-cn_image_0000002628405098.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=CF37258FB7BE0E6C7D72156A759F5FF25A5D954AB002D7E33453454A68ECB4D0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/gBM0HetbRtKKtZT92kBfuA/zh-cn_image_0000002628405098.png?HW-CC-KV=V1&HW-CC-Date=20260811T005523Z&HW-CC-Expire=86400&HW-CC-Sign=7E6D44C94135CA364712D9E894018547D544007391F34DD1C1E0066D82188A54)
 
 
 3. 检查sdk-pkg.json文件是否与IDE配套：
 在替换full SDK时可能会修改sdk-pkg.json文件的内容，导致该文件内容与IDE版本不配套（如非必要，请在替换full SDK时不要修改此文件）
 
 4. 打开sdk-pkg.json文件，查看apiVersion字段是否与IDE支持的API匹配，两者必须要相同，否则就会出现找不到SDK的错误。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/NCx2Ms26RiCoZKfhR6D1Vg/zh-cn_image_0000002658924317.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=90A98A5FAD9537F4168049AC924042571C0CBB1A4C4E3EC285DF8584AA140119)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/NCx2Ms26RiCoZKfhR6D1Vg/zh-cn_image_0000002658924317.png?HW-CC-KV=V1&HW-CC-Date=20260811T005523Z&HW-CC-Expire=86400&HW-CC-Sign=621CFD7B4D2EAC8C534B692F7F54CAB09E41D4A7C8BCFF1096E260C512214E51)
 
 
 5. 如果上面几步都无效，检查工程是否做了一体化适配：
 执行同步工程的操作。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/4A9ELiQxT5iBed9hnpDK3w/zh-cn_image_0000002658804369.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=417A10D29055DA2282546FAF83556594E3A3521BCC5BF539CA5D9C0CA6EB9106)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/4A9ELiQxT5iBed9hnpDK3w/zh-cn_image_0000002658804369.png?HW-CC-KV=V1&HW-CC-Date=20260811T005523Z&HW-CC-Expire=86400&HW-CC-Sign=9E29929141AB0F9C45B3D8E97353B6A48EECB85A05B3FDB86261E8293B34813A)
 
 
 6. 观察右侧Notifications中是否出现了Sync failed的提示。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/C9D0Mif4TaOp5WLq2PQIXw/zh-cn_image_0000002628565010.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=E768A6D4F8F79D28CC10AF598415BAC5C793CBC1286828D9128C49F97D6EDA11)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/C9D0Mif4TaOp5WLq2PQIXw/zh-cn_image_0000002628565010.png?HW-CC-KV=V1&HW-CC-Date=20260811T005523Z&HW-CC-Expire=86400&HW-CC-Sign=C446F17DBAB69E8CDFB06A731FA296DA15C233F16A657F9DC887AF4A496E65C6)
 
 
 7. 点击提示语中的Migrate Assistant，工程下方会打开Migrate Assistant的窗口，点击里面的Migrate按钮，待执行成功后再去编译。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/agHRDr1vT-WkNd1I3kKhnw/zh-cn_image_0000002628405104.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=15133D3A79EBA00EA826C74B579521F51754806CB9AB5FE2F37BB30364E44390)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/agHRDr1vT-WkNd1I3kKhnw/zh-cn_image_0000002628405104.png?HW-CC-KV=V1&HW-CC-Date=20260811T005523Z&HW-CC-Expire=86400&HW-CC-Sign=994D0CED7494B2F4986D3580D0407C3343ACAA2BA318A3A814442A97FC3CE6EA)
 
 
 8. 检查工程是否配置了hvigor版本：如果有，需要删除，因为目前都是使用一体化的版本，版本自带有hvigor工具。删除之后重新同步工程。
@@ -85,7 +85,7 @@ A：是因为SDK版本低导致的，需要将build-profile.json5文件里面com
 console.info(require.resolve('@ohos/hvigor'))
 ```
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/yu9FJB-KQTeDeXvmprLA8A/zh-cn_image_0000002658924323.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=FA809443671C7E01C3CE620288C7C39C3C1CAECA5E70D5A5489F0AA32944B5D3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/yu9FJB-KQTeDeXvmprLA8A/zh-cn_image_0000002658924323.png?HW-CC-KV=V1&HW-CC-Date=20260811T005523Z&HW-CC-Expire=86400&HW-CC-Sign=35EDEAE2902FBC1F3D8DDFEF1E154EA6DF8E075EAB20BAE501FEC983622ABAB4)
 
 - 查看代码使用的SDK版本：在工程/.hvigor/outputs/build-logs/build.log搜索OpenHarmony。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/b6aUJn2sSuuoDTpK8QfBRw/zh-cn_image_0000002658804375.png?HW-CC-KV=V1&HW-CC-Date=20260730T072709Z&HW-CC-Expire=86400&HW-CC-Sign=07FEEC720D8FEE1DF20D8CB5CFAE599B03256F86B8F43170F845CEE4BF9B2ACF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/b6aUJn2sSuuoDTpK8QfBRw/zh-cn_image_0000002658804375.png?HW-CC-KV=V1&HW-CC-Date=20260811T005523Z&HW-CC-Expire=86400&HW-CC-Sign=3A7F202816BC5331E8AFC4028D3031ADB7DBF5915B158F6F485C355D5D0BB1E4)

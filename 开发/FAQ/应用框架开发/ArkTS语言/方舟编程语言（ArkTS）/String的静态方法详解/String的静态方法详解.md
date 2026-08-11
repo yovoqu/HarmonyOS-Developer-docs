@@ -1,6 +1,6 @@
 # String的静态方法详解
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-05 01:18:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-180
 
@@ -24,16 +24,18 @@
 #### 解决方案
 1. 使用String.fromCharCode()生成基础字符。当需要根据Unicode码点（0–65535）生成字符串时，使用String.fromCharCode()。
 
+  示例代码：
+
   
 ```text
-<em>// </em><em>生成字母'A'和'Z'</em>
+<em>// 生成字母'A'和'Z'</em>
 const charA = String.fromCharCode(65);
 const charZ = String.fromCharCode(90);
 
 hilog.info(0x0000, 'testTag', charA);
 hilog.info(0x0000, 'testTag', charZ);
 
-<em>// </em><em>生成数字'0'到'9'</em>
+<em>// 生成数字'0'到'9'</em>
 const digits: string[] = [];
 for (let i = 48; i <= 57; i++) {
   digits.push(String.fromCharCode(i));
@@ -46,17 +48,19 @@ hilog.info(0x0000, 'testTag', digits.join(''));
 
 2. 使用String.fromCodePoint()支持完整Unicode。当需要处理超出16位范围的Unicode字符（如：、、）时，必须使用String.fromCodePoint()。
 
+  示例代码：
+
   
 ```text
-<em>// </em><em>生成地球Emoji</em>
+<em>// 生成地球Emoji</em>
 const earth = String.fromCodePoint(0x1F30D);
 hilog.info(0x0000, 'testTag', earth);
 
-<em>// </em><em>生成程序员Emoji</em>
+<em>// 生成程序员Emoji</em>
 const programmer = String.fromCodePoint(0x1F469, 0x200D, 0x1F4BB);
 hilog.info(0x0000, 'testTag', programmer);
 
-<em>// </em><em>生成家庭Emoji</em>
+<em>// 生成家庭Emoji</em>
 const family = String.fromCodePoint(0x1F468, 0x200D, 0x1F469, 0x200D, 0x1F467, 0x200D, 0x1F466);
 hilog.info(0x0000, 'testTag', family);
 ```
@@ -66,17 +70,19 @@ hilog.info(0x0000, 'testTag', family);
 
 3. 使用String.raw()获取原始模板字符串。当需要在模板字符串中保留原始的转义字符（如\n、\t、\\）时，应使用String.raw()。
 
+  示例代码：
+
   
 ```text
-<em>// </em><em>普通模板字符串：转义字符会被解析</em>
+<em>// 普通模板字符串：转义字符会被解析</em>
 const normalStr = `第一行\n第二行`;
 hilog.info(0x0000, 'testTag', normalStr);
 
-<em>// </em><em>使用String.raw()：转义字符作为字面量保留</em>
+<em>// 使用String.raw()：转义字符作为字面量保留</em>
 const rawStr = String.raw`第一行\n第二行`;
 hilog.info(0x0000, 'testTag', rawStr);
 
-<em>// </em><em>处理路径字符串（避免反斜杠被转义）</em>
+<em>// 处理路径字符串（避免反斜杠被转义）</em>
 const filePath = String.raw`C:\Users\John\Documents`;
 hilog.info(0x0000, 'testTag', filePath);
 ```
@@ -85,7 +91,7 @@ hilog.info(0x0000, 'testTag', filePath);
 > 适用场景：构建正则表达式、路径字符串、日志格式、多行文本模板等需要保留转义字符的场景。
 
  
-完整示例参考如下：
+完整示例代码如下：
  
 ```text
 import hilog from '@ohos.hilog';
@@ -97,14 +103,14 @@ struct StringStaticMethod {
     Column() {
       Button('fromCharCode')
         .onClick(() => {
-        <em>  // 生成字母'A'和'Z'</em>
+          <em>// 生成字母'A'和'Z'</em>
           const charA = String.fromCharCode(65);
           const charZ = String.fromCharCode(90);
 
           hilog.info(0x0000, 'testTag', charA);
           hilog.info(0x0000, 'testTag', charZ);
 
-        <em>  // 生成数字'0'到'9'</em>
+          <em>// 生成数字'0'到'9'</em>
           const digits: string[] = [];
           for (let i = 48; i <= 57; i++) {
             digits.push(String.fromCharCode(i));
@@ -113,29 +119,29 @@ struct StringStaticMethod {
         }).margin({ bottom: 10 });
       Button('fromCodePoint')
         .onClick(() => {
-          <em>// </em><em>生成地球Emoji</em>
+          <em>// 生成地球Emoji</em>
           const earth = String.fromCodePoint(0x1F30D);
           hilog.info(0x0000, 'testTag', earth);
 
-         <em> // 生成程序员Emoji</em>
+          <em>// 生成程序员Emoji</em>
           const programmer = String.fromCodePoint(0x1F469, 0x200D, 0x1F4BB);
           hilog.info(0x0000, 'testTag', programmer);
 
-         <em> // 生成家庭Emoji</em>
+          <em>// 生成家庭Emoji</em>
           const family = String.fromCodePoint(0x1F468, 0x200D, 0x1F469, 0x200D, 0x1F467, 0x200D, 0x1F466);
           hilog.info(0x0000, 'testTag', family);
         }).margin({ bottom: 10 });
       Button('String.raw')
         .onClick(() => {
-        <em>  // 普通模板字符串：转义字符会被解析</em>
+          <em>// 普通模板字符串：转义字符会被解析</em>
           const normalStr = `第一行\n第二行`;
           hilog.info(0x0000, 'testTag', normalStr);
 
-         <em> // 使用String.raw()：转义字符作为字面量保留</em>
+          <em>// 使用String.raw()：转义字符作为字面量保留</em>
           const rawStr = String.raw`第一行\n第二行`;
           hilog.info(0x0000, 'testTag', rawStr);
 
-         <em> // 处理路径字符串（避免反斜杠被转义）</em>
+          <em>// 处理路径字符串（避免反斜杠被转义）</em>
           const filePath = String.raw`C:\Users\John\Documents`;
           hilog.info(0x0000, 'testTag', filePath);
         });
@@ -169,8 +175,8 @@ A：String.raw()是一个静态方法，用于创建“原始模板字符串”�
 
 掌握String.fromCharCode()、String.fromCodePoint()和String.raw()三个静态方法，是编写高质量、跨平台兼容的HarmonyOS应用开发中不可或缺的能力。
  
-- 使用fromCharCode()处理常见ASCII字符。
-- 使用fromCodePoint()处理Emoji、多语言字符。
+- 使用fromCharCode()处理常见ASCII字符；
+- 使用fromCodePoint()处理Emoji、多语言字符；
 - 使用raw()保留模板字符串中的转义字符。
 
  

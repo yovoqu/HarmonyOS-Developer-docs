@@ -1,6 +1,6 @@
-# 内存泄漏-句柄泄漏(FD_LEAK)问题排查
+# 句柄泄漏(FD_LEAK)问题排查与解决
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-07-24 01:16:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-67
 
@@ -8,37 +8,36 @@
 
 应用在运行过程中突然崩溃或功能异常（如网络请求一直失败、文件无法写入）。
  
-查看Hilog日志，搜索PROCESS_KILL.*包名出现Reason为ResourceLeak:Fd Leak错误信息。
+查看HiLog日志，搜索PROCESS_KILL.*包名出现Reason为ResourceLeak:Fd Leak错误信息。
  
+另外，在ArkTS层创建PixelMap对象给Image组件使用时，当Image组件销毁时，若未及时释放PixelMap所占用的fd，也会导致fd资源泄漏。
  
-**ArkTS最小运行代码示例（模拟泄漏场景）：**
- 
+ArkTS最小运行代码示例（模拟泄漏场景）：
 ```json
-import { fileIo as fs } from '@kit.CoreFileKit';
+import { fs } from '@kit.CoreFileKit';
 import { common } from '@kit.AbilityKit';
-
 
 @Entry
 @Component
 struct Index {
   @State leakCount: number = 0;
 
-
- <em> // 模拟泄漏：只打开不关闭</em>
+  <em>// 模拟泄漏：只打开不关闭</em>
   triggerLeak() {
-    let context = getHostContext(this) as common.UIAbilityContext;
+    let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
     let path = context.filesDir + '/test_leak.txt';
-   <em> // 创建一个文件用于测试</em>
+    <em>// 创建一个文件用于测试</em>
     try {
       let file = fs.openSync(path, fs.OpenMode.CREATE | fs.OpenMode.READ_WRITE);
       fs.closeSync(file);
-    } catch (e) {}
+    } catch (e) {
+      console.error('File operation failed:' + JSON.stringify(e));
+    }
 
-
-  <em>  // 循环打开文件，模拟泄漏</em>
+    <em>// 循环打开文件，模拟泄漏</em>
     for (let i = 0; i < 500; i++) {
       try {
-      <em>  // 错误：这里打开了文件句柄，但是没有保存引用，也没有调用close</em>
+        <em>// 错误：这里打开了文件句柄，但是没有保存引用，也没有调用close</em>
         let file = fs.openSync(path, fs.OpenMode.READ_WRITE);
         this.leakCount++;
         console.info(`Open fd success: ${file.fd}`);
@@ -48,15 +47,13 @@ struct Index {
     }
   }
 
-
   build() {
     Column() {
       Text('当前模拟泄漏次数: ' + this.leakCount)
         .fontSize(20)
         .margin(20)
 
-
-      Button('点击触发FD泄漏')
+      Button('点击触发fd泄漏')
         .fontSize(20)
         .onClick(() => {
           this.triggerLeak();
@@ -67,6 +64,8 @@ struct Index {
   }
 }
 ```
+ 
+ 
  
 
 #### 背景知识
@@ -87,9 +86,9 @@ struct Index {
   
 ```text
 time: 2024/06/27 11:55:28
- pid: 1380
- process: com.example.myapp
- leaked fd nums: 5111  <-- 当前持有的句柄总数，远超正常值
+pid: 1380
+process: com.example.myapp
+leaked fd nums: 5111  <-- 当前持有的句柄总数，远超正常值
 ```
 
 
@@ -101,9 +100,9 @@ time: 2024/06/27 11:55:28
 3. **情况B（特殊资源泄漏）**：如果Top 1是Ashmem（共享内存）、socket（网络）、pipe（管道）、dmabuf（显存）等，说明是特定系统资源未释放。
 ```text
 Leaked fd Top 10:
- 4796    Ashmem    <-- 绝大多数泄漏是共享内存
- 259     socket
- ...
+4796    Ashmem    <-- 绝大多数泄漏是共享内存
+259     socket
+// ...
 ```
 
 
@@ -114,8 +113,8 @@ Leaked fd Top 10:
   
 ```text
 Dir Type Top 10:
- 6175 /data/storage/el2/database/rdb  <-- 明确指向数据库文件
- 5    /dev/urandom
+6175 /data/storage/el2/database/rdb  <-- 明确指向数据库文件
+5    /dev/urandom
 ```
 
 - **第二步：分析调用栈（核心步骤）**在日志下方的LOGGER_MEMCHECK_FD_STACK_INFO区域，系统记录了句柄申请的调用栈（需开启开发者模式或Log版本）。
@@ -150,25 +149,11 @@ addr2line -C -f -e /path/to/libentry.so 0x148940
  1. **未关闭资源**：在循环或高频调用的函数中打开了文件/Socket，但在函数结束或异常返回（Exception/Early return）时未调用close。
 2. **重复初始化**：对象（如RDB Store、AVPlayer）被重复创建，旧对象未释放。
 3. **IPC通信异常**：Ashmem或Binder通信频繁创建且未正确回收。
+4. **PixelMap未释放**：创建PixelMap对象给Image组件使用时，HarmonyOS不会自动回收PixelMap的底层资源，开发者必须主动调用Release()方法释放。若Image组件销毁时未释放，会导致fd泄漏。
  
  
 
 #### 修改建议
 1. **成对释放资源**：确保所有open都有对应的close。在C++中使用RAII（智能指针或类封装）管理资源；在ArkTS中使用try-finally块确保文件关闭。
 2. **异常处理**：检查代码中的异常分支（if error return），确保在返回前已释放申请的fd。
- 
- 
-
-#### 常见FAQ
-
-Q：为什么日志中的堆栈信息（LOGGER_MEMCHECK_FD_STACK_INFO）是空的？
- 
-A：堆栈抓取功能对性能有一定影响，默认Log版本才会开启。如果是NoLog版本，需要在“开发者选项”中打开“系统资源泄漏日志”开关，并重启设备，才能在后续的泄漏中抓取到堆栈。
- 
-Q：日志中Top 1句柄类型显示为unknown是什么原因？
- 
-A：这通常表示进程没有权限获取泄漏进程的句柄详情，或者该句柄已被释放但在统计周期内。
- 
-Q：Ashmem类型泄漏通常对应什么代码操作？
- 
-A：Ashmem是匿名共享内存。在ArkTS层使用pixelMap图片处理、跨进程大数据传输；在Native层调用OH_PixelmapNative相关接口或直接操作Ashmem_create_region且未释放，均会导致此类泄漏。开发者可通过setMemoryNameSync设置名称以便在日志Ashmem_name字段中快速定位。
+3. **释放PixelMap资源**：PixelMap是前端持有的，Image组件不负责释放。即使不涉及手动打开文件操作，PixelMap的Release()调用仍然不可省略。在组件的aboutToDisappear中主动调用pixelMap.release()并置空引用，是解决此场景下fd泄漏的核心手段。

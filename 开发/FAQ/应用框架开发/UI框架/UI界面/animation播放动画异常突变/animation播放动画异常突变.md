@@ -11,67 +11,67 @@
 问题代码示例参考如下：
  
 ```text
-@Entry
-@ComponentV2
-struct ShackHand {
-  @Param serverActive: boolean = false
-<em>  // 动画点信息</em>
-  @Local colorArray: Array<JumpTrans> = [
-    new JumpTrans('#8002ECFC', 500),
-    new JumpTrans('#802d2de3', 1000),
-    new JumpTrans('#8002ECFC', 1500),
-    new JumpTrans('#802d2de3', 2000),
-    new JumpTrans('#8002ECFC', 2500),
-  ]
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@ComponentV2</span>
+struct <span style="color: rgb(0,0,255);">ShackHand </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@Param </span><span style="color: rgb(255,255,255);">serverActive</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean </span><span style="color: rgb(181,106,1);">= </span>false
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">动画点信息</span></em>
+  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(255,255,255);">colorArray</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">JumpTrans</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[</span>
+    new <span style="color: rgb(0,0,255);">JumpTrans</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#8002ECFC'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">500</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+    new <span style="color: rgb(0,0,255);">JumpTrans</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#802d2de3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1000</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+    new <span style="color: rgb(0,0,255);">JumpTrans</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#8002ECFC'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1500</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+    new <span style="color: rgb(0,0,255);">JumpTrans</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#802d2de3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2000</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+    new <span style="color: rgb(0,0,255);">JumpTrans</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#8002ECFC'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2500</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(255,0,170);">]</span>
 
-  build() {
-    RelativeContainer() {
-      ForEach(this.colorArray, (jump: JumpTrans, index: number) => {
-        Circle({ width: '180lpx', height: '180lpx' })
-          .stroke(Color.White)
-          .margin({
-            left: index * 30
-          })
-          .strokeWidth('5lpx')
-          .fill(jump.color)
-          .transition(generateEffect(jump.delay))<em> </em><em>// 设置动画效果</em>
-      })
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">colorArray</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">jump</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">JumpTrans</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Circle</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'180lpx'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'180lpx' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">White</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">30</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeWidth</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'5lpx'</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fill</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">jump</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">color</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">transition</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">generateEffect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">jump</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">delay</span><span style="color: rgb(255,0,170);">))</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置动画效果</span></em>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
 
-    }
-    .backgroundColor(Color.Black)
-    .width('600lpx')
-    .height('600lpx')
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Black</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'600lpx'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'600lpx'</span><span style="color: rgb(255,0,170);">)</span>
 
-  }
-}
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-<em>// </em><em>动画效果</em>
-function generateEffect(delay: number): TransitionEffect {
-  return TransitionEffect.scale({ x: 0.1, y: 0.1 })
-    .animation({
-      duration: 1000,
-      playMode: PlayMode.Reverse, <em>// 动画反向播放</em>
-      delay: delay
-    })
+<em>// </em><em><span style="color: rgb(128,128,128);">动画效果</span></em>
+function <span style="color: rgb(0,0,255);">generateEffect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">delay</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TransitionEffect </span><span style="color: rgb(181,106,1);">{</span>
+  return <span style="color: rgb(255,255,255);">TransitionEffect</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scale</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0.1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0.1 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1000</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">playMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">PlayMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Reverse</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">动画反向播放</span></em>
+      <span style="color: rgb(255,255,255);">delay</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">delay</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
 
-}
+<span style="color: rgb(181,106,1);">}</span>
 
-<em>// </em><em>信息类</em>
-class JumpTrans {
-  color: ResourceColor
-  delay: number
+<em>// </em><em><span style="color: rgb(128,128,128);">信息类</span></em>
+class <span style="color: rgb(0,0,255);">JumpTrans </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ResourceColor</span>
+  <span style="color: rgb(255,255,255);">delay</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span>
 
-  constructor(color: ResourceColor, delay: number) {
-    this.color = color
-    this.delay = delay
-  }
-}
+  constructor<span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ResourceColor</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">delay</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">color </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">color</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">delay </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">delay</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/UAFfOda8S3G5Mzf8b-sYwA/zh-cn_image_0000002628394280.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072453Z&HW-CC-Expire=86400&HW-CC-Sign=02A189B03D47A9323C730BF35F872C2C2153ABF5CA730269C3171A118917622D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/UAFfOda8S3G5Mzf8b-sYwA/zh-cn_image_0000002628394280.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005651Z&HW-CC-Expire=86400&HW-CC-Sign=117565E412CD5D7B7250D8AC1A59A6617B3B16FB935582961718A4A3FF195778)
 
  
  
@@ -79,7 +79,7 @@ class JumpTrans {
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/AsEgnbwFS02KATkuWlin1Q/zh-cn_image_0000002658913495.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072453Z&HW-CC-Expire=86400&HW-CC-Sign=2A86168B6C57FEA4E3EA747F0EEC84A915C3BE1A456DF00FB82A3AB79C4B8445)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/AsEgnbwFS02KATkuWlin1Q/zh-cn_image_0000002658913495.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005651Z&HW-CC-Expire=86400&HW-CC-Sign=7924336A5B65BA9BECB9023F4C2D448E82722288E1859624746AC98099A7CBA8)
 
  
  
@@ -117,58 +117,58 @@ delay和PlayMode.Reverse属性设置不当会导致动画播放前出现组件�
 完整示例参考如下：
  
 ```text
-@Entry
-@ComponentV2
-struct JumpTransCustom {
-<em>  // 动画数据</em>
-  @Local colorArray: Array<JumpTrans> = [
-    new JumpTrans('#8002ECFC', 500),
-    new JumpTrans('#802d2de3', 1000),
-    new JumpTrans('#8002ECFC', 1500),
-    new JumpTrans('#802d2de3', 2000),
-    new JumpTrans('#8002ECFC', 2500),
-  ];
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@ComponentV2</span>
+struct <span style="color: rgb(0,0,255);">JumpTransCustom </span><span style="color: rgb(181,106,1);">{</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">动画数据</span></em>
+  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(255,255,255);">colorArray</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">JumpTrans</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[</span>
+    new <span style="color: rgb(0,0,255);">JumpTrans</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#8002ECFC'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">500</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+    new <span style="color: rgb(0,0,255);">JumpTrans</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#802d2de3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1000</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+    new <span style="color: rgb(0,0,255);">JumpTrans</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#8002ECFC'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1500</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+    new <span style="color: rgb(0,0,255);">JumpTrans</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#802d2de3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2000</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+    new <span style="color: rgb(0,0,255);">JumpTrans</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#8002ECFC'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2500</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      RelativeContainer() {
-        ForEach(this.colorArray, (jump: JumpTrans, index: number) => {
-          Circle({ width: '180lpx', height: '180lpx' })
-            .stroke(Color.White)
-            .margin({
-              left: index * 30
-            })
-            .strokeWidth('5lpx')
-            .fill(jump.color)
-            .transition(generateEffect(jump.delay)) <em> </em><em>// 调用动画函数</em>
-            .scale({ x: 0.1, y: 0.1 });
-        });
-      }
-      .backgroundColor(Color.Black)
-      .width('600lpx')
-      .height('600lpx');
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">colorArray</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">jump</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">JumpTrans</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">Circle</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'180lpx'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'180lpx' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">White</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+              <span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">30</span>
+            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeWidth</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'5lpx'</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fill</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">jump</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">color</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">transition</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">generateEffect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">jump</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">delay</span><span style="color: rgb(255,0,170);">)) </span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">调用动画函数</span></em>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scale</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0.1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0.1 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Black</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'600lpx'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'600lpx'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-<em>// </em><em>动画效果</em>
-function generateEffect(delay: number): TransitionEffect {
-  return TransitionEffect.scale({ x: 8, y: 8 })
-    .animation({
-      duration: 1000,
-      playMode: PlayMode.Normal,
-      delay: delay
-    });
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">动画效果</span></em>
+function <span style="color: rgb(0,0,255);">generateEffect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">delay</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TransitionEffect </span><span style="color: rgb(181,106,1);">{</span>
+  return <span style="color: rgb(255,255,255);">TransitionEffect</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scale</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">8</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">8 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1000</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">playMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">PlayMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Normal</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">delay</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">delay</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-<em>// </em><em>数据类</em>
-class JumpTrans {
-  color: ResourceColor;
-  delay: number;
+<em>// </em><em><span style="color: rgb(128,128,128);">数据类</span></em>
+class <span style="color: rgb(0,0,255);">JumpTrans </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ResourceColor</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">delay</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">;</span>
 
-  constructor(color: ResourceColor, delay: number) {
-    this.color = color;
-    this.delay = delay;
-  }
-}
+  constructor<span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ResourceColor</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">delay</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">color </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">delay </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">delay</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

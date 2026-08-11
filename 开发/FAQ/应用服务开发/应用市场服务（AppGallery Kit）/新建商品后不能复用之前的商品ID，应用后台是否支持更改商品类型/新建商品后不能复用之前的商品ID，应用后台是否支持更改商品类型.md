@@ -1,6 +1,6 @@
 # 新建商品后不能复用之前的商品ID，应用后台是否支持更改商品类型
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-05 01:58:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-26
 
@@ -39,3 +39,19 @@ A：通过沙盒环境[测试数字商品服务](https://developer.huawei.com/co
 Q：AppGallery Connect上商品管理的审核信息中应用内截图是否是每一个计费点都需要使用不同的截图？
  
 A：不需要，同一个模块下的计费点可以使用同一个截图，如：同一商品列表页下的商品可以统一使用商品列表页面，只要能看到商品位置即可。
+ 
+Q：体验卡或月卡等不需要自动续期的有效期商品应该创建为什么类型的商品？
+ 
+A：应创建为非续期订阅商品。非续期订阅商品的定义为：用户购买后在一段时间内允许访问增值功能或内容，周期结束后禁止访问，除非再次购买。
+ 
+Q：非续期订阅商品在AppGallery Connect商品配置中无法设置使用时长，如何管理有效期？
+ 
+A：非续期订阅商品的使用时长和有效期由开发者根据自身业务逻辑管理，AppGallery Connect商品配置中不提供使用时长的设置项。
+ 
+Q：如何查询用户购买的商品信息？
+ 
+A：调用[iap.queryPurchases](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-iap#iapquerypurchases)接口查询已购商品的订单信息，开发者根据返回的商品信息自行管理使用时长和有效期。
+ 
+Q：消耗型商品和非续期订阅商品的区别是什么？
+ 
+A：消耗型商品使用一次后即消耗掉，随使用减少，如游戏货币、游戏道具等；非续期订阅商品是用户购买后在一段时间内允许访问增值功能或内容，如视频一个月会员。具体区别可以参考[IAP简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-introduction)。

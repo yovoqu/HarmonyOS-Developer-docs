@@ -21,7 +21,7 @@ DevEco Studio编译项目慢，模拟器启动慢，是什么原因？
 #### 问题定位
 1. 获取模拟器运行日志，可参考此文档：[模拟器的使用和日志获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-start-and-close)。
 2. 检查到问题日志：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/3KI3jw6qQeyNReM_wW0MHA/zh-cn_image_0000002628565368.png?HW-CC-KV=V1&HW-CC-Date=20260730T072711Z&HW-CC-Expire=86400&HW-CC-Sign=661115872CB9D39CBF2E57B92D12382EE6BF6FEA6BB5EAE45CAE82CA80034DF6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/3KI3jw6qQeyNReM_wW0MHA/zh-cn_image_0000002628565368.png?HW-CC-KV=V1&HW-CC-Date=20260811T005523Z&HW-CC-Expire=86400&HW-CC-Sign=43B79B15414CE8CD7FE115FB8CDCAD8707FB5C834795D39B81EAEDC6FCE0F464)
 
 3. 通过在Windows系统做启动时长测试，配置越好，启动越快。参考配置：Windows 10+32G内存(i7+10700)，启动时长在35s左右。
  

@@ -11,45 +11,45 @@ AlertDialog设置了backgroundColor，但是背景色仅可以看见很浅的颜
 问题代码如下：
  
 ```text
-@Entry
-@Component
-struct Index {
-  build() {
-    Button('点击')
-      .onClick((event: ClickEvent) => {
-        const uiContext: UIContext = this.getUIContext();
-        uiContext.showAlertDialog(
-          {
-            title: 'title',
-            message: 'text11',
-            borderColor: Color.Green,
-            autoCancel: true,
-            alignment: DialogAlignment.Bottom,
-            offset: { dx: 0, dy: -20 },
-            gridCount: 3,
-            backgroundColor: 'rgba(10,89,247,0.4)',
-            confirm: {
-              value: 'button',
-              action: () => {
-                console.info('Button-clicking callback')
-              }
-            },
-            cancel: () => {
-              console.info('Closed callbacks')
-            }
-          }
-        )
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">点击</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ClickEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        const <span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">UIContext </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showAlertDialog</span><span style="color: rgb(0,0,255);">(</span>
+          <span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'title'</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'text11'</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">borderColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Green</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">autoCancel</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">DialogAlignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bottom</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">dx</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">dy</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">gridCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'rgba(10,89,247,0.4)'</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">confirm</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'button'</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(0,0,255);">action</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Button-clicking callback'</span><span style="color: rgb(0,0,255);">)</span>
+              <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">            }</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">cancel</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Closed callbacks'</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">          }</span>
+        <span style="color: rgb(0,0,255);">)</span>
 
-      })
-      .margin({ left: 30, top: 16 })
-  }
-}
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/k6MiS8zyQdGSVuQ2O08jgg/zh-cn_image_0000002658846259.png?HW-CC-KV=V1&HW-CC-Date=20260730T072441Z&HW-CC-Expire=86400&HW-CC-Sign=43BF8E382A8D44A340938FDAB08EF4D6BC5437905A407CABDF49B86BA205C831)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/k6MiS8zyQdGSVuQ2O08jgg/zh-cn_image_0000002658846259.png?HW-CC-KV=V1&HW-CC-Date=20260811T005700Z&HW-CC-Expire=86400&HW-CC-Sign=AA3807E11643269314063B2788752548F07DA6AC7DA161ABE2D0FBA5BAE15F90)
 
  
  
@@ -57,7 +57,7 @@ struct Index {
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/TQkhSwscQe6nXLBBNyEKug/zh-cn_image_0000002628766896.png?HW-CC-KV=V1&HW-CC-Date=20260730T072441Z&HW-CC-Expire=86400&HW-CC-Sign=D8A50C8D04337E80A831902C1F317731E74015211DA82F5BF9520A8F284A809E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/TQkhSwscQe6nXLBBNyEKug/zh-cn_image_0000002628766896.png?HW-CC-KV=V1&HW-CC-Date=20260811T005700Z&HW-CC-Expire=86400&HW-CC-Sign=5EF516DC9E07D01ABCA300E94F8F0F56EC8FBD7AFC184F8E3DFA06B5EED60D02)
 
  
  
@@ -73,46 +73,46 @@ struct Index {
 backgroundColor会与弹窗默认的模糊属性backgroundBlurStyle叠加产生效果，出现背景色被其它颜色覆盖从而导致的仅可以看见很浅的颜色，可将backgroundBlurStyle设置为BlurStyle.NONE，即可取消模糊，示例代码如下：
  
 ```text
-@Entry
-@Component
-struct AlertDialogBackgroundColor {
-  build() {
-    Column() {
-      Button('点击')
-        .onClick(() => {
-          const uiContext: UIContext = this.getUIContext();
-          uiContext.showAlertDialog(
-            {
-             <em> // 弹窗标题</em>
-              title: 'title',
-             <em> // 弹窗内容</em>
-              message: '弹窗内容',
-              autoCancel: true,
-              alignment: DialogAlignment.Bottom,
-             <em> // 设置偏移量</em>
-              offset: { dx: 0, dy: -20 },
-              gridCount: 3,
-            <em>  // 设置背景色</em>
-              backgroundColor: 'rgba(10,89,247,0.4)',
-           <em>   // 关闭背景虚化，backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则颜色显示将不符合预期效果。</em>
-              backgroundBlurStyle: BlurStyle.NONE,
-              confirm: {
-                value: 'button',
-                action: () => {
-                  console.info('Button-clicking callback');
-                }
-              },
-              cancel: () => {
-                console.info('Closed callbacks');
-              }
-            }
-          );
-        });
-    }
-    .width('100%')
-    .height('100%')
-    .alignItems(HorizontalAlign.Center)
-    .justifyContent(FlexAlign.Center);
-  }
-}
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">AlertDialogBackgroundColor </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">点击</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          const <span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">UIContext </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showAlertDialog</span><span style="color: rgb(0,0,255);">(</span>
+            <span style="color: rgb(255,0,170);">{</span>
+             <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">弹窗标题</span></em>
+              <span style="color: rgb(0,0,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'title'</span><span style="color: rgb(181,106,1);">,</span>
+             <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">弹窗内容</span></em>
+              <span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">弹窗内容</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(0,0,255);">autoCancel</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">DialogAlignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bottom</span><span style="color: rgb(181,106,1);">,</span>
+             <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置偏移量</span></em>
+              <span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">dx</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">dy</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(0,0,255);">gridCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(181,106,1);">,</span>
+            <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置背景色</span></em>
+              <span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'rgba(10,89,247,0.4)'</span><span style="color: rgb(181,106,1);">,</span>
+           <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">关闭背景虚化，</span><span style="color: rgb(128,128,128);">backgroundBlurStyle</span><span style="color: rgb(128,128,128);">为非</span><span style="color: rgb(128,128,128);">NONE</span><span style="color: rgb(128,128,128);">值时，则不要设置</span><span style="color: rgb(128,128,128);">backgroundColor</span><span style="color: rgb(128,128,128);">，否则颜色显示将不符合预期效果。</span></em>
+              <span style="color: rgb(0,0,255);">backgroundBlurStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BlurStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">NONE</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(0,0,255);">confirm</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'button'</span><span style="color: rgb(181,106,1);">,</span>
+                <span style="color: rgb(0,0,255);">action</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Button-clicking callback'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">              }</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(0,0,255);">cancel</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Closed callbacks'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">            }</span>
+          <span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

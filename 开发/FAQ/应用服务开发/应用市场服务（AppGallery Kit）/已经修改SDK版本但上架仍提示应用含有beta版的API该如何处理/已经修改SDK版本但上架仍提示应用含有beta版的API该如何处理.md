@@ -9,7 +9,7 @@
 应用上架提示应用含有beta版的API，使用的是beta版本的开发工具，但是已经把所有的SDK改成release版本了，而且检查了一遍没有调用beta版API的地方，应该如何检查？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/BdwJJzamTIeo4DANg-lW4A/zh-cn_image_0000002628394628.png?HW-CC-KV=V1&HW-CC-Date=20260730T072702Z&HW-CC-Expire=86400&HW-CC-Sign=F239BEED992F7CC5CC5DD921F254B127B8580AA6F407FFA8C6F0590169144999)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/BdwJJzamTIeo4DANg-lW4A/zh-cn_image_0000002628394628.png?HW-CC-KV=V1&HW-CC-Date=20260811T005621Z&HW-CC-Expire=86400&HW-CC-Sign=93B73689E5FC20AF3652C32C37E5CAA74E5F04138B1A637AFDF7744E81AFA040)
 
  
  

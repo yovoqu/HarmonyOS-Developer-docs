@@ -11,37 +11,37 @@
 加解密代码参考如下：
  
 ```text
-<em>// </em><em>加密消息。</em>
-async function encryptMessagePromise(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob) {
-  let cipher = cryptoFramework.createCipher('SM4_128|CTR|NoPadding');
-  let smIV = '12345678'
-  let ivParamsSpec: cryptoFramework.IvParamsSpec = {
-    algName: "IvParamsSpec",
-    iv: { data: new Uint8Array(buffer.from(smIV, 'utf-8').buffer) }
-  };
-  await cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, ivParamsSpec);
-  let encryptData = await cipher.doFinal(plainText);
-  return encryptData;
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">加密消息。</span></em>
+async function <span style="color: rgb(0,0,255);">encryptMessagePromise</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">symKey</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SymKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">plainText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DataBlob</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  let <span style="color: rgb(255,255,255);">cipher </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createCipher</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'SM4_128|CTR|NoPadding'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">smIV </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'12345678'</span>
+  let <span style="color: rgb(255,255,255);">ivParamsSpec</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">IvParamsSpec </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">algName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">"IvParamsSpec"</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">iv</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">smIV</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'utf-8'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">  }</span><span style="color: rgb(181,106,1);">;</span>
+  await <span style="color: rgb(255,255,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">init</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CryptoMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ENCRYPT_MODE</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">ivParamsSpec</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">encryptData </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doFinal</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">plainText</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  return <span style="color: rgb(255,255,255);">encryptData</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-<em>// </em><em>解密消息。</em>
-async function decryptMessagePromise(symKey: cryptoFramework.SymKey, cipherText: cryptoFramework.DataBlob) {
-  let decoder = cryptoFramework.createCipher('SM4_128|CTR|NoPadding');
-  let smIV = '12345678'
-  let ivParamsSpec: cryptoFramework.IvParamsSpec = {
-    algName: "IvParamsSpec",
-    iv: { data: new Uint8Array(buffer.from(smIV, 'utf-8').buffer) }
-  };
-  await decoder.init(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, ivParamsSpec);
-  let decryptData = await decoder.doFinal(cipherText);
-  return decryptData;
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">解密消息。</span></em>
+async function <span style="color: rgb(0,0,255);">decryptMessagePromise</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">symKey</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SymKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">cipherText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DataBlob</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  let <span style="color: rgb(255,255,255);">decoder </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createCipher</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'SM4_128|CTR|NoPadding'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">smIV </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'12345678'</span>
+  let <span style="color: rgb(255,255,255);">ivParamsSpec</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">IvParamsSpec </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">algName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">"IvParamsSpec"</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">iv</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">smIV</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'utf-8'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">  }</span><span style="color: rgb(181,106,1);">;</span>
+  await <span style="color: rgb(255,255,255);">decoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">init</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CryptoMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DECRYPT_MODE</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">ivParamsSpec</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">decryptData </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">decoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doFinal</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">cipherText</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  return <span style="color: rgb(255,255,255);">decryptData</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  
 报错信息如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/SQJla1kLTHWX5zv_5E3hTg/zh-cn_image_0000002658968435.png?HW-CC-KV=V1&HW-CC-Date=20260730T072542Z&HW-CC-Expire=86400&HW-CC-Sign=D732D0F4D845CDBC444FFB5727BD662266303811AA9C03B8D472A760A0F04E1C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/SQJla1kLTHWX5zv_5E3hTg/zh-cn_image_0000002658968435.png?HW-CC-KV=V1&HW-CC-Date=20260811T005923Z&HW-CC-Expire=86400&HW-CC-Sign=600C39121169A045A42D6E75C9B4D2E9D5F7D7884AE20FE7731498A8DD871A2A)
 
  
  

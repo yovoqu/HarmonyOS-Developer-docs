@@ -9,7 +9,7 @@
 使用Tabs组件时，当tabBar内容过长，仅为Tabs添加backgroundColor背景颜色会导致用户体验较差。现要求为当前组件添加遮罩效果，提升用户使用体验。具体演示如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/Iwxb1zNkQGCcSF10-IRjxQ/zh-cn_image_0000002628394272.png?HW-CC-KV=V1&HW-CC-Date=20260730T072444Z&HW-CC-Expire=86400&HW-CC-Sign=4D04EFDF3D5F8C33F5A2D5EC77D52E51B2AE663F3AA97A8D73824BD5E92310D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/Iwxb1zNkQGCcSF10-IRjxQ/zh-cn_image_0000002628394272.png?HW-CC-KV=V1&HW-CC-Date=20260811T005652Z&HW-CC-Expire=86400&HW-CC-Sign=B4D6F23CE4BB39232438AE40621B0037A0555839D99DC117D88313476C7E003A)
 
  
  

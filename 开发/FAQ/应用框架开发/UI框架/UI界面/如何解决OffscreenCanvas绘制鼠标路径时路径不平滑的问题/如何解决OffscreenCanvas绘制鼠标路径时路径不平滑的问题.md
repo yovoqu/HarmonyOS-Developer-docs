@@ -11,7 +11,7 @@ PC应用使用OffscreenCanvas离屏画布绘制鼠标路径，绘制路径不平
 问题效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/STVktlPySGmZ52O189ip9w/zh-cn_image_0000002658801089.png?HW-CC-KV=V1&HW-CC-Date=20260730T072507Z&HW-CC-Expire=86400&HW-CC-Sign=EA45464DC529000E36A4ACDEA86752D862B8C781A9CD94FBB3B3BCF6A4F4DC7D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/STVktlPySGmZ52O189ip9w/zh-cn_image_0000002658801089.png?HW-CC-KV=V1&HW-CC-Date=20260811T005713Z&HW-CC-Expire=86400&HW-CC-Sign=13FE2F61F85FF658D576BB7C9D3DA79DEE8DEC21CAA80FCCB54A3F9621A7CE49)
 
  
 问题代码如下：
@@ -181,19 +181,19 @@ struct Index {
 120Hz刷新率+离屏渲染：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/7pLrwyV-RBWRE5UE72Rktw/zh-cn_image_0000002628401816.png?HW-CC-KV=V1&HW-CC-Date=20260730T072507Z&HW-CC-Expire=86400&HW-CC-Sign=075D8A99ACBB915230B18EB5B84C4E187DAE74D977A5E6F176C4234663E1F045)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/7pLrwyV-RBWRE5UE72Rktw/zh-cn_image_0000002628401816.png?HW-CC-KV=V1&HW-CC-Date=20260811T005713Z&HW-CC-Expire=86400&HW-CC-Sign=D14FBA7C7439887337ABF703F53802BBC6E820F5AE9DDE9071E5ED40A0A163FB)
 
  
 60Hz刷新率+在屏渲染：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/_YDdrAgPQUa-BE40aRVxJQ/zh-cn_image_0000002628561724.png?HW-CC-KV=V1&HW-CC-Date=20260730T072507Z&HW-CC-Expire=86400&HW-CC-Sign=B4D3E23AE7D9CE837FF53FBDFEB10321D50C681DA530FC8C6189AA5AE2B209DC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/_YDdrAgPQUa-BE40aRVxJQ/zh-cn_image_0000002628561724.png?HW-CC-KV=V1&HW-CC-Date=20260811T005713Z&HW-CC-Expire=86400&HW-CC-Sign=7B60660FFEFCA9E3B2B8518CE4126B288615E5E7CF5BD759B92157EA5A8B4905)
 
  
 120Hz刷新率+在屏渲染：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/twPonIcxSPWI5lJuUI6MhQ/zh-cn_image_0000002658921037.png?HW-CC-KV=V1&HW-CC-Date=20260730T072507Z&HW-CC-Expire=86400&HW-CC-Sign=2A102F75422273352DBDC972B826A3C732C495329EFDAAFA63E01703FDC7B997)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/twPonIcxSPWI5lJuUI6MhQ/zh-cn_image_0000002658921037.png?HW-CC-KV=V1&HW-CC-Date=20260811T005713Z&HW-CC-Expire=86400&HW-CC-Sign=CCB3BF9288D2FA0B9C8396E4694BC914D9F3331375E8A76A216FF2F3F214F289)
 
  
  

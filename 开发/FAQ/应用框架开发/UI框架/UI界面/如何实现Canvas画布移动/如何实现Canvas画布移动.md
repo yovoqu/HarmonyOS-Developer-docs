@@ -167,4 +167,4 @@ struct RenderTest {
 运行效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/-jKghDTiThSoEPp2By7hKA/zh-cn_image_0000002628405550.png?HW-CC-KV=V1&HW-CC-Date=20260730T072515Z&HW-CC-Expire=86400&HW-CC-Sign=24C19702CF81F596A1015313AC38F5FB3B2D18F6CEA70FB0668F0D98F6F62182)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/-jKghDTiThSoEPp2By7hKA/zh-cn_image_0000002628405550.png?HW-CC-KV=V1&HW-CC-Date=20260811T005702Z&HW-CC-Expire=86400&HW-CC-Sign=817DDC8FD1429433C6D7E8574449B1F29D7649D77D620A386AABC66099BF184E)

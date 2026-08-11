@@ -141,7 +141,7 @@ export struct WebView {
 效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/HqT8CPYyTUe8cFNHwlMMeg/zh-cn_image_0000002628569610.png?HW-CC-KV=V1&HW-CC-Date=20260730T072449Z&HW-CC-Expire=86400&HW-CC-Sign=A59300CF418C54D76C669DA019FB909102D7F830D68C798B3FCE85C7219B43C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/HqT8CPYyTUe8cFNHwlMMeg/zh-cn_image_0000002628569610.png?HW-CC-KV=V1&HW-CC-Date=20260811T005650Z&HW-CC-Expire=86400&HW-CC-Sign=02614772193EF70D8AF93FD10B8C9D8E26D95BFE9B86F04EDEB5C5A8D2A463E3)
 
  
  
@@ -241,7 +241,7 @@ struct TempPage {
 效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/ZAV3-hWdSzKBtRMsbva2cw/zh-cn_image_0000002628409710.png?HW-CC-KV=V1&HW-CC-Date=20260730T072449Z&HW-CC-Expire=86400&HW-CC-Sign=133C3BD6031D417FD84151913BDDD6660CB0DA136FDB6739ABA2AFE8A6F0AD9C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/ZAV3-hWdSzKBtRMsbva2cw/zh-cn_image_0000002628409710.png?HW-CC-KV=V1&HW-CC-Date=20260811T005650Z&HW-CC-Expire=86400&HW-CC-Sign=D81C9B77CA9A960CE59041A024EDECA8C05402C9647B99438CB86C6E0BF714AD)
 
  
  

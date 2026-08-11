@@ -40,7 +40,7 @@
 下文将用下述示例图片举例阐述各个场景下的颜色提取：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/nWbIb1GdSdWgdkdlcFpAXw/zh-cn_image_0000002628393318.png?HW-CC-KV=V1&HW-CC-Date=20260730T072634Z&HW-CC-Expire=86400&HW-CC-Sign=F39655474EF9A5C94D2E20F6CD271A9AABE7BC7CB3B503818CBC249FC0D93F8C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/nWbIb1GdSdWgdkdlcFpAXw/zh-cn_image_0000002628393318.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=11917F7FD033820C2B71BE2B947FCDD6AFA02945022E0AC663BF418524C24FFA)
 
  1. **图像整体取色**。
 - **方案一：主色提取**。
@@ -56,11 +56,11 @@ console.info('get main color =', '{red:', color.red, 'green:', color.green, 'blu
 
 
 3. **输出结果：**
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/D6A_vnegSiC-RRUsgP2E-w/zh-cn_image_0000002628553214.png?HW-CC-KV=V1&HW-CC-Date=20260730T072634Z&HW-CC-Expire=86400&HW-CC-Sign=3BE9E6BEB125E028B518BD3B7ED0A4CFC38AEC6C18B1488744CCA8BCAF2D3F1D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/D6A_vnegSiC-RRUsgP2E-w/zh-cn_image_0000002628553214.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=36DD4C4D33B9B6F7CB863C7A8F62F8EA9E77853DD350919E2B2B05F93591130B)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/wcpwyUvjTxa5czYl7VPLTQ/zh-cn_image_0000002658912533.png?HW-CC-KV=V1&HW-CC-Date=20260730T072634Z&HW-CC-Expire=86400&HW-CC-Sign=DD6587FBD56440A1BA9C39183A6D18AD71EA9FC3EDCDC7537B86989CCED89384)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/wcpwyUvjTxa5czYl7VPLTQ/zh-cn_image_0000002658912533.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=764EF4C6B25759432EE7A87811C2BA1F0E124E726C45E466FE97F4097A67DC12)
 
 
   通过与下述中占比最大颜色值进行比较，会发现与占比最大的色值有一定偏差。这是因为读取图片主色方法，是通过综合颜色分布、饱和度、亮度等权重计算得出。例如，一张包含蓝、白、黄混合的图片，主色可能输出浅绿色（混合结果）而非具体颜色值。图片主色的判断通常需要更复杂的算法，可能涉及到颜色空间的转换、色彩饱和度的计算等，以确保选择的主色能够准确反映图像的整体色彩特征，适合需要代表性颜色的场景。
@@ -99,21 +99,21 @@ for (let index = 0; index < topColors.length; index++) {
 
 
 7. **输出结果：**
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/7yGewf66QtaJcs1pGzyL3g/zh-cn_image_0000002658792593.png?HW-CC-KV=V1&HW-CC-Date=20260730T072634Z&HW-CC-Expire=86400&HW-CC-Sign=61661C2FE93289C0F084D8155A87048FE810BD9D6C6CAEF0EC05F8C5C4181E7A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/7yGewf66QtaJcs1pGzyL3g/zh-cn_image_0000002658792593.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=9FC0A62996B92ABE95DA6E178B1632E5EE3F94FF5DF385A304828446FDF2384E)
 
 
   getLargestProportionColor接口输出颜色为黄色，与图片的背景色完全一致。对于RGB颜色模型，每个像素由红、绿、蓝三个通道的值组成，接口会记录所有像素中相同颜色组合的出现频率，最终输出频率最高的颜色组合。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/t-qPoFkORJmjPVEKgNYuBA/zh-cn_image_0000002628393338.png?HW-CC-KV=V1&HW-CC-Date=20260730T072634Z&HW-CC-Expire=86400&HW-CC-Sign=86EEB723859A03654E70CB0085E977EA600D8CED9BA3C80E7DD6E0E6D89D8BB5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/t-qPoFkORJmjPVEKgNYuBA/zh-cn_image_0000002628393338.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=8EFA7B8E3C2E8BB069E75A9EA57824C76FAC19D0D906EFADDABBCF4FC29EFD09)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/-jypK_9cQYiytsnyzc-F9w/zh-cn_image_0000002628553222.png?HW-CC-KV=V1&HW-CC-Date=20260730T072634Z&HW-CC-Expire=86400&HW-CC-Sign=38FF9DE078C17AF697D504468446A8EB0EAF7A63B1B1BFE032338C28A187B4AE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/-jypK_9cQYiytsnyzc-F9w/zh-cn_image_0000002628553222.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=42B9E0BD00C8C4A60FBF00126A631512E3484A4A89805C68ECBE41C0932C773D)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/VqAn-NV9ReW62MOscOHzJw/zh-cn_image_0000002658912541.png?HW-CC-KV=V1&HW-CC-Date=20260730T072634Z&HW-CC-Expire=86400&HW-CC-Sign=3BC839850515032D18891B4BE5694B03BB9B415D0C6390F46913F404041B7BA9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/VqAn-NV9ReW62MOscOHzJw/zh-cn_image_0000002658912541.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=E8A6CDCCCB12B188C707C69AFD96522D6C10069A55A72673B03EE52FC6D540C2)
 
 
   getTopProportionColors接口输出前两位的高频颜色。该接口原理与getLargestProportionColor类似。
@@ -143,11 +143,11 @@ console.info('get average color =' + '{red:', averageColor.red, 'green:', averag
 
 
 11. **输出结果：**
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/UcTFm2cqT-K4FsDk1QbTNg/zh-cn_image_0000002658792603.png?HW-CC-KV=V1&HW-CC-Date=20260730T072634Z&HW-CC-Expire=86400&HW-CC-Sign=C6C6357E540B9B04F62E1E132878F635E8281E28A202616D3ECF7AF73C1B5B94)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/UcTFm2cqT-K4FsDk1QbTNg/zh-cn_image_0000002658792603.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=4E04BACC8210EDA5C2948FE5C45CB3843067DCEC667AEC206918F6ED2C14A32E)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/xIdy7YfWTtOIBISWasJzxA/zh-cn_image_0000002628393348.png?HW-CC-KV=V1&HW-CC-Date=20260730T072634Z&HW-CC-Expire=86400&HW-CC-Sign=B21F5656F5126A6DFD2B0DDDAC85D11B76AF6383B2FFEAC4199FC1CD265E7632)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/xIdy7YfWTtOIBISWasJzxA/zh-cn_image_0000002628393348.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=BBFF833423BCF15C11759A30FA102125030F791759A803CEF42B36E17E59CB6B)
 
 
   输出颜色为蓝色，是因为获取平均色接口会遍历图片中所有像素的RGBA值，分别累加红（R）、绿（G）、蓝（B）通道的总和，并统计有效像素数量（通常忽略透明度低于阈值的像素，如Alpha通道<10），再进行平均值的计算，图像中蓝色占大部分，且部分色块为深红、深蓝、白色等，因此最终平均色为蓝色。
@@ -169,11 +169,11 @@ console.info('get highest SatColor color =', '{red:', highestSatColor.red, 'gree
 15. **与相似接口区别：**该接口与上述接口不同点在于，使用该接口时，会将图像中每个像素的RGB值转换为HSV（色相Hue、饱和度Saturation、明度Value）颜色空间进行分析。HSV模型中，**S通道（0-1或0-100%）直接表示颜色的鲜艳程度**，数值越高饱和度越强。遍历像素点，最后返回S值最高的颜色。
 
 16. **输出结果：**
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/upribDvmTXeJ6XDGcU4lVQ/zh-cn_image_0000002628553230.png?HW-CC-KV=V1&HW-CC-Date=20260730T072634Z&HW-CC-Expire=86400&HW-CC-Sign=5DCC9DAFFC22DD9130CDA92F7559F7F926CECE63E58D81A6AD73C8751CA721B1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/upribDvmTXeJ6XDGcU4lVQ/zh-cn_image_0000002628553230.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=BFAEDD3DB6C03270AC7811F9FB25AA57EC18C60BC0C2D9A759A044301FE3438D)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/VIoQq3IWRkiN8dBwPzPdBg/zh-cn_image_0000002658912549.png?HW-CC-KV=V1&HW-CC-Date=20260730T072634Z&HW-CC-Expire=86400&HW-CC-Sign=A460A4BE1AD38BCDB63F7800A3AE5D52B535BDA4EF991A4A4C162244E0A87B94)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/VIoQq3IWRkiN8dBwPzPdBg/zh-cn_image_0000002658912549.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=766EF2811F228559E5EAE2C79801CFA7617DC6CF5BF00080E4277BB7BDC23753)
 
 
   接口检测出饱和度最高的颜色为船身的深蓝色。
@@ -242,7 +242,7 @@ if (pixelMap !== undefined) {
 }
 ```
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/VMaFyYv8QYe81QKCKJghuQ/zh-cn_image_0000002658792607.png?HW-CC-KV=V1&HW-CC-Date=20260730T072634Z&HW-CC-Expire=86400&HW-CC-Sign=BB0C98D401DB1686FDA453DE6376F155BF6512EA0CD5C6F34E3DC4F9F79620BF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/VMaFyYv8QYe81QKCKJghuQ/zh-cn_image_0000002658792607.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=41DB2FFDA268908E728DC611E42BC9028263A9566D2B2E872857C2CAF202CB65)
 
 
   坐标选取了样图的左上角（浅蓝色区域），输出颜色值：BGRA(255,223,175,255)，符合预期。

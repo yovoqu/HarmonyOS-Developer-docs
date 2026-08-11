@@ -13,7 +13,7 @@ html字符串中包含em标签，使用Text组件如何增强对于文本的渲�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/i75lXJMGTge-ISIz1YWVXA/zh-cn_image_0000002658791787.png?HW-CC-KV=V1&HW-CC-Date=20260730T072320Z&HW-CC-Expire=86400&HW-CC-Sign=C85AAFA092343A44BB6DC90101F58753A3C1361C553C05E8A04349243BA0439D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/i75lXJMGTge-ISIz1YWVXA/zh-cn_image_0000002658791787.png?HW-CC-KV=V1&HW-CC-Date=20260811T005755Z&HW-CC-Expire=86400&HW-CC-Sign=20E924644142DB013F60B091107FA8DEEB8477BAD610EC8A42F1F6DB4259C727)
 
  
  
@@ -31,71 +31,71 @@ html字符串中包含em标签，使用Text组件如何增强对于文本的渲�
 2. 使用ForEach遍历数组，根据light字段设置文本的渲染样式。
  
 ```text
-interface isHeightLight {
-  content: string,
-  light: boolean
-}
+interface isHeightLight <span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(255,255,255);">light</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Entry
-@Component
-struct IndexOfPage {
-  value: string = '<em>第</em>二届海南<em>岛</em>国际<em>电</em>影节开幕式';
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">IndexOfPage </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(132,63,161);">em</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);">第</span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(132,63,161);">/em</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);">二届海南</span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(132,63,161);">em</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);">岛</span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(132,63,161);">/em</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);">国际</span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(132,63,161);">em</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);">电</span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(132,63,161);">/em</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);">影节开幕式</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">;</span>
 
-  heightLightWord(word: string) {
-   <em> // 先将需要高亮的字符筛选出来，待会高亮</em>
-    let str = word;
-    let result: string[] = [];
-    let index = 0;
-    while ((index = str.indexOf("<em>", index)) !== -1) {
-      if (index + 4 < str.length) {
-        result.push(str[index + 4]);
-      }
-      index += 4;
-    }
- <em>   // 将字符之间的html格式全部去除</em>
-    let rt: string = this.value.replace('<p></p><p></p>', '\n').replace('<p>', '\n').replace('\n\n', '\n');
-    rt = rt.replace(/<br\s*\/?>/g, '\n');
-    rt = rt.replace(/<\/?p/gi, '\n');
-    rt = rt.replace(/<[^>]+>/g,
-      '');
-  <em>  // 取'>'反的集合[^>]，+匹配集合元素一次或多次</em>
-    rt = rt.replace(/>/g, '');
-    if (this.value) {
-      rt = rt.trim();
-    }
-    const wordArr = rt.split('');
-    const indexArr: number[] = [];
-  <em>  // 获取所有符合条件的下标</em>
-    result.forEach((item: string) => {
-      let index = wordArr.indexOf(item);
-      while (index !== -1) {
-        indexArr.push(index);
-        index = wordArr.indexOf(item, index + 1);
-      }
-    });
-    return wordArr.map((item: string, index: number): isHeightLight => {
-      if (indexArr.indexOf(index) !== -1) {
-        return { content: item, light: true };
-      } else {
-        return { content: item, light: false };
-      }
-    });
-  }
+  <span style="color: rgb(0,0,255);">heightLightWord</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">word</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">先将需要高亮的字符筛选出来，待会高亮</span></em>
+    let <span style="color: rgb(255,255,255);">str </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">word</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">result</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+    while <span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indexOf</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"</span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(132,63,161);">em</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);">"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">)) </span><span style="color: rgb(181,106,1);">!== -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">4 </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">result</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+ <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将字符之间的</span><span style="color: rgb(128,128,128);">html</span><span style="color: rgb(128,128,128);">格式全部去除</span></em>
+    let <span style="color: rgb(255,255,255);">rt</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replace</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(132,63,161);">p</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(132,63,161);">/p</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(132,63,161);">p</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(132,63,161);">/p</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span>\n<span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replace</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(132,63,161);">p</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span>\n<span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replace</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span>\n\n<span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span>\n<span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">rt </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">rt</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replace</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">/</span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(132,63,161);">br\s*\/?</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);">/g</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span>\n<span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">rt </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">rt</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replace</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">/</span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(132,63,161);">\/?p/gi</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span>\n<span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">rt </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">rt</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replace</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">/</span><span style="color: rgb(132,63,161);"><</span><span style="color: rgb(132,63,161);">[^</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);">]+</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);">/g</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">取</span><span style="color: rgb(128,128,128);">'</span><span style="color: rgb(128,128,128);">></span><span style="color: rgb(128,128,128);">'</span><span style="color: rgb(128,128,128);">反的集合</span><span style="color: rgb(128,128,128);">[^</span><span style="color: rgb(128,128,128);">></span><span style="color: rgb(128,128,128);">]</span><span style="color: rgb(128,128,128);">，</span><span style="color: rgb(128,128,128);">+</span><span style="color: rgb(128,128,128);">匹配集合元素一次或多次</span></em>
+    <span style="color: rgb(255,255,255);">rt </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">rt</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replace</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">/</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(132,63,161);">/g</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">rt </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">rt</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">trim</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    const <span style="color: rgb(255,255,255);">wordArr </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">rt</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">split</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    const <span style="color: rgb(255,255,255);">indexArr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取所有符合条件的下标</span></em>
+    <span style="color: rgb(255,255,255);">result</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">forEach</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      let <span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">wordArr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indexOf</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      while <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">!== -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">indexArr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">wordArr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indexOf</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(255,255,255);">wordArr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">map</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">isHeightLight </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">indexArr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indexOf</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">!== -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        return <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">light</span><span style="color: rgb(181,106,1);">: </span>true <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
+        return <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">light</span><span style="color: rgb(181,106,1);">: </span>false <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Column() {
-      Text() {
-        ForEach(this.heightLightWord(this.value), (item: isHeightLight) => {
-          Span(item.content)
-            .fontColor(item.light ? Color.Blue : Color.Black)
-            .fontWeight(item.light ? FontWeight.Bolder : FontWeight.Normal)
-            .fontSize(item.light ? 20 : 14)
-        })
-      }
-    }
-    .width('100%')
-    .height('100%')
-    .justifyContent(FlexAlign.Center)
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">heightLightWord</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">isHeightLight</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">Span</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">light </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Blue </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Black</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">light </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Bolder </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Normal</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">light </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">14</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">    }</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

@@ -9,53 +9,53 @@
 使用Progress组件配合animateTo来实现进度条循环动画，动画效果失效无反应。
  
 ```text
-<em>/** </em><em>进度条最小值 */</em>
-const PROGRESS_MIN1 = 0;
-<em>/** </em><em>进度条最大值 */</em>
-const PROGRESS_MAX1 = 100;
+<em>/** </em><em><span style="color: rgb(128,128,128);">进度条最小值</span><span style="color: rgb(128,128,128);"> */</span></em>
+const <span style="color: rgb(255,255,255);">PROGRESS_MIN1 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+<em>/** </em><em><span style="color: rgb(128,128,128);">进度条最大值</span><span style="color: rgb(128,128,128);"> */</span></em>
+const <span style="color: rgb(255,255,255);">PROGRESS_MAX1 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct ProgressAnimWithProblem {
-<em>  /** 进度条当前值 */</em>
-  @State progressValue: number = PROGRESS_MIN1;
-  uiContext: UIContext | undefined = undefined;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">ProgressAnimWithProblem </span><span style="color: rgb(181,106,1);">{</span>
+<em>  <span style="color: rgb(128,128,128);">/** </span><span style="color: rgb(128,128,128);">进度条当前值</span><span style="color: rgb(128,128,128);"> */</span></em>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">progressValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">PROGRESS_MIN1</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">UIContext </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
 
-  aboutToAppear() {
-    this.uiContext = this.getUIContext();
-    if (!this.uiContext) {
-      console.warn('no uiContext');
-      return;
-    };
-    this.uiContext?.animateTo({
-      duration: 2000,
-      iterations: -1, <em>// 设置-1表示动画无限循环</em>
-    }, () => {
-      this.progressValue = PROGRESS_MAX1;
-    });
-  };
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">uiContext </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">warn</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'no uiContext'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      return<span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">animateTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">2000</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">iterations</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置</span><span style="color: rgb(128,128,128);">-1</span><span style="color: rgb(128,128,128);">表示动画无限循环</span></em>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">progressValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">PROGRESS_MAX1</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column({ space: 15 }) {
-      Progress({
-        value: this.progressValue, <em>// 进度条当前进度值</em>
-        total: PROGRESS_MAX1, <em>// </em><em>进度条总长</em>
-        type: ProgressType.Ring, <em>// </em><em>进度条类型，分为Linear线性样式、ScaleRing环形有刻度样式、Ring环形无刻度样式、Eclipse圆形样式、Capsule</em><em>胶囊样式</em>
-      })
-        .style({
-          strokeWidth: 10, <em>// 进度条宽度，默认4vp</em>
-          enableSmoothEffect: true <em>// </em><em>进度平滑动效的开关。开启平滑动效后设置进度，进度会从当前值渐变至设定值，否则进度从当前值突变至设定值，默认值true</em>
-        })
-        .width(100) <em>// 进度条组件宽度</em>
-        .color('#0A59F7')<em> </em><em>// 进度条前景色</em>
-        .backgroundColor(Color.White);<em> </em><em>// 进度条背景色</em>
-    }
-    .width('100%')
-    .height('100%')
-    .padding({ top: 5 })
-    .justifyContent(FlexAlign.Center);
-  };
-};
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">15 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Progress</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">progressValue</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">进度条当前进度值</span></em>
+        <span style="color: rgb(255,255,255);">total</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">PROGRESS_MAX1</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">进度条总长</span></em>
+        <span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ProgressType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Ring</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">进度条类型，分为</span><span style="color: rgb(128,128,128);">Linear</span><span style="color: rgb(128,128,128);">线性样式、</span><span style="color: rgb(128,128,128);">ScaleRing</span><span style="color: rgb(128,128,128);">环形有刻度样式、</span><span style="color: rgb(128,128,128);">Ring</span><span style="color: rgb(128,128,128);">环形无刻度样式、</span><span style="color: rgb(128,128,128);">Eclipse</span><span style="color: rgb(128,128,128);">圆形样式、</span><span style="color: rgb(128,128,128);">Capsule</span></em><em>胶囊样式</em>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">style</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">strokeWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">进度条宽度，默认</span><span style="color: rgb(128,128,128);">4vp</span></em>
+          <span style="color: rgb(255,255,255);">enableSmoothEffect</span><span style="color: rgb(181,106,1);">: </span>true <em>// </em><em><span style="color: rgb(128,128,128);">进度平滑动效的开关。开启平滑动效后设置进度，进度会从当前值渐变至设定值，否则进度从当前值突变至设定值，默认值</span><span style="color: rgb(128,128,128);">true</span></em>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">) </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">进度条组件宽度</span></em>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">color</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#0A59F7'</span><span style="color: rgb(255,0,170);">)</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">进度条前景色</span></em>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">White</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">进度条背景色</span></em>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">5 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
 ```
  
  
@@ -86,60 +86,60 @@ animateTo适用于组件自身属性动画场景（如尺寸、颜色改变等�
 可以使用定时器来控制Progress组件进度值变化。用setInterval()方法创建定时任务，每间隔一段时间（如20毫秒）均匀地改变Progress组件进度值（如每次加1），即可实现预期效果。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/6PBO4eIsSv-yFu51GT99tw/zh-cn_image_0000002628388622.png?HW-CC-KV=V1&HW-CC-Date=20260730T072317Z&HW-CC-Expire=86400&HW-CC-Sign=0776012EF1B918A89A5A500E38BF22A6980FFF3FBA181DEE93DDCB44FF4E37DA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/6PBO4eIsSv-yFu51GT99tw/zh-cn_image_0000002628388622.png?HW-CC-KV=V1&HW-CC-Date=20260811T005825Z&HW-CC-Expire=86400&HW-CC-Sign=9A257846E4C218D61E83E7872078DDB746753D0E8CD30AEEB1C34A44C9C56B8B)
 
  
 ```text
-<em>/** </em><em>进度条最小值 */</em>
-const PROGRESS_MIN = 0;
-<em>/** </em><em>进度条最大值 */</em>
-const PROGRESS_MAX = 100;
+<em>/** </em><em><span style="color: rgb(128,128,128);">进度条最小值</span><span style="color: rgb(128,128,128);"> */</span></em>
+const <span style="color: rgb(255,255,255);">PROGRESS_MIN </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+<em>/** </em><em><span style="color: rgb(128,128,128);">进度条最大值</span><span style="color: rgb(128,128,128);"> */</span></em>
+const <span style="color: rgb(255,255,255);">PROGRESS_MAX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct ProgressAnim {
- <em> /** 进度条当前值 */</em>
-  @State progressValue: number = PROGRESS_MIN;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">ProgressAnim </span><span style="color: rgb(181,106,1);">{</span>
+ <em> <span style="color: rgb(128,128,128);">/** </span><span style="color: rgb(128,128,128);">进度条当前值</span><span style="color: rgb(128,128,128);"> */</span></em>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">progressValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">PROGRESS_MIN</span><span style="color: rgb(181,106,1);">;</span>
 
 
-  aboutToAppear(): void {
-  <em>  // 进入界面时即启动进度条动画</em>
-    this.startAnim();
-  };
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">进入界面时即启动进度条动画</span></em>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startAnim</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column({ space: 15 }) {
-      Progress({
-        value: this.progressValue,<em> </em><em>// 进度条当前进度值</em>
-        total: PROGRESS_MAX,<em> </em><em>// 进度条总长</em>
-        type: ProgressType.Ring, <em>// 进度条类型，分为Linear线性样式、ScaleRing环形有刻度样式、Ring环形无刻度样式、Eclipse圆形样式、Capsule</em><em>胶囊样式</em>
-      })
-        .style({
-          strokeWidth: 10, <em>// </em><em>进度条宽度，默认4vp</em>
-          enableSmoothEffect: true <em>// </em><em>进度平滑动效的开关。开启平滑动效后设置进度，进度会从当前值渐变至设定值，否则进度从当前值突变至设定值，默认值true</em>
-        })
-        .width(100)<em> </em><em>// 进度条组件宽度</em>
-        .color('#0A59F7') <em>// 进度条前景色</em>
-        .backgroundColor(Color.White);<em> </em><em>// 进度条背景色</em>
-    }
-    .width('100%')
-    .height('100%')
-    .padding({ top: 5 })
-    .justifyContent(FlexAlign.Center);
-  };
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">15 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Progress</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">progressValue</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">进度条当前进度值</span></em>
+        <span style="color: rgb(255,255,255);">total</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">PROGRESS_MAX</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">进度条总长</span></em>
+        <span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ProgressType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Ring</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">进度条类型，分为</span><span style="color: rgb(128,128,128);">Linear</span><span style="color: rgb(128,128,128);">线性样式、</span><span style="color: rgb(128,128,128);">ScaleRing</span><span style="color: rgb(128,128,128);">环形有刻度样式、</span><span style="color: rgb(128,128,128);">Ring</span><span style="color: rgb(128,128,128);">环形无刻度样式、</span><span style="color: rgb(128,128,128);">Eclipse</span><span style="color: rgb(128,128,128);">圆形样式、</span><span style="color: rgb(128,128,128);">Capsule</span></em><em>胶囊样式</em>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">style</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">strokeWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">进度条宽度，默认</span><span style="color: rgb(128,128,128);">4vp</span></em>
+          <span style="color: rgb(255,255,255);">enableSmoothEffect</span><span style="color: rgb(181,106,1);">: </span>true <em>// </em><em><span style="color: rgb(128,128,128);">进度平滑动效的开关。开启平滑动效后设置进度，进度会从当前值渐变至设定值，否则进度从当前值突变至设定值，默认值</span><span style="color: rgb(128,128,128);">true</span></em>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">进度条组件宽度</span></em>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">color</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#0A59F7'</span><span style="color: rgb(255,0,170);">) </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">进度条前景色</span></em>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">White</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">进度条背景色</span></em>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">5 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
 
- <em> // 开启进度条动画</em>
-  private startAnim() {
-   <em> // intervalId为null时表示未启动interval</em>
-    setInterval(() => {
-      <em>// 使用setInterval()方法重复执行以下代码片段，在每次调用之间具有固定的时间间隔20毫秒</em>
-<em>      // 每次进度值+1</em>
-      this.progressValue++;
-     <em> // 当进度值达到最大值时，将进度值重置为最小值，循环往复</em>
-      if (this.progressValue == PROGRESS_MAX) {
-        this.progressValue = PROGRESS_MIN;
-      };
-    }, 20);
-  };
-};
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">开启进度条动画</span></em>
+  private <span style="color: rgb(0,0,255);">startAnim</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+   <em> <span style="color: rgb(128,128,128);">// intervalId</span><span style="color: rgb(128,128,128);">为</span><span style="color: rgb(128,128,128);">null</span><span style="color: rgb(128,128,128);">时表示未启动</span><span style="color: rgb(128,128,128);">interval</span></em>
+    <span style="color: rgb(0,0,255);">setInterval</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使用</span><span style="color: rgb(128,128,128);">setInterval()</span><span style="color: rgb(128,128,128);">方法重复执行以下代码片段，在每次调用之间具有固定的时间间隔</span><span style="color: rgb(128,128,128);">20</span><span style="color: rgb(128,128,128);">毫秒</span></em>
+<em>      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每次进度值</span><span style="color: rgb(128,128,128);">+1</span></em>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">progressValue</span><span style="color: rgb(181,106,1);">++;</span>
+     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当进度值达到最大值时，将进度值重置为最小值，循环往复</span></em>
+      if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">progressValue </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,255,255);">PROGRESS_MAX</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">progressValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">PROGRESS_MIN</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
 ```

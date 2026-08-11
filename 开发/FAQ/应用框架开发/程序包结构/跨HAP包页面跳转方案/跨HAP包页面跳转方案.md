@@ -20,7 +20,7 @@
 
 #### 解决方案
 1. 在项目中创建targetHap：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/3zXsLf2NQ3W1Qc0APqA8hQ/zh-cn_image_0000002628628222.png?HW-CC-KV=V1&HW-CC-Date=20260730T072300Z&HW-CC-Expire=86400&HW-CC-Sign=DD1B4F49411D03755AFAE68D3DC891752304B8F4A81A6003D62992857EBF18DE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/3zXsLf2NQ3W1Qc0APqA8hQ/zh-cn_image_0000002628628222.png?HW-CC-KV=V1&HW-CC-Date=20260811T005852Z&HW-CC-Expire=86400&HW-CC-Sign=8A23D1924C9792A233262FE1E0D1381BF29411D7680C2D4E7D774CCCDE20B34B)
 
 2. 在entry模块中使用startAbility拉起targetHap模块的实例，需要配置bundleName和Ability名称，并在被拉起的HAP中配置期望打开的页面即可。发起侧示例代码如下：
 ```json
@@ -72,7 +72,7 @@ struct Index {
 ```
 
 3. 进入“Run”>“Edit Configurations”>“Run/Debug Configuration”，勾选主模块的Deploy Multi Hap/Hsp选框下的Deploy Multi Hap/Hsp Packages和All Modules选项，即可运行验证。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/RnYEKFvpRBev40imTl02Dg/zh-cn_image_0000002658867501.png?HW-CC-KV=V1&HW-CC-Date=20260730T072300Z&HW-CC-Expire=86400&HW-CC-Sign=38D23DED20345E7DB578CB8B95A312977FB8F5BFD4862A8A5A36534AB2E54447)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/RnYEKFvpRBev40imTl02Dg/zh-cn_image_0000002658867501.png?HW-CC-KV=V1&HW-CC-Date=20260811T005852Z&HW-CC-Expire=86400&HW-CC-Sign=41D2A0B8AF20A8A948242F1F336ACBB4DA96D4A9B17170F0DCDA6C4338AE8CD0)
 
 4. 若是有多模块页面跳转的需求，建议还是使用静态库HAR或动态库HSP，尽量避免涉及多HAP之间的页面跳转。
  

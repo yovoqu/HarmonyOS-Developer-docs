@@ -59,7 +59,7 @@ struct Index {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/8uLXNX2lQeKBIZAGAxcBVQ/zh-cn_image_0000002628763136.png?HW-CC-KV=V1&HW-CC-Date=20260730T072440Z&HW-CC-Expire=86400&HW-CC-Sign=391EE63C18D77B5143D0BFFCBC887F1ADC9AFD9DE3064FF23EA78D01AD059BA2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/8uLXNX2lQeKBIZAGAxcBVQ/zh-cn_image_0000002628763136.png?HW-CC-KV=V1&HW-CC-Date=20260811T005650Z&HW-CC-Expire=86400&HW-CC-Sign=949031D216DE5BFFA0ECC711D1AADD44E6FCAD2AC23819A79BE90A10ADFB3DB2)
 
 - **场景四**：在TextInput组件的onChange方法中使用if/else判断是否有输入内容，如果有输入内容则将其背景修改为对应颜色。
 ```text
@@ -97,7 +97,7 @@ struct Scene2 {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/iUW2h004SIO1Xiz-iltGHQ/zh-cn_image_0000002658962451.png?HW-CC-KV=V1&HW-CC-Date=20260730T072440Z&HW-CC-Expire=86400&HW-CC-Sign=698507F83E411B39009DC85FFD61B1C184783529BC445E6EF1532C7B2178792D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/iUW2h004SIO1Xiz-iltGHQ/zh-cn_image_0000002658962451.png?HW-CC-KV=V1&HW-CC-Date=20260811T005650Z&HW-CC-Expire=86400&HW-CC-Sign=C9F8F550B814A270FE0C217E2CB56294FA078EAC42955CD2475C982A53B986BC)
 
 
  

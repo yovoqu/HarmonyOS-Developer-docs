@@ -97,7 +97,7 @@ struct Block {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/P3byQJ3OQXK_pxUBBCyCnQ/zh-cn_image_0000002628565458.png?HW-CC-KV=V1&HW-CC-Date=20260730T072338Z&HW-CC-Expire=86400&HW-CC-Sign=9BBF616E0ACCE7BA60A74112F49D56C7A32C9306F7336E30FFB6010D1DCFDA6F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/P3byQJ3OQXK_pxUBBCyCnQ/zh-cn_image_0000002628565458.png?HW-CC-KV=V1&HW-CC-Date=20260811T005744Z&HW-CC-Expire=86400&HW-CC-Sign=5A0A8399129C4180079FF126330116D53FFD6FB9E6688F5C89868EECD8848DA2)
 
 - **场景三**：一个容器组件（灰色矩形包裹区域），希望点击内部的深灰色矩形区域时，手势不会透传到TextArea上；点击空白区域时，手势会透传到TextArea上。实现思路：如果希望只有点击空白区域才透传，可以在onTouchIntercept方法中判断触摸位置是否处于深灰色矩形区域内，如果是，则修改HitTestMode为Default，不进行透传。否则修改HitTestMode为Transparent，进行透传。
 
@@ -189,4 +189,4 @@ struct HitTestModeDemo {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/uIo9XqCOSPChdglRojkygg/zh-cn_image_0000002658924767.png?HW-CC-KV=V1&HW-CC-Date=20260730T072338Z&HW-CC-Expire=86400&HW-CC-Sign=19E36BA80351ADCB63075E634E0C94E070AC85ECB1AC830CE3D3BA06E4F8956C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/uIo9XqCOSPChdglRojkygg/zh-cn_image_0000002658924767.png?HW-CC-KV=V1&HW-CC-Date=20260811T005744Z&HW-CC-Expire=86400&HW-CC-Sign=A4316111CC5483128EF2A4D215FC165D30F517B7DA993158F9EB68A9810AC4E4)

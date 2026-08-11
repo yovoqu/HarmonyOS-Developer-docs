@@ -21,7 +21,7 @@
 问题现象图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/RhHCQq92TOi48E9IvNUO7A/zh-cn_image_0000002664269053.png?HW-CC-KV=V1&HW-CC-Date=20260730T072340Z&HW-CC-Expire=86400&HW-CC-Sign=AFFD0952B7F7484387DA532410218917CBF33C68FB18EAE2E0B33BC36FA231FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/RhHCQq92TOi48E9IvNUO7A/zh-cn_image_0000002664269053.png?HW-CC-KV=V1&HW-CC-Date=20260811T005757Z&HW-CC-Expire=86400&HW-CC-Sign=FEA776036D888DAB6BD615F6F4CC0BFC5B94231E6A41F65D01C858AD51CFE1EE)
 
  
 示例代码如下：
@@ -55,7 +55,7 @@ struct Index {
 问题现象图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/ZXeoiQj-Tn-kgkv6uFHvhw/zh-cn_image_0000002633789968.png?HW-CC-KV=V1&HW-CC-Date=20260730T072340Z&HW-CC-Expire=86400&HW-CC-Sign=1DA7DA04BD17ECA40AADDABFCFBC10BC89C828B0FDCC13415D52957C6DAF7601)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/ZXeoiQj-Tn-kgkv6uFHvhw/zh-cn_image_0000002633789968.png?HW-CC-KV=V1&HW-CC-Date=20260811T005757Z&HW-CC-Expire=86400&HW-CC-Sign=F828FD2763755F76C0765D9A8BA72C80F7E7F14D22F79AD133730760B0772E1A)
 
  
 灰色为TabContent背景色。
@@ -106,7 +106,7 @@ struct TabsExample {
 问题现象图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/xJXmQli_RQuwQbtMLj8Bjg/zh-cn_image_0000002664269201.png?HW-CC-KV=V1&HW-CC-Date=20260730T072340Z&HW-CC-Expire=86400&HW-CC-Sign=BC4731F42A2E3515638A19A0D8D5A21B37DECF505B4D665FD78D094E28587401)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/xJXmQli_RQuwQbtMLj8Bjg/zh-cn_image_0000002664269201.png?HW-CC-KV=V1&HW-CC-Date=20260811T005757Z&HW-CC-Expire=86400&HW-CC-Sign=FF13A7E261D872BFC073A97801750A71B9499D3CB07CEECAB09C27271AA5ED56)
 
  
 示例代码如下：
@@ -139,7 +139,7 @@ struct Index4 {
 问题现象图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/dJ2O9JFvSW2eQ9v2lzIfzQ/zh-cn_image_0000002664269423.png?HW-CC-KV=V1&HW-CC-Date=20260730T072340Z&HW-CC-Expire=86400&HW-CC-Sign=C40EBAAA32DAAB74F8DC3FEAC02260E54C6597356EA670A2565F2CBB46D8777C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/dJ2O9JFvSW2eQ9v2lzIfzQ/zh-cn_image_0000002664269423.png?HW-CC-KV=V1&HW-CC-Date=20260811T005757Z&HW-CC-Expire=86400&HW-CC-Sign=D3004E64FABFCFAE4914EB15FFA96D52C2812A0DDD32CDF42F04B28BFB455999)
 
  
 示例代码如下：
@@ -173,7 +173,7 @@ struct Index6 {
 问题效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/hLuUsE7NRnGDfwv0cYdbnA/zh-cn_image_0000002633950226.png?HW-CC-KV=V1&HW-CC-Date=20260730T072340Z&HW-CC-Expire=86400&HW-CC-Sign=4108FBD5AC444B1E1E77AAC8EEA9AE155197FB44F9E9383D1D3840FC7062FF06)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/hLuUsE7NRnGDfwv0cYdbnA/zh-cn_image_0000002633950226.png?HW-CC-KV=V1&HW-CC-Date=20260811T005757Z&HW-CC-Expire=86400&HW-CC-Sign=5FF1316303B2A6D3A5D0B2779713D510EC63BB6A94154B7E295451A7D324E44A)
 
  
 其中，灰色为Canvas背景色，已经扩展至底部导航条，但fillRect方法绘制的黑色矩形与底部导航条仍有一定距离。
@@ -235,7 +235,7 @@ struct CanvasExample {
   如果希望边缘组件避让挖孔区域，需要在模块的module.json5文件中配置metadata，完成配置后，边缘组件会避让挖孔区域，效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/cnOM00oBQNS53osABxzSvw/zh-cn_image_0000002664149475.png?HW-CC-KV=V1&HW-CC-Date=20260730T072340Z&HW-CC-Expire=86400&HW-CC-Sign=2C9850F0F96839352D0AA74F38CCAF3271549B9F887807D5BB76AA2E6A8D0A3B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/cnOM00oBQNS53osABxzSvw/zh-cn_image_0000002664149475.png?HW-CC-KV=V1&HW-CC-Date=20260811T005757Z&HW-CC-Expire=86400&HW-CC-Sign=81ACECF38AF1F8E0FCCAE623698053A236C34107BC49FAB827D401A6A6C5874B)
 
 
   module.json5文件如下：
@@ -334,7 +334,7 @@ struct Index2 {
   实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/HzEuOKbfRuaxGNknXFPWpw/zh-cn_image_0000002633790496.png?HW-CC-KV=V1&HW-CC-Date=20260730T072340Z&HW-CC-Expire=86400&HW-CC-Sign=E325C982C9118B744DE05BC850313854626C7617B61E1C3020B9549BB9C1E9B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/HzEuOKbfRuaxGNknXFPWpw/zh-cn_image_0000002633790496.png?HW-CC-KV=V1&HW-CC-Date=20260811T005757Z&HW-CC-Expire=86400&HW-CC-Sign=92CC3762FAD6336B21022392D95D21E1408C08D2E1593503656E1D4FCF9CCFA6)
 
 - 场景二：TabContent设置expandSafeArea属性无法扩展至非安全区域。Tabs组件本身虽然不是滚动类组件，但其子组件TabContent是通过放置在一个Swiper中实现的，因此如果需要让某个TabContent可以扩展至状态栏，需要按照组件嵌套关系，将当前节点到滚动类祖先容器间所有直接节点设置expandSafeArea属性。如下代码所示，需要同时给Tabs组件，TabContent组件和TabContent内容的根节点设置expandSafeArea属性。
 
@@ -382,7 +382,7 @@ struct TabsExample {
   效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/qKzMXqBkRNGve0ppJ6otsQ/zh-cn_image_0000002664149683.png?HW-CC-KV=V1&HW-CC-Date=20260730T072340Z&HW-CC-Expire=86400&HW-CC-Sign=AA5AACF5ACCEE1C0E0112FD303B3646BB4DE547BD7E2E8F6F0E34683A084B88E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/qKzMXqBkRNGve0ppJ6otsQ/zh-cn_image_0000002664149683.png?HW-CC-KV=V1&HW-CC-Date=20260811T005757Z&HW-CC-Expire=86400&HW-CC-Sign=BDC06EAFB000823BA683E81997A131809DAA77A7EBEB1B7239CE90CF01BA94DA)
 
 - 场景三：使用expandSafeArea实现沉浸式，原有UI比例发生变化。
 示例一：组件使用百分比高度时，由于状态栏高度与导航栏高度不一，拓展内容后会导致原有的UI比例发生变化。解决方案：expandSafeArea的作用是扩展组件绘制区域至安全区外，它只负责延伸绘制内容，不负责保持原有比例，如果希望保持原有UI比例，建议使用setWindowLayoutFullScreen实现沉浸式，将窗口设为全屏后，页面的容器范围也变成了全屏，如果Row组件的高度设为50%，即为整个屏幕高度的50%。
@@ -433,7 +433,7 @@ struct Index5 {
   效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/1fjSrS51RZGS0hYcvTWCPw/zh-cn_image_0000002633950612.png?HW-CC-KV=V1&HW-CC-Date=20260730T072340Z&HW-CC-Expire=86400&HW-CC-Sign=AC0C4793BF56A0EE37F21157E46F137DC8A8E17019891CFA4CC00470437EAB9C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/1fjSrS51RZGS0hYcvTWCPw/zh-cn_image_0000002633950612.png?HW-CC-KV=V1&HW-CC-Date=20260811T005757Z&HW-CC-Expire=86400&HW-CC-Sign=9DB45B368F18181658CE2323BC6B1B3166EA362230FA999BBA482D1BC1F78B88)
 
 - 示例二：组件使用固定高度时，使用expandSafeArea拓展到顶部，中间出现空白。设置expandSafeArea属性进行组件绘制扩展时，建议组件尺寸不要设置固定宽高（百分比除外），当设置固定宽高（包括设置'auto'）时，扩展安全区域的方向只支持[SafeAreaEdge.TOP, SafeAreaEdge.START]，扩展后的组件尺寸保持不变。设置百分比高度时，组件是延伸至非安全区域，设置固定高度时，组件相当于是移动并填满非安全区域而非扩展内容至非安全区域。
 
@@ -446,7 +446,7 @@ struct Index5 {
   实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/j3SKuAZ-RQOCCtbhhPZ6ZA/zh-cn_image_0000002633950636.png?HW-CC-KV=V1&HW-CC-Date=20260730T072340Z&HW-CC-Expire=86400&HW-CC-Sign=22E23586E2337C559C97A8F92698D7ED90FC110DBA5D72C8AD2E1E57845F876D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/j3SKuAZ-RQOCCtbhhPZ6ZA/zh-cn_image_0000002633950636.png?HW-CC-KV=V1&HW-CC-Date=20260811T005757Z&HW-CC-Expire=86400&HW-CC-Sign=4551CC6F32E1B6BCD8291E3DDC00BBC461C82728C6A6D3252043D118D4FF58EF)
 
 
   注意：本文中需要用到的横竖屏切换效果和windowStage需要在EntryAbility.ets中的onWindowStageCreate方法中添加如下代码：

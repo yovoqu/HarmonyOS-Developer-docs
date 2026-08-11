@@ -9,7 +9,7 @@
 如何基于Canvas实现六边形雷达图以展示不同能力的数据？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/w4hzU0C5S7yXAbsKNjFTKw/zh-cn_image_0000002628393358.png?HW-CC-KV=V1&HW-CC-Date=20260730T072636Z&HW-CC-Expire=86400&HW-CC-Sign=B5C55E6CAD6D5750981FC5B66932C711F89AFEEF11C4B468965B3DCF2BF4D0B0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/w4hzU0C5S7yXAbsKNjFTKw/zh-cn_image_0000002628393358.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=D7585C28DA7E6A1D112D192BFD53FAECE7AC6BF67BA76A4D067167C17D92CC10)
 
  
  

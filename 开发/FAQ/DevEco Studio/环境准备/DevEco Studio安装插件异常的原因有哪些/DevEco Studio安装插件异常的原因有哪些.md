@@ -8,13 +8,13 @@
 
 - 仓库插件地址问题：
 场景一：在DevEco Studio插件市场，通过管理插件存储库添加JetBrains插件市场地址，连接失败。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/FsMHMOO0QFWiZ_GBq1CvWg/zh-cn_image_0000002628405438.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=972321DF33F4E3C7235571A9CE43B487F0A958AC45E64C3965D7BE8705CFFF67)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/FsMHMOO0QFWiZ_GBq1CvWg/zh-cn_image_0000002628405438.png?HW-CC-KV=V1&HW-CC-Date=20260811T005522Z&HW-CC-Expire=86400&HW-CC-Sign=888AC7A02928DF55981540CD2684FCD2E16240619FD3ABCBBE1186CBBB4A9E71)
 
 
  - 账号登录问题：
 场景二：正常安装插件后，在DevEco Studio找不到插件图标，无法使用。
 - 场景三：DevEco Studio插件市场为空，无法安装插件。问题现象：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/GechVyAgTla3TeOzGjD9WQ/zh-cn_image_0000002658924645.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=AD46908876F7F8C915EB849AE328FCEB39635BF390272C1502277447FDF24509)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/GechVyAgTla3TeOzGjD9WQ/zh-cn_image_0000002658924645.png?HW-CC-KV=V1&HW-CC-Date=20260811T005522Z&HW-CC-Expire=86400&HW-CC-Sign=D05705F863676B62A702728B9CAB88B5409CDD2DF9079D7B204DD18885CF86AC)
 
 
  - 兼容性问题：

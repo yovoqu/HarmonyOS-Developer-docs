@@ -317,7 +317,7 @@ struct TabsLifeCycle {
 ```
  
 - 实现效果展示如下图：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/2wLwmK-KSwyAQk6Iu7s6xQ/zh-cn_image_0000002628407364.png?HW-CC-KV=V1&HW-CC-Date=20260730T072340Z&HW-CC-Expire=86400&HW-CC-Sign=4BEDE47077A2F7D0396F6A69B48CB66C93824E7E839DDFF9BBB9C1BEE92C2539)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/2wLwmK-KSwyAQk6Iu7s6xQ/zh-cn_image_0000002628407364.png?HW-CC-KV=V1&HW-CC-Date=20260811T005753Z&HW-CC-Expire=86400&HW-CC-Sign=D70B524E28143D12B1E5F67B4CB4B0E2D33746C076E6E43F8EBD4A12AD2AB5CD)
 
 
   方案对比：
@@ -390,7 +390,7 @@ struct TabBarBeClicked {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/IVyFosruTguZt2TbOk6HZg/zh-cn_image_0000002628567260.png?HW-CC-KV=V1&HW-CC-Date=20260730T072340Z&HW-CC-Expire=86400&HW-CC-Sign=446CF1EFF8C37F688422EA188F37A14748BB822A7E229A09DD3FD8F51E10F9FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/IVyFosruTguZt2TbOk6HZg/zh-cn_image_0000002628567260.png?HW-CC-KV=V1&HW-CC-Date=20260811T005753Z&HW-CC-Expire=86400&HW-CC-Sign=9ADD4AF3EF89D51C2C4F789E5886FE89DB254B45D47D4C99BC159C25B0148E87)
 
 
  

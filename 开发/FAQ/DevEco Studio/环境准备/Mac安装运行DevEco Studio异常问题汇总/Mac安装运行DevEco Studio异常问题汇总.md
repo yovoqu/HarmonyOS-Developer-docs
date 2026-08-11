@@ -68,7 +68,7 @@ Command failed with exit code null: java -Dfile.encoding=utf-8 -jar /Application
 ```
 
 - **场景四：Mac DevEco Studio无法打开预览器和构建应用，报错hvigor ERROR:Failed：**
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/DBFbyR-pTDWPx2zxoHEexA/zh-cn_image_0000002658924637.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=EF0E19A06BED1A33D7B4640155806C315C22D995A5CBCD5888F10151549C70EE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/DBFbyR-pTDWPx2zxoHEexA/zh-cn_image_0000002658924637.png?HW-CC-KV=V1&HW-CC-Date=20260811T005524Z&HW-CC-Expire=86400&HW-CC-Sign=C7A96CDB7BD3B60BFCB2930D16088744882EC2EFDAC4C26C8D8EE3F484A3A2EB)
 
 
  
@@ -87,7 +87,7 @@ Command failed with exit code null: java -Dfile.encoding=utf-8 -jar /Application
 #### 修改建议
 
 - **场景一：建议根据工程代码量和机器内存大小设置内存上限：**设置方法，打开DevEco Studio，通过菜单栏的Help > Edit Custom Properties...，打开idea.properties配置文件。在文件中新增一行arkts.server.max.old.space.size=12288，然后重启DevEco Studio。具体数值可以视情况增大或减小。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/M-kst18zSoSMjaZZvX46YQ/zh-cn_image_0000002658804701.png?HW-CC-KV=V1&HW-CC-Date=20260730T072710Z&HW-CC-Expire=86400&HW-CC-Sign=E4346D657F529DE6FC29D983F77BA48D3466B18187F7A2E289FA65FC37BB677F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/M-kst18zSoSMjaZZvX46YQ/zh-cn_image_0000002658804701.png?HW-CC-KV=V1&HW-CC-Date=20260811T005524Z&HW-CC-Expire=86400&HW-CC-Sign=053FA3D4C7B5A55955EDF69E6D307D0A5FF3D75DBC3AE5EC447841DA460A713D)
 
 - **场景二：**1. 删除用户Home目录下的hvigor，即删除下列文件：
 /Users/xxx/node_modules；

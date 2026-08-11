@@ -13,7 +13,7 @@ TextInput密码输入模式（Password）下系统控制密码显隐的PasswordI
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/nsRFbOwTSDqcBXwDCsrkEA/zh-cn_image_0000002658923997.png?HW-CC-KV=V1&HW-CC-Date=20260730T072337Z&HW-CC-Expire=86400&HW-CC-Sign=561D44F9FE47147EF4DB30F9212CFBA987564E81B825F4FBFEB3A7D61C3D989A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/nsRFbOwTSDqcBXwDCsrkEA/zh-cn_image_0000002658923997.png?HW-CC-KV=V1&HW-CC-Date=20260811T005818Z&HW-CC-Expire=86400&HW-CC-Sign=CEDD158DA2CB17E21AD818B161E326883E027C075E36A0E9D130668CE8FD1E6B)
 
  
  
@@ -29,88 +29,88 @@ TextInput密码输入模式（Password）下系统控制密码显隐的PasswordI
 当前的规格不支持更改icon图标的大小及位置，许多APP均是使用的此规格，由于并不阻塞功能的开发，此场景可以通过实现一个自定义组件，来完成行尾密码图标位置、大小、颜色的修改。自定义组件由TextInput和Image组成，使用Stack容器作为父容器。需要注意的是需要将TextInput自带的PasswordIcon设置为不显示，然后将需要替换的图标放入到Image组件中即可，此时即可随意更改位置、大小、颜色。具体代码细节如下：
  
 ```text
-@Component
-struct ModifyTextInputPasswordModeIconExample {
-  // TextInput行尾图标宽度
-  iconWidth: number = 40;
-  // TextInput行尾图标宽度
-  iconHeight: number = 40;
-  // TextInput组件高度
-  textInputHeight: number = 56;
-  // TextInput输入内容
-  @State text: string = '';
-  // 密码是否可见
-  @State passwordState: boolean = true;
-  // TextInput行尾图标图片
-  @State icon: Resource = $r('app.media.ic_public_password_visible');
-  // TextInputController
-  controller: TextInputController = new TextInputController();
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">ModifyTextInputPasswordModeIconExample </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(128,128,128);">// TextInput</span><span style="color: rgb(128,128,128);">行尾图标宽度</span>
+  <span style="color: rgb(0,0,255);">iconWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">40</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(128,128,128);">// TextInput</span><span style="color: rgb(128,128,128);">行尾图标宽度</span>
+  <span style="color: rgb(0,0,255);">iconHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">40</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(128,128,128);">// TextInput</span><span style="color: rgb(128,128,128);">组件高度</span>
+  <span style="color: rgb(0,0,255);">textInputHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">56</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(128,128,128);">// TextInput</span><span style="color: rgb(128,128,128);">输入内容</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">密码是否可见</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">passwordState</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(128,128,128);">// TextInput</span><span style="color: rgb(128,128,128);">行尾图标图片</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">icon</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Resource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.ic_public_password_visible'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(128,128,128);">// TextInputController</span>
+  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextInputController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TextInputController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Flex({ direction: FlexDirection.Row }) {
-        Stack() {
-          TextInput({ text: this.text, controller: this.controller })
-            .type(InputType.Password)
-            .placeholderFont({ size: 16, weight: 400 })
-            .showPasswordIcon(false) // 此处需将自带的行尾小眼睛图标设置成不显示
-            .showPassword(this.passwordState)
-            .width('100%')
-            .height(this.textInputHeight)
-            .backgroundColor('#E8E7E7')
-            .onChange((value: string) => {
-              this.text = value;
-            });
-          // 使用Image组件自定义实现行尾图标
-          Image(this.icon)
-            .margin({
-              left: 290
-            })
-            .width(this.iconWidth)
-            .height(this.iconHeight)
-            .onClick(() => {
-              // 点击行尾图标改变状态和icon
-              this.passwordState = !this.passwordState;
-              this.icon = $r(this.passwordState ? 'app.media.ic_public_password_visible' :
-                'app.media.ic_public_password_invisible'
-              );
-            });
-        };
-      };
-    }
-    .width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Flex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">direction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FlexDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Row </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">TextInput</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">InputType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Password</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">placeholderFont</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">weight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">400 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showPasswordIcon</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">此处需将自带的行尾小眼睛图标设置成不显示</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showPassword</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">passwordState</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputHeight</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#E8E7E7'</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">text </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使用</span><span style="color: rgb(128,128,128);">Image</span><span style="color: rgb(128,128,128);">组件自定义实现行尾图标</span>
+          <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">icon</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">290</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">iconWidth</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">iconHeight</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">点击行尾图标改变状态和</span><span style="color: rgb(128,128,128);">icon</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">passwordState </span><span style="color: rgb(181,106,1);">= !</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">passwordState</span><span style="color: rgb(181,106,1);">;</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">icon </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">passwordState </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,170);">'app.media.ic_public_password_visible' </span><span style="color: rgb(181,106,1);">:</span>
+                <span style="color: rgb(255,0,170);">'app.media.ic_public_password_invisible'</span>
+              <span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Entry
-@Component
-struct ModifyTextInputPasswordModeIcon {
-  build() {
-    Column() {
-      // icon宽高20vp
-      ModifyTextInputPasswordModeIconExample({ iconWidth: 20, iconHeight: 20 })
-        .height('50vp');
-      Blank();
-      // icon宽高30vp
-      ModifyTextInputPasswordModeIconExample({ iconWidth: 30, iconHeight: 30 })
-        .height('50vp');
-      Blank();
-      // icon宽高40vp
-      ModifyTextInputPasswordModeIconExample({ iconWidth: 40, iconHeight: 40 })
-        .height('50vp');
-      Blank();
-      // icon宽高50vp
-      ModifyTextInputPasswordModeIconExample({ iconWidth: 50, iconHeight: 50 })
-        .height('50vp');
-    }
-    .height('50%')
-    .width('100%')
-    .margin({ top: 50 })
-    .justifyContent(FlexAlign.Center)
-    .alignItems(HorizontalAlign.Center);
-  }
-}
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">ModifyTextInputPasswordModeIcon </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(128,128,128);">// icon</span><span style="color: rgb(128,128,128);">宽高</span><span style="color: rgb(128,128,128);">20vp</span>
+      <span style="color: rgb(0,0,255);">ModifyTextInputPasswordModeIconExample</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">iconWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">iconHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'50vp'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Blank</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(128,128,128);">// icon</span><span style="color: rgb(128,128,128);">宽高</span><span style="color: rgb(128,128,128);">30vp</span>
+      <span style="color: rgb(0,0,255);">ModifyTextInputPasswordModeIconExample</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">iconWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">iconHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">30 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'50vp'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Blank</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(128,128,128);">// icon</span><span style="color: rgb(128,128,128);">宽高</span><span style="color: rgb(128,128,128);">40vp</span>
+      <span style="color: rgb(0,0,255);">ModifyTextInputPasswordModeIconExample</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">iconWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">40</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">iconHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">40 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'50vp'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Blank</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(128,128,128);">// icon</span><span style="color: rgb(128,128,128);">宽高</span><span style="color: rgb(128,128,128);">50vp</span>
+      <span style="color: rgb(0,0,255);">ModifyTextInputPasswordModeIconExample</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">iconWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">iconHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">50 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'50vp'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'50%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">50 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
  

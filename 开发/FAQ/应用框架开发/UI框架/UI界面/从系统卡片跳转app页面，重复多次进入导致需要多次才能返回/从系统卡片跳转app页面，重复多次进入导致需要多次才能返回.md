@@ -1,6 +1,6 @@
 # 从系统卡片跳转app页面，重复多次进入导致需要多次才能返回
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-07-31 00:56:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-858
 
@@ -12,7 +12,7 @@
 
 #### 背景知识
 
-ArkTS的路由功能可以通过[router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router)或[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation)实现。Navigation有丰富的[路由操作](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation#路由操作)，包括页面跳转、页面返回、页面替换、页面删除、参数获取、路由拦截等功能，推荐使用Navigation管理页面。
+ArkTS的路由功能可以通过[router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router)或[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation)实现。Navigation有丰富的[路由操作](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-jump#路由操作)，包括页面跳转、页面返回、页面替换、页面删除、参数获取、路由拦截等功能，推荐使用Navigation管理页面。
  
  
 

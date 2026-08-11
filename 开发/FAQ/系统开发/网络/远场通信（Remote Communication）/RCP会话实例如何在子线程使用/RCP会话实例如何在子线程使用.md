@@ -148,7 +148,7 @@ workerPort.onerror = (event: ErrorEvent) => {
 代码运行效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/ZlyszmwnShy9tbIf-JAU0Q/zh-cn_image_0000002628612498.png?HW-CC-KV=V1&HW-CC-Date=20260730T072555Z&HW-CC-Expire=86400&HW-CC-Sign=2FA21C11788D8BDE6D4F3F4641835ABCA0DFB96FC1FC0909433AEFAA67886D6C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/ZlyszmwnShy9tbIf-JAU0Q/zh-cn_image_0000002628612498.png?HW-CC-KV=V1&HW-CC-Date=20260811T005942Z&HW-CC-Expire=86400&HW-CC-Sign=15E05BAD600A31DDC8B98F5069A11E592B9E9126C3963C8E1C7D200533769844)
 
  
  

@@ -13,7 +13,7 @@ RichEditor组件使用控制器方法RichEditorStyledStringController.setStyledS
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/tyMEz5dcQuaxX9glD9zerA/zh-cn_image_0000002628561580.png?HW-CC-KV=V1&HW-CC-Date=20260730T072335Z&HW-CC-Expire=86400&HW-CC-Sign=A05396816E204796AF7A933417CE519F254FD176A02A96B901C9BB6CF2D547E3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/tyMEz5dcQuaxX9glD9zerA/zh-cn_image_0000002628561580.png?HW-CC-KV=V1&HW-CC-Date=20260811T005749Z&HW-CC-Expire=86400&HW-CC-Sign=6CDCAF830AE9A562617F8AEE27DA94A879D524B827CB99348B484946526AAE95)
 
  
  

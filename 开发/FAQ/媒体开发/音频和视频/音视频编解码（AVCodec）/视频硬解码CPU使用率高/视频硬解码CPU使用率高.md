@@ -13,13 +13,13 @@ CPU测试结果如下图：
 硬解码：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/HHLFyAXxRXa9ka-ZgHZz-w/zh-cn_image_0000002658792067.png?HW-CC-KV=V1&HW-CC-Date=20260730T072633Z&HW-CC-Expire=86400&HW-CC-Sign=D28DE9AA6BE08F9A26A54458D885FA6CD7993970B35741A82839C18CC3DA0760)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/HHLFyAXxRXa9ka-ZgHZz-w/zh-cn_image_0000002658792067.png?HW-CC-KV=V1&HW-CC-Date=20260811T005554Z&HW-CC-Expire=86400&HW-CC-Sign=00782375787626F9AFAADF356DC7ADE6CA84878A6924F927976685627D039F8F)
 
  
 ffmpeg软解码：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/E-YFRstNReGLN2lgW0DjqQ/zh-cn_image_0000002628552690.png?HW-CC-KV=V1&HW-CC-Date=20260730T072633Z&HW-CC-Expire=86400&HW-CC-Sign=0E81319A19F01FB296CCD1BB89BBE6B17B4117371CAD119A1DE8B153700D6A3D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/E-YFRstNReGLN2lgW0DjqQ/zh-cn_image_0000002628552690.png?HW-CC-KV=V1&HW-CC-Date=20260811T005554Z&HW-CC-Expire=86400&HW-CC-Sign=EC23DF5B6E00A077F9DDF7732AD1646ED04BB770141905AB18432EE1C83118BC)
 
  
 从CPU测试结果图来看硬件视频解码CPU使用率维持在7%到8%左右，使用ffmpeg软件解码播放时平均维持在3%左右。这与硬解码和软解码的CPU占用不符合。硬解码调用设备相关硬件进行解码，软解码调用软件（调用CPU）进行解码，预期结果应当为硬解码占用更少的CPU。
@@ -58,16 +58,16 @@ void OHOSVDecoder::OnNeedInputBuffer(OH_AVCodec *codec, uint32_t index, OH_AVBuf
     std::shared_ptr<Frame> frame;
     {
         std::unique_lock<std::mutex> auto_lock(_frame_mutex);
-        if (_input_frames.size() > 0) {
+        if (_input_frames.size() > <span style="color: rgb(0,0,255);">0</span>) {
             frame = _input_frames.front();
             _input_frames.pop_front();
         }
     }
     if (frame == nullptr) {
         OH_AVCodecBufferAttr info;
-        info.pts = 0;
-        info.size = 0;
-        info.offset = 0;
+        info.pts = <span style="color: rgb(0,0,255);">0</span>;
+        info.size = <span style="color: rgb(0,0,255);">0</span>;
+        info.offset = <span style="color: rgb(0,0,255);">0</span>;
         info.flags = AVCODEC_BUFFER_FLAGS_DISCARD;
         OH_AVBuffer_SetBufferAttr(buffer, &info);
         OH_VideoDecoder_PushInputBuffer(codec, index);
@@ -77,7 +77,7 @@ void OHOSVDecoder::OnNeedInputBuffer(OH_AVCodec *codec, uint32_t index, OH_AVBuf
     OH_AVCodecBufferAttr info;
     info.pts = video_frame->pts();
     info.size = frame->Size();
-    info.offset = 0;
+    info.offset = <span style="color: rgb(0,0,255);">0</span>;
     info.flags = AVCODEC_BUFFER_FLAGS_NONE;
     int32_t ret = OH_AVBuffer_SetBufferAttr(buffer, &info);
     if (ret != AV_ERR_OK) {
@@ -104,17 +104,17 @@ void OHOSVDecoder::OnNeedInputBuffer(OH_AVCodec *codec, uint32_t index, OH_AVBuf
 在视频Buffer和音频Buffer都为nullptr时，在视频源有数据不断传入时，解码器会保持空载。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/oxv4HseRSgCrWkkKG8_33Q/zh-cn_image_0000002658912009.png?HW-CC-KV=V1&HW-CC-Date=20260730T072633Z&HW-CC-Expire=86400&HW-CC-Sign=225C3776EDB28ED93F06C45767CBE148AD8C0E4FFA06296E1164918F7ADCF326)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/oxv4HseRSgCrWkkKG8_33Q/zh-cn_image_0000002658912009.png?HW-CC-KV=V1&HW-CC-Date=20260811T005554Z&HW-CC-Expire=86400&HW-CC-Sign=80D64A2BA47FDEB4282AC019EBBBB8F4D558D6ECFD34788FC1FD8EAB06FD89B3)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/1tY0CvjGQDKmqYhnmj5aBQ/zh-cn_image_0000002628392810.png?HW-CC-KV=V1&HW-CC-Date=20260730T072633Z&HW-CC-Expire=86400&HW-CC-Sign=5C5FF0C14B963BDF9FC63C6B71B1581C54165B9A28E00080FD8410D8663B2567)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/1tY0CvjGQDKmqYhnmj5aBQ/zh-cn_image_0000002628392810.png?HW-CC-KV=V1&HW-CC-Date=20260811T005554Z&HW-CC-Expire=86400&HW-CC-Sign=3B4D07ED39BA08C56375697FF2E1CC25C6BACEA872FCF99F871058DA9EAE26A0)
 
  
 当传入解码队列的音频Buffer不为空，视频Buffer为nullptr时，解码器运行，只有音频输出。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/ezLA6YAXS_yuXbFJIKIPng/zh-cn_image_0000002658792093.png?HW-CC-KV=V1&HW-CC-Date=20260730T072633Z&HW-CC-Expire=86400&HW-CC-Sign=B2840FE77B497FAAB441837DA4B8AA1508DE2C03CF119C31684809AEBABEDA5A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/ezLA6YAXS_yuXbFJIKIPng/zh-cn_image_0000002658792093.png?HW-CC-KV=V1&HW-CC-Date=20260811T005554Z&HW-CC-Expire=86400&HW-CC-Sign=5CF99F806FD6E58A5F6D13701D10811E1BE9BCB902E18B5A1D9A1EF2760A177A)
 
  
  

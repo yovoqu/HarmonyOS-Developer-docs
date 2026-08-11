@@ -29,11 +29,11 @@ HarmonyOS系统url.URL.parseURL方法遵循标准解析逻辑，对+号自动解
 
  
 ```text
-const queryParam = 'hello+world';
-const encodedValue = encodeURIComponent(queryParam);
+const <span style="color: rgb(0,0,255);">queryParam </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'hello+world'</span><span style="color: rgb(181,106,1);">;</span>
+const <span style="color: rgb(0,0,255);">encodedValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">encodeURIComponent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">queryParam</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-const finalUrl = `https://example.com/search?msg1=${encodedValue}`;
-hilog.info(0x0000, 'testTag', 'URL: %{public}s', finalUrl);
+const <span style="color: rgb(0,0,255);">finalUrl </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">`https://example.com/search?msg1=</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">encodedValue</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'URL: %{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">finalUrl</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
  
 **步骤二：使用url.URL.parseURL解析时，参数值将自动保持语义正确**
@@ -43,62 +43,62 @@ hilog.info(0x0000, 'testTag', 'URL: %{public}s', finalUrl);
 
  
 ```text
-const queryParam1 = 'hello+world';
-const queryParam2 = 'hello world';
-const safeUrl = `https://example.com/search?msg2=${queryParam1}&msg3=${queryParam2}`;
+const <span style="color: rgb(0,0,255);">queryParam1 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'hello+world'</span><span style="color: rgb(181,106,1);">;</span>
+const <span style="color: rgb(0,0,255);">queryParam2 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'hello world'</span><span style="color: rgb(181,106,1);">;</span>
+const <span style="color: rgb(0,0,255);">safeUrl </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">`https://example.com/search?msg2=</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">queryParam1</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">&</span><span style="color: rgb(255,0,170);">msg3=</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">queryParam2</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
 
-try {
-  const parsed = url.URL.parseURL(safeUrl);
-  hilog.info(0x0000, 'testTag', `params: ${parsed.params}`);
-  parsed.params.forEach((value, key) => {
-    hilog.info(0x0000, 'testTag', 'value=%{public}s, key=%{public}s', value, key);
-  });
-} catch (error) {
-  hilog.error(0x0000, 'testTag', 'URL解析失败:', error);
-}
+try <span style="color: rgb(255,0,170);">{</span>
+  const <span style="color: rgb(0,0,255);">parsed </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">URL</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parseURL</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">safeUrl</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`params: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">parsed</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">params</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">parsed</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">forEach</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'value=%{public}s, key=%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'URL</span><span style="color: rgb(255,0,170);">解析失败</span><span style="color: rgb(255,0,170);">:'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
 完整可运行代码如下：
  
 ```text
-import hilog from '@ohos.hilog';
-import url from '@ohos.url';
+import <span style="color: rgb(0,0,255);">hilog </span>from <span style="color: rgb(255,0,170);">'@ohos.hilog'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(0,0,255);">url </span>from <span style="color: rgb(255,0,170);">'@ohos.url'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct UrlSafety {
-  build() {
-    Column() {
-      Button('encodedValue')
-        .onClick(() => {
-          const queryParam = 'hello+world';
-          const encodedValue = encodeURIComponent(queryParam);
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">UrlSafety </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'encodedValue'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          const <span style="color: rgb(0,0,255);">queryParam </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'hello+world'</span><span style="color: rgb(181,106,1);">;</span>
+          const <span style="color: rgb(0,0,255);">encodedValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">encodeURIComponent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">queryParam</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-          const finalUrl = `https://example.com/search?msg1=${encodedValue}`;
-          hilog.info(0x0000, 'testTag', 'URL: %{public}s', finalUrl);
-        }).margin({ bottom: 10 });
-      Button('parseURL')
-        .onClick(() => {
-          const queryParam1 = 'hello+world';
-          const queryParam2 = 'hello world';
-          const safeUrl = `https://example.com/search?msg2=${queryParam1}&msg3=${queryParam2}`;
+          const <span style="color: rgb(0,0,255);">finalUrl </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">`https://example.com/search?msg1=</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">encodedValue</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'URL: %{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">finalUrl</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'parseURL'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          const <span style="color: rgb(0,0,255);">queryParam1 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'hello+world'</span><span style="color: rgb(181,106,1);">;</span>
+          const <span style="color: rgb(0,0,255);">queryParam2 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'hello world'</span><span style="color: rgb(181,106,1);">;</span>
+          const <span style="color: rgb(0,0,255);">safeUrl </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">`https://example.com/search?msg2=</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">queryParam1</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">&</span><span style="color: rgb(255,0,170);">msg3=</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">queryParam2</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
 
-          try {
-            const parsed = url.URL.parseURL(safeUrl);
-            hilog.info(0x0000, 'testTag', `params: ${parsed.params}`);
-            parsed.params.forEach((value, key) => {
-              hilog.info(0x0000, 'testTag', 'value=%{public}s, key=%{public}s', value, key);
-            });
-          } catch (error) {
-            hilog.error(0x0000, 'testTag', 'URL解析失败:', error);
-          }
-        }).margin({ bottom: 10 });
-    }.width('100%')
-    .height('100%')
-    .alignItems(HorizontalAlign.Center)
-    .justifyContent(FlexAlign.Center);
-  }
-}
+          try <span style="color: rgb(255,0,170);">{</span>
+            const <span style="color: rgb(0,0,255);">parsed </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">URL</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parseURL</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">safeUrl</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`params: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">parsed</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">params</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">parsed</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">params</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">forEach</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'value=%{public}s, key=%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'URL</span><span style="color: rgb(255,0,170);">解析失败</span><span style="color: rgb(255,0,170);">:'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
  

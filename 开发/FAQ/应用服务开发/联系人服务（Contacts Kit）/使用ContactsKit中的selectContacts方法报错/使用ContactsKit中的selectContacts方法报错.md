@@ -24,25 +24,25 @@
 通过分析代码发现，在调用selectContacts方法时，filterClause的参数使用for循环传入了多个filterCondition一样的id，不符合接口预期，从而返回401错误。
  
 ```json
-let arr: contact.FilterOptions[] = []
-for (const id of ['1','2','3','4']) {
-  arr.push({filterCondition:contact.FilterCondition.IN, value:id})
-}
+let <span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FilterOptions</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span>
+for <span style="color: rgb(255,0,170);">(</span>const <span style="color: rgb(255,255,255);">id </span>of <span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">'1'</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(132,63,161);">'2'</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(132,63,161);">'3'</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(132,63,161);">'4'</span><span style="color: rgb(255,0,170);">]) </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span><span style="color: rgb(255,255,255);">filterCondition</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,255,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FilterCondition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">IN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-contact.selectContacts({
-  isMultiSelect: true,
-  maxSelectable: 4,
-  filter: {
-    filterType:contact.FilterType.DEFAULT_SELECT,
-    filterClause:{id:arr}
-  },
-},(err: BusinessError, data) => {
-  if (err) {
-    console.error(`selectContact callback, errCode:${err.code}, errMessage:${err.message}`);
-    return;
-  }
-  console.info(`selectContact callback: success data->${JSON.stringify(data)}`);
-});
+<span style="color: rgb(255,255,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectContacts</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">isMultiSelect</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(255,255,255);">maxSelectable</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(255,255,255);">filter</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">filterType</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,255,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FilterType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DEFAULT_SELECT</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">filterClause</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(181,106,1);">{</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">  }</span><span style="color: rgb(181,106,1);">,</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+  if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`selectContact callback, errCode:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, errMessage:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`selectContact callback: success data-</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
  
  
@@ -58,37 +58,37 @@ contact.selectContacts({
 若filterCondition一致，无需传入多个id值。
  
 ```json
-import { contact } from '@kit.ContactsKit';
-import { BusinessError } from '@kit.BasicServicesKit';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">contact </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ContactsKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BusinessError </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct SelectContacts {
-  build() {
-    Column(){
-      Button('选择联系人')
-        .width(100)
-        .height(50)
-        .margin({top:200})
-        .onClick(()=>{
-          contact.selectContacts({
-            isMultiSelect: true,
-            maxSelectable: 4,
-            filter: {
-              filterType:contact.FilterType.DEFAULT_SELECT,
-              filterClause:{id:[{filterCondition:contact.FilterCondition.IN, value:['1','2','3','4']}]}
-            },
-          },(err: BusinessError, data) => {
-            if (err) {
-              console.error(`selectContact callback, errCode:${err.code}, errMessage:${err.message}`);
-              return;
-            }
-            console.info(`selectContact callback: success data->${JSON.stringify(data)}`);
-          });
-        })
-    }
-    .width('100%')
-    .height('100%')
-  }
-}
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">SelectContacts </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">选择联系人</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(()</span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectContacts</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">isMultiSelect</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(255,255,255);">maxSelectable</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(255,255,255);">filter</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{</span>
+              <span style="color: rgb(255,255,255);">filterType</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,255,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FilterType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DEFAULT_SELECT</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(255,255,255);">filterClause</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(181,106,1);">{</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(181,106,1);">{</span><span style="color: rgb(255,255,255);">filterCondition</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,255,255);">contact</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FilterCondition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">IN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">'1'</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(132,63,161);">'2'</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(132,63,161);">'3'</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(132,63,161);">'4'</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">            }</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+              <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`selectContact callback, errCode:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, errMessage:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              return<span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(181,106,1);">}</span>
+            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`selectContact callback: success data-</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

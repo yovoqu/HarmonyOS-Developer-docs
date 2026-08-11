@@ -15,15 +15,15 @@
 - 屏幕刷新率：显示设备每秒钟更新屏幕内容的次数，其决定了Vsync信号周期，120Hz对应8.33ms，90Hz对应11.11ms，60Hz对应16.67ms。
 - Vsync信号：垂直同步信号，设备的屏幕通过固定频率发送Vsync信号来控制每一帧绘制操作的时机。
 - 下图为90Hz刷新率的渲染流程，首先应用侧在收到Vsync信号后会响应用户的屏幕点击等输入事件，确定UI元素的位置、大小、资源、动效属性等，提交绘制指令给渲染服务(Render Service)，渲染服务会根据绘制指令进行相应的图形计算和渲染操作，将渲染结果写入到帧缓冲区（存储用于显示器输出的图像数据）中，将数据送到屏幕上显示。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/yLN87ThmQYeRm07Yx_5KzA/zh-cn_image_0000002628554956.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=C23EE06CCFE33BC942CB9D9A011373005CB60F2D1A321E03C4D3958CDB05C5FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/yLN87ThmQYeRm07Yx_5KzA/zh-cn_image_0000002628554956.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=647CEED2987EF487279A516FADBC7291AD654336D0942D348DA2A528724EF6C4)
 
 
   按上述流程中，应用侧和Render Service侧都可能因为处理时间较长，超过了Vsync信号周期，导致界面送显的频率低于屏幕刷新率，出现卡顿丢帧的情况。前者可能是应用业务逻辑、组件复杂，执行耗时逻辑等导致，后者可能是界面结构过于复杂、GPU负载过大等导致。1. 应用卡顿导致丢帧的故障模型：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/ZZ1gYGNLQFCZcF3PEiDY3Q/zh-cn_image_0000002628395056.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=25AC0A3A54E36BC7AEBC752BCD78ED5D8FC8CE18FB805777A5184583BB8E1BCC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/ZZ1gYGNLQFCZcF3PEiDY3Q/zh-cn_image_0000002628395056.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=822A598BA5F22CCEBEE49C311BCA2D20FC6B4F5743F1E48DA04409F3331D66B2)
 
 
 2. Render Service卡顿导致丢帧的故障模型：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/eHOJwLXESbmaFoQxl3mdFw/zh-cn_image_0000002658914277.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=8D8FA371666C121996EB6449CE3EF3B2AF1DEF7A85F2AA0F17540A6BF08E8F47)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/eHOJwLXESbmaFoQxl3mdFw/zh-cn_image_0000002658914277.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=33D34B74061208481020A76FAE85507985FC0E3A029FBF3B4E4D7953F817F59F)
 
 - [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)组件可以用于绘制静态图形，还可以通过不断更新图形来创建动画效果。通常可以通过以下步骤实现动画效果：1. 设置定时器：使用定时器（如setTimeout或setInterval）来定期更新画布的内容。
 
@@ -58,7 +58,7 @@
   在Trace中可以通过框选渲染服务（render_service）主线程Trace信息查看被框选的这段时间内的平均帧率，如下图所示，平均帧率为120fps。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/O60IlsoxTBGUydxJeH48YA/zh-cn_image_0000002658794323.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=E2ABEE3B73417715487CE05651AF4A607BC42DF713EE89DB67EE337DF139DC0A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/O60IlsoxTBGUydxJeH48YA/zh-cn_image_0000002658794323.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=94AA7C3A0967035BA4AE2B6096B6DC8F3FD0C5A44270B31DF3702812D89B0262)
 
 - DevEco Profiler目前是集成在DevEco Studio中的性能调优工具，提供场景化的性能调优功能体验，目前版本提供六大特性解决快速定界、效率提升、内存分析、内核分析和卡顿分析相关问题，帮助应用开发者定位到问题代码，更多详细内容可查看[使用Profiler进行性能调优](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-profiler-introduction)。[Time分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-time)是DevEco Profiler提供的应用基础耗时分析工具，可以查看应用执行的ArkTS代码以及相应耗时。
 
@@ -70,44 +70,44 @@
 
 #### 问题定位
 1. 使用Smartperf抓取动画卡顿场景的Trace信息，找到查看render_service泳道中的H:PreferredFrameRate子泳道确认问题场景屏幕刷新率，如下图中屏幕刷新率为120Hz，则Vsync信号周期为8.3ms。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/LBah6NqEQNaAFzUxOYkmQQ/zh-cn_image_0000002628554958.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=69DFC77A66DAC7F4DA2F0FEDD46D589077E5BC599F9BAB017F52A8C08B09C636)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/LBah6NqEQNaAFzUxOYkmQQ/zh-cn_image_0000002628554958.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=6286029D386AEA74FF3BD71E84BE9997D9A009BE652BCC33BCB333202F189FE2)
 
 2. 找到render_service泳道中的render_service子泳道，框选问题场景中的Trace信息确认该过程绘制帧率，如下图为25.6fps，绘制帧率远小于屏幕刷新率。根据H:ReceiveVsync关键字在Slices页中查看相关Trace信息，发现render_service线程在接收Vsync信号处理时耗时最多为7.6ms，未超出8.3ms，因此render_service未出现卡顿，推测是应用进程问题导致卡顿丢帧。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/l9bHXKXcTkyOuX7fiTqZPA/zh-cn_image_0000002628395058.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=4AA49580B0748514313B78E51136EF516D859C3588A2E1289E696512E8E7261F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/l9bHXKXcTkyOuX7fiTqZPA/zh-cn_image_0000002628395058.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=BEB988AC6DF03017F29B92BF87973C10CB6D4779B275AFACE4376250DAF02B27)
 
 3. 找到应用主线程泳道，根据H:MarshRSTransactionData关键字查看应用发送绘制相关数据给图形服务进程的频率，如果发送绘制指令相关数据的周期大于Vsync信号周期，则是应用进程发送绘制指令较慢导致动画卡顿。如下图中发送绘制指令相关数据周期为42.9ms左右，远大于8.3ms，需要排查应用进程发送绘制指令较慢的原因。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/HmBvodGtSMO30Z08GErN8w/zh-cn_image_0000002658914279.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=7F7386C584435F016D86AAB09A99C7CAF3CD1139331454ED46E1BBB7CCDE9B99)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/HmBvodGtSMO30Z08GErN8w/zh-cn_image_0000002658914279.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=33B85336ABBAACA43CC3CEBC33545F645CBBC4949399DD50BCB956177051A7AD)
 
 4. 分析H:MarshRSTransactionData关键字间应用进程Trace信息和运行状态确定应用进程发送绘制指令较慢的原因，具体如下：
 - 情况一：
 如果在应用主线程两次发送绘制指令间，主线程大多数时间处于sleeping状态、应用接收Vsync信号处理耗时未大于8.3ms，如下图所示，该情况下可能是应用进程中执行动画的组件渲染周期较长，应用送帧较少导致动画卡顿丢帧。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/lNEvkr4vTu6zP3DXFABrjw/zh-cn_image_0000002658794325.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=9BD5F8A42D01AC89F2712FB8D989A52B9F59BDB56555D7D50ED6A10C612B262D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/lNEvkr4vTu6zP3DXFABrjw/zh-cn_image_0000002658794325.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=7D9A4E26B20083DF39AF22B44192C34C114C1CA3D7131B02FA0C11767E3BCA64)
 
 
 5. 使用ArkUI Inspector确认执行动画的组件的id为317，在Trace中搜索执行该组件渲染任务的Trace关键字H:FrameNode[Canvas][id:317]::RenderTask，可看到执行该组件渲染任务的周期为42.9ms左右，远大于8.3ms，可知应用动画本身帧率较低，送帧较少导致卡顿丢帧现象。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/amy79v6bSNWh5gGqQX-oDA/zh-cn_image_0000002628554960.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=6571AA33C2A9B1B5689AA0B514A2605577AEF587CFD76296CA75075612ACE8C2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/amy79v6bSNWh5gGqQX-oDA/zh-cn_image_0000002628554960.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=132CC8C07AC61788C0F26E7AFD5A6DD1C17C53DFE16D10D563397C586AFB82FE)
 
 
  
 - 情况二：1. 如果在应用主线程两次发送绘制指令间，应用有执行耗时操作，如下图所示中在Napi complete部分耗时长（达到44ms），该部分是由于complete回调函数或await之后业务逻辑耗时较多导致，需要排查JsGetComponent执行后的业务代码。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/rFc3dk_WTNavtrlnp_sjBw/zh-cn_image_0000002628395060.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=5C4B2D3DF7CBF462BFFC23F49959BA5BD56339A88CB73D93D6DF957BCD25FEE9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/rFc3dk_WTNavtrlnp_sjBw/zh-cn_image_0000002628395060.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=47B5BF5954EC7589124A1A9D96C49506B5E3584EB28E694DEEBE45A4D5588EF2)
 
 
 2. 使用DevEco Profiler Time分析Napi complete耗时原因，从Callstack泳道中的应用主线程泳道中可看到该部分耗时主要集中在应用so文件业务代码部分。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/0dfkfT3_SCimWJ2jVqj-Yg/zh-cn_image_0000002658914281.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=ABB5952036FAFF8693D994E8BD1D6303CFF99852033A3AD9BD2424150574740A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/0dfkfT3_SCimWJ2jVqj-Yg/zh-cn_image_0000002658914281.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=A48502F4228782E619864F2A71E9F137B344AE90768A8E85E252C3A5C60705B2)
 
 
  
 - 情况三：1. 如果在应用主线程两次发送绘制指令间，主线程大多数时间处于running状态、应用接收Vsync信号处理耗时大于8.3ms，如下图所示，该情况下是应用进程执行耗时操作导致动画卡顿丢帧。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/M779CXIEQ0iARG61sZM35Q/zh-cn_image_0000002658794327.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=112CA904DBD3B61B26564200AF5A4F29756912EBE480CFA586EED35852468C5F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/M779CXIEQ0iARG61sZM35Q/zh-cn_image_0000002658794327.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=82BB4B56414A805630269834F21B8C8AA801787D541707B0370F16AF955E338E)
 
 
 2. 排查上图中Trace点H:ReceiveVsync下Trace信息，发现耗时较长为H:RSModifier::Draw，推测该应用是通过不断修改组件的属性值，触发绘制来实现动画效果，但没有看到组件相关的Trace关键字，因此使用Ark Inspector查看应用当前页面的组件树，发现该页面通过XComponent组件渲染显示。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/lTib5ToESnWrutWNGnVmsg/zh-cn_image_0000002628554962.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=776CFFE5A5642920FD60191663501F81E6234C24F14A7A75C086DE596C041B61)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/lTib5ToESnWrutWNGnVmsg/zh-cn_image_0000002628554962.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=4CB0A9FCBB7D96421F206736E6C6D468A0BB0EFE7EC3168A99F4DB5D99D5274B)
 
 
 3. 使用DevEco Profiler Time分析应用绘制时的大致流程，得知其在动画启动时首先执行了onDrawChild函数，在Canvas上绘制显示的内容，然后调用flush2Surface函数，从Canvas中读取数据传递到XComponent组件渲染，之后则不断在Canvas上绘制当前页面，从Canvas中读取数据传递给XComponent组件更新当前页面的翻页过程状态。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/krCrX2r8RQGM2P79Nnywgw/zh-cn_image_0000002628395062.png?HW-CC-KV=V1&HW-CC-Date=20260730T072254Z&HW-CC-Expire=86400&HW-CC-Sign=78639A28205F2EFFF909A4AD8E813ED566C7C077B54501DC18C4621965B4923B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/krCrX2r8RQGM2P79Nnywgw/zh-cn_image_0000002628395062.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=1EA029544AAEACE3F059B2789A4ED8FD1BEE006E8EF21D4652B9DB261A9E2EE8)
 
 
   从上图中可看到在动画执行过程中，耗时主要在从Canvas中读取数据（12ms），超出了Vsync信号周期（8.3ms），导致动画卡顿丢帧。

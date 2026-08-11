@@ -13,7 +13,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/hAvegf_SSiuumkuMhGG5pw/zh-cn_image_0000002658914207.png?HW-CC-KV=V1&HW-CC-Date=20260730T072437Z&HW-CC-Expire=86400&HW-CC-Sign=32094C5A64E5A72986B72C162442F8A7D0A3E96B60E13ED184DFA4F1F5EC6087)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/hAvegf_SSiuumkuMhGG5pw/zh-cn_image_0000002658914207.png?HW-CC-KV=V1&HW-CC-Date=20260811T005642Z&HW-CC-Expire=86400&HW-CC-Sign=D28B0BCBAC16D8C15659D3A6AB55C82A58D694F2A314030846918952928DD598)
 
  
  
@@ -31,97 +31,97 @@
 2. 在Stack组件中，首先设置背景色为rgba(0,0,0,0.1)，然后通过linearGradient设置组件的颜色渐变效果，并结合animation方法设置动画的持续时间和循环次数。
  
 ```text
-<em>// </em><em>用户自定义数据源</em>
-class MyDataSourceLOne implements IDataSource {
-  private list: number[] = [];
+<em>// </em><em><span style="color: rgb(128,128,128);">用户自定义数据源</span></em>
+class <span style="color: rgb(0,0,255);">MyDataSourceLOne </span>implements <span style="color: rgb(0,0,255);">IDataSource </span><span style="color: rgb(181,106,1);">{</span>
+  private <span style="color: rgb(255,255,255);">list</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
 
-  constructor(list: number[]) {
-    this.list = list;
-  }
+  constructor<span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">list</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[]) </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">list </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">list</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  totalCount(): number {
-    return this.list.length;
-  }
+  <span style="color: rgb(0,0,255);">totalCount</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">{</span>
+    return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">list</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  getData(index: number): number {
-    return this.list[index];
-  }
+  <span style="color: rgb(0,0,255);">getData</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">{</span>
+    return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">list</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  registerDataChangeListener(): void {
-  }
+  <span style="color: rgb(0,0,255);">registerDataChangeListener</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+<span style="color: rgb(181,106,1);">  }</span>
 
-  unregisterDataChangeListener() {
-  }
-}
+  <span style="color: rgb(0,0,255);">unregisterDataChangeListener</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+<span style="color: rgb(181,106,1);">  }</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Entry
-@Component
-struct BackGroundColorGradualChange {
-  private arr: MyDataSourceLOne = new MyDataSourceLOne([]);
-  private listScroller: ListScroller = new ListScroller();
-  @State translateX: string = '-100%';
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">BackGroundColorGradualChange </span><span style="color: rgb(181,106,1);">{</span>
+  private <span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">MyDataSourceLOne </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">MyDataSourceLOne</span><span style="color: rgb(255,0,170);">([])</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(255,255,255);">listScroller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ListScroller </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ListScroller</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">translateX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'-100%'</span><span style="color: rgb(181,106,1);">;</span>
 
-  aboutToAppear(): void {
-    let list: number[] = [];
-    for (let i = 1; i <= 7; i++) {
-      list.push(i);
-    }
-    this.arr = new MyDataSourceLOne(list);
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">list</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
+    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">7</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">list</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">arr </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">MyDataSourceLOne</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">list</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Column() {
-      List({ space: 20, initialIndex: 100, scroller: this.listScroller }) {
-        LazyForEach(this.arr, () => {
-          ListItem() {
-            Stack() {
-           <em>   // 设置组件的背景色</em>
-              Text()
-                .width('100%')
-                .height(100)
-                .backgroundColor('rgba(0,0,0,0.1)');
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">initialIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">scroller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listScroller </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">LazyForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+           <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置组件的背景色</span></em>
+              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">()</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'rgba(0,0,0,0.1)'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-              Text()
-                .width('100%')
-                .height(100)
-                .translate({ x: this.translateX })
-                .onAppear(() => {
-                  this.translateX = '100%';
-                })
-             <em>   // 设置动画的持续时间和循环次数</em>
-                .animation({
-                  duration: 1500,
-                  iterations: -1
-                })
-              <em>  // 设置颜色渐变效果</em>
-                .linearGradient({
-                  angle: 90,
-                  colors: [
-                    ['rgba(255,255,255,0)', 0],
-                    ['rgba(255,255,255,1)', 0.5],
-                    ['rgba(255,255,255,0)', 1]
-                  ]
-                });
-            }
-            .width('100%')
-            .height(100)
-            .backgroundColor(0xFFFFFF);
-          };
-        });
-      }
-      .listDirection(Axis.Vertical)
-      .scrollBar(BarState.Off)
-      .friction(0.6)
-      .edgeEffect(EdgeEffect.Spring)
-      .width('90%')
-      .cachedCount(3);
-    }
-    .width('100%')
-    .height('100%')
-    .backgroundColor(0xDCDCDC)
-    .padding({ top: 5 });
-  }
-}
+              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">()</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">translate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">translateX </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAppear</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">translateX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+             <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置动画的持续时间和循环次数</span></em>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+                  <span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1500</span><span style="color: rgb(181,106,1);">,</span>
+                  <span style="color: rgb(255,255,255);">iterations</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(80,160,79);">1</span>
+                <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+              <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置颜色渐变效果</span></em>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">linearGradient</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+                  <span style="color: rgb(255,255,255);">angle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">90</span><span style="color: rgb(181,106,1);">,</span>
+                  <span style="color: rgb(255,255,255);">colors</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[</span>
+<span style="color: rgb(255,0,170);">                    [</span><span style="color: rgb(132,63,161);">'rgba(255,255,255,0)'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">,</span>
+                    <span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">'rgba(255,255,255,1)'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0.5</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">,</span>
+                    <span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">'rgba(255,255,255,0)'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">]</span>
+<span style="color: rgb(255,0,170);">                  ]</span>
+                <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(181,106,1);">}</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(0xFFFFFF)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">listDirection</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Axis</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Vertical</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollBar</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BarState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Off</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">friction</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0.6</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">edgeEffect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">EdgeEffect</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Spring</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'90%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cachedCount</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">3</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(0xDCDCDC)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">5 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  
  

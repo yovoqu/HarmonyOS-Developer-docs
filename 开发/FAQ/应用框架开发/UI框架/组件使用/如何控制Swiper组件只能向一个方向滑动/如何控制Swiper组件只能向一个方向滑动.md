@@ -11,7 +11,7 @@
 期望只能向右滑动，实际在使用onGestureRecognizerJudgeBegin拦截滑动手势时，先向右滑动不松手，再快速向左滑动Swiper组件会向左滑动并翻页与预期不符。具体现象如下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/wpneRZIqSGCcLfRD4HTklQ/zh-cn_image_0000002628388618.png?HW-CC-KV=V1&HW-CC-Date=20260730T072316Z&HW-CC-Expire=86400&HW-CC-Sign=EB1D8A804DB3EC8299A626218CF460A1DD21EEAEE859262C4B1DAF9292DA15C2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/wpneRZIqSGCcLfRD4HTklQ/zh-cn_image_0000002628388618.png?HW-CC-KV=V1&HW-CC-Date=20260811T005813Z&HW-CC-Expire=86400&HW-CC-Sign=73C0AB12493625EEF1725C9BE0B9FCB2FEC1475026DA64581EF2BBD62FDE7653)
 
  
 问题代码如下：
@@ -71,7 +71,7 @@ struct Index {
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/ntikjJMnSK-9LfXQkKF3lw/zh-cn_image_0000002628548518.png?HW-CC-KV=V1&HW-CC-Date=20260730T072316Z&HW-CC-Expire=86400&HW-CC-Sign=591AB6797BD2BC041DFFF47E3A33E2F21165B3DDDAE50C6D9FAE57ABC2AC8E98)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/ntikjJMnSK-9LfXQkKF3lw/zh-cn_image_0000002628548518.png?HW-CC-KV=V1&HW-CC-Date=20260811T005813Z&HW-CC-Expire=86400&HW-CC-Sign=12428B28A1E51535758D021E24286A5975FF0737D7B8AB5C5EA4794DE10D338C)
 
  
  

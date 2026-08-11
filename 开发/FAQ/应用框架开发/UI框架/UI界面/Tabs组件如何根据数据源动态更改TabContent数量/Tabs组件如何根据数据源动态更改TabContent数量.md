@@ -13,7 +13,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/G2SHFQURQUiI_eeVq2-M6w/zh-cn_image_0000002628564674.png?HW-CC-KV=V1&HW-CC-Date=20260730T072507Z&HW-CC-Expire=86400&HW-CC-Sign=C8363B81B8FE321692BC473B466158CBA0CD89213669F3073C4DEFB9104A1F91)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/G2SHFQURQUiI_eeVq2-M6w/zh-cn_image_0000002628564674.png?HW-CC-KV=V1&HW-CC-Date=20260811T005649Z&HW-CC-Expire=86400&HW-CC-Sign=ABBFA827DBFFC59E27905449F4D937088F33ABA45D82C0B3B2AE92D9B1A069AF)
 
  
  
@@ -32,176 +32,176 @@
 动态生成Tabs和TabContent（数量和内容由后端数据决定），核心是通过数据驱动UI，利用循环渲染（ForEach）结合后端返回的数据源实现。以下是具体实现步骤：
  1. 定义数据模型：定义接收后端数据的模型，包含每个Tab的标题和对应内容数据。
 ```text
-<em>// </em><em>定义单个Tab的数据结构</em>
-interface TabItem {
-  id: string;<em> </em><em>// 唯一标识</em>
-  title: string; <em>// Tab标题</em>
-  content: string; <em>// Tab对应的内容（可根据实际需求扩展）</em>
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">定义单个</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的数据结构</span></em>
+interface TabItem <span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">唯一标识</span></em>
+  <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// Tab</span><span style="color: rgb(128,128,128);">标题</span></em>
+  <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// Tab</span><span style="color: rgb(128,128,128);">对应的内容（可根据实际需求扩展）</span></em>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 2. 设置相关初始值：设置模拟后端返回的数据、控制添加或删除按钮状态的初始值，对模拟后端返回的数据进行监听，渲染UI。
 ```text
-<em>// </em><em>表示添加或删减子页面的状态，true为添加，false为删减</em>
-updateState: boolean = true;
-<em>// @watch</em><em>对count进行监听，当count发生变化，执行updateTabList()</em>
-@State @Watch('updateTabList') count: number = 0;
-<em>// </em><em>模拟后端返回的数据（实际中通过http请求获取）</em>
-@State tabList: TabItem[] = [
-  { id: '1', title: '推荐', content: '推荐内容' },
-  { id: '2', title: '热点', content: '热点内容' },
-];
+<em>// </em><em><span style="color: rgb(128,128,128);">表示添加或删减子页面的状态，</span><span style="color: rgb(128,128,128);">true</span><span style="color: rgb(128,128,128);">为添加，</span><span style="color: rgb(128,128,128);">false</span><span style="color: rgb(128,128,128);">为删减</span></em>
+<span style="color: rgb(255,255,255);">updateState</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+<em>// @watch</em><em><span style="color: rgb(128,128,128);">对</span><span style="color: rgb(128,128,128);">count</span><span style="color: rgb(128,128,128);">进行监听，当</span><span style="color: rgb(128,128,128);">count</span><span style="color: rgb(128,128,128);">发生变化，执行</span><span style="color: rgb(128,128,128);">updateTabList()</span></em>
+<span style="color: rgb(181,106,1);">@</span><span style="color: rgb(255,255,255);">State </span><span style="color: rgb(181,106,1);">@</span><span style="color: rgb(0,0,255);">Watch</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'updateTabList'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(255,255,255);">count</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+<em>// </em><em><span style="color: rgb(128,128,128);">模拟后端返回的数据（实际中通过</span><span style="color: rgb(128,128,128);">http</span><span style="color: rgb(128,128,128);">请求获取）</span></em>
+<span style="color: rgb(181,106,1);">@</span><span style="color: rgb(255,255,255);">State tabList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">TabItem</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span>
+  <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">推荐</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">推荐内容</span><span style="color: rgb(132,63,161);">' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">热点</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">热点内容</span><span style="color: rgb(132,63,161);">' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+<span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
 ```
 
 3. 模拟后端数据更新。
 ```text
-<em>// </em><em>模拟后端数据更新（实际中在http请求回调中执行）</em>
-updateTabList() {
-  if (this.updateState) {
-   <em> // 添加子页面的操作</em>
-    this.tabList = [
-      ...this.tabList, <em>// 保留原有数据</em>
-      { id: `${this.count + 2}`, title: `新增Tab${this.count}`, content: `新增内容${this.count}` }// 新增数据
-    ];
-  } else {
- <em>   // 删减子页面的操作</em>
-    this.tabList.pop();
-  }
-};
+<em>// </em><em><span style="color: rgb(128,128,128);">模拟后端数据更新（实际中在</span><span style="color: rgb(128,128,128);">http</span><span style="color: rgb(128,128,128);">请求回调中执行）</span></em>
+<span style="color: rgb(0,0,255);">updateTabList</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+  if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">updateState</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">添加子页面的操作</span></em>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span>
+      <span style="color: rgb(181,106,1);">...</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">保留原有数据</span></em>
+      <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(132,63,161);">新增</span><span style="color: rgb(132,63,161);">Tab</span><span style="color: rgb(181,106,1);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">count</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(132,63,161);">新增内容</span><span style="color: rgb(181,106,1);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">count</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">` </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">新增数据</span>
+    <span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
+ <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">删减子页面的操作</span></em>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pop</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
 ```
 
 4. 使用按钮增删TabContent数据。
 ```text
-Column() {
-  Tabs() {
-   <em> // 循环生成TabContent，标题由每个item的title决定</em>
-    ForEach(this.tabList, (item: TabItem) => {
-      TabContent() {
-     <em>   // 每个Tab的内容，可替换为复杂组件</em>
-        Column({ space: 10 }) {
-          Text(item.content)
-            .width('100%')
-            .layoutWeight(1)
-            .textAlign(TextAlign.Center);
-       <em>   // 在推荐页面添加两个按钮用于添加或删除子页面</em>
-          if (item.id === '1') {
-            Button('添加子页面')
-              .width('80%')
-              .height(50)
-              .borderRadius(20)
-              .margin({ bottom: 16 })
-              .onClick(() => {
-              <em>  // 先对updateState赋值</em>
-                this.updateState = true;
-          <em>      // 再对count进行操作</em>
-                this.count += 1;
-              });
-            Button('删除子页面')
-              .width('80%')
-              .height(50)
-              .borderRadius(20)
-              .margin({ bottom: 16 })
-              .onClick(() => {
-                this.updateState = false;
-                this.count -= 1;
-              });
-          }
-        }
-        .width('100%')
-        .height('100%');
-      }
-      .tabBar(item.title);<em> </em><em>// 设置当前Tab的标题</em>
-    }, (item: TabItem) => item.id);<em> </em><em>// 唯一键（必填，用于DiffUI）</em>
-  }
-  .width('100%')
-  .height('100%');
-};
+<span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(0,0,255);">Tabs</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">循环生成</span><span style="color: rgb(128,128,128);">TabContent</span><span style="color: rgb(128,128,128);">，标题由每个</span><span style="color: rgb(128,128,128);">item</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">title</span><span style="color: rgb(128,128,128);">决定</span></em>
+    <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TabItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">TabContent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每个</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的内容，可替换为复杂组件</span></em>
+        <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+       <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">在推荐页面添加两个按钮用于添加或删除子页面</span></em>
+          if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">'1'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">添加子页面</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'80%'</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+              <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">先对</span><span style="color: rgb(128,128,128);">updateState</span><span style="color: rgb(128,128,128);">赋值</span></em>
+                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">updateState </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+          <em>      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">再对</span><span style="color: rgb(128,128,128);">count</span><span style="color: rgb(128,128,128);">进行操作</span></em>
+                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">删除子页面</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'80%'</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">updateState </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">-= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">        }</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBar</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置当前</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的标题</span></em>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TabItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">唯一键（必填，用于</span><span style="color: rgb(128,128,128);">DiffUI</span><span style="color: rgb(128,128,128);">）</span></em>
+  <span style="color: rgb(181,106,1);">}</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
 ```
 
  
 完整示例参考如下：
  
 ```text
-<em>// </em><em>定义单个Tab的数据结构</em>
-interface TabItem {
-  id: string; <em>// 唯一标识</em>
-  title: string; <em>// Tab</em><em>标题</em>
-  content: string;<em> </em><em>// Tab对应的内容（可根据实际需求扩展）</em>
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">定义单个</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的数据结构</span></em>
+interface TabItem <span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">唯一标识</span></em>
+  <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">; </span><em>// Tab</em><em><span style="color: rgb(128,128,128);">标题</span></em>
+  <span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// Tab</span><span style="color: rgb(128,128,128);">对应的内容（可根据实际需求扩展）</span></em>
+<span style="color: rgb(181,106,1);">}</span>
 
 
-@Entry
-@Component
-struct DynamicTabsPage {
-<em>  // 表示添加或删减子页面的状态，true为添加，false为删减</em>
-  updateState: boolean = true;
- <em> // @watch对count进行监听，当count发生变化，执行updateTabList()</em>
-  @State @Watch('updateTabList') count: number = 0;
- <em> // 模拟后端返回的数据（实际中通过http请求获取）</em>
-  @State tabList: TabItem[] = [
-    { id: '1', title: '推荐', content: '推荐内容' },
-    { id: '2', title: '热点', content: '热点内容' },
-  ];
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">DynamicTabsPage </span><span style="color: rgb(181,106,1);">{</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">表示添加或删减子页面的状态，</span><span style="color: rgb(128,128,128);">true</span><span style="color: rgb(128,128,128);">为添加，</span><span style="color: rgb(128,128,128);">false</span><span style="color: rgb(128,128,128);">为删减</span></em>
+  <span style="color: rgb(255,255,255);">updateState</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// @watch</span><span style="color: rgb(128,128,128);">对</span><span style="color: rgb(128,128,128);">count</span><span style="color: rgb(128,128,128);">进行监听，当</span><span style="color: rgb(128,128,128);">count</span><span style="color: rgb(128,128,128);">发生变化，执行</span><span style="color: rgb(128,128,128);">updateTabList()</span></em>
+  <span style="color: rgb(181,106,1);">@State @Watch</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'updateTabList'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(255,255,255);">count</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">模拟后端返回的数据（实际中通过</span><span style="color: rgb(128,128,128);">http</span><span style="color: rgb(128,128,128);">请求获取）</span></em>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TabItem</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span>
+    <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">推荐</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">推荐内容</span><span style="color: rgb(132,63,161);">' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">热点</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">热点内容</span><span style="color: rgb(132,63,161);">' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
 
- <em> // 模拟后端数据更新（实际中在http请求回调中执行）</em>
-  updateTabList() {
-    if (this.updateState) {
-  <em>    // 添加子页面的操作</em>
-      this.tabList = [
-        ...this.tabList,<em> </em><em>// 保留原有数据</em>
-        { id: `${this.count + 2}`, title: `新增Tab${this.count}`, content: `新增内容${this.count}` } <em>// </em><em>新增数据</em>
-      ];
-    } else {
-    <em>  // 删减子页面的操作</em>
-      this.tabList.pop();
-    }
-  };
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">模拟后端数据更新（实际中在</span><span style="color: rgb(128,128,128);">http</span><span style="color: rgb(128,128,128);">请求回调中执行）</span></em>
+  <span style="color: rgb(0,0,255);">updateTabList</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">updateState</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">添加子页面的操作</span></em>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span>
+        <span style="color: rgb(181,106,1);">...</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">保留原有数据</span></em>
+        <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(132,63,161);">新增</span><span style="color: rgb(132,63,161);">Tab</span><span style="color: rgb(181,106,1);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">count</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(132,63,161);">新增内容</span><span style="color: rgb(181,106,1);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">count</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">` </span><span style="color: rgb(181,106,1);">}</span> <em>// </em><em><span style="color: rgb(128,128,128);">新增数据</span></em>
+      <span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
+    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">删减子页面的操作</span></em>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pop</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">  }</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Tabs() {
-      <em>  // 循环生成TabContent，标题由每个item的title决定</em>
-        ForEach(this.tabList, (item: TabItem) => {
-          TabContent() {
-         <em>   // 每个Tab的内容，可替换为复杂组件</em>
-            Column({ space: 10 }) {
-              Text(item.content)
-                .width('100%')
-                .layoutWeight(1)
-                .textAlign(TextAlign.Center);
-             <em> // 在推荐页面添加两个按钮用于添加或删除子页面</em>
-              if (item.id === '1') {
-                Button('添加子页面')
-                  .width('80%')
-                  .height(50)
-                  .borderRadius(20)
-                  .margin({ bottom: 16 })
-                  .onClick(() => {
-                  <em>  // 先对updateState赋值</em>
-                    this.updateState = true;
-                <em>    // 再对count进行操作</em>
-                    this.count += 1;
-                  });
-                Button('删除子页面')
-                  .width('80%')
-                  .height(50)
-                  .borderRadius(20)
-                  .margin({ bottom: 16 })
-                  .onClick(() => {
-                    this.updateState = false;
-                    this.count -= 1;
-                  });
-              }
-            }
-            .width('100%')
-            .height('100%');
-          }
-          .tabBar(item.title); <em>// 设置当前Tab的标题</em>
-        }, (item: TabItem) => item.id); <em>// </em><em>唯一键（必填，用于DiffUI）</em>
-      }
-      .width('100%')
-      .height('100%');
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Tabs</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">循环生成</span><span style="color: rgb(128,128,128);">TabContent</span><span style="color: rgb(128,128,128);">，标题由每个</span><span style="color: rgb(128,128,128);">item</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">title</span><span style="color: rgb(128,128,128);">决定</span></em>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TabItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">TabContent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+         <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">每个</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的内容，可替换为复杂组件</span></em>
+            <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">content</span><span style="color: rgb(255,0,170);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+             <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">在推荐页面添加两个按钮用于添加或删除子页面</span></em>
+              if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">'1'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+                <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">添加子页面</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'80%'</span><span style="color: rgb(255,0,170);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">先对</span><span style="color: rgb(128,128,128);">updateState</span><span style="color: rgb(128,128,128);">赋值</span></em>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">updateState </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+                <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">再对</span><span style="color: rgb(128,128,128);">count</span><span style="color: rgb(128,128,128);">进行操作</span></em>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">删除子页面</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'80%'</span><span style="color: rgb(255,0,170);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+                  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">updateState </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">-= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">            }</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBar</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置当前</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">的标题</span></em>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TabItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">唯一键（必填，用于</span><span style="color: rgb(128,128,128);">DiffUI</span><span style="color: rgb(128,128,128);">）</span></em>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

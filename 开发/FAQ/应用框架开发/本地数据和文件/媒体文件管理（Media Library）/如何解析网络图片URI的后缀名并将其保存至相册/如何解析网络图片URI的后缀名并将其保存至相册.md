@@ -32,114 +32,114 @@
 
 2. 解析网络图片文件类型并保存至沙箱，再从沙箱中进行加载。
 ```text
-import { http } from '@kit.NetworkKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { photoAccessHelper } from '@kit.MediaLibraryKit';
-import { fileIo, fileIo as fs, fileUri } from '@kit.CoreFileKit';
-import { common } from '@kit.AbilityKit';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">http </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.NetworkKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">photoAccessHelper </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.MediaLibraryKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">fileIo </span>as <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">fileUri </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.CoreFileKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct Index {
-  @State filePath: string = '';
-  context: Context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  phAccessHelper = photoAccessHelper.getPhotoAccessHelper(this.context);
-  type: string = '';
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">phAccessHelper </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPhotoAccessHelper</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
 
-  loadImageWithUrl(url: string) {
-    let responseCode = http.ResponseCode;
-    let OutData: http.HttpResponse;
-    let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-    let filesDir = context.filesDir;
-   <em> // 确保网络正常</em>
-    http.createHttp().request(url, {
-      method: http.RequestMethod.GET,
-      connectTimeout: 60000,
-      readTimeout: 60000
-    },
-      async (error: BusinessError, data: http.HttpResponse) => {
-        if (error) {
-          console.error(`http request failed with. Code: ${error.code}, message: ${error.message}`);
-        } else {
-          OutData = data;
-          let code: http.ResponseCode | number = OutData.responseCode;
-          let contentType: string = OutData.header['content-type'];
+  <span style="color: rgb(0,0,255);">loadImageWithUrl</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">responseCode </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">http</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ResponseCode</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">OutData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">http</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HttpResponse</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">filesDir </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filesDir</span><span style="color: rgb(181,106,1);">;</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">确保网络正常</span></em>
+    <span style="color: rgb(0,0,255);">http</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createHttp</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">method</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">http</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RequestMethod</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GET</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">connectTimeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">60000</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">readTimeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">60000</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+      async <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">http</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HttpResponse</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`http request failed with. Code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">OutData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">;</span>
+          let <span style="color: rgb(0,0,255);">code</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">http</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ResponseCode </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">OutData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">responseCode</span><span style="color: rgb(181,106,1);">;</span>
+          let <span style="color: rgb(0,0,255);">contentType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">OutData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">header</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'content-type'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
 
-          let index = contentType.indexOf('/');
-          let type: string = contentType.substring(index + 1);
-          this.type = type;
+          let <span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">contentType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indexOf</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'/'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          let <span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">contentType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">substring</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">;</span>
 
-          console.info('contentType=' + contentType);
-          if (responseCode.OK === code) {
-            let imageData: ArrayBuffer = OutData.result as ArrayBuffer;
-            let file = fs.openSync(filesDir + '/test.' + type, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
-          <em>  // 写入文件</em>
-            await fs.write(file.fd, imageData);
-           <em> // 关闭文件</em>
-            await fs.close(file.fd);
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'contentType=' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">contentType</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">responseCode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OK </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            let <span style="color: rgb(0,0,255);">imageData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">OutData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">result </span>as <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(181,106,1);">;</span>
+            let <span style="color: rgb(0,0,255);">file </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">filesDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/test.' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">READ_WRITE </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CREATE</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">写入文件</span></em>
+            await <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">write</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">imageData</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+           <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">关闭文件</span></em>
+            await <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-            try {
-            <em>  // 指定待保存到媒体库的位于应用沙箱的图片url</em>
-              let srcFileUri = 'file://com.example.myapplication/data/storage/el2/base/haps/entry/files/test.' + type;
+            try <span style="color: rgb(255,0,170);">{</span>
+            <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">指定待保存到媒体库的位于应用沙箱的图片</span><span style="color: rgb(128,128,128);">url</span></em>
+              let <span style="color: rgb(0,0,255);">srcFileUri </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'file://com.example.myapplication/data/storage/el2/base/haps/entry/files/test.' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">;</span>
 
-              let srcFileUris: Array<string> = [
-                srcFileUri
-              ];
-          <em>    // 指定待保存照片的创建选项，包括文件后缀和照片类型，标题和照片子类型可选</em>
-              let photoCreationConfigs: Array<photoAccessHelper.PhotoCreationConfig> = [
-                {
-                  title: 'test', <em>// 可选</em>
-                  fileNameExtension: type,
-                  photoType: photoAccessHelper.PhotoType.IMAGE,
-                  subtype: photoAccessHelper.PhotoSubtype.DEFAULT, <em>// </em><em>可选</em>
-                }
-              ];
-             <em> // 基于弹窗授权的方式获取媒体库的目标uri</em>
-              let desFileUris: Array<string> =
-                await this.phAccessHelper.showAssetsCreationDialog(srcFileUris, photoCreationConfigs);
-             <em> // 将来源于应用沙箱的照片内容写入媒体库的目标uri</em>
-              let desFile: fileIo.File = await fileIo.open(desFileUris[0], fileIo.OpenMode.WRITE_ONLY);
-              let srcFile: fileIo.File = await fileIo.open(srcFileUri, fileIo.OpenMode.READ_ONLY);
-              await fileIo.copyFile(srcFile.fd, desFile.fd);
-              fileIo.closeSync(srcFile);
-              fileIo.closeSync(desFile);
+              let <span style="color: rgb(0,0,255);">srcFileUris</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[</span>
+                <span style="color: rgb(0,0,255);">srcFileUri</span>
+              <span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+          <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">指定待保存照片的创建选项，包括文件后缀和照片类型，标题和照片子类型可选</span></em>
+              let <span style="color: rgb(0,0,255);">photoCreationConfigs</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoCreationConfig</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[</span>
+                <span style="color: rgb(255,0,170);">{</span>
+                  <span style="color: rgb(0,0,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'test'</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">可选</span></em>
+                  <span style="color: rgb(0,0,255);">fileNameExtension</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">,</span>
+                  <span style="color: rgb(0,0,255);">photoType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">IMAGE</span><span style="color: rgb(181,106,1);">,</span>
+                  <span style="color: rgb(0,0,255);">subtype</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoSubtype</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DEFAULT</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">可选</span></em>
+                <span style="color: rgb(255,0,170);">}</span>
+              <span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+             <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">基于弹窗授权的方式获取媒体库的目标</span><span style="color: rgb(128,128,128);">uri</span></em>
+              let <span style="color: rgb(0,0,255);">desFileUris</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> =</span>
+                await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">phAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showAssetsCreationDialog</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">srcFileUris</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">photoCreationConfigs</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+             <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将来源于应用沙箱的照片内容写入媒体库的目标</span><span style="color: rgb(128,128,128);">uri</span></em>
+              let <span style="color: rgb(0,0,255);">desFile</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">File </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">open</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">desFileUris</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WRITE_ONLY</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              let <span style="color: rgb(0,0,255);">srcFile</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">File </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">open</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">srcFileUri</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">READ_ONLY</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              await <span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copyFile</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">srcFile</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">desFile</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">srcFile</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">desFile</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-              console.info('create asset by dialog successfully');
-            } catch (err) {
-              console.error(`failed to create asset by dialog successfully errCode is: ${err.code}, ${err.message}`);
-            }
-          }
-        }
-      }
-    );
-  }
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'create asset by dialog successfully'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`failed to create asset by dialog successfully errCode is: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">          }</span>
+<span style="color: rgb(255,0,170);">        }</span>
+<span style="color: rgb(255,0,170);">      }</span>
+    <span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    Row() {
-      Column({ space: 10 }) {
-        Image(this.filePath)
-          .width('80%')
-          .height(200)
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'80%'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
 
-        Button('显示').onClick(() => {
-          let srcFileUri = 'file://com.example.myapplication/data/storage/el2/base/haps/entry/files/test.' + this.type;
-          this.filePath = fileUri.getUriFromPath(srcFileUri);
-        })
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">显示</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          let <span style="color: rgb(0,0,255);">srcFileUri </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'file://com.example.myapplication/data/storage/el2/base/haps/entry/files/test.' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filePath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fileUri</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUriFromPath</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">srcFileUri</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
 
-      <em>  // 开发者需手动替换成网络图片url</em>
-        Image('example.png')
-          .width('80%')
-          .height(200)
+      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">开发者需手动替换成网络图片</span><span style="color: rgb(128,128,128);">url</span></em>
+        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'example.png'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'80%'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
 
-     <em>   // 开发者需手动替换成网络图片url</em>
-        Button('加载图片url').onClick(async () => {
-          this.loadImageWithUrl('example.png');
-        })
-      }
-      .width('100%')
-    }
-    .height('100%')
-    .backgroundColor(0xF1F3F5)
-  }
-}
+     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">开发者需手动替换成网络图片</span><span style="color: rgb(128,128,128);">url</span></em>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">加载图片</span><span style="color: rgb(255,0,170);">url'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadImageWithUrl</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'example.png'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(0xF1F3F5)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

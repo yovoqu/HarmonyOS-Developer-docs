@@ -41,7 +41,7 @@
 - **方案一：TabBar叠加overlay浮层效果。**在当前Tabs组件上，可以叠加按钮或图标作为TabBar的浮层，达到页签栏添加其他组件的效果，原理如下图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/Xb8m0ohnRqesa0j77jq6ew/zh-cn_image_0000002658806493.png?HW-CC-KV=V1&HW-CC-Date=20260730T072518Z&HW-CC-Expire=86400&HW-CC-Sign=85A1C68663205C9E841B5CCE333F433E95EAFC9AA6ECE43889427115E4771178)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/Xb8m0ohnRqesa0j77jq6ew/zh-cn_image_0000002658806493.png?HW-CC-KV=V1&HW-CC-Date=20260811T005701Z&HW-CC-Expire=86400&HW-CC-Sign=9B49A681FF7B29B9713BD9F045240D30D34212DC794546C5B77EF993B216584A)
 
 
   实现步骤如下：
@@ -169,12 +169,12 @@ struct TabBarOverlay {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/gMzt6KSvQIGZXrky8NG4Fw/zh-cn_image_0000002628567142.png?HW-CC-KV=V1&HW-CC-Date=20260730T072518Z&HW-CC-Expire=86400&HW-CC-Sign=3AFD47BFB89AD1B9062E84AF74A34D7C1B046F60E1A6ACF08EABC2BD5AC602CF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/gMzt6KSvQIGZXrky8NG4Fw/zh-cn_image_0000002628567142.png?HW-CC-KV=V1&HW-CC-Date=20260811T005701Z&HW-CC-Expire=86400&HW-CC-Sign=2240F5472E233FA44EFDCCC4B05F095FD01D22674C9BD44FE67EA80E8EDCEA35)
 
 - **方案二：利用Stack组件，在自定义TabBar上堆叠其他组件**。利用堆叠容器，在原本的TabBar基础上放置其他组件，原理如下图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/uo2OLujbSB6LL4IhFAh5zQ/zh-cn_image_0000002658926447.png?HW-CC-KV=V1&HW-CC-Date=20260730T072518Z&HW-CC-Expire=86400&HW-CC-Sign=C30157EC1DD34DE4BFBA4D2B5BC08746D99A09F39C7BAB8BB2FFF8E9D9CDDEFF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/uo2OLujbSB6LL4IhFAh5zQ/zh-cn_image_0000002658926447.png?HW-CC-KV=V1&HW-CC-Date=20260811T005701Z&HW-CC-Expire=86400&HW-CC-Sign=3B30A5B1CE41DC95E738D4DD360DC9EA8A3D234523C1C93A7F74E8A6D273EE77)
 
 
   实现步骤如下：
@@ -291,14 +291,14 @@ struct TabBarStack {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/YnFtYNlPTiSM2TY7mNvN8A/zh-cn_image_0000002628407236.png?HW-CC-KV=V1&HW-CC-Date=20260730T072518Z&HW-CC-Expire=86400&HW-CC-Sign=BE68075E86427C7D416716C4A4343804B1E03A0838C70C585A8DCB6C86C21F11)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/YnFtYNlPTiSM2TY7mNvN8A/zh-cn_image_0000002628407236.png?HW-CC-KV=V1&HW-CC-Date=20260811T005701Z&HW-CC-Expire=86400&HW-CC-Sign=2CC4150566CBFDD476BA4DFD2F27213ADF7975BA11A4BD6452708C36BA9889F6)
 
 
   更丰富的实现效果请参考：[可滚动Tabs页签栏+更多按钮](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-development-scenarios-for-tabs#section7842176172416)。
 - **方案三：使用Row组件自定义行内布局**。通过Row组件，自行设置TabBar行内组件的组成效果，原理如下图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/orya-JewTKejK4fg7z25pg/zh-cn_image_0000002658806495.png?HW-CC-KV=V1&HW-CC-Date=20260730T072518Z&HW-CC-Expire=86400&HW-CC-Sign=B23D5F32E9EA87DDE20ABED04EFC72F1006FD2CF73700BBD316A77DBFE2D249A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/orya-JewTKejK4fg7z25pg/zh-cn_image_0000002658806495.png?HW-CC-KV=V1&HW-CC-Date=20260811T005701Z&HW-CC-Expire=86400&HW-CC-Sign=296DA1A1171B1E5F1DE71F2136753C51DA9A82A08AA7117241000F81EDCB1EE7)
 
 
   实现步骤如下：
@@ -423,4 +423,4 @@ struct TabBarRow {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/5r3vZv0sTVeuJBySXpk4Nw/zh-cn_image_0000002628567146.png?HW-CC-KV=V1&HW-CC-Date=20260730T072518Z&HW-CC-Expire=86400&HW-CC-Sign=91ED670BBDDEAB3F6B78732191EF5CB898E1E2D1230F40B429C7298D2450F96B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/5r3vZv0sTVeuJBySXpk4Nw/zh-cn_image_0000002628567146.png?HW-CC-KV=V1&HW-CC-Date=20260811T005701Z&HW-CC-Expire=86400&HW-CC-Sign=3241A6D045DFD0E3C3C73651D994972E1154CE250D7974E630C3417961C40252)

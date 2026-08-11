@@ -26,118 +26,118 @@
 使用ReaderComponentController的[on('pageShow')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-read-core#onpageshow)事件回调，并在回调函数中进行对具体页数的处理。
  
 ```json
-import { display } from '@kit.ArkUI';
-import { fileIo } from '@kit.CoreFileKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { hilog } from '@kit.PerformanceAnalysisKit';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">display </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">fileIo </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.CoreFileKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BusinessError </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">hilog </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.PerformanceAnalysisKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-import { ReadPageComponent, readerCore, bookParser } from '@kit.ReaderKit';
-import { common } from '@kit.AbilityKit';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">ReadPageComponent</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">readerCore</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">bookParser </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ReaderKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">common </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-const TAG: string = 'ReaderKitGetPageNumber';
+const <span style="color: rgb(255,255,255);">TAG</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'ReaderKitGetPageNumber'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct Index {
-  private defaultHandler: bookParser.BookParserHandler | null = null;
-  private readerComponentController: readerCore.ReaderComponentController = new readerCore.ReaderComponentController();
-  private readerSetting: readerCore.ReaderSetting = {
-    fontName: '系统字体',
-    fontPath: '',
-    fontSize: 18,
-    fontColor: '#000000',
-    fontWeight: 400,
-    lineHeight: 1.9,
-    nightMode: false,
-    themeColor: 'rgba(248, 249, 250, 1)',
-    themeBgImg: '',
-    flipMode: '0',
-    scaledDensity: display.getDefaultDisplaySync().scaledDensity > 0 ? display.getDefaultDisplaySync().scaledDensity :
-      1,
-    viewPortWidth: 1216,
-    viewPortHeight: 2688,
-  };
-  private screenDensityCallBack: Callback<number> | null = null;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(181,106,1);">{</span>
+  private <span style="color: rgb(255,255,255);">defaultHandler</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">bookParser</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">BookParserHandler </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(255,255,255);">readerComponentController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">readerCore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ReaderComponentController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">readerCore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ReaderComponentController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(255,255,255);">readerSetting</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">readerCore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ReaderSetting </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">fontName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">系统字体</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">fontPath</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">fontSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">18</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">fontColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#000000'</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">fontWeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">400</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">lineHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1.9</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">nightMode</span><span style="color: rgb(181,106,1);">: </span>false<span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">themeColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'rgba(248, 249, 250, 1)'</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">themeBgImg</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">flipMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'0'</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">scaledDensity</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">display</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDefaultDisplaySync</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaledDensity </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">display</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDefaultDisplaySync</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaledDensity </span><span style="color: rgb(181,106,1);">:</span>
+      <span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">viewPortWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1216</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">viewPortHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">2688</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(255,255,255);">screenDensityCallBack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Callback</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> | </span><span style="color: rgb(181,106,1);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
 
-  copyRawfileToSanBox(context: common.UIAbilityContext, bookName: string): string {
-    let bookSandBoxPath = context.filesDir + '/' + bookName;
-    try {
-      let data = context.resourceManager.getRawFileContentSync(bookName);
-      let buffer = data.buffer;
-      let file = fileIo.openSync(bookSandBoxPath, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
-      fileIo.writeSync(file.fd, buffer);
-      fileIo.close(file.fd);
-    } catch (err) {
-      let e = err as BusinessError;
-      hilog.error(0x0000, TAG, `copy book rawfile to sanbox failed: code = ${e.code}, message = ${e.message}`);
-    }
+  <span style="color: rgb(0,0,255);">copyRawfileToSanBox</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">bookName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">bookSandBoxPath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">filesDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">'/' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">bookName</span><span style="color: rgb(181,106,1);">;</span>
+    try <span style="color: rgb(181,106,1);">{</span>
+      let <span style="color: rgb(255,255,255);">data </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRawFileContentSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">bookName</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(255,255,255);">buffer </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(255,255,255);">file </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">bookSandBoxPath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CREATE </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">READ_WRITE</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      let <span style="color: rgb(255,255,255);">e </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">err </span>as <span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">`copy book rawfile to sanbox failed: code = </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message = </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
 
-    return bookSandBoxPath;
-  }
+    return <span style="color: rgb(255,255,255);">bookSandBoxPath</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  private registerListener(): void {
-    this.readerComponentController.on('pageShow', (data: readerCore.PageDataInfo): void => {
-      <em>// </em><em>开发者可在此保存内容分布排版数据，利用data.resourceIndex及data.startDomPos数据调用startPlay接口继续阅读</em>
-      hilog.info(0x0000, TAG, `当前的domPos ${data.startDomPos}`);
-      hilog.info(0x0000, TAG, `pageshow: 当前页数data is: ${JSON.stringify(data)}`);
-    });
-  }
+  private <span style="color: rgb(0,0,255);">registerListener</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">readerComponentController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'pageShow'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">readerCore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PageDataInfo</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      <em>// </em><em><span style="color: rgb(128,128,128);">开发者可在此保存内容分布排版数据，利用</span><span style="color: rgb(128,128,128);">data.resourceIndex</span><span style="color: rgb(128,128,128);">及</span><span style="color: rgb(128,128,128);">data.startDomPos</span><span style="color: rgb(128,128,128);">数据调用</span><span style="color: rgb(128,128,128);">startPlay</span><span style="color: rgb(128,128,128);">接口继续阅读</span></em>
+      <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(132,63,161);">当前的</span><span style="color: rgb(132,63,161);">domPos </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">startDomPos</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">`pageshow: </span><span style="color: rgb(132,63,161);">当前页数</span><span style="color: rgb(132,63,161);">data is: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  aboutToAppear(): void {
-    let filePath =
-      this.copyRawfileToSanBox(this.getUIContext().getHostContext() as common.UIAbilityContext, 'test.txt');
-    let resourceIndex = 0;
-    let domPos = '';
-    this.registerListener();
-    this.startPlay(filePath, resourceIndex, domPos);
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">filePath </span><span style="color: rgb(181,106,1);">=</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copyRawfileToSanBox</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'test.txt'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">resourceIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">domPos </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">registerListener</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startPlay</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">filePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">resourceIndex</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">domPos</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  private async startPlay(path: string, resourceIndex: number, domPos: string) {
-    try {
-      let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-      let initPromise: Promise<void> = this.readerComponentController.init(context);
-      let defaultHandler: Promise<bookParser.BookParserHandler> = bookParser.getDefaultHandler(path);
-      let result: [bookParser.BookParserHandler, void] = await Promise.all([defaultHandler, initPromise]);
-      this.defaultHandler = result[0];
-      this.readerComponentController.registerBookParser(this.defaultHandler);
-      this.readerComponentController.setPageConfig(this.readerSetting);
-      this.readerComponentController.startPlay(resourceIndex || 0, domPos);
-    } catch (err) {
-      hilog.error(0x0000, TAG, `startPlay: err: + ${JSON.stringify(err)}`);
-    }
-  }
+  private async <span style="color: rgb(0,0,255);">startPlay</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">path</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">resourceIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">domPos</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    try <span style="color: rgb(181,106,1);">{</span>
+      let <span style="color: rgb(255,255,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(255,255,255);">initPromise</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">void</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">readerComponentController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">init</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(255,255,255);">defaultHandler</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">bookParser</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">BookParserHandler</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,255,255);">bookParser</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDefaultHandler</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">path</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(255,255,255);">result</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(181,106,1);">bookParser</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">BookParserHandler</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">void</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">Promise</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">all</span><span style="color: rgb(255,0,170);">([</span><span style="color: rgb(255,255,255);">defaultHandler</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">initPromise</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">defaultHandler </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">result</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">readerComponentController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">registerBookParser</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">defaultHandler</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">readerComponentController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setPageConfig</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">readerSetting</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">readerComponentController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startPlay</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">resourceIndex </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">domPos</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">`startPlay: err: + </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">  }</span>
 
-  aboutToDisappear(): void {
-    display.off('change', this.screenDensityCallBack);
-    this.readerComponentController.off('pageShow');
-    this.readerComponentController.releaseBook();
-  }
+  <span style="color: rgb(0,0,255);">aboutToDisappear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">display</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'change'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">screenDensityCallBack</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">readerComponentController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'pageShow'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">readerComponentController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">releaseBook</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Stack() {
-      Text('注：本文由AI生成无任何版权纠纷！')
-        .fontSize(14)
-        .zIndex(2)
-        .position({ x: 30, y: 90 })
-        .fontColor('rgba(0, 0, 0, 0.5)');
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">注：本文由</span><span style="color: rgb(132,63,161);">AI</span><span style="color: rgb(132,63,161);">生成无任何版权纠纷！</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">14</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">zIndex</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">position</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">90 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'rgba(0, 0, 0, 0.5)'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-      Column() {
-        ReadPageComponent({
-          controller: this.readerComponentController,
-          readerCallback: (err: BusinessError, data: readerCore.ReaderComponentController) => {
-            this.readerComponentController = data;
-            hilog.error(0x0000, TAG, `ReadPageComponent: err: + ${JSON.stringify(err)}`);
-          }
-        })
-          .position({ y: 20 });
-      }
-      .height('100%')
-      .width('100%')
-      .zIndex(1);
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">ReadPageComponent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">readerComponentController</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(255,255,255);">readerCallback</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">readerCore</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ReaderComponentController</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">readerComponentController </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">`ReadPageComponent: err: + </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">position</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">zIndex</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-    }.width('100%').height('100%');
-  }
-}
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  
  

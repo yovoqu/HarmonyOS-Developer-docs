@@ -83,7 +83,7 @@ struct BackgroundPage {
  参考图如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/UuOsAO9aSxSY3UYmZ22zvA/zh-cn_image_0000002658849563.png?HW-CC-KV=V1&HW-CC-Date=20260730T072511Z&HW-CC-Expire=86400&HW-CC-Sign=C2DB81694A8794C198D1793F54E50D8727112EF31D26BC867212DAB42B1D0F37)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/UuOsAO9aSxSY3UYmZ22zvA/zh-cn_image_0000002658849563.png?HW-CC-KV=V1&HW-CC-Date=20260811T005716Z&HW-CC-Expire=86400&HW-CC-Sign=8E3B096206FA1FE92364285A801FE484DDD6D10D8F0A0FC726D5D0259E7F6783)
 
 
  
@@ -142,7 +142,7 @@ struct ExpandPage {
  参考图如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/zt5kIqiYRoOklZ-n6sfRDw/zh-cn_image_0000002628770198.png?HW-CC-KV=V1&HW-CC-Date=20260730T072511Z&HW-CC-Expire=86400&HW-CC-Sign=C7DC3E8C210BE434AFF94699D641085233AC6E2DFA77EF7FA07925BA3BB4964E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/zt5kIqiYRoOklZ-n6sfRDw/zh-cn_image_0000002628770198.png?HW-CC-KV=V1&HW-CC-Date=20260811T005716Z&HW-CC-Expire=86400&HW-CC-Sign=90CCE592598778DC205DFD49B0474E8E46829DA74BA7323E9A2F8C6A9659EDFB)
 
 - **方案三：设置页面沉浸。**对Tabs组件设置ignoreLayoutSafeArea属性并设置高度为LayoutPolicy.matchParent，页面背景与布局均扩展至顶部状态栏和底部导航条。代码如下：
 
@@ -259,7 +259,7 @@ export default class EntryAbility extends UIAbility {
  参考图如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/R1krGLJZT36lGoXu_qMXGA/zh-cn_image_0000002658969521.png?HW-CC-KV=V1&HW-CC-Date=20260730T072511Z&HW-CC-Expire=86400&HW-CC-Sign=3F7F329CA21143DBF95CAE4CB1DA64FB4A14BEE6A4FB902D6345A7CD5FF185D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/R1krGLJZT36lGoXu_qMXGA/zh-cn_image_0000002658969521.png?HW-CC-KV=V1&HW-CC-Date=20260811T005716Z&HW-CC-Expire=86400&HW-CC-Sign=64304658790C104ADFE2575F067BE7CCAF68C4261728576EE1D0B64DB61AB6FB)
 
 - **方案四：设置窗口沉浸。**调用aboutToAppear，在执行build()函数前，设置主窗为沉浸式布局，可实现对整个应用实现沉浸式效果。代码如下：
 
@@ -336,7 +336,7 @@ struct WindowPage {
   参考图如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/Eo6c8OhjS9KtsSzEDimp1A/zh-cn_image_0000002628610302.png?HW-CC-KV=V1&HW-CC-Date=20260730T072511Z&HW-CC-Expire=86400&HW-CC-Sign=36D60C3130AF7EE5BE6279E2EC16497A75C0FC1B949F0403C90E3E8BB91BB1C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/Eo6c8OhjS9KtsSzEDimp1A/zh-cn_image_0000002628610302.png?HW-CC-KV=V1&HW-CC-Date=20260811T005716Z&HW-CC-Expire=86400&HW-CC-Sign=92002373B51671625AC2227BB9AEE0F79EE18AA0D8300BBBC04DCB744663D619)
 
 
  

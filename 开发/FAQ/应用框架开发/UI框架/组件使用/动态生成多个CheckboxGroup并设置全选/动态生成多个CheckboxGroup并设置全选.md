@@ -101,7 +101,7 @@ struct CheckboxGroupExample {
  效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/_c3D34FrTMeOGOgDAkp3AQ/zh-cn_image_0000002658955329.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072349Z&HW-CC-Expire=86400&HW-CC-Sign=C476B9A54E80245E8B138F8E65E71808931150A521F327FA8322A97655C39705)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/_c3D34FrTMeOGOgDAkp3AQ/zh-cn_image_0000002658955329.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005801Z&HW-CC-Expire=86400&HW-CC-Sign=5FA02474C70C6CCDF6A1900F81FB9C55C880336CA324F08D107E7331F3C3195B)
 
 - CheckboxGroup还可以和List组件组合使用，点击“全选”后实现全部选中，参考示例代码如下：
 ```text
@@ -189,4 +189,4 @@ struct Index {
  效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/8XZNk6XdTwu-3T66IJWHRg/zh-cn_image_0000002628596112.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072349Z&HW-CC-Expire=86400&HW-CC-Sign=15302352C700CD57464064D9E86BD7D274956A45A6F5A6406AF8DFAAEB4A805E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/8XZNk6XdTwu-3T66IJWHRg/zh-cn_image_0000002628596112.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005801Z&HW-CC-Expire=86400&HW-CC-Sign=BB50988837D1AFD583D9583225952EB6588121AD44F73D62DA9A1B35313164C7)

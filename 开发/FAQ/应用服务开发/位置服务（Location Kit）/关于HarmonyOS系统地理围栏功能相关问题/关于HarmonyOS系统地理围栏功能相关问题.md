@@ -1,6 +1,6 @@
-# 关于HarmonyOS系统地理围栏功能相关问题
+# 地理围栏功能的使用方式及常见问题解答
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-07-30 01:03:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-13
 
@@ -14,6 +14,7 @@
 5. 地理围栏功能支持海外吗？
 6. 地理围栏的ID如何维护管理？
 7. 使用geoLocationManager.on('gnssFenceStatusChange')地理围栏监听，如何识别是进入围栏还是退出围栏？
+8. 按照开发文档要求，给locationkit@huawei.com发送邮件申请开通云端地理围栏服务，但一直未得到反馈，如何处理？
  
  
 
@@ -39,4 +40,5 @@
 4. 地理围栏的ID如何维护管理？
 地理围栏的ID由系统服务统一进行管理，创建围栏的应用不对围栏ID进行管理。当系统首次创建围栏的时候ID会从1开始计数，ID具有全局唯一性。
 5. 当发生手机重启、位置服务重启的情形下，围栏会被清除，ID发生重置。
-6. [geoLocationManager.on('gnssFenceStatusChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/geofence-guidelines#section280514142712)创建的地理围栏，触发围栏进出事件时会调用对应的getWantAgent()拉起Ability，可以在Ability页面的onCreate()中，通过want.parameters?.["transition"]返回的值来判断[围栏事件类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager#geofencetransitionevent12)。
+1. [geoLocationManager.on('gnssFenceStatusChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager#geolocationmanagerongnssfencestatuschange)创建的地理围栏，触发围栏进出事件时会调用对应的getWantAgent()拉起Ability，可以在Ability页面的onCreate()中，通过want.parameters?.["transition"]返回的值来判断[围栏事件类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager#geofencetransitionevent12)。
+2. 可以直接使用端侧地理围栏，无需额外申请权限。对于历史文化景点等位置固定且介绍内容可预先内置的场景，不需要云端动态下发。用户到达景点时，系统直接弹出包含历史文化介绍的通知即可完成信息展示，整个流程不需要网络请求和云端参与。端侧GNSS围栏开发指导请参考[端侧GNSS围栏开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/geofence-guidelines)。

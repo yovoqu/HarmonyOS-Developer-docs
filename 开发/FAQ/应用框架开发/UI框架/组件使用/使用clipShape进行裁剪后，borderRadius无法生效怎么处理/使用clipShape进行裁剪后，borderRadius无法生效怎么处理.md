@@ -32,7 +32,7 @@ struct IrregularShape {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/M-zYC77FSLaR9zuPWpq4Sw/zh-cn_image_0000002658965027.png?HW-CC-KV=V1&HW-CC-Date=20260730T072404Z&HW-CC-Expire=86400&HW-CC-Sign=7B676244F2C94D9A59260E0F6A966AEF723EDA7245B2C7CCCDE722EE292C23F4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/M-zYC77FSLaR9zuPWpq4Sw/zh-cn_image_0000002658965027.png?HW-CC-KV=V1&HW-CC-Date=20260811T005759Z&HW-CC-Expire=86400&HW-CC-Sign=63CCB5DE17DCA11ACE64B29A5F47FC49322D5A030C05475924526D00E470642F)
 
  
  
@@ -146,7 +146,7 @@ struct ClipFilletCorner {
  效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/HsFqjAG_RSSLvJPr2GDogw/zh-cn_image_0000002628605822.png?HW-CC-KV=V1&HW-CC-Date=20260730T072404Z&HW-CC-Expire=86400&HW-CC-Sign=07747690EE3D265711B4EC7F22832ED2043F9F1EA91C77D785E268DF61BA8248)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/HsFqjAG_RSSLvJPr2GDogw/zh-cn_image_0000002628605822.png?HW-CC-KV=V1&HW-CC-Date=20260811T005759Z&HW-CC-Expire=86400&HW-CC-Sign=F65D996447091191D5467DFB230367A1699168C5934163A2B773CA6E457E5AEA)
 
 - **方案二：绘制带圆角的组件**。
 
@@ -182,7 +182,7 @@ struct PathFilletCorner {
   效果图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/U_WXhFW3Re6t7EGfSHtoGA/zh-cn_image_0000002658845075.png?HW-CC-KV=V1&HW-CC-Date=20260730T072404Z&HW-CC-Expire=86400&HW-CC-Sign=81E0B5E515ED7D66DCE39C1340F1CCEC940ED08815C91CBDDD96A3D47CA1EDAC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/U_WXhFW3Re6t7EGfSHtoGA/zh-cn_image_0000002658845075.png?HW-CC-KV=V1&HW-CC-Date=20260811T005759Z&HW-CC-Expire=86400&HW-CC-Sign=955905A8DD830C035E839D0A0F1426EBFD6BB24F2CDC3D1DD2E1D8E98777F6CD)
 
 
  

@@ -15,7 +15,7 @@
 [UIAbility组件的核心生命周期回调](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-lifecycle)包括onCreate、onForeground、onBackground、onDestroy。UIAbility的生命周期示意图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/KUUcHQ4ORziKeEO9mgQxJA/zh-cn_image_0000002658868621.png?HW-CC-KV=V1&HW-CC-Date=20260730T072308Z&HW-CC-Expire=86400&HW-CC-Sign=AFA54BE45D1E368CEB1E0C0DB78ADDACFEFF5ABFA17D8A55B03EE4C48A8D12AB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/KUUcHQ4ORziKeEO9mgQxJA/zh-cn_image_0000002658868621.png?HW-CC-KV=V1&HW-CC-Date=20260811T005855Z&HW-CC-Expire=86400&HW-CC-Sign=FE231244EAD1F099D39E796EF7AB71EAC91F37C71A6BA509C511814BC2159947)
 
  
  

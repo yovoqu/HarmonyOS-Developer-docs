@@ -24,7 +24,7 @@ struct ImageRotationProblem {
 左图为正常显示效果，右图为Image加载显示效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/HFwkJPWuRnao_cmaS8xMYA/zh-cn_image_0000002658794579.png?HW-CC-KV=V1&HW-CC-Date=20260730T072326Z&HW-CC-Expire=86400&HW-CC-Sign=B2A7609985CAE5FFE0E40E01A00871694E0426F5B20C61C32579EB3077B19E1E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/HFwkJPWuRnao_cmaS8xMYA/zh-cn_image_0000002658794579.png?HW-CC-KV=V1&HW-CC-Date=20260811T005825Z&HW-CC-Expire=86400&HW-CC-Sign=C2F17C14F7C61C7468F926734545463F861B5C6904E6118CAEB1F5C20D7580F3)
 
  
  
@@ -43,7 +43,7 @@ struct ImageRotationProblem {
 
 #### 问题定位
 1. 使用Image组件加载其他图片，检查是否为组件问题。由于“新闻”图片正常显示，确认非组件问题。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/U_kXHGeWTlur-_aGlTThAg/zh-cn_image_0000002628555212.png?HW-CC-KV=V1&HW-CC-Date=20260730T072326Z&HW-CC-Expire=86400&HW-CC-Sign=D5C5D333B191C6777C98A7A567F672224C554910EF8D2111D31A83C5508159FD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/U_kXHGeWTlur-_aGlTThAg/zh-cn_image_0000002628555212.png?HW-CC-KV=V1&HW-CC-Date=20260811T005825Z&HW-CC-Expire=86400&HW-CC-Sign=9B0D27EDEF58727592EBF58F7559F366D56037BFD0082483C4FE79699FC1F546)
 
 2. 检查原图片Exif信息，定位其orientation属性。通过在线网站查看图片信息得知该图片的拍摄方向为逆时针旋转90度。由此，定位到图片被旋转的原因。
 

@@ -23,7 +23,7 @@
 - APP主办者需要在接入商备案系统提交备案材料，由接入商代为备案。常见的接入商有：华为云、阿里云、腾讯云、移动云、天翼云、联通云等。关于如何选择接入商具体还需要根据您所选择的服务器提供商而定。一般来说服务器选择的是哪家接入商，备案可以在同一个接入商网站完成。
 
 2. 一般通用的流程如下：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/6whrkXLlRkmeLY87_BTAFg/zh-cn_image_0000002658793873.png?HW-CC-KV=V1&HW-CC-Date=20260730T072659Z&HW-CC-Expire=86400&HW-CC-Sign=7045A9821AF1F24BD8D043F8592216D5BE139B12B42E29897F10706C4F067746)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/6whrkXLlRkmeLY87_BTAFg/zh-cn_image_0000002658793873.png?HW-CC-KV=V1&HW-CC-Date=20260811T005618Z&HW-CC-Expire=86400&HW-CC-Sign=1A8E5617A7F85E886264F5E6B0C314A4C61EF50D08268D99C8381A7C71F8F9A4)
 
 
 3. 具体根据不同接入商备案流程不一致，可以参考各大接入商具体流程：[华为云备案指引](https://support.huaweicloud.com/usermanual-icp/zh-cn_topic_0000002127712329.html)。
@@ -42,19 +42,19 @@
 登录AppGallery Connect，点击“证书、APP ID和Profile”，在页面左侧点击“证书”，下载需要备案的HarmonyOS应用/元服务开发者证书。
 
 5. 使用文本编辑器（如记事本）打开已下载的证书，可以看到直接下载的证书链有3段，分别：根证书、中间证书和服务器证书。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/YU2ys1oiRG2aEiAUPGhv0g/zh-cn_image_0000002628394604.png?HW-CC-KV=V1&HW-CC-Date=20260730T072659Z&HW-CC-Expire=86400&HW-CC-Sign=7B3DED97EFC2CAB57BA7784012D55B3B60A5C177DD075F54699088A3FAE6006F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/YU2ys1oiRG2aEiAUPGhv0g/zh-cn_image_0000002628394604.png?HW-CC-KV=V1&HW-CC-Date=20260811T005618Z&HW-CC-Expire=86400&HW-CC-Sign=3B0EC86B7F822AE3CE2E25B27F0996BD21EB0EE7FE2128E165EFEE850C786C5A)
 
 
 6. 删除根证书和中间证书，保留服务器证书后，点击保存。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/MABcSC2YTma-r4xcfWaBow/zh-cn_image_0000002628554492.png?HW-CC-KV=V1&HW-CC-Date=20260730T072659Z&HW-CC-Expire=86400&HW-CC-Sign=ABEC36E67E6A532DC07BE5DA07A92490E69FE4837CAADC67281A80F5DC21DE94)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/MABcSC2YTma-r4xcfWaBow/zh-cn_image_0000002628554492.png?HW-CC-KV=V1&HW-CC-Date=20260811T005618Z&HW-CC-Expire=86400&HW-CC-Sign=1E4AE49CD75D5D7224BAEB378A82F56F53CF697349A0165D355EA69DD8E6C044)
 
 
 7. 双击打开已保存的证书，点击“详细信息-公钥”，获取APP的公钥信息。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/rgaTMzQzT96mW--n0xwF_A/zh-cn_image_0000002658913817.png?HW-CC-KV=V1&HW-CC-Date=20260730T072659Z&HW-CC-Expire=86400&HW-CC-Sign=696921A6BC3A85102A5BBF50ED4D65E09A75FF508388F5B3F4930858EAB7CE2B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/rgaTMzQzT96mW--n0xwF_A/zh-cn_image_0000002658913817.png?HW-CC-KV=V1&HW-CC-Date=20260811T005618Z&HW-CC-Expire=86400&HW-CC-Sign=1FA4A150FA7568DA09856823F8261F52305558350916D81C0FD1CE3CC268FE96)
 
 
 8. 双击打开已保存的证书点击“详细信息-指纹”，获取APP的sha1签名信息。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/zP0in0wdT7qW-JPKAGo71w/zh-cn_image_0000002658793875.png?HW-CC-KV=V1&HW-CC-Date=20260730T072659Z&HW-CC-Expire=86400&HW-CC-Sign=33468D1A32776191C40110FFFFF89B39DAE996CB10C5AA9D3F49EB36D6CB6558)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/zP0in0wdT7qW-JPKAGo71w/zh-cn_image_0000002658793875.png?HW-CC-KV=V1&HW-CC-Date=20260811T005618Z&HW-CC-Expire=86400&HW-CC-Sign=0B637FE8F3CB0C9A17AC8EA71DE53378DC4A5932847DF4BACF95563BCDE5CC22)
 
 
 9. 如何校验应用已经完成备案？
@@ -69,7 +69,7 @@
 13. 上架备案信息如何填写？上架备案信息涉及的信息如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/7I8IdT6oSf2K_mleSRxOrA/zh-cn_image_0000002628394606.png?HW-CC-KV=V1&HW-CC-Date=20260730T072659Z&HW-CC-Expire=86400&HW-CC-Sign=BBC82DE4FCC012F4290FEF138141B41FE483082C7305C44FC5A95A8FE96AB28D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/7I8IdT6oSf2K_mleSRxOrA/zh-cn_image_0000002628394606.png?HW-CC-KV=V1&HW-CC-Date=20260811T005618Z&HW-CC-Expire=86400&HW-CC-Sign=7937F3EB379BE9765ECA93E1E063AA5A1F3275D0C07CB6F198835B1768418767)
 
 
 14. 应用需要备案：APP服务器在中国大陆，且APP需要上架应用市场。
@@ -91,7 +91,7 @@
 20. 应用不需要备案：APP服务器不在中国大陆（境外应用）。备案信息勾选“您的APP服务器不在中国大陆”。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/APTHZ1eRQ_6478KpKnjxSA/zh-cn_image_0000002628554494.png?HW-CC-KV=V1&HW-CC-Date=20260730T072659Z&HW-CC-Expire=86400&HW-CC-Sign=1CEE30B439A0C55362E8554BCDA82DC8715BBE57BDD4DA14FCDF3AB909A40BE0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/APTHZ1eRQ_6478KpKnjxSA/zh-cn_image_0000002628554494.png?HW-CC-KV=V1&HW-CC-Date=20260811T005618Z&HW-CC-Expire=86400&HW-CC-Sign=13925A6F1EB8A7B40A2D1E62BEF1C65871E977FCBAA0943D81FC0C26C9BD8832)
 
 
   境外应用定义：由境外主体运营且服务器仅放置在境外的移动互联网应用程序。
@@ -99,7 +99,7 @@
 21. 应用不需要备案：单机应用。备案信息勾选“您的APP为单机APP”。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/GsYQUvEPTvS5CWHdNwgnVA/zh-cn_image_0000002658913819.png?HW-CC-KV=V1&HW-CC-Date=20260730T072659Z&HW-CC-Expire=86400&HW-CC-Sign=D54EEACEED41BF21ABA67A930E967E02947C53E16A572EACEC262CBB23A7A4A0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/GsYQUvEPTvS5CWHdNwgnVA/zh-cn_image_0000002658913819.png?HW-CC-KV=V1&HW-CC-Date=20260811T005618Z&HW-CC-Expire=86400&HW-CC-Sign=DD2C7AA3615D1861ACF2BAB03CBC350C9CFD22DE453B25B79F98317C76478CAA)
 
 
   单机应用定义：未通过连接公共互联网提供互联网信息服务的移动应用程序。

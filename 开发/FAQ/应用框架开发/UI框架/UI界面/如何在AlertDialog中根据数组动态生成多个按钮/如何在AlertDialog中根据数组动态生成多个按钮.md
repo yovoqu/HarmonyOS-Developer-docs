@@ -13,7 +13,7 @@ AlertDialog是否支持在弹窗内显示一个已经定义好的数组，例如
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/WxAz6bGER3qUwVI-3tJ7ew/zh-cn_image_0000002658923989.png?HW-CC-KV=V1&HW-CC-Date=20260730T072507Z&HW-CC-Expire=86400&HW-CC-Sign=ECDFEE80603383DA4295E2C8996EC1ED784222C94C61A23F2FD0FF0597E96431)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/WxAz6bGER3qUwVI-3tJ7ew/zh-cn_image_0000002658923989.png?HW-CC-KV=V1&HW-CC-Date=20260811T005701Z&HW-CC-Expire=86400&HW-CC-Sign=A6474DDE582CA282B5EBA13872CB8F70208E3EE7E1DDD5664ED83656CD4F6998)
 
  
  

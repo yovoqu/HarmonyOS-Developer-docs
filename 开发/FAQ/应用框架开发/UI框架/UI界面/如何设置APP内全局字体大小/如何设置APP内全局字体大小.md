@@ -72,7 +72,7 @@ struct Index {
   效果预览图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/Udxo0wgMRTmdPLxxNz4Paw/zh-cn_image_0000002658798907.png?HW-CC-KV=V1&HW-CC-Date=20260730T072437Z&HW-CC-Expire=86400&HW-CC-Sign=F71EE200578F50A570386CF77A6F0E3DDBEE5A735EED0FC4EB0042C3ACF1A666)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/Udxo0wgMRTmdPLxxNz4Paw/zh-cn_image_0000002658798907.png?HW-CC-KV=V1&HW-CC-Date=20260811T005716Z&HW-CC-Expire=86400&HW-CC-Sign=FC438470D640649A0B5C1BE3EF66F9183551E801C0CD7F7D8D6EAA8D1089A28F)
 
 - 方案三：使用ApplicationContext接口实现设置应用内全局字体大小。通过setFontSizeScale方法设置应用字体的全局缩放比例：在entryability/EntryAbility中调用ApplicationContext接口，并使用setFontSizeScale方法，即可设置应用内全局字体比例大小。页面代码为默认Hello World页面，EntryAbility示例代码如下：
 
@@ -178,13 +178,13 @@ struct Page {
   正常字体大小：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/N1XF72zjTkioxksGqImqmA/zh-cn_image_0000002628559546.png?HW-CC-KV=V1&HW-CC-Date=20260730T072437Z&HW-CC-Expire=86400&HW-CC-Sign=8EE7B90A066B22BDA9329CB60AF4E2A93C96F0C9B02AD3C2101CA0E197EC9CDC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/N1XF72zjTkioxksGqImqmA/zh-cn_image_0000002628559546.png?HW-CC-KV=V1&HW-CC-Date=20260811T005716Z&HW-CC-Expire=86400&HW-CC-Sign=E9459D8223B897FE9F190317A7156743CF9A79497FF9BB85B23812137739C34A)
 
 
   设置setFontSizeScale(2)方法的字体大小：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/-q6lWHN_SDSVp3EJ65gD7Q/zh-cn_image_0000002658918857.png?HW-CC-KV=V1&HW-CC-Date=20260730T072437Z&HW-CC-Expire=86400&HW-CC-Sign=6A1BEC48BD2D2C841DC11E67EA835F7EF634310F5AFBEA561FEF162116D43C8B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/-q6lWHN_SDSVp3EJ65gD7Q/zh-cn_image_0000002658918857.png?HW-CC-KV=V1&HW-CC-Date=20260811T005716Z&HW-CC-Expire=86400&HW-CC-Sign=D63813F58B47DCFDA3A13216A56977107F785EB5053F487D820464DFCFDBBC2D)
 
 
  

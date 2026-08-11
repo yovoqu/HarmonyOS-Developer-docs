@@ -68,7 +68,7 @@ struct Page1 {
  运行效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/MEX3kJS4SnSn-7_EmoBVfA/zh-cn_image_0000002658917115.png?HW-CC-KV=V1&HW-CC-Date=20260730T072330Z&HW-CC-Expire=86400&HW-CC-Sign=C11008618440C584D3CC70CDCB5C642D0C6349749E9BFFB165F2DD957A0835A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/MEX3kJS4SnSn-7_EmoBVfA/zh-cn_image_0000002658917115.png?HW-CC-KV=V1&HW-CC-Date=20260811T005817Z&HW-CC-Expire=86400&HW-CC-Sign=20C6794CEA853FF1A7BCF243377BFB94FAA7A665F6FD4D14E04DC57D18657C52)
 
 - 针对问题二：可以使用onAreaChange获取组件A和组件B的高度，并且通过组件的高度对比设置对应的zIndex来实现，示例代码如下。
 ```text
@@ -120,4 +120,4 @@ struct Page2 {
  运行效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/LYlx4f4aQ-6EmfGF89vuew/zh-cn_image_0000002628397894.png?HW-CC-KV=V1&HW-CC-Date=20260730T072330Z&HW-CC-Expire=86400&HW-CC-Sign=F056EB172E73115CA9031C468779A895DB86D7B644D500B98FFD1E7BDBC19050)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/LYlx4f4aQ-6EmfGF89vuew/zh-cn_image_0000002628397894.png?HW-CC-KV=V1&HW-CC-Date=20260811T005817Z&HW-CC-Expire=86400&HW-CC-Sign=53B6B544F80BB4EF410A9774203284B879F1623B1334988BE0985C7197E0E465)

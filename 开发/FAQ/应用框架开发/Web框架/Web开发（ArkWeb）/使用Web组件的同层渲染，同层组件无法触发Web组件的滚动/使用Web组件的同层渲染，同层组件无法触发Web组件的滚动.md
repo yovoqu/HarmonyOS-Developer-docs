@@ -36,7 +36,7 @@ Web({ src: $rawfile("embed_view.html"), controller: this.browserTabController })
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/Q53qJd9gTJ2ZEXsIsfx0OA/zh-cn_image_0000002628899164.png?HW-CC-KV=V1&HW-CC-Date=20260730T072535Z&HW-CC-Expire=86400&HW-CC-Sign=B6659091E57B640577B11132ABB878E5417A1F1E67391C6F05432CCF0B7ABD00)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/Q53qJd9gTJ2ZEXsIsfx0OA/zh-cn_image_0000002628899164.png?HW-CC-KV=V1&HW-CC-Date=20260811T005839Z&HW-CC-Expire=86400&HW-CC-Sign=806A7D6510B0376D140E2BCD5C7AFE428E8AE18D29FE11C4F500AB4C5E89B59A)
 
  
  

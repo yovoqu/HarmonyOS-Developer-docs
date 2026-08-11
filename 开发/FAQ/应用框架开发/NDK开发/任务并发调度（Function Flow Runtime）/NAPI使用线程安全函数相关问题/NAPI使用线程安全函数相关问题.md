@@ -9,13 +9,13 @@
 调用napi_create_threadsafe_function创建ArkTS回调接口和线程安全回调函数，传入线程安全回调函数的ArkTS侧回调接口函数地址为0，无法正确获取到ArkTS侧回调函数的原始值。线程安全回调函数代码如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/rnAhld0YRcCY1xZlRBCaOQ/zh-cn_image_0000002659258291.png?HW-CC-KV=V1&HW-CC-Date=20260730T072315Z&HW-CC-Expire=86400&HW-CC-Sign=575E2FEAD25D2FEA74F6D5D5FDB0E0F85954D934E1998DD0611771819B55F3D8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/rnAhld0YRcCY1xZlRBCaOQ/zh-cn_image_0000002659258291.png?HW-CC-KV=V1&HW-CC-Date=20260811T005639Z&HW-CC-Expire=86400&HW-CC-Sign=9670AD74F12BF11CA6A5383C5CCCB4B0F7426D520FA641A40F6EFAF09509083F)
 
  
 运行结果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/oJqeq56HQ9SdQTettuoXmA/zh-cn_image_0000002659138351.png?HW-CC-KV=V1&HW-CC-Date=20260730T072315Z&HW-CC-Expire=86400&HW-CC-Sign=E370DA37BCBE432CFEA81F60114DE0B34F1D79F4D9C0E24AFD3F9F638E5EDFC4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/oJqeq56HQ9SdQTettuoXmA/zh-cn_image_0000002659138351.png?HW-CC-KV=V1&HW-CC-Date=20260811T005639Z&HW-CC-Expire=86400&HW-CC-Sign=A8205C7551DBA1A2E221216AC44CF8E0F1EA783B82031BA423F926D7D1EB5C29)
 
  
  
@@ -65,7 +65,7 @@ napi_status napi_create_threadsafe_function(napi_env env,
 #### 问题定位
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/usWvA9QsRjyydHY2WITzQg/zh-cn_image_0000002629059000.png?HW-CC-KV=V1&HW-CC-Date=20260730T072315Z&HW-CC-Expire=86400&HW-CC-Sign=5334CDB9F76BDD309D292890CEB748984A3F73335EA8DCD526E6B4B4B21E04B7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/usWvA9QsRjyydHY2WITzQg/zh-cn_image_0000002629059000.png?HW-CC-KV=V1&HW-CC-Date=20260811T005639Z&HW-CC-Expire=86400&HW-CC-Sign=995D3A43AC145911E1C48AFF4399AE02BD468ABE7449D2C1F95440580ACD98BB)
 
  
 根据代码分析，发现ArkTS侧回调接口传入到线程安全函数的第三个参数，此参数关联async_hooks，用来追踪异步资源的API。

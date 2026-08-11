@@ -9,7 +9,7 @@
 IDE自动签名时报错，报错信息为：
  
 ```text
-The bundle name contains 7 to 128 characters, including only letters, digits, and underscores ( ). It must start with a letter and contain at least three segments separated by periods (.), each of the segments ending with a digit or letter.
+<span style="color: rgb(0,0,255);">The bundle name contains </span><span style="color: rgb(255,0,0);">7 </span><span style="color: rgb(0,0,255);">to </span><span style="color: rgb(255,0,0);">128 </span><span style="color: rgb(0,0,255);">characters</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">including only letters</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">digits</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">and </span><span style="color: rgb(0,0,255);">underscores </span><span style="color: rgb(0,0,255);">( )</span><span style="color: rgb(181,106,1);">. </span><span style="color: rgb(0,0,255);">It must start </span>with <span style="color: rgb(0,0,255);">a letter and contain at least three segments separated by </span><span style="color: rgb(0,0,255);">periods </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">each of the segments ending </span>with <span style="color: rgb(0,0,255);">a digit or letter</span><span style="color: rgb(181,106,1);">.</span>
 ```
  
  
@@ -25,7 +25,7 @@ The bundle name contains 7 to 128 characters, including only letters, digits, an
 自动签名时，bundleName没有带出，显示为空，导致出现上述报错。往上定位，发现是AppScope下的app.json5文件没有被识别到，继续定位，发现是设置了忽略app.json5文件。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/YDZLw_0UQ6Oii6qsFA3cNQ/zh-cn_image_0000002658808643.png?HW-CC-KV=V1&HW-CC-Date=20260730T072717Z&HW-CC-Expire=86400&HW-CC-Sign=F653E79C75950A9E5CD0E2D5FCDDDA808B0BF28E1FBDC2E199E7483FFD1B50D0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/YDZLw_0UQ6Oii6qsFA3cNQ/zh-cn_image_0000002658808643.png?HW-CC-KV=V1&HW-CC-Date=20260811T005525Z&HW-CC-Expire=86400&HW-CC-Sign=89C2EC1BDD6262C1F1C3D13D47A180C2F9E3A713B631C8B2F6573C9C9184DB5D)
 
  
  

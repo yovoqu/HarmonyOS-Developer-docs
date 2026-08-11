@@ -9,9 +9,9 @@
 - 复制一个模块到新项目，DevEco Studio无法识别模块，导致无法打包。
 - 使用版本控制软件拉取他人代码到本地，未正确识别module，文件夹右下角没有蓝色角标，打包报错：
 ```text
-* Try the following:
-> Check whether the module which D:\xxx.ets belongs to is correctly configured.
-> Check the corresponding file name is correct(including case-sensitivity).
+<span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">Try the </span><span style="color: rgb(181,106,1);">following</span><span style="color: rgb(181,106,1);">:</span>
+<span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">Check whether the </span>module <span style="color: rgb(0,0,255);">which </span><span style="color: rgb(181,106,1);">D</span><span style="color: rgb(181,106,1);">:</span>\<span style="color: rgb(0,0,255);">xxx</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ets belongs to is correctly configured</span><span style="color: rgb(181,106,1);">.</span>
+<span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">Check the corresponding file name is </span><span style="color: rgb(0,0,255);">correct</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">including case</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(0,0,255);">sensitivity</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span>
 ```
 
 

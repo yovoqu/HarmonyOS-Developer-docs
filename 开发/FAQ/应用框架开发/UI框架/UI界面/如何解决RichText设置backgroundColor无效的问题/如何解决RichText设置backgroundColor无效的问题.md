@@ -36,8 +36,8 @@ struct ToggleExample {
     '<style>*{ background-color: blue;width:100%;padding:0;font-size:50px}</style>';
   <em>// 文字内容</em>
   richContent: string =
-    '<p style="background-color: blue">温馨提示：<br/>' +
-      '这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字，仅供参考。</p>';
+    '<p style="background-color: blue"><span></span><span style="white-space: pre-wrap;">温馨提示：<br/>' +
+      '这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字，仅供参考。</span></p>';
 
   build() {
     Column() {
@@ -67,10 +67,10 @@ struct ToggleExample {
 浅色模式效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/dEwUsuBfT9C4-EdMT8UHmg/zh-cn_image_0000002628569428.png?HW-CC-KV=V1&HW-CC-Date=20260730T072440Z&HW-CC-Expire=86400&HW-CC-Sign=F2340326BC657E9C0766E18560DFAB9D7B7CBA88A4B838ADCE601751C692091B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/dEwUsuBfT9C4-EdMT8UHmg/zh-cn_image_0000002628569428.png?HW-CC-KV=V1&HW-CC-Date=20260811T005714Z&HW-CC-Expire=86400&HW-CC-Sign=36BE743446B8FC86A57A07D0E924D3984B8C101D78B6333B13F4F63EF5E5919B)
 
  
 深色模式效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/fT3Cc3T9RXul72bkn9doKQ/zh-cn_image_0000002628409528.png?HW-CC-KV=V1&HW-CC-Date=20260730T072440Z&HW-CC-Expire=86400&HW-CC-Sign=F442801815901A4407115AAA7BBD9DB95B8314DBD144918B2DE224046DC0BA78)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/fT3Cc3T9RXul72bkn9doKQ/zh-cn_image_0000002628409528.png?HW-CC-KV=V1&HW-CC-Date=20260811T005714Z&HW-CC-Expire=86400&HW-CC-Sign=FC7A5B76392D4DA3FD4EFF4472FE9C1A2896833AC09B37105ECDB40070551BAA)

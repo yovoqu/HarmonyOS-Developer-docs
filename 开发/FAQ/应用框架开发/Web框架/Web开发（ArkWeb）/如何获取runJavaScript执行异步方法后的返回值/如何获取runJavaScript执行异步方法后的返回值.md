@@ -9,7 +9,7 @@
 官方文档中提到[runJavaScript](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#runjavascript)执行异步方法无法获取返回值，该如何解决这个问题？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/B4XjQ3oaQU-T9DFx9Z_K_A/zh-cn_image_0000002659138407.png?HW-CC-KV=V1&HW-CC-Date=20260730T072533Z&HW-CC-Expire=86400&HW-CC-Sign=0C23B2CA9EDEC43188C6CE91806F5EBADBE6EC9C49AD023D28652B313FA6FA3A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/B4XjQ3oaQU-T9DFx9Z_K_A/zh-cn_image_0000002659138407.png?HW-CC-KV=V1&HW-CC-Date=20260811T005840Z&HW-CC-Expire=86400&HW-CC-Sign=F9CA16B5596D2CB9452B0FD9EFE5CC280E51DC26B6279B72C1D59F7AC48A715E)
 
  
  

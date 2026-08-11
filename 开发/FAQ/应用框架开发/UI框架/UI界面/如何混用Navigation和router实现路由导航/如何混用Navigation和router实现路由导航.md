@@ -223,7 +223,7 @@ struct NavIndex {
 效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/igQZ6C1OT3mhoCBwQtS2IQ/zh-cn_image_0000002658914219.png?HW-CC-KV=V1&HW-CC-Date=20260730T072437Z&HW-CC-Expire=86400&HW-CC-Sign=6E4EA2E86D8E39190DC7B8938732BFFAF8D3395E539A67BBFA85CCBABE8FB4C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/igQZ6C1OT3mhoCBwQtS2IQ/zh-cn_image_0000002658914219.png?HW-CC-KV=V1&HW-CC-Date=20260811T005711Z&HW-CC-Expire=86400&HW-CC-Sign=E35887300BC2438B34F57CCD5E748BC84044687A2EEF4121604139690F62071E)
 
  
  
@@ -501,7 +501,7 @@ resources/base/profile/main_pages.json配置如下：
 效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/pc-a1h_oR5KUEX0a2uu2EA/zh-cn_image_0000002628395004.png?HW-CC-KV=V1&HW-CC-Date=20260730T072437Z&HW-CC-Expire=86400&HW-CC-Sign=A2117ABC87D301F35F5CF106A5537E7E73A4BA2A14A4B25C15BEA747D7CB8EE3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/pc-a1h_oR5KUEX0a2uu2EA/zh-cn_image_0000002628395004.png?HW-CC-KV=V1&HW-CC-Date=20260811T005711Z&HW-CC-Expire=86400&HW-CC-Sign=9C84D7EB316044369F0893030E8C872B0825F6FAD7363DF01E351CEE00E9784A)
 
  
  

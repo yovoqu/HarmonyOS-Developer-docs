@@ -138,7 +138,7 @@ struct ListRefreshLoad {
   实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/ynE8MG2eRuaVoJPQ_4AJqw/zh-cn_image_0000002661497527.png?HW-CC-KV=V1&HW-CC-Date=20260730T072342Z&HW-CC-Expire=86400&HW-CC-Sign=923F8C405FB1019E2DA1111FCBABA50C4D47805CF5472793901C0E4A239795C7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/ynE8MG2eRuaVoJPQ_4AJqw/zh-cn_image_0000002661497527.png?HW-CC-KV=V1&HW-CC-Date=20260811T005833Z&HW-CC-Expire=86400&HW-CC-Sign=02FAAF9E22F2375AF3811699A46099FD22D09C02DA34E001AC447EEFA424E0DF)
 
 - 场景二：偏移量监听实现上滑唤醒按钮下滑隐藏按钮：
 ```json
@@ -210,7 +210,7 @@ struct Index {
   手指向上滑动同时内容向上，为上滑；手指向下滑动同时内容向下，为下滑。实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/jhU4EajNQ42Gj1kwdkgJTg/zh-cn_image_0000002631307298.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072342Z&HW-CC-Expire=86400&HW-CC-Sign=E6E7C293AA7CB6DD83E562D41E85D97B1737C66C8D9E719687C2423D116FA3B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/jhU4EajNQ42Gj1kwdkgJTg/zh-cn_image_0000002631307298.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005833Z&HW-CC-Expire=86400&HW-CC-Sign=47E1D08FC8B46CC4C879964022587AD11ECE1F061464427DBAA41DD6385444B8)
 
 
  

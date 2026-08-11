@@ -12,6 +12,6 @@
 
 #### 解决方案
 1. it中不能放driver = Driver.create()，原因是：在执行测试套时，会自动进行设备的连接，也就是设备已处于连接状态。如果再次在it中执行连接会抛出异常，所以建议放在beforeAll中。如果it继续使用Driver.create()初始化的对象，需要把“let driver: Driver”定义在测试套中：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/74CMGP1vQ46UZD5G_t4nyg/zh-cn_image_0000002658808883.png?HW-CC-KV=V1&HW-CC-Date=20260730T072723Z&HW-CC-Expire=86400&HW-CC-Sign=D42D6E514F33BBA7492F1B24A9877C521E2017339A30BE77E0FB0410092D9DF4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/74CMGP1vQ46UZD5G_t4nyg/zh-cn_image_0000002658808883.png?HW-CC-KV=V1&HW-CC-Date=20260811T005518Z&HW-CC-Expire=86400&HW-CC-Sign=DFCB8B483EFEE2E80C77B0F8CA57BD8382D5E918B4949AFBC5E76D29CE46CD83)
 
 2. 如果放在beforeAll中也报同样的错误，说明uitest进程已被占用，可以先kill掉uitest进程后再次尝试，具体操作步骤为：打开cmd，进入hdc shell模式，执行ps -ef |grep "uitest"命令查看被占用的进程号，然后执行“kill -9 进程号”。

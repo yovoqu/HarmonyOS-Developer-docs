@@ -52,18 +52,18 @@ CTR_DRBG（Counter-based Deterministic Random Bit Generator）是一种基于计
 
 - 针对安全要求不高的场景（如唯一标识的uuid字符串生成）可以借助工具包@ohos.util提供的随机数生成api。
 ```json
-import { util } from '@kit.ArkTS'
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">util </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkTS'</span>
 
-class ConstantUtils {
- <em> // 调用此函数会生成两个UUID，其中一个UUID进行缓存，一个UUID用于输出</em>
-<em>  // 首次调用时，参数是true或false无区别；下次调用时，如果参数是true，依旧缓存上次UUID，并生成新的UUID；如果参数是false，将生成两个UUID，其中一个UUID进行缓存，一个UUID进行输出</em>
-<em>  // 默认true</em>
-  uuid1: string = util.generateRandomUUID(false);
-  uuid2: string = util.generateRandomUUID(true);
-  <em>// </em><em>返回Uint8Array类型，参数同generateRandomUUID</em>
-  uuid3: Uint8Array = util.generateRandomBinaryUUID(true);
-  uuid4: string = JSON.stringify(util.generateRandomBinaryUUID(true));
-}
+class <span style="color: rgb(0,0,255);">ConstantUtils </span><span style="color: rgb(255,0,170);">{</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">调用此函数会生成两个</span><span style="color: rgb(128,128,128);">UUID</span><span style="color: rgb(128,128,128);">，其中一个</span><span style="color: rgb(128,128,128);">UUID</span><span style="color: rgb(128,128,128);">进行缓存，一个</span><span style="color: rgb(128,128,128);">UUID</span><span style="color: rgb(128,128,128);">用于输出</span></em>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">首次调用时，参数是</span><span style="color: rgb(128,128,128);">true</span><span style="color: rgb(128,128,128);">或</span><span style="color: rgb(128,128,128);">false</span><span style="color: rgb(128,128,128);">无区别；下次调用时，如果参数是</span><span style="color: rgb(128,128,128);">true</span><span style="color: rgb(128,128,128);">，依旧缓存上次</span><span style="color: rgb(128,128,128);">UUID</span><span style="color: rgb(128,128,128);">，并生成新的</span><span style="color: rgb(128,128,128);">UUID</span><span style="color: rgb(128,128,128);">；如果参数是</span><span style="color: rgb(128,128,128);">false</span><span style="color: rgb(128,128,128);">，将生成两个</span><span style="color: rgb(128,128,128);">UUID</span><span style="color: rgb(128,128,128);">，其中一个</span><span style="color: rgb(128,128,128);">UUID</span><span style="color: rgb(128,128,128);">进行缓存，一个</span><span style="color: rgb(128,128,128);">UUID</span><span style="color: rgb(128,128,128);">进行输出</span></em>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">默认</span><span style="color: rgb(128,128,128);">true</span></em>
+  <span style="color: rgb(0,0,255);">uuid1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateRandomUUID</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">uuid2</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateRandomUUID</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <em>// </em><em><span style="color: rgb(128,128,128);">返回</span><span style="color: rgb(128,128,128);">Uint8Array</span><span style="color: rgb(128,128,128);">类型，参数同</span><span style="color: rgb(128,128,128);">generateRandomUUID</span></em>
+  <span style="color: rgb(0,0,255);">uuid3</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateRandomBinaryUUID</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">uuid4</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateRandomBinaryUUID</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 
@@ -74,62 +74,62 @@ class ConstantUtils {
 
 3. 接受DataBlob数据，通过接口setSeed，为随机数生成池设置种子。
 ```text
-import cryptoFramework from '@ohos.security.cryptoFramework';
-import { BusinessError } from '@ohos.base';
+import <span style="color: rgb(0,0,255);">cryptoFramework </span>from <span style="color: rgb(255,0,170);">'@ohos.security.cryptoFramework'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@ohos.base'</span><span style="color: rgb(181,106,1);">;</span>
 
 <em>// Generate a random number in promise mode</em>
-function doRandByPromise() {
-  let rand = cryptoFramework.createRandom();
-  let len = 4; <em>// Generate a 4-byte random number</em>
-  let promiseGenerateRand = rand.generateRandom(len);
-  promiseGenerateRand.then(randData => {
-    console.info('[Promise]: rand result: ' + randData.data);
-    try {
-      rand.setSeed(randData);
-    } catch (error) {
-      let e: BusinessError = error as BusinessError;
-      console.error(`setSeed failed, ${e.code}, ${e.message}`);
-    }
-  }).catch((error: BusinessError) => {
-    console.error('[Promise]: error: ' + error.message);
-  });
-}
+function <span style="color: rgb(0,0,255);">doRandByPromise</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+  let <span style="color: rgb(0,0,255);">rand </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createRandom</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">len </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(181,106,1);">; </span><em>// Generate a 4-byte random number</em>
+  let <span style="color: rgb(0,0,255);">promiseGenerateRand </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">rand</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateRandom</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">len</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">promiseGenerateRand</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">randData </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'[Promise]: rand result: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">randData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    try <span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">rand</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setSeed</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">randData</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      let <span style="color: rgb(0,0,255);">e</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">error </span>as <span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`setSeed failed, </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'[Promise]: error: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
 <em>// Generate a random number in callback mode</em>
-function doRandByCallback() {
-  let rand = cryptoFramework.createRandom();
-  let len = 4; <em>// Generate a 4-byte random number</em>
-  rand.generateRandom(len, (err, randData) => {
-    if (err) {
-      console.error('[Callback]: err: ' + err.code);
-    } else {
-      console.info('[Callback]: generate random result: ' + randData.data);
-      try {
-        rand.setSeed(randData);
-      } catch (error) {
-        let e: BusinessError = error as BusinessError;
-        console.error(`setSeed failed, ${e.code}, ${e.message}`);
-      }
-    }
-  });
-}
+function <span style="color: rgb(0,0,255);">doRandByCallback</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+  let <span style="color: rgb(0,0,255);">rand </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createRandom</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">len </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(181,106,1);">; </span><em>// Generate a 4-byte random number</em>
+  <span style="color: rgb(0,0,255);">rand</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateRandom</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">len</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">randData</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'[Callback]: err: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'[Callback]: generate random result: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">randData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      try <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">rand</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setSeed</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">randData</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        let <span style="color: rgb(0,0,255);">e</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">error </span>as <span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`setSeed failed, </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span>
+<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
 <em>// Generate a random number synchronously</em>
-function doRandBySync() {
-  let rand = cryptoFramework.createRandom();
-  let len = 24;<em> </em><em>// Generate a 24-byte random number</em>
-  try {
-    let randData = rand.generateRandomSync(len);
-    if (randData != null) {
-      console.info('[Sync]: rand result: ' + randData.data);
-    } else {
-      console.error('[Sync]: get rand result fail!');
-    }
-  } catch (error) {
-    let e: BusinessError = error as BusinessError;
-    console.error(`do rand failed, ${e.code}, ${e.message}`);
-  }
-}
+function <span style="color: rgb(0,0,255);">doRandBySync</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+  let <span style="color: rgb(0,0,255);">rand </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createRandom</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">len </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">24</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// Generate a 24-byte random number</span></em>
+  try <span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">randData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">rand</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateRandomSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">len</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">randData </span><span style="color: rgb(181,106,1);">!= </span>null<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'[Sync]: rand result: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">randData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'[Sync]: get rand result fail!'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  } </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">e</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">error </span>as <span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`do rand failed, </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 
@@ -139,10 +139,10 @@ function doRandBySync() {
 该方法会同步生成指定长度的随机数，并返回一个DataBlob对象；返回的DataBlob对象中存储了生成的随机数，而DataBlob对象是一个字节数组，可以包含多个字节。当前随机数只能指定长度，无法指定范围，可以将得到的随机数自定义范围。
  
 ```text
-let rand = cryptoFramework.createRandom();
-<em>// </em><em>设置生成随机数的字节长度为1</em>
-let randData = rand.generateRandomSync(1);
-<em>// </em><em>自定义范围(0-10之内</em><em>)</em>
-let num: number = randData.data[0] * 10 / 255;
-console.info('随机数:' + num);
+let <span style="color: rgb(0,0,255);">rand </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createRandom</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+<em>// </em><em><span style="color: rgb(128,128,128);">设置生成随机数的字节长度为</span><span style="color: rgb(128,128,128);">1</span></em>
+let <span style="color: rgb(0,0,255);">randData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">rand</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateRandomSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<em>// </em><em><span style="color: rgb(128,128,128);">自定义范围</span><span style="color: rgb(128,128,128);">(0-10</span><span style="color: rgb(128,128,128);">之内</span></em><em>)</em>
+let <span style="color: rgb(0,0,255);">num</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">randData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">255</span><span style="color: rgb(181,106,1);">;</span>
+console.info<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">随机数</span><span style="color: rgb(255,0,170);">:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">num</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```

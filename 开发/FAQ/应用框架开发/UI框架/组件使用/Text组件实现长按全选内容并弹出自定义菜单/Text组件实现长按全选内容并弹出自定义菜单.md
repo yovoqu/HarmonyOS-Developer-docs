@@ -107,7 +107,7 @@ struct TextExample {
 运行效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/8HXqunwxT3SsNLDzm9PzcQ/zh-cn_image_0000002628407342.png?HW-CC-KV=V1&HW-CC-Date=20260730T072339Z&HW-CC-Expire=86400&HW-CC-Sign=EB2493508F86B00452B9073E38C2CE51B7FC59ADDFFB96E372A7E21E48F0B289)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/8HXqunwxT3SsNLDzm9PzcQ/zh-cn_image_0000002628407342.png?HW-CC-KV=V1&HW-CC-Date=20260811T005755Z&HW-CC-Expire=86400&HW-CC-Sign=DBD4F2708C9EF329F16CC7D23B6312F57196DB0C213A6AE61824887314F61288)
 
  
 

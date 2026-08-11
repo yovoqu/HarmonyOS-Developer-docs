@@ -9,7 +9,7 @@
 正常情况下Web组件通过url加载视频时，默认会提供一个下载按钮：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/ZqD8cGz2RsywPYUmWABMAg/zh-cn_image_0000002629059054.png?HW-CC-KV=V1&HW-CC-Date=20260730T072533Z&HW-CC-Expire=86400&HW-CC-Sign=B4ACB6F8FFE18F1BCEAD5FD8DA3CEEE20070201DE295EB099B63685B6FEECD10)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/ZqD8cGz2RsywPYUmWABMAg/zh-cn_image_0000002629059054.png?HW-CC-KV=V1&HW-CC-Date=20260811T005837Z&HW-CC-Expire=86400&HW-CC-Sign=326DA6ED8395DD6EC3034821DC24C4E5B7F7C84258DFA2EEED6A11D2FE8EC587)
 
  
 如上图所示。但是有些场景下并不希望视频被下载，如何实现隐藏下载按钮？

@@ -29,7 +29,7 @@
 在HarmonyOS开发中，系统和用户授权的权限需要开发者完成以下准备操作：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/D9d6VRvGRECTAdyFB7BZ8A/zh-cn_image_0000002678026887.png?HW-CC-KV=V1&HW-CC-Date=20260730T072659Z&HW-CC-Expire=86400&HW-CC-Sign=2BC732438BAC43E02E246578EC0872DD51D7805BECD022F95745D6D29E00EE50)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/D9d6VRvGRECTAdyFB7BZ8A/zh-cn_image_0000002678026887.png?HW-CC-KV=V1&HW-CC-Date=20260811T005616Z&HW-CC-Expire=86400&HW-CC-Sign=25E5DB7BED7D8A560DFDED13FB2679AC81F464A473A689F8F95DC94963266CB4)
 
  1. **权限声明**：开发者需在应用的配置文件[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中声明所需的系统授权权限。
 1. **隐私声明**：

@@ -13,7 +13,7 @@
 #### 背景知识
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/PbJ3bmnpRlenuyqsPy9KVA/zh-cn_image_0000002628409364.png?HW-CC-KV=V1&HW-CC-Date=20260730T072716Z&HW-CC-Expire=86400&HW-CC-Sign=EF2F3A88729EF59223A7B108D9B06070B77009C7D86093492A7659CD7B0C1E7B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/PbJ3bmnpRlenuyqsPy9KVA/zh-cn_image_0000002628409364.png?HW-CC-KV=V1&HW-CC-Date=20260811T005526Z&HW-CC-Expire=86400&HW-CC-Sign=B60B8AB4886E85DE275C6741A42E321A26DE7FE9C35BC6D768DF1C38EA7FB884)
 
  
 - [ets_frontend组件](https://gitcode.com/openharmony/arkcompiler_ets_frontend)是方舟运行时子系统的前端工具，结合[ace-ets2bundle组件](https://gitcode.com/openharmony/developtools_ace_ets2bundle/tree/master)，支持将ets文件转换为方舟字节码文件。使用ets_frontend组件下的es2abc可执行文件将JavaScript文件转换为方舟字节码文件。

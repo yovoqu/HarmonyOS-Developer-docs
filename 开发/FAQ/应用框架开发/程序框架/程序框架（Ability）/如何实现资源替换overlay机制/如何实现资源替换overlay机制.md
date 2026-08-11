@@ -1,6 +1,6 @@
 # 如何实现资源替换overlay机制
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-07-31 00:56:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-164
 
@@ -72,12 +72,12 @@ struct Index {
 }
 ```
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/-W2u7NBjTiuRuUpetMfciA/zh-cn_image_0000002658870847.png?HW-CC-KV=V1&HW-CC-Date=20260730T072310Z&HW-CC-Expire=86400&HW-CC-Sign=967892E806B1D3DBE24D0F99FB1C9F56A5D317D9EC14871ECE54EB29E6E73D52)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/haNcKTWPTiWUwRSbA6L5SQ/zh-cn_image_0000002658870847.png?HW-CC-KV=V1&HW-CC-Date=20260811T005857Z&HW-CC-Expire=86400&HW-CC-Sign=A1278E5393EC612C52B007034704668171D7C75F2420609F531658C5382FA3F7)
 
 
 3. 创建静态overlay资源包staticOverlay.hsp，Resource目录中也有“bg.png”文件，路径和entry相同：
-[使用DevEco Studio创建HSP模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hsp#section7717162312546)，和正常创建HSP步骤一致，不再赘述。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/e2T2ysWyTu2yoWMH4YK0pw/zh-cn_image_0000002628791472.png?HW-CC-KV=V1&HW-CC-Date=20260730T072310Z&HW-CC-Expire=86400&HW-CC-Sign=11A21D0B89F51E58EBEDC351CA48B6BDE85624642DAFB83DF063B40A32AEF819)
+[使用DevEco Studio创建HSP模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hsp#section79378499185)，和正常创建HSP步骤一致，不再赘述。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/0OUoNGF7TTqtjXSPBGuVuw/zh-cn_image_0000002628791472.png?HW-CC-KV=V1&HW-CC-Date=20260811T005857Z&HW-CC-Expire=86400&HW-CC-Sign=32FDAB9029E2254A18ECE81A25E660C57ADABF63AF31C14AA506E26AA0F214AC)
 
 
 4. staticOverlay.hsp中module.json5配置：targetModuleName和targetPriority标签需要单独设置。
@@ -109,13 +109,13 @@ struct Index {
 5. 编译静态overlay资源包staticOverlay.hsp：由于静态overlay需要替换实现主Entry包中的资源，所以需要注意的是，要在DevEco Studio上Run->Edit Configurations中选中entry包进行勾选“Deploy Multi Hap/Hsp Packages”选项，打包编译时会将静态资源包编译到应用HAP中：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/5uZEZOz2QmuW7bGADrYWxg/zh-cn_image_0000002658990787.png?HW-CC-KV=V1&HW-CC-Date=20260730T072310Z&HW-CC-Expire=86400&HW-CC-Sign=98C1C6EBE01F64C336960FFD2B582C8BE9D640A8B0312B91B1DA1835DAEF52E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/siQBV6GhR9KQMQkuZQOaRQ/zh-cn_image_0000002658990787.png?HW-CC-KV=V1&HW-CC-Date=20260811T005857Z&HW-CC-Expire=86400&HW-CC-Sign=11472F85B5213802FDAB7154773636192E67DCEC09CDE9D321E2D4B185E2F699)
 
 
   执行编译后，在静态资源包这里会看到编译生成了编译产物：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/iFf1imkYTMCiu47YmINL2w/zh-cn_image_0000002628631570.png?HW-CC-KV=V1&HW-CC-Date=20260730T072310Z&HW-CC-Expire=86400&HW-CC-Sign=65A3EAD313D06F5F3FFC9E0A4B30239D38AFD6A2E16587671464B2BEDA8EF295)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/OqwxWvVZSW2TMRuTBPitGA/zh-cn_image_0000002628631570.png?HW-CC-KV=V1&HW-CC-Date=20260811T005857Z&HW-CC-Expire=86400&HW-CC-Sign=21F6F4737DD227E6AD1CB1490122DC9EDB58B138A7DD51FDE84D2C3686F5B56D)
 
 
 6. 最终，应用安装后的效果为：
@@ -124,7 +124,7 @@ struct Index {
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/c30IytwuT22qtBM8mkEldw/zh-cn_image_0000002658870849.png?HW-CC-KV=V1&HW-CC-Date=20260730T072310Z&HW-CC-Expire=86400&HW-CC-Sign=C216119807A6D40162B2F2E451BAF8A283ED636D2047402E39F69E0AE056A154)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/C5PrS2SuTRiJcdGddo2UzA/zh-cn_image_0000002658870849.png?HW-CC-KV=V1&HW-CC-Date=20260811T005857Z&HW-CC-Expire=86400&HW-CC-Sign=C014EB47659F05F0E2AE68B7A5999C5EF4D594630A101E6F69958DE0E68BE7DC)
 
 - 利用动态overlay机制实现资源替换：1. 主应用Index页面中使用Resource目录下的“bg.png”文件:
 ```ArkTS
@@ -163,12 +163,12 @@ struct Index1 {
 }
 ```
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/_pHPye5jRxqwov6_oslYJQ/zh-cn_image_0000002628791474.png?HW-CC-KV=V1&HW-CC-Date=20260730T072310Z&HW-CC-Expire=86400&HW-CC-Sign=AFEB605B4B47FA031E59CCDD3678D81AECE39F55835827C1E3411B0CDA1E3823)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/s67RQYEMRL6wONzQ9QyJrQ/zh-cn_image_0000002628791474.png?HW-CC-KV=V1&HW-CC-Date=20260811T005857Z&HW-CC-Expire=86400&HW-CC-Sign=3A3313234C684D7A057288393183163374DBCA3871FDBAA9AEA6F1C37065C159)
 
 
 2. 创建动态overlay资源包dynamicOverlay.hsp，Resource目录中也有“bg.png”文件，路径和entry相同：
 使用DevEco Studio创建HSP，和正常创建HSP步骤一致，不再赘述。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/DnkwvWiuT36ZOm5q7YvfeA/zh-cn_image_0000002658990789.png?HW-CC-KV=V1&HW-CC-Date=20260730T072310Z&HW-CC-Expire=86400&HW-CC-Sign=6324DDF4B77C00E1A0DB2616F879E2E9D2B63EA24BFF00584B46C92FC3A32BAB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/Ue4DCM5-Ss-kXeFBI7T0Qg/zh-cn_image_0000002658990789.png?HW-CC-KV=V1&HW-CC-Date=20260811T005857Z&HW-CC-Expire=86400&HW-CC-Sign=764FC42F2767DDE12E42890B2A189C83AAB6CF3E16DC92266953B8DDA1003530)
 
 
 3. dynamicOverlay.hsp中module.json5配置：（动态overlay不需要配置targetModuleName和targetPriority标签）。
@@ -192,4 +192,4 @@ struct Index1 {
 4. 编译动态overlay资源包dynamicOverlay.hsp，和上述静态overlay资源包编译步骤一致，不再赘述。
 
 5. 应用安装后，点击图标运行效果预览：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/yKBNxOVFTzqMrkuwVnrndg/zh-cn_image_0000002628631572.png?HW-CC-KV=V1&HW-CC-Date=20260730T072310Z&HW-CC-Expire=86400&HW-CC-Sign=74D6586EC0838F8E605DADFA0242B2EA7BA8C329326AE314B19ADD55CD7DD8C2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/gF2EX7DNSf-l0knJ1cNqBA/zh-cn_image_0000002628631572.png?HW-CC-KV=V1&HW-CC-Date=20260811T005857Z&HW-CC-Expire=86400&HW-CC-Sign=FF99AE92348A2F262BAF734271C787E48E6D37D60B1BF417482DD4F7904926E8)

@@ -65,4 +65,4 @@ struct TextView {
 实现效果如下：增大Text文本，图片对应变大。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/T98JJAIsSe-NqXsXxVy14w/zh-cn_image_0000002628753944.png?HW-CC-KV=V1&HW-CC-Date=20260730T072501Z&HW-CC-Expire=86400&HW-CC-Sign=8C99FDACBF35B0D5E4D70F9144E7074ED3E0906ACB551AC4313C26EDC5AE1FAC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/T98JJAIsSe-NqXsXxVy14w/zh-cn_image_0000002628753944.png?HW-CC-KV=V1&HW-CC-Date=20260811T005642Z&HW-CC-Expire=86400&HW-CC-Sign=F5CCD92C527642EDA396C8133D681528606256EBB5CF5B65F4671D0F08A2A92E)

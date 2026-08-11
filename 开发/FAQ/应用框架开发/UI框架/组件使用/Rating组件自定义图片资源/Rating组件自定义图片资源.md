@@ -70,7 +70,7 @@ build-profile.json5文件中copyCodeResource的字段配置如下：
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/M_FSi7-YSqSeBLpwZQbjUA/zh-cn_image_0000002628617650.png?HW-CC-KV=V1&HW-CC-Date=20260730T072415Z&HW-CC-Expire=86400&HW-CC-Sign=AEFB0A340E3598D96B184BCDC360BB485BDFD985DEBE3005B642488460CB9204)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/M_FSi7-YSqSeBLpwZQbjUA/zh-cn_image_0000002628617650.png?HW-CC-KV=V1&HW-CC-Date=20260811T005748Z&HW-CC-Expire=86400&HW-CC-Sign=88EB648F9AB498A95AD30B290DCDF34FB26197449494EC7A1A2D6EE9FA3D9789)
 
  
  

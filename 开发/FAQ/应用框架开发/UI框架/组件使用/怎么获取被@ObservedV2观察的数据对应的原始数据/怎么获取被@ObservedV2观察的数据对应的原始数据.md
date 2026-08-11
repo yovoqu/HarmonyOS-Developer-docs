@@ -20,32 +20,32 @@
 
 可以用状态管理V2对象初始化一个同结构的[状态管理V1的@Observed装饰器和@ObjectLink装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)对象，然后用getTarget接口获取V1对象的原始数据，这样获取的数据结构和V2对象的原始结构相同。详细步骤如下：1. 定义结构相同的V1、V2对象：
 ```text
-@ObservedV2
-class FormDataClassV2 {
-  @Trace name: string = '';
-  @Trace price: number = 0;
-}
+<span style="color: rgb(181,106,1);">@ObservedV2</span>
+class <span style="color: rgb(0,0,255);">FormDataClassV2 </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">price</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Observed
-class FormDataClassV1 {
-  @Track name: string = '';
-  @Track price: number = 0;
+<span style="color: rgb(181,106,1);">@Observed</span>
+class <span style="color: rgb(0,0,255);">FormDataClassV1 </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@Track </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@Track </span><span style="color: rgb(0,0,255);">price</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  constructor(v: FormDataClassV2) {
-    this.name = v.name;
-    this.price = v.price;
-  }
-}
+  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FormDataClassV2</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">price </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">price</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 2. 用V2对象初始化V1对象：
 ```text
-let dataV1: FormDataClassV1 = new FormDataClassV1(this.dataV2); <em>// 用V2对象初始化V1对象</em>
+let <span style="color: rgb(0,0,255);">dataV1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FormDataClassV1 </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">FormDataClassV1</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dataV2</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">用</span><span style="color: rgb(128,128,128);">V2</span><span style="color: rgb(128,128,128);">对象初始化</span><span style="color: rgb(128,128,128);">V1</span><span style="color: rgb(128,128,128);">对象</span></em>
 ```
 
 3. 用getTarget接口获取原始数据：
 ```text
-let rawV1 = UIUtils.getTarget(dataV1); <em>// 用getTarget接口获取原始对象</em>
+let <span style="color: rgb(0,0,255);">rawV1 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">UIUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getTarget</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">dataV1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">用</span><span style="color: rgb(128,128,128);">getTarget</span><span style="color: rgb(128,128,128);">接口获取原始对象</span></em>
 ```
 
  
@@ -53,51 +53,51 @@ let rawV1 = UIUtils.getTarget(dataV1); <em>// 用getTarget接口获取原始对�
 完整示例参考如下：
  
 ```json
-import { UIUtils } from '@kit.ArkUI';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">UIUtils </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
 
-@ObservedV2
-class FormDataClassV2 {
-  @Trace name: string = '';
-  @Trace price: number = 0;
-}
+<span style="color: rgb(181,106,1);">@ObservedV2</span>
+class <span style="color: rgb(0,0,255);">FormDataClassV2 </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">price</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Observed
-class FormDataClassV1 {
-  @Track name: string = '';
-  @Track price: number = 0;
+<span style="color: rgb(181,106,1);">@Observed</span>
+class <span style="color: rgb(0,0,255);">FormDataClassV1 </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@Track </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@Track </span><span style="color: rgb(0,0,255);">price</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  constructor(v: FormDataClassV2) {
-    this.name = v.name;
-    this.price = v.price;
-  }
-}
+  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FormDataClassV2</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">price </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">price</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Entry
-@ComponentV2
-struct FormDataClassPage {
-  @Local message: string = 'Hello World';
-  @Local dataV2: FormDataClassV2 = new FormDataClassV2();
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@ComponentV2</span>
+struct <span style="color: rgb(0,0,255);">FormDataClassPage </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Hello World'</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(0,0,255);">dataV2</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FormDataClassV2 </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">FormDataClassV2</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    RelativeContainer() {
-      Text(this.message)
-        .id('HelloWorld')
-        .fontSize(50)
-        .fontWeight(FontWeight.Bold)
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
-        .onClick(() => {
-          let dataV1: FormDataClassV1 = new FormDataClassV1(this.dataV2); <em>// 用V2对象初始化V1对象</em>
-          let rawV1 = UIUtils.getTarget(dataV1); <em>// 用getTarget接口获取原始对象</em>
-          console.info(JSON.stringify(rawV1)); <em>// 此时打印的日志不带__ob_框架</em>
-        })
-    }
-    .height('100%')
-    .width('100%')
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'HelloWorld'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          let <span style="color: rgb(0,0,255);">dataV1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FormDataClassV1 </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">FormDataClassV1</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dataV2</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">用</span><span style="color: rgb(128,128,128);">V2</span><span style="color: rgb(128,128,128);">对象初始化</span><span style="color: rgb(128,128,128);">V1</span><span style="color: rgb(128,128,128);">对象</span></em>
+          let <span style="color: rgb(0,0,255);">rawV1 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">UIUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getTarget</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">dataV1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">用</span><span style="color: rgb(128,128,128);">getTarget</span><span style="color: rgb(128,128,128);">接口获取原始对象</span></em>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">rawV1</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">此时打印的日志不带</span><span style="color: rgb(128,128,128);">__ob_</span><span style="color: rgb(128,128,128);">框架</span></em>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
  

@@ -9,7 +9,7 @@
 使用readPixelsToBuffer将PixelMap转换成buffer后，再将buffer转回PixelMap时出现报错，报错和代码如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/AulJ0kxYQ_SmEotEovcaqg/zh-cn_image_0000002628392606.png?HW-CC-KV=V1&HW-CC-Date=20260730T072615Z&HW-CC-Expire=86400&HW-CC-Sign=6ABD016E2282F6E1702F1410F17A9100BF68589539E00A4E4B8604D9579FF41E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/AulJ0kxYQ_SmEotEovcaqg/zh-cn_image_0000002628392606.png?HW-CC-KV=V1&HW-CC-Date=20260811T005542Z&HW-CC-Expire=86400&HW-CC-Sign=269042E929A20ACC25C3DB462CCA63ADE9F73A0EF98E5A2C27CA5E53CAB79305)
 
  
 ```text

@@ -68,7 +68,7 @@ class Person {
 截图如下，渲染结果值依然为初始值，没有变化，点击change也没有变化。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/6HK55yvRS7yKdomD7z43Hg/zh-cn_image_0000002628777468.png?HW-CC-KV=V1&HW-CC-Date=20260730T072414Z&HW-CC-Expire=86400&HW-CC-Sign=382DA7CCEB45C7461C86A3E2944C4FAD15C41CABE63C13AE5DD74D5600B05369)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/6HK55yvRS7yKdomD7z43Hg/zh-cn_image_0000002628777468.png?HW-CC-KV=V1&HW-CC-Date=20260811T005826Z&HW-CC-Expire=86400&HW-CC-Sign=CA00EF2D5E498E82A7F2895169182407BBE8A8099599883A7C5A7519731D3CAE)
 
  
  

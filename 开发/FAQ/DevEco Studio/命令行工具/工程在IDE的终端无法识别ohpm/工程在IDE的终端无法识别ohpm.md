@@ -9,7 +9,7 @@
 工程在ide的终端无法识别ohpm，错误截图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/SMztTW0yS9SvmGwaLdKDWQ/zh-cn_image_0000002658928947.png?HW-CC-KV=V1&HW-CC-Date=20260730T072725Z&HW-CC-Expire=86400&HW-CC-Sign=AE0B6533F4D5A4E28F44BB5854B4CDF2BBC9B9D28F3BE8F48615362C1E36F392)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/SMztTW0yS9SvmGwaLdKDWQ/zh-cn_image_0000002658928947.png?HW-CC-KV=V1&HW-CC-Date=20260811T005515Z&HW-CC-Expire=86400&HW-CC-Sign=52F3528C0E007720015746ED9FE3FCA3B641E0661B13958F8A6748F51F09577D)
 
  
  
@@ -38,10 +38,10 @@
 #### 修改建议
 1. 在电脑中找到DevEco Studio的ohpm存放地址路径下的bin目录，例如：D:\DevEco Studio\tools\ohpm\bin。
 2. 配置环境变量，根据ohpm存放地址路径，在Path中添加bin目录。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/FPIFU3GDQtG_dVvwJSLT3g/zh-cn_image_0000002658808991.png?HW-CC-KV=V1&HW-CC-Date=20260730T072725Z&HW-CC-Expire=86400&HW-CC-Sign=3B1AA87735C4DF9C9EFEEF237E07BF1212095846631381264276A0F011FCAD17)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/FPIFU3GDQtG_dVvwJSLT3g/zh-cn_image_0000002658808991.png?HW-CC-KV=V1&HW-CC-Date=20260811T005515Z&HW-CC-Expire=86400&HW-CC-Sign=52500EFA86C758B99904431222BB1F2ACD58254B2BD37F0D6F4209A2F8E0AA3C)
 
 3. 重启DevEco Studio，在终端中输入ohpm -v查看版本号，是否能够识别。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/woRmviVoQ_ukDswAF1ho9w/zh-cn_image_0000002628409726.png?HW-CC-KV=V1&HW-CC-Date=20260730T072725Z&HW-CC-Expire=86400&HW-CC-Sign=B2F0244E0D555E10B8571B23B1F051985A1AD6C2B9B700F11AE283F177146069)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/woRmviVoQ_ukDswAF1ho9w/zh-cn_image_0000002628409726.png?HW-CC-KV=V1&HW-CC-Date=20260811T005515Z&HW-CC-Expire=86400&HW-CC-Sign=FCA1339D6BF164AB8A25300AA638E7E48D25D39A1FAE11FBF484BA99C02BC65D)
 
  
  
@@ -51,7 +51,7 @@
 Q：配置ohpm的环境变量提示路径太长如何解决？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/-NDuQWoHQzqF2UdDLrPyzw/zh-cn_image_0000002628569628.png?HW-CC-KV=V1&HW-CC-Date=20260730T072725Z&HW-CC-Expire=86400&HW-CC-Sign=B7E78A5F703720BCF94C572C1577414AC865935BB009C6FB6EB0EC5D5D0B867D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/-NDuQWoHQzqF2UdDLrPyzw/zh-cn_image_0000002628569628.png?HW-CC-KV=V1&HW-CC-Date=20260811T005515Z&HW-CC-Expire=86400&HW-CC-Sign=F585CDA3F7C7D2A0186F72E9F80DEB1F5DA4A55955B924E6674A243CC2596CBD)
 
  
 

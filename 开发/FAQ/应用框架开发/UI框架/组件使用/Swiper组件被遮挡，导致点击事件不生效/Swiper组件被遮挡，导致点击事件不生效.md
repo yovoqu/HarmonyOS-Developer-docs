@@ -74,7 +74,7 @@ struct Index {
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/z08QF2cJQriOjSuG0_4TVw/zh-cn_image_0000002658958241.png?HW-CC-KV=V1&HW-CC-Date=20260730T072352Z&HW-CC-Expire=86400&HW-CC-Sign=9D3891CB763DE0DCBC74FF761D803F665158D3BBE3350B944066E13F3B1FCB7E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/z08QF2cJQriOjSuG0_4TVw/zh-cn_image_0000002658958241.png?HW-CC-KV=V1&HW-CC-Date=20260811T005752Z&HW-CC-Expire=86400&HW-CC-Sign=2EBE618C3728F27A08F0C1305489EFF91145178A8B12E4B26E42E249A8076F03)
 
  
  
@@ -183,7 +183,7 @@ struct Index {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/x6q9crcgQJir_eQKklZJDw/zh-cn_image_0000002658838293.png?HW-CC-KV=V1&HW-CC-Date=20260730T072352Z&HW-CC-Expire=86400&HW-CC-Sign=2948D050AC185AD968005AD08058E27E8F8C362F4E9B830B65473C8381B7A213)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/x6q9crcgQJir_eQKklZJDw/zh-cn_image_0000002658838293.png?HW-CC-KV=V1&HW-CC-Date=20260811T005752Z&HW-CC-Expire=86400&HW-CC-Sign=57901A9DC105B1A226965BD217464D7CC29C275A6A7273F9D488D2F7CD557E14)
 
 - **方案二**：调整页面UI布局，使得Swiper组件上方无任何组件遮挡。
 ```text
@@ -267,4 +267,4 @@ struct Index {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/Ns-loMxtTHuOfo91UCnLNQ/zh-cn_image_0000002628599024.png?HW-CC-KV=V1&HW-CC-Date=20260730T072352Z&HW-CC-Expire=86400&HW-CC-Sign=D2DD8165E85D6399B08A96257887A58114A24EEAD8C3C5E0DDAD53D230299F7E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/Ns-loMxtTHuOfo91UCnLNQ/zh-cn_image_0000002628599024.png?HW-CC-KV=V1&HW-CC-Date=20260811T005752Z&HW-CC-Expire=86400&HW-CC-Sign=61E6081ADB2B18A59EEE06B0C596D5223ECDAF9A73DEDAA23AB57EE1F793612C)

@@ -11,23 +11,23 @@ inputAttribute属性用于设置enter键的功能类型，enterKeyType:5表示"�
 问题代码示例参考如下：
  
 ```text
-onFocus(() => {
-  let textConfig: inputMethod.TextConfig = {
-    inputAttribute: {
-      textInputType: 0,
-      enterKeyType: 5
-    }
-  };
-  let inputMethodController = inputMethod.getController()
-  inputMethodController.attach(true, textConfig, () => {
-  });
-})
+<span style="color: rgb(0,0,255);">onFocus</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  let <span style="color: rgb(0,0,255);">textConfig</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">inputMethod</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TextConfig </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">inputAttribute</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">textInputType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">enterKeyType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">inputMethodController </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">inputMethod</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getController</span><span style="color: rgb(0,0,255);">()</span>
+  <span style="color: rgb(0,0,255);">inputMethodController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">attach</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">textConfig</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
 ```
  
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/fT21AMxITBWIHP2sOIpAaw/zh-cn_image_0000002658916947.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072329Z&HW-CC-Expire=86400&HW-CC-Sign=4CD06171ECC3C1BC1CD8D41790F0DD221E3AF57F35DB9806DC53806B41B2ADF2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/fT21AMxITBWIHP2sOIpAaw/zh-cn_image_0000002658916947.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005756Z&HW-CC-Expire=86400&HW-CC-Sign=E6C7FBAAFA02396E5BC0913604EAE5ED3AC4C8B618D952CF407F9E5681B3A354)
 
  
  
@@ -35,7 +35,7 @@ onFocus(() => {
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/_TRTnWHNTN-bvrgtezPGmg/zh-cn_image_0000002628397738.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072329Z&HW-CC-Expire=86400&HW-CC-Sign=EF2B67F440DC8D6DB9706AA03DC1A63B49C802E932F3984D4850D51EDB245272)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/_TRTnWHNTN-bvrgtezPGmg/zh-cn_image_0000002628397738.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005756Z&HW-CC-Expire=86400&HW-CC-Sign=F69F92B86D26523CFCE38A0C3CFEF247800B2C3F051E212B9C1F3C7EB4186890)
 
  
  
@@ -53,30 +53,30 @@ onFocus(() => {
 使用updateAttribute方法设置inputAttribute属性。
  
 ```text
-import { inputMethod } from '@kit.IMEKit';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">inputMethod </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.IMEKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct CustomPopup {
-  @State message: string = '';
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">CustomPopup </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      TextInput({ text: this.message, placeholder: '请输入正确内容' })
-        .onChange((value: string) => {
-          this.message = value;
-        })
-        .focusable(true)
-        .margin({ top: 100, left: 10, right: 10 })
-        .onFocus(() => {
-          let inputAttribute: inputMethod.InputAttribute = { textInputType: 0, enterKeyType: 5 };
-          let inputMethodController = inputMethod.getController();
-          inputMethodController.updateAttribute(inputAttribute, () => {
-          });
-        });
-    }
-    .width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">TextInput</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">placeholder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">请输入正确内容</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">focusable</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onFocus</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          let <span style="color: rgb(0,0,255);">inputAttribute</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">inputMethod</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">InputAttribute </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">textInputType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">enterKeyType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+          let <span style="color: rgb(0,0,255);">inputMethodController </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">inputMethod</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(0,0,255);">inputMethodController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">updateAttribute</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">inputAttribute</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

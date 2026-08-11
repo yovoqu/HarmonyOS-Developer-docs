@@ -19,89 +19,89 @@ RGB和HSB（有时也称为HSV）是两种不同的颜色模型，它们分别�
 #### 解决方案
 1. 可通过如下工具方法将RGB转换成HSB模型。
 ```text
-interface ColorHsv {
-  h: number;
-  s: number;
-  v: number;
-}
+interface <span style="color: rgb(0,0,255);">ColorHsv </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">h</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">s</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-<em>// RGB</em><em>模型转HSV模型</em>
-function rgb2hsv(r: number, g: number, b: number): ColorHsv {
-  r = r / 255.0;
-  g = g / 255.0;
-  b = b / 255.0;
-  let max: number = Math.max(r, g, b);
-  let min: number = Math.min(r, g, b);
-  let delta: number = max - min;
+<em>// RGB</em><em><span style="color: rgb(128,128,128);">模型转</span><span style="color: rgb(128,128,128);">HSV</span><span style="color: rgb(128,128,128);">模型</span></em>
+function <span style="color: rgb(0,0,255);">rgb2hsv</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">r</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">g</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">b</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ColorHsv </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">255.0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">g </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">g </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">255.0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">b </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">b </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">255.0</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">max</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">max</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">r</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">g</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">b</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">min</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">min</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">r</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">g</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">b</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">delta</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">max </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">min</span><span style="color: rgb(181,106,1);">;</span>
 
-  let h = 0, s = 0, v = 0;
-  if (max == min) {
-    h = 0;
-  } else if (max == r) {
-    h = (g >= b ? ((g - b) / delta) * 60 : ((g - b) / delta) * 60 + 360);
-  } else if (max == g) {
-    h = ((b - r) / delta) * 60 + 120;
-  } else if (max == b) {
-    h = ((r - g) / delta) * 60 + 240;
-  }
+  let <span style="color: rgb(0,0,255);">h </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">s </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">v </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">max </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(0,0,255);">min</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">h </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">} </span>else if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">max </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(0,0,255);">r</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">h </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">g </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">b </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">g </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">b</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(0,0,255);">delta</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">60 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">g </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">b</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(0,0,255);">delta</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">60 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">360</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">} </span>else if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">max </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(0,0,255);">g</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">h </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">b </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">r</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(0,0,255);">delta</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">60 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">120</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">} </span>else if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">max </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(0,0,255);">b</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">h </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">g</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(0,0,255);">delta</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">60 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">240</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  s = (max == 0 ? 0 : delta / max);
-  v = max;
-  return { h: h, s: s, v: v };
-}
+  <span style="color: rgb(0,0,255);">s </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">max </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">delta </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(0,0,255);">max</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">v </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">max</span><span style="color: rgb(181,106,1);">;</span>
+  return <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">h</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">h</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">s</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">s</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">v </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 2. 通过如下工具方法将HSB转成RGB模型。
 ```text
-interface ColorRgb {
-  r: number;
-  g: number;
-  b: number;
-}
+interface <span style="color: rgb(0,0,255);">ColorRgb </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">r</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">g</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">b</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-<em>// HSV</em><em>模型转RGB模型</em>
-function hsv2rgb(h: number, s: number, v: number): ColorRgb {
-  let r: number = 0, g: number = 0, b: number = 0;
-  let i = Math.floor(h / 60);
-  let f = h / 60 - i;
-  let p = v * (1 - s);
-  let q = v * (1 - f * s);
-  let t = v * (1 - (1 - f) * s);
-  switch (i % 6) {
-    case 0:
-      r = v;
-      g = t;
-      b = p;
-      break;
-    case 1:
-      r = q;
-      g = v;
-      b = p;
-      break;
-    case 2:
-      r = p;
-      g = v;
-      b = t;
-      break;
-    case 3:
-      r = p;
-      g = q;
-      b = v;
-      break;
-    case 4:
-      r = t;
-      g = p;
-      b = v;
-      break;
-    case 5:
-      r = v;
-      g = p;
-      b = q;
-      break;
-  }
-  r = Math.round(r * 255);
-  g = Math.round(g * 255);
-  b = Math.round(b * 255);
-  return { r: r, g: g, b: b };
-}
+<em>// HSV</em><em><span style="color: rgb(128,128,128);">模型转</span><span style="color: rgb(128,128,128);">RGB</span><span style="color: rgb(128,128,128);">模型</span></em>
+function <span style="color: rgb(0,0,255);">hsv2rgb</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">h</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">s</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ColorRgb </span><span style="color: rgb(255,0,170);">{</span>
+  let <span style="color: rgb(0,0,255);">r</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">g</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">b</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">floor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">h </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">60</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">f </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">h </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(255,0,0);">60 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">p </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">v </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">s</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">q </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">v </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">f </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">s</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">t </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">v </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">f</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">s</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  switch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">% </span><span style="color: rgb(255,0,0);">6</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    case <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">:</span>
+      <span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">g </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">t</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">b </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">p</span><span style="color: rgb(181,106,1);">;</span>
+      break<span style="color: rgb(181,106,1);">;</span>
+    case <span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">:</span>
+      <span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">q</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">g </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">b </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">p</span><span style="color: rgb(181,106,1);">;</span>
+      break<span style="color: rgb(181,106,1);">;</span>
+    case <span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">:</span>
+      <span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">p</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">g </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">b </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">t</span><span style="color: rgb(181,106,1);">;</span>
+      break<span style="color: rgb(181,106,1);">;</span>
+    case <span style="color: rgb(255,0,0);">3</span><span style="color: rgb(181,106,1);">:</span>
+      <span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">p</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">g </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">q</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">b </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">;</span>
+      break<span style="color: rgb(181,106,1);">;</span>
+    case <span style="color: rgb(255,0,0);">4</span><span style="color: rgb(181,106,1);">:</span>
+      <span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">t</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">g </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">p</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">b </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">;</span>
+      break<span style="color: rgb(181,106,1);">;</span>
+    case <span style="color: rgb(255,0,0);">5</span><span style="color: rgb(181,106,1);">:</span>
+      <span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">v</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">g </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">p</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">b </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">q</span><span style="color: rgb(181,106,1);">;</span>
+      break<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+  <span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">round</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">255</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">g </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">round</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">g </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">255</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">b </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">round</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">b </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">255</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  return <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">r</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">r</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">g</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">g</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">b</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">b </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

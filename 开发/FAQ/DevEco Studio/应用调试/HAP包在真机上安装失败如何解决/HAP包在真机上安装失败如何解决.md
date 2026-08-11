@@ -15,7 +15,7 @@
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/iTdWl79-TTm6Eoxn9vSk-Q/zh-cn_image_0000002628569312.png?HW-CC-KV=V1&HW-CC-Date=20260730T072718Z&HW-CC-Expire=86400&HW-CC-Sign=1007813EB1371B926BFE7C79E3C99C506DD8CF52D28BF4DD78C2CDA0BEF4FD87)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/iTdWl79-TTm6Eoxn9vSk-Q/zh-cn_image_0000002628569312.png?HW-CC-KV=V1&HW-CC-Date=20260811T005519Z&HW-CC-Expire=86400&HW-CC-Sign=54122C8268BA795A03D5A4FD47D9213483026165ADC86F49CBE6B0668CF34567)
 
 
  
@@ -24,9 +24,9 @@
 
   先安装老包，修改build-profile.json5中的API版本后，再安装新包，报错如下:
 ```text
-Install Failed: error: failed to install bundle.
-code:9568283
-error: install releaseType compatible not same.
+<span style="color: rgb(0,0,255);">Install </span><span style="color: rgb(181,106,1);">Failed</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">failed to install bundle</span><span style="color: rgb(181,106,1);">.</span>
+<span style="color: rgb(0,0,255);">code</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">9568283</span>
+<span style="color: rgb(181,106,1);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">install releaseType compatible not same</span><span style="color: rgb(181,106,1);">.</span>
 ```
 
 

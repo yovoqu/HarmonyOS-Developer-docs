@@ -8,15 +8,15 @@
 
 - 场景一：应用运行，执行到import (harName)时报错：提示错误如下：
 ```text
-initRemoteConfig err: ReferenceError: Cannot find module '@test/remoteconfig' imported from 'com.example.testsample/entry@testCore/ets/com/solar/engine/remoteconfig/testBridge'.
+initRemoteConfig err: ReferenceError: Cannot find module '@test/remoteconfig' imported from 'com.example.testsample/entry@testCore/ets/com/solar/engine/remoteconfig/testBridge'<span style="color: rgb(0,0,255);">.</span>
 ```
 
 - 场景二：引入har包，编译报错，报错内容如下：
 ```text
 > hvigor ERROR: Failed :entry:default@CompileArkTS...
 > hvigor ERROR: Cannot read properties of undefined (reading 'split')
-1 ERROR: 10311002 ArkTS: ERROR
-ERROR: ArkTS:ERROR Failed to resolve OhmUrl.Error Message: Failed to get a resolved OhmUrl for ${filePath} imported by ${importerFile}.
+<span style="color: rgb(0,0,255);">1 </span>ERROR: <span style="color: rgb(0,0,255);">10311002 </span>ArkTS: ERROR
+ERROR: ArkTS:ERROR Failed to resolve OhmUrl.Error Message: Failed to get a resolved OhmUrl for ${filePath} imported by ${importerFile}<span style="color: rgb(0,0,255);">.</span>
 ```
 
 - 场景三：有如下编译报错：
@@ -30,15 +30,15 @@ There are some dependency names that are inconsistent with the actual package na
 
 - 场景四：执行flutter build hap指令编译，报错缺少对应har包。
 ```text
-[+2714 ms] Exitcode 1 from: ohpm install --all
-[        ] ohpm INFO: MetaDataFetcher fetching meta info of package '@tencent/mmkv' from https://ohpm.openharmony.cn/ohpm/
-          ohpm INFO: MetaDataFetcher fetching meta info of package '@ohos/hypiu' from https://ohpm.openharmony.cn/ohpm/
+[+<span style="color: rgb(0,0,255);">2714 </span>ms] Exitcode <span style="color: rgb(0,0,255);">1 </span>from: ohpm install --all
+[        ] ohpm INFO: MetaDataFetcher fetching meta info of package '@tencent/mmkv' from https:<span style="color: rgb(128,128,128);">//ohpm.openharmony.cn/ohpm/</span>
+          ohpm INFO: MetaDataFetcher fetching meta info of package '@ohos/hypiu' from https:<span style="color: rgb(128,128,128);">//ohpm.openharmony.cn/ohpm/</span>
           ohpm ERROR: Run install command failed
           Error: XXXXXXXX Fetch Local Package Failed
           Error Message: Fetch local file package error,
           /Users/XXX/XXX/XXX/ohos/har/screen_retriever.har does not exist.
-[   +1 ms] "flutter hap" took 14,528ms.
-[   +2 ms] Oops; flutter has exited unexpectedly: "ProcessException: The command failed with exit code 1
+[   +<span style="color: rgb(0,0,255);">1 </span>ms] "flutter hap" took <span style="color: rgb(0,0,255);">14</span>,<span style="color: rgb(0,0,255);">528ms</span>.
+[   +<span style="color: rgb(0,0,255);">2 </span>ms] Oops; flutter has exited unexpectedly: "ProcessException: The command failed with exit code 1
             Command: ohpm install --all".
 ```
 
@@ -61,12 +61,12 @@ There are some dependency names that are inconsistent with the actual package na
 
   
 ```text
-let harName = '@test/remoteconfig';
-import (harName).then((ns:ESObject) => {
-  ns.startWithConfig(context,rcConfig,logLevel);
-}).catch((error:Error) =>{
-  LogUtil.error(TAG, "initRemoteConfig err: " + error);
-});
+let <span style="color: rgb(0,0,255);">harName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'@test/remoteconfig'</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">import </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">harName</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">ns</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(0,0,255);">ESObject</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">ns</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startWithConfig</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(0,0,255);">rcConfig</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(0,0,255);">logLevel</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(0,0,255);">Error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">LogUtil</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"initRemoteConfig err: " </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
  排查build-profile.json5文件，没有发现runtimeOnly配置。根据ReferenceError: Cannot find module关键日志，可确认问题根因是引用错误，无法找到模块。
 - 场景二：分析编译日志，有关键错误码10311002或关键日志Failed to get a resolved OhmUrl for ${filePath} imported by ${importerFile}，可确认问题根因是无法获取解析后的OhmUrl。

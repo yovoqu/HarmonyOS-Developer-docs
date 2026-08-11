@@ -11,60 +11,60 @@
 问题代码示例参考如下：
  
 ```text
-import { cryptoFramework } from '@kit.CryptoArchitectureKit';
-import { buffer, util } from '@kit.ArkTS';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">cryptoFramework </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.CryptoArchitectureKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">util </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
 
-async function aesEncryptString(data: string): Promise<string> {
-  let symKey = await genSymKeyByData(new Uint8Array(buffer.from('aeskey0123456789', 'utf-8').buffer));
-  let plainText: cryptoFramework.DataBlob = {
-    data: new Uint8Array(buffer.from(data, 'utf-8').buffer)
-  };
-  let encryptText = await encryptMessagePromise(symKey, plainText);
-  return new util.Base64Helper().encodeToString(encryptText.data)
-}
+async function <span style="color: rgb(0,0,255);">aesEncryptString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  let <span style="color: rgb(0,0,255);">symKey </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">genSymKeyByData</span><span style="color: rgb(0,0,255);">(</span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'aeskey0123456789'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataBlob </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">encryptText </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">encryptMessagePromise</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  return new <span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encodeToString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">encryptText</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-async function aesDecryptString(data: string): Promise<string> {
-  let symKey = await genSymKeyByData(new Uint8Array(buffer.from('aeskey0123456789', 'utf-8').buffer))
-  let plainText: cryptoFramework.DataBlob = {
-    data: new Uint8Array(buffer.from(data, 'utf-8').buffer)
-  };
-  let decryptText = await decryptMessagePromise(symKey, plainText)
-  return new util.Base64Helper().encodeToString(decryptText.data)
-}
+async function <span style="color: rgb(0,0,255);">aesDecryptString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  let <span style="color: rgb(0,0,255);">symKey </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">genSymKeyByData</span><span style="color: rgb(0,0,255);">(</span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'aeskey0123456789'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">))</span>
+  let <span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataBlob </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">decryptText </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">decryptMessagePromise</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(0,0,255);">)</span>
+  return new <span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encodeToString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">decryptText</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-<em>// </em><em>加密方法</em>
-async function encryptMessagePromise(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob) {
-  let cipher = cryptoFramework.createCipher('AES128|CBC|PKCS7');
-  let iv = genIvParamsSpec();
-  await cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, iv);
-  let cipherData = await cipher.doFinal(plainText);
-  return cipherData;
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">加密方法</span></em>
+async function <span style="color: rgb(0,0,255);">encryptMessagePromise</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SymKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataBlob</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+  let <span style="color: rgb(0,0,255);">cipher </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createCipher</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'AES128|CBC|PKCS7'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">iv </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">genIvParamsSpec</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  await <span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">init</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CryptoMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ENCRYPT_MODE</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">cipherData </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doFinal</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  return <span style="color: rgb(0,0,255);">cipherData</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-<em>// </em><em>解密方法</em>
-async function decryptMessagePromise(symKey: cryptoFramework.SymKey, cipherText: cryptoFramework.DataBlob) {
-  let decoder = cryptoFramework.createCipher('AES128|CBC|PKCS7');
-  let iv = genIvParamsSpec();
-  await decoder.init(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, iv);
-  let decryptData = await decoder.doFinal(cipherText);
-  return decryptData;
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">解密方法</span></em>
+async function <span style="color: rgb(0,0,255);">decryptMessagePromise</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SymKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">cipherText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataBlob</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+  let <span style="color: rgb(0,0,255);">decoder </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createCipher</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'AES128|CBC|PKCS7'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">iv </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">genIvParamsSpec</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  await <span style="color: rgb(0,0,255);">decoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">init</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CryptoMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DECRYPT_MODE</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">decryptData </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">decoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doFinal</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cipherText</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  return <span style="color: rgb(0,0,255);">decryptData</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-function genIvParamsSpec() {
-  let ivBlob: cryptoFramework.DataBlob = { data: new Uint8Array(buffer.from('0123456789101112', 'utf-8').buffer) };
-  let ivParamsSpec: cryptoFramework.IvParamsSpec = {
-    algName: 'IvParamsSpec',
-    iv: ivBlob
-  };
-  return ivParamsSpec;
-}
+function <span style="color: rgb(0,0,255);">genIvParamsSpec</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+  let <span style="color: rgb(0,0,255);">ivBlob</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataBlob </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'0123456789101112'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">ivParamsSpec</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">IvParamsSpec </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">algName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'IvParamsSpec'</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ivBlob</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  return <span style="color: rgb(0,0,255);">ivParamsSpec</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-async function genSymKeyByData(symKeyData: Uint8Array) {
-  let symKeyBlob: cryptoFramework.DataBlob = { data: symKeyData };
-  let aesGenerator = cryptoFramework.createSymKeyGenerator('AES128');
-  let symKey = await aesGenerator.convertKey(symKeyBlob);
-  return symKey
-}
+async function <span style="color: rgb(0,0,255);">genSymKeyByData</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKeyData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+  let <span style="color: rgb(0,0,255);">symKeyBlob</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataBlob </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">symKeyData </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">aesGenerator </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createSymKeyGenerator</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'AES128'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">symKey </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">aesGenerator</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">convertKey</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKeyBlob</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  return <span style="color: rgb(0,0,255);">symKey</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
  
@@ -89,28 +89,28 @@ AES加解密算法是一种常见的对称加解密算法。
 #### 问题定位
 1. 由于AES算法解密失败，对AES算法解密方法进行error信息打印，获取error信息。
 ```text
-aesDecryptString(encryptString).then((data) => {
-  console.info(`test string = ${data}`)
-}).catch((error: BusinessError) => {
-  console.error(`DecryptString failed, error code: ${error.code}, error message: ${error.message}`);
-})
+<span style="color: rgb(0,0,255);">aesDecryptString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">encryptString</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`test string = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`DecryptString failed, error code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, error message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
 ```
 
 2. 获取到错误码[17630001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework#section17630001-算法相关的操作错误调用三方算法库api出错)，查询错误码信息可以分析得出输入参数错误。
 ```text
-DecryptString failed, error code: 17630001, error message: doFinal failed.
+<span style="color: rgb(0,0,255);">DecryptString failed</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">error </span><span style="color: rgb(181,106,1);">code</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">17630001</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">error </span><span style="color: rgb(181,106,1);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">doFinal failed</span><span style="color: rgb(181,106,1);">.</span>
 ```
 
 3. 进一步确认AES解密算法的规格、模式、填充方式、密钥及iv值都正确，可判断出待解密的密文参数错误，打印加密后的密文数据。
 ```text
-aesEncryptString('This is a test').then((data) => {
-  encryptString = data;
-  console.info(`encryptString = ${encryptString}`)
-})
+<span style="color: rgb(0,0,255);">aesEncryptString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'This is a test'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">encryptString </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`encryptString = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">encryptString</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
 ```
  
 ```text
-aqHCyoI0dFwQ873GtpLSpw==
+<span style="color: rgb(0,0,255);">aqHCyoI0dFwQ873GtpLSpw</span><span style="color: rgb(181,106,1);">==</span>
 ```
 
 4. 根据加密方法及加密结果可以确认密文为Base64编码格式数据，而在解密方法中直接将Base64编码格式数据转换为Uint8Array格式数据，导致获取的是对应普通字符串的Uint8Array格式数据，未成功获取到密文数据。
@@ -128,137 +128,137 @@ aqHCyoI0dFwQ873GtpLSpw==
 在解密时，先对密文数据进行解码，然后对解码后的密文数据进行解密。
  
 ```text
-async aesDecryptString(data: string): Promise<string> {
-  let symKey = await this.genSymKeyByData(new Uint8Array(buffer.from('aeskey0123456789', 'utf-8').buffer));
-  let uint8ArrayDecryptString = new util.Base64Helper().decodeSync(data);
-  let plainText: cryptoFramework.DataBlob = {
-    data: uint8ArrayDecryptString
-  };
-  let decryptText = await this.decryptMessagePromise(symKey, plainText);
-  return new util.Base64Helper().encodeToString(decryptText.data);
-}
+<span style="color: rgb(0,0,255);">async </span><span style="color: rgb(0,0,255);">aesDecryptString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">let symKey </span><span style="color: rgb(181,106,1);">= </span>await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">genSymKeyByData</span><span style="color: rgb(0,0,255);">(</span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'aeskey0123456789'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">let uint8ArrayDecryptString </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decodeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">let plainText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataBlob </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">uint8ArrayDecryptString</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">let decryptText </span><span style="color: rgb(181,106,1);">= </span>await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decryptMessagePromise</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">return new util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encodeToString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">decryptText</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
 完整示例及运行结果参考如下：
  
 ```text
-import { cryptoFramework } from '@kit.CryptoArchitectureKit';
-import { buffer, util } from '@kit.ArkTS';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { hilog } from '@kit.PerformanceAnalysisKit';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">cryptoFramework </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.CryptoArchitectureKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">util </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">hilog </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.PerformanceAnalysisKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct AESalgorithm {
-  @State encryptString: string = '';
-  @State base64String: string = '';
-  @State string: string = '';
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">AESalgorithm </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">encryptString</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">base64String</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
 
-  async aesEncryptString(data: string): Promise<string> {
-    let symKey = await this.genSymKeyByData(new Uint8Array(buffer.from('aeskey0123456789', 'utf-8').buffer));
-    let plainText: cryptoFramework.DataBlob = {
-      data: new Uint8Array(buffer.from(data, 'utf-8').buffer)
-    };
-    let encryptText = await this.encryptMessagePromise(symKey, plainText);
-    return new util.Base64Helper().encodeToString(encryptText.data);
-  }
+  async <span style="color: rgb(0,0,255);">aesEncryptString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">symKey </span><span style="color: rgb(181,106,1);">= </span>await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">genSymKeyByData</span><span style="color: rgb(0,0,255);">(</span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'aeskey0123456789'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataBlob </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">encryptText </span><span style="color: rgb(181,106,1);">= </span>await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encryptMessagePromise</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return new <span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encodeToString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">encryptText</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  async aesDecryptString(data: string): Promise<string> {
-    let symKey = await this.genSymKeyByData(new Uint8Array(buffer.from('aeskey0123456789', 'utf-8').buffer));
-    let uint8ArrayDecryptString = new util.Base64Helper().decodeSync(data);
-    let plainText: cryptoFramework.DataBlob = {
-      data: uint8ArrayDecryptString
-    };
-    let decryptText = await this.decryptMessagePromise(symKey, plainText);
-    return new util.Base64Helper().encodeToString(decryptText.data);
-  }
+  async <span style="color: rgb(0,0,255);">aesDecryptString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">symKey </span><span style="color: rgb(181,106,1);">= </span>await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">genSymKeyByData</span><span style="color: rgb(0,0,255);">(</span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'aeskey0123456789'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">uint8ArrayDecryptString </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decodeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataBlob </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">uint8ArrayDecryptString</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">decryptText </span><span style="color: rgb(181,106,1);">= </span>await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decryptMessagePromise</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return new <span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encodeToString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">decryptText</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-<em>  // 加密方法</em>
-  async encryptMessagePromise(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob) {
-    let cipher = cryptoFramework.createCipher('AES128|CBC|PKCS7');
-    let iv = this.genIvParamsSpec();
-    await cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, iv);
-    let cipherData = await cipher.doFinal(plainText);
-    return cipherData;
-  }
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">加密方法</span></em>
+  async <span style="color: rgb(0,0,255);">encryptMessagePromise</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SymKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataBlob</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">cipher </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createCipher</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'AES128|CBC|PKCS7'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">iv </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">genIvParamsSpec</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    await <span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">init</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CryptoMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ENCRYPT_MODE</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">cipherData </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doFinal</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(0,0,255);">cipherData</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  <em>// 解密方法</em>
-  async decryptMessagePromise(symKey: cryptoFramework.SymKey, cipherText: cryptoFramework.DataBlob) {
-    let decoder = cryptoFramework.createCipher('AES128|CBC|PKCS7');
-    let iv = this.genIvParamsSpec();
-    await decoder.init(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, iv);
-    let decryptData = await decoder.doFinal(cipherText);
-    return decryptData;
-  }
+  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">解密方法</span></em>
+  async <span style="color: rgb(0,0,255);">decryptMessagePromise</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SymKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">cipherText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataBlob</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">decoder </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createCipher</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'AES128|CBC|PKCS7'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">iv </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">genIvParamsSpec</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    await <span style="color: rgb(0,0,255);">decoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">init</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CryptoMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DECRYPT_MODE</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">decryptData </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">decoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doFinal</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cipherText</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(0,0,255);">decryptData</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  genIvParamsSpec() {
-    let ivBlob: cryptoFramework.DataBlob = { data: new Uint8Array(buffer.from('0123456789101112', 'utf-8').buffer) };
-    let ivParamsSpec: cryptoFramework.IvParamsSpec = {
-      algName: 'IvParamsSpec',
-      iv: ivBlob
-    };
-    return ivParamsSpec;
-  }
+  <span style="color: rgb(0,0,255);">genIvParamsSpec</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">ivBlob</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataBlob </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'0123456789101112'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">ivParamsSpec</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">IvParamsSpec </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">algName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'IvParamsSpec'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ivBlob</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(0,0,255);">ivParamsSpec</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  async genSymKeyByData(symKeyData: Uint8Array) {
-    let symKeyBlob: cryptoFramework.DataBlob = { data: symKeyData };
-    let aesGenerator = cryptoFramework.createSymKeyGenerator('AES128');
-    let symKey = await aesGenerator.convertKey(symKeyBlob);
-    return symKey;
-  }
+  async <span style="color: rgb(0,0,255);">genSymKeyByData</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKeyData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">symKeyBlob</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataBlob </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">symKeyData </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">aesGenerator </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createSymKeyGenerator</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'AES128'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">symKey </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">aesGenerator</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">convertKey</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKeyBlob</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  main() {
-    let encryptString: string = '';
-    this.aesEncryptString('This is a test').then((data) => {
-      encryptString = data;
-      this.encryptString = data;
-      hilog.info(0x0000, 'test', `encryptString = ${encryptString}`);
-      this.aesDecryptString(encryptString).then((data) => {
-        this.base64String = data;
-        hilog.info(0x0000, 'test', `test string base64 = ${data}`);
-        let stringUint8Array = new util.Base64Helper().decodeSync(data);
-        let decoder = util.TextDecoder.create('utf-8');
-        let testString = decoder.decodeToString(stringUint8Array);
-        hilog.info(0x0000, 'test', `test string = ${testString}`);
-        this.string = testString;
-      }).catch((error: BusinessError) => {
-        hilog.error(0x0000, 'test', `DecryptString failed, error code: ${error.code}, error message: ${error.message}`);
-      });
-    });
-  }
+  <span style="color: rgb(0,0,255);">main</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">encryptString</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">aesEncryptString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'This is a test'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">encryptString </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encryptString </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'test'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`encryptString = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">encryptString</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">aesDecryptString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">encryptString</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">base64String </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'test'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`test string base64 = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        let <span style="color: rgb(0,0,255);">stringUint8Array </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decodeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        let <span style="color: rgb(0,0,255);">decoder </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TextDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">create</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        let <span style="color: rgb(0,0,255);">testString </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">decoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decodeToString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">stringUint8Array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'test'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`test string = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">testString</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">testString</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'test'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`DecryptString failed, error code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, error message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    Column({ space: 20 }) {
-      Row() {
-        Text('初始字符串：');
-        Text('This is a test');
-      };
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">初始字符串：</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'This is a test'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-      Button('点击对字符串进行加解密')
-        .onClick(() => {
-          this.main();
-        });
-      Row() {
-        Text('加密结果：');
-        Text(this.encryptString);
-      };
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">点击对字符串进行加解密</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">main</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">加密结果：</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encryptString</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-      Row() {
-        Text('解密后的Base64字符串：');
-        Text(this.base64String);
-      };
+      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">解密后的</span><span style="color: rgb(255,0,170);">Base64</span><span style="color: rgb(255,0,170);">字符串：</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">base64String</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-      Row() {
-        Text('解密后的原始字符串：');
-        Text(this.string);
-      };
+      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">解密后的原始字符串：</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-    }
-    .width('100%')
-    .height('100%')
-    .justifyContent(FlexAlign.Center);
-  }
-}
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
  

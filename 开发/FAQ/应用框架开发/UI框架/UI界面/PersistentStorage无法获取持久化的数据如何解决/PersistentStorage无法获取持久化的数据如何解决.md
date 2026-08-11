@@ -13,7 +13,7 @@
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/ol3EF8gWQWiS7S7FhhCn3Q/zh-cn_image_0000002628559668.png?HW-CC-KV=V1&HW-CC-Date=20260730T072442Z&HW-CC-Expire=86400&HW-CC-Sign=CB04986C538135EF4D269D6F30AC19DC06DD2DA46194B18DAA5A4A8F0AA1BA3C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/ol3EF8gWQWiS7S7FhhCn3Q/zh-cn_image_0000002628559668.png?HW-CC-KV=V1&HW-CC-Date=20260811T005646Z&HW-CC-Expire=86400&HW-CC-Sign=BEE7364824C15521D4D4D0008D0A21715A2F50B863B911129C79B42E49FF90F3)
 
  
  
@@ -21,97 +21,97 @@
  
 - “src/main/ets/const/StorageKeyConst.ets”。
 ```text
-export namespace StorageKeyConst {
-  // 应用级UI状态存储
-  export const APP_PROP_KEY: string = 'APP_PROP';
+export namespace <span style="color: rgb(0,0,255);">StorageKeyConst </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">应用级</span><span style="color: rgb(128,128,128);">UI</span><span style="color: rgb(128,128,128);">状态存储</span>
+  export const <span style="color: rgb(0,0,255);">APP_PROP_KEY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'APP_PROP'</span><span style="color: rgb(181,106,1);">;</span>
 
-  // 页面级UI状态存储
-  export const LOCAL_PROP_KEY: string = 'LOCAL_PROP';
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">页面级</span><span style="color: rgb(128,128,128);">UI</span><span style="color: rgb(128,128,128);">状态存储</span>
+  export const <span style="color: rgb(0,0,255);">LOCAL_PROP_KEY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'LOCAL_PROP'</span><span style="color: rgb(181,106,1);">;</span>
 
-  // 持久化UI状态存储
-  export const PERSIST_PROP_KEY: string = 'PERSIST_PROP';
-}
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">持久化</span><span style="color: rgb(128,128,128);">UI</span><span style="color: rgb(128,128,128);">状态存储</span>
+  export const <span style="color: rgb(0,0,255);">PERSIST_PROP_KEY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'PERSIST_PROP'</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 - “src/main/ets/entryability/EntryAbility.ets”。
 
   
 ```text
-export default class EntryAbility extends UIAbility {
-  onWindowStageCreate(windowStage: window.WindowStage): void {
-    // 初始化应用级存储
-    AppStorage.setOrCreate(StorageKeyConst.APP_PROP_KEY, 0);
-    // 初始化应用持久化存储
-    PersistentStorage.persistProp(StorageKeyConst.PERSIST_PROP_KEY, 0);
-    windowStage.loadContent('pages/Index', (err) => {
-      if (err.code) {
-        // 处理异常
-        return;
-      }
-    });
-  }
-}
+export default class <span style="color: rgb(0,0,255);">EntryAbility </span>extends <span style="color: rgb(0,0,255);">UIAbility </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">onWindowStageCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">windowStage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WindowStage</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">初始化应用级存储</span>
+    <span style="color: rgb(0,0,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">StorageKeyConst</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">APP_PROP_KEY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">初始化应用持久化存储</span>
+    <span style="color: rgb(0,0,255);">PersistentStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">persistProp</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">StorageKeyConst</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PERSIST_PROP_KEY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">windowStage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'pages/Index'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">处理异常</span>
+        return<span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 - “src/main/ets/pages/Index.ets”。
 ```text
-import { StorageKeyConst } from '../const/StorageKeyConst';
-import { Router } from '@kit.ArkUI';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">StorageKeyConst </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'../const/StorageKeyConst'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">Router </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
 
-let storage: LocalStorage = new LocalStorage();
+let <span style="color: rgb(0,0,255);">storage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">LocalStorage </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">LocalStorage</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry(storage)
-@Component
-struct Index {
-  // 页面序号
-  @State pageNo: string = '';
-  // 页面级UI状态存储（仅保存在当前页面）
-  @LocalStorageLink(StorageKeyConst.LOCAL_PROP_KEY)
-  pageClickCount: number = 0;
-  // 应用级UI状态存储（保存在应用内存中，应用退出后释放）
-  @StorageLink(StorageKeyConst.APP_PROP_KEY)
-  startupClickCount: number = 0;
-  // 持久化UI状态存储（持久化保存，应用退出后数据保留）
-  @StorageLink(StorageKeyConst.PERSIST_PROP_KEY)
-  totalClickCount: number = 0;
-  router: Router = this.getUIContext().getRouter()
+<span style="color: rgb(181,106,1);">@Entry</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">storage</span><span style="color: rgb(0,0,255);">)</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">页面序号</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">pageNo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">页面级</span><span style="color: rgb(128,128,128);">UI</span><span style="color: rgb(128,128,128);">状态存储（仅保存在当前页面）</span>
+  <span style="color: rgb(181,106,1);">@LocalStorageLink</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">StorageKeyConst</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">LOCAL_PROP_KEY</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(0,0,255);">pageClickCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">应用级</span><span style="color: rgb(128,128,128);">UI</span><span style="color: rgb(128,128,128);">状态存储（保存在应用内存中，应用退出后释放）</span>
+  <span style="color: rgb(181,106,1);">@StorageLink</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">StorageKeyConst</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">APP_PROP_KEY</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(0,0,255);">startupClickCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">持久化</span><span style="color: rgb(128,128,128);">UI</span><span style="color: rgb(128,128,128);">状态存储（持久化保存，应用退出后数据保留）</span>
+  <span style="color: rgb(181,106,1);">@StorageLink</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">StorageKeyConst</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PERSIST_PROP_KEY</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(0,0,255);">totalClickCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">router</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Router </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRouter</span><span style="color: rgb(0,0,255);">()</span>
 
-  aboutToAppear(): void {
-    // 当前页面序号
-    this.pageNo = this.router.getLength()
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当前页面序号</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pageNo </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">router</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getLength</span><span style="color: rgb(0,0,255);">()</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    RelativeContainer() {
-      Column() {
-        Text(`当前页面序号：${this.pageNo}`)
-          .margin(20)
-        Text(`当前页面点击次数：${this.pageClickCount}`)
-          .margin(10)
-        Text(`本次启动点击次数：${this.startupClickCount}`)
-          .margin(10)
-        Text(`总计点击次数：${this.totalClickCount}`)
-          .margin(10)
-        Button('Click!')
-          .margin(10)
-          .onClick(() => {
-            // 点击计数
-            this.pageClickCount++
-            this.startupClickCount++
-            this.totalClickCount++
-          })
-        Button('New Page')
-          .margin(10)
-          .onClick(() => {
-            this.router.pushUrl({ url: 'pages/Index' })
-          })
-      }
-      .width('100%')
-      .height('100%')
-      .justifyContent(FlexAlign.Center)
-    }
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">当前页面序号：</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pageNo</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">当前页面点击次数：</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pageClickCount</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">本次启动点击次数：</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startupClickCount</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">总计点击次数：</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">totalClickCount</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Click!'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">点击计数</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pageClickCount</span><span style="color: rgb(181,106,1);">++</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startupClickCount</span><span style="color: rgb(181,106,1);">++</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">totalClickCount</span><span style="color: rgb(181,106,1);">++</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'New Page'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">router</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushUrl</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'pages/Index' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 
@@ -120,7 +120,7 @@ struct Index {
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/MTrcd-JURJeQKlggGAgJrw/zh-cn_image_0000002658918975.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072442Z&HW-CC-Expire=86400&HW-CC-Sign=A955EAA1DD21EE8C525B43F5BBDA3775779D8D248DF146B678938EB2958AFD7B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/MTrcd-JURJeQKlggGAgJrw/zh-cn_image_0000002658918975.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005646Z&HW-CC-Expire=86400&HW-CC-Sign=9F86F0D5358D10936569E729196BDCBC98F868C871C658BC96BFCADD4F9D7DC7)
 
  
  
@@ -141,150 +141,150 @@ PersistentStorage和UI实例相关联，持久化操作需要在UI实例初始�
 通过以上分析可以得出结论：此问题关键点在于PersistentStorage初始化时机不对。因此只需要修改EntryAbility.ets中的onWindowStageCreate函数，在windowStage加载页面完成回调函数中初始化应用持久化存储即可。关键代码修改示例如下：
  
 ```json
-onWindowStageCreate(windowStage: window.WindowStage): void {
-  // Main window is created, set main page for this ability
-  hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
-  windowStage.loadContent('pages/Index', (err) => {
-    if (err.code) {
-      hilog.error(DOMAIN, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err));
-      return;
-    }
-    // 初始化应用级存储
-    AppStorage.setOrCreate(StorageKeyConst.APP_PROP_KEY, 0);
-    // 初始化应用持久化存储
-    PersistentStorage.persistProp(StorageKeyConst.PERSIST_PROP_KEY, 0);
-    hilog.info(DOMAIN, 'testTag', 'Succeeded in loading the content.');
-  });
-}
+<span style="color: rgb(0,0,255);">onWindowStageCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">windowStage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WindowStage</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(128,128,128);">// Main window is created, set main page for this ability</span>
+  <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Ability onWindowStageCreate'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">windowStage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'pages/Index'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Failed to load the content. Cause: %{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+      return<span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">初始化应用级存储</span>
+    <span style="color: rgb(0,0,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">StorageKeyConst</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">APP_PROP_KEY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">初始化应用持久化存储</span>
+    <span style="color: rgb(0,0,255);">PersistentStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">persistProp</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">StorageKeyConst</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PERSIST_PROP_KEY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Succeeded in loading the content.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
 完整示例参考如下：
  1. StorageKeyConst.ets：
 ```text
-export namespace StorageKeyConst {
-  // 应用级UI状态存储
-  export const APP_PROP_KEY: string = 'APP_PROP';
+export namespace <span style="color: rgb(0,0,255);">StorageKeyConst </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">应用级</span><span style="color: rgb(128,128,128);">UI</span><span style="color: rgb(128,128,128);">状态存储</span>
+  export const <span style="color: rgb(0,0,255);">APP_PROP_KEY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'APP_PROP'</span><span style="color: rgb(181,106,1);">;</span>
 
-  // 页面级UI状态存储
-  export const LOCAL_PROP_KEY: string = 'LOCAL_PROP';
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">页面级</span><span style="color: rgb(128,128,128);">UI</span><span style="color: rgb(128,128,128);">状态存储</span>
+  export const <span style="color: rgb(0,0,255);">LOCAL_PROP_KEY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'LOCAL_PROP'</span><span style="color: rgb(181,106,1);">;</span>
 
-  // 持久化UI状态存储
-  export const PERSIST_PROP_KEY: string = 'PERSIST_PROP';
-}
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">持久化</span><span style="color: rgb(128,128,128);">UI</span><span style="color: rgb(128,128,128);">状态存储</span>
+  export const <span style="color: rgb(0,0,255);">PERSIST_PROP_KEY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'PERSIST_PROP'</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 2. EntryAbility.ets：
 ```json
-import { ConfigurationConstant, UIAbility } from '@kit.AbilityKit';
-import { hilog } from '@kit.PerformanceAnalysisKit';
-import { window } from '@kit.ArkUI';
-import { StorageKeyConst } from '../const/StorageKeyConst';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">ConfigurationConstant</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">UIAbility </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">hilog </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.PerformanceAnalysisKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">window </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">StorageKeyConst </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'../const/StorageKeyConst'</span><span style="color: rgb(181,106,1);">;</span>
 
-const DOMAIN = 0x0000;
+const <span style="color: rgb(0,0,255);">DOMAIN </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x0000</span><span style="color: rgb(181,106,1);">;</span>
 
-export default class EntryAbility extends UIAbility {
-  onCreate(): void {
-    try {
-      this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
-    } catch (err) {
-      hilog.error(DOMAIN, 'testTag', 'Failed to set colorMode. Cause: %{public}s', JSON.stringify(err));
-    }
-    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onCreate');
-  }
+export default class <span style="color: rgb(0,0,255);">EntryAbility </span>extends <span style="color: rgb(0,0,255);">UIAbility </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">onCreate</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    try <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getApplicationContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setColorMode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ConfigurationConstant</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ColorMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">COLOR_MODE_NOT_SET</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Failed to set colorMode. Cause: %{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Ability onCreate'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  onDestroy(): void {
-    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onDestroy');
-  }
+  <span style="color: rgb(0,0,255);">onDestroy</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Ability onDestroy'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  onWindowStageCreate(windowStage: window.WindowStage): void {
-    // Main window is created, set main page for this ability
-    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
-    windowStage.loadContent('pages/Index', (err) => {
-      if (err.code) {
-        hilog.error(DOMAIN, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err));
-        return;
-      }
-      // 初始化应用级存储
-      AppStorage.setOrCreate(StorageKeyConst.APP_PROP_KEY, 0);
-      // 初始化应用持久化存储
-      PersistentStorage.persistProp(StorageKeyConst.PERSIST_PROP_KEY, 0);
-      hilog.info(DOMAIN, 'testTag', 'Succeeded in loading the content.');
-    });
-  }
+  <span style="color: rgb(0,0,255);">onWindowStageCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">windowStage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WindowStage</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(128,128,128);">// Main window is created, set main page for this ability</span>
+    <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Ability onWindowStageCreate'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">windowStage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'pages/Index'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Failed to load the content. Cause: %{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+        return<span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">初始化应用级存储</span>
+      <span style="color: rgb(0,0,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">StorageKeyConst</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">APP_PROP_KEY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">初始化应用持久化存储</span>
+      <span style="color: rgb(0,0,255);">PersistentStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">persistProp</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">StorageKeyConst</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PERSIST_PROP_KEY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Succeeded in loading the content.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  onWindowStageDestroy(): void {
-    // Main window is destroyed, release UI related resources
-    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
-  }
+  <span style="color: rgb(0,0,255);">onWindowStageDestroy</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(128,128,128);">// Main window is destroyed, release UI related resources</span>
+    <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Ability onWindowStageDestroy'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  onForeground(): void {
-    // Ability has brought to foreground
-    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
-  }
+  <span style="color: rgb(0,0,255);">onForeground</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(128,128,128);">// Ability has brought to foreground</span>
+    <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Ability onForeground'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  onBackground(): void {
-    // Ability has back to background
-    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
-  }
-}
+  <span style="color: rgb(0,0,255);">onBackground</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(128,128,128);">// Ability has back to background</span>
+    <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'%{public}s'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'Ability onBackground'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 3. Index.ets：
 ```text
-import { StorageKeyConst } from '../const/StorageKeyConst';
-import { Router } from '@kit.ArkUI';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">StorageKeyConst </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'../const/StorageKeyConst'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">Router </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
 
-let storage: LocalStorage = new LocalStorage();
+let <span style="color: rgb(0,0,255);">storage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">LocalStorage </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">LocalStorage</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry(storage)
-@Component
-export struct Index {
-  // 页面序号
-  @State pageNo: string = '';
-  // 页面级UI状态存储（仅保存在当前页面）
-  @LocalStorageLink(StorageKeyConst.LOCAL_PROP_KEY) pageClickCount: number = 0;
-  // 应用级UI状态存储（保存在应用内存中，应用退出后释放）
-  @StorageLink(StorageKeyConst.APP_PROP_KEY) startupClickCount: number = 0;
-  // 持久化UI状态存储（持久化保存，应用退出后数据保留）
-  @StorageLink(StorageKeyConst.PERSIST_PROP_KEY) totalClickCount: number = 0;
-  router: Router = this.getUIContext().getRouter();
+<span style="color: rgb(181,106,1);">@Entry</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">storage</span><span style="color: rgb(0,0,255);">)</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+export struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">页面序号</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">pageNo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">页面级</span><span style="color: rgb(128,128,128);">UI</span><span style="color: rgb(128,128,128);">状态存储（仅保存在当前页面）</span>
+  <span style="color: rgb(181,106,1);">@LocalStorageLink</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">StorageKeyConst</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">LOCAL_PROP_KEY</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">pageClickCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">应用级</span><span style="color: rgb(128,128,128);">UI</span><span style="color: rgb(128,128,128);">状态存储（保存在应用内存中，应用退出后释放）</span>
+  <span style="color: rgb(181,106,1);">@StorageLink</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">StorageKeyConst</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">APP_PROP_KEY</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">startupClickCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">持久化</span><span style="color: rgb(128,128,128);">UI</span><span style="color: rgb(128,128,128);">状态存储（持久化保存，应用退出后数据保留）</span>
+  <span style="color: rgb(181,106,1);">@StorageLink</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">StorageKeyConst</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PERSIST_PROP_KEY</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">totalClickCount</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">router</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Router </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRouter</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-  aboutToAppear(): void {
-    // 当前页面序号
-    this.pageNo = this.router.getLength();
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当前页面序号</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pageNo </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">router</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getLength</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    RelativeContainer() {
-      Column() {
-        Text(`当前页面序号：${this.pageNo}`)
-          .margin(20)
-        Text(`当前页面点击次数：${this.pageClickCount}`)
-          .margin(10)
-        Text(`本次启动点击次数：${this.startupClickCount}`)
-          .margin(10)
-        Text(`总计点击次数：${this.totalClickCount}`)
-          .margin(10)
-        Button('Click!')
-          .margin(10)
-          .onClick(() => {
-            // 点击计数
-            this.pageClickCount++;
-            this.startupClickCount++;
-            this.totalClickCount++;
-          })
-        Button('New Page')
-          .margin(10)
-          .onClick(() => {
-            this.router.pushUrl({ url: 'pages/Index' });
-          })
-      }
-      .width('100%')
-      .height('100%')
-      .justifyContent(FlexAlign.Center)
-    }
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">当前页面序号：</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pageNo</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">当前页面点击次数：</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pageClickCount</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">本次启动点击次数：</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startupClickCount</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">总计点击次数：</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">totalClickCount</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Click!'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">点击计数</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pageClickCount</span><span style="color: rgb(181,106,1);">++;</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startupClickCount</span><span style="color: rgb(181,106,1);">++;</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">totalClickCount</span><span style="color: rgb(181,106,1);">++;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'New Page'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">router</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushUrl</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'pages/Index' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
  

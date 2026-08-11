@@ -21,13 +21,13 @@ Hypium UI自动化有录制回放工具，在HarmonyOS的UI自动化中使用Hyp
 UIViewer面板功能脚本录制按钮，点击后页面左上角将出现红色提示文字，提示进入录制状态，处于此状态时，点击画面中控件后，将在编辑器光标处生成Hypium用例测试语句。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/qqjI32BUSkiZhUMbXoqEWg/zh-cn_image_0000002658808809.png?HW-CC-KV=V1&HW-CC-Date=20260730T072721Z&HW-CC-Expire=86400&HW-CC-Sign=D701DDED09D5F60C8473846C6CA441F4314630AA2DF3A2BADD3A0D632D2FDE8C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/qqjI32BUSkiZhUMbXoqEWg/zh-cn_image_0000002658808809.png?HW-CC-KV=V1&HW-CC-Date=20260811T005516Z&HW-CC-Expire=86400&HW-CC-Sign=891B93CF33A08C0493AE20ECA846BCF42C72327A4C5D3EF06E09A819BDAF16CF)
 
  
 - 点击控件录制；处于录制状态后，点击需要录制点击的控件，同时会在代码区域生成点击该控件的代码步骤。如点击桌面设置图标进入设置页面，生成代码如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/p8rEheoLQJaHEU4RFKurWA/zh-cn_image_0000002628409544.png?HW-CC-KV=V1&HW-CC-Date=20260730T072721Z&HW-CC-Expire=86400&HW-CC-Sign=6C2547B403F337727020B941691183D8E2AA078A4A0241F18B39BA0A787D6679)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/p8rEheoLQJaHEU4RFKurWA/zh-cn_image_0000002628409544.png?HW-CC-KV=V1&HW-CC-Date=20260811T005516Z&HW-CC-Expire=86400&HW-CC-Sign=31FDEC2030468EE02D7234742C94AFC080793EE9C1A7E0EDEC81ACCA8FF46B14)
 
 
   
@@ -39,11 +39,11 @@ self.driver.wait(0.5)
 ```
 
 - 录制文本输入操作；处于录制状态后，输入文本功能按钮
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/cL4LpKznR_WCI1G_wtIQGQ/zh-cn_image_0000002628569442.png?HW-CC-KV=V1&HW-CC-Date=20260730T072721Z&HW-CC-Expire=86400&HW-CC-Sign=93F59005121F89A4123B5107CB9A960680272537A779E2265D3E79136BB0AA86)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/cL4LpKznR_WCI1G_wtIQGQ/zh-cn_image_0000002628569442.png?HW-CC-KV=V1&HW-CC-Date=20260811T005516Z&HW-CC-Expire=86400&HW-CC-Sign=3ED4AE4184347058736F39CBD36B88B5E42A57180FA3518673E9C9EAF4E67661)
 点击后，在[TextArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea)控件或[TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)类型控件上方点击，会弹出文本输入框，用户输入完文本后，就会在当前代码编辑区的光标处插入一条由Hypium实现的输入代码。如搜索框输入搜索内容生成代码如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/1xWpCbGtSBW40yNqSOM31Q/zh-cn_image_0000002658928759.png?HW-CC-KV=V1&HW-CC-Date=20260730T072721Z&HW-CC-Expire=86400&HW-CC-Sign=D1CECB350C8E7A9B61AE0F4A3792FAF29443E3E9EA8347E2D74C82884A326FE1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/1xWpCbGtSBW40yNqSOM31Q/zh-cn_image_0000002658928759.png?HW-CC-KV=V1&HW-CC-Date=20260811T005516Z&HW-CC-Expire=86400&HW-CC-Sign=5B202C79A1A89FAE276CA1802737DA46A8822455346FE2C9A45BFDF14587C0E8)
 
 
   

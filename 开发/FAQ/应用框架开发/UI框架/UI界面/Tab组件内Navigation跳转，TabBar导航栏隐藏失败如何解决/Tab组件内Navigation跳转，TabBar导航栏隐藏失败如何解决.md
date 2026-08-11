@@ -9,9 +9,9 @@
 在“我的”页面点击“跳转设置页”按钮跳转到设置页面，底部的TabBar导航栏仍然存在。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/XN0I7Qu9RWeKUJGfYj8PxQ/zh-cn_image_0000002658918977.png?HW-CC-KV=V1&HW-CC-Date=20260730T072442Z&HW-CC-Expire=86400&HW-CC-Sign=EC6624CA0568A366B1EE572D0815977A84A50C24E65A37163256D573C35063FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/XN0I7Qu9RWeKUJGfYj8PxQ/zh-cn_image_0000002658918977.png?HW-CC-KV=V1&HW-CC-Date=20260811T005650Z&HW-CC-Expire=86400&HW-CC-Sign=64304525349C33137222628ED64F7FA63886CAB1C1A814C1D5A1367DEED77F4C)
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/Q3EdubCPQ76R5XOWPuo6yQ/zh-cn_image_0000002628399756.png?HW-CC-KV=V1&HW-CC-Date=20260730T072442Z&HW-CC-Expire=86400&HW-CC-Sign=D1F8FC0D224F17CE57A574CA6E89C7F41CC8B26CC922FF9F5C6ECE6483EAADFF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/Q3EdubCPQ76R5XOWPuo6yQ/zh-cn_image_0000002628399756.png?HW-CC-KV=V1&HW-CC-Date=20260811T005650Z&HW-CC-Expire=86400&HW-CC-Sign=B4537F49AE2D72B9CA27A5D868DD328160DF27E8489435D9FA7D795EFEF13982)
 
  
 主页面有“首页”、“我的”两个Tab页面，部分代码如下：
@@ -83,7 +83,7 @@ struct Settings {
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/un0ap7csQJCKg7_JS0p0uQ/zh-cn_image_0000002658799025.png?HW-CC-KV=V1&HW-CC-Date=20260730T072442Z&HW-CC-Expire=86400&HW-CC-Sign=A2E104210E4C78A79511681605B4DE88B4AE597C0766CF18640850EF9C8DA339)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/un0ap7csQJCKg7_JS0p0uQ/zh-cn_image_0000002658799025.png?HW-CC-KV=V1&HW-CC-Date=20260811T005650Z&HW-CC-Expire=86400&HW-CC-Sign=EC560F18649536A53F8CA079BB390F3609A0CBD0B512C5B6021331CDFE09B1EB)
 
  
  

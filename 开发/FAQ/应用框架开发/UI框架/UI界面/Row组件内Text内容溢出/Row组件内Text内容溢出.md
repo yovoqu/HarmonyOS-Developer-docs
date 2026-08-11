@@ -46,7 +46,7 @@ struct Index {
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/l7y06ql-S1WCM4WwKC6fuA/zh-cn_image_0000002628394986.png?HW-CC-KV=V1&HW-CC-Date=20260730T072433Z&HW-CC-Expire=86400&HW-CC-Sign=23F1FA3BE8F911DD7FCFEFDDA7FDEF611B06015F0EEB2B7BEB144BC7C8318F05)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/l7y06ql-S1WCM4WwKC6fuA/zh-cn_image_0000002628394986.png?HW-CC-KV=V1&HW-CC-Date=20260811T005647Z&HW-CC-Expire=86400&HW-CC-Sign=3C76BB46F0B8AAD27EE598C5602554E8C78D9C7A17382E58EC898020C5E6A0C7)
 
  
 可以观察到，当第二个子组件为长文本时，后面的其他子组件都无法显示出来。

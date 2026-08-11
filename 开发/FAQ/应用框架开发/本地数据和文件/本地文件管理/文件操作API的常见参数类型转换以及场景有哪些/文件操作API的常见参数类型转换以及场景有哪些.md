@@ -18,14 +18,14 @@
 - 待处理文件的[应用沙箱路径](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)。对于每个应用，系统会在内部存储空间映射出一个专属的“应用沙箱目录”，它是“应用文件目录”与一部分系统文件（应用运行必需的少量系统文件）所在的目录组成的集合。应用文件目录结构图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/XY6T-RklTt-Xp1Fc0tSDDA/zh-cn_image_0000002659258325.png?HW-CC-KV=V1&HW-CC-Date=20260730T072524Z&HW-CC-Expire=86400&HW-CC-Sign=0D8BBB3AB944DF1BBCF0B09A7F4F6FD7C7854387C5699802424F986CFB2BDE88)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/XY6T-RklTt-Xp1Fc0tSDDA/zh-cn_image_0000002659258325.png?HW-CC-KV=V1&HW-CC-Date=20260811T005851Z&HW-CC-Expire=86400&HW-CC-Sign=5CF04A8FAD024D8CEB6450170020CAB9B8BBDA0F0E8581FC2F8F681E977B679A)
 
 
   禁止直接使用上图中四级目录之前的目录名组成的路径字符串，否则可能导致后续应用版本因应用文件路径变化导致不兼容问题。正确的做法应通过上下文Context属性获取应用文件路径，包括但不限于上图中绿色背景的路径。
 - 待处理文件的文件描述符（即fd标识）。ArkTS中系统对象File的属性，File对象的属性见以下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/x6NV9KElShGs35XseSleRQ/zh-cn_image_0000002628899106.png?HW-CC-KV=V1&HW-CC-Date=20260730T072524Z&HW-CC-Expire=86400&HW-CC-Sign=DD7A8D7EB87601F7C6B3ADC6A9458224620AC949C2853F93973D6F43F0C95F98)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/x6NV9KElShGs35XseSleRQ/zh-cn_image_0000002628899106.png?HW-CC-KV=V1&HW-CC-Date=20260811T005851Z&HW-CC-Expire=86400&HW-CC-Sign=DFE0B4D653D8E7D0EC3143391FB846008A179924509C7F993ADD6C491382C2E6)
 
 - 待处理文件uri。[uri](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-file-uri-intro)（Uniform Resource Identifier）即文件统一资源标志符，是指向资源的字符串标识。
 

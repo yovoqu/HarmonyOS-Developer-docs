@@ -9,7 +9,7 @@
 手势滑动只能让月亮图片内的数字变动，月亮图片并没有位移。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/fywTzfj4TnSi8QRHf8M4ow/zh-cn_image_0000002628555690.png?HW-CC-KV=V1&HW-CC-Date=20260730T072454Z&HW-CC-Expire=86400&HW-CC-Sign=C508CE4F5944A0702F5B0AC82132347D143EA18065221DFC7079BD8DC6AE7E9A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/fywTzfj4TnSi8QRHf8M4ow/zh-cn_image_0000002628555690.png?HW-CC-KV=V1&HW-CC-Date=20260811T005641Z&HW-CC-Expire=86400&HW-CC-Sign=D02EA48247E9A8139E72ED2107F6C5E6AFF4EE84659B4623695128001C13C1ED)
 
  
 **预期描述：** 想要实现通过手势滑动让月亮图片以半圆曲线的轨迹滚动的效果。
@@ -221,4 +221,4 @@ struct StartPage {
 改动后效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/Z09cAhf7Szu7RdMC68rxqg/zh-cn_image_0000002658915011.png?HW-CC-KV=V1&HW-CC-Date=20260730T072454Z&HW-CC-Expire=86400&HW-CC-Sign=C60182CF70AC1447C508BB5FC330EDFC3D57408C2801CA2A85AD1C92BD64AF73)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/Z09cAhf7Szu7RdMC68rxqg/zh-cn_image_0000002658915011.png?HW-CC-KV=V1&HW-CC-Date=20260811T005641Z&HW-CC-Expire=86400&HW-CC-Sign=A64C5FF3F39099EA8215DC3A0D916F2F99C712F1810023642802A7303E130E64)

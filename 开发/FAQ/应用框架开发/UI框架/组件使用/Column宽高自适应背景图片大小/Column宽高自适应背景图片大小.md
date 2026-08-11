@@ -26,27 +26,27 @@
 完整示例参考如下：
  
 ```text
-@Entry
-@Component
-struct ColumnLayout {
-  build() {
-    Column() {
-      Column() {
-        Stack() {
-          Image($r('app.media.startIcon'))
-            .fitOriginalSize(true);
-        };
-      };
-    }.height('100%').width('100%');
-  }
-}
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">ColumnLayout </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.startIcon'</span><span style="color: rgb(255,0,170);">))</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fitOriginalSize</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  
 在IDE中查看ArkUI Inspector预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/YL4_iqcJQ320MoD9IVB1jw/zh-cn_image_0000002658835381.png?HW-CC-KV=V1&HW-CC-Date=20260730T072349Z&HW-CC-Expire=86400&HW-CC-Sign=48AD7F2837C53FDD01BBA794E53393ECAE059B8D2A40A256F5C09783AA880B2D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/YL4_iqcJQ320MoD9IVB1jw/zh-cn_image_0000002658835381.png?HW-CC-KV=V1&HW-CC-Date=20260811T005743Z&HW-CC-Expire=86400&HW-CC-Sign=F65890AD23D84538652D8E748FFECEA52897E48E879AA7F322CDAA439739480A)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/wA7mN5mUSiqhv9abH1YAHQ/zh-cn_image_0000002628756018.png?HW-CC-KV=V1&HW-CC-Date=20260730T072349Z&HW-CC-Expire=86400&HW-CC-Sign=EE18082F1552834EE012B11B5FB8D3B2B19EC0D2D90BA462917571B71C7CBDBC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/wA7mN5mUSiqhv9abH1YAHQ/zh-cn_image_0000002628756018.png?HW-CC-KV=V1&HW-CC-Date=20260811T005743Z&HW-CC-Expire=86400&HW-CC-Sign=BD11EBB960802BACB011CFF8B7D118852169316F7F0F0814CB7FCDE69B30697D)

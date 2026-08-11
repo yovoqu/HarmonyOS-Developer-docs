@@ -48,7 +48,7 @@ struct Dialog {
 问题现象如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/YRrTLS4DS5-d91dlPxK3Ig/zh-cn_image_0000002658845073.png?HW-CC-KV=V1&HW-CC-Date=20260730T072517Z&HW-CC-Expire=86400&HW-CC-Sign=6F6BF45C3305B00B95324D4E65AAEDFEEDD904487983EEC1D12618702DD6B5CF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/YRrTLS4DS5-d91dlPxK3Ig/zh-cn_image_0000002658845073.png?HW-CC-KV=V1&HW-CC-Date=20260811T005713Z&HW-CC-Expire=86400&HW-CC-Sign=6BF78959CE4630202D5AFB48A7FB8FEE49C96D7324DCDC490AFC2961232487FD)
 
  
  
@@ -109,7 +109,7 @@ struct DialogDemo {
 实现效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/ILKGvnkxR1mSVz1AUFN56Q/zh-cn_image_0000002628765700.png?HW-CC-KV=V1&HW-CC-Date=20260730T072517Z&HW-CC-Expire=86400&HW-CC-Sign=FE3A4D187EB5EE214456E0F8B40D523739C8A5D0F52F36F5420C7AF7B2482A94)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/ILKGvnkxR1mSVz1AUFN56Q/zh-cn_image_0000002628765700.png?HW-CC-KV=V1&HW-CC-Date=20260811T005713Z&HW-CC-Expire=86400&HW-CC-Sign=1FF3278A2539A3FAE08F35C4FD49826C80065C239C6DD0C49BDB30CF2622BDFE)
 
  
 上图中弹窗为白色与蓝色部分（其中白色是弹窗中子组件背景色，蓝色是弹窗背景色），弹窗底部对齐。

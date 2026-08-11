@@ -32,7 +32,7 @@
 - [80300007 所有Token都是无效的](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-response#section80300007-所有token都是无效的)，请根据响应消息中的提示，按关键词排查问题。例如，下面日志中的关键词为noPushTypeRight，表示没有发送对应push-type场景的权益，需要申请对应场景的权益。其他问题情况可参考[80300007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-response#section030511015314)相关详细解析。
 ```text
 code=80300007,
-msg={"failure":1,"illegalTokens":{"noPushTypeRight":["MAM0Ku.........jixTSG"]}},
+msg={"failure":<span style="color: rgb(0,0,255);">1</span>,"illegalTokens":{"noPushTypeRight":["MAM0Ku.........jixTSG"]}},
 requestId=17xxxxxxxxxxxx001,
 ```
 

@@ -9,7 +9,7 @@
 如何设置在横向拖动子组件中的第三方图标时，禁止触发Tabs的切换功能。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/IkeT1TvPRI69HfQ4YYKeEQ/zh-cn_image_0000002658838299.png?HW-CC-KV=V1&HW-CC-Date=20260730T072502Z&HW-CC-Expire=86400&HW-CC-Sign=EFB007DC52769944190A8DADE93D26207D1401991A65C3F0830189C7BE92A9DA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/IkeT1TvPRI69HfQ4YYKeEQ/zh-cn_image_0000002658838299.png?HW-CC-KV=V1&HW-CC-Date=20260811T005649Z&HW-CC-Expire=86400&HW-CC-Sign=49EA7131E17968EA76F3668420D719B9CC63DE67AB74A5EAC8DA1BC3E1221A2D)
 
  
  

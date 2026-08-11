@@ -9,7 +9,7 @@
 编译构建library模块时（Build->Make Module 'library'），报错信息如下：
  
 ```text
-Property 'xxx' of exported class expression may not be private or protected.
+<span style="color: rgb(0,0,255);">Property </span><span style="color: rgb(255,0,170);">'xxx' </span><span style="color: rgb(0,0,255);">of exported </span>class <span style="color: rgb(0,0,255);">expression </span><span style="color: rgb(0,0,255);">may not be private or protected</span><span style="color: rgb(181,106,1);">.</span>
 ```
  
  

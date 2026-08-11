@@ -13,7 +13,7 @@ bindSheet的内容是个List，点击某个ListItem跳转至其他页面，如�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/5rEyeVgiTxaIT8iSgSqQig/zh-cn_image_0000002628555360.png?HW-CC-KV=V1&HW-CC-Date=20260730T072327Z&HW-CC-Expire=86400&HW-CC-Sign=35DB378677836D0E7AAD4A9F3AA4E197BB1817D41AC0CE31641CEEB15A187661)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/5rEyeVgiTxaIT8iSgSqQig/zh-cn_image_0000002628555360.png?HW-CC-KV=V1&HW-CC-Date=20260811T005756Z&HW-CC-Expire=86400&HW-CC-Sign=B272E759A04B32972642CA58DCFED817D98F108DBF4A08DF22372F250E460E50)
 
  
  

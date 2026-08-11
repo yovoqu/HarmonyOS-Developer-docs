@@ -21,20 +21,20 @@
 #### 问题定位
 
 - 如果创建的是Instrument Test用例：1. 排查工程中是否存在“src/ohosTest”路径；
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/GxmcvM6QRlqLI-2S9WaUCw/zh-cn_image_0000002628569540.png?HW-CC-KV=V1&HW-CC-Date=20260730T072724Z&HW-CC-Expire=86400&HW-CC-Sign=41E6B357281FEACB42A89D2C36A3A7834BF644030EC04208924112E5948E4B24)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/GxmcvM6QRlqLI-2S9WaUCw/zh-cn_image_0000002628569540.png?HW-CC-KV=V1&HW-CC-Date=20260811T005518Z&HW-CC-Expire=86400&HW-CC-Sign=D7E6FF2246FEDB45F07400DEE1E0EB6853C4F9C8C8B84D9BA6130C2CC77ADB12)
 
 
 2. 点击Settings->Editor->Intentions->JavaScript，查看是否勾选“Create Instrument Test”；
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/WhnSAIpnTRyvQoJjJwltvw/zh-cn_image_0000002658928865.png?HW-CC-KV=V1&HW-CC-Date=20260730T072724Z&HW-CC-Expire=86400&HW-CC-Sign=F6E3F94154F4FCF35CACD7845E567F5DCF557B188693E500A3B8BEEA1BF6FEB9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/WhnSAIpnTRyvQoJjJwltvw/zh-cn_image_0000002658928865.png?HW-CC-KV=V1&HW-CC-Date=20260811T005518Z&HW-CC-Expire=86400&HW-CC-Sign=6C50BD80FBA5BBD32D301C01A3A79057768EE15BFF6B394B008D0B588BE84704)
 
 - 如果创建的是Local Test用例：1. 排查是否存在[代码测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-test)中Local Test的相关约束与限制；
 
 2. 排查工程中是否存在“src/test”路径；
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/RbMARSoKRvaN0SWRPUu8Jg/zh-cn_image_0000002628409650.png?HW-CC-KV=V1&HW-CC-Date=20260730T072724Z&HW-CC-Expire=86400&HW-CC-Sign=BAE1630FC59CC376FDF832E7FFFFDF07D48DA055B12DDC276FB5FF24C52620D7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/RbMARSoKRvaN0SWRPUu8Jg/zh-cn_image_0000002628409650.png?HW-CC-KV=V1&HW-CC-Date=20260811T005518Z&HW-CC-Expire=86400&HW-CC-Sign=907DDD3A8D87186750D897D9E81711311F9AD40E35770BD43068586FE7110D2A)
 
 
 3. 点击Settings->Editor->Intentions->JavaScript，查看是否勾选“Create Local Test”；
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/a0WpWk1JQt6kiFNc8o0YrA/zh-cn_image_0000002658808911.png?HW-CC-KV=V1&HW-CC-Date=20260730T072724Z&HW-CC-Expire=86400&HW-CC-Sign=37AE8123E84849D22197A68ACC103FA4CDFA4C3CDADA1D9BB039D5B09EF03725)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/a0WpWk1JQt6kiFNc8o0YrA/zh-cn_image_0000002658808911.png?HW-CC-KV=V1&HW-CC-Date=20260811T005518Z&HW-CC-Expire=86400&HW-CC-Sign=466EC810EF100C3D3A738017DC3272A79C3A47E2AE1D80AA9171E40BE650AB47)
 
 
  
@@ -51,7 +51,7 @@ IDE中未设置允许创建“Create Instrument Test”或“Create Local Test�
 打开IDE，点击Settings->Editor->Intentions->JavaScript，勾选“Create Instrument Test”和“Create Local Test”。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/MGnnPmMaRXC96D6_WTaGLw/zh-cn_image_0000002628569542.png?HW-CC-KV=V1&HW-CC-Date=20260730T072724Z&HW-CC-Expire=86400&HW-CC-Sign=85A286B2420C9EBC7B37C7254937280D7509E1D3F906BAE0E0DC7680B2FF5D33)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/MGnnPmMaRXC96D6_WTaGLw/zh-cn_image_0000002628569542.png?HW-CC-KV=V1&HW-CC-Date=20260811T005518Z&HW-CC-Expire=86400&HW-CC-Sign=C21B74E86647490BFED80A5F6D33451387788D843563C5986A47388AA63B93A9)
 
  
  

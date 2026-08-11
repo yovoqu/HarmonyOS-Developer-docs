@@ -33,7 +33,7 @@
 既然onResponse的入参[HttpResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestagenthttpresponse12)不含Body，查找文档确认在[onComplete](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#oncompleted10)的回调入参[Progress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestagentprogress10)中是否有响应体。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/jTT0K2ueSTuMuU9ARACMWw/zh-cn_image_0000002628774288.png?HW-CC-KV=V1&HW-CC-Date=20260730T072604Z&HW-CC-Expire=86400&HW-CC-Sign=58EE60FEC462ABCB22844A2F99812F36910A925CF662B95A20A729909F700DC2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/jTT0K2ueSTuMuU9ARACMWw/zh-cn_image_0000002628774288.png?HW-CC-KV=V1&HW-CC-Date=20260811T005917Z&HW-CC-Expire=86400&HW-CC-Sign=8B9D09D8C62F885D89D87D99522B7E614C7390E98DEF1294A7B2CBBF8A7C20F8)
 
  
 确认Progress中有响应体。

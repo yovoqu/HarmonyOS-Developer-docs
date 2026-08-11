@@ -106,7 +106,7 @@ struct VideoControlExample {
 Q：ArkTS侧如何设置H5中视频的播放控件不显示？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/2-jcIQFtQk6gR18BHCjdjA/zh-cn_image_0000002628899170.png?HW-CC-KV=V1&HW-CC-Date=20260730T072537Z&HW-CC-Expire=86400&HW-CC-Sign=C26020774042005160D818FBF0F8205311BB27B0596A51DF513427D0B8859B3D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/2-jcIQFtQk6gR18BHCjdjA/zh-cn_image_0000002628899170.png?HW-CC-KV=V1&HW-CC-Date=20260811T005842Z&HW-CC-Expire=86400&HW-CC-Sign=7B5A48C930344F80D53D1B0FC5EBE93C75AC471D46EB79CFAE960F3295161059)
 
  
 A：video的播放控件由controls属性进行控制，网页加载完成后，设置controls属性为false，播放控件就不会显示。示例代码：

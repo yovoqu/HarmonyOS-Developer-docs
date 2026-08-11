@@ -15,22 +15,22 @@ HarmonyOS蓝牙通信是否支持GAIA协议，请介绍一下当前支持的蓝�
 [蓝牙](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bluetooth-overview)是一种无线通信技术，在通信过程中，蓝牙设备会发送和接收数据包，并且使用不同的蓝牙协议来控制通信流程和数据传输。
  
 - GAIA（Generic Application Interface Architecture）：应用层协议，它依赖于多种传输协议，包括RFCOMM、SPP和GATT，支持RFCOMM和SPP并不一定支持GAIA。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/JnI5KdnNRmenlFH3rnxC9g/zh-cn_image_0000002648107542.png?HW-CC-KV=V1&HW-CC-Date=20260730T072557Z&HW-CC-Expire=86400&HW-CC-Sign=20EF92E9DDFB6AE16FD1A25CC6E6BDC0DD9152395C0FA9EBE84E07161E62132A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/JnI5KdnNRmenlFH3rnxC9g/zh-cn_image_0000002648107542.png?HW-CC-KV=V1&HW-CC-Date=20260811T005932Z&HW-CC-Expire=86400&HW-CC-Sign=4A44BB9542EE839F7E0807DB98AA8A339340DF18B70DCC8780A5BD65206F9A7E)
 
 - RFCOMM（Radio Frequency Communication）：是一种基于串口仿真的协议，常用于模拟RS232串口通信，支持点对点通信，适合简单的数据传输。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/zAxyRrYqQ7eeGuLM7WScAQ/zh-cn_image_0000002678347741.png?HW-CC-KV=V1&HW-CC-Date=20260730T072557Z&HW-CC-Expire=86400&HW-CC-Sign=F60ABC2C92672EB3E3BEAE4137740A994D6696936FC7E5F1B41528ADBCE15F0F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/zAxyRrYqQ7eeGuLM7WScAQ/zh-cn_image_0000002678347741.png?HW-CC-KV=V1&HW-CC-Date=20260811T005932Z&HW-CC-Expire=86400&HW-CC-Sign=1ABBCBE32B48E0F4E7B5A26D9A7225E475C6B75FB84272987C65545F26909A6D)
 
 - SPP（SERIAL PORT PROFILE）：基于RFCOMM协议，用于实现蓝牙设备间的串口通信。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/SYlALzUoT7KjqILcIysxrQ/zh-cn_image_0000002648268612.png?HW-CC-KV=V1&HW-CC-Date=20260730T072557Z&HW-CC-Expire=86400&HW-CC-Sign=AC87F98A9D2D892B7FF0E94A4EFBFE3BA1F9ABBA6D240A758CAFF51978A47B96)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/SYlALzUoT7KjqILcIysxrQ/zh-cn_image_0000002648268612.png?HW-CC-KV=V1&HW-CC-Date=20260811T005932Z&HW-CC-Expire=86400&HW-CC-Sign=C65F9134AA824D180E284A85F43398EDBAF08BD12FB03BF8766DC9F535F5F91A)
 
 - A2DP（Advanced Audio Distribution）：高级音频分发协议，旨在实现高质量音频数据的无线传输。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/s61mYL5SRS-wpGWhVG9VlA/zh-cn_image_0000002648109348.png?HW-CC-KV=V1&HW-CC-Date=20260730T072557Z&HW-CC-Expire=86400&HW-CC-Sign=2D2DAAF6C111FA3DBB02AE34F0300A0323C9C63434B885A1357856D449D64704)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/s61mYL5SRS-wpGWhVG9VlA/zh-cn_image_0000002648109348.png?HW-CC-KV=V1&HW-CC-Date=20260811T005932Z&HW-CC-Expire=86400&HW-CC-Sign=ACFB9A613FE986633A2731F6A442CFDCF234F4ECB33AC21C5BB79452C699CB9F)
 
 - BLE（Bluetooth Low Energy）：低功耗蓝牙，是一种能够在低功耗情况下进行通信的蓝牙技术。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/P4Yc8dlhRYObaxxONc-ZdQ/zh-cn_image_0000002648270016.png?HW-CC-KV=V1&HW-CC-Date=20260730T072557Z&HW-CC-Expire=86400&HW-CC-Sign=49FD657C05A00ADA06DF0AA94B4A7DB3CF49AF65EB69D144DA5F57754D3907CD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/P4Yc8dlhRYObaxxONc-ZdQ/zh-cn_image_0000002648270016.png?HW-CC-KV=V1&HW-CC-Date=20260811T005932Z&HW-CC-Expire=86400&HW-CC-Sign=2EE2DB11176BFC270679DF3AB0D6E5474500780F016616141A67828B1A86D710)
 
 - HFP（Hands-Free）：蓝牙技术中用于实现免提通话的核心协议。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/pc_GL_btQ5-CVstJe6YvqQ/zh-cn_image_0000002678190677.png?HW-CC-KV=V1&HW-CC-Date=20260730T072557Z&HW-CC-Expire=86400&HW-CC-Sign=39D093DB5AE4515D9301B8E0D35223758B461E2F113A6FEB0291F153E4924C02)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/pc_GL_btQ5-CVstJe6YvqQ/zh-cn_image_0000002678190677.png?HW-CC-KV=V1&HW-CC-Date=20260811T005932Z&HW-CC-Expire=86400&HW-CC-Sign=372C6D943D113A52CAC55BD795BBBEAEDF1B71DDA5F50EDF0683A3D805C1DAC8)
 
 
  

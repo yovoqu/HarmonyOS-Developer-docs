@@ -13,7 +13,7 @@
 #### 背景知识
 
 - [ArkTS的并发模型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-thread-concurrency-overview#actor模型)： 和其他所有基于JS引擎的语言一样，都是基于Actor内存隔离的并发模型，每个线程都有自己独立的内存空间，线程之间通过消息传递机制进行通信，不会直接访问对方的内存空间。taskpool属于ArkTS提供的并发方案之一，Actor模型图如下所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/7oWO1fhkRlKy5MChTnZm0g/zh-cn_image_0000002659258287.png?HW-CC-KV=V1&HW-CC-Date=20260730T072305Z&HW-CC-Expire=86400&HW-CC-Sign=90E7A3A3B7D69FE5E9B815E46C7B6562C30B10B80CA8D3FCAE9BEB191020020B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/7oWO1fhkRlKy5MChTnZm0g/zh-cn_image_0000002659258287.png?HW-CC-KV=V1&HW-CC-Date=20260811T005633Z&HW-CC-Expire=86400&HW-CC-Sign=D9EA5349B4D8AA281DADFEA1EDFFB781C604B2A035F68CC8F6DDC0730C80ABDD)
 
 - [AppStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage)是应用全局的UI状态存储，和应用的进程绑定，只能在UI主线程中使用，无法在子线程中使用、修改。
 - [Emitter](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/itc-with-emitter)是一种作用在进程内的事件处理机制，为应用程序提供订阅事件、发布事件、取消事件订阅的能力。
@@ -34,74 +34,74 @@
 
   
 ```text
-import { taskpool } from '@kit.ArkTS';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">taskpool </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Concurrent
-async function taskpoolFunc2(vaTmp: AppstorageTmpValues): Promise<AppstorageTmpValues> {
- <em> // 在taskpool子线程中直接读AppStorage里面的值,会报错ReferenceError: AppStorage is not defined</em>
-  console.info('taskpool backupId:' + vaTmp.backupId); <em>// 输出22222</em>
-  console.info('taskpool isLightMode:' + vaTmp.isLightMode); <em>// 输出true</em>
-  taskpool.Task.sendData(vaTmp);
-  vaTmp.backupId = '33333';
-  vaTmp.isLightMode = false;
-  taskpool.Task.sendData(vaTmp);
-  return vaTmp;
-}
+<span style="color: rgb(181,106,1);">@Concurrent</span>
+async function <span style="color: rgb(0,0,255);">taskpoolFunc2</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">vaTmp</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">AppstorageTmpValues</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">AppstorageTmpValues</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">在</span><span style="color: rgb(128,128,128);">taskpool</span><span style="color: rgb(128,128,128);">子线程中直接读</span><span style="color: rgb(128,128,128);">AppStorage</span><span style="color: rgb(128,128,128);">里面的值</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">会报错</span><span style="color: rgb(128,128,128);">ReferenceError: AppStorage is not defined</span></em>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'taskpool backupId:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">vaTmp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">backupId</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">输出</span><span style="color: rgb(128,128,128);">22222</span></em>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'taskpool isLightMode:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">vaTmp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isLightMode</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">输出</span><span style="color: rgb(128,128,128);">true</span></em>
+  <span style="color: rgb(255,255,255);">taskpool</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Task</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sendData</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">vaTmp</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">vaTmp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">backupId </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'33333'</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">vaTmp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isLightMode </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">taskpool</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Task</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sendData</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">vaTmp</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  return <span style="color: rgb(255,255,255);">vaTmp</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-async function mainFunc(): Promise<void> {
-  AppStorage.setOrCreate('backupId', '22222');
-  let appStateTmp: AppstorageTmpValues = {
-    isLightMode: AppStorage.get('isLightMode') as boolean,
-    backupId: AppStorage.get('backupId') as string
-  };
-<em>  // 直接将AppStorage指定值作为参数传递给taskpool子线程</em>
-  let task2: taskpool.Task = new taskpool.Task(taskpoolFunc2, appStateTmp);
-<em>  // 设置notice方法接收子线程发送的消息</em>
-  task2.onReceiveData(notice);
-  let res2: AppstorageTmpValues = await taskpool.execute(task2) as AppstorageTmpValues;
-  console.info("ui main get backupId: " + res2.backupId); // 输出33333
-  console.info("ui main get isLightMode: " + res2.isLightMode); // 输出false
-}
+async function <span style="color: rgb(0,0,255);">mainFunc</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">void</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'backupId'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'22222'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">appStateTmp</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">AppstorageTmpValues </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">isLightMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'isLightMode'</span><span style="color: rgb(255,0,170);">) </span>as <span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">backupId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'backupId'</span><span style="color: rgb(255,0,170);">) </span>as <span style="color: rgb(181,106,1);">string</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">直接将</span><span style="color: rgb(128,128,128);">AppStorage</span><span style="color: rgb(128,128,128);">指定值作为参数传递给</span><span style="color: rgb(128,128,128);">taskpool</span><span style="color: rgb(128,128,128);">子线程</span></em>
+  let <span style="color: rgb(255,255,255);">task2</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">taskpool</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Task </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">taskpool</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Task</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">taskpoolFunc2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">appStateTmp</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置</span><span style="color: rgb(128,128,128);">notice</span><span style="color: rgb(128,128,128);">方法接收子线程发送的消息</span></em>
+  <span style="color: rgb(255,255,255);">task2</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReceiveData</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">notice</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">res2</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">AppstorageTmpValues </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">taskpool</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">execute</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">task2</span><span style="color: rgb(255,0,170);">) </span>as <span style="color: rgb(181,106,1);">AppstorageTmpValues</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"ui main get backupId: " </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">res2</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">backupId</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">输出</span><span style="color: rgb(128,128,128);">33333</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"ui main get isLightMode: " </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">res2</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isLightMode</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">输出</span><span style="color: rgb(128,128,128);">false</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-function notice(data: AppstorageTmpValues): void {
-  console.info("接收并解析子线程发出的消息");
-  console.info('backupId:' + data.backupId);
-  console.info('isLightMode:' + data.isLightMode);
-  AppStorage.setOrCreate('backupId', data.backupId);
-  AppStorage.setOrCreate('isLightMode', data.isLightMode);
-}
+function <span style="color: rgb(0,0,255);">notice</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">AppstorageTmpValues</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"</span><span style="color: rgb(132,63,161);">接收并解析子线程发出的消息</span><span style="color: rgb(132,63,161);">"</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'backupId:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">backupId</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'isLightMode:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isLightMode</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'backupId'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">backupId</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'isLightMode'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isLightMode</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Entry
-@Component
-struct WayOne {
-  @StorageLink('isLightMode') isLightMode: boolean = true;
-  @StorageLink('backupId') backupId: string = '11111';
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">WayOne </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@StorageLink</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'isLightMode'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(255,255,255);">isLightMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@StorageLink</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'backupId'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(255,255,255);">backupId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'11111'</span><span style="color: rgb(181,106,1);">;</span>
 
-  aboutToAppear(): void {
-    AppStorage.setOrCreate('isLightMode', true);
-    AppStorage.setOrCreate('backupId', '11111');
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'isLightMode'</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'backupId'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'11111'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Row() {
-      Column({ space: 10 }) {
-        Text(`isLightMode:${this.isLightMode}`);
-        Text(`backupId:${this.backupId}`);
-        Button('taskpoolEmitterTest')
-          .onClick(async () => {
-            mainFunc();
-          });
-      }
-      .width('100%')
-      .height('100%');
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`isLightMode:</span><span style="color: rgb(181,106,1);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isLightMode</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`backupId:</span><span style="color: rgb(181,106,1);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">backupId</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'taskpoolEmitterTest'</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(</span>async <span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(0,0,255);">mainFunc</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-export interface AppstorageTmpValues {
-  isLightMode?: boolean;
-  backupId?: string;
-}
+export interface AppstorageTmpValues <span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">isLightMode</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">backupId</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 - **方案二**：借助进程不同线程间Emitter事件处理机制。这里以主线程通知子线程，在子线程中访问AppStorage为例说明：
@@ -114,64 +114,64 @@ export interface AppstorageTmpValues {
 
   
 ```text
-import { emitter } from '@kit.BasicServicesKit';
-import { taskpool } from '@kit.ArkTS';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">emitter </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">taskpool </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Concurrent
-async function taskpoolFunc(isLightModeTmp: boolean): Promise<string> {
-  console.info('UI主线程过来数据isLightMode:' + isLightModeTmp);
-  let backupIdTmp: string = '';
- <em> // 在taskpool子线程中直接读AppStorage里面的值,会报错ReferenceError: AppStorage is not defined</em>
-  emitter.on("eventIdTmp", (eventData: emitter.EventData) => {
-    let data = eventData?.data;
-    if (data) {
-      const isLightMode: boolean = data.isLightMode as boolean;
-      backupIdTmp = data.backupId as string;
-      console.info('通过emitter接收UI主线程的isLightMode:' + isLightMode);
-      console.info('通过emitter接收UI主线程的backupId:' + backupIdTmp);
-    }
-  });
-  return backupIdTmp;
-}
+<span style="color: rgb(181,106,1);">@Concurrent</span>
+async function <span style="color: rgb(0,0,255);">taskpoolFunc</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isLightModeTmp</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'UI</span><span style="color: rgb(132,63,161);">主线程过来数据</span><span style="color: rgb(132,63,161);">isLightMode:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">isLightModeTmp</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">backupIdTmp</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">在</span><span style="color: rgb(128,128,128);">taskpool</span><span style="color: rgb(128,128,128);">子线程中直接读</span><span style="color: rgb(128,128,128);">AppStorage</span><span style="color: rgb(128,128,128);">里面的值</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">会报错</span><span style="color: rgb(128,128,128);">ReferenceError: AppStorage is not defined</span></em>
+  <span style="color: rgb(255,255,255);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"eventIdTmp"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">eventData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">EventData</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">data </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">eventData</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">;</span>
+    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      const <span style="color: rgb(255,255,255);">isLightMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isLightMode </span>as <span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">backupIdTmp </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">backupId </span>as <span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">通过</span><span style="color: rgb(132,63,161);">emitter</span><span style="color: rgb(132,63,161);">接收</span><span style="color: rgb(132,63,161);">UI</span><span style="color: rgb(132,63,161);">主线程的</span><span style="color: rgb(132,63,161);">isLightMode:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">isLightMode</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">通过</span><span style="color: rgb(132,63,161);">emitter</span><span style="color: rgb(132,63,161);">接收</span><span style="color: rgb(132,63,161);">UI</span><span style="color: rgb(132,63,161);">主线程的</span><span style="color: rgb(132,63,161);">backupId:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">backupIdTmp</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">  }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  return <span style="color: rgb(255,255,255);">backupIdTmp</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-async function mainFunc(): Promise<void> {
- <em> // 直接将AppStorage值作为参数传递给taskpool子线程</em>
-  let task1: taskpool.Task = new taskpool.Task(taskpoolFunc, AppStorage.get('isLightMode') as boolean);
-  let res1: string = await taskpool.execute(task1) as string;
- <em> // 调整AppStorage里面的值</em>
-  AppStorage.setOrCreate('backupId', '8111122555');
-  let eventData: emitter.EventData = {
-    data: {
-      "isLightMode": AppStorage.get('isLightMode'),
-      "backupId": AppStorage.get('backupId'),
-    }
-  };
-<em>  // 通过emitter将UI主线程的AppStorage作为消息发送给taskpool子线程</em>
-  emitter.emit("eventIdTmp", eventData);
-  console.info("taskpool: task res1 is: " + res1);
-}
+async function <span style="color: rgb(0,0,255);">mainFunc</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">void</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">直接将</span><span style="color: rgb(128,128,128);">AppStorage</span><span style="color: rgb(128,128,128);">值作为参数传递给</span><span style="color: rgb(128,128,128);">taskpool</span><span style="color: rgb(128,128,128);">子线程</span></em>
+  let <span style="color: rgb(255,255,255);">task1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">taskpool</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Task </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">taskpool</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Task</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">taskpoolFunc</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'isLightMode'</span><span style="color: rgb(255,0,170);">) </span>as <span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">res1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">taskpool</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">execute</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">task1</span><span style="color: rgb(255,0,170);">) </span>as <span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">调整</span><span style="color: rgb(128,128,128);">AppStorage</span><span style="color: rgb(128,128,128);">里面的值</span></em>
+  <span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'backupId'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'8111122555'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">eventData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">EventData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(132,63,161);">"isLightMode"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'isLightMode'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(132,63,161);">"backupId"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'backupId'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">  }</span><span style="color: rgb(181,106,1);">;</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过</span><span style="color: rgb(128,128,128);">emitter</span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">UI</span><span style="color: rgb(128,128,128);">主线程的</span><span style="color: rgb(128,128,128);">AppStorage</span><span style="color: rgb(128,128,128);">作为消息发送给</span><span style="color: rgb(128,128,128);">taskpool</span><span style="color: rgb(128,128,128);">子线程</span></em>
+  <span style="color: rgb(255,255,255);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">emit</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"eventIdTmp"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">eventData</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"taskpool: task res1 is: " </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">res1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Entry
-@Component
-struct WayTwo {
-  aboutToAppear(): void {
-    AppStorage.setOrCreate('isLightMode', true);
-    AppStorage.setOrCreate('backupId', '8976756778');
-  }
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">WayTwo </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'isLightMode'</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'backupId'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'8976756778'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Row() {
-      Column() {
-        Button('taskpoolEmitterTest')
-          .onClick(async () => {
-            mainFunc();
-          });
-      }
-      .width('100%')
-      .height('100%');
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'taskpoolEmitterTest'</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(</span>async <span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(0,0,255);">mainFunc</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 - **方案三**：借助持久化方案sendablePreferences共享用户首选项。1. 将子线程需要使用的值，直接存储到sendablePreferences中。
@@ -182,86 +182,86 @@ struct WayTwo {
 
   
 ```text
-import { sendablePreferences } from '@kit.ArkData';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { lang, taskpool } from '@kit.ArkTS';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">sendablePreferences </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkData'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BusinessError </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">lang</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">taskpool </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
 
-let preferences: sendablePreferences.Preferences;
+let <span style="color: rgb(255,255,255);">preferences</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">sendablePreferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Preferences</span><span style="color: rgb(181,106,1);">;</span>
 
-@Concurrent
-async function taskpoolFunc(preferences: sendablePreferences.Preferences): Promise<void> {
- <em> // taskpool子线程从共享用户首选项获取backupId</em><em>配置值，默认取不到返回空</em>
-  let backupIdTmp: string = '';
-  let backupIdPromise = preferences.get('backupId', '');
-  backupIdPromise.then((data: lang.ISendable) => {
-    backupIdTmp = data as string;
-    console.info('taskpoolFunc backupIdTmp:' + backupIdTmp);
-  }).catch((err: BusinessError) => {
-    console.error(`Failed to get value of 'backupId'. code: ${err.code}, message: ${err.message}`);
-  });
-}
+<span style="color: rgb(181,106,1);">@Concurrent</span>
+async function <span style="color: rgb(0,0,255);">taskpoolFunc</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">preferences</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">sendablePreferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Preferences</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">void</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+ <em> <span style="color: rgb(128,128,128);">// taskpool</span><span style="color: rgb(128,128,128);">子线程从共享用户首选项获取</span><span style="color: rgb(128,128,128);">backupId</span></em><em>配置值，默认取不到返回空</em>
+  let <span style="color: rgb(255,255,255);">backupIdTmp</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">backupIdPromise </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">preferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'backupId'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">backupIdPromise</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">lang</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ISendable</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">backupIdTmp </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">data </span>as <span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'taskpoolFunc backupIdTmp:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">backupIdTmp</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Failed to get value of 'backupId'. code: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-async function mainFunc(): Promise<void> {
-<em>  // UI主线程中从共享用户首选项获取isLightMode</em><em>配置值，默认取不到返回</em>false
-  let isLightModeTmp = false;
-  let isLightModePromise = preferences.get('isLightMode', false);
-  isLightModePromise.then((data: lang.ISendable) => {
-    isLightModeTmp = data as boolean;
-    console.info('mainFunc isLightModeTmp:' + isLightModeTmp);
-  }).catch((err: BusinessError) => {
-    console.error(`Failed to get value of 'isLightMode'. code: ${err.code}, message: ${err.message}`);
-  });
+async function <span style="color: rgb(0,0,255);">mainFunc</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">void</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+<em>  <span style="color: rgb(128,128,128);">// UI</span><span style="color: rgb(128,128,128);">主线程中从共享用户首选项获取</span><span style="color: rgb(128,128,128);">isLightMode</span></em><em>配置值，默认取不到返回</em><span style="color: rgb(128,128,128);">false</span>
+  let <span style="color: rgb(255,255,255);">isLightModeTmp </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">isLightModePromise </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">preferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'isLightMode'</span><span style="color: rgb(181,106,1);">, </span>false<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">isLightModePromise</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">lang</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ISendable</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">isLightModeTmp </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">data </span>as <span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'mainFunc isLightModeTmp:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">isLightModeTmp</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Failed to get value of 'isLightMode'. code: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
- <em> // UI主线程中从共享用户首选项获取backupId配置值，默认取不到返回空</em>
-  let backupIdTmp = '';
-  let backupIdPromise = preferences.get('backupId', '');
-  backupIdPromise.then((data: lang.ISendable) => {
-    backupIdTmp = data as string;
-    console.info('mainFunc backupIdTmp:' + backupIdTmp);
-  }).catch((err: BusinessError) => {
-    console.error(`Failed to get value of 'backupId'. code: ${err.code}, message: ${err.message}`);
-  });
+ <em> <span style="color: rgb(128,128,128);">// UI</span><span style="color: rgb(128,128,128);">主线程中从共享用户首选项获取</span><span style="color: rgb(128,128,128);">backupId</span><span style="color: rgb(128,128,128);">配置值，默认取不到返回空</span></em>
+  let <span style="color: rgb(255,255,255);">backupIdTmp </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">backupIdPromise </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">preferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'backupId'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">backupIdPromise</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">lang</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ISendable</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">backupIdTmp </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">data </span>as <span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'mainFunc backupIdTmp:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">backupIdTmp</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Failed to get value of 'backupId'. code: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
- <em> // 将共享首选项的preferences（继承自ISendable）引用传递给taskpool子线程</em>
-  let task: taskpool.Task = new taskpool.Task(taskpoolFunc, preferences);
-  await taskpool.execute(task);
-}
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将共享首选项的</span><span style="color: rgb(128,128,128);">preferences</span><span style="color: rgb(128,128,128);">（继承自</span><span style="color: rgb(128,128,128);">ISendable</span><span style="color: rgb(128,128,128);">）引用传递给</span><span style="color: rgb(128,128,128);">taskpool</span><span style="color: rgb(128,128,128);">子线程</span></em>
+  let <span style="color: rgb(255,255,255);">task</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">taskpool</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Task </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">taskpool</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Task</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">taskpoolFunc</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">preferences</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  await <span style="color: rgb(255,255,255);">taskpool</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">execute</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">task</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Entry
-@Component
-struct WayThree {
-  aboutToAppear(): void {
-  <em>  // 创建AppStorage</em>
-    AppStorage.setOrCreate('isLightMode', true);
-    AppStorage.setOrCreate('backupId', '8976756778');
- <em>   // 添加sendablePreferences相关项</em>
-    let options: sendablePreferences.Options = { name: 'myStore' };
-    let context = this.getUIContext().getHostContext()!;
-    let promise = sendablePreferences.getPreferences(context, options);
-    promise.then((object: sendablePreferences.Preferences) => {
-      preferences = object;
-   <em>   // 写入sendablePreferences首选项键值</em>
-      preferences.put('isLightMode', AppStorage.get('isLightMode') as boolean);
-      preferences.put('backupId', AppStorage.get('backupId') as string);
-      console.info("Succeeded in getting preferences.");
-    }).catch((err: BusinessError) => {
-      console.error(`Failed to get preferences. code: ${err.code}, message: ${err.message}`);
-    });
-  }
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">WayThree </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建</span><span style="color: rgb(128,128,128);">AppStorage</span></em>
+    <span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'isLightMode'</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'backupId'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'8976756778'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+ <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">添加</span><span style="color: rgb(128,128,128);">sendablePreferences</span><span style="color: rgb(128,128,128);">相关项</span></em>
+    let <span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">sendablePreferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Options </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'myStore' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">!;</span>
+    let <span style="color: rgb(255,255,255);">promise </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">sendablePreferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPreferences</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">promise</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">object</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">sendablePreferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Preferences</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">preferences </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">object</span><span style="color: rgb(181,106,1);">;</span>
+   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">写入</span><span style="color: rgb(128,128,128);">sendablePreferences</span><span style="color: rgb(128,128,128);">首选项键值</span></em>
+      <span style="color: rgb(255,255,255);">preferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">put</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'isLightMode'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'isLightMode'</span><span style="color: rgb(255,0,170);">) </span>as <span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">preferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">put</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'backupId'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'backupId'</span><span style="color: rgb(255,0,170);">) </span>as <span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"Succeeded in getting preferences."</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Failed to get preferences. code: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Row() {
-      Column() {
-        Button('taskpoolSendablePreferenceTest')
-          .onClick(async () => {
-            mainFunc();
-          });
-      }
-      .width('100%')
-      .height('100%');
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'taskpoolSendablePreferenceTest'</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(</span>async <span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(0,0,255);">mainFunc</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 

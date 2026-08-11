@@ -9,7 +9,7 @@
 在DevEco新创建的云数据库对象类型，部署失败“clouddb deploy failed. Reason is the index cannot be modified”。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/M5fdJKSYTR-ZNc2Rgbf2Zw/zh-cn_image_0000002628554626.png?HW-CC-KV=V1&HW-CC-Date=20260730T072707Z&HW-CC-Expire=86400&HW-CC-Sign=DF51752BE95B2A42E894837C76BEDCBB34D516C663FF18207D306426C99D7A43)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/M5fdJKSYTR-ZNc2Rgbf2Zw/zh-cn_image_0000002628554626.png?HW-CC-KV=V1&HW-CC-Date=20260811T005603Z&HW-CC-Expire=86400&HW-CC-Sign=FD0DEE5BFE3206516705E98A1830A4DAB05459FFC201FABC459FA0FA36D4B27F)
 
  
  

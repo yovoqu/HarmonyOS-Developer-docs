@@ -152,7 +152,7 @@ export struct CusTab2 {
 效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/z9KWFqpDQcq-Ph41r6OVRg/zh-cn_image_0000002658800929.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072501Z&HW-CC-Expire=86400&HW-CC-Sign=A2A668857DBA29F4DB4DA8085FFDC1A4E214685C2C6A482FF2D51F2BDEE3DA32)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/z9KWFqpDQcq-Ph41r6OVRg/zh-cn_image_0000002658800929.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005649Z&HW-CC-Expire=86400&HW-CC-Sign=85C0AE83742243459910C3B4B98A06FE2ED0FB259125E1991444744C6DB09733)
 
  
 方案二：设置异形TabBar达到不均匀分布的效果。1. 左右四栏设置宽度占比18%，中间构造异形导航宽度占比28%。
@@ -266,7 +266,7 @@ export struct CusTab2 {
 效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/_WPSkHNCThKcLtEYmzDtJg/zh-cn_image_0000002628401672.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072501Z&HW-CC-Expire=86400&HW-CC-Sign=033BB7E43157C9D7B751B85E26D4BDCF05E4117D76BC0E42B35E632629A71EAB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/_WPSkHNCThKcLtEYmzDtJg/zh-cn_image_0000002628401672.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005649Z&HW-CC-Expire=86400&HW-CC-Sign=F9CD4E5F06DBA1B76F11BEB11B7560601C782B18FA24F01ABB4EF5C9388033B6)
 
  
  

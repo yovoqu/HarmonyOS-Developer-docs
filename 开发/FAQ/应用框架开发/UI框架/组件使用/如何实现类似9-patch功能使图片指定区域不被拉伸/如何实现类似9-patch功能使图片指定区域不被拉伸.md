@@ -31,7 +31,7 @@
 #### 解决方案
 
 - **方案一**、对于样式简单的气泡图，通过配置ResizableOptions类型的slice参数，设置统一的上下左右拉伸距离，即可实现类似9-patch图的拉伸效果。拉伸示例图如下（灰色为可拉伸区域）：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/LI_ReM1NQPqHvQRiZolRBQ/zh-cn_image_0000002658794125.png?HW-CC-KV=V1&HW-CC-Date=20260730T072325Z&HW-CC-Expire=86400&HW-CC-Sign=810165704FB528A3E6A0E67E592FBD75DF5CE35A0E30EF7655427878A68969B5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/LI_ReM1NQPqHvQRiZolRBQ/zh-cn_image_0000002658794125.png?HW-CC-KV=V1&HW-CC-Date=20260811T005810Z&HW-CC-Expire=86400&HW-CC-Sign=46E4C43F11741A8C3156743890E16A55710B341DBFEEF4441953B26D9A397C79)
 
 
 1. 通过为slice参数指定上、下、左、右四个方向的像素偏移值，将一张图片划分为九宫格布局。
@@ -101,10 +101,10 @@ struct Page {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/SZX4njH2TiaZ9CiCzV62IQ/zh-cn_image_0000002628554754.png?HW-CC-KV=V1&HW-CC-Date=20260730T072325Z&HW-CC-Expire=86400&HW-CC-Sign=50526980D219AF9E2C9735EDE58FE868B5658D35C4F2910DA750EA683C5C26E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/SZX4njH2TiaZ9CiCzV62IQ/zh-cn_image_0000002628554754.png?HW-CC-KV=V1&HW-CC-Date=20260811T005810Z&HW-CC-Expire=86400&HW-CC-Sign=D9A8AEB16C845ACDA59190E070FEEC455089EB23C893B467322001828B699550)
 
 - **方案二**、针对结构复杂的气泡图，可以通过ResizableOptions类型的lattice参数，将图像划分为一个矩形网格来实现拉伸控制。拉伸示例图如下（灰色为可拉伸区域）：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/Scptf98AREKloD-AGoVurw/zh-cn_image_0000002628394860.png?HW-CC-KV=V1&HW-CC-Date=20260730T072325Z&HW-CC-Expire=86400&HW-CC-Sign=2F71A0FA5ED2984D99D6DF5C708641AFBD18F970A22D68F5212F88D72ADB71AA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/Scptf98AREKloD-AGoVurw/zh-cn_image_0000002628394860.png?HW-CC-KV=V1&HW-CC-Date=20260811T005810Z&HW-CC-Expire=86400&HW-CC-Sign=F57A701A982AEE344E574E877B039FAB72CBD8806D2438FAD24746C178AF2428)
 
 
 1. 首先将原图划分为矩形网格，使无需发生形变的区域处于矩形网格的偶数行偶数列，并获取相应像素值。如上图所示，气泡图的水平方向包含左、中、右三个固定区域（图中黑色标注部分），因此水平上一共划分为五个区域。垂直方向上，则只有中间部分为可拉伸区域（图中灰色标注部分），因此垂直方向上共划分为三个区域。
@@ -179,4 +179,4 @@ struct Index {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/gNp8BujKRI6KMbS6WOMShA/zh-cn_image_0000002658914079.png?HW-CC-KV=V1&HW-CC-Date=20260730T072325Z&HW-CC-Expire=86400&HW-CC-Sign=D3D8334FB3A2B43749C8F931473C909EF34ED6E97374B720C449E3EE35EE39CB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/gNp8BujKRI6KMbS6WOMShA/zh-cn_image_0000002658914079.png?HW-CC-KV=V1&HW-CC-Date=20260811T005810Z&HW-CC-Expire=86400&HW-CC-Sign=E751596F0F8DA51FB8704952E69F3631E4DBF05AD3E1F8A30B6486A9A1458B5A)

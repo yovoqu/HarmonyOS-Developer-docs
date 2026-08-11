@@ -157,7 +157,7 @@ export struct CustomUiDemo {
 效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/XyFKjGpbTD6kPCWcoyZ3Xw/zh-cn_image_0000002658962959.png?HW-CC-KV=V1&HW-CC-Date=20260730T072400Z&HW-CC-Expire=86400&HW-CC-Sign=BAE3642A1E76847788B4AE3F1809C9B815C33BE36C19F9250834595F9284F2E9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/XyFKjGpbTD6kPCWcoyZ3Xw/zh-cn_image_0000002658962959.png?HW-CC-KV=V1&HW-CC-Date=20260811T005812Z&HW-CC-Expire=86400&HW-CC-Sign=6400747975CA2B216F3817C8A1B54C8E2829F13129FE1E6D8C426B47C4ECAF4C)
 
  
  

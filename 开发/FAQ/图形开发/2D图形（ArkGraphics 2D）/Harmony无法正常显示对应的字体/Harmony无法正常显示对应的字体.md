@@ -11,17 +11,17 @@
 问题现象1（注册字体失败）：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/E138QwarSaqbYAwhQ-jQzQ/zh-cn_image_0000002628553252.png?HW-CC-KV=V1&HW-CC-Date=20260730T072637Z&HW-CC-Expire=86400&HW-CC-Sign=03D724581117B5D1C8B271484ED6941D31FAC0676AF455A4730D9FF5DAAC40CD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/E138QwarSaqbYAwhQ-jQzQ/zh-cn_image_0000002628553252.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=16A2616B148CA9C5F4A20F4D7B0DB110F0705F2B482D66BB1DBF41F66A2E660B)
 
  
 问题现象2（字体显示与字体资源文件中的字形显示不一致）：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/lOwTMeaLRMO_smLclkPceA/zh-cn_image_0000002658912565.png?HW-CC-KV=V1&HW-CC-Date=20260730T072637Z&HW-CC-Expire=86400&HW-CC-Sign=A6FD494EB39D51BC686733C6A08BB4BCC55C8BC002BE58927E1270F7845A9E5F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/lOwTMeaLRMO_smLclkPceA/zh-cn_image_0000002658912565.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=805889251207634222234B1C8DDD80F0180E74A1B506569333E082689CD8FEC9)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/mH-a7cUFTWiL1bn7srES9Q/zh-cn_image_0000002658792627.png?HW-CC-KV=V1&HW-CC-Date=20260730T072637Z&HW-CC-Expire=86400&HW-CC-Sign=0A901F76D2BBEF9F5100E816F0776775D61CF1CD219A796D47E88047D3B533BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/mH-a7cUFTWiL1bn7srES9Q/zh-cn_image_0000002658792627.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=9D6A7C38B500087EA21A7E8621F7DA610CB9CFCC16466750F7B3F41C4E6B9B3D)
 
  
 问题代码如下：
@@ -97,10 +97,10 @@ struct Index {
 
 字体显示异常可能的原因有三类：
  1. 字体资源异常：字体资源文件存在问题，如不存在对应的字体，会导致字体不显示。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/cdJmsPxRQ1mMoa4gVaE_cw/zh-cn_image_0000002628393366.png?HW-CC-KV=V1&HW-CC-Date=20260730T072637Z&HW-CC-Expire=86400&HW-CC-Sign=AAC4D1EECA70EC84D189C7C8576B4710AFA8DF60A70C6F9B8D137D208D757484)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/cdJmsPxRQ1mMoa4gVaE_cw/zh-cn_image_0000002628393366.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=89DB05C4976D0DFA6E32DD1D70D89ADEECCD1F9AE98BE6172126CB8D133917CC)
 
 2. 字体引擎注册字体异常：注册字体失败。特别需要注意的是，注册字体使用的名称需要唯一。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/mK-EKaEjQBOFNOFHFB2Jcw/zh-cn_image_0000002628553256.png?HW-CC-KV=V1&HW-CC-Date=20260730T072637Z&HW-CC-Expire=86400&HW-CC-Sign=2272D96C5FFAD51702E2BDB0A0E135EA9539518C03EE9A8702BB884E2080B841)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/mK-EKaEjQBOFNOFHFB2Jcw/zh-cn_image_0000002628553256.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=1EA62705A2CDA210CCA7CE0307BF059BB21F1D748D582AF937B89EDEC764FF4C)
 
 3. 代码逻辑使用不当导致的异常：例如时序问题、使用了错误的Unicode码等。第一点可以通过使用在线字体网站/字体软件查询自定义字体文件中是否包含未正确显示的字体；第二点可以通过查看日志，来判断字体是否注册成功。
  
