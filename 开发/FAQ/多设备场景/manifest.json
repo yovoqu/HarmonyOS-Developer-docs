@@ -23,7 +23,7 @@
   {
     "slug": "faqs-mds-arkui-3",
     "name": "控制折叠屏展开态和折叠态时弹窗的位置",
-    "file": "开发/FAQ/多设备场景/UI框架/方舟UI框架（ArkUI）/控制折叠屏展开态和折叠态时弹窗的位置/控制折叠屏展开态和折叠态时弹窗的位置.md",
+    "file": "UI框架/方舟UI框架（ArkUI）/控制折叠屏展开态和折叠态时弹窗的位置/控制折叠屏展开态和折叠态时弹窗的位置.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mds-arkui-3"
   },
   {
@@ -35,7 +35,7 @@
   {
     "slug": "faqs-mds-arkui-1",
     "name": "横竖屏切换时应用布局会发生留白、溢出屏幕的现象",
-    "file": "开发/FAQ/多设备场景/UI框架/方舟UI框架（ArkUI）/横竖屏切换时应用布局会发生留白、溢出屏幕的现象/横竖屏切换时应用布局会发生留白、溢出屏幕的现象.md",
+    "file": "UI框架/方舟UI框架（ArkUI）/横竖屏切换时应用布局会发生留白、溢出屏幕的现象/横竖屏切换时应用布局会发生留白、溢出屏幕的现象.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mds-arkui-1"
   },
   {
@@ -47,7 +47,7 @@
   {
     "slug": "faqs-multi-device-deployment-8",
     "name": "如何实现全局悬浮窗功能",
-    "file": "开发/FAQ/多设备场景/一次开发多端部署/常见问题/如何实现全局悬浮窗功能/如何实现全局悬浮窗功能.md",
+    "file": "一次开发多端部署/常见问题/如何实现全局悬浮窗功能/如何实现全局悬浮窗功能.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-multi-device-deployment-8"
   },
   {
@@ -59,7 +59,7 @@
   {
     "slug": "faqs-multi-device-deployment-7",
     "name": "如何实现横屏页面返回切换竖屏/单页面横竖屏",
-    "file": "开发/FAQ/多设备场景/一次开发多端部署/常见问题/如何实现横屏页面返回切换竖屏／单页面横竖屏/如何实现横屏页面返回切换竖屏／单页面横竖屏.md",
+    "file": "一次开发多端部署/常见问题/如何实现横屏页面返回切换竖屏／单页面横竖屏/如何实现横屏页面返回切换竖屏／单页面横竖屏.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-multi-device-deployment-7"
   },
   {
@@ -71,7 +71,7 @@
   {
     "slug": "faqs-multi-device-deployment-5",
     "name": "应用在折叠屏展开态下，页面展示的内容比例变大",
-    "file": "开发/FAQ/多设备场景/一次开发多端部署/常见问题/应用在折叠屏展开态下，页面展示的内容比例变大/应用在折叠屏展开态下，页面展示的内容比例变大.md",
+    "file": "一次开发多端部署/常见问题/应用在折叠屏展开态下，页面展示的内容比例变大/应用在折叠屏展开态下，页面展示的内容比例变大.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-multi-device-deployment-5"
   },
   {
@@ -83,7 +83,7 @@
   {
     "slug": "faqs-multi-device-deployment-1",
     "name": "应用未适配自由多窗，在平板设备上出现截断、挤压、堆叠等现象",
-    "file": "开发/FAQ/多设备场景/一次开发多端部署/常见问题/应用未适配自由多窗，在平板设备上出现截断、挤压、堆叠等现象/应用未适配自由多窗，在平板设备上出现截断、挤压、堆叠等现象.md",
+    "file": "一次开发多端部署/常见问题/应用未适配自由多窗，在平板设备上出现截断、挤压、堆叠等现象/应用未适配自由多窗，在平板设备上出现截断、挤压、堆叠等现象.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-multi-device-deployment-1"
   },
   {
@@ -95,7 +95,7 @@
   {
     "slug": "faqs-multi-device-deployment-3",
     "name": "弹窗页面文本重叠",
-    "file": "开发/FAQ/多设备场景/一次开发多端部署/常见问题/弹窗页面文本重叠/弹窗页面文本重叠.md",
+    "file": "一次开发多端部署/常见问题/弹窗页面文本重叠/弹窗页面文本重叠.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-multi-device-deployment-3"
   },
   {
@@ -107,7 +107,7 @@
   {
     "slug": "faqs-multi-device-deployment-2",
     "name": "手机端应用在PC端无法全屏展示",
-    "file": "开发/FAQ/多设备场景/一次开发多端部署/常见问题/手机端应用在PC端无法全屏展示/手机端应用在PC端无法全屏展示.md",
+    "file": "一次开发多端部署/常见问题/手机端应用在PC端无法全屏展示/手机端应用在PC端无法全屏展示.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-multi-device-deployment-2"
   },
   {
@@ -119,7 +119,7 @@
   {
     "slug": "faqs-multi-device-deployment-6",
     "name": "折叠屏展开态和折叠态下呈现的内容不一致",
-    "file": "开发/FAQ/多设备场景/一次开发多端部署/常见问题/折叠屏展开态和折叠态下呈现的内容不一致/折叠屏展开态和折叠态下呈现的内容不一致.md",
+    "file": "一次开发多端部署/常见问题/折叠屏展开态和折叠态下呈现的内容不一致/折叠屏展开态和折叠态下呈现的内容不一致.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-multi-device-deployment-6"
   },
   {
@@ -131,7 +131,7 @@
   {
     "slug": "faqs-multi-device-deployment-4",
     "name": "折叠屏或分栏模式下观看视频时，画面拉伸",
-    "file": "开发/FAQ/多设备场景/一次开发多端部署/常见问题/折叠屏或分栏模式下观看视频时，画面拉伸/折叠屏或分栏模式下观看视频时，画面拉伸.md",
+    "file": "一次开发多端部署/常见问题/折叠屏或分栏模式下观看视频时，画面拉伸/折叠屏或分栏模式下观看视频时，画面拉伸.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-multi-device-deployment-4"
   },
   {
@@ -143,7 +143,7 @@
   {
     "slug": "multi-device-deployment-faqs-1",
     "name": "应用在平板桌面和手机桌面显示的图标不一样",
-    "file": "开发/FAQ/多设备场景/一次开发多端部署/应用在平板桌面和手机桌面显示的图标不一样/应用在平板桌面和手机桌面显示的图标不一样.md",
+    "file": "一次开发多端部署/应用在平板桌面和手机桌面显示的图标不一样/应用在平板桌面和手机桌面显示的图标不一样.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/multi-device-deployment-faqs-1"
   },
   {
@@ -155,7 +155,7 @@
   {
     "slug": "multi-device-deployment-faqs-2",
     "name": "折叠屏展开态直接打开应用与折叠后再打开应用字体大小不一致",
-    "file": "开发/FAQ/多设备场景/一次开发多端部署/折叠屏展开态直接打开应用与折叠后再打开应用字体大小不一致/折叠屏展开态直接打开应用与折叠后再打开应用字体大小不一致.md",
+    "file": "一次开发多端部署/折叠屏展开态直接打开应用与折叠后再打开应用字体大小不一致/折叠屏展开态直接打开应用与折叠后再打开应用字体大小不一致.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/multi-device-deployment-faqs-2"
   },
   {
@@ -167,7 +167,7 @@
   {
     "slug": "faqs-tablet-16",
     "name": "分屏模式下组件卡片内大面积空白",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/分屏模式下组件卡片内大面积空白/分屏模式下组件卡片内大面积空白.md",
+    "file": "平板/常见问题/分屏模式下组件卡片内大面积空白/分屏模式下组件卡片内大面积空白.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-16"
   },
   {
@@ -179,7 +179,7 @@
   {
     "slug": "faqs-tablet-29",
     "name": "分屏模式，不支持分栏显示",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/分屏模式，不支持分栏显示/分屏模式，不支持分栏显示.md",
+    "file": "平板/常见问题/分屏模式，不支持分栏显示/分屏模式，不支持分栏显示.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-29"
   },
   {
@@ -191,7 +191,7 @@
   {
     "slug": "faqs-tablet-24",
     "name": "平板上自定义键盘弹出，显示不全",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板上自定义键盘弹出，显示不全/平板上自定义键盘弹出，显示不全.md",
+    "file": "平板/常见问题/平板上自定义键盘弹出，显示不全/平板上自定义键盘弹出，显示不全.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-24"
   },
   {
@@ -203,7 +203,7 @@
   {
     "slug": "faqs-tablet-13",
     "name": "平板上视频显示不全",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板上视频显示不全/平板上视频显示不全.md",
+    "file": "平板/常见问题/平板上视频显示不全/平板上视频显示不全.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-13"
   },
   {
@@ -215,7 +215,7 @@
   {
     "slug": "faqs-tablet-17",
     "name": "平板全屏播放视频时下方标题仍然显示",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板全屏播放视频时下方标题仍然显示/平板全屏播放视频时下方标题仍然显示.md",
+    "file": "平板/常见问题/平板全屏播放视频时下方标题仍然显示/平板全屏播放视频时下方标题仍然显示.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-17"
   },
   {
@@ -227,7 +227,7 @@
   {
     "slug": "faqs-tablet-11",
     "name": "平板全屏播放视频时四周有留白",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板全屏播放视频时四周有留白/平板全屏播放视频时四周有留白.md",
+    "file": "平板/常见问题/平板全屏播放视频时四周有留白/平板全屏播放视频时四周有留白.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-11"
   },
   {
@@ -239,7 +239,7 @@
   {
     "slug": "faqs-tablet-31",
     "name": "平板全屏播放视频时页面异常",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板全屏播放视频时页面异常/平板全屏播放视频时页面异常.md",
+    "file": "平板/常见问题/平板全屏播放视频时页面异常/平板全屏播放视频时页面异常.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-31"
   },
   {
@@ -251,7 +251,7 @@
   {
     "slug": "faqs-tablet-7",
     "name": "平板分屏状态下，点击跳转后的页面变为全屏展示",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板分屏状态下，点击跳转后的页面变为全屏展示/平板分屏状态下，点击跳转后的页面变为全屏展示.md",
+    "file": "平板/常见问题/平板分屏状态下，点击跳转后的页面变为全屏展示/平板分屏状态下，点击跳转后的页面变为全屏展示.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-7"
   },
   {
@@ -263,7 +263,7 @@
   {
     "slug": "faqs-tablet-9",
     "name": "平板切换自由多窗模式后，页面横向滑动失效",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板切换自由多窗模式后，页面横向滑动失效/平板切换自由多窗模式后，页面横向滑动失效.md",
+    "file": "平板/常见问题/平板切换自由多窗模式后，页面横向滑动失效/平板切换自由多窗模式后，页面横向滑动失效.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-9"
   },
   {
@@ -275,7 +275,7 @@
   {
     "slug": "faqs-tablet-22",
     "name": "平板开启强制横屏选择分栏视图，应用横屏后分栏显示异常",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板开启强制横屏选择分栏视图，应用横屏后分栏显示异常/平板开启强制横屏选择分栏视图，应用横屏后分栏显示异常.md",
+    "file": "平板/常见问题/平板开启强制横屏选择分栏视图，应用横屏后分栏显示异常/平板开启强制横屏选择分栏视图，应用横屏后分栏显示异常.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-22"
   },
   {
@@ -287,7 +287,7 @@
   {
     "slug": "faqs-tablet-26",
     "name": "平板打开应用，部分组件不可见",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板打开应用，部分组件不可见/平板打开应用，部分组件不可见.md",
+    "file": "平板/常见问题/平板打开应用，部分组件不可见/平板打开应用，部分组件不可见.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-26"
   },
   {
@@ -299,7 +299,7 @@
   {
     "slug": "faqs-tablet-25",
     "name": "平板横屏显示时，页面滑动区域过小",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板横屏显示时，页面滑动区域过小/平板横屏显示时，页面滑动区域过小.md",
+    "file": "平板/常见问题/平板横屏显示时，页面滑动区域过小/平板横屏显示时，页面滑动区域过小.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-25"
   },
   {
@@ -311,7 +311,7 @@
   {
     "slug": "faqs-tablet-27",
     "name": "平板横屏状态下，页面两侧出现大量黑边",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板横屏状态下，页面两侧出现大量黑边/平板横屏状态下，页面两侧出现大量黑边.md",
+    "file": "平板/常见问题/平板横屏状态下，页面两侧出现大量黑边/平板横屏状态下，页面两侧出现大量黑边.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-27"
   },
   {
@@ -323,7 +323,7 @@
   {
     "slug": "faqs-tablet-21",
     "name": "平板横竖屏切换，底部图标隐藏不见",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板横竖屏切换，底部图标隐藏不见/平板横竖屏切换，底部图标隐藏不见.md",
+    "file": "平板/常见问题/平板横竖屏切换，底部图标隐藏不见/平板横竖屏切换，底部图标隐藏不见.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-21"
   },
   {
@@ -335,7 +335,7 @@
   {
     "slug": "faqs-tablet-3",
     "name": "平板相机拍照预览画面拉伸",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板相机拍照预览画面拉伸/平板相机拍照预览画面拉伸.md",
+    "file": "平板/常见问题/平板相机拍照预览画面拉伸/平板相机拍照预览画面拉伸.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-3"
   },
   {
@@ -347,7 +347,7 @@
   {
     "slug": "faqs-tablet-19",
     "name": "平板竖屏场景，底部组件位置错乱",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板竖屏场景，底部组件位置错乱/平板竖屏场景，底部组件位置错乱.md",
+    "file": "平板/常见问题/平板竖屏场景，底部组件位置错乱/平板竖屏场景，底部组件位置错乱.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-19"
   },
   {
@@ -359,7 +359,7 @@
   {
     "slug": "faqs-tablet-10",
     "name": "平板端页面背景与字体颜色对比度不足",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板端页面背景与字体颜色对比度不足/平板端页面背景与字体颜色对比度不足.md",
+    "file": "平板/常见问题/平板端页面背景与字体颜色对比度不足/平板端页面背景与字体颜色对比度不足.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-10"
   },
   {
@@ -371,7 +371,7 @@
   {
     "slug": "faqs-tablet-8",
     "name": "平板设备上应用的Web页面中，字体显示过大或过小",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板设备上应用的Web页面中，字体显示过大或过小/平板设备上应用的Web页面中，字体显示过大或过小.md",
+    "file": "平板/常见问题/平板设备上应用的Web页面中，字体显示过大或过小/平板设备上应用的Web页面中，字体显示过大或过小.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-8"
   },
   {
@@ -383,7 +383,7 @@
   {
     "slug": "faqs-tablet-2",
     "name": "平板设备上打开应用时，不显示状态栏",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板设备上打开应用时，不显示状态栏/平板设备上打开应用时，不显示状态栏.md",
+    "file": "平板/常见问题/平板设备上打开应用时，不显示状态栏/平板设备上打开应用时，不显示状态栏.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-2"
   },
   {
@@ -395,7 +395,7 @@
   {
     "slug": "faqs-tablet-32",
     "name": "平板设备上，应用页面横屏状态下不显示内容",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板设备上，应用页面横屏状态下不显示内容/平板设备上，应用页面横屏状态下不显示内容.md",
+    "file": "平板/常见问题/平板设备上，应用页面横屏状态下不显示内容/平板设备上，应用页面横屏状态下不显示内容.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-32"
   },
   {
@@ -407,7 +407,7 @@
   {
     "slug": "faqs-tablet-14",
     "name": "平板页面局部图片被截断",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/平板页面局部图片被截断/平板页面局部图片被截断.md",
+    "file": "平板/常见问题/平板页面局部图片被截断/平板页面局部图片被截断.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-14"
   },
   {
@@ -419,7 +419,7 @@
   {
     "slug": "faqs-tablet-1",
     "name": "应用在平板或PC上的布局异常",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/应用在平板或PC上的布局异常/应用在平板或PC上的布局异常.md",
+    "file": "平板/常见问题/应用在平板或PC上的布局异常/应用在平板或PC上的布局异常.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-1"
   },
   {
@@ -431,7 +431,7 @@
   {
     "slug": "faqs-tablet-4",
     "name": "应用在平板设备上的拍照取景框发生了旋转",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/应用在平板设备上的拍照取景框发生了旋转/应用在平板设备上的拍照取景框发生了旋转.md",
+    "file": "平板/常见问题/应用在平板设备上的拍照取景框发生了旋转/应用在平板设备上的拍照取景框发生了旋转.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-4"
   },
   {
@@ -443,7 +443,7 @@
   {
     "slug": "faqs-tablet-12",
     "name": "应用在平板设备竖屏时，界面下方有留白且文字溢出界面",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/应用在平板设备竖屏时，界面下方有留白且文字溢出界面/应用在平板设备竖屏时，界面下方有留白且文字溢出界面.md",
+    "file": "平板/常见问题/应用在平板设备竖屏时，界面下方有留白且文字溢出界面/应用在平板设备竖屏时，界面下方有留白且文字溢出界面.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-12"
   },
   {
@@ -455,7 +455,7 @@
   {
     "slug": "faqs-tablet-23",
     "name": "应用指南针在平板上有90度偏差",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/应用指南针在平板上有90度偏差/应用指南针在平板上有90度偏差.md",
+    "file": "平板/常见问题/应用指南针在平板上有90度偏差/应用指南针在平板上有90度偏差.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-23"
   },
   {
@@ -467,7 +467,7 @@
   {
     "slug": "faqs-tablet-20",
     "name": "应用横屏打开会自动切换成竖屏",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/应用横屏打开会自动切换成竖屏/应用横屏打开会自动切换成竖屏.md",
+    "file": "平板/常见问题/应用横屏打开会自动切换成竖屏/应用横屏打开会自动切换成竖屏.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-20"
   },
   {
@@ -479,7 +479,7 @@
   {
     "slug": "faqs-tablet-5",
     "name": "弹窗在平板横竖屏切换后不显示",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/弹窗在平板横竖屏切换后不显示/弹窗在平板横竖屏切换后不显示.md",
+    "file": "平板/常见问题/弹窗在平板横竖屏切换后不显示/弹窗在平板横竖屏切换后不显示.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-5"
   },
   {
@@ -491,7 +491,7 @@
   {
     "slug": "faqs-tablet-30",
     "name": "悬浮窗模式下，应用窗口放置在屏幕不同位置时，内部弹窗位置也随着变化",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/悬浮窗模式下，应用窗口放置在屏幕不同位置时，内部弹窗位置也随着变化/悬浮窗模式下，应用窗口放置在屏幕不同位置时，内部弹窗位置也随着变化.md",
+    "file": "平板/常见问题/悬浮窗模式下，应用窗口放置在屏幕不同位置时，内部弹窗位置也随着变化/悬浮窗模式下，应用窗口放置在屏幕不同位置时，内部弹窗位置也随着变化.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-30"
   },
   {
@@ -503,7 +503,7 @@
   {
     "slug": "faqs-tablet-15",
     "name": "悬浮窗模式，组件大小与显示内容大小不一致",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/悬浮窗模式，组件大小与显示内容大小不一致/悬浮窗模式，组件大小与显示内容大小不一致.md",
+    "file": "平板/常见问题/悬浮窗模式，组件大小与显示内容大小不一致/悬浮窗模式，组件大小与显示内容大小不一致.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-15"
   },
   {
@@ -515,7 +515,7 @@
   {
     "slug": "faqs-tablet-6",
     "name": "横屏播放视频后返回上一页，布局异常",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/横屏播放视频后返回上一页，布局异常/横屏播放视频后返回上一页，布局异常.md",
+    "file": "平板/常见问题/横屏播放视频后返回上一页，布局异常/横屏播放视频后返回上一页，布局异常.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-6"
   },
   {
@@ -533,7 +533,7 @@
   {
     "slug": "faqs-tablet-18",
     "name": "自由多窗模式关闭后状态栏与页面内容重叠",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/自由多窗模式关闭后状态栏与页面内容重叠/自由多窗模式关闭后状态栏与页面内容重叠.md",
+    "file": "平板/常见问题/自由多窗模式关闭后状态栏与页面内容重叠/自由多窗模式关闭后状态栏与页面内容重叠.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-18"
   },
   {
@@ -545,7 +545,7 @@
   {
     "slug": "faqs-tablet-28",
     "name": "页面内容在平板上显示不全",
-    "file": "开发/FAQ/多设备场景/平板/常见问题/页面内容在平板上显示不全/页面内容在平板上显示不全.md",
+    "file": "平板/常见问题/页面内容在平板上显示不全/页面内容在平板上显示不全.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tablet-28"
   },
   {
@@ -557,7 +557,7 @@
   {
     "slug": "faqs-purax-5",
     "name": "Pura X设备人脸识别黑屏",
-    "file": "开发/FAQ/多设备场景/手机/Pura X常见问题/Pura X设备人脸识别黑屏/Pura X设备人脸识别黑屏.md",
+    "file": "手机/Pura X常见问题/Pura X设备人脸识别黑屏/Pura X设备人脸识别黑屏.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-purax-5"
   },
   {
@@ -569,7 +569,7 @@
   {
     "slug": "faqs-purax-7",
     "name": "在折叠屏展开态打开应用后折叠，页面内容显示不全",
-    "file": "开发/FAQ/多设备场景/手机/Pura X常见问题/在折叠屏展开态打开应用后折叠，页面内容显示不全/在折叠屏展开态打开应用后折叠，页面内容显示不全.md",
+    "file": "手机/Pura X常见问题/在折叠屏展开态打开应用后折叠，页面内容显示不全/在折叠屏展开态打开应用后折叠，页面内容显示不全.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-purax-7"
   },
   {
@@ -581,7 +581,7 @@
   {
     "slug": "faqs-purax-9",
     "name": "应用在Pura X上打开时，组件存在遮挡",
-    "file": "开发/FAQ/多设备场景/手机/Pura X常见问题/应用在Pura X上打开时，组件存在遮挡/应用在Pura X上打开时，组件存在遮挡.md",
+    "file": "手机/Pura X常见问题/应用在Pura X上打开时，组件存在遮挡/应用在Pura X上打开时，组件存在遮挡.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-purax-9"
   },
   {
@@ -593,7 +593,7 @@
   {
     "slug": "faqs-purax-6",
     "name": "折叠屏切换展开态，视频弹幕只显示半屏",
-    "file": "开发/FAQ/多设备场景/手机/Pura X常见问题/折叠屏切换展开态，视频弹幕只显示半屏/折叠屏切换展开态，视频弹幕只显示半屏.md",
+    "file": "手机/Pura X常见问题/折叠屏切换展开态，视频弹幕只显示半屏/折叠屏切换展开态，视频弹幕只显示半屏.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-purax-6"
   },
   {
@@ -605,7 +605,7 @@
   {
     "slug": "faqs-purax-8",
     "name": "折叠屏展开态下，图片被拉伸",
-    "file": "开发/FAQ/多设备场景/手机/Pura X常见问题/折叠屏展开态下，图片被拉伸/折叠屏展开态下，图片被拉伸.md",
+    "file": "手机/Pura X常见问题/折叠屏展开态下，图片被拉伸/折叠屏展开态下，图片被拉伸.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-purax-8"
   },
   {
@@ -617,7 +617,7 @@
   {
     "slug": "faqs-purax-12",
     "name": "折叠屏状态监听",
-    "file": "开发/FAQ/多设备场景/手机/Pura X常见问题/折叠屏状态监听/折叠屏状态监听.md",
+    "file": "手机/Pura X常见问题/折叠屏状态监听/折叠屏状态监听.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-purax-12"
   },
   {
@@ -629,7 +629,7 @@
   {
     "slug": "faqs-purax-10",
     "name": "解决应用页面通过折叠屏展开出现自动放大的问题",
-    "file": "开发/FAQ/多设备场景/手机/Pura X常见问题/解决应用页面通过折叠屏展开出现自动放大的问题/解决应用页面通过折叠屏展开出现自动放大的问题.md",
+    "file": "手机/Pura X常见问题/解决应用页面通过折叠屏展开出现自动放大的问题/解决应用页面通过折叠屏展开出现自动放大的问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-purax-10"
   },
   {
@@ -641,7 +641,7 @@
   {
     "slug": "faqs-purax-11",
     "name": "阔折叠布局适配处理方式",
-    "file": "开发/FAQ/多设备场景/手机/Pura X常见问题/阔折叠布局适配处理方式/阔折叠布局适配处理方式.md",
+    "file": "手机/Pura X常见问题/阔折叠布局适配处理方式/阔折叠布局适配处理方式.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-purax-11"
   },
   {
@@ -653,7 +653,7 @@
   {
     "slug": "faqs-tri-fold-2",
     "name": "三折叠设备横屏播放视频时退出全屏，无法回归竖屏显示",
-    "file": "开发/FAQ/多设备场景/手机/三折叠常见问题/三折叠设备横屏播放视频时退出全屏，无法回归竖屏显示/三折叠设备横屏播放视频时退出全屏，无法回归竖屏显示.md",
+    "file": "手机/三折叠常见问题/三折叠设备横屏播放视频时退出全屏，无法回归竖屏显示/三折叠设备横屏播放视频时退出全屏，无法回归竖屏显示.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tri-fold-2"
   },
   {
@@ -665,7 +665,7 @@
   {
     "slug": "faqs-tri-fold-1",
     "name": "折叠屏折叠态，应用页面底部未避让导航栏",
-    "file": "开发/FAQ/多设备场景/手机/三折叠常见问题/折叠屏折叠态，应用页面底部未避让导航栏/折叠屏折叠态，应用页面底部未避让导航栏.md",
+    "file": "手机/三折叠常见问题/折叠屏折叠态，应用页面底部未避让导航栏/折叠屏折叠态，应用页面底部未避让导航栏.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-tri-fold-1"
   },
   {
@@ -677,7 +677,7 @@
   {
     "slug": "faqs-computer-2",
     "name": "PC上不能通过鼠标控制图片滑动",
-    "file": "开发/FAQ/多设备场景/电脑/常见问题/PC上不能通过鼠标控制图片滑动/PC上不能通过鼠标控制图片滑动.md",
+    "file": "电脑/常见问题/PC上不能通过鼠标控制图片滑动/PC上不能通过鼠标控制图片滑动.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-2"
   },
   {
@@ -689,7 +689,7 @@
   {
     "slug": "faqs-computer-13",
     "name": "PC中List如何通过上下键循环走焦",
-    "file": "开发/FAQ/多设备场景/电脑/常见问题/PC中List如何通过上下键循环走焦/PC中List如何通过上下键循环走焦.md",
+    "file": "电脑/常见问题/PC中List如何通过上下键循环走焦/PC中List如何通过上下键循环走焦.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-13"
   },
   {
@@ -701,7 +701,7 @@
   {
     "slug": "faqs-computer-7",
     "name": "PC应用如何隐藏导航栏右上角三键",
-    "file": "开发/FAQ/多设备场景/电脑/常见问题/PC应用如何隐藏导航栏右上角三键/PC应用如何隐藏导航栏右上角三键.md",
+    "file": "电脑/常见问题/PC应用如何隐藏导航栏右上角三键/PC应用如何隐藏导航栏右上角三键.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-7"
   },
   {
@@ -713,7 +713,7 @@
   {
     "slug": "faqs-computer-1",
     "name": "PC打开应用布局异常",
-    "file": "开发/FAQ/多设备场景/电脑/常见问题/PC打开应用布局异常/PC打开应用布局异常.md",
+    "file": "电脑/常见问题/PC打开应用布局异常/PC打开应用布局异常.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-1"
   },
   {
@@ -725,7 +725,7 @@
   {
     "slug": "faqs-computer-10",
     "name": "PC端点击Dock栏关闭窗口时，如何弹窗确认",
-    "file": "开发/FAQ/多设备场景/电脑/常见问题/PC端点击Dock栏关闭窗口时，如何弹窗确认/PC端点击Dock栏关闭窗口时，如何弹窗确认.md",
+    "file": "电脑/常见问题/PC端点击Dock栏关闭窗口时，如何弹窗确认/PC端点击Dock栏关闭窗口时，如何弹窗确认.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-10"
   },
   {
@@ -737,7 +737,7 @@
   {
     "slug": "faqs-computer-12",
     "name": "PC端设置窗口大小不生效",
-    "file": "开发/FAQ/多设备场景/电脑/常见问题/PC端设置窗口大小不生效/PC端设置窗口大小不生效.md",
+    "file": "电脑/常见问题/PC端设置窗口大小不生效/PC端设置窗口大小不生效.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-12"
   },
   {
@@ -749,7 +749,7 @@
   {
     "slug": "faqs-computer-3",
     "name": "PC设备上，页面滚动方向与预期不符",
-    "file": "开发/FAQ/多设备场景/电脑/常见问题/PC设备上，页面滚动方向与预期不符/PC设备上，页面滚动方向与预期不符.md",
+    "file": "电脑/常见问题/PC设备上，页面滚动方向与预期不符/PC设备上，页面滚动方向与预期不符.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-3"
   },
   {
@@ -761,7 +761,7 @@
   {
     "slug": "faqs-computer-6",
     "name": "startAbility启动小窗口后requestFocus原页面组件报错",
-    "file": "开发/FAQ/多设备场景/电脑/常见问题/startAbility启动小窗口后requestFocus原页面组件报错/startAbility启动小窗口后requestFocus原页面组件报错.md",
+    "file": "电脑/常见问题/startAbility启动小窗口后requestFocus原页面组件报错/startAbility启动小窗口后requestFocus原页面组件报错.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-6"
   },
   {
@@ -773,7 +773,7 @@
   {
     "slug": "faqs-computer-15",
     "name": "如何实现PC登录流程的窗口变化效果",
-    "file": "开发/FAQ/多设备场景/电脑/常见问题/如何实现PC登录流程的窗口变化效果/如何实现PC登录流程的窗口变化效果.md",
+    "file": "电脑/常见问题/如何实现PC登录流程的窗口变化效果/如何实现PC登录流程的窗口变化效果.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-15"
   },
   {
@@ -785,7 +785,7 @@
   {
     "slug": "faqs-computer-11",
     "name": "如何实现多个独立窗口",
-    "file": "开发/FAQ/多设备场景/电脑/常见问题/如何实现多个独立窗口/如何实现多个独立窗口.md",
+    "file": "电脑/常见问题/如何实现多个独立窗口/如何实现多个独立窗口.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-11"
   },
   {
@@ -797,7 +797,7 @@
   {
     "slug": "faqs-computer-9",
     "name": "如何设置PC窗口透明",
-    "file": "开发/FAQ/多设备场景/电脑/常见问题/如何设置PC窗口透明/如何设置PC窗口透明.md",
+    "file": "电脑/常见问题/如何设置PC窗口透明/如何设置PC窗口透明.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-9"
   },
   {
@@ -809,7 +809,7 @@
   {
     "slug": "faqs-computer-4",
     "name": "应用在PC设备上页面文字显示过大或过小",
-    "file": "开发/FAQ/多设备场景/电脑/常见问题/应用在PC设备上页面文字显示过大或过小/应用在PC设备上页面文字显示过大或过小.md",
+    "file": "电脑/常见问题/应用在PC设备上页面文字显示过大或过小/应用在PC设备上页面文字显示过大或过小.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-4"
   },
   {
@@ -821,7 +821,7 @@
   {
     "slug": "faqs-computer-5",
     "name": "自由多窗模式下，应用页面与标题栏三键区域重叠",
-    "file": "开发/FAQ/多设备场景/电脑/常见问题/自由多窗模式下，应用页面与标题栏三键区域重叠/自由多窗模式下，应用页面与标题栏三键区域重叠.md",
+    "file": "电脑/常见问题/自由多窗模式下，应用页面与标题栏三键区域重叠/自由多窗模式下，应用页面与标题栏三键区域重叠.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-5"
   },
   {
@@ -833,7 +833,7 @@
   {
     "slug": "faqs-computer-14",
     "name": "自由窗口下如何自定义窗口标题栏",
-    "file": "开发/FAQ/多设备场景/电脑/常见问题/自由窗口下如何自定义窗口标题栏/自由窗口下如何自定义窗口标题栏.md",
+    "file": "电脑/常见问题/自由窗口下如何自定义窗口标题栏/自由窗口下如何自定义窗口标题栏.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-14"
   },
   {
@@ -845,7 +845,7 @@
   {
     "slug": "faqs-computer-8",
     "name": "鼠标对应光标丢失和样式变化",
-    "file": "开发/FAQ/多设备场景/电脑/常见问题/鼠标对应光标丢失和样式变化/鼠标对应光标丢失和样式变化.md",
+    "file": "电脑/常见问题/鼠标对应光标丢失和样式变化/鼠标对应光标丢失和样式变化.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-8"
   },
   {
@@ -857,7 +857,7 @@
   {
     "slug": "faqs-wearable-1",
     "name": "智能表可滚动页面无法响应表冠旋转事件",
-    "file": "开发/FAQ/多设备场景/穿戴/常见问题/智能表可滚动页面无法响应表冠旋转事件/智能表可滚动页面无法响应表冠旋转事件.md",
+    "file": "穿戴/常见问题/智能表可滚动页面无法响应表冠旋转事件/智能表可滚动页面无法响应表冠旋转事件.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-wearable-1"
   },
   {
@@ -869,7 +869,7 @@
   {
     "slug": "free-flow-faqs-2",
     "name": "不同APPID的应用如何实现应用接续",
-    "file": "开发/FAQ/多设备场景/自由流转/不同APPID的应用如何实现应用接续/不同APPID的应用如何实现应用接续.md",
+    "file": "自由流转/不同APPID的应用如何实现应用接续/不同APPID的应用如何实现应用接续.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/free-flow-faqs-2"
   },
   {
@@ -881,7 +881,7 @@
   {
     "slug": "faqs-free-flow-1",
     "name": "应用接续功能使用失败",
-    "file": "开发/FAQ/多设备场景/自由流转/常见问题/应用接续功能使用失败/应用接续功能使用失败.md",
+    "file": "自由流转/常见问题/应用接续功能使用失败/应用接续功能使用失败.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-free-flow-1"
   },
   {
@@ -893,7 +893,7 @@
   {
     "slug": "free-flow-faqs-1",
     "name": "应用接续任务失败",
-    "file": "开发/FAQ/多设备场景/自由流转/应用接续任务失败/应用接续任务失败.md",
+    "file": "自由流转/应用接续任务失败/应用接续任务失败.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/free-flow-faqs-1"
   },
   {

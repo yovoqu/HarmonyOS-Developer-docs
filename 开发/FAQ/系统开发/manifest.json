@@ -856,7 +856,7 @@
   {
     "slug": "faqs-mdm-10",
     "name": "MDM设备控制管理：如何设置息屏时间",
-    "file": "开发/FAQ/系统开发/基础功能/企业设备管理（MDM）/MDM设备控制管理：如何设置息屏时间/MDM设备控制管理：如何设置息屏时间.md",
+    "file": "基础功能/企业设备管理（MDM）/MDM设备控制管理：如何设置息屏时间/MDM设备控制管理：如何设置息屏时间.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-10"
   },
   {
@@ -868,7 +868,7 @@
   {
     "slug": "faqs-mdm-3",
     "name": "MDM设置网络白名单功能异常",
-    "file": "开发/FAQ/系统开发/基础功能/企业设备管理（MDM）/MDM设置网络白名单功能异常/MDM设置网络白名单功能异常.md",
+    "file": "基础功能/企业设备管理（MDM）/MDM设置网络白名单功能异常/MDM设置网络白名单功能异常.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-3"
   },
   {
@@ -880,13 +880,13 @@
   {
     "slug": "faqs-mdm-12",
     "name": "setEthernetConfig接口报错9201010如何解决",
-    "file": "开发/FAQ/系统开发/基础功能/企业设备管理（MDM）/setEthernetConfig接口报错9201010如何解决/setEthernetConfig接口报错9201010如何解决.md",
+    "file": "基础功能/企业设备管理（MDM）/setEthernetConfig接口报错9201010如何解决/setEthernetConfig接口报错9201010如何解决.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-12"
   },
   {
     "slug": "faqs-mdm-11",
     "name": "企业MDM应用如何为当前用户添加开机自启动应用名单",
-    "file": "开发/FAQ/系统开发/基础功能/企业设备管理（MDM）/企业MDM应用如何为当前用户添加开机自启动应用名单/企业MDM应用如何为当前用户添加开机自启动应用名单.md",
+    "file": "基础功能/企业设备管理（MDM）/企业MDM应用如何为当前用户添加开机自启动应用名单/企业MDM应用如何为当前用户添加开机自启动应用名单.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-11"
   },
   {
@@ -898,13 +898,13 @@
   {
     "slug": "faqs-mdm-new-00002",
     "name": "企业屏保检查及锁屏壁纸设置实现方式",
-    "file": "开发/FAQ/系统开发/基础功能/企业设备管理（MDM）/企业屏保检查及锁屏壁纸设置实现方式/企业屏保检查及锁屏壁纸设置实现方式.md",
+    "file": "基础功能/企业设备管理（MDM）/企业屏保检查及锁屏壁纸设置实现方式/企业屏保检查及锁屏壁纸设置实现方式.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-new-00002"
   },
   {
     "slug": "faqs-mdm-1",
     "name": "使用企业MDM应用权限调用API不生效",
-    "file": "开发/FAQ/系统开发/基础功能/企业设备管理（MDM）/使用企业MDM应用权限调用API不生效/使用企业MDM应用权限调用API不生效.md",
+    "file": "基础功能/企业设备管理（MDM）/使用企业MDM应用权限调用API不生效/使用企业MDM应用权限调用API不生效.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-1"
   },
   {
@@ -916,7 +916,7 @@
   {
     "slug": "faqs-mdm-5",
     "name": "如何为指定用户的指定应用设置水印策略",
-    "file": "开发/FAQ/系统开发/基础功能/企业设备管理（MDM）/如何为指定用户的指定应用设置水印策略/如何为指定用户的指定应用设置水印策略.md",
+    "file": "基础功能/企业设备管理（MDM）/如何为指定用户的指定应用设置水印策略/如何为指定用户的指定应用设置水印策略.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-5"
   },
   {
@@ -928,13 +928,13 @@
   {
     "slug": "faqs-mdm-6",
     "name": "如何为设备添加域名过滤规则",
-    "file": "开发/FAQ/系统开发/基础功能/企业设备管理（MDM）/如何为设备添加域名过滤规则.md",
+    "file": "基础功能/企业设备管理（MDM）/如何为设备添加域名过滤规则.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-6"
   },
   {
     "slug": "faqs-mdm-8",
     "name": "如何安装指定路径下的应用包",
-    "file": "开发/FAQ/系统开发/基础功能/企业设备管理（MDM）/如何安装指定路径下的应用包/如何安装指定路径下的应用包.md",
+    "file": "基础功能/企业设备管理（MDM）/如何安装指定路径下的应用包/如何安装指定路径下的应用包.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-8"
   },
   {
@@ -946,7 +946,7 @@
   {
     "slug": "faqs-mdm-7",
     "name": "如何开展MDM应用测试",
-    "file": "开发/FAQ/系统开发/基础功能/企业设备管理（MDM）/如何开展MDM应用测试/如何开展MDM应用测试.md",
+    "file": "基础功能/企业设备管理（MDM）/如何开展MDM应用测试/如何开展MDM应用测试.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-7"
   },
   {
@@ -958,7 +958,7 @@
   {
     "slug": "faqs-mdm-9",
     "name": "如何添加保活应用名单",
-    "file": "开发/FAQ/系统开发/基础功能/企业设备管理（MDM）/如何添加保活应用名单/如何添加保活应用名单.md",
+    "file": "基础功能/企业设备管理（MDM）/如何添加保活应用名单/如何添加保活应用名单.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-9"
   },
   {
@@ -970,7 +970,7 @@
   {
     "slug": "faqs-mdm-4",
     "name": "如何设置升级策略",
-    "file": "开发/FAQ/系统开发/基础功能/企业设备管理（MDM）/如何设置升级策略/如何设置升级策略.md",
+    "file": "基础功能/企业设备管理（MDM）/如何设置升级策略/如何设置升级策略.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-4"
   },
   {
@@ -982,13 +982,13 @@
   {
     "slug": "faqs-mdm-new-00003",
     "name": "安装企业重签名证书接口certificateAlias参数的使用说明",
-    "file": "开发/FAQ/系统开发/基础功能/企业设备管理（MDM）/安装企业重签名证书接口certificateAlias参数的使用说明/安装企业重签名证书接口certificateAlias参数的使用说明.md",
+    "file": "基础功能/企业设备管理（MDM）/安装企业重签名证书接口certificateAlias参数的使用说明/安装企业重签名证书接口certificateAlias参数的使用说明.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-new-00003"
   },
   {
     "slug": "faqs-mdm-2",
     "name": "应用内设备信息仅显示品牌，型号信息缺失",
-    "file": "开发/FAQ/系统开发/基础功能/企业设备管理（MDM）/应用内设备信息仅显示品牌，型号信息缺失/应用内设备信息仅显示品牌，型号信息缺失.md",
+    "file": "基础功能/企业设备管理（MDM）/应用内设备信息仅显示品牌，型号信息缺失/应用内设备信息仅显示品牌，型号信息缺失.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-2"
   },
   {
@@ -1000,7 +1000,7 @@
   {
     "slug": "faqs-mdm-new-00001",
     "name": "恢复出厂设置安装MDM应用时进度跳变如何解决",
-    "file": "开发/FAQ/系统开发/基础功能/企业设备管理（MDM）/恢复出厂设置安装MDM应用时进度跳变如何解决/恢复出厂设置安装MDM应用时进度跳变如何解决.md",
+    "file": "基础功能/企业设备管理（MDM）/恢复出厂设置安装MDM应用时进度跳变如何解决/恢复出厂设置安装MDM应用时进度跳变如何解决.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-new-00001"
   },
   {
@@ -1012,13 +1012,13 @@
   {
     "slug": "faqs-mdm-new-00004",
     "name": "通过应用管理接口隐藏桌面应用图标的实现方式",
-    "file": "开发/FAQ/系统开发/基础功能/企业设备管理（MDM）/通过应用管理接口隐藏桌面应用图标的实现方式/通过应用管理接口隐藏桌面应用图标的实现方式.md",
+    "file": "基础功能/企业设备管理（MDM）/通过应用管理接口隐藏桌面应用图标的实现方式/通过应用管理接口隐藏桌面应用图标的实现方式.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-new-00004"
   },
   {
     "slug": "faq-basics-service-kit-30",
     "name": "Emitter刷新UI失败问题",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/Emitter刷新UI失败问题/Emitter刷新UI失败问题.md",
+    "file": "基础功能/基础服务（Basics Service）/Emitter刷新UI失败问题/Emitter刷新UI失败问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-30"
   },
   {
@@ -1030,7 +1030,7 @@
   {
     "slug": "faq-basics-service-kit-63",
     "name": "Emitter线程间通信对象传递问题",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/Emitter线程间通信对象传递问题/Emitter线程间通信对象传递问题.md",
+    "file": "基础功能/基础服务（Basics Service）/Emitter线程间通信对象传递问题/Emitter线程间通信对象传递问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-63"
   },
   {
@@ -1042,7 +1042,7 @@
   {
     "slug": "faq-basics-service-kit-36",
     "name": "HarmonyOS如何监听U盘插拔",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/HarmonyOS如何监听U盘插拔/HarmonyOS如何监听U盘插拔.md",
+    "file": "基础功能/基础服务（Basics Service）/HarmonyOS如何监听U盘插拔/HarmonyOS如何监听U盘插拔.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-36"
   },
   {
@@ -1054,13 +1054,13 @@
   {
     "slug": "faqs-basic-services-kit-new-00001",
     "name": "PC系统是否支持USB外接无线网卡",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/PC系统是否支持USB外接无线网卡/PC系统是否支持USB外接无线网卡.md",
+    "file": "基础功能/基础服务（Basics Service）/PC系统是否支持USB外接无线网卡/PC系统是否支持USB外接无线网卡.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-basic-services-kit-new-00001"
   },
   {
     "slug": "faq-basics-service-kit-56",
     "name": "Pocket2和PuraX机型进行UI适配，怎么区分",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/Pocket2和PuraX机型进行UI适配，怎么区分/Pocket2和PuraX机型进行UI适配，怎么区分.md",
+    "file": "基础功能/基础服务（Basics Service）/Pocket2和PuraX机型进行UI适配，怎么区分/Pocket2和PuraX机型进行UI适配，怎么区分.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-56"
   },
   {
@@ -1072,7 +1072,7 @@
   {
     "slug": "faq-basics-service-kit-20",
     "name": "Request上传下载任务报错13400001",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/Request上传下载任务报错13400001/Request上传下载任务报错13400001.md",
+    "file": "基础功能/基础服务（Basics Service）/Request上传下载任务报错13400001/Request上传下载任务报错13400001.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-20"
   },
   {
@@ -1084,7 +1084,7 @@
   {
     "slug": "faq-basics-service-kit-61",
     "name": "USB-串口应用打开/dev/bus下文件无权限",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/USB-串口应用打开／dev／bus下文件无权限/USB-串口应用打开／dev／bus下文件无权限.md",
+    "file": "基础功能/基础服务（Basics Service）/USB-串口应用打开／dev／bus下文件无权限/USB-串口应用打开／dev／bus下文件无权限.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-61"
   },
   {
@@ -1096,7 +1096,7 @@
   {
     "slug": "faq-basics-service-kit-52",
     "name": "USB批量传输报错“-1”",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/USB批量传输报错“-1”/USB批量传输报错“-1”.md",
+    "file": "基础功能/基础服务（Basics Service）/USB批量传输报错“-1”/USB批量传输报错“-1”.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-52"
   },
   {
@@ -1108,7 +1108,7 @@
   {
     "slug": "faq-basics-service-kit-48",
     "name": "USB设备调用libusb库读写fd时报错",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/USB设备调用libusb库读写fd时报错/USB设备调用libusb库读写fd时报错.md",
+    "file": "基础功能/基础服务（Basics Service）/USB设备调用libusb库读写fd时报错/USB设备调用libusb库读写fd时报错.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-48"
   },
   {
@@ -1120,7 +1120,7 @@
   {
     "slug": "faq-basics-service-kit-54",
     "name": "commonEventManager延迟释放机制问题",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/commonEventManager延迟释放机制问题/commonEventManager延迟释放机制问题.md",
+    "file": "基础功能/基础服务（Basics Service）/commonEventManager延迟释放机制问题/commonEventManager延迟释放机制问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-54"
   },
   {
@@ -1132,7 +1132,7 @@
   {
     "slug": "faq-basics-service-kit-66",
     "name": "ohos.request下载文件使用https链接下载失败，改成http可以下载成功",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/ohos.request下载文件使用https链接下载失败，改成http可以下载成功/ohos.request下载文件使用https链接下载失败，改成http可以下载成功.md",
+    "file": "基础功能/基础服务（Basics Service）/ohos.request下载文件使用https链接下载失败，改成http可以下载成功/ohos.request下载文件使用https链接下载失败，改成http可以下载成功.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-66"
   },
   {
@@ -1144,7 +1144,7 @@
   {
     "slug": "faq-basics-service-kit-41",
     "name": "request.agent是否可以不发送结果通知",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/request.agent是否可以不发送结果通知/request.agent是否可以不发送结果通知.md",
+    "file": "基础功能/基础服务（Basics Service）/request.agent是否可以不发送结果通知/request.agent是否可以不发送结果通知.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-41"
   },
   {
@@ -1156,13 +1156,13 @@
   {
     "slug": "faq-basics-service-kit-73",
     "name": "request.downloadFile, on('fail')回调报错8(ERROR_UNKNOWN) 的处理方法",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/request.downloadFile, on('fail')回调报错8(ERROR_UNKNOWN) 的处理方法/request.downloadFile, on('fail')回调报错8(ERROR_UNKNOWN) 的处理方法.md",
+    "file": "基础功能/基础服务（Basics Service）/request.downloadFile, on('fail')回调报错8(ERROR_UNKNOWN) 的处理方法/request.downloadFile, on('fail')回调报错8(ERROR_UNKNOWN) 的处理方法.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-73"
   },
   {
     "slug": "faq-basics-service-kit-23",
     "name": "request.downloadFile下载文件失败",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/request.downloadFile下载文件失败/request.downloadFile下载文件失败.md",
+    "file": "基础功能/基础服务（Basics Service）/request.downloadFile下载文件失败/request.downloadFile下载文件失败.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-23"
   },
   {
@@ -1174,7 +1174,7 @@
   {
     "slug": "faq-basics-service-kit-33",
     "name": "request.downloadFile如何暂停、恢复下载",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/request.downloadFile如何暂停、恢复下载/request.downloadFile如何暂停、恢复下载.md",
+    "file": "基础功能/基础服务（Basics Service）/request.downloadFile如何暂停、恢复下载/request.downloadFile如何暂停、恢复下载.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-33"
   },
   {
@@ -1186,7 +1186,7 @@
   {
     "slug": "faq-basics-service-kit-69",
     "name": "request.uploadFile多文件上传的特点",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/request.uploadFile多文件上传的特点/request.uploadFile多文件上传的特点.md",
+    "file": "基础功能/基础服务（Basics Service）/request.uploadFile多文件上传的特点/request.uploadFile多文件上传的特点.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-69"
   },
   {
@@ -1198,7 +1198,7 @@
   {
     "slug": "faq-basics-service-kit-64",
     "name": "request上传文件后headerReceive内容无法解析",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/request上传文件后headerReceive内容无法解析/request上传文件后headerReceive内容无法解析.md",
+    "file": "基础功能/基础服务（Basics Service）/request上传文件后headerReceive内容无法解析/request上传文件后headerReceive内容无法解析.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-64"
   },
   {
@@ -1210,7 +1210,7 @@
   {
     "slug": "faq-basics-service-kit-42",
     "name": "zip.deflate压缩数据后，如何获取到编码后数据长度",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/zip.deflate压缩数据后，如何获取到编码后数据长度/zip.deflate压缩数据后，如何获取到编码后数据长度.md",
+    "file": "基础功能/基础服务（Basics Service）/zip.deflate压缩数据后，如何获取到编码后数据长度/zip.deflate压缩数据后，如何获取到编码后数据长度.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-42"
   },
   {
@@ -1222,7 +1222,7 @@
   {
     "slug": "faq-basics-service-kit-59",
     "name": "上传视频超时失败",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/上传视频超时失败/上传视频超时失败.md",
+    "file": "基础功能/基础服务（Basics Service）/上传视频超时失败/上传视频超时失败.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-59"
   },
   {
@@ -1234,7 +1234,7 @@
   {
     "slug": "faq-basics-service-kit-70",
     "name": "使用@ohos.request的request.agent上传文件，如何获得响应体",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/使用@ohos.request的request.agent上传文件，如何获得响应体/使用@ohos.request的request.agent上传文件，如何获得响应体.md",
+    "file": "基础功能/基础服务（Basics Service）/使用@ohos.request的request.agent上传文件，如何获得响应体/使用@ohos.request的request.agent上传文件，如何获得响应体.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-70"
   },
   {
@@ -1246,7 +1246,7 @@
   {
     "slug": "faq-basics-service-kit-65",
     "name": "使用request.downloadFile下载图片到沙箱，图片无法打开",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/使用request.downloadFile下载图片到沙箱，图片无法打开/使用request.downloadFile下载图片到沙箱，图片无法打开.md",
+    "file": "基础功能/基础服务（Basics Service）/使用request.downloadFile下载图片到沙箱，图片无法打开/使用request.downloadFile下载图片到沙箱，图片无法打开.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-65"
   },
   {
@@ -1258,7 +1258,7 @@
   {
     "slug": "faq-basics-service-kit-29",
     "name": "使用request.uploadFile进行多文件上传，后台未收到文件",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/使用request.uploadFile进行多文件上传，后台未收到文件/使用request.uploadFile进行多文件上传，后台未收到文件.md",
+    "file": "基础功能/基础服务（Basics Service）/使用request.uploadFile进行多文件上传，后台未收到文件/使用request.uploadFile进行多文件上传，后台未收到文件.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-29"
   },
   {
@@ -1270,7 +1270,7 @@
   {
     "slug": "faq-basics-service-kit-28",
     "name": "使用zlib解压buffer，如何动态设置目标缓冲区的数据长度",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/使用zlib解压buffer，如何动态设置目标缓冲区的数据长度/使用zlib解压buffer，如何动态设置目标缓冲区的数据长度.md",
+    "file": "基础功能/基础服务（Basics Service）/使用zlib解压buffer，如何动态设置目标缓冲区的数据长度/使用zlib解压buffer，如何动态设置目标缓冲区的数据长度.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-28"
   },
   {
@@ -1282,7 +1282,7 @@
   {
     "slug": "faq-basics-service-kit-58",
     "name": "使用串口开发API时提示系统能力不支持",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/使用串口开发API时提示系统能力不支持/使用串口开发API时提示系统能力不支持.md",
+    "file": "基础功能/基础服务（Basics Service）/使用串口开发API时提示系统能力不支持/使用串口开发API时提示系统能力不支持.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-58"
   },
   {
@@ -1294,7 +1294,7 @@
   {
     "slug": "faq-basics-service-kit-35",
     "name": "元服务如何获取设备ID",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/元服务如何获取设备ID/元服务如何获取设备ID.md",
+    "file": "基础功能/基础服务（Basics Service）/元服务如何获取设备ID/元服务如何获取设备ID.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-35"
   },
   {
@@ -1306,7 +1306,7 @@
   {
     "slug": "faq-basics-service-kit-71",
     "name": "剪切板如何获取多样式数据类型的内容",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/剪切板如何获取多样式数据类型的内容/剪切板如何获取多样式数据类型的内容.md",
+    "file": "基础功能/基础服务（Basics Service）/剪切板如何获取多样式数据类型的内容/剪切板如何获取多样式数据类型的内容.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-71"
   },
   {
@@ -1318,7 +1318,7 @@
   {
     "slug": "faq-basics-service-kit-49",
     "name": "剪贴板权限管控疑问",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/剪贴板权限管控疑问/剪贴板权限管控疑问.md",
+    "file": "基础功能/基础服务（Basics Service）/剪贴板权限管控疑问/剪贴板权限管控疑问.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-49"
   },
   {
@@ -1330,7 +1330,7 @@
   {
     "slug": "faq-basics-service-kit-25",
     "name": "剪贴板权限请求弹窗频繁",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/剪贴板权限请求弹窗频繁/剪贴板权限请求弹窗频繁.md",
+    "file": "基础功能/基础服务（Basics Service）/剪贴板权限请求弹窗频繁/剪贴板权限请求弹窗频繁.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-25"
   },
   {
@@ -1342,7 +1342,7 @@
   {
     "slug": "faq-basics-service-kit-72",
     "name": "发布公共事件如何限制指定的订阅者接收",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/发布公共事件如何限制指定的订阅者接收/发布公共事件如何限制指定的订阅者接收.md",
+    "file": "基础功能/基础服务（Basics Service）/发布公共事件如何限制指定的订阅者接收/发布公共事件如何限制指定的订阅者接收.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-72"
   },
   {
@@ -1354,7 +1354,7 @@
   {
     "slug": "faq-basics-service-kit-24",
     "name": "发送消息后，消息列表内容未刷新",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/发送消息后，消息列表内容未刷新/发送消息后，消息列表内容未刷新.md",
+    "file": "基础功能/基础服务（Basics Service）/发送消息后，消息列表内容未刷新/发送消息后，消息列表内容未刷新.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-24"
   },
   {
@@ -1366,13 +1366,13 @@
   {
     "slug": "faqs-basic-services-kit-new-00002",
     "name": "基于系统选择服务实现划词功能",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/基于系统选择服务实现划词功能/基于系统选择服务实现划词功能.md",
+    "file": "基础功能/基础服务（Basics Service）/基于系统选择服务实现划词功能/基于系统选择服务实现划词功能.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-basic-services-kit-new-00002"
   },
   {
     "slug": "faq-basics-service-kit-50",
     "name": "大数据量下载过程中会中断下载",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/大数据量下载过程中会中断下载/大数据量下载过程中会中断下载.md",
+    "file": "基础功能/基础服务（Basics Service）/大数据量下载过程中会中断下载/大数据量下载过程中会中断下载.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-50"
   },
   {
@@ -1384,7 +1384,7 @@
   {
     "slug": "faq-basics-service-kit-47",
     "name": "如何不受系统设置的时区影响按照固定时区解析时间",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/如何不受系统设置的时区影响按照固定时区解析时间/如何不受系统设置的时区影响按照固定时区解析时间.md",
+    "file": "基础功能/基础服务（Basics Service）/如何不受系统设置的时区影响按照固定时区解析时间/如何不受系统设置的时区影响按照固定时区解析时间.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-47"
   },
   {
@@ -1396,7 +1396,7 @@
   {
     "slug": "faq-basics-service-kit-67",
     "name": "如何使用request.agent实现文件断点续传",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/如何使用request.agent实现文件断点续传/如何使用request.agent实现文件断点续传.md",
+    "file": "基础功能/基础服务（Basics Service）/如何使用request.agent实现文件断点续传/如何使用request.agent实现文件断点续传.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-67"
   },
   {
@@ -1408,7 +1408,7 @@
   {
     "slug": "faq-basics-service-kit-31",
     "name": "如何使用打印服务",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/如何使用打印服务/如何使用打印服务.md",
+    "file": "基础功能/基础服务（Basics Service）/如何使用打印服务/如何使用打印服务.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-31"
   },
   {
@@ -1420,7 +1420,7 @@
   {
     "slug": "faq-basics-service-kit-53",
     "name": "如何判断Sendable对象是类的实例",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/如何判断Sendable对象是类的实例/如何判断Sendable对象是类的实例.md",
+    "file": "基础功能/基础服务（Basics Service）/如何判断Sendable对象是类的实例/如何判断Sendable对象是类的实例.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-53"
   },
   {
@@ -1432,7 +1432,7 @@
   {
     "slug": "faq-basics-service-kit-43",
     "name": "如何判断应用运行在隐私空间",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/如何判断应用运行在隐私空间/如何判断应用运行在隐私空间.md",
+    "file": "基础功能/基础服务（Basics Service）/如何判断应用运行在隐私空间/如何判断应用运行在隐私空间.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-43"
   },
   {
@@ -1444,7 +1444,7 @@
   {
     "slug": "faq-basics-service-kit-45",
     "name": "如何判断当前设备类型为平板或手机，并配置锁定横屏或竖屏",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/如何判断当前设备类型为平板或手机，并配置锁定横屏或竖屏/如何判断当前设备类型为平板或手机，并配置锁定横屏或竖屏.md",
+    "file": "基础功能/基础服务（Basics Service）/如何判断当前设备类型为平板或手机，并配置锁定横屏或竖屏/如何判断当前设备类型为平板或手机，并配置锁定横屏或竖屏.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-45"
   },
   {
@@ -1456,7 +1456,7 @@
   {
     "slug": "faq-basics-service-kit-40",
     "name": "如何实现仅允许同应用内粘贴功能",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/如何实现仅允许同应用内粘贴功能/如何实现仅允许同应用内粘贴功能.md",
+    "file": "基础功能/基础服务（Basics Service）/如何实现仅允许同应用内粘贴功能/如何实现仅允许同应用内粘贴功能.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-40"
   },
   {
@@ -1468,7 +1468,7 @@
   {
     "slug": "faq-basics-service-kit-60",
     "name": "如何实现子组件数据传递给父组件且父组件修改数据不影响子组件",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/如何实现子组件数据传递给父组件且父组件修改数据不影响子组件/如何实现子组件数据传递给父组件且父组件修改数据不影响子组件.md",
+    "file": "基础功能/基础服务（Basics Service）/如何实现子组件数据传递给父组件且父组件修改数据不影响子组件/如何实现子组件数据传递给父组件且父组件修改数据不影响子组件.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-60"
   },
   {
@@ -1480,7 +1480,7 @@
   {
     "slug": "faq-basics-service-kit-27",
     "name": "如何实现屏幕亮度自动调整或自定义调整",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/如何实现屏幕亮度自动调整或自定义调整/如何实现屏幕亮度自动调整或自定义调整.md",
+    "file": "基础功能/基础服务（Basics Service）/如何实现屏幕亮度自动调整或自定义调整/如何实现屏幕亮度自动调整或自定义调整.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-27"
   },
   {
@@ -1492,7 +1492,7 @@
   {
     "slug": "faq-basics-service-kit-38",
     "name": "如何显示图片验证码",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/如何显示图片验证码/如何显示图片验证码.md",
+    "file": "基础功能/基础服务（Basics Service）/如何显示图片验证码/如何显示图片验证码.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-38"
   },
   {
@@ -1504,7 +1504,7 @@
   {
     "slug": "faq-basics-service-kit-32",
     "name": "如何监听到用户是否卸载了App",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/如何监听到用户是否卸载了App/如何监听到用户是否卸载了App.md",
+    "file": "基础功能/基础服务（Basics Service）/如何监听到用户是否卸载了App/如何监听到用户是否卸载了App.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-32"
   },
   {
@@ -1516,7 +1516,7 @@
   {
     "slug": "faq-basics-service-kit-62",
     "name": "如何获取HarmonyOS手机系统版本信息",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/如何获取HarmonyOS手机系统版本信息/如何获取HarmonyOS手机系统版本信息.md",
+    "file": "基础功能/基础服务（Basics Service）/如何获取HarmonyOS手机系统版本信息/如何获取HarmonyOS手机系统版本信息.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-62"
   },
   {
@@ -1528,7 +1528,7 @@
   {
     "slug": "faq-basics-service-kit-34",
     "name": "如何解决使用request.downloadFile下载完成后保存的图片是空白图片",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/如何解决使用request.downloadFile下载完成后保存的图片是空白图片/如何解决使用request.downloadFile下载完成后保存的图片是空白图片.md",
+    "file": "基础功能/基础服务（Basics Service）/如何解决使用request.downloadFile下载完成后保存的图片是空白图片/如何解决使用request.downloadFile下载完成后保存的图片是空白图片.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-34"
   },
   {
@@ -1540,7 +1540,7 @@
   {
     "slug": "faq-basics-service-kit-55",
     "name": "如何解决使用剪贴板接口阻塞主线程问题",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/如何解决使用剪贴板接口阻塞主线程问题/如何解决使用剪贴板接口阻塞主线程问题.md",
+    "file": "基础功能/基础服务（Basics Service）/如何解决使用剪贴板接口阻塞主线程问题/如何解决使用剪贴板接口阻塞主线程问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-55"
   },
   {
@@ -1552,7 +1552,7 @@
   {
     "slug": "faq-basics-service-kit-44",
     "name": "如何解决页面中使用emitter.emit执行卡顿问题",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/如何解决页面中使用emitter.emit执行卡顿问题/如何解决页面中使用emitter.emit执行卡顿问题.md",
+    "file": "基础功能/基础服务（Basics Service）/如何解决页面中使用emitter.emit执行卡顿问题/如何解决页面中使用emitter.emit执行卡顿问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-44"
   },
   {
@@ -1564,7 +1564,7 @@
   {
     "slug": "faq-basics-service-kit-26",
     "name": "实现文件下载并打开分享功能",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/实现文件下载并打开分享功能/实现文件下载并打开分享功能.md",
+    "file": "基础功能/基础服务（Basics Service）/实现文件下载并打开分享功能/实现文件下载并打开分享功能.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-26"
   },
   {
@@ -1576,7 +1576,7 @@
   {
     "slug": "faq-basics-service-kit-46",
     "name": "应用内电量与系统电量显示不一致",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/应用内电量与系统电量显示不一致/应用内电量与系统电量显示不一致.md",
+    "file": "基础功能/基础服务（Basics Service）/应用内电量与系统电量显示不一致/应用内电量与系统电量显示不一致.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-46"
   },
   {
@@ -1588,7 +1588,7 @@
   {
     "slug": "faq-basics-service-kit-39",
     "name": "应用在后台如何接收公共事件",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/应用在后台如何接收公共事件/应用在后台如何接收公共事件.md",
+    "file": "基础功能/基础服务（Basics Service）/应用在后台如何接收公共事件/应用在后台如何接收公共事件.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-39"
   },
   {
@@ -1600,7 +1600,7 @@
   {
     "slug": "faq-basics-service-kit-57",
     "name": "应用复制粘贴功能异常分析",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/应用复制粘贴功能异常分析/应用复制粘贴功能异常分析.md",
+    "file": "基础功能/基础服务（Basics Service）/应用复制粘贴功能异常分析/应用复制粘贴功能异常分析.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-57"
   },
   {
@@ -1612,7 +1612,7 @@
   {
     "slug": "faq-basics-service-kit-22",
     "name": "弹窗点击允许后没有进行后续对应操作",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/弹窗点击允许后没有进行后续对应操作/弹窗点击允许后没有进行后续对应操作.md",
+    "file": "基础功能/基础服务（Basics Service）/弹窗点击允许后没有进行后续对应操作/弹窗点击允许后没有进行后续对应操作.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-22"
   },
   {
@@ -1624,13 +1624,13 @@
   {
     "slug": "faqs-basic-services-kit-new-00003",
     "name": "打印场景如何通过软件设置自动选择打印机纸盒",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/打印场景如何通过软件设置自动选择打印机纸盒/打印场景如何通过软件设置自动选择打印机纸盒.md",
+    "file": "基础功能/基础服务（Basics Service）/打印场景如何通过软件设置自动选择打印机纸盒/打印场景如何通过软件设置自动选择打印机纸盒.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-basic-services-kit-new-00003"
   },
   {
     "slug": "faq-basics-service-kit-21",
     "name": "更换头像时头像资源加载异常",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/更换头像时头像资源加载异常/更换头像时头像资源加载异常.md",
+    "file": "基础功能/基础服务（Basics Service）/更换头像时头像资源加载异常/更换头像时头像资源加载异常.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-21"
   },
   {
@@ -1642,7 +1642,7 @@
   {
     "slug": "faq-basics-service-kit-19",
     "name": "点分版本号变更后API兼容性判断方式说明",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/点分版本号变更后API兼容性判断方式说明/点分版本号变更后API兼容性判断方式说明.md",
+    "file": "基础功能/基础服务（Basics Service）/点分版本号变更后API兼容性判断方式说明/点分版本号变更后API兼容性判断方式说明.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-19"
   },
   {
@@ -1654,7 +1654,7 @@
   {
     "slug": "faq-basics-service-kit-68",
     "name": "能否检测到开发者选项中USB调试开关是否开启",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/能否检测到开发者选项中USB调试开关是否开启/能否检测到开发者选项中USB调试开关是否开启.md",
+    "file": "基础功能/基础服务（Basics Service）/能否检测到开发者选项中USB调试开关是否开启/能否检测到开发者选项中USB调试开关是否开启.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-68"
   },
   {
@@ -1666,7 +1666,7 @@
   {
     "slug": "faq-basics-service-kit-37",
     "name": "蓝牙传输网络图片",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/蓝牙传输网络图片/蓝牙传输网络图片.md",
+    "file": "基础功能/基础服务（Basics Service）/蓝牙传输网络图片/蓝牙传输网络图片.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-37"
   },
   {
@@ -1678,7 +1678,7 @@
   {
     "slug": "faq-basics-service-kit-51",
     "name": "访问剪贴板控件，没有剪贴板访问记录",
-    "file": "开发/FAQ/系统开发/基础功能/基础服务（Basics Service）/访问剪贴板控件，没有剪贴板访问记录/访问剪贴板控件，没有剪贴板访问记录.md",
+    "file": "基础功能/基础服务（Basics Service）/访问剪贴板控件，没有剪贴板访问记录/访问剪贴板控件，没有剪贴板访问记录.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-51"
   },
   {
@@ -1690,7 +1690,7 @@
   {
     "slug": "faqs-input-5",
     "name": "云桌面应用是否支持对键盘按键事件的拦截",
-    "file": "开发/FAQ/系统开发/基础功能/多模输入（Input）/云桌面应用是否支持对键盘按键事件的拦截/云桌面应用是否支持对键盘按键事件的拦截.md",
+    "file": "基础功能/多模输入（Input）/云桌面应用是否支持对键盘按键事件的拦截/云桌面应用是否支持对键盘按键事件的拦截.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-input-5"
   },
   {
@@ -1702,7 +1702,7 @@
   {
     "slug": "faqs-input-1",
     "name": "大写字母键无效",
-    "file": "开发/FAQ/系统开发/基础功能/多模输入（Input）/大写字母键无效/大写字母键无效.md",
+    "file": "基础功能/多模输入（Input）/大写字母键无效/大写字母键无效.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-input-1"
   },
   {
@@ -1714,7 +1714,7 @@
   {
     "slug": "faqs-input-3",
     "name": "如何设置鼠标指针样式和光标大小",
-    "file": "开发/FAQ/系统开发/基础功能/多模输入（Input）/如何设置鼠标指针样式和光标大小/如何设置鼠标指针样式和光标大小.md",
+    "file": "基础功能/多模输入（Input）/如何设置鼠标指针样式和光标大小/如何设置鼠标指针样式和光标大小.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-input-3"
   },
   {
@@ -1726,7 +1726,7 @@
   {
     "slug": "faqs-input-6",
     "name": "模拟鼠标滚轮事件相关疑问",
-    "file": "开发/FAQ/系统开发/基础功能/多模输入（Input）/模拟鼠标滚轮事件相关疑问/模拟鼠标滚轮事件相关疑问.md",
+    "file": "基础功能/多模输入（Input）/模拟鼠标滚轮事件相关疑问/模拟鼠标滚轮事件相关疑问.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-input-6"
   },
   {
@@ -1738,7 +1738,7 @@
   {
     "slug": "faqs-input-2",
     "name": "物理键盘输入异常分析",
-    "file": "开发/FAQ/系统开发/基础功能/多模输入（Input）/物理键盘输入异常分析/物理键盘输入异常分析.md",
+    "file": "基础功能/多模输入（Input）/物理键盘输入异常分析/物理键盘输入异常分析.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-input-2"
   },
   {
@@ -1750,7 +1750,7 @@
   {
     "slug": "faqs-input-4",
     "name": "鼠标指针在文字部分一直是手指点击状态",
-    "file": "开发/FAQ/系统开发/基础功能/多模输入（Input）/鼠标指针在文字部分一直是手指点击状态/鼠标指针在文字部分一直是手指点击状态.md",
+    "file": "基础功能/多模输入（Input）/鼠标指针在文字部分一直是手指点击状态/鼠标指针在文字部分一直是手指点击状态.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-input-4"
   },
   {
@@ -1762,7 +1762,7 @@
   {
     "slug": "faqs-desktop-extension-1",
     "name": "HarmonyOS PC应用接入状态栏如何实现鼠标悬停弹出气泡提示？",
-    "file": "开发/FAQ/系统开发/基础功能/桌面拓展服务（Desktop Extension Kit）/HarmonyOS PC应用接入状态栏如何实现鼠标悬停弹出气泡提示？/HarmonyOS PC应用接入状态栏如何实现鼠标悬停弹出气泡提示？.md",
+    "file": "基础功能/桌面拓展服务（Desktop Extension Kit）/HarmonyOS PC应用接入状态栏如何实现鼠标悬停弹出气泡提示？/HarmonyOS PC应用接入状态栏如何实现鼠标悬停弹出气泡提示？.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-desktop-extension-1"
   },
   {
@@ -1774,7 +1774,7 @@
   {
     "slug": "faqs-crypto-architecture-49",
     "name": "3DES加密实现兼容java的解密",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/3DES加密实现兼容java的解密/3DES加密实现兼容java的解密.md",
+    "file": "安全/加解密算法（Crypto Architecture）/3DES加密实现兼容java的解密/3DES加密实现兼容java的解密.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-49"
   },
   {
@@ -1786,19 +1786,19 @@
   {
     "slug": "faqs-crypto-architecture-kit-new-00001",
     "name": "AES128|GCM解密报错convertSymKey key failed",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/AES128|GCM解密报错convertSymKey key failed/AES128｜GCM解密报错convertSymKey key failed.md",
+    "file": "安全/加解密算法（Crypto Architecture）/AES128|GCM解密报错convertSymKey key failed/AES128｜GCM解密报错convertSymKey key failed.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-kit-new-00001"
   },
   {
     "slug": "faqs-crypto-architecture-42",
     "name": "AES|GCM没有aad和authTag如何加解密",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/AES|GCM没有aad和authTag如何加解密/AES｜GCM没有aad和authTag如何加解密.md",
+    "file": "安全/加解密算法（Crypto Architecture）/AES|GCM没有aad和authTag如何加解密/AES｜GCM没有aad和authTag如何加解密.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-42"
   },
   {
     "slug": "faqs-crypto-architecture-46",
     "name": "AES加密如何使用ISO7816-4PADDING进行填充",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/AES加密如何使用ISO7816-4PADDING进行填充/AES加密如何使用ISO7816-4PADDING进行填充.md",
+    "file": "安全/加解密算法（Crypto Architecture）/AES加密如何使用ISO7816-4PADDING进行填充/AES加密如何使用ISO7816-4PADDING进行填充.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-46"
   },
   {
@@ -1810,7 +1810,7 @@
   {
     "slug": "faqs-crypto-architecture-61",
     "name": "AES加密密文与其他端结果不一致如何解决",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/AES加密密文与其他端结果不一致如何解决/AES加密密文与其他端结果不一致如何解决.md",
+    "file": "安全/加解密算法（Crypto Architecture）/AES加密密文与其他端结果不一致如何解决/AES加密密文与其他端结果不一致如何解决.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-61"
   },
   {
@@ -1822,7 +1822,7 @@
   {
     "slug": "faqs-crypto-architecture-39",
     "name": "AES加解密CBC模式解密失败",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/AES加解密CBC模式解密失败/AES加解密CBC模式解密失败.md",
+    "file": "安全/加解密算法（Crypto Architecture）/AES加解密CBC模式解密失败/AES加解密CBC模式解密失败.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-39"
   },
   {
@@ -1840,13 +1840,13 @@
   {
     "slug": "faqs-crypto-architecture-kit-new-00003",
     "name": "Crypto Architecture Kit加解密多线程使用规格说明",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/Crypto Architecture Kit加解密多线程使用规格说明/Crypto Architecture Kit加解密多线程使用规格说明.md",
+    "file": "安全/加解密算法（Crypto Architecture）/Crypto Architecture Kit加解密多线程使用规格说明/Crypto Architecture Kit加解密多线程使用规格说明.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-kit-new-00003"
   },
   {
     "slug": "faqs-crypto-architecture-64",
     "name": "DES加密密文与其他端结果不一致问题如何解决",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/DES加密密文与其他端结果不一致问题如何解决/DES加密密文与其他端结果不一致问题如何解决.md",
+    "file": "安全/加解密算法（Crypto Architecture）/DES加密密文与其他端结果不一致问题如何解决/DES加密密文与其他端结果不一致问题如何解决.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-64"
   },
   {
@@ -1858,7 +1858,7 @@
   {
     "slug": "faqs-crypto-architecture-58",
     "name": "ECC密钥如何转化为非压缩十六进制字符串",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/ECC密钥如何转化为非压缩十六进制字符串/ECC密钥如何转化为非压缩十六进制字符串.md",
+    "file": "安全/加解密算法（Crypto Architecture）/ECC密钥如何转化为非压缩十六进制字符串/ECC密钥如何转化为非压缩十六进制字符串.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-58"
   },
   {
@@ -1870,7 +1870,7 @@
   {
     "slug": "faqs-crypto-architecture-50",
     "name": "HMAC使用用户身份认证控制访问",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/HMAC使用用户身份认证控制访问/HMAC使用用户身份认证控制访问.md",
+    "file": "安全/加解密算法（Crypto Architecture）/HMAC使用用户身份认证控制访问/HMAC使用用户身份认证控制访问.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-50"
   },
   {
@@ -1882,7 +1882,7 @@
   {
     "slug": "faqs-crypto-architecture-36",
     "name": "RSA如何使用现有的公私钥进行分段加解密",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/RSA如何使用现有的公私钥进行分段加解密/RSA如何使用现有的公私钥进行分段加解密.md",
+    "file": "安全/加解密算法（Crypto Architecture）/RSA如何使用现有的公私钥进行分段加解密/RSA如何使用现有的公私钥进行分段加解密.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-36"
   },
   {
@@ -1894,7 +1894,7 @@
   {
     "slug": "faqs-crypto-architecture-38",
     "name": "SM2国密基于十六进制公钥参数加密",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/SM2国密基于十六进制公钥参数加密/SM2国密基于十六进制公钥参数加密.md",
+    "file": "安全/加解密算法（Crypto Architecture）/SM2国密基于十六进制公钥参数加密/SM2国密基于十六进制公钥参数加密.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-38"
   },
   {
@@ -1906,7 +1906,7 @@
   {
     "slug": "faqs-crypto-architecture-31",
     "name": "SM2算法的C1C3C2格式密文与ASN.1编码格式如何互换",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/SM2算法的C1C3C2格式密文与ASN.1编码格式如何互换/SM2算法的C1C3C2格式密文与ASN.1编码格式如何互换.md",
+    "file": "安全/加解密算法（Crypto Architecture）/SM2算法的C1C3C2格式密文与ASN.1编码格式如何互换/SM2算法的C1C3C2格式密文与ASN.1编码格式如何互换.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-31"
   },
   {
@@ -1918,7 +1918,7 @@
   {
     "slug": "faqs-crypto-architecture-54",
     "name": "SM4加解密CTR的分组模式使用IVParamsSpec参数后加解密失败",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/SM4加解密CTR的分组模式使用IVParamsSpec参数后加解密失败/SM4加解密CTR的分组模式使用IVParamsSpec参数后加解密失败.md",
+    "file": "安全/加解密算法（Crypto Architecture）/SM4加解密CTR的分组模式使用IVParamsSpec参数后加解密失败/SM4加解密CTR的分组模式使用IVParamsSpec参数后加解密失败.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-54"
   },
   {
@@ -1930,7 +1930,7 @@
   {
     "slug": "faqs-crypto-architecture-41",
     "name": "decodeURI解码部分字符失败",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/decodeURI解码部分字符失败/decodeURI解码部分字符失败.md",
+    "file": "安全/加解密算法（Crypto Architecture）/decodeURI解码部分字符失败/decodeURI解码部分字符失败.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-41"
   },
   {
@@ -1942,7 +1942,7 @@
   {
     "slug": "faqs-crypto-architecture-56",
     "name": "使用24位的16进制字符串生成SM4算法密钥报错是什么原因",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/使用24位的16进制字符串生成SM4算法密钥报错是什么原因/使用24位的16进制字符串生成SM4算法密钥报错是什么原因.md",
+    "file": "安全/加解密算法（Crypto Architecture）/使用24位的16进制字符串生成SM4算法密钥报错是什么原因/使用24位的16进制字符串生成SM4算法密钥报错是什么原因.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-56"
   },
   {
@@ -1954,7 +1954,7 @@
   {
     "slug": "faqs-crypto-architecture-34",
     "name": "使用OpenSSL创建的Ed25519签名验签报错",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/使用OpenSSL创建的Ed25519签名验签报错/使用OpenSSL创建的Ed25519签名验签报错.md",
+    "file": "安全/加解密算法（Crypto Architecture）/使用OpenSSL创建的Ed25519签名验签报错/使用OpenSSL创建的Ed25519签名验签报错.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-34"
   },
   {
@@ -1966,7 +1966,7 @@
   {
     "slug": "faqs-crypto-architecture-59",
     "name": "使用TaskPool在子线程使用AES加密",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/使用TaskPool在子线程使用AES加密/使用TaskPool在子线程使用AES加密.md",
+    "file": "安全/加解密算法（Crypto Architecture）/使用TaskPool在子线程使用AES加密/使用TaskPool在子线程使用AES加密.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-59"
   },
   {
@@ -1978,13 +1978,13 @@
   {
     "slug": "faqs-crypto-architecture-67",
     "name": "加解密、证书解析与电子签名相关能力的实现方式",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/加解密、证书解析与电子签名相关能力的实现方式/加解密、证书解析与电子签名相关能力的实现方式.md",
+    "file": "安全/加解密算法（Crypto Architecture）/加解密、证书解析与电子签名相关能力的实现方式/加解密、证书解析与电子签名相关能力的实现方式.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-67"
   },
   {
     "slug": "faqs-crypto-architecture-44",
     "name": "如何使用DSA算法实现签名验签的功能",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/如何使用DSA算法实现签名验签的功能/如何使用DSA算法实现签名验签的功能.md",
+    "file": "安全/加解密算法（Crypto Architecture）/如何使用DSA算法实现签名验签的功能/如何使用DSA算法实现签名验签的功能.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-44"
   },
   {
@@ -1996,7 +1996,7 @@
   {
     "slug": "faqs-crypto-architecture-35",
     "name": "如何使用ZeroPadding解决AES算法加密程序崩溃",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/如何使用ZeroPadding解决AES算法加密程序崩溃/如何使用ZeroPadding解决AES算法加密程序崩溃.md",
+    "file": "安全/加解密算法（Crypto Architecture）/如何使用ZeroPadding解决AES算法加密程序崩溃/如何使用ZeroPadding解决AES算法加密程序崩溃.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-35"
   },
   {
@@ -2008,13 +2008,13 @@
   {
     "slug": "faqs-crypto-architecture-kit-new-00002",
     "name": "如何实现SM2签名与验签数据预处理",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/如何实现SM2签名与验签数据预处理/如何实现SM2签名与验签数据预处理.md",
+    "file": "安全/加解密算法（Crypto Architecture）/如何实现SM2签名与验签数据预处理/如何实现SM2签名与验签数据预处理.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-kit-new-00002"
   },
   {
     "slug": "faqs-crypto-architecture-45",
     "name": "如何实现SM4加解密工具",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/如何实现SM4加解密工具/如何实现SM4加解密工具.md",
+    "file": "安全/加解密算法（Crypto Architecture）/如何实现SM4加解密工具/如何实现SM4加解密工具.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-45"
   },
   {
@@ -2026,7 +2026,7 @@
   {
     "slug": "faqs-crypto-architecture-65",
     "name": "如何实现文件加解密",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/如何实现文件加解密/如何实现文件加解密.md",
+    "file": "安全/加解密算法（Crypto Architecture）/如何实现文件加解密/如何实现文件加解密.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-65"
   },
   {
@@ -2038,7 +2038,7 @@
   {
     "slug": "faqs-crypto-architecture-66",
     "name": "如何将16进制字符串转换回cryptoFramework.SymKey类型",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/如何将16进制字符串转换回cryptoFramework.SymKey类型/如何将16进制字符串转换回cryptoFramework.SymKey类型.md",
+    "file": "安全/加解密算法（Crypto Architecture）/如何将16进制字符串转换回cryptoFramework.SymKey类型/如何将16进制字符串转换回cryptoFramework.SymKey类型.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-66"
   },
   {
@@ -2050,7 +2050,7 @@
   {
     "slug": "faqs-crypto-architecture-57",
     "name": "如何指定密钥与偏移量实现DES加解密算法",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/如何指定密钥与偏移量实现DES加解密算法/如何指定密钥与偏移量实现DES加解密算法.md",
+    "file": "安全/加解密算法（Crypto Architecture）/如何指定密钥与偏移量实现DES加解密算法/如何指定密钥与偏移量实现DES加解密算法.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-57"
   },
   {
@@ -2062,7 +2062,7 @@
   {
     "slug": "faqs-crypto-architecture-32",
     "name": "如何校验文件一致性",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/如何校验文件一致性/如何校验文件一致性.md",
+    "file": "安全/加解密算法（Crypto Architecture）/如何校验文件一致性/如何校验文件一致性.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-32"
   },
   {
@@ -2074,7 +2074,7 @@
   {
     "slug": "faqs-crypto-architecture-51",
     "name": "如何生成DH密钥",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/如何生成DH密钥/如何生成DH密钥.md",
+    "file": "安全/加解密算法（Crypto Architecture）/如何生成DH密钥/如何生成DH密钥.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-51"
   },
   {
@@ -2086,7 +2086,7 @@
   {
     "slug": "faqs-crypto-architecture-60",
     "name": "如何解决AES加解密报错问题",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/如何解决AES加解密报错问题/如何解决AES加解密报错问题.md",
+    "file": "安全/加解密算法（Crypto Architecture）/如何解决AES加解密报错问题/如何解决AES加解密报错问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-60"
   },
   {
@@ -2098,7 +2098,7 @@
   {
     "slug": "faqs-crypto-architecture-43",
     "name": "如何解决AES解密Base64格式密文失败的问题",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/如何解决AES解密Base64格式密文失败的问题/如何解决AES解密Base64格式密文失败的问题.md",
+    "file": "安全/加解密算法（Crypto Architecture）/如何解决AES解密Base64格式密文失败的问题/如何解决AES解密Base64格式密文失败的问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-43"
   },
   {
@@ -2110,7 +2110,7 @@
   {
     "slug": "faqs-crypto-architecture-33",
     "name": "如何解决ArkTS SM2签名数据服务端无法验证问题",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/如何解决ArkTS SM2签名数据服务端无法验证问题/如何解决ArkTS SM2签名数据服务端无法验证问题.md",
+    "file": "安全/加解密算法（Crypto Architecture）/如何解决ArkTS SM2签名数据服务端无法验证问题/如何解决ArkTS SM2签名数据服务端无法验证问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-33"
   },
   {
@@ -2122,7 +2122,7 @@
   {
     "slug": "faqs-crypto-architecture-40",
     "name": "如何解决DES密钥生成报错Invalid param: input key length is invalid",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/如何解决DES密钥生成报错Invalid param： input key length is invalid/如何解决DES密钥生成报错Invalid param： input key length is invalid.md",
+    "file": "安全/加解密算法（Crypto Architecture）/如何解决DES密钥生成报错Invalid param： input key length is invalid/如何解决DES密钥生成报错Invalid param： input key length is invalid.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-40"
   },
   {
@@ -2134,7 +2134,7 @@
   {
     "slug": "faqs-crypto-architecture-48",
     "name": "如何解决RSA加密报-1错误码问题",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/如何解决RSA加密报-1错误码问题/如何解决RSA加密报-1错误码问题.md",
+    "file": "安全/加解密算法（Crypto Architecture）/如何解决RSA加密报-1错误码问题/如何解决RSA加密报-1错误码问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-48"
   },
   {
@@ -2146,7 +2146,7 @@
   {
     "slug": "faqs-crypto-architecture-62",
     "name": "如何解决RSA加解密报错问题",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/如何解决RSA加解密报错问题/如何解决RSA加解密报错问题.md",
+    "file": "安全/加解密算法（Crypto Architecture）/如何解决RSA加解密报错问题/如何解决RSA加解密报错问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-62"
   },
   {
@@ -2158,7 +2158,7 @@
   {
     "slug": "faqs-crypto-architecture-37",
     "name": "如何解决使用ArkTS的HMACSHA1算法加密后云侧无法解密的问题",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/如何解决使用ArkTS的HMACSHA1算法加密后云侧无法解密的问题/如何解决使用ArkTS的HMACSHA1算法加密后云侧无法解密的问题.md",
+    "file": "安全/加解密算法（Crypto Architecture）/如何解决使用ArkTS的HMACSHA1算法加密后云侧无法解密的问题/如何解决使用ArkTS的HMACSHA1算法加密后云侧无法解密的问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-37"
   },
   {
@@ -2170,7 +2170,7 @@
   {
     "slug": "faqs-crypto-architecture-52",
     "name": "如何解决对文件进行SM3摘要计算结果错误的问题",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/如何解决对文件进行SM3摘要计算结果错误的问题/如何解决对文件进行SM3摘要计算结果错误的问题.md",
+    "file": "安全/加解密算法（Crypto Architecture）/如何解决对文件进行SM3摘要计算结果错误的问题/如何解决对文件进行SM3摘要计算结果错误的问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-52"
   },
   {
@@ -2182,7 +2182,7 @@
   {
     "slug": "faqs-crypto-architecture-63",
     "name": "如何适配服务端AES加解密",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/如何适配服务端AES加解密/如何适配服务端AES加解密.md",
+    "file": "安全/加解密算法（Crypto Architecture）/如何适配服务端AES加解密/如何适配服务端AES加解密.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-63"
   },
   {
@@ -2194,7 +2194,7 @@
   {
     "slug": "faqs-crypto-architecture-55",
     "name": "实现传入密码哈希值与目标密码哈希值的一致性比较函数",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/实现传入密码哈希值与目标密码哈希值的一致性比较函数/实现传入密码哈希值与目标密码哈希值的一致性比较函数.md",
+    "file": "安全/加解密算法（Crypto Architecture）/实现传入密码哈希值与目标密码哈希值的一致性比较函数/实现传入密码哈希值与目标密码哈希值的一致性比较函数.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-55"
   },
   {
@@ -2206,7 +2206,7 @@
   {
     "slug": "faqs-crypto-architecture-47",
     "name": "实现高效且安全的RSA与AES混合加密过程",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/实现高效且安全的RSA与AES混合加密过程/实现高效且安全的RSA与AES混合加密过程.md",
+    "file": "安全/加解密算法（Crypto Architecture）/实现高效且安全的RSA与AES混合加密过程/实现高效且安全的RSA与AES混合加密过程.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-47"
   },
   {
@@ -2218,7 +2218,7 @@
   {
     "slug": "faqs-crypto-architecture-53",
     "name": "客户端公钥与服务端公钥不匹配问题",
-    "file": "开发/FAQ/系统开发/安全/加解密算法（Crypto Architecture）/客户端公钥与服务端公钥不匹配问题/客户端公钥与服务端公钥不匹配问题.md",
+    "file": "安全/加解密算法（Crypto Architecture）/客户端公钥与服务端公钥不匹配问题/客户端公钥与服务端公钥不匹配问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-53"
   },
   {
@@ -2230,7 +2230,7 @@
   {
     "slug": "faqs-universal-keystore-15",
     "name": "HUKS如何分段加解密",
-    "file": "开发/FAQ/系统开发/安全/密钥管理（Universal Keystore）/HUKS如何分段加解密/HUKS如何分段加解密.md",
+    "file": "安全/密钥管理（Universal Keystore）/HUKS如何分段加解密/HUKS如何分段加解密.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-universal-keystore-15"
   },
   {
@@ -2242,13 +2242,13 @@
   {
     "slug": "faqs-universal-keystore-16",
     "name": "HUKS密钥变更导致历史密文无法解密如何解决",
-    "file": "开发/FAQ/系统开发/安全/密钥管理（Universal Keystore）/HUKS密钥变更导致历史密文无法解密如何解决/HUKS密钥变更导致历史密文无法解密如何解决.md",
+    "file": "安全/密钥管理（Universal Keystore）/HUKS密钥变更导致历史密文无法解密如何解决/HUKS密钥变更导致历史密文无法解密如何解决.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-universal-keystore-16"
   },
   {
     "slug": "faqs-universal-keystore-14",
     "name": "关于huks.exportKeyItem函数401报错的原因",
-    "file": "开发/FAQ/系统开发/安全/密钥管理（Universal Keystore）/关于huks.exportKeyItem函数401报错的原因/关于huks.exportKeyItem函数401报错的原因.md",
+    "file": "安全/密钥管理（Universal Keystore）/关于huks.exportKeyItem函数401报错的原因/关于huks.exportKeyItem函数401报错的原因.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-universal-keystore-14"
   },
   {
@@ -2260,7 +2260,7 @@
   {
     "slug": "faqs-universal-keystore-13",
     "name": "如何解决DH公钥在服务端协商报参数不兼容的问题",
-    "file": "开发/FAQ/系统开发/安全/密钥管理（Universal Keystore）/如何解决DH公钥在服务端协商报参数不兼容的问题/如何解决DH公钥在服务端协商报参数不兼容的问题.md",
+    "file": "安全/密钥管理（Universal Keystore）/如何解决DH公钥在服务端协商报参数不兼容的问题/如何解决DH公钥在服务端协商报参数不兼容的问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-universal-keystore-13"
   },
   {
@@ -2272,7 +2272,7 @@
   {
     "slug": "faqs-data-prevention-13",
     "name": "关于关键资产信息问题",
-    "file": "开发/FAQ/系统开发/安全/数据安全存储（Data Prevention）/关于关键资产信息问题/关于关键资产信息问题.md",
+    "file": "安全/数据安全存储（Data Prevention）/关于关键资产信息问题/关于关键资产信息问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-data-prevention-13"
   },
   {
@@ -2284,7 +2284,7 @@
   {
     "slug": "faqs-data-prevention-12",
     "name": "如何解决ASSET查询不到存入数据的问题",
-    "file": "开发/FAQ/系统开发/安全/数据安全存储（Data Prevention）/如何解决ASSET查询不到存入数据的问题/如何解决ASSET查询不到存入数据的问题.md",
+    "file": "安全/数据安全存储（Data Prevention）/如何解决ASSET查询不到存入数据的问题/如何解决ASSET查询不到存入数据的问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-data-prevention-12"
   },
   {
@@ -2296,7 +2296,7 @@
   {
     "slug": "faqs-data-prevention-11",
     "name": "应用更换证书后，能否访问之前用Asset Store Kit（ASSET）存储的关键资产",
-    "file": "开发/FAQ/系统开发/安全/数据安全存储（Data Prevention）/应用更换证书后，能否访问之前用Asset Store Kit（ASSET）存储的关键资产/应用更换证书后，能否访问之前用Asset Store Kit（ASSET）存储的关键资产.md",
+    "file": "安全/数据安全存储（Data Prevention）/应用更换证书后，能否访问之前用Asset Store Kit（ASSET）存储的关键资产/应用更换证书后，能否访问之前用Asset Store Kit（ASSET）存储的关键资产.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-data-prevention-11"
   },
   {
@@ -2308,7 +2308,7 @@
   {
     "slug": "faqs-user-authentication-2",
     "name": "如何检查当前应用程序是否已经被授予相关权限",
-    "file": "开发/FAQ/系统开发/安全/用户身份认证（User Authentication）/如何检查当前应用程序是否已经被授予相关权限/如何检查当前应用程序是否已经被授予相关权限.md",
+    "file": "安全/用户身份认证（User Authentication）/如何检查当前应用程序是否已经被授予相关权限/如何检查当前应用程序是否已经被授予相关权限.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-user-authentication-2"
   },
   {
@@ -2320,7 +2320,7 @@
   {
     "slug": "faqs-user-authentication-1",
     "name": "如何通过指纹登录",
-    "file": "开发/FAQ/系统开发/安全/用户身份认证（User Authentication）/如何通过指纹登录/如何通过指纹登录.md",
+    "file": "安全/用户身份认证（User Authentication）/如何通过指纹登录/如何通过指纹登录.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-user-authentication-1"
   },
   {
@@ -2332,7 +2332,7 @@
   {
     "slug": "faqs-user-authentication-7",
     "name": "实现生物认证功能",
-    "file": "开发/FAQ/系统开发/安全/用户身份认证（User Authentication）/实现生物认证功能/实现生物认证功能.md",
+    "file": "安全/用户身份认证（User Authentication）/实现生物认证功能/实现生物认证功能.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-user-authentication-7"
   },
   {
@@ -2344,7 +2344,7 @@
   {
     "slug": "faqs-user-authentication-5",
     "name": "应用指纹登录开关已经打开，但仍显示未打开",
-    "file": "开发/FAQ/系统开发/安全/用户身份认证（User Authentication）/应用指纹登录开关已经打开，但仍显示未打开/应用指纹登录开关已经打开，但仍显示未打开.md",
+    "file": "安全/用户身份认证（User Authentication）/应用指纹登录开关已经打开，但仍显示未打开/应用指纹登录开关已经打开，但仍显示未打开.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-user-authentication-5"
   },
   {
@@ -2356,7 +2356,7 @@
   {
     "slug": "faqs-user-authentication-6",
     "name": "指纹登录功能实现以及指纹锁定",
-    "file": "开发/FAQ/系统开发/安全/用户身份认证（User Authentication）/指纹登录功能实现以及指纹锁定/指纹登录功能实现以及指纹锁定.md",
+    "file": "安全/用户身份认证（User Authentication）/指纹登录功能实现以及指纹锁定/指纹登录功能实现以及指纹锁定.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-user-authentication-6"
   },
   {
@@ -2368,7 +2368,7 @@
   {
     "slug": "faqs-user-authentication-3",
     "name": "指纹登录怎么检测设备指纹是否发生变化",
-    "file": "开发/FAQ/系统开发/安全/用户身份认证（User Authentication）/指纹登录怎么检测设备指纹是否发生变化/指纹登录怎么检测设备指纹是否发生变化.md",
+    "file": "安全/用户身份认证（User Authentication）/指纹登录怎么检测设备指纹是否发生变化/指纹登录怎么检测设备指纹是否发生变化.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-user-authentication-3"
   },
   {
@@ -2380,7 +2380,7 @@
   {
     "slug": "faqs-user-authentication-4",
     "name": "解决用户认证回调中onResult内部不能调用外部方法的问题",
-    "file": "开发/FAQ/系统开发/安全/用户身份认证（User Authentication）/解决用户认证回调中onResult内部不能调用外部方法的问题/解决用户认证回调中onResult内部不能调用外部方法的问题.md",
+    "file": "安全/用户身份认证（User Authentication）/解决用户认证回调中onResult内部不能调用外部方法的问题/解决用户认证回调中onResult内部不能调用外部方法的问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-user-authentication-4"
   },
   {
@@ -2392,13 +2392,13 @@
   {
     "slug": "faqs-access-control-23",
     "name": "IDE应用调用插件包二进制及so文件的权限与签名要求",
-    "file": "开发/FAQ/系统开发/安全/程序访问控制/IDE应用调用插件包二进制及so文件的权限与签名要求/IDE应用调用插件包二进制及so文件的权限与签名要求.md",
+    "file": "安全/程序访问控制/IDE应用调用插件包二进制及so文件的权限与签名要求/IDE应用调用插件包二进制及so文件的权限与签名要求.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-access-control-23"
   },
   {
     "slug": "faqs-access-control-17",
     "name": "使用了某些权限但是系统设置页不存在，应用内如何引导用户修改权限",
-    "file": "开发/FAQ/系统开发/安全/程序访问控制/使用了某些权限但是系统设置页不存在，应用内如何引导用户修改权限/使用了某些权限但是系统设置页不存在，应用内如何引导用户修改权限.md",
+    "file": "安全/程序访问控制/使用了某些权限但是系统设置页不存在，应用内如何引导用户修改权限/使用了某些权限但是系统设置页不存在，应用内如何引导用户修改权限.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-access-control-17"
   },
   {
@@ -2410,13 +2410,13 @@
   {
     "slug": "faqs-access-control-24",
     "name": "多端适配场景下不同设备ACL权限分别配置的打包方案",
-    "file": "开发/FAQ/系统开发/安全/程序访问控制/多端适配场景下不同设备ACL权限分别配置的打包方案/多端适配场景下不同设备ACL权限分别配置的打包方案.md",
+    "file": "安全/程序访问控制/多端适配场景下不同设备ACL权限分别配置的打包方案/多端适配场景下不同设备ACL权限分别配置的打包方案.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-access-control-24"
   },
   {
     "slug": "faqs-access-control-15",
     "name": "如何判断应用权限是否允许，以及拒绝后再次授权",
-    "file": "开发/FAQ/系统开发/安全/程序访问控制/如何判断应用权限是否允许，以及拒绝后再次授权/如何判断应用权限是否允许，以及拒绝后再次授权.md",
+    "file": "安全/程序访问控制/如何判断应用权限是否允许，以及拒绝后再次授权/如何判断应用权限是否允许，以及拒绝后再次授权.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-access-control-15"
   },
   {
@@ -2428,7 +2428,7 @@
   {
     "slug": "faqs-access-control-19",
     "name": "如何撤销已经申请的权限",
-    "file": "开发/FAQ/系统开发/安全/程序访问控制/如何撤销已经申请的权限/如何撤销已经申请的权限.md",
+    "file": "安全/程序访问控制/如何撤销已经申请的权限/如何撤销已经申请的权限.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-access-control-19"
   },
   {
@@ -2440,7 +2440,7 @@
   {
     "slug": "faqs-access-control-20",
     "name": "如何获取定位权限的用户授权类型",
-    "file": "开发/FAQ/系统开发/安全/程序访问控制/如何获取定位权限的用户授权类型/如何获取定位权限的用户授权类型.md",
+    "file": "安全/程序访问控制/如何获取定位权限的用户授权类型/如何获取定位权限的用户授权类型.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-access-control-20"
   },
   {
@@ -2452,7 +2452,7 @@
   {
     "slug": "faqs-access-control-16",
     "name": "应用权限管理界面的权限跳转到系统设置界面，无对应权限",
-    "file": "开发/FAQ/系统开发/安全/程序访问控制/应用权限管理界面的权限跳转到系统设置界面，无对应权限/应用权限管理界面的权限跳转到系统设置界面，无对应权限.md",
+    "file": "安全/程序访问控制/应用权限管理界面的权限跳转到系统设置界面，无对应权限/应用权限管理界面的权限跳转到系统设置界面，无对应权限.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-access-control-16"
   },
   {
@@ -2464,7 +2464,7 @@
   {
     "slug": "faqs-access-control-22",
     "name": "应用申请权限是否可以在子模块中申请",
-    "file": "开发/FAQ/系统开发/安全/程序访问控制/应用申请权限是否可以在子模块中申请/应用申请权限是否可以在子模块中申请.md",
+    "file": "安全/程序访问控制/应用申请权限是否可以在子模块中申请/应用申请权限是否可以在子模块中申请.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-access-control-22"
   },
   {
@@ -2476,7 +2476,7 @@
   {
     "slug": "faqs-access-control-18",
     "name": "系统中关闭已开启的权限，应用被重启",
-    "file": "开发/FAQ/系统开发/安全/程序访问控制/系统中关闭已开启的权限，应用被重启/系统中关闭已开启的权限，应用被重启.md",
+    "file": "安全/程序访问控制/系统中关闭已开启的权限，应用被重启/系统中关闭已开启的权限，应用被重启.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-access-control-18"
   },
   {
@@ -2488,7 +2488,7 @@
   {
     "slug": "faqs-access-control-21",
     "name": "超级隐私模式下，应用权限申请异常",
-    "file": "开发/FAQ/系统开发/安全/程序访问控制/超级隐私模式下，应用权限申请异常/超级隐私模式下，应用权限申请异常.md",
+    "file": "安全/程序访问控制/超级隐私模式下，应用权限申请异常/超级隐私模式下，应用权限申请异常.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-access-control-21"
   },
   {
@@ -2500,7 +2500,7 @@
   {
     "slug": "faqs-device-security-6",
     "name": "createAttestKey接口返回错误码1011500006",
-    "file": "开发/FAQ/系统开发/安全/设备安全服务（Device Security）/createAttestKey接口返回错误码1011500006/createAttestKey接口返回错误码1011500006.md",
+    "file": "安全/设备安全服务（Device Security）/createAttestKey接口返回错误码1011500006/createAttestKey接口返回错误码1011500006.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-device-security-6"
   },
   {
@@ -2512,7 +2512,7 @@
   {
     "slug": "faqs-device-security-8",
     "name": "代码层面如何判断当前设备支持防窥保护功能",
-    "file": "开发/FAQ/系统开发/安全/设备安全服务（Device Security）/代码层面如何判断当前设备支持防窥保护功能/代码层面如何判断当前设备支持防窥保护功能.md",
+    "file": "安全/设备安全服务（Device Security）/代码层面如何判断当前设备支持防窥保护功能/代码层面如何判断当前设备支持防窥保护功能.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-device-security-8"
   },
   {
@@ -2524,7 +2524,7 @@
   {
     "slug": "faqs-device-security-4",
     "name": "使用ArkTS语言完成JWT鉴权令牌",
-    "file": "开发/FAQ/系统开发/安全/设备安全服务（Device Security）/使用ArkTS语言完成JWT鉴权令牌/使用ArkTS语言完成JWT鉴权令牌.md",
+    "file": "安全/设备安全服务（Device Security）/使用ArkTS语言完成JWT鉴权令牌/使用ArkTS语言完成JWT鉴权令牌.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-device-security-4"
   },
   {
@@ -2536,7 +2536,7 @@
   {
     "slug": "faqs-device-security-9",
     "name": "如何判断系统是否root",
-    "file": "开发/FAQ/系统开发/安全/设备安全服务（Device Security）/如何判断系统是否root/如何判断系统是否root.md",
+    "file": "安全/设备安全服务（Device Security）/如何判断系统是否root/如何判断系统是否root.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-device-security-9"
   },
   {
@@ -2548,7 +2548,7 @@
   {
     "slug": "faqs-device-security-2",
     "name": "如何解决使用SafetyDetect安全检测checkSysIntegrity接口报错问题",
-    "file": "开发/FAQ/系统开发/安全/设备安全服务（Device Security）/如何解决使用SafetyDetect安全检测checkSysIntegrity接口报错问题/如何解决使用SafetyDetect安全检测checkSysIntegrity接口报错问题.md",
+    "file": "安全/设备安全服务（Device Security）/如何解决使用SafetyDetect安全检测checkSysIntegrity接口报错问题/如何解决使用SafetyDetect安全检测checkSysIntegrity接口报错问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-device-security-2"
   },
   {
@@ -2560,7 +2560,7 @@
   {
     "slug": "faqs-device-security-1",
     "name": "如何解决使用安全审计权限时报“9568289”错误的问题",
-    "file": "开发/FAQ/系统开发/安全/设备安全服务（Device Security）/如何解决使用安全审计权限时报“9568289”错误的问题/如何解决使用安全审计权限时报“9568289”错误的问题.md",
+    "file": "安全/设备安全服务（Device Security）/如何解决使用安全审计权限时报“9568289”错误的问题/如何解决使用安全审计权限时报“9568289”错误的问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-device-security-1"
   },
   {
@@ -2572,7 +2572,7 @@
   {
     "slug": "faqs-device-security-3",
     "name": "如何解决校验设备token时报错“InvalidDeviceToken”的问题",
-    "file": "开发/FAQ/系统开发/安全/设备安全服务（Device Security）/如何解决校验设备token时报错“InvalidDeviceToken”的问题/如何解决校验设备token时报错“InvalidDeviceToken”的问题.md",
+    "file": "安全/设备安全服务（Device Security）/如何解决校验设备token时报错“InvalidDeviceToken”的问题/如何解决校验设备token时报错“InvalidDeviceToken”的问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-device-security-3"
   },
   {
@@ -2590,7 +2590,7 @@
   {
     "slug": "faqs-device-security-7",
     "name": "涉诈剧本检测接口多次调用成功后再次调用出现报错",
-    "file": "开发/FAQ/系统开发/安全/设备安全服务（Device Security）/涉诈剧本检测接口多次调用成功后再次调用出现报错/涉诈剧本检测接口多次调用成功后再次调用出现报错.md",
+    "file": "安全/设备安全服务（Device Security）/涉诈剧本检测接口多次调用成功后再次调用出现报错/涉诈剧本检测接口多次调用成功后再次调用出现报错.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-device-security-7"
   },
   {
@@ -2602,7 +2602,7 @@
   {
     "slug": "faqs-device-security-5",
     "name": "系统安全性检测",
-    "file": "开发/FAQ/系统开发/安全/设备安全服务（Device Security）/系统安全性检测/系统安全性检测.md",
+    "file": "安全/设备安全服务（Device Security）/系统安全性检测/系统安全性检测.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-device-security-5"
   },
   {
@@ -2614,7 +2614,7 @@
   {
     "slug": "faqs-device-certificate-5",
     "name": "APP备案如何获取公钥和证书指纹",
-    "file": "开发/FAQ/系统开发/安全/证书管理（Device Certificate）/APP备案如何获取公钥和证书指纹/APP备案如何获取公钥和证书指纹.md",
+    "file": "安全/证书管理（Device Certificate）/APP备案如何获取公钥和证书指纹/APP备案如何获取公钥和证书指纹.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-device-certificate-5"
   },
   {
@@ -2626,7 +2626,7 @@
   {
     "slug": "faqs-device-certificate-4",
     "name": "如何解决createX509Cert读取证书文件获取的PublicKey使用报错问题",
-    "file": "开发/FAQ/系统开发/安全/证书管理（Device Certificate）/如何解决createX509Cert读取证书文件获取的PublicKey使用报错问题/如何解决createX509Cert读取证书文件获取的PublicKey使用报错问题.md",
+    "file": "安全/证书管理（Device Certificate）/如何解决createX509Cert读取证书文件获取的PublicKey使用报错问题/如何解决createX509Cert读取证书文件获取的PublicKey使用报错问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-device-certificate-4"
   },
   {
@@ -2638,7 +2638,7 @@
   {
     "slug": "faqs-device-certificate-3",
     "name": "如何解决x509Cert证书获取SN号与预期结果不一致的问题",
-    "file": "开发/FAQ/系统开发/安全/证书管理（Device Certificate）/如何解决x509Cert证书获取SN号与预期结果不一致的问题/如何解决x509Cert证书获取SN号与预期结果不一致的问题.md",
+    "file": "安全/证书管理（Device Certificate）/如何解决x509Cert证书获取SN号与预期结果不一致的问题/如何解决x509Cert证书获取SN号与预期结果不一致的问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-device-certificate-3"
   },
   {
@@ -2650,7 +2650,7 @@
   {
     "slug": "faqs-sensor-service-14",
     "name": "使用Vibrator模块intensity参数调节振幅",
-    "file": "开发/FAQ/系统开发/硬件/传感器（Sensor Service）/使用Vibrator模块intensity参数调节振幅/使用Vibrator模块intensity参数调节振幅.md",
+    "file": "硬件/传感器（Sensor Service）/使用Vibrator模块intensity参数调节振幅/使用Vibrator模块intensity参数调节振幅.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-sensor-service-14"
   },
   {
@@ -2662,7 +2662,7 @@
   {
     "slug": "faqs-sensor-service-3",
     "name": "关闭系统设置，使用vibrator模块设置的振动规则会失效",
-    "file": "开发/FAQ/系统开发/硬件/传感器（Sensor Service）/关闭系统设置，使用vibrator模块设置的振动规则会失效/关闭系统设置，使用vibrator模块设置的振动规则会失效.md",
+    "file": "硬件/传感器（Sensor Service）/关闭系统设置，使用vibrator模块设置的振动规则会失效/关闭系统设置，使用vibrator模块设置的振动规则会失效.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-sensor-service-3"
   },
   {
@@ -2674,7 +2674,7 @@
   {
     "slug": "faqs-sensor-service-8",
     "name": "如何判断设备在立体空间里是竖立着的",
-    "file": "开发/FAQ/系统开发/硬件/传感器（Sensor Service）/如何判断设备在立体空间里是竖立着的/如何判断设备在立体空间里是竖立着的.md",
+    "file": "硬件/传感器（Sensor Service）/如何判断设备在立体空间里是竖立着的/如何判断设备在立体空间里是竖立着的.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-sensor-service-8"
   },
   {
@@ -2686,7 +2686,7 @@
   {
     "slug": "faqs-sensor-service-10",
     "name": "如何实现小球随设备角度变化而运动",
-    "file": "开发/FAQ/系统开发/硬件/传感器（Sensor Service）/如何实现小球随设备角度变化而运动/如何实现小球随设备角度变化而运动.md",
+    "file": "硬件/传感器（Sensor Service）/如何实现小球随设备角度变化而运动/如何实现小球随设备角度变化而运动.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-sensor-service-10"
   },
   {
@@ -2698,7 +2698,7 @@
   {
     "slug": "faqs-sensor-service-7",
     "name": "如何实现接近身体自动灭屏的功能",
-    "file": "开发/FAQ/系统开发/硬件/传感器（Sensor Service）/如何实现接近身体自动灭屏的功能/如何实现接近身体自动灭屏的功能.md",
+    "file": "硬件/传感器（Sensor Service）/如何实现接近身体自动灭屏的功能/如何实现接近身体自动灭屏的功能.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-sensor-service-7"
   },
   {
@@ -2710,7 +2710,7 @@
   {
     "slug": "faqs-sensor-service-16",
     "name": "如何确认硬件是否具备某个传感器",
-    "file": "开发/FAQ/系统开发/硬件/传感器（Sensor Service）/如何确认硬件是否具备某个传感器/如何确认硬件是否具备某个传感器.md",
+    "file": "硬件/传感器（Sensor Service）/如何确认硬件是否具备某个传感器/如何确认硬件是否具备某个传感器.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-sensor-service-16"
   },
   {
@@ -2722,7 +2722,7 @@
   {
     "slug": "faqs-sensor-service-5",
     "name": "如何获取设备传感器列表",
-    "file": "开发/FAQ/系统开发/硬件/传感器（Sensor Service）/如何获取设备传感器列表/如何获取设备传感器列表.md",
+    "file": "硬件/传感器（Sensor Service）/如何获取设备传感器列表/如何获取设备传感器列表.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-sensor-service-5"
   },
   {
@@ -2734,7 +2734,7 @@
   {
     "slug": "faqs-sensor-service-12",
     "name": "平板上指南针方位指向异常",
-    "file": "开发/FAQ/系统开发/硬件/传感器（Sensor Service）/平板上指南针方位指向异常/平板上指南针方位指向异常.md",
+    "file": "硬件/传感器（Sensor Service）/平板上指南针方位指向异常/平板上指南针方位指向异常.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-sensor-service-12"
   },
   {
@@ -2746,7 +2746,7 @@
   {
     "slug": "faqs-sensor-service-9",
     "name": "应用无法获取气压信息",
-    "file": "开发/FAQ/系统开发/硬件/传感器（Sensor Service）/应用无法获取气压信息/应用无法获取气压信息.md",
+    "file": "硬件/传感器（Sensor Service）/应用无法获取气压信息/应用无法获取气压信息.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-sensor-service-9"
   },
   {
@@ -2758,7 +2758,7 @@
   {
     "slug": "faqs-sensor-service-4",
     "name": "旋转锁定失效",
-    "file": "开发/FAQ/系统开发/硬件/传感器（Sensor Service）/旋转锁定失效/旋转锁定失效.md",
+    "file": "硬件/传感器（Sensor Service）/旋转锁定失效/旋转锁定失效.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-sensor-service-4"
   },
   {
@@ -2770,7 +2770,7 @@
   {
     "slug": "faqs-sensor-service-6",
     "name": "权限申请和使用的顺序不合理",
-    "file": "开发/FAQ/系统开发/硬件/传感器（Sensor Service）/权限申请和使用的顺序不合理/权限申请和使用的顺序不合理.md",
+    "file": "硬件/传感器（Sensor Service）/权限申请和使用的顺序不合理/权限申请和使用的顺序不合理.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-sensor-service-6"
   },
   {
@@ -2782,7 +2782,7 @@
   {
     "slug": "faqs-sensor-service-11",
     "name": "水平仪气泡移动方向错误",
-    "file": "开发/FAQ/系统开发/硬件/传感器（Sensor Service）/水平仪气泡移动方向错误/水平仪气泡移动方向错误.md",
+    "file": "硬件/传感器（Sensor Service）/水平仪气泡移动方向错误/水平仪气泡移动方向错误.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-sensor-service-11"
   },
   {
@@ -2794,7 +2794,7 @@
   {
     "slug": "faqs-sensor-service-15",
     "name": "罗盘指南针方向与实际不符",
-    "file": "开发/FAQ/系统开发/硬件/传感器（Sensor Service）/罗盘指南针方向与实际不符/罗盘指南针方向与实际不符.md",
+    "file": "硬件/传感器（Sensor Service）/罗盘指南针方向与实际不符/罗盘指南针方向与实际不符.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-sensor-service-15"
   },
   {
@@ -2806,7 +2806,7 @@
   {
     "slug": "faqs-sensor-service-13",
     "name": "调用sensor.once接口获取走路时的步频数据不准确",
-    "file": "开发/FAQ/系统开发/硬件/传感器（Sensor Service）/调用sensor.once接口获取走路时的步频数据不准确/调用sensor.once接口获取走路时的步频数据不准确.md",
+    "file": "硬件/传感器（Sensor Service）/调用sensor.once接口获取走路时的步频数据不准确/调用sensor.once接口获取走路时的步频数据不准确.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-sensor-service-13"
   },
   {
@@ -2818,7 +2818,7 @@
   {
     "slug": "faqs-wear-engine-5",
     "name": "Wear Engine请求用户授权requestAuthorization失败",
-    "file": "开发/FAQ/系统开发/硬件/穿戴服务（Wear Engine Kit）/Wear Engine请求用户授权requestAuthorization失败/Wear Engine请求用户授权requestAuthorization失败.md",
+    "file": "硬件/穿戴服务（Wear Engine Kit）/Wear Engine请求用户授权requestAuthorization失败/Wear Engine请求用户授权requestAuthorization失败.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-wear-engine-5"
   },
   {
@@ -2830,7 +2830,7 @@
   {
     "slug": "faqs-wear-engine-3",
     "name": "如何实现手机向智能手表发送模板通知",
-    "file": "开发/FAQ/系统开发/硬件/穿戴服务（Wear Engine Kit）/如何实现手机向智能手表发送模板通知/如何实现手机向智能手表发送模板通知.md",
+    "file": "硬件/穿戴服务（Wear Engine Kit）/如何实现手机向智能手表发送模板通知/如何实现手机向智能手表发送模板通知.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-wear-engine-3"
   },
   {
@@ -2842,7 +2842,7 @@
   {
     "slug": "faqs-wear-engine-4",
     "name": "如何实现手机向智能手表发送消息",
-    "file": "开发/FAQ/系统开发/硬件/穿戴服务（Wear Engine Kit）/如何实现手机向智能手表发送消息/如何实现手机向智能手表发送消息.md",
+    "file": "硬件/穿戴服务（Wear Engine Kit）/如何实现手机向智能手表发送消息/如何实现手机向智能手表发送消息.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-wear-engine-4"
   },
   {
@@ -2854,7 +2854,7 @@
   {
     "slug": "faqs-wear-engine-2",
     "name": "申请接入Wear Engine服务咨询",
-    "file": "开发/FAQ/系统开发/硬件/穿戴服务（Wear Engine Kit）/申请接入Wear Engine服务咨询/申请接入Wear Engine服务咨询.md",
+    "file": "硬件/穿戴服务（Wear Engine Kit）/申请接入Wear Engine服务咨询/申请接入Wear Engine服务咨询.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-wear-engine-2"
   },
   {
@@ -2866,7 +2866,7 @@
   {
     "slug": "faqs-wear-engine-1",
     "name": "穿戴应用如何获取对应手表侧指纹",
-    "file": "开发/FAQ/系统开发/硬件/穿戴服务（Wear Engine Kit）/穿戴应用如何获取对应手表侧指纹/穿戴应用如何获取对应手表侧指纹.md",
+    "file": "硬件/穿戴服务（Wear Engine Kit）/穿戴应用如何获取对应手表侧指纹/穿戴应用如何获取对应手表侧指纹.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-wear-engine-1"
   },
   {
@@ -2878,13 +2878,13 @@
   {
     "slug": "faqs-wear-engine-kit-new-00001",
     "name": "获取穿戴设备SN号作为设备唯一标识的实现方式",
-    "file": "开发/FAQ/系统开发/硬件/穿戴服务（Wear Engine Kit）/获取穿戴设备SN号作为设备唯一标识的实现方式/获取穿戴设备SN号作为设备唯一标识的实现方式.md",
+    "file": "硬件/穿戴服务（Wear Engine Kit）/获取穿戴设备SN号作为设备唯一标识的实现方式/获取穿戴设备SN号作为设备唯一标识的实现方式.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-wear-engine-kit-new-00001"
   },
   {
     "slug": "faqs-nearlink-1",
     "name": "星闪API外设设备名称获取方式",
-    "file": "开发/FAQ/系统开发/网络/星闪（NearLink）/星闪API外设设备名称获取方式/星闪API外设设备名称获取方式.md",
+    "file": "网络/星闪（NearLink）/星闪API外设设备名称获取方式/星闪API外设设备名称获取方式.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-nearlink-1"
   },
   {
@@ -2896,7 +2896,7 @@
   {
     "slug": "faqs-nearlink-2",
     "name": "解决星闪扫描的设备广播名称只有9个字符长度的问题",
-    "file": "开发/FAQ/系统开发/网络/星闪（NearLink）/解决星闪扫描的设备广播名称只有9个字符长度的问题/解决星闪扫描的设备广播名称只有9个字符长度的问题.md",
+    "file": "网络/星闪（NearLink）/解决星闪扫描的设备广播名称只有9个字符长度的问题/解决星闪扫描的设备广播名称只有9个字符长度的问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-nearlink-2"
   },
   {
@@ -2908,7 +2908,7 @@
   {
     "slug": "faqs-connectivity-21",
     "name": "App点击蓝牙设备列表不显示设备",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/App点击蓝牙设备列表不显示设备/App点击蓝牙设备列表不显示设备.md",
+    "file": "网络/短距通信（Connectivity）/App点击蓝牙设备列表不显示设备/App点击蓝牙设备列表不显示设备.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-21"
   },
   {
@@ -2920,7 +2920,7 @@
   {
     "slug": "faqs-connectivity-36",
     "name": "BLE蓝牙客户端连接后无法接收服务端广播数据",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/BLE蓝牙客户端连接后无法接收服务端广播数据/BLE蓝牙客户端连接后无法接收服务端广播数据.md",
+    "file": "网络/短距通信（Connectivity）/BLE蓝牙客户端连接后无法接收服务端广播数据/BLE蓝牙客户端连接后无法接收服务端广播数据.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-36"
   },
   {
@@ -2932,7 +2932,7 @@
   {
     "slug": "faqs-connectivity-42",
     "name": "BLE蓝牙广播startAdvertising报错401问题",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/BLE蓝牙广播startAdvertising报错401问题/BLE蓝牙广播startAdvertising报错401问题.md",
+    "file": "网络/短距通信（Connectivity）/BLE蓝牙广播startAdvertising报错401问题/BLE蓝牙广播startAdvertising报错401问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-42"
   },
   {
@@ -2944,7 +2944,7 @@
   {
     "slug": "faqs-connectivity-7",
     "name": "BLE蓝牙无法搜索到对端设备",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/BLE蓝牙无法搜索到对端设备/BLE蓝牙无法搜索到对端设备.md",
+    "file": "网络/短距通信（Connectivity）/BLE蓝牙无法搜索到对端设备/BLE蓝牙无法搜索到对端设备.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-7"
   },
   {
@@ -2956,7 +2956,7 @@
   {
     "slug": "faqs-connectivity-11",
     "name": "BLE蓝牙调用setCharacteristicChangeNotification接口报错2900007或2900099",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/BLE蓝牙调用setCharacteristicChangeNotification接口报错2900007或2900099/BLE蓝牙调用setCharacteristicChangeNotification接口报错2900007或2900099.md",
+    "file": "网络/短距通信（Connectivity）/BLE蓝牙调用setCharacteristicChangeNotification接口报错2900007或2900099/BLE蓝牙调用setCharacteristicChangeNotification接口报错2900007或2900099.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-11"
   },
   {
@@ -2968,7 +2968,7 @@
   {
     "slug": "faqs-connectivity-38",
     "name": "BLE蓝牙连接类问题定位定界指导",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/BLE蓝牙连接类问题定位定界指导/BLE蓝牙连接类问题定位定界指导.md",
+    "file": "网络/短距通信（Connectivity）/BLE蓝牙连接类问题定位定界指导/BLE蓝牙连接类问题定位定界指导.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-38"
   },
   {
@@ -2980,7 +2980,7 @@
   {
     "slug": "faqs-connectivity-43",
     "name": "BLE蓝牙重连异常",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/BLE蓝牙重连异常/BLE蓝牙重连异常.md",
+    "file": "网络/短距通信（Connectivity）/BLE蓝牙重连异常/BLE蓝牙重连异常.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-43"
   },
   {
@@ -2992,7 +2992,7 @@
   {
     "slug": "faqs-connectivity-10",
     "name": "BLE连接成功后状态监听会回调2次",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/BLE连接成功后状态监听会回调2次/BLE连接成功后状态监听会回调2次.md",
+    "file": "网络/短距通信（Connectivity）/BLE连接成功后状态监听会回调2次/BLE连接成功后状态监听会回调2次.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-10"
   },
   {
@@ -3004,7 +3004,7 @@
   {
     "slug": "faqs-connectivity-8",
     "name": "HID蓝牙配对后如何实现自动连接",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/HID蓝牙配对后如何实现自动连接/HID蓝牙配对后如何实现自动连接.md",
+    "file": "网络/短距通信（Connectivity）/HID蓝牙配对后如何实现自动连接/HID蓝牙配对后如何实现自动连接.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-8"
   },
   {
@@ -3016,7 +3016,7 @@
   {
     "slug": "faqs-connectivity-16",
     "name": "HarmonyOS是否支持通过蓝牙连接第三方设备的音频模块",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/HarmonyOS是否支持通过蓝牙连接第三方设备的音频模块/HarmonyOS是否支持通过蓝牙连接第三方设备的音频模块.md",
+    "file": "网络/短距通信（Connectivity）/HarmonyOS是否支持通过蓝牙连接第三方设备的音频模块/HarmonyOS是否支持通过蓝牙连接第三方设备的音频模块.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-16"
   },
   {
@@ -3028,7 +3028,7 @@
   {
     "slug": "faqs-connectivity-22",
     "name": "HarmonyOS蓝牙通信是否支持GAIA协议",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/HarmonyOS蓝牙通信是否支持GAIA协议/HarmonyOS蓝牙通信是否支持GAIA协议.md",
+    "file": "网络/短距通信（Connectivity）/HarmonyOS蓝牙通信是否支持GAIA协议/HarmonyOS蓝牙通信是否支持GAIA协议.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-22"
   },
   {
@@ -3040,7 +3040,7 @@
   {
     "slug": "faqs-connectivity-41",
     "name": "NFC服务执行Tag业务逻辑报错",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/NFC服务执行Tag业务逻辑报错/NFC服务执行Tag业务逻辑报错.md",
+    "file": "网络/短距通信（Connectivity）/NFC服务执行Tag业务逻辑报错/NFC服务执行Tag业务逻辑报错.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-41"
   },
   {
@@ -3052,7 +3052,7 @@
   {
     "slug": "faqs-connectivity-33",
     "name": "socket.sppReadAsync循环读取异常",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/socket.sppReadAsync循环读取异常/socket.sppReadAsync循环读取异常.md",
+    "file": "网络/短距通信（Connectivity）/socket.sppReadAsync循环读取异常/socket.sppReadAsync循环读取异常.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-33"
   },
   {
@@ -3064,13 +3064,13 @@
   {
     "slug": "faqs-connectivity-kit-new-00001",
     "name": "其他厂商设备与HarmonyOS设备媒体控制的实现方式",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/其他厂商设备与HarmonyOS设备媒体控制的实现方式/其他厂商设备与HarmonyOS设备媒体控制的实现方式.md",
+    "file": "网络/短距通信（Connectivity）/其他厂商设备与HarmonyOS设备媒体控制的实现方式/其他厂商设备与HarmonyOS设备媒体控制的实现方式.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-kit-new-00001"
   },
   {
     "slug": "faqs-connectivity-27",
     "name": "如何使用代码设置和连接Wi-Fi热点",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/如何使用代码设置和连接Wi-Fi热点/如何使用代码设置和连接Wi-Fi热点.md",
+    "file": "网络/短距通信（Connectivity）/如何使用代码设置和连接Wi-Fi热点/如何使用代码设置和连接Wi-Fi热点.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-27"
   },
   {
@@ -3082,7 +3082,7 @@
   {
     "slug": "faqs-connectivity-34",
     "name": "如何使用蓝牙订阅事件",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/如何使用蓝牙订阅事件/如何使用蓝牙订阅事件.md",
+    "file": "网络/短距通信（Connectivity）/如何使用蓝牙订阅事件/如何使用蓝牙订阅事件.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-34"
   },
   {
@@ -3094,7 +3094,7 @@
   {
     "slug": "faqs-connectivity-40",
     "name": "如何分析BLE广播信息",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/如何分析BLE广播信息/如何分析BLE广播信息.md",
+    "file": "网络/短距通信（Connectivity）/如何分析BLE广播信息/如何分析BLE广播信息.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-40"
   },
   {
@@ -3106,7 +3106,7 @@
   {
     "slug": "faqs-connectivity-28",
     "name": "如何在多个无名称ble设备中确定目标设备",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/如何在多个无名称ble设备中确定目标设备/如何在多个无名称ble设备中确定目标设备.md",
+    "file": "网络/短距通信（Connectivity）/如何在多个无名称ble设备中确定目标设备/如何在多个无名称ble设备中确定目标设备.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-28"
   },
   {
@@ -3118,7 +3118,7 @@
   {
     "slug": "faqs-connectivity-12",
     "name": "如何实现BLE蓝牙快速回连",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/如何实现BLE蓝牙快速回连/如何实现BLE蓝牙快速回连.md",
+    "file": "网络/短距通信（Connectivity）/如何实现BLE蓝牙快速回连/如何实现BLE蓝牙快速回连.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-12"
   },
   {
@@ -3130,7 +3130,7 @@
   {
     "slug": "faqs-connectivity-18",
     "name": "如何实现WLAN随机MAC地址获取",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/如何实现WLAN随机MAC地址获取/如何实现WLAN随机MAC地址获取.md",
+    "file": "网络/短距通信（Connectivity）/如何实现WLAN随机MAC地址获取/如何实现WLAN随机MAC地址获取.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-18"
   },
   {
@@ -3142,13 +3142,13 @@
   {
     "slug": "faqs-connectivity-25",
     "name": "如何屏蔽“当前WLAN不可上网，是否继续使用此WLAN”弹窗",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/如何屏蔽“当前WLAN不可上网，是否继续使用此WLAN”弹窗.md",
+    "file": "网络/短距通信（Connectivity）/如何屏蔽“当前WLAN不可上网，是否继续使用此WLAN”弹窗.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-25"
   },
   {
     "slug": "faqs-connectivity-20",
     "name": "如何获取WiFi的唯一标识",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/如何获取WiFi的唯一标识/如何获取WiFi的唯一标识.md",
+    "file": "网络/短距通信（Connectivity）/如何获取WiFi的唯一标识/如何获取WiFi的唯一标识.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-20"
   },
   {
@@ -3160,7 +3160,7 @@
   {
     "slug": "faqs-connectivity-26",
     "name": "如何解决BLE蓝牙广播报文长度超出31字节",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/如何解决BLE蓝牙广播报文长度超出31字节/如何解决BLE蓝牙广播报文长度超出31字节.md",
+    "file": "网络/短距通信（Connectivity）/如何解决BLE蓝牙广播报文长度超出31字节/如何解决BLE蓝牙广播报文长度超出31字节.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-26"
   },
   {
@@ -3172,7 +3172,7 @@
   {
     "slug": "faqs-connectivity-6",
     "name": "如何解决存在较大量的蓝牙设备时-低功耗蓝牙连接效率低问题",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/如何解决存在较大量的蓝牙设备时-低功耗蓝牙连接效率低问题/如何解决存在较大量的蓝牙设备时-低功耗蓝牙连接效率低问题.md",
+    "file": "网络/短距通信（Connectivity）/如何解决存在较大量的蓝牙设备时-低功耗蓝牙连接效率低问题/如何解决存在较大量的蓝牙设备时-低功耗蓝牙连接效率低问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-6"
   },
   {
@@ -3184,7 +3184,7 @@
   {
     "slug": "faqs-connectivity-35",
     "name": "如何解决蓝牙订阅事件异常问题",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/如何解决蓝牙订阅事件异常问题/如何解决蓝牙订阅事件异常问题.md",
+    "file": "网络/短距通信（Connectivity）/如何解决蓝牙订阅事件异常问题/如何解决蓝牙订阅事件异常问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-35"
   },
   {
@@ -3196,7 +3196,7 @@
   {
     "slug": "faqs-connectivity-24",
     "name": "如何解决蓝牙/星闪协商MTU参数失败的问题",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/如何解决蓝牙／星闪协商MTU参数失败的问题/如何解决蓝牙／星闪协商MTU参数失败的问题.md",
+    "file": "网络/短距通信（Connectivity）/如何解决蓝牙／星闪协商MTU参数失败的问题/如何解决蓝牙／星闪协商MTU参数失败的问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-24"
   },
   {
@@ -3208,7 +3208,7 @@
   {
     "slug": "faqs-connectivity-15",
     "name": "如何通过已连接的BLE蓝牙设备的虚拟MAC地址建立经典蓝牙连接",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/如何通过已连接的BLE蓝牙设备的虚拟MAC地址建立经典蓝牙连接/如何通过已连接的BLE蓝牙设备的虚拟MAC地址建立经典蓝牙连接.md",
+    "file": "网络/短距通信（Connectivity）/如何通过已连接的BLE蓝牙设备的虚拟MAC地址建立经典蓝牙连接/如何通过已连接的BLE蓝牙设备的虚拟MAC地址建立经典蓝牙连接.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-15"
   },
   {
@@ -3220,7 +3220,7 @@
   {
     "slug": "faqs-connectivity-9",
     "name": "平板应用使用NFC功能时闪退",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/平板应用使用NFC功能时闪退/平板应用使用NFC功能时闪退.md",
+    "file": "网络/短距通信（Connectivity）/平板应用使用NFC功能时闪退/平板应用使用NFC功能时闪退.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-9"
   },
   {
@@ -3232,7 +3232,7 @@
   {
     "slug": "faqs-connectivity-31",
     "name": "当连接指定wifi时，第一次会有概率性连接失败，这是什么原因呢",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/当连接指定wifi时，第一次会有概率性连接失败，这是什么原因呢/当连接指定wifi时，第一次会有概率性连接失败，这是什么原因呢.md",
+    "file": "网络/短距通信（Connectivity）/当连接指定wifi时，第一次会有概率性连接失败，这是什么原因呢/当连接指定wifi时，第一次会有概率性连接失败，这是什么原因呢.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-31"
   },
   {
@@ -3244,7 +3244,7 @@
   {
     "slug": "faqs-connectivity-13",
     "name": "怎样获取本机的IP地址",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/怎样获取本机的IP地址/怎样获取本机的IP地址.md",
+    "file": "网络/短距通信（Connectivity）/怎样获取本机的IP地址/怎样获取本机的IP地址.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-13"
   },
   {
@@ -3256,13 +3256,13 @@
   {
     "slug": "faqs-connectivity-kit-new-00002",
     "name": "蓝牙BLE广播是否支持自定义广播Type数据",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/蓝牙BLE广播是否支持自定义广播Type数据/蓝牙BLE广播是否支持自定义广播Type数据.md",
+    "file": "网络/短距通信（Connectivity）/蓝牙BLE广播是否支持自定义广播Type数据/蓝牙BLE广播是否支持自定义广播Type数据.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-kit-new-00002"
   },
   {
     "slug": "faqs-connectivity-23",
     "name": "蓝牙BLE无法连接设备问题定位——广播/扫描阶段",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/蓝牙BLE无法连接设备问题定位——广播／扫描阶段/蓝牙BLE无法连接设备问题定位——广播／扫描阶段.md",
+    "file": "网络/短距通信（Connectivity）/蓝牙BLE无法连接设备问题定位——广播／扫描阶段/蓝牙BLE无法连接设备问题定位——广播／扫描阶段.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-23"
   },
   {
@@ -3274,7 +3274,7 @@
   {
     "slug": "faqs-connectivity-29",
     "name": "蓝牙on('bondStateChange')监听取消输入PIN码回调有延迟",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/蓝牙on('bondStateChange')监听取消输入PIN码回调有延迟/蓝牙on('bondStateChange')监听取消输入PIN码回调有延迟.md",
+    "file": "网络/短距通信（Connectivity）/蓝牙on('bondStateChange')监听取消输入PIN码回调有延迟/蓝牙on('bondStateChange')监听取消输入PIN码回调有延迟.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-29"
   },
   {
@@ -3286,7 +3286,7 @@
   {
     "slug": "faqs-connectivity-39",
     "name": "蓝牙写入数据回调成功，无回复确认信息",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/蓝牙写入数据回调成功，无回复确认信息/蓝牙写入数据回调成功，无回复确认信息.md",
+    "file": "网络/短距通信（Connectivity）/蓝牙写入数据回调成功，无回复确认信息/蓝牙写入数据回调成功，无回复确认信息.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-39"
   },
   {
@@ -3298,7 +3298,7 @@
   {
     "slug": "faqs-connectivity-30",
     "name": "蓝牙发送大数据导致主线程卡死",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/蓝牙发送大数据导致主线程卡死/蓝牙发送大数据导致主线程卡死.md",
+    "file": "网络/短距通信（Connectivity）/蓝牙发送大数据导致主线程卡死/蓝牙发送大数据导致主线程卡死.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-30"
   },
   {
@@ -3310,7 +3310,7 @@
   {
     "slug": "faqs-connectivity-19",
     "name": "蓝牙监听接口重复触发",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/蓝牙监听接口重复触发/蓝牙监听接口重复触发.md",
+    "file": "网络/短距通信（Connectivity）/蓝牙监听接口重复触发/蓝牙监听接口重复触发.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-19"
   },
   {
@@ -3322,7 +3322,7 @@
   {
     "slug": "faqs-connectivity-14",
     "name": "蓝牙相关业务开发中长时任务的使用流程以及注意事项",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/蓝牙相关业务开发中长时任务的使用流程以及注意事项/蓝牙相关业务开发中长时任务的使用流程以及注意事项.md",
+    "file": "网络/短距通信（Connectivity）/蓝牙相关业务开发中长时任务的使用流程以及注意事项/蓝牙相关业务开发中长时任务的使用流程以及注意事项.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-14"
   },
   {
@@ -3334,7 +3334,7 @@
   {
     "slug": "faqs-connectivity-37",
     "name": "蓝牙配对后如何在系统蓝牙界面显示已连接",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/蓝牙配对后如何在系统蓝牙界面显示已连接/蓝牙配对后如何在系统蓝牙界面显示已连接.md",
+    "file": "网络/短距通信（Connectivity）/蓝牙配对后如何在系统蓝牙界面显示已连接/蓝牙配对后如何在系统蓝牙界面显示已连接.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-37"
   },
   {
@@ -3346,7 +3346,7 @@
   {
     "slug": "faqs-connectivity-17",
     "name": "调用wifiManager.connectToCandidateConfig弹出Wi-Fi连接确认弹框后，如何判断用户点了连接还是取消",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/调用wifiManager.connectToCandidateConfig弹出Wi-Fi连接确认弹框后，如何判断用户点了连接还是取消/调用wifiManager.connectToCandidateConfig弹出Wi-Fi连接确认弹框后，如何判断用户点了连接还是取消.md",
+    "file": "网络/短距通信（Connectivity）/调用wifiManager.connectToCandidateConfig弹出Wi-Fi连接确认弹框后，如何判断用户点了连接还是取消/调用wifiManager.connectToCandidateConfig弹出Wi-Fi连接确认弹框后，如何判断用户点了连接还是取消.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-17"
   },
   {
@@ -3364,7 +3364,7 @@
   {
     "slug": "faqs-connectivity-32",
     "name": "连接过的蓝牙设备，重新连接失败",
-    "file": "开发/FAQ/系统开发/网络/短距通信（Connectivity）/连接过的蓝牙设备，重新连接失败/连接过的蓝牙设备，重新连接失败.md",
+    "file": "网络/短距通信（Connectivity）/连接过的蓝牙设备，重新连接失败/连接过的蓝牙设备，重新连接失败.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-32"
   },
   {
@@ -3376,7 +3376,7 @@
   {
     "slug": "faqs-network-104",
     "name": "App进入后台，是否会回收网络权限",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/App进入后台，是否会回收网络权限/App进入后台，是否会回收网络权限.md",
+    "file": "网络/网络（Network）/App进入后台，是否会回收网络权限/App进入后台，是否会回收网络权限.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-104"
   },
   {
@@ -3388,7 +3388,7 @@
   {
     "slug": "faqs-network-102",
     "name": "ArkTS通过TCP检测多域名连通性并自动选择备用地址",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/ArkTS通过TCP检测多域名连通性并自动选择备用地址/ArkTS通过TCP检测多域名连通性并自动选择备用地址.md",
+    "file": "网络/网络（Network）/ArkTS通过TCP检测多域名连通性并自动选择备用地址/ArkTS通过TCP检测多域名连通性并自动选择备用地址.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-102"
   },
   {
@@ -3400,13 +3400,13 @@
   {
     "slug": "faqs-network-126",
     "name": "DNS会按什么顺序发起解析，是否会导致VPN的DNS解析异常",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/DNS会按什么顺序发起解析，是否会导致VPN的DNS解析异常.md",
+    "file": "网络/网络（Network）/DNS会按什么顺序发起解析，是否会导致VPN的DNS解析异常.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-126"
   },
   {
     "slug": "faqs-network-131",
     "name": "DNS域名解析错误",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/DNS域名解析错误/DNS域名解析错误.md",
+    "file": "网络/网络（Network）/DNS域名解析错误/DNS域名解析错误.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-131"
   },
   {
@@ -3418,7 +3418,7 @@
   {
     "slug": "faqs-network-121",
     "name": "HTTP中usingCache设置为true没有生效",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/HTTP中usingCache设置为true没有生效/HTTP中usingCache设置为true没有生效.md",
+    "file": "网络/网络（Network）/HTTP中usingCache设置为true没有生效/HTTP中usingCache设置为true没有生效.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-121"
   },
   {
@@ -3430,7 +3430,7 @@
   {
     "slug": "faqs-network-137",
     "name": "HTTP网络请求extraData参数问题",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/HTTP网络请求extraData参数问题/HTTP网络请求extraData参数问题.md",
+    "file": "网络/网络（Network）/HTTP网络请求extraData参数问题/HTTP网络请求extraData参数问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-137"
   },
   {
@@ -3442,7 +3442,7 @@
   {
     "slug": "faqs-network-88",
     "name": "HTTP请求过程中如何解决encodeURI无效问题",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/HTTP请求过程中如何解决encodeURI无效问题/HTTP请求过程中如何解决encodeURI无效问题.md",
+    "file": "网络/网络（Network）/HTTP请求过程中如何解决encodeURI无效问题/HTTP请求过程中如何解决encodeURI无效问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-88"
   },
   {
@@ -3454,7 +3454,7 @@
   {
     "slug": "faqs-network-79",
     "name": "HTTP请求返回数据类型为JSON文件时如何读取data",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/HTTP请求返回数据类型为JSON文件时如何读取data/HTTP请求返回数据类型为JSON文件时如何读取data.md",
+    "file": "网络/网络（Network）/HTTP请求返回数据类型为JSON文件时如何读取data/HTTP请求返回数据类型为JSON文件时如何读取data.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-79"
   },
   {
@@ -3466,7 +3466,7 @@
   {
     "slug": "faqs-network-118",
     "name": "HarmonyOS Next如何使用Wireshark工具抓包",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/HarmonyOS Next如何使用Wireshark工具抓包/HarmonyOS Next如何使用Wireshark工具抓包.md",
+    "file": "网络/网络（Network）/HarmonyOS Next如何使用Wireshark工具抓包/HarmonyOS Next如何使用Wireshark工具抓包.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-118"
   },
   {
@@ -3484,7 +3484,7 @@
   {
     "slug": "faqs-network-80",
     "name": "HarmonyOS中如何使用SSE方式请求大模型流式数据",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/HarmonyOS中如何使用SSE方式请求大模型流式数据/HarmonyOS中如何使用SSE方式请求大模型流式数据.md",
+    "file": "网络/网络（Network）/HarmonyOS中如何使用SSE方式请求大模型流式数据/HarmonyOS中如何使用SSE方式请求大模型流式数据.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-80"
   },
   {
@@ -3496,7 +3496,7 @@
   {
     "slug": "faqs-network-83",
     "name": "HarmonyOS应用如何做到防抓包",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/HarmonyOS应用如何做到防抓包/HarmonyOS应用如何做到防抓包.md",
+    "file": "网络/网络（Network）/HarmonyOS应用如何做到防抓包/HarmonyOS应用如何做到防抓包.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-83"
   },
   {
@@ -3508,7 +3508,7 @@
   {
     "slug": "faqs-network-100",
     "name": "HarmonyOS系统对标其他平台的网络方案",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/HarmonyOS系统对标其他平台的网络方案/HarmonyOS系统对标其他平台的网络方案.md",
+    "file": "网络/网络（Network）/HarmonyOS系统对标其他平台的网络方案/HarmonyOS系统对标其他平台的网络方案.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-100"
   },
   {
@@ -3520,7 +3520,7 @@
   {
     "slug": "faqs-network-89",
     "name": "Http请求失败后是否需要主动销毁HttpRequest对象",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/Http请求失败后是否需要主动销毁HttpRequest对象/Http请求失败后是否需要主动销毁HttpRequest对象.md",
+    "file": "网络/网络（Network）/Http请求失败后是否需要主动销毁HttpRequest对象/Http请求失败后是否需要主动销毁HttpRequest对象.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-89"
   },
   {
@@ -3532,13 +3532,13 @@
   {
     "slug": "faqs-network-kit-new-00002",
     "name": "IKEv2 IPSec MSCHAPv2类型VPN无法连接如何解决",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/IKEv2 IPSec MSCHAPv2类型VPN无法连接如何解决/IKEv2 IPSec MSCHAPv2类型VPN无法连接如何解决.md",
+    "file": "网络/网络（Network）/IKEv2 IPSec MSCHAPv2类型VPN无法连接如何解决/IKEv2 IPSec MSCHAPv2类型VPN无法连接如何解决.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-kit-new-00002"
   },
   {
     "slug": "faqs-network-117",
     "name": "Native侧如何实现socket连接",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/Native侧如何实现socket连接/Native侧如何实现socket连接.md",
+    "file": "网络/网络（Network）/Native侧如何实现socket连接/Native侧如何实现socket连接.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-117"
   },
   {
@@ -3550,7 +3550,7 @@
   {
     "slug": "faqs-network-112",
     "name": "RCP网络请求报错：Syntax Error.Invalid url string",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/RCP网络请求报错：Syntax Error.Invalid url string/RCP网络请求报错：Syntax Error.Invalid url string.md",
+    "file": "网络/网络（Network）/RCP网络请求报错：Syntax Error.Invalid url string/RCP网络请求报错：Syntax Error.Invalid url string.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-112"
   },
   {
@@ -3562,19 +3562,19 @@
   {
     "slug": "faqs-network-146",
     "name": "RCP远场通信是否支持流式返回请求数据",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/RCP远场通信是否支持流式返回请求数据/RCP远场通信是否支持流式返回请求数据.md",
+    "file": "网络/网络（Network）/RCP远场通信是否支持流式返回请求数据/RCP远场通信是否支持流式返回请求数据.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-146"
   },
   {
     "slug": "faqs-network-kit-new-00003",
     "name": "Socket并发连接阻塞图片加载如何解决",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/Socket并发连接阻塞图片加载如何解决/Socket并发连接阻塞图片加载如何解决.md",
+    "file": "网络/网络（Network）/Socket并发连接阻塞图片加载如何解决/Socket并发连接阻塞图片加载如何解决.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-kit-new-00003"
   },
   {
     "slug": "faqs-network-86",
     "name": "Socket通信时，如何根据使用场景正确转换数据类型",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/Socket通信时，如何根据使用场景正确转换数据类型/Socket通信时，如何根据使用场景正确转换数据类型.md",
+    "file": "网络/网络（Network）/Socket通信时，如何根据使用场景正确转换数据类型/Socket通信时，如何根据使用场景正确转换数据类型.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-86"
   },
   {
@@ -3586,7 +3586,7 @@
   {
     "slug": "faqs-network-107",
     "name": "TLSSocket中on('close')和on('error')事件的触发条件",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/TLSSocket中on('close')和on('error')事件的触发条件/TLSSocket中on('close')和on('error')事件的触发条件.md",
+    "file": "网络/网络（Network）/TLSSocket中on('close')和on('error')事件的触发条件/TLSSocket中on('close')和on('error')事件的触发条件.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-107"
   },
   {
@@ -3598,7 +3598,7 @@
   {
     "slug": "faqs-network-135",
     "name": "VPN接入状态下，应用访问内网资源的流量未路由至VPN链路",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/VPN接入状态下，应用访问内网资源的流量未路由至VPN链路/VPN接入状态下，应用访问内网资源的流量未路由至VPN链路.md",
+    "file": "网络/网络（Network）/VPN接入状态下，应用访问内网资源的流量未路由至VPN链路/VPN接入状态下，应用访问内网资源的流量未路由至VPN链路.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-135"
   },
   {
@@ -3610,13 +3610,13 @@
   {
     "slug": "faqs-network-kit-new-00001",
     "name": "VPN流程问题排查指南",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/VPN流程问题排查指南/VPN流程问题排查指南.md",
+    "file": "网络/网络（Network）/VPN流程问题排查指南/VPN流程问题排查指南.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-kit-new-00001"
   },
   {
     "slug": "faqs-network-106",
     "name": "WIFI环境下无法检测出IPv6地址",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/WIFI环境下无法检测出IPv6地址/WIFI环境下无法检测出IPv6地址.md",
+    "file": "网络/网络（Network）/WIFI环境下无法检测出IPv6地址/WIFI环境下无法检测出IPv6地址.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-106"
   },
   {
@@ -3628,7 +3628,7 @@
   {
     "slug": "faqs-network-103",
     "name": "WebSocket发送消息失败，错误码是-1的原因",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/WebSocket发送消息失败，错误码是-1的原因/WebSocket发送消息失败，错误码是-1的原因.md",
+    "file": "网络/网络（Network）/WebSocket发送消息失败，错误码是-1的原因/WebSocket发送消息失败，错误码是-1的原因.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-103"
   },
   {
@@ -3640,7 +3640,7 @@
   {
     "slug": "faqs-network-93",
     "name": "Webview如何设置HTTP代理",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/Webview如何设置HTTP代理/Webview如何设置HTTP代理.md",
+    "file": "网络/网络（Network）/Webview如何设置HTTP代理/Webview如何设置HTTP代理.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-93"
   },
   {
@@ -3652,7 +3652,7 @@
   {
     "slug": "faqs-network-97",
     "name": "Wi-Fi始终连接，如何感知Wi-Fi本身从无网络到有网络的状态",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/Wi-Fi始终连接，如何感知Wi-Fi本身从无网络到有网络的状态/Wi-Fi始终连接，如何感知Wi-Fi本身从无网络到有网络的状态.md",
+    "file": "网络/网络（Network）/Wi-Fi始终连接，如何感知Wi-Fi本身从无网络到有网络的状态/Wi-Fi始终连接，如何感知Wi-Fi本身从无网络到有网络的状态.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-97"
   },
   {
@@ -3664,13 +3664,13 @@
   {
     "slug": "faqs-network-kit-new-00004",
     "name": "WiFi环境下HttpRequest.request报错2300999如何解决",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/WiFi环境下HttpRequest.request报错2300999如何解决/WiFi环境下HttpRequest.request报错2300999如何解决.md",
+    "file": "网络/网络（Network）/WiFi环境下HttpRequest.request报错2300999如何解决/WiFi环境下HttpRequest.request报错2300999如何解决.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-kit-new-00004"
   },
   {
     "slug": "faqs-network-81",
     "name": "http请求requestInStream接口如何使用",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/http请求requestInStream接口如何使用/http请求requestInStream接口如何使用.md",
+    "file": "网络/网络（Network）/http请求requestInStream接口如何使用/http请求requestInStream接口如何使用.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-81"
   },
   {
@@ -3682,7 +3682,7 @@
   {
     "slug": "faqs-network-85",
     "name": "http请求通过MultiFormData分片上传报错",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/http请求通过MultiFormData分片上传报错/http请求通过MultiFormData分片上传报错.md",
+    "file": "网络/网络（Network）/http请求通过MultiFormData分片上传报错/http请求通过MultiFormData分片上传报错.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-85"
   },
   {
@@ -3694,7 +3694,7 @@
   {
     "slug": "faqs-network-108",
     "name": "socket.TCPSocketServer订阅'connect'事件，off掉之后，重新订阅不生效",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/socket.TCPSocketServer订阅'connect'事件，off掉之后，重新订阅不生效/socket.TCPSocketServer订阅'connect'事件，off掉之后，重新订阅不生效.md",
+    "file": "网络/网络（Network）/socket.TCPSocketServer订阅'connect'事件，off掉之后，重新订阅不生效/socket.TCPSocketServer订阅'connect'事件，off掉之后，重新订阅不生效.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-108"
   },
   {
@@ -3706,7 +3706,7 @@
   {
     "slug": "faqs-network-92",
     "name": "socket访问IPv6报错2301097",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/socket访问IPv6报错2301097/socket访问IPv6报错2301097.md",
+    "file": "网络/网络（Network）/socket访问IPv6报错2301097/socket访问IPv6报错2301097.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-92"
   },
   {
@@ -3718,7 +3718,7 @@
   {
     "slug": "faqs-network-133",
     "name": "下载文件时，下载代理提示已下载完成，并且有实际下载内容，但是保存文件时为空",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/下载文件时，下载代理提示已下载完成，并且有实际下载内容，但是保存文件时为空/下载文件时，下载代理提示已下载完成，并且有实际下载内容，但是保存文件时为空.md",
+    "file": "网络/网络（Network）/下载文件时，下载代理提示已下载完成，并且有实际下载内容，但是保存文件时为空/下载文件时，下载代理提示已下载完成，并且有实际下载内容，但是保存文件时为空.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-133"
   },
   {
@@ -3730,7 +3730,7 @@
   {
     "slug": "faqs-network-120",
     "name": "下载过程中如何获取真实文件名",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/下载过程中如何获取真实文件名/下载过程中如何获取真实文件名.md",
+    "file": "网络/网络（Network）/下载过程中如何获取真实文件名/下载过程中如何获取真实文件名.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-120"
   },
   {
@@ -3742,7 +3742,7 @@
   {
     "slug": "faqs-network-109",
     "name": "使用connection.setAppHttpProxy设置代理后如何取消代理",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/使用connection.setAppHttpProxy设置代理后如何取消代理/使用connection.setAppHttpProxy设置代理后如何取消代理.md",
+    "file": "网络/网络（Network）/使用connection.setAppHttpProxy设置代理后如何取消代理/使用connection.setAppHttpProxy设置代理后如何取消代理.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-109"
   },
   {
@@ -3754,7 +3754,7 @@
   {
     "slug": "faqs-network-111",
     "name": "使用权限申请，没有拉起弹窗，可能原因是什么",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/使用权限申请，没有拉起弹窗，可能原因是什么/使用权限申请，没有拉起弹窗，可能原因是什么.md",
+    "file": "网络/网络（Network）/使用权限申请，没有拉起弹窗，可能原因是什么/使用权限申请，没有拉起弹窗，可能原因是什么.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-111"
   },
   {
@@ -3766,7 +3766,7 @@
   {
     "slug": "faqs-network-145",
     "name": "全局订阅网络状态变化，如何在具体页面控制业务",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/全局订阅网络状态变化，如何在具体页面控制业务/全局订阅网络状态变化，如何在具体页面控制业务.md",
+    "file": "网络/网络（Network）/全局订阅网络状态变化，如何在具体页面控制业务/全局订阅网络状态变化，如何在具体页面控制业务.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-145"
   },
   {
@@ -3778,7 +3778,7 @@
   {
     "slug": "faqs-network-84",
     "name": "如何优化WebSocket长连接在弱网环境下的重连效率与心跳机制",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何优化WebSocket长连接在弱网环境下的重连效率与心跳机制/如何优化WebSocket长连接在弱网环境下的重连效率与心跳机制.md",
+    "file": "网络/网络（Network）/如何优化WebSocket长连接在弱网环境下的重连效率与心跳机制/如何优化WebSocket长连接在弱网环境下的重连效率与心跳机制.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-84"
   },
   {
@@ -3790,7 +3790,7 @@
   {
     "slug": "faqs-network-140",
     "name": "如何使用WireShark分析网络请求各阶段的TcpDump日志",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何使用WireShark分析网络请求各阶段的TcpDump日志/如何使用WireShark分析网络请求各阶段的TcpDump日志.md",
+    "file": "网络/网络（Network）/如何使用WireShark分析网络请求各阶段的TcpDump日志/如何使用WireShark分析网络请求各阶段的TcpDump日志.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-140"
   },
   {
@@ -3802,7 +3802,7 @@
   {
     "slug": "faqs-network-101",
     "name": "如何判断某个IP是否在某IP段范围内",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何判断某个IP是否在某IP段范围内/如何判断某个IP是否在某IP段范围内.md",
+    "file": "网络/网络（Network）/如何判断某个IP是否在某IP段范围内/如何判断某个IP是否在某IP段范围内.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-101"
   },
   {
@@ -3814,7 +3814,7 @@
   {
     "slug": "faqs-network-128",
     "name": "如何在使用移动流量时进行相应提示",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何在使用移动流量时进行相应提示/如何在使用移动流量时进行相应提示.md",
+    "file": "网络/网络（Network）/如何在使用移动流量时进行相应提示/如何在使用移动流量时进行相应提示.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-128"
   },
   {
@@ -3826,7 +3826,7 @@
   {
     "slug": "faqs-network-132",
     "name": "如何定位WebSocket连接异常断开",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何定位WebSocket连接异常断开/如何定位WebSocket连接异常断开.md",
+    "file": "网络/网络（Network）/如何定位WebSocket连接异常断开/如何定位WebSocket连接异常断开.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-132"
   },
   {
@@ -3838,7 +3838,7 @@
   {
     "slug": "faqs-network-125",
     "name": "如何实现TcpSocket断开重连",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何实现TcpSocket断开重连/如何实现TcpSocket断开重连.md",
+    "file": "网络/网络（Network）/如何实现TcpSocket断开重连/如何实现TcpSocket断开重连.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-125"
   },
   {
@@ -3850,7 +3850,7 @@
   {
     "slug": "faqs-network-129",
     "name": "如何实现一键检测网络情况功能",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何实现一键检测网络情况功能/如何实现一键检测网络情况功能.md",
+    "file": "网络/网络（Network）/如何实现一键检测网络情况功能/如何实现一键检测网络情况功能.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-129"
   },
   {
@@ -3862,7 +3862,7 @@
   {
     "slug": "faqs-network-144",
     "name": "如何实现仅wifi网络时加载图片",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何实现仅wifi网络时加载图片/如何实现仅wifi网络时加载图片.md",
+    "file": "网络/网络（Network）/如何实现仅wifi网络时加载图片/如何实现仅wifi网络时加载图片.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-144"
   },
   {
@@ -3874,7 +3874,7 @@
   {
     "slug": "faqs-network-143",
     "name": "如何指定使用蜂窝网络或wifi网络发送http请求",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何指定使用蜂窝网络或wifi网络发送http请求/如何指定使用蜂窝网络或wifi网络发送http请求.md",
+    "file": "网络/网络（Network）/如何指定使用蜂窝网络或wifi网络发送http请求/如何指定使用蜂窝网络或wifi网络发送http请求.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-143"
   },
   {
@@ -3886,7 +3886,7 @@
   {
     "slug": "faqs-network-130",
     "name": "如何根据网络情况进行不同的提示",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何根据网络情况进行不同的提示/如何根据网络情况进行不同的提示.md",
+    "file": "网络/网络（Network）/如何根据网络情况进行不同的提示/如何根据网络情况进行不同的提示.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-130"
   },
   {
@@ -3898,7 +3898,7 @@
   {
     "slug": "faqs-network-139",
     "name": "如何获取实时网络速度",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何获取实时网络速度/如何获取实时网络速度.md",
+    "file": "网络/网络（Network）/如何获取实时网络速度/如何获取实时网络速度.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-139"
   },
   {
@@ -3910,7 +3910,7 @@
   {
     "slug": "faqs-network-116",
     "name": "如何获取手机当前网络连接的子网掩码",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何获取手机当前网络连接的子网掩码/如何获取手机当前网络连接的子网掩码.md",
+    "file": "网络/网络（Network）/如何获取手机当前网络连接的子网掩码/如何获取手机当前网络连接的子网掩码.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-116"
   },
   {
@@ -3922,7 +3922,7 @@
   {
     "slug": "faqs-network-136",
     "name": "如何解决LocalSocket创建报错",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何解决LocalSocket创建报错/如何解决LocalSocket创建报错.md",
+    "file": "网络/网络（Network）/如何解决LocalSocket创建报错/如何解决LocalSocket创建报错.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-136"
   },
   {
@@ -3934,7 +3934,7 @@
   {
     "slug": "faqs-network-115",
     "name": "如何解决Socket bind失败问题",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何解决Socket bind失败问题/如何解决Socket bind失败问题.md",
+    "file": "网络/网络（Network）/如何解决Socket bind失败问题/如何解决Socket bind失败问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-115"
   },
   {
@@ -3946,7 +3946,7 @@
   {
     "slug": "faqs-network-119",
     "name": "如何解决TCPSocket发送数据报错“send failed, socket is 72, errno is 32”",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何解决TCPSocket发送数据报错“send failed, socket is 72, errno is 32”/如何解决TCPSocket发送数据报错“send failed, socket is 72, errno is 32”.md",
+    "file": "网络/网络（Network）/如何解决TCPSocket发送数据报错“send failed, socket is 72, errno is 32”/如何解决TCPSocket发送数据报错“send failed, socket is 72, errno is 32”.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-119"
   },
   {
@@ -3958,7 +3958,7 @@
   {
     "slug": "faqs-network-141",
     "name": "如何解决http报错2300023",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何解决http报错2300023/如何解决http报错2300023.md",
+    "file": "网络/网络（Network）/如何解决http报错2300023/如何解决http报错2300023.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-141"
   },
   {
@@ -3970,7 +3970,7 @@
   {
     "slug": "faqs-network-82",
     "name": "如何解决使用TcpSocket接收到的数据被截断的问题",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何解决使用TcpSocket接收到的数据被截断的问题/如何解决使用TcpSocket接收到的数据被截断的问题.md",
+    "file": "网络/网络（Network）/如何解决使用TcpSocket接收到的数据被截断的问题/如何解决使用TcpSocket接收到的数据被截断的问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-82"
   },
   {
@@ -3982,7 +3982,7 @@
   {
     "slug": "faqs-network-98",
     "name": "如何解决给HTTP请求添加本地的.cer证书问题",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何解决给HTTP请求添加本地的.cer证书问题/如何解决给HTTP请求添加本地的.cer证书问题.md",
+    "file": "网络/网络（Network）/如何解决给HTTP请求添加本地的.cer证书问题/如何解决给HTTP请求添加本地的.cer证书问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-98"
   },
   {
@@ -3994,7 +3994,7 @@
   {
     "slug": "faqs-network-142",
     "name": "如何设置网络代理",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何设置网络代理/如何设置网络代理.md",
+    "file": "网络/网络（Network）/如何设置网络代理/如何设置网络代理.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-142"
   },
   {
@@ -4006,7 +4006,7 @@
   {
     "slug": "faqs-network-127",
     "name": "如何通过Rcp跳过HTTPS证书验证以及传递请求体实现文件下载",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何通过Rcp跳过HTTPS证书验证以及传递请求体实现文件下载/如何通过Rcp跳过HTTPS证书验证以及传递请求体实现文件下载.md",
+    "file": "网络/网络（Network）/如何通过Rcp跳过HTTPS证书验证以及传递请求体实现文件下载/如何通过Rcp跳过HTTPS证书验证以及传递请求体实现文件下载.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-127"
   },
   {
@@ -4018,7 +4018,7 @@
   {
     "slug": "faqs-network-96",
     "name": "如何限制UDPSocket通过特定网络发送广播",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/如何限制UDPSocket通过特定网络发送广播/如何限制UDPSocket通过特定网络发送广播.md",
+    "file": "网络/网络（Network）/如何限制UDPSocket通过特定网络发送广播/如何限制UDPSocket通过特定网络发送广播.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-96"
   },
   {
@@ -4030,7 +4030,7 @@
   {
     "slug": "faqs-network-94",
     "name": "实现应用中的网络请求不被中间者拦截的方案",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/实现应用中的网络请求不被中间者拦截的方案/实现应用中的网络请求不被中间者拦截的方案.md",
+    "file": "网络/网络（Network）/实现应用中的网络请求不被中间者拦截的方案/实现应用中的网络请求不被中间者拦截的方案.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-94"
   },
   {
@@ -4042,7 +4042,7 @@
   {
     "slug": "faqs-network-87",
     "name": "实现手机端搭建HTTP服务端供电脑浏览器访问",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/实现手机端搭建HTTP服务端供电脑浏览器访问/实现手机端搭建HTTP服务端供电脑浏览器访问.md",
+    "file": "网络/网络（Network）/实现手机端搭建HTTP服务端供电脑浏览器访问/实现手机端搭建HTTP服务端供电脑浏览器访问.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-87"
   },
   {
@@ -4054,7 +4054,7 @@
   {
     "slug": "faqs-network-91",
     "name": "客户端如何根据服务器返回的内容自定义设置http请求头字段",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/客户端如何根据服务器返回的内容自定义设置http请求头字段/客户端如何根据服务器返回的内容自定义设置http请求头字段.md",
+    "file": "网络/网络（Network）/客户端如何根据服务器返回的内容自定义设置http请求头字段/客户端如何根据服务器返回的内容自定义设置http请求头字段.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-91"
   },
   {
@@ -4066,7 +4066,7 @@
   {
     "slug": "faqs-network-134",
     "name": "应用切换到后台后VPN功能保活的解决方案",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/应用切换到后台后VPN功能保活的解决方案/应用切换到后台后VPN功能保活的解决方案.md",
+    "file": "网络/网络（Network）/应用切换到后台后VPN功能保活的解决方案/应用切换到后台后VPN功能保活的解决方案.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-134"
   },
   {
@@ -4078,7 +4078,7 @@
   {
     "slug": "faqs-network-95",
     "name": "应用前后台切换后出现通信不可达、网络异常",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/应用前后台切换后出现通信不可达、网络异常/应用前后台切换后出现通信不可达、网络异常.md",
+    "file": "网络/网络（Network）/应用前后台切换后出现通信不可达、网络异常/应用前后台切换后出现通信不可达、网络异常.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-95"
   },
   {
@@ -4090,7 +4090,7 @@
   {
     "slug": "faqs-network-105",
     "name": "应用拉起系统浏览器时，如何指定浏览器通过Wi-Fi网络加载网页",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/应用拉起系统浏览器时，如何指定浏览器通过Wi-Fi网络加载网页/应用拉起系统浏览器时，如何指定浏览器通过Wi-Fi网络加载网页.md",
+    "file": "网络/网络（Network）/应用拉起系统浏览器时，如何指定浏览器通过Wi-Fi网络加载网页/应用拉起系统浏览器时，如何指定浏览器通过Wi-Fi网络加载网页.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-105"
   },
   {
@@ -4102,7 +4102,7 @@
   {
     "slug": "faqs-network-110",
     "name": "应用网络类型与显示状态不匹配",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/应用网络类型与显示状态不匹配/应用网络类型与显示状态不匹配.md",
+    "file": "网络/网络（Network）/应用网络类型与显示状态不匹配/应用网络类型与显示状态不匹配.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-110"
   },
   {
@@ -4114,7 +4114,7 @@
   {
     "slug": "faqs-network-90",
     "name": "断网时发起RCP请求多次返回不同的错误码",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/断网时发起RCP请求多次返回不同的错误码/断网时发起RCP请求多次返回不同的错误码.md",
+    "file": "网络/网络（Network）/断网时发起RCP请求多次返回不同的错误码/断网时发起RCP请求多次返回不同的错误码.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-90"
   },
   {
@@ -4126,7 +4126,7 @@
   {
     "slug": "faqs-network-138",
     "name": "是否可以用手机作为Socket服务器",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/是否可以用手机作为Socket服务器/是否可以用手机作为Socket服务器.md",
+    "file": "网络/网络（Network）/是否可以用手机作为Socket服务器/是否可以用手机作为Socket服务器.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-138"
   },
   {
@@ -4138,7 +4138,7 @@
   {
     "slug": "faqs-network-123",
     "name": "目标IP是公司内网，请求失败，异常信息：Couldn't connect to server",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/目标IP是公司内网，请求失败，异常信息：Couldn't connect to server/目标IP是公司内网，请求失败，异常信息：Couldn't connect to server.md",
+    "file": "网络/网络（Network）/目标IP是公司内网，请求失败，异常信息：Couldn't connect to server/目标IP是公司内网，请求失败，异常信息：Couldn't connect to server.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-123"
   },
   {
@@ -4150,7 +4150,7 @@
   {
     "slug": "faqs-network-113",
     "name": "移动数据关闭再打开后，如何监听IPv6已激活",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/移动数据关闭再打开后，如何监听IPv6已激活/移动数据关闭再打开后，如何监听IPv6已激活.md",
+    "file": "网络/网络（Network）/移动数据关闭再打开后，如何监听IPv6已激活/移动数据关闭再打开后，如何监听IPv6已激活.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-113"
   },
   {
@@ -4162,7 +4162,7 @@
   {
     "slug": "faqs-network-99",
     "name": "网络恢复后，页面内容无法刷新",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/网络恢复后，页面内容无法刷新/网络恢复后，页面内容无法刷新.md",
+    "file": "网络/网络（Network）/网络恢复后，页面内容无法刷新/网络恢复后，页面内容无法刷新.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-99"
   },
   {
@@ -4174,7 +4174,7 @@
   {
     "slug": "faqs-network-114",
     "name": "自定义拦截器写入中文公参在网络请求时变乱码",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/自定义拦截器写入中文公参在网络请求时变乱码/自定义拦截器写入中文公参在网络请求时变乱码.md",
+    "file": "网络/网络（Network）/自定义拦截器写入中文公参在网络请求时变乱码/自定义拦截器写入中文公参在网络请求时变乱码.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-114"
   },
   {
@@ -4186,7 +4186,7 @@
   {
     "slug": "faqs-network-122",
     "name": "解决上传文件时报错提示assertion (isArray) failed: not array的问题",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/解决上传文件时报错提示assertion (isArray) failed： not array的问题/解决上传文件时报错提示assertion (isArray) failed： not array的问题.md",
+    "file": "网络/网络（Network）/解决上传文件时报错提示assertion (isArray) failed： not array的问题/解决上传文件时报错提示assertion (isArray) failed： not array的问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-122"
   },
   {
@@ -4198,7 +4198,7 @@
   {
     "slug": "faqs-network-124",
     "name": "解决调用mdns.removeLocalService移除mdns服务报错401问题",
-    "file": "开发/FAQ/系统开发/网络/网络（Network）/解决调用mdns.removeLocalService移除mdns服务报错401问题/解决调用mdns.removeLocalService移除mdns服务报错401问题.md",
+    "file": "网络/网络（Network）/解决调用mdns.removeLocalService移除mdns服务报错401问题/解决调用mdns.removeLocalService移除mdns服务报错401问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-124"
   },
   {
@@ -4210,7 +4210,7 @@
   {
     "slug": "faqs-telephony-4",
     "name": "如何检测设备SIM卡是否已变更",
-    "file": "开发/FAQ/系统开发/网络/蜂窝通信（Telephony）/如何检测设备SIM卡是否已变更/如何检测设备SIM卡是否已变更.md",
+    "file": "网络/蜂窝通信（Telephony）/如何检测设备SIM卡是否已变更/如何检测设备SIM卡是否已变更.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-telephony-4"
   },
   {
@@ -4222,7 +4222,7 @@
   {
     "slug": "faqs-telephony-3",
     "name": "调用call.makeCall发生编译告警：The API is not supported on all devices",
-    "file": "开发/FAQ/系统开发/网络/蜂窝通信（Telephony）/调用call.makeCall发生编译告警：The API is not supported on all devices/调用call.makeCall发生编译告警：The API is not supported on all devices.md",
+    "file": "网络/蜂窝通信（Telephony）/调用call.makeCall发生编译告警：The API is not supported on all devices/调用call.makeCall发生编译告警：The API is not supported on all devices.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-telephony-3"
   },
   {
@@ -4234,7 +4234,7 @@
   {
     "slug": "faqs-remote-communication-3",
     "name": "@ohos.request和rcp的上传下载功能有何区别",
-    "file": "开发/FAQ/系统开发/网络/远场通信（Remote Communication）/@ohos.request和rcp的上传下载功能有何区别/@ohos.request和rcp的上传下载功能有何区别.md",
+    "file": "网络/远场通信（Remote Communication）/@ohos.request和rcp的上传下载功能有何区别/@ohos.request和rcp的上传下载功能有何区别.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-3"
   },
   {
@@ -4246,7 +4246,7 @@
   {
     "slug": "faqs-remote-communication-7",
     "name": "ArkTs中如何使用切面编程",
-    "file": "开发/FAQ/系统开发/网络/远场通信（Remote Communication）/ArkTs中如何使用切面编程/ArkTs中如何使用切面编程.md",
+    "file": "网络/远场通信（Remote Communication）/ArkTs中如何使用切面编程/ArkTs中如何使用切面编程.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-7"
   },
   {
@@ -4258,7 +4258,7 @@
   {
     "slug": "faqs-remote-communication-13",
     "name": "RCP下载文件，会重复回调同一个进度，如何解决",
-    "file": "开发/FAQ/系统开发/网络/远场通信（Remote Communication）/RCP下载文件，会重复回调同一个进度，如何解决/RCP下载文件，会重复回调同一个进度，如何解决.md",
+    "file": "网络/远场通信（Remote Communication）/RCP下载文件，会重复回调同一个进度，如何解决/RCP下载文件，会重复回调同一个进度，如何解决.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-13"
   },
   {
@@ -4270,7 +4270,7 @@
   {
     "slug": "faqs-remote-communication-14",
     "name": "RCP下载进度监听",
-    "file": "开发/FAQ/系统开发/网络/远场通信（Remote Communication）/RCP下载进度监听/RCP下载进度监听.md",
+    "file": "网络/远场通信（Remote Communication）/RCP下载进度监听/RCP下载进度监听.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-14"
   },
   {
@@ -4282,7 +4282,7 @@
   {
     "slug": "faqs-remote-communication-19",
     "name": "RCP会话实例如何在子线程使用",
-    "file": "开发/FAQ/系统开发/网络/远场通信（Remote Communication）/RCP会话实例如何在子线程使用/RCP会话实例如何在子线程使用.md",
+    "file": "网络/远场通信（Remote Communication）/RCP会话实例如何在子线程使用/RCP会话实例如何在子线程使用.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-19"
   },
   {
@@ -4294,7 +4294,7 @@
   {
     "slug": "faqs-remote-communication-16",
     "name": "RCP响应结果解析及常见问题定位思路",
-    "file": "开发/FAQ/系统开发/网络/远场通信（Remote Communication）/RCP响应结果解析及常见问题定位思路/RCP响应结果解析及常见问题定位思路.md",
+    "file": "网络/远场通信（Remote Communication）/RCP响应结果解析及常见问题定位思路/RCP响应结果解析及常见问题定位思路.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-16"
   },
   {
@@ -4306,7 +4306,7 @@
   {
     "slug": "faqs-remote-communication-11",
     "name": "RCP网络请求在TaskPool子线程中使用异常",
-    "file": "开发/FAQ/系统开发/网络/远场通信（Remote Communication）/RCP网络请求在TaskPool子线程中使用异常/RCP网络请求在TaskPool子线程中使用异常.md",
+    "file": "网络/远场通信（Remote Communication）/RCP网络请求在TaskPool子线程中使用异常/RCP网络请求在TaskPool子线程中使用异常.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-11"
   },
   {
@@ -4318,7 +4318,7 @@
   {
     "slug": "faqs-remote-communication-15",
     "name": "rcp如何实现文件上传",
-    "file": "开发/FAQ/系统开发/网络/远场通信（Remote Communication）/rcp如何实现文件上传/rcp如何实现文件上传.md",
+    "file": "网络/远场通信（Remote Communication）/rcp如何实现文件上传/rcp如何实现文件上传.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-15"
   },
   {
@@ -4330,7 +4330,7 @@
   {
     "slug": "faqs-remote-communication-17",
     "name": "rcp如何实现流式传输",
-    "file": "开发/FAQ/系统开发/网络/远场通信（Remote Communication）/rcp如何实现流式传输/rcp如何实现流式传输.md",
+    "file": "网络/远场通信（Remote Communication）/rcp如何实现流式传输/rcp如何实现流式传输.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-17"
   },
   {
@@ -4342,7 +4342,7 @@
   {
     "slug": "faqs-remote-communication-9",
     "name": "rcp怎么在请求和拦截器中增加query参数",
-    "file": "开发/FAQ/系统开发/网络/远场通信（Remote Communication）/rcp怎么在请求和拦截器中增加query参数/rcp怎么在请求和拦截器中增加query参数.md",
+    "file": "网络/远场通信（Remote Communication）/rcp怎么在请求和拦截器中增加query参数/rcp怎么在请求和拦截器中增加query参数.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-9"
   },
   {
@@ -4354,7 +4354,7 @@
   {
     "slug": "faqs-remote-communication-18",
     "name": "rcp表单格式数据传输",
-    "file": "开发/FAQ/系统开发/网络/远场通信（Remote Communication）/rcp表单格式数据传输/rcp表单格式数据传输.md",
+    "file": "网络/远场通信（Remote Communication）/rcp表单格式数据传输/rcp表单格式数据传输.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-18"
   },
   {
@@ -4366,7 +4366,7 @@
   {
     "slug": "faqs-remote-communication-4",
     "name": "rcp请求未正常执行且catch未捕获异常",
-    "file": "开发/FAQ/系统开发/网络/远场通信（Remote Communication）/rcp请求未正常执行且catch未捕获异常/rcp请求未正常执行且catch未捕获异常.md",
+    "file": "网络/远场通信（Remote Communication）/rcp请求未正常执行且catch未捕获异常/rcp请求未正常执行且catch未捕获异常.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-4"
   },
   {
@@ -4378,7 +4378,7 @@
   {
     "slug": "faqs-remote-communication-12",
     "name": "如何定位分析设置VPN服务器失败问题",
-    "file": "开发/FAQ/系统开发/网络/远场通信（Remote Communication）/如何定位分析设置VPN服务器失败问题/如何定位分析设置VPN服务器失败问题.md",
+    "file": "网络/远场通信（Remote Communication）/如何定位分析设置VPN服务器失败问题/如何定位分析设置VPN服务器失败问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-12"
   },
   {
@@ -4390,7 +4390,7 @@
   {
     "slug": "faqs-remote-communication-6",
     "name": "如何实现rcp网络请求时忽略csr证书校验",
-    "file": "开发/FAQ/系统开发/网络/远场通信（Remote Communication）/如何实现rcp网络请求时忽略csr证书校验/如何实现rcp网络请求时忽略csr证书校验.md",
+    "file": "网络/远场通信（Remote Communication）/如何实现rcp网络请求时忽略csr证书校验/如何实现rcp网络请求时忽略csr证书校验.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-6"
   },
   {
@@ -4402,7 +4402,7 @@
   {
     "slug": "faqs-remote-communication-10",
     "name": "如何排查rcp请求返回数据为空包的问题",
-    "file": "开发/FAQ/系统开发/网络/远场通信（Remote Communication）/如何排查rcp请求返回数据为空包的问题/如何排查rcp请求返回数据为空包的问题.md",
+    "file": "网络/远场通信（Remote Communication）/如何排查rcp请求返回数据为空包的问题/如何排查rcp请求返回数据为空包的问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-10"
   },
   {
@@ -4414,7 +4414,7 @@
   {
     "slug": "faqs-remote-communication-5",
     "name": "如何解决创建rcp请求基类对象失败的问题",
-    "file": "开发/FAQ/系统开发/网络/远场通信（Remote Communication）/如何解决创建rcp请求基类对象失败的问题/如何解决创建rcp请求基类对象失败的问题.md",
+    "file": "网络/远场通信（Remote Communication）/如何解决创建rcp请求基类对象失败的问题/如何解决创建rcp请求基类对象失败的问题.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-5"
   },
   {
@@ -4426,7 +4426,7 @@
   {
     "slug": "faqs-remote-communication-8",
     "name": "链接系统网络库librcp_c.so报错unable to find library -lrcp_c",
-    "file": "开发/FAQ/系统开发/网络/远场通信（Remote Communication）/链接系统网络库librcp_c.so报错unable to find library -lrcp_c/链接系统网络库librcp_c.so报错unable to find library -lrcp_c.md",
+    "file": "网络/远场通信（Remote Communication）/链接系统网络库librcp_c.so报错unable to find library -lrcp_c/链接系统网络库librcp_c.so报错unable to find library -lrcp_c.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-8"
   },
   {
