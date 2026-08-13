@@ -23,17 +23,11 @@ SoundPool播放音频文件时会出现如下问题：
 - SoundPool支持的音频播放格式如下：
 
 | 音频容器规格 | 规格描述 |
-
 | --- | --- |
-
 | m4a | 音频格式：AAC。 |
-
 | aac | 音频格式：AAC。 |
-
 | mp3 | 音频格式：MP3。 |
-
 | ogg | 音频格式：VORBIS。 |
-
 | wav | 音频格式：PCM。 |
 - 使用接口[createSoundPool](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreatesoundpool10)创建音频池实例，当API 18以下版本，创建的SoundPool对象底层为单实例模式，一个应用进程只能够创建1个SoundPool实例。当API 18及API 18以上版本，创建的SoundPool对象底层为多实例模式，一个应用进程最多能够创建128个SoundPool实例。
 

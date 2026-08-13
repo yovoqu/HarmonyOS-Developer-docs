@@ -25,19 +25,12 @@ HarmonyOS为开发者提供了PhotoViewPicker接口和PhotoPickerComponent组件
 1. PhotoViewPicker和PhotoPickerComponent是HarmonyOS为开发者提供的选取图库媒体文件资源的两种方式，两者差异及适用场景如下：
 
 | 对比维度 | PhotoViewPicker | PhotoPickerComponent |
-
 | --- | --- | --- |
-
 | 本质类型 | 系统接口（@ohos.photoAccess.photoAccessHelper） | 嵌入式组件（@ohos.file.PhotoPickerComponent） |
-
 | 调用方式 | 异步拉起系统相册界面 | 直接嵌入应用布局 |
-
 | 界面交互 | 跳转至独立系统相册界面 | 内嵌在当前应用页面 |
-
 | 可配置项 | PhotoSelectOptions | PickerOptions |
-
 | 定制化能力 | 使用固定系统界面 | 可深度集成到自定义 UI（支持背景色/勾选框样式等配置） |
-
 | 适用场景 | 需系统级相册界面 要求文件类型过滤 需重复选择同一文件 | 避免页面跳转的沉浸式体验 需与自定义 UI 深度集成 简化交互流程（如勾选后直接编辑） |
 1. PhotoPickerComponent组件使用存在限制如下：
 不支持嵌套使用，用户使用PhotoPickerComponent选中媒体文件后，系统会将媒体文件的uri授权给应用，如果此时在Picker上方存在可点击事件，可能会对用户安全造成影响，因此PhotoPickerComponent上方覆盖设置了overlay属性的组件，将导致PhotoPickerComponent无法接受手势事件。

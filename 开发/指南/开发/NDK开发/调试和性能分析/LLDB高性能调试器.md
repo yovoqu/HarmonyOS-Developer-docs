@@ -71,24 +71,17 @@ DevEco_Studio_Home/
   **表1** 静态化lldb工具目录
 
 | 路径 | 说明 |
-
 | --- | --- |
-
 | \DevEco Studio\sdk\default\HarmonyOS\native\llvm\lib\clang\current\bin\aarch64-linux-ohos\lldb | 适用于aarch64-linux-ohos架构的静态化lldb |
-
 | \DevEco Studio\sdk\default\HarmonyOS\native\llvm\lib\clang\current\bin\arm-linux-ohos\lldb | 适用于arm-linux-ohos架构的静态化lldb |
 - lldb-server
 
   **表2** lldb-server工具目录
 
 | 路径 | 说明 |
-
 | --- | --- |
-
 | \DevEco Studio\sdk\default\hms\native\lldb\aarch64-linux-ohos\lldb-server | 适用于aarch64-linux-ohos架构的lldb-server |
-
 | \DevEco Studio\sdk\default\hms\native\lldb\arm-linux-ohos\lldb-server | 适用于arm-linux-ohos架构的lldb-server |
-
 | \DevEco Studio\sdk\default\hms\native\lldb\x86_64-linux-ohos\lldb-server | 适用于x86_64-linux-ohos架构的lldb-server |
 
  
@@ -281,13 +274,9 @@ hdc file send \DevEco Studio\sdk\default\hms\native\lldb\aarch64-linux-ohos\lldb
   - 设备状态与调试支持矩阵（分三种情况）：
 
 | 设备状态 | 调试支持范围 | lldb-server部署路径 |
-
 | --- | --- | --- |
-
 | root镜像+SELinux关闭 | 全类型C/C++应用及二进制 | 任意可执行目录 |
-
 | root镜像+SELinux开启 | 全类型C/C++应用及二进制 | /data/local/tmp/debugserver |
-
 | user镜像+SELinux开启 | DevEco Studio编译签名debug版HAP包 | 自动部署 |
 
   

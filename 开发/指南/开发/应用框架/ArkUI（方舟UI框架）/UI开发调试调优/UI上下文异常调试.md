@@ -25,21 +25,13 @@
   **表1** 实例状态更新日志字段含义
 
 | 字段名 | 类型 | 典型值 | 说明 |
-
 | --- | --- | --- | --- |
-
 | {currentId} | 整数 | -1 | 上下文实例ID，应用正常的情况下，该字段应该为负数。 |
-
 | {trackedId} | 整数 | 100000 | 当前可间接跟踪的实例ID，通常为正数，开发者可忽略。 |
-
 | {trackedReason} | 字符串 | singleton | 间接跟踪的原因，开发者可不关注该字段。 |
-
 | {bundleName} | 字符串 | com.example.helloworld | 应用的bundleName。 |
-
 | {moduleName} | 字符串 | entry | 当前模块的moduleName。 |
-
 | {thisInstanceId} | 正数 | 100000 | 被通知UI实例的ID。 |
-
 | {status} | 实例被通知的状态 | focus | 可选值为: - focus：获焦 - unfocus：失焦 - foreground：前台 - background：后台 - destroy：销毁 |
 
   可使用如下正则表达式匹配相关日志：

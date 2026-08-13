@@ -16,13 +16,9 @@ HarmonyOS深色模式支持关闭吗？是否可以在APP中不使用深色模�
 - [setColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#setcolormode18)方法可以将[ColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configurationconstant#colormode)设置不同的枚举，开发者可以使用这些预置枚举设置或获取系统/应用的深浅色模式。
 
 | 名称 | 值 | 说明 |
-
 | --- | --- | --- |
-
 | COLOR_MODE_NOT_SET | -1 | 表示未设置颜色模式。 |
-
 | COLOR_MODE_DARK | 0 | 表示深色模式。 |
-
 | COLOR_MODE_LIGHT | 1 | 表示浅色模式。 |
 
  

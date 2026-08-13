@@ -36,23 +36,14 @@
   动画、绘制相关的Trace关键字如下：
 
 | Trace关键字 | 说明 |
-
 | --- | --- |
-
 | H:ReceiveVsync | 接收Vsync信号。 |
-
 | H:RSModifierManager Draw num | 组件属性变更产生的绘制，如果num不变，持续绘制可能和动画组件的属性变更有关。 |
-
 | H:RSModifier::Draw | 单个组件由于属性变更产生的绘制。 |
-
 | H:SendCommands | 发送指令，通知图形侧进行渲染，该Trace信息下方存在H:MarshRSTransactionData表示应用有推送绘制指令相关的数据给图形侧。 |
-
 | H:FlushDirtyNodeUpdate | 刷新标脏的组件，当状态变量变化时，比如宽度和高度，组件需要重新布局刷新。 |
-
 | H:HandleOnAreaChangeEvent | 处理组件区域变化事件，组件的大小、位置发生时触发。 |
-
 | H:JSAnimateTo | 应用调用animateTo触发ArkUI动效。 |
-
 | H:FrameNode[组件名][id:组件Id号]::RenderTask | 执行组件的渲染任务。 |
 
   在Trace中可以通过框选渲染服务（render_service）主线程Trace信息查看被框选的这段时间内的平均帧率，如下图所示，平均帧率为120fps。

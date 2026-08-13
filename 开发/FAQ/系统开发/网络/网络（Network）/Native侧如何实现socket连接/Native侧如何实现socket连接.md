@@ -15,50 +15,33 @@
 - int **socket**(int af, int type, int protocol)创建套接字。
 
 | 参数 | 说明 |
-
 | --- | --- |
-
 | af | 地址族（Address Family）：也就是 IP 地址类型，常用的有 AF_INET 和 AF_INET6。AF_INET 表示 IPv4 地址，例如 127.0.0.1；AF_INET6 表示 IPv6 地址，例如 1030::C9B4:FF12:48AA:1A2B。 |
-
 | type | 数据传输方式/套接字类型：常用的有 SOCK_STREAM（流格式套接字/面向连接的套接字） 和 SOCK_DGRAM（数据报套接字/无连接的套接字）。 |
-
 | protocol | 传输协议。 |
 - **sockaddr_in**：internet环境下套接字的地址形式。
 - **htons**：将主机的无符号短整形数转换成网络字节顺序。简单来说就是将一个数的高低位互换(如：1234-->3412)。
 - int **inet_pton**(int af, const character *src, void *dst)：用于转换互联网地址，即IP地址，以文本形式包含数字二进制格式。该函数用于将人类可读的IP地址转换为二进制格式的地址。
 
 | 参数 | 说明 |
-
 | --- | --- |
-
 | af | 地址族（Address Family）。 |
-
 | sourc | 指的是传递给它的字符串。 |
-
 | dst | 指向缓冲区，该缓冲区是inet_pton()在转换后存储的数字地址的存储器。系统调用者确保缓冲区的存储能力。它确保 "dst "所分配的缓冲区足够大，以容纳数字地址。 |
 - int **connect**(int sock, struct sockaddr *serv_addr, socklen_t addrlen)建立连接。
 
 | 参数 | 说明 |
-
 | --- | --- |
-
 | sock | socket 文件描述符。 |
-
 | serv_addr | sockaddr 结构体变量的指针。 |
-
 | addrlen | addr 变量的大小，可由 sizeof() 计算得出。 |
 - int **send**(SOCKET sock, const char *buf, int len, int flags)发送数据。
 
 | 参数 | 说明 |
-
 | --- | --- |
-
 | sock | 要发送数据的套接字。 |
-
 | buf | 要发送的数据的缓冲区地址。 |
-
 | len | 要发送的数据的字节数。 |
-
 | flags | 发送数据时的选项。 |
 - **recv()**：接收数据。有阻塞模式和非阻塞模式两种工作方式，取决于套接字的设置。
 阻塞模式：默认模式。当调用recv函数时，如果套接字的接收缓冲区中没有数据可读，调用将一直阻塞，直到有数据到达或者发生错误。适用于数据到达频率较低或数据量较大的场景，简化编程逻辑。

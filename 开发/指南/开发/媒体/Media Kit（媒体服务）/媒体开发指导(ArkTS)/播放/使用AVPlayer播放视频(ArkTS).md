@@ -51,33 +51,19 @@ let avPlayer = await media.createAVPlayer();
 2. 设置业务需要的监听事件，搭配全流程场景使用。支持的监听事件包括：
 
 | 事件类型 | 说明 |
-
 | --- | --- |
-
 | stateChange | 必要事件，监听播放器的state属性改变。 需要播放器在idle状态下、未调用设置资源接口前完成设置监听，若在调用设置资源接口后再设置监听，可能导致无法收到资源设置过程中上报的stateChange事件。 |
-
 | error | 必要事件，监听播放器的错误信息。 需要播放器在idle状态下、未调用设置资源接口前完成设置监听，若在调用设置资源接口后再设置监听，可能导致无法收到资源设置过程中上报的error事件。 |
-
 | durationUpdate | 用于进度条，监听进度条长度，刷新资源时长。 |
-
 | timeUpdate | 用于进度条，监听进度条当前位置，刷新当前时间。 |
-
 | seekDone | 响应API调用，监听seek()请求完成情况。 当使用seek()跳转到指定播放位置后，如果seek操作成功，将上报该事件。 |
-
 | speedDone | 响应API调用，监听setSpeed()请求完成情况。 当使用setSpeed()设置播放倍速后，如果setSpeed操作成功，将上报该事件。 |
-
 | volumeChange | 响应API调用，监听setVolume()请求完成情况。 当使用setVolume()调节播放音量后，如果setVolume操作成功，将上报该事件。 |
-
 | bitrateDone | 响应API调用，用于HLS协议流，监听setBitrate()请求完成情况。 当使用setBitrate()指定播放比特率后，如果setBitrate操作成功，将上报该事件。 |
-
 | availableBitrates | 用于HLS协议流，监听HLS资源的可选bitrates，用于setBitrate()。 |
-
 | bufferingUpdate | 用于网络播放，监听网络播放缓冲信息。 |
-
 | startRenderFrame | 用于视频播放，监听视频播放首帧渲染时间。 当AVPlayer首次起播进入playing状态后，等到首帧视频画面被渲染到显示画面时，将上报该事件。应用通常可以利用此事件上报，进行视频封面移除，达成封面与视频画面的顺利衔接。 |
-
 | videoSizeChange | 用于视频播放，监听视频播放的宽高信息，可用于调整窗口大小、比例。 |
-
 | audioInterrupt | 监听音频焦点切换信息，搭配属性audioInterruptMode使用。 如果当前设备存在多个媒体正在播放，音频焦点被切换（即播放其他媒体如通话等）时将上报该事件，应用可以及时处理。 |
 
   

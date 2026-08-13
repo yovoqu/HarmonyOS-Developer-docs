@@ -30,81 +30,67 @@
 10. 常用事件：
 
 | 阶段 | 事件/状态 | 触发时机 | 可执行操作 | 注意事项 / 限制 |
-
 | --- | --- | --- | --- | --- |
-
 | 1.初始化准备 | 
 ```text
 aboutToAppear
 ```
  | 自定义组件实例创建后，build执行前 | 设置WebDebug调试模式、自定义协议URL的权限、Cookie等 | / |
-
 | 2.控制器绑定 | 
 ```text
 onControllerAttached
 ```
  | Controller成功绑定到Web组件时 | 注入JS对象、设置自定义 User-Agent、使用操作网页不相关的接口 | 禁止在该事件回调前调用Web组件相关的接口，否则会抛出js-error异常 |
-
 | 3.加载前拦截（URL） | 
 ```text
 onLoadIntercept
 ```
  | LoadUrl和iframe加载时 | 获取并校验URL字段值是否在业务预置的白名单内，返回true表示取消此次导航，false表示允许此次导航 | 默认允许加载，返回undefined或null时为false；与onOverrideUrlLoading触发时机不同 |
-
 | 4.加载前拦截（请求） | 
 ```text
 onInterceptRequest
 ```
  | 加载URL前 | 用于拦截URL并返回响应数据 | / |
-
 | 5.页面开始加载 | 
 ```text
 onPageBegin
 ```
  | 页面开始加载时触发 | / | 仅在主frame触发；iframe或frameset的内容加载时不触发 |
-
 | 6.加载进度更新 | 
 ```text
 onProgressChange
 ```
  | 页面加载过程中的进度通知 | / | 与onPageEnd无直接先后关系；主frame结束时子frame或多frame页面仍可能加载中 |
-
 | 7.页面加载完成 | 
 ```text
 onPageEnd
 ```
  | 页面加载完成时 | 执行JS脚本 | 仅在主frame触发；收到该回调不能保证下一帧反映DOM状态 |
-
 | 8.页面可见（早期） | 
 ```text
 onPageVisible
 ```
  | 渲染流程中HTTP响应主体开始加载，新页面即将可见时 | / | 此时文档加载还处于早期，因此链接的资源比如在线CSS、在线图片等可能尚不可用 |
-
 | 9.组件卸载 | 
 ```text
 onDisAppear
 ```
  | 组件卸载消失时 | / | / |
-
 | 10.异常处理路径（一） | 
 ```text
 onOverrideUrlLoading
 ```
  | URL即将加载时 | 返回true：中止加载；返回false：继续加载 | 与onLoadIntercept不同，在LoadUrl和iframe加载时不会触发 |
-
 | 11.异常处理路径（二） | 
 ```text
 onRenderExited
 ```
  | 应用渲染进程异常退出时 | 释放系统资源、保存关键数据等 | 若应用希望异常恢复，需要调用loadUrl接口重新加载页面 |
-
 | 12.异常处理路径（三） | 
 ```text
 onErrorReceive
 ```
  | 网页收到Web资源加载错误或无网络时 | 通知异常事件，打印错误信息等 | / |
-
 | 13.异常处理路径（四） | 
 ```text
 onSslErrorEvent
@@ -121,17 +107,11 @@ onSslErrorEvent
 检查网络状况是否正常可用，可通过系统日志中的WifiFrameWork: SignalPoll字段查看wifi状态，主要查看以下关键字的值：
 
 | 关键字 | 描述 |
-
 | --- | --- |
-
 | rtRate | 重传率，重传率rtRate>=0.2时报文重传率高，卡顿明显无法上网。 |
-
 | chload | 通道占用比，可用于表征WiFi信道的繁忙度。chload越高代表网络状态越差，chload 500以上为中网，会卡顿，800以上不可上网。 |
-
 | rssi | -30表示信号很强，-80表示信号很弱。 |
-
 | noise | -80为干扰环境，到-60以上就是强干扰。 |
-
 | isSpeedOk | 网速质量，rx_speed上传速度，tx_speed下载速度，单位b/s，isSpeedOk false是指上传小于24KB，或者下载小于32KB。 |
 
   其中rtRate、rssi、isSpeedOk只要有1项较差就说明网络质量不好。
@@ -155,11 +135,8 @@ onSslErrorEvent
 5. 排查页面是否正确识别用户代理（User-Agent），通常在onControllerAttached回调事件中通过[setCustomUserAgent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setcustomuseragent10)接口设置自定义用户代理，若出现异常，可查询日志是否抛出如下错误，修改UserAgent后再观察页面是否恢复正常。
 
 | 错误码ID | 错误信息 |
-
 | --- | --- |
-
 | 17100001 | Init error. The WebviewController must be associated with a Web component. |
-
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
 
 6. 若以上配置项与属性设置均不存在问题，但仍出现白屏现象，可利用DevTools工具调试前端页面以及监听Web相关错误上报接口，来定位具体报错类型。常见场景有资源加载失败、[拦截本地资源跨域](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-cross-origin#拦截本地资源跨域)等，详情可参考[使用DevTools工具进行页面内容验证](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-white-screen#使用devtools工具进行页面内容验证)。

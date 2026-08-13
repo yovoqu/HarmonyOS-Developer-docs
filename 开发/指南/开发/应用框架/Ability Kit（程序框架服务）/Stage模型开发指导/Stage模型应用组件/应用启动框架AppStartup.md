@@ -605,15 +605,10 @@ struct Index {
   **表5** matchRules标签说明
 
 | 属性名称 | 含义 | 数据类型 | 是否可缺省 | 适用场景 |
-
 | --- | --- | --- | --- | --- |
-
 | uris | 表示自动模式执行的任务的uri取值范围。当UIAbility启动时，会将Want中携带的uri属性，与此处配置的uris数组取值进行匹配。格式为scheme://host/path，uri中的其它内容会被忽略（如port、fragment等）。 | 字符串数组 | 可缺省，缺省值为空。 | 通过特定uri拉起UIAbility的场景。 |
-
 | actions | 表示自动模式执行的任务的action取值范围。当UIAbility启动时，会将Want中携带的action属性，与此处配置的actions数组取值进行匹配。 | 字符串数组 | 可缺省，缺省值为空。 | 通过特定action拉起UIAbility的场景。 |
-
 | insightIntents | 表示自动模式执行的任务的意图名称取值范围。当UIAbility启动时，会将意图名称与此处配置的insightIntents数组取值进行匹配。 | 字符串数组 | 可缺省，缺省值为空。 | 通过特定意图名称拉起UIAbility的场景。 |
-
 | customization | 表示自动模式执行的任务的自定义规则取值范围。通过实现StartupConfigEntry的onRequestCustomMatchRule接口返回自定义规则值。当UIAbility启动时，会将自定义规则值与此处配置的customization数组取值进行匹配。 说明： 仅支持startupTasks中的任务配置。 | 字符串数组 | 可缺省，缺省值为空。 | 如果使用uris、actions、insightIntents字段无法满足要求，可以使用customization自定义规则。 |
 
   

@@ -64,19 +64,12 @@ cmd命令行可以连接到设备，UiViewer也可以连接设备。但是执行
 
 
 | label类型 | 设备 |
-
 | --- | --- |
-
 | phone | 手机 |
-
 | car | 车机 |
-
 | tv | 电视 |
-
 | watch | 手表 |
-
 | tablet | 平板 |
-
 | 2in1 | PC |
 
  

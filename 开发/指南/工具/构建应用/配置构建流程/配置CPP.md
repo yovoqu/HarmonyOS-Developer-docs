@@ -72,19 +72,12 @@ nativeLib是Native库（.so）相关配置。
       - **select**
 
 | 字段名称 | 类型 | 可选/必选 | 含义 |
-
 | --- | --- | --- | --- |
-
 | package | 字符串 | 可选 | 包名。 |
-
 | version | 字符串 | 可选 | 包版本。 |
-
 | includePattern | 字符串数组 | 可选 | 当依赖的多个包中存在重名的native产物时，指定需要打包的native产物，支持glob语法。 从DevEco Studio 6.0.0 Beta2版本开始支持。 |
-
 | excludePattern | 字符串数组 | 可选 | 指定排除的native产物，默认打包所有产物，支持glob语法。excludePattern优先级比includePattern高。 从DevEco Studio 6.0.0 Beta2版本开始支持。 |
-
 | include | 字符串数组 | 可选 | 当依赖的多个包中存在重名的native产物时，指定需要打包的native产物。 从DevEco Studio 6.0.0 Beta2版本开始，字段标记为废弃，推荐使用includePattern字段。 |
-
 | exclude | 字符串数组 | 可选 | 指定排除的native产物，默认打包所有产物。 从DevEco Studio 6.0.0 Beta2版本开始，字段标记为废弃，推荐使用excludePattern字段。 |
 
   

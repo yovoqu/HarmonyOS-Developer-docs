@@ -33,17 +33,11 @@ HDR图片解码主要包含以下流程：
   在进行HDR图片开发前，建议先了解以下概念。
 
 | 概念 | 说明 |
-
 | --- | --- |
-
 | SDR | 标准动态范围图像，适用于普通显示、编辑和分享场景。 |
-
 | HDR | 高动态范围图像，可表达更高亮度范围和更丰富的明暗层次，显示效果依赖图片数据、设备能力和显示链路。 |
-
 | 动态范围 | 表示图像亮度信息的表达范围。解码时可通过动态范围参数指定期望输出HDR或SDR。 |
-
 | GainMap | 一种HDR兼容方案，图片中包含SDR主图和表示亮度增益信息的辅助图。支持HDR的设备可结合主图和GainMap生成HDR效果；不支持HDR时可使用SDR主图进行兼容显示。 |
-
 | Picture | 多图对象，可承载主图和辅助图。对于带GainMap的图片，可通过Picture相关接口获取辅助图或合成HDR PixelMap。 |
 
   
@@ -188,13 +182,9 @@ napi_value CreateHdrImageSource(napi_env env, napi_callback_info info)
   使用OH_DecodingOptions_SetDesiredDynamicRange设置期望的解码动态范围。常用动态范围策略如下：
 
 | 动态范围策略 | 说明 |
-
 | --- | --- |
-
 | IMAGE_DYNAMIC_RANGE_AUTO | 根据图片源和设备能力自适应解码。源图为HDR且设备支持时，解码结果可能为HDR；否则可能输出SDR。 |
-
 | IMAGE_DYNAMIC_RANGE_HDR | 期望输出HDR结果。实际结果仍受图片源、设备能力和解码条件影响。 |
-
 | IMAGE_DYNAMIC_RANGE_SDR | 期望输出SDR结果，适用于普通显示、编辑、分享或兼容性优先的场景。 |
 
   

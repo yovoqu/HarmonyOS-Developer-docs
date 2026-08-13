@@ -88,25 +88,15 @@ struct PurchaseMovieTicketsIntentPage {
 2. 装饰器的字段说明以及示例：@InsightIntentPage字段以及具体说明如下。
 
 | 字段名称 | 类型 | 必选 | 说明 |
-
 | --- | --- | --- | --- |
-
 | intentName | string | 是 | 意图名称，最大长度：64。 |
-
 | domain | string | 是 | 意图所属的功能垂域。 |
-
 | intentVersion | string | 是 | 意图的版本号，用于兼容性管理。 |
-
 | displayName | string | 是 | 意图的展示名称，用于界面显示，最大长度：64。 |
-
 | llmDescription | string | 否 | 意图的描述，详细描述该意图可实现的能力，便于大模型理解并调用。 |
-
 | parameters | Record<string, object> | 否 | 意图参数定义，描述参数类型以及含义。 |
-
 | uiAbility | string | 否 | 页面依赖的UiAbility名，如果不传递默认使用EntryAbility。 |
-
 | pagePath | string | 是 | Navigation组件所在页面的路径，路径基于Module的根目录的相对路径。 |
-
 | navDestinationName | string | 否 | Navigation子页面名称，如果不填写，则跳转到pagePath指定的页面。 |
 
   为便于大模型理解和调用，相关参数定义需要遵照[自定义意图相关信息定义规范](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-skill-all-rec-specification)。

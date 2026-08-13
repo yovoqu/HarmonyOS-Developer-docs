@@ -15,17 +15,11 @@ PC设备上，触摸屏双指滑动，页面滚动方向与预期不符。
 - [滑动手势事件（PanGesture）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)：当手势滑动的最小距离达到设定的最小值时触发滑动手势事件。以下场景均可触发滑动手势事件：
 
 | 触发方式 | 输入源类型 | 输入设备类型 | 备注 |
-
 | --- | --- | --- | --- |
-
 | 手指按下滑动。 | SourceTool.Finger | SourceType.TouchScreen | axisVertical和axisHorizontal均为0。 |
-
 | 鼠标左键按下滑动。 | SourceTool.Mouse | SourceType.Mouse | axisVertical和axisHorizontal均为0。 |
-
 | 鼠标滚轮滚动。 | SourceTool.Mouse | SourceType.Mouse | axisVertical或axisHorizontal不为0。 |
-
 | 触摸板按下左键后滑动。 | SourceTool.TouchPad | SourceType.Unknown | axisVertical和axisHorizontal均为0。 |
-
 | 触摸板双指滑动。 | SourceTool.TouchPad | SourceType.Unknown | axisVertical或axisHorizontal不为0。 |
 
  

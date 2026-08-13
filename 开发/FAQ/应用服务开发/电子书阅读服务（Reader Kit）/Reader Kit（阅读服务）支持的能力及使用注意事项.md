@@ -26,13 +26,9 @@ Reader Kit（阅读服务）支持什么能力？使用时有哪些注意事项�
 1. 支持的能力：Reader Kit（阅读服务）支持[书籍内容解析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/reader-parser)、[书籍内容排版](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/reader-content)、[书籍内容交互](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/reader-interaction)。
 
 | 能力 | 说明 |
-
 | --- | --- |
-
 | 书籍内容解析 | 获取书籍信息：当应用需要导入本地书籍到书架时，开发者可通过DocumentViewPicker先将书籍文件导入到应用沙箱目录。然后利用解析能力获取书籍信息，用于书架中书封，书名，作者等信息的展示。 获取目录列表：当应用需要展示书籍目录列表时，开发者可通过解析能力获取目录节点列表，实现目录列表中章节名称按顺序、层级的展示。当用户点击目录节点时，开发者也需要获取目录位置及资源信息，用于跳转到指定位置。 |
-
 | 书籍内容排版 | 构建阅读器：Reader Kit提供的阅读页组件ReadPageComponent，支持对标准的txt和富文本内容（html+css）按仿真和横滑方式进行分页排版的能力、支持翻页阅读过程中所需要的进度和行为感知能力。利用ReadPageComponent，开发者可快速实现书籍阅读的能力。 修改阅读设置：开发者可设置自定义字体、自定义页面背景，修改翻页方式、字体大小及行间距，适配深、浅色模式，监听文本缩放因子变化。 |
-
 | 书籍内容交互 | 手动触发翻页：Reader Kit的交互能力已经集成了手指点击和触摸滑动翻页，如果开发者需要增加其它翻页场景时（如：耳机播控翻页），可使用手动翻页接口实现自定义翻页场景。 阅读进度通知：当页面展示时，会通过页面展示回调接口返回页面渲染信息。页面渲染信息提供用于阅读进度跳转的domPos及resourceIndex属性，开发者可将属性缓存到数据库当中，用于阅读进度的恢复。 |
 2. 使用Reader Kit（阅读服务）的[ArkTS API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-arkts)和[ReadPageComponent（阅读页组件）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-api-readpagecomponent)开发阅读相关的应用时：
 > [!WARNING]

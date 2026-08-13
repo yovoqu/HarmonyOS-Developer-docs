@@ -35,17 +35,11 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
   可指定参数OH_HUKS_TAG_DERIVED_AGREED_KEY_STORAGE_FLAG（可选），用于标识派生得到的密钥是否由HUKS管理。
 
 | 生成 | 派生 | 规格 |
-
 | --- | --- | --- |
-
 | OH_HUKS_STORAGE_ONLY_USED_IN_HUKS | OH_HUKS_STORAGE_ONLY_USED_IN_HUKS | 密钥由HUKS管理 |
-
 | OH_HUKS_STORAGE_KEY_EXPORT_ALLOWED | OH_HUKS_STORAGE_KEY_EXPORT_ALLOWED | 密钥返回给调用方管理 |
-
 | 未指定TAG具体值 | OH_HUKS_STORAGE_ONLY_USED_IN_HUKS | 密钥由HUKS管理 |
-
 | 未指定TAG具体值 | OH_HUKS_STORAGE_KEY_EXPORT_ALLOWED | 密钥返回给调用方管理 |
-
 | 未指定TAG具体值 | 未指定TAG具体值 | 密钥返回给调用方管理 |
 
   注：派生时指定的TAG值，不可与生成时指定的TAG值冲突。表格中仅列举有效的指定方式。

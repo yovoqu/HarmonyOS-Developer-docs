@@ -27,23 +27,14 @@
   侧滑返回响应时延问题Trace关键字如下：
 
 | 关键字 | 线程/泳道 | 说明 |
-
 | --- | --- | --- |
-
 | H:originEventHandle code:501 | mmi_service | 点击应用页面内容离手点。 |
-
 | H:DispatchTouchEvent 位置 type=1 | ohos.sceneboard | sceneboard应用收到点击离手的事件，返回手势窗口在该应用中。 |
-
 | H:[Gesture]backGesture | H:[Gesture]backGesture | 返回手势消费事件阶段。 |
-
 | H:ABILITY_OR_PAGE_SWITCH | H:ABILITY_OR_PAGE_SWITCH | 页面切换过程。 |
-
 | H:SendCommands | 应用包名 | 应用发送绘制请求，下方H:MarshRSTransactionData表示提交绘制相关数据给渲染服务。 |
-
 | H:RSMainThread::ProcessCommandUni[应用进程号，序号] | render_service | 渲染服务处理渲染请求，在接收Vsync信号时执行，应用进程号、序号与应用发送渲染请求的transactionFlag相同。 |
-
 | H:RSHardwareThread::CommitAndReleaseLayers rate: 帧率，now：时间 | RSHardwareThread | 将GPU处理的渲染结果提交到显示硬件，now与H:RSMainThread::ProcessCommandUni上方的H:ReceiveVsync中的now字段一一对应。 |
-
 | H:JSAnimateTo | 应用包名 | 执行动画。 |
 
  

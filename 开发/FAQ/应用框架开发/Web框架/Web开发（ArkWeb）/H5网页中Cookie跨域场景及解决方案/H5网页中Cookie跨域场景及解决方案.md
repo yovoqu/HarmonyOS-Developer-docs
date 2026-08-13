@@ -18,41 +18,25 @@ H5网页中有哪些Cookie跨域场景？针对这些场景，又如何解决？
   以https://www.test.com/index.html网址为参考，跨域示例：
 
 | URL | 是否跨域 | 原因 |
-
 | --- | --- | --- |
-
 | https://www.test.com/index1.html | 否 | 协议、域名、端口号相同 |
-
 | http://www.test.com/index.html | 是 | http协议不同 |
-
 | https://www.test.com:8080/index.html | 是 | 端口号不同 |
-
 | https://api.test.com/index.html | 是 | 子域名不同 |
-
 | https://www.test001.com/index.html | 是 | 主域名不同 |
 - 为什么Cookie默认不跨域共享：出于对安全及隐私保护，默认禁止跨域共享Cookie，防止CSRF（跨站请求伪造）攻击和用户被追踪。
 - Cookie的定义属性：Cookie是存储在客户端（通常是浏览器）中的小型文本数据，用于在客户端和服务器之间传递信息。Cookie可以具有各种属性，这些属性控制着Cookie的行为和使用。以下是常见的Cookie属性及含义：
 
 | 属性 | 含义 |
-
 | --- | --- |
-
 | Name | Cookie的名称，是一个唯一的标识符，用于在服务器和客户端之间识别Cookie。 |
-
 | Value | Cookie的值，包含了实际的数据。这是Cookie存储的主要信息。 |
-
 | Domain | Cookie绑定的域名，属性值是服务器端的域名，指定了可以访问该Cookie的域名。 如：设置Domain=.example.com，那么这个Cookie将在example.com域名及所有子域名（如www.example.com、api.example.com等）中可见和访问。 需要注意的是Domain属性值不应该包含协议和端口号。 |
-
 | Path | 指定了可以访问Cookie的路径，属性默认值是'/'。 如：将Path设置为Path=/example，那么只有在路径以 "/example" 开头的请求中才会发送Cookie。 |
-
 | Expires | 指定Cookie的过期日期和时间。一旦过期，Cookie将被删除。 |
-
 | Max-Age | 指定了Cookie的最大存活时间，以秒为单位，Max-Age表示Cookie在指定的时间段内有效，如果设置为0，会话结束后会删除Cookie。 |
-
 | Secure | 设置为true，请求只会在通过https安全连接发送时才会携带Cookie。 |
-
 | SameSite | 控制Cookie是否会在跨站点请求中发送。可以设置为Strict、Lax或None。 Strict：表示只在同一站点请求中发送； Lax：表示在部分跨站点请求中发送； None：表示在所有请求中发送，需配合Secure=true一起使用。 |
-
 | HttpOnly | 如果设置为true，JavaScript将无法访问Cookie。这有助于防止跨站点脚本攻击（XSS）窃取Cookie数据。 |
 
  

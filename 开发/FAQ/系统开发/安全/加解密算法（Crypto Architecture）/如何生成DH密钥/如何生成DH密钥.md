@@ -22,19 +22,12 @@
  - DH算法相关接口介绍。
 
 | 名称 | 接口 |
-
 | --- | --- |
-
 | 指定DH算法公共参数。 | DHCommonParamsSpec |
-
 | 指定DH算法私钥参数。 | DHPriKeySpec |
-
 | 指定DH算法公钥参数。 | DHPubKeySpec |
-
 | 指定DH算法全量参数。 | DHKeyPairSpec |
-
 | 通过指定密钥参数，创建非对称密钥生成器。 | createAsyKeyGeneratorBySpec |
-
 | 通过指定算法名称的字符串，创建非对称密钥生成器。 | createAsyKeyGenerator |
 
  

@@ -174,23 +174,14 @@ struct Index {
 3. 运行验证生命周期流程。
 
 | 回调函数 | 触发时机 | 典型使用场景 |
-
 | --- | --- | --- |
-
 | onCreate | Ability第一次启动时 | 应用初始化、资源加载 |
-
 | onActive | Ability切换到前台且获取焦点 | 刷新UI、恢复动画 |
-
 | onInactive | Ability失去焦点 | 暂停动画、保存临时数据 |
-
 | onShow | Ability由后台切换到前台可见 | 显示UI、准备用户交互 |
-
 | onHide | Ability由前台切换到后台不可见 | 隐藏UI、释放显示资源 |
-
 | onDestroy | Ability被销毁前 | 回收资源、清空缓存 |
-
 | onSaveData | 系统需要回收页面时 | 保存页面状态、存储临时数据 |
-
 | onRestoreData | 页面从回收状态恢复时 | 恢复页面状态、重新加载数据 |
 
   通过运行上述示例，开发者可以观察到完整的生命周期回调流程：

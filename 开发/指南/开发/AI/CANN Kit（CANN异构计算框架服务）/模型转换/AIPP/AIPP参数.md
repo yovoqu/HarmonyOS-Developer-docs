@@ -144,44 +144,32 @@ RB/UV通道交换丰富了输入图片的格式，开启RB/UV通道交换后，A
 - 输入为YUV格式图片(YUV420/YUYV/YUV422SP/AYUV444)，模型训练集为RGB，不支持从YUV400到RGB的转换。
 
 | JPEG | BT-601NARROW | BT-601FULL | BT-709NARROW |
-
 | --- | --- | --- | --- |
-
 | matrix_r0c0 : 256 matrix_r0c1 : 0 matrix_r0c2 : 359 matrix_r1c0 : 256 matrix_r1c1 : -88 matrix_r1c2 : -183 matrix_r2c0 : 256 matrix_r2c1 : 454 matrix_r2c2 : 0 input_bias_0 : 0 input_bias_1 : 128 input_bias_2 : 128 | matrix_r0c0 : 298 matrix_r0c1 : 0 matrix_r0c2 : 409 matrix_r1c0 : 298 matrix_r1c1 : -100 matrix_r1c2 : -208 matrix_r2c0 : 298 matrix_r2c1 : 516 matrix_r2c2 : 0 input_bias_0 : 16 input_bias_1 : 128 input_bias_2 : 128 | matrix_r0c0 : 256 matrix_r0c1 : 0 matrix_r0c2 : 359 matrix_r1c0 : 256 matrix_r1c1 : -88 matrix_r1c2 : -183 matrix_r2c0 : 256 matrix_r2c1 : 454 matrix_r2c2 : 0 input_bias_0 : 0 input_bias_1 : 128 input_bias_2 : 128 | matrix_r0c0 : 298 matrix_r0c1 : 0 matrix_r0c2 : 460 matrix_r1c0 : 298 matrix_r1c1 : -55 matrix_r1c2 : -137 matrix_r2c0 : 298 matrix_r2c1 : 541 matrix_r2c2 : 0 input_bias_0 : 16 input_bias_1 : 128 input_bias_2 : 128 |
 - 输入为YUV格式图片(YUV420/YUYV/YUV422SP/AYUV444)，模型训练集为BGR，不支持从YUV400到BGR的转换。
 
 | JPEG | BT-601NARROW | BT-601FULL | BT-709NARROW |
-
 | --- | --- | --- | --- |
-
 | matrix_r0c0 : 256 matrix_r0c1 : 454 matrix_r0c2 : 0 matrix_r1c0 : 256 matrix_r1c1 : -88 matrix_r1c2 : -183 matrix_r2c0 : 256 matrix_r2c1 : 0 matrix_r2c2 : 359 input_bias_0 : 0 input_bias_1 : 128 input_bias_2 : 128 | matrix_r0c0 : 298 matrix_r0c1 : 516 matrix_r0c2 : 0 matrix_r1c0 : 298 matrix_r1c1 : -100 matrix_r1c2 : -208 matrix_r2c0 : 298 matrix_r2c1 : 0 matrix_r2c2 : 409 input_bias_0 : 16 input_bias_1 : 128 input_bias_2 : 128 | matrix_r0c0 : 256 matrix_r0c1 : 454 matrix_r0c2 : 0 matrix_r1c0 : 256 matrix_r1c1 : -88 matrix_r1c2 : -183 matrix_r2c0 : 256 matrix_r2c1 : 0 matrix_r2c2 : 359 input_bias_0 : 0 input_bias_1 : 128 input_bias_2 : 128 | matrix_r0c0 : 298 matrix_r0c1 : 541 matrix_r0c2 : 0 matrix_r1c0 : 298 matrix_r1c1 : -55 matrix_r1c2 : -137 matrix_r2c0 : 298 matrix_r2c1 : 0 matrix_r2c2 : 460 input_bias_0 : 16 input_bias_1 : 128 input_bias_2 : 128 |
 - 输入为YUV格式图片(YUV420/YUYV/YUV422SP/AYUV444)，模型训练集为灰度图（YUV400_U8）。
 
 | JPEG | BT-601NARROW | BT-601FULL | BT-709NARROW |
-
 | --- | --- | --- | --- |
-
 | matrix_r0c0 : 256 matrix_r0c1 : 0 matrix_r0c2 : 0 matrix_r1c0 : 0 matrix_r1c1 : 0 matrix_r1c2 : 0 matrix_r2c0 : 0 matrix_r2c1 : 0 matrix_r2c2 : 0 | N/A | N/A | N/A |
 - 输入为RGB格式图片(XRGB8888/ARGB8888)，模型训练集为灰度图（YUV400_U8）。
 
 | JPEG | BT-601NARROW | BT-601FULL | BT-709NARROW |
-
 | --- | --- | --- | --- |
-
 | matrix_r0c0 : 76 matrix_r0c1 : 150 matrix_r0c2 : 30 matrix_r1c0 : 0 matrix_r1c1 : 0 matrix_r1c2 : 0 matrix_r2c0 : 0 matrix_r2c1 : 0 matrix_r2c2 : 0 | N/A | N/A | N/A |
 - 输入为RGB格式图片(XRGB8888/ARGB8888)，模型训练集为YUV444SP。
 
 | JPEG | BT-601NARROW | BT-601FULL | BT-709NARROW |
-
 | --- | --- | --- | --- |
-
 | matrix_r0c0 : 77 matrix_r0c1 : 150 matrix_r0c2 : 29 matrix_r1c0 : -43 matrix_r1c1 : -85 matrix_r1c2 : 128 matrix_r2c0 : 128 matrix_r2c1 : -107 matrix_r2c2 : -21 output_bias_0 : 0 output_bias_1 : 128 output_bias_2 : 128 | matrix_r0c0 : 66 matrix_r0c1 : 129 matrix_r0c2 : 25 matrix_r1c0 : -38 matrix_r1c1 : -74 matrix_r1c2 : 112 matrix_r2c0 : 112 matrix_r2c1 : -94 matrix_r2c2 : -18 output_bias_0 : 16 output_bias_1 : 128 output_bias_2 : 128 | matrix_r0c0 : 77 matrix_r0c1 : 150 matrix_r0c2 : 29 matrix_r1c0 : -43 matrix_r1c1 : -85 matrix_r1c2 : 128 matrix_r2c0 : 128 matrix_r2c1 : -107 matrix_r2c2 : -21 output_bias_0 : 0 output_bias_1 : 128 output_bias_2 : 128 | matrix_r0c0 : 47 matrix_r0c1 : 157 matrix_r0c2 : 16 matrix_r1c0 : -26 matrix_r1c1 : -87 matrix_r1c2 : 112 matrix_r2c0 : 112 matrix_r2c1 : -102 matrix_r2c2 : -10 output_bias_0 : 16 output_bias_1 : 128 output_bias_2 : 128 |
 - 输入为RGB格式图片(XRGB8888/ARGB8888)，模型训练集为YVU444SP。
 
 | JPEG | BT-601NARROW | BT-601FULL | BT-709NARROW |
-
 | --- | --- | --- | --- |
-
 | matrix_r0c0 : 77 matrix_r0c1 : 150 matrix_r0c2 : 29 matrix_r1c0 : 128 matrix_r1c1 : -107 matrix_r1c2 : -21 matrix_r2c0 : -43 matrix_r2c1 : -85 matrix_r2c2 : 128 output_bias_0 : 0 output_bias_1 : 128 output_bias_2 : 128 | matrix_r0c0 : 66 matrix_r0c1 : 129 matrix_r0c2 : 25 matrix_r1c0 : 112 matrix_r1c1 : -94 matrix_r1c2 : -18 matrix_r2c0 : -38 matrix_r2c1 : -74 matrix_r2c2 : 112 output_bias_0 : 16 output_bias_1 : 128 output_bias_2 : 128 | matrix_r0c0 : 77 matrix_r0c1 : 150 matrix_r0c2 : 29 matrix_r1c0 : 128 matrix_r1c1 : -107 matrix_r1c2 : -21 matrix_r2c0 : -43 matrix_r2c1 : -85 matrix_r2c2 : 128 output_bias_0 : 0 output_bias_1 : 128 output_bias_2 : 128 | matrix_r0c0 : 47 matrix_r0c1 : 157 matrix_r0c2 : 16 matrix_r1c0 : 112 matrix_r1c1 : -102 matrix_r1c2 : -10 matrix_r2c0 : -26 matrix_r2c1 : -87 matrix_r2c2 : 112 output_bias_0 : 16 output_bias_1 : 128 output_bias_2 : 128 |
 
  

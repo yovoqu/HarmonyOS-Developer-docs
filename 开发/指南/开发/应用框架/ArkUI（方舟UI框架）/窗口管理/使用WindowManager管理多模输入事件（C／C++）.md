@@ -161,35 +161,22 @@ target_link_libraries(entry PUBLIC libnative_window_manager.so libohinput.so)
  - 完成窗口和多模触摸事件校验，确保事件参数正确，再将事件发送给ArkUI。具体参数说明如下：
 
 | 参数名 | 描述 |
-
 | --- | --- |
-
 | windowId | 目标窗口ID，仅支持同进程的窗口，否则返回错误码1300002。窗口需完成UI加载，否则返回错误码1300003。 |
-
 | touchEvent | 多模触摸事件，具体可见Input_TouchEvent，事件定义在oh_input_manager.h中。调用OH_Input_CreateTouchEvent接口创建touchEvent对象，使用完后调用OH_Input_DestroyTouchEvent接口销毁该对象。具体参数说明见下表。 |
-
 | windowX | 注入事件相对于注入窗口的落点横坐标。参数应为大于等于0的整数，否则返回错误码1300003。 |
-
 | windowY | 注入事件相对于注入窗口的落点纵坐标。参数应为大于等于0的整数，否则返回错误码1300003。 |
 
   其中，touchEvent多模触摸事件具体参数说明如下：
 
 | 参数名 | 方法 | 描述 |
-
 | --- | --- | --- |
-
 | action | OH_Input_SetTouchEventAction | 表示事件行为，默认值为0。 当前只支持0-3的行为，分别表示为： - 0：cancel，表示取消事件。 - 1：down，表示按下事件。 - 2：move，表示移动事件。 - 3：up，表示抬起事件。 - 其他行为会返回错误码1300003。 |
-
 | id | OH_Input_SetTouchEventFingerId | 表示手指ID，默认值为0。 应为大于等于0的整数，否则返回错误码1300003。 |
-
 | displayX | OH_Input_SetTouchEventDisplayX | 表示事件落点相对于屏幕的横坐标，默认值为0。 参数应为非负整数，否则返回错误码1300003。建议与windowX保持对应关系，即使不一致也不会返回错误码，仅校验入参合法范围。转换方法推荐使用getWindowProperties()方法获取windowRect属性，通过displayX减去windowRect中窗口左上角横坐标计算对应的windowX。 |
-
 | displayY | OH_Input_SetTouchEventDisplayY | 表示事件落点相对于屏幕的纵坐标，默认值为0。 参数应为非负整数，否则返回错误码1300003。建议与windowY保持对应关系，即使不一致也不会返回错误码，仅校验入参合法范围。转换方法推荐使用getWindowProperties()方法获取windowRect属性，通过displayY减去windowRect中窗口左上角纵坐标计算对应的windowY。 |
-
 | actionTime | OH_Input_SetTouchEventActionTime | 表示时间戳，默认值为-1。参数应为非负整数，否则返回错误码1300003。 |
-
 | windowId | OH_Input_SetTouchEventWindowId | 表示事件注入窗口ID，默认值为-1。若参数不为默认值且不等于OH_WindowManager_InjectTouchEvent接口参数windowId，将校验传入参数错误。 |
-
 | displayId | OH_Input_SetTouchEventDisplayId | 表示事件注入屏幕ID，默认值为-1。无限制，但是应该尽量保证与OH_WindowManager_InjectTouchEvent接口参数windowId有相互对应关系，推荐使用getWindowProperties()方法获取displayId属性。 |
 
 

@@ -23,11 +23,8 @@
 - [Preview Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/preview-introduction)：为应用提供便捷的文件快速预览和文件打开加速能力。目前，Preview Kit实现Office的预览能力，主要是借助WPS的能力实现的，预览界面会有WPS提供的技术支持，并展示WPS的入口，统一按照文件预览的风格进行页面布局。
 
 | 约束与限制 | 说明 |
-
 | --- | --- |
-
 | 支持的国家和地区 | 当前Preview Kit仅支持中国境内（不包含中国香港、中国澳门、中国台湾）。 |
-
 | 支持的设备 | 当前Preview Kit相关能力只支持在真机上运行，暂不支持在模拟器上运行。 文件预览功能支持华为Phone、Tablet和2in1， 文件打开加速功能仅支持2in1设备。 |
 - [filePreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts)：为应用提供便捷的文件快速预览能力。应用可以通过文件预览提供的系统级预览API，可快速启动预览界面，实现对各类文件的预览。
 - [getRawFdSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getrawfdsync10)：获取resources/rawfile目录下rawfile文件所在HAP的文件描述符（fd）。

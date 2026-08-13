@@ -104,26 +104,17 @@ Authorization: Bearer ******
 - JosRet
 
 | 参数名称 | 是否必选 | 类型 | 参数说明 |
-
 | --- | --- | --- | --- |
-
 | code | 是 | int | 单次接口请求任务的结果返回码： 0：请求成功。 -1：请求失败。 3002：鉴权错误。 |
-
 | msg | 否 | String | 失败时的描述信息。 |
 - ConvertTeamPlayerIdItem
 
 | 参数名称 | 是否必选 | 类型 | 参数说明 |
-
 | --- | --- | --- | --- |
-
 | srcCpId | 是 | Long | 游戏转出方的开发者Developer ID。 |
-
 | srcTeamPlayerId | 是 | String | 转让前，游戏的玩家标识teamPlayerId。 |
-
 | dstCpId | 是 | Long | 游戏转入方的开发者Developer ID。 |
-
 | dstTeamPlayerId | 是 | String | 转让后，游戏的玩家标识teamPlayerId。 |
-
 | errCode | 是 | int | 查询单个teamPlayerId的结果返回码： 0：成功。 -1：失败。 |
 
  

@@ -23,15 +23,10 @@ DevEco Studio提供开箱即用的开发体验，将HarmonyOS SDK、Node.js、Hv
 - DevEco Studio新建项目失败，可能有多种现象和原因，汇总如下：
 
 | 问题现象 | 问题原因 |
-
 | --- | --- |
-
 | 运行报错ROR:node。 | Node环境出现问题。 |
-
 | 新建项目时，出现npm报错。 | npm SSL证书验证问题。 |
-
 | 新建项目窗口无任何内容。 | 安装过程出现问题。 |
-
 | 新建项目时，出现Cannot detect a launch configuration。 | 项目配置或构建设置问题。 |
 - **场景一**：运行报错ROR:node。
 排查PC设备是否存在多Node，命令行输入node -v，排查Node版本是否低于18。

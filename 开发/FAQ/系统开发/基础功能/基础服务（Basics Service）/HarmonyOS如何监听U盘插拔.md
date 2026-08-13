@@ -32,13 +32,9 @@
 - 代码实现：根据OpenHarmony的文档，U盘插拔的事件名称可能是以下之一：
 
 | 事件名称 | 描述 |
-
 | --- | --- |
-
 | usual.event.hardware.usb.action.USB_STATE | 表示USB设备状态发生变化的公共事件。 |
-
 | usual.event.hardware.usb.action.USB_DEVICE_ATTACHED | 当用户设备作为USB主机时，USB设备已挂载的公共事件。 |
-
 | usual.event.hardware.usb.action.USB_DEVICE_DETACHED | 当用户设备作为USB主机时，USB设备被卸载的公共事件。 |
 
  

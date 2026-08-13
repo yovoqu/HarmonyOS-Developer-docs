@@ -231,25 +231,15 @@ struct OptionOne {
  方案一对应的“ListItem对应的keyGenerator，ListItem显示的值”分析表如下：
 
 | ListItem | 删除操作前 | 第一次删除后 | 第二次删除后 | 第三次删除后 |
-
 | --- | --- | --- | --- | --- |
-
 | 选项1 | 0__{"id":0,"content":""}，1 | 0__{"id":0,"content":"1"}，1 | 0__{"id":0,"content":"1"}，1 | 0__{"id":0,"content":"1"}，1 |
-
 | 选项2 | 1__{"id":1,"content":""}，2 | 1__{"id":1,"content":"2"}，2 | 1__{"id":1,"content":"2"}，2 | 1__{"id":1,"content":"2"}，2 |
-
 | 选项3（每次点击删除的项） | 2__{"id":2,"content":""}，3 | 2__{"id":3,"content":"4"}，4 | 2__{"id":4,"content":"5"}，5 | 2__{"id":5,"content":"6"}，6 |
-
 | 选项4 | 3__{"id":3,"content":""}，4 | 3__{"id":4,"content":"5"}，5 | 3__{"id":5,"content":"6"}，6 | 3__{"id":6,"content":""}，空 |
-
 | 选项5 | 4__{"id":4,"content":""}，5 | 4__{"id":5,"content":"6"}，6 | 4__{"id":6,"content":""}，空 | 4__{"id":7,"content":""}，空 |
-
 | 选项6 | 5__{"id":5,"content":""}，6 | 5__{"id":6,"content":""}，空 | 5__{"id":7,"content":""}，空 | 5__{"id":8,"content":""}，空 |
-
 | 选项7 | 6__{"id":6,"content":""}，空 | 6__{"id":7,"content":""}，空 | 6__{"id":8,"content":""}，空 | / |
-
 | 选项8 | 7__{"id":7,"content":""}，空 | 7__{"id":8,"content":""}，空 | / | / |
-
 | 选项9 | 8__{"id":8,"content":""}，空 | / | / | / |
 
   从分析表可以看到每次点击“选项3”，进行删除后，由于每个数组对象的id不一致，所以从“选项3”往后的每个ListItem的keyGenerator前后都不一致，所以都会重新创建，而不是复用原ListItem组件。

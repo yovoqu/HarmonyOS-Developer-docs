@@ -32,23 +32,14 @@ Mozilla/5.0 (Phone; OpenHarmony 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Chro
 - 字段说明：
 
 | 字段 | 含义 |
-
 | --- | --- |
-
 | DeviceType | 当前的设备类型。 取值范围： Phone：手机设备。 Tablet：平板设备。 PC：2in1设备。 |
-
 | OSName | 基础操作系统名称。默认取值：OpenHarmony。 |
-
 | OSVersion | 基础操作系统版本，两位数字，M.S。 通过系统参数const.ohos.fullname解析版本号得到，取版本号部分M.S前两位。 默认取值：例如5.0 |
-
 | ChromeCompatibleVersion | 兼容Chrome主版本的版本号，从114版本开始演进。 默认取值：114 |
-
 | ArkWeb | HarmonyOS版本Web内核名称。 默认取值：ArkWeb |
-
 | ArkWeb VersionCode | ArkWeb版本号，格式a.b.c.d。 默认取值：例如4.1.6.1 |
-
 | DeviceCompat | 前向兼容字段。 默认取值：Mobile |
-
 | 扩展区 | 三方应用可以扩展的字段。 三方应用使用ArkWeb组件时，可以做UA扩展，例如加入APP相关信息标识。 |
 
  

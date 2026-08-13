@@ -16,26 +16,17 @@ startAbilityByType接口中type字段为flight，支持按航班号查询、按�
  - 按航班号查询场景
 
 | 参数名 | 类型 | 必填 | 说明 |
-
 | --- | --- | --- | --- |
-
 | sceneType | number | 否 | 意图场景，表明本次请求对应的操作意图。默认为1，按航班号查询场景填1或不填。 |
-
 | flightNo | string | 是 | 航班号，航司二位代码+数字。 |
-
 | departureDate | string | 否 | 航班出发时间：YYYY-MM-DD。 |
  - 按起降地查询场景
 
 | 参数名 | 类型 | 必填 | 说明 |
-
 | --- | --- | --- | --- |
-
 | sceneType | number | 是 | 意图场景，表明本次请求对应的操作意图。按起降地查询场景填2。 |
-
 | originLocation | string | 是 | 出发地。 |
-
 | destinationLocation | string | 是 | 目的地。 |
-
 | departureDate | string | 否 | 航班出发时间：YYYY-MM-DD。 |
 
 
@@ -111,11 +102,8 @@ struct Index {
  - 设置linkFeature属性以声明当前应用支持的特性功能，从而系统可以从设备已安装应用中找到当前支持该特性的应用，取值范围如下：
 
 | 取值 | 含义 |
-
 | --- | --- |
-
 | QueryByFlightNo | 声明应用支持按航班号查询航班。 |
-
 | QueryByLocation | 声明应用支持按起降地查询航班。 |
 
 2. 设置scheme、host、port、path/pathStartWith属性，与Want中URI相匹配，以便区分不同功能。         
@@ -160,22 +148,15 @@ UIAbility.onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void
 按航班号查询场景
 
 | 参数名 | 类型 | 必填 | 说明 |
-
 | --- | --- | --- | --- |
-
 | flightNo | string | 是 | 航班号，航司二位代码+数字。 |
-
 | departureDate | string | 否 | 航班出发时间：YYYY-MM-DD。不填时，Target可按当天处理。 |
  - 按起降地查询场景
 
 | 参数名 | 类型 | 必填 | 说明 |
-
 | --- | --- | --- | --- |
-
 | originLocation | string | 是 | 出发地。 |
-
 | destinationLocation | string | 是 | 目的地。 |
-
 | departureDate | string | 否 | 航班出发时间：YYYY-MM-DD。不填时，Target可按当天处理。 |
 
 

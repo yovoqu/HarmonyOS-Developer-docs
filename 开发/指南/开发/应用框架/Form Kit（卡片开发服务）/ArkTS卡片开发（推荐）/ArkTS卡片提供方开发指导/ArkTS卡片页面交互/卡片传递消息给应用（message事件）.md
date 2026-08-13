@@ -118,7 +118,5 @@ export default class EntryFormAbility extends FormExtensionAbility {
 运行效果如下图所示。
 
 | 初始状态 | 点击刷新 |
-
 | --- | --- |
-
 |  |  |

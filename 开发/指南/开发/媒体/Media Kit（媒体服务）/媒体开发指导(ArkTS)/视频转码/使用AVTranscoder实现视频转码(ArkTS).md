@@ -30,13 +30,9 @@ this.avTranscoder = await media.createAVTranscoder();
 2. 设置业务需要的监听事件，监听状态变化及错误上报。
 
 | 事件类型 | 说明 |
-
 | --- | --- |
-
 | complete | 必要事件，监听AVTranscoder的转码完成。 |
-
 | error | 必要事件，监听AVTranscoder的错误信息。 |
-
 | progressUpdate | 监听AVTranscoder的进度。 |
 
   

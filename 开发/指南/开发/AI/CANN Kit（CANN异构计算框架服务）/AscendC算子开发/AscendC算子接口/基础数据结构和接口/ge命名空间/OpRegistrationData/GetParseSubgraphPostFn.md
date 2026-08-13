@@ -46,9 +46,7 @@ using ParseSubgraphFuncV2 = std::function<Status(const ge::AscendString &subgrap
 - GetParseSubgraphPostFn(ParseSubgraphFuncV2 &func)函数
 
 | 参数 | 输入/输出 | 说明 |
-
 | --- | --- | --- |
-
 | func | 输出 | 实现算子注册的子图中输入输出节点跟算子的输入输出对应关系的函数对象。 |
 
  

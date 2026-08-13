@@ -30,17 +30,11 @@
 1. 网络的主要配置信息如下：
 
 | 名称 | IP地址 |
-
 | --- | --- |
-
 | 本地设备IP | 192.xxx.x.9 |
-
 | 默认网关 | 192.xxx.x.1 |
-
 | 路由1 | 192.xxx.x.10 |
-
 | 路由2 | 182.xx.xxx.108 |
-
 | 虚拟网卡地址 | 10.x.x.5 |
 2. WireShark条件搜索ip.src == 182.xx.xxx.108 && ip.dst == 10.x.x.5，表示搜索从182.xx.xxx.108路由到10.x.x.5网卡的流量，说明应用的外网请求通过VPN网络转发。
 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/KsHJPdhLTfqciBBxEBRmxQ/zh-cn_image_0000002658850527.png?HW-CC-KV=V1&HW-CC-Date=20260701T041435Z&HW-CC-Expire=86400&HW-CC-Sign=F0AE5AC319128010890D2249D7FFE65F2C5E9D9BC063EE1C71556B013450C5ED)

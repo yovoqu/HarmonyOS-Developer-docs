@@ -455,29 +455,19 @@ struct SceneTwo {
 1. 初次创建时ListItem对应的，keyGenerator如下：
 
 | ListItem显示内容 | keyGenerator |
-
 | --- | --- |
-
 | 姓名小张 年龄12 | 0__{"name":"小张","age":12} |
-
 | 姓名小赵 年龄13 | 1__{"name":"小赵","age":13} |
-
 | 姓名小李 年龄14 | 2__{"name":"小李","age":14} |
-
 | 姓名小王 年龄15 | 3__{"name":"小王","age":15} |
 
 2. 修改小张年龄属性为13，keyGenerator如下：
 
 | ListItem显示内容 | keyGenerator |
-
 | --- | --- |
-
 | 姓名小张 年龄13 | 0__{"name":"小张","age":12} |
-
 | 姓名小赵 年龄13 | 1__{"name":"小赵","age":13} |
-
 | 姓名小李 年龄14 | 2__{"name":"小李","age":14} |
-
 | 姓名小王 年龄15 | 3__{"name":"小王","age":15} |
 
   
@@ -489,15 +479,10 @@ struct SceneTwo {
 3. 通过修改数组项，修改小张年龄属性为88，keyGenerator如下：
 
 | ListItem显示内容 | keyGenerator |
-
 | --- | --- |
-
 | 姓名小张 年龄88 | 0__{"name":"小张","age":88} |
-
 | 姓名小赵 年龄13 | 1__{"name":"小赵","age":13} |
-
 | 姓名小李 年龄14 | 2__{"name":"小李","age":14} |
-
 | 姓名小王 年龄15 | 3__{"name":"小王","age":15} |
 
   
@@ -509,29 +494,19 @@ struct SceneTwo {
 4. 修改小张年龄属性为89，keyGenerator如下：（实现原理与第2步一致，都是状态管理深层嵌套对象属性的刷新，没有直接修改数组属于ForEach的非首次渲染。）
 
 | ListItem显示内容 | keyGenerator |
-
 | --- | --- |
-
 | 姓名小张 年龄89 | 0__{"name":"小张","age":88} |
-
 | 姓名小赵 年龄13 | 1__{"name":"小赵","age":13} |
-
 | 姓名小李 年龄14 | 2__{"name":"小李","age":14} |
-
 | 姓名小王 年龄15 | 3__{"name":"小王","age":15} |
 
 5. 重置小张年龄属性为88，keyGenerator如下：
 
 | ListItem显示内容 | keyGenerator |
-
 | --- | --- |
-
 | 姓名小张 年龄89 | 0__{"name":"小张","age":88} |
-
 | 姓名小赵 年龄13 | 1__{"name":"小赵","age":13} |
-
 | 姓名小李 年龄14 | 2__{"name":"小李","age":14} |
-
 | 姓名小王 年龄15 | 3__{"name":"小王","age":15} |
 
   发现第5步中无论是ListItem显示内容与keyGenerator都未发生变化。原因是通过替换数组项或数组是是触发的ForEach刷新，刷新的规则是刷新前后的keyGenerator不一致才会刷新，但是通过对比上述表格中的keyGenerator发现：第3步、第4步、第5步小张所在的组件对应的keyGenerator都没有变化，所以不会触发ForEach重建刷新。

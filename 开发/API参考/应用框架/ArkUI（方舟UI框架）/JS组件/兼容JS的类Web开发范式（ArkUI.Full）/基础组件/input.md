@@ -90,28 +90,18 @@
 - 当input类型为text、email、date、time、number、password时，支持如下事件：
 
 | 名称 | 参数 | 描述 |
-
 | --- | --- | --- |
-
 | change | { value: inputValue } | 输入框输入内容发生变化时触发该事件，返回用户当前输入值。 改变value属性值不会触发该回调。 |
-
 | enterkeyclick | { value: enterKey } | 软键盘enter键点击后触发该事件，返回enter按钮的类型，enterKey类型为number，可选值为： - 2：设置enterkeytype属性为go时生效。 - 3：设置enterkeytype属性为search时生效。 - 4：设置enterkeytype属性为send时生效。 - 5：设置enterkeytype属性为next时生效。 - 6：不设置enterkeytype或者设置enterkeytype属性为default、done时生效。 |
-
 | translate5+ | { value: selectedText } | 设置此事件后，进行文本选择操作后文本选择弹窗会出现翻译按钮，点击翻译按钮之后，触发该回调，返回选中的文本内容。 |
-
 | share5+ | { value: selectedText } | 设置此事件后，进行文本选择操作后文本选择弹窗会出现分享按钮，点击分享按钮之后，触发该回调，返回选中的文本内容。 |
-
 | search5+ | { value: selectedText } | 设置此事件后，进行文本选择操作后文本选择弹窗会出现搜索按钮，点击搜索按钮之后，触发该回调，返回选中的文本内容。 |
-
 | optionselect5+ | { index: optionIndex, value: selectedText } | 文本选择弹窗中设置menuoptions属性后，用户在文本选择操作后，点击菜单项后触发该回调，返回点击的菜单项序号和选中的文本内容。 |
-
 | selectchange6+ | { start: number, end: number } | 文本选择变化时触发该事件，返回文本选择的起始和结束位置。 |
 - 当input类型为checkbox、radio时，支持如下事件：
 
 | 名称 | 参数 | 描述 |
-
 | --- | --- | --- |
-
 | change | { checked:true \| false } | checkbox多选框或radio单选框的checked状态发生变化时触发该事件。 |
 
  

@@ -53,19 +53,12 @@
 
 
 | 特殊符号 | ASCII码 |
-
 | --- | --- |
-
 | ! | %21 |
-
 | @ | %40 |
-
 | # | %23 |
-
 | $ | %24 |
-
 | & | %26 |
-
 | * | %2A |
 4. 确认以上配置成功后，正常就可以下载[OpenHarmony三方库中心仓](https://ohpm.openharmony.cn/#/cn/home)中的库，但是如果想要下载的库没有上传到官方中心仓，例如阿里云的mPaas，需要在.ohpmrc中根据group指定组织的仓库地址。支持多个仓库地址，以英文逗号间隔，且优先级大于registry配置，多个仓库地址的优先级按照配置顺序排序。registry=https://ohpm.example.cn/ohpm,https://repo.example.com/ohpm
 

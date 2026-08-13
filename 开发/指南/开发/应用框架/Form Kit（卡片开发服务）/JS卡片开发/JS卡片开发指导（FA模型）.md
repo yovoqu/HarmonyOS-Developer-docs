@@ -217,17 +217,11 @@ export default obj;
  - JS模块，用于对应卡片的JS相关资源，内部字段结构说明：
 
 | 属性名称 | 含义 | 数据类型 | 是否可缺省 |
-
 | --- | --- | --- | --- |
-
 | name | 表示JS Component的名字。该标签不可缺省，默认值为default。 | 字符串 | 否 |
-
 | pages | 表示JS Component的页面用于列举JS Component中每个页面的路由信息[页面路径+页面名称]。该标签不可缺省，取值为数组，数组第一个元素代表JS FA首页。 | 数组 | 否 |
-
 | window | 用于定义与显示窗口相关的配置。 | 对象 | 可缺省，缺省值参考window标签表格。 |
-
 | type | 表示JS应用的类型。取值范围如下： normal：标识该JS Component为应用实例。 form：标识该JS Component为卡片实例。 | 字符串 | 可缺省，缺省值为“normal” 。 |
-
 | mode | 定义JS组件的开发模式。 | 对象 | 可缺省，缺省值为空。 |
 
   配置示例如下：
@@ -253,37 +247,21 @@ export default obj;
  - abilities模块，用于对应卡片的FormAbility，内部字段结构说明：
 
 | 属性名称 | 含义 | 数据类型 | 是否可缺省 |
-
 | --- | --- | --- | --- |
-
 | name | 表示卡片的类名。字符串最大长度为127字节。 | 字符串 | 否 |
-
 | description | 表示卡片的描述。取值可以是描述性内容，也可以是对描述性内容的资源索引，以支持多语言。字符串最大长度为255字节。 | 字符串 | 可缺省，缺省为空。 |
-
 | isDefault | 表示该卡片是否为默认卡片，每个Ability有且只有一个默认卡片。 true：默认卡片。 false：非默认卡片。 | 布尔值 | 否 |
-
 | type | 表示卡片的类型。取值范围如下： JS：JS卡片。 | 字符串 | 否 |
-
 | colorMode(deprecated) | 表示卡片的主题样式，取值范围如下： auto：自适应。 dark：深色主题。 light：浅色主题。 说明： 从API version 20开始，该接口废弃，卡片主题样式统一跟随系统的颜色模式。 | 字符串 | 可缺省，缺省值为“auto”。 |
-
 | supportDimensions | 表示卡片支持的外观规格，取值范围： 1 * 2：表示1行2列的二宫格。 2 * 2：表示2行2列的四宫格。 2 * 4：表示2行4列的八宫格。 4 * 4：表示4行4列的十六宫格。 | 字符串数组 | 否 |
-
 | defaultDimension | 表示卡片的默认外观规格，取值必须在该卡片supportDimensions配置的列表中。 | 字符串 | 否 |
-
 | updateEnabled | 表示卡片是否支持周期性刷新，取值范围： true：表示支持周期性刷新，可以在定时刷新（updateDuration）和定点刷新（scheduledUpdateTime）两种方式任选其一，优先选择定时刷新。 false：表示不支持周期性刷新。 | 布尔类型 | 否 |
-
 | scheduledUpdateTime | 表示卡片的定点刷新的时刻，采用24小时制，精确到分钟。 updateDuration参数优先级高于scheduledUpdateTime，两者同时配置时，以updateDuration配置的刷新时间为准。 | 字符串 | 可缺省，缺省值为“0:0”，缺省时不进行定点刷新。 |
-
 | updateDuration | 表示卡片定时刷新的更新周期，单位为30分钟，取值为自然数。 当取值为0时，表示该参数不生效。 当取值为正整数N时，表示刷新周期为30*N分钟。 updateDuration参数优先级高于scheduledUpdateTime，两者同时配置时，以updateDuration配置的刷新时间为准。 | 数值 | 可缺省，缺省值为0。 |
-
 | formConfigAbility | 表示卡片的配置跳转链接，采用URI格式。 | 字符串 | 可缺省，缺省值为空。 |
-
 | formVisibleNotify | 标识是否允许卡片使用卡片可见性通知。 | 字符串 | 可缺省，缺省值为空。 |
-
 | jsComponentName | 表示JS卡片的Component名称。字符串最大长度为127字节。 | 字符串 | 否 |
-
 | metaData | 表示卡片的自定义信息，包含customizeData数组标签。 | 对象 | 可缺省，缺省值为空。 |
-
 | customizeData | 表示自定义的卡片信息。 | 对象数组 | 可缺省，缺省值为空。 |
 
   配置示例如下：

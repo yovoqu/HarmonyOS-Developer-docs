@@ -71,13 +71,9 @@ HML是一套类HTML的标记语言，通过组件，事件构建出页面的内�
   通过定义ability名称和携带的参数字段params直接跳转，可用"params"作为key提取到跳转事件定义的params字段值。
 
 | 选择器 | 样例 | 默认值 | 样例描述 |
-
 | --- | --- | --- | --- |
-
 | action | string | "router" | 事件类型。 - "router"：用于应用跳转。 |
-
 | abilityName | string | - | 跳转ability名。 |
-
 | params | Object | - | 跳转应用携带的额外参数。 |
 
   
@@ -99,11 +95,8 @@ HML是一套类HTML的标记语言，通过组件，事件构建出页面的内�
 - 消息事件格式
 
 | 选择器 | 样例 | 默认值 | 样例描述 |
-
 | --- | --- | --- | --- |
-
 | action | string | message | 表示事件类型。 - "message"：自定义点击事件。 |
-
 | params | Object | - | 跳转应用携带的额外参数。 |
 
   

@@ -150,15 +150,9 @@ EffectErrorCode errCodeRelease = OH_Filter_Release(filter);
 绘制效果如下：
 
 | 图像处理 | 绘制效果 |
-
 | --- | --- |
-
 | 原始图像 |  |
-
 | 添加模糊效果 |  |
-
 | 添加提亮效果 |  |
-
 | 添加灰度效果 |  |
-
 | 添加反色效果 |  |

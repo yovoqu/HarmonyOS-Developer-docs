@@ -34,13 +34,9 @@
 - **让组件隐藏（Menu组件本身）**。通过[显隐控制](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-visibility)可知，在Menu数据为空时，设置Menu组件visibility属性为None即可。注意此处不可设置为Hidden。此方法隐藏的原因是绑定的Builder组件为空没有内容可显示，因此点击无显示。参与布局会导致Builder内容可见，无法隐藏，因此只能使用None无法使用Hidden。同理可使用if让Builder内组件不参与组件树构建，不生成内容。
 
 | 名称 | 描述 |
-
 | --- | --- |
-
 | Hidden | 隐藏，但参与布局进行占位。 |
-
 | Visible | 显示。 |
-
 | None | 隐藏，但不参与布局，不进行占位。 |
 - **组件不触发Menu显示事件（被绑定Menu的组件）**。禁用控制：通过[禁用控制](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-enable)可知，设置enabled为false即可阻止交互事件，因此设置绑定Menu事件的组件的enabled为false。
 

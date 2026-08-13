@@ -323,13 +323,9 @@ struct TabsLifeCycle {
   方案对比：
 
 |    | 方案一：onChange | 方案二：onAnimationStart | 方案三：onWillShow | 方案四：onVisibleAreaChange |
-
 | --- | --- | --- | --- | --- |
-
 | 所属组件 | Tabs组件。 | Tabs组件。 | TabContent组件。 | 任何组件（通常用于TabContent内部子组件）。 |
-
 | 触发时机与条件 | Tabs切换动作完成，新页索引已确定时。 | 切换动画开始播放的第一帧。 | 属于该TabContent的显示流程开始时。 | 组件在屏幕视窗内的可见面积比例达到设定阈值时。 |
-
 | 典型场景 | ①更新全局状态； ②数据埋点。 | ①自定义联动动画。 | ①刷新某个子页面数据。 ②申请资源（如播视频）。 | ①广告曝光埋点。 |
 - **问题五：监听TabBar是否被点击。**可以通过onTabBarClick实现监听TabBar是否被点击，已经选中的TabBar再次点击也可触发该事件。
 

@@ -490,15 +490,10 @@ struct Child {
  - 装饰的变量为内置类型时，可观察变量整体赋值和API调用的变化。
 
 | 类型 | 可观测变化的API |
-
 | --- | --- |
-
 | Array | push, pop, shift, unshift, splice, copyWithin, fill, reverse, sort |
-
 | Date | setFullYear, setMonth, setDate, setHours, setMinutes, setSeconds, setMilliseconds, setTime, setUTCFullYear, setUTCMonth, setUTCDate, setUTCHours, setUTCMinutes, setUTCSeconds, setUTCMilliseconds |
-
 | Map | set, clear, delete |
-
 | Set | add, clear, delete |
 
 

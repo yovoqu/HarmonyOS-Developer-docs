@@ -53,21 +53,14 @@ debug版本应用下，OH_LOG_SetMinLogLevel()和OH_LOG_SetLogLevel()函数均�
  - fmt：格式字符串，用于日志的格式化输出。日志打印的格式化参数需按照“%{private flag}specifier”的格式打印。
 
 | 隐私标识符（private flag） | 说明 |
-
 | --- | --- |
-
 | private | 表示日志打印结果不可见，输出结果为&lt;private&gt;。 |
-
 | public | 表示日志打印结果可见，明文显示参数。 |
-
 | 无 | 缺省值默认为private，日志打印结果不可见。 |
 
 | 格式说明符（specifier） | 说明 | 示例 |
-
 | --- | --- | --- |
-
 | d/i | 支持打印十进制整数类型。 | 123 |
-
 | s | 支持打印char*类型。 | "this is a hilog" |
 
   格式字符串中可以设置多个参数，例如格式字符串为"%s World"，“%s”为参数类型为字符串的变参标识，具体取值在args中定义，格式说明符使用参考[printf](https://man7.org/linux/man-pages/man3/printf.3.html)。

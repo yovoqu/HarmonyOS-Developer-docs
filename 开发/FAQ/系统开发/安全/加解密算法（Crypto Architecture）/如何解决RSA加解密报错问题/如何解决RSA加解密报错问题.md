@@ -69,9 +69,6 @@ RSA常见报错与错误码有：
 - RSA的分段加密是指当明文大于单次加密支持的数据长度时（具体长度请查[非对称密钥加解密算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-encrypt-decrypt-spec)），需要将待加密数据分为合适长度的数据段，并对每个数据段执行加密操作，可以参考[使用RSA非对称密钥分段加解密(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-asym-encrypt-decrypt-by-segment)。
 
 | 密钥长度 | 填充模式 | 单段明文上限 | 单段密文长度 |
-
 | --- | --- | --- | --- |
-
 | 1024位 | PKCS1 | 117字节 | 128字节 |
-
 | 3072位 | PKCS1 | 373字节 | 284字节 |

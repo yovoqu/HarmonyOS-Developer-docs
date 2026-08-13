@@ -25,40 +25,24 @@
 4. raster线程收到图层树，将其转换成平台可执行的GPU指令提交给GPU渲染。
 
 | 关键线程名 | 说明 |
-
 | --- | --- |
-
 | ui线程 | 负责执行Dart代码中的UI相关操作，其会根据UI界面的描述生成UI界面的绘制指令（图层树），并将图层树发送到raster线程以在设备上渲染。 |
-
 | raster线程 | 从ui线程获取图层树，将其转换成平台可执行的GPU指令并提交给GPU。 |
-
 | io线程 | 负责处理与I/O相关的任务，如图片编解码、读写文件等。 |
 - DevEco Profiler：集成在DevEco Studio中的性能调优工具，提供场景化的性能调优功能体验，可以检测应用的性能指标、录制Trace信息，通过分析Trace数据能够发现代码中的性能瓶颈，进而优化性能，更多内容可看[使用Profiler进行性能调优](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-profiler-introduction)。使用DevEco Profiler提供的[Frame](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-frame)场景分析能力可分析卡顿丢帧问题。Flutter页面滑动卡顿相关Trace点：
 
 | 流程 | 所在线程/泳道 | Trace关键字 |
-
 | --- | --- | --- |
-
 | 多模输入模块收到点击、滑动事件上报 | mmi_service | H:originEventHandle code: |
-
 | 应用收到点击、滑动事件 | 应用主线程 | H:DispatchTouchEvent |
-
 | 应用收到屏幕触摸事件 | H:touchEventDispatch | H:touchEventDispatch |
-
 | 应用将触摸事件发送给Flutter ui线程 | 应用主线程 | H:flutter::Shell::OnPlatformViewDispatchPointerDataPacket |
-
 | Flutter ui线程收到触摸事件 | ui | H:flutter::Engine::DispatchPointerDataPacket |
-
 | 请求新一帧绘制 | ui | H:flutter::Animator::RequestFrame |
-
 | 开始一帧绘制，生成图层树 | ui | H:flutter::Animator::BeginFrame frame_number: |
-
 | 将图层树转换成平台可执行的GPU指令，提交给GPU | raster | H:flutter::GPURasterizer::Draw |
-
 | 获取Flutter渲染帧数据，合成渲染树上各节点图层 | render_service | H:RSMainThread::DoComposition |
-
 | GPU执行绘制 | RSUniRenderThre | H:RenderFrame |
-
 | GPU渲染完成，提交渲染结果到显示硬件 | RSHardwareThrea | H:RSHardwareThread::CommitAndReleaseLayers |
 
  

@@ -28,67 +28,42 @@
 - 普通拍照模式下的预览输出
 
 | 预配置类型PreconfigType | PRECONFIG_RATIO_1_1 | PRECONFIG_RATIO_4_3 | PRECONFIG_RATIO_16_9 |
-
 | --- | --- | --- | --- |
-
 | PRECONFIG_720P | 720x720 | 960x720 | 1280x720 |
-
 | PRECONFIG_1080P | 1080x1080 | 1440x1080 | 1920x1080 |
-
 | PRECONFIG_4K | 1080x1080 | 1440x1080 | 1920x1080 |
-
 | PRECONFIG_HIGH_QUALITY | 1440x1440 | 1920x1440 | 2560x1440 |
 - 普通拍照模式下的拍照输出
 
 | 预配置类型PreconfigType | PRECONFIG_RATIO_1_1 | PRECONFIG_RATIO_4_3 | PRECONFIG_RATIO_16_9 |
-
 | --- | --- | --- | --- |
-
 | PRECONFIG_720P | 720x720 | 960x720 | 1280x720 |
-
 | PRECONFIG_1080P | 1080x1080 | 1440x1080 | 1920x1080 |
-
 | PRECONFIG_4K | 2160x2160 | 2880x2160 | 3840x2160 |
-
 | PRECONFIG_HIGH_QUALITY | 跟随Sensor最大能力 | 跟随Sensor最大能力 | 跟随Sensor最大能力 |
 - 普通录像模式下的预览输出
 
 | 预配置类型PreconfigType | PRECONFIG_RATIO_1_1 | PRECONFIG_RATIO_4_3 | PRECONFIG_RATIO_16_9 |
-
 | --- | --- | --- | --- |
-
 | PRECONFIG_720P | 720x720 | 960x720 | 1280x720 |
-
 | PRECONFIG_1080P | 1080x1080 | 1440x1080 | 1920x1080 |
-
 | PRECONFIG_4K | 1080x1080 | 1440x1080 | 1920x1080 |
-
 | PRECONFIG_HIGH_QUALITY | 1080x1080 | 1440x1080 | 1920x1080 |
 - 普通录像模式下的录像输出
 
 | 预配置类型PreconfigType | PRECONFIG_RATIO_1_1 | PRECONFIG_RATIO_4_3 | PRECONFIG_RATIO_16_9 |
-
 | --- | --- | --- | --- |
-
 | PRECONFIG_720P | 720x720 | 960x720 | 1280x720 |
-
 | PRECONFIG_1080P | 1080x1080 | 1440x1080 | 1920x1080 |
-
 | PRECONFIG_4K | 2160x2160 | 2880x2160 | 3840x2160 |
-
 | PRECONFIG_HIGH_QUALITY | 2160x2160 | 2880x2160 | 3840x2160 |
 - 普通录像模式下的拍照输出
 
 | 预配置类型PreconfigType | PRECONFIG_RATIO_1_1 | PRECONFIG_RATIO_4_3 | PRECONFIG_RATIO_16_9 |
-
 | --- | --- | --- | --- |
-
 | PRECONFIG_720P | 跟随Sensor最大能力 | 跟随Sensor最大能力 | 跟随Sensor最大能力 |
-
 | PRECONFIG_1080P | 跟随Sensor最大能力 | 跟随Sensor最大能力 | 跟随Sensor最大能力 |
-
 | PRECONFIG_4K | 跟随Sensor最大能力 | 跟随Sensor最大能力 | 跟随Sensor最大能力 |
-
 | PRECONFIG_HIGH_QUALITY | 跟随Sensor最大能力 | 跟随Sensor最大能力 | 跟随Sensor最大能力 |
 
  

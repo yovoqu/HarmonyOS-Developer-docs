@@ -92,37 +92,23 @@ export class PurchaseMovieTicketsLinkIntent {
 2. 装饰器的字段说明以及示例：@InsightIntentLink字段以及具体说明如下。
 
 | 字段名称 | 类型 | 必选 | 说明 |
-
 | --- | --- | --- | --- |
-
 | intentName | string | 是 | 意图名称，最大长度：64。 |
-
 | domain | string | 是 | 意图所属的功能垂域。 |
-
 | intentVersion | string | 是 | 意图的版本号，用于兼容性管理。 |
-
 | displayName | string | 是 | 意图的展示名称，用于界面显示，最大长度：64。 |
-
 | llmDescription | string | 否 | 意图的描述，详细描述该意图可实现的能力，便于大模型理解并调用，接入自定义意图时，该字段必选。 |
-
 | uri | string | 是 | Link跳转uri。 |
-
 | parameters | Record<string, object > | 否 | 意图参数定义，描述参数类型以及含义。 |
-
 | paramMappings | LinkIntentParamMapping[] | 否 | Link的参数映射，定义了意图入参与uri拼接参数的映射关系，如果需要参数映射或者需要添加wantParams，需要使用该字段。 |
-
 | result | Record<string, object > | 否 | 意图执行返回结果定义。 |
 
   LinkIntentParamMapping结构如下表：
 
 | 字段名称 | 类型 | 必选 | 说明 |
-
 | --- | --- | --- | --- |
-
 | paramName | string | 是 | 映射后的意图参数名称。 |
-
 | paramMappingName | string | 否 | 映射前的Link参数名称，意图调用时可将意图参数映射为Link参数，用于适配已有的Link调用。 |
-
 | paramCategory | LinkParamCategory | 否 | Link参数类型枚举，默认作为域名参数，设置为“link”类型；如需要wantParams，则需要设置为“want”类型。 |
 
   为便于大模型理解和调用，相关参数定义需要遵照[自定义意图相关信息定义规范](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-skill-all-rec-specification)。

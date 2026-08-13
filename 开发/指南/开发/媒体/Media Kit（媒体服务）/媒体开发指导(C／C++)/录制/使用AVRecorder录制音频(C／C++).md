@@ -101,11 +101,8 @@ g_recorder = OH_AVRecorder_Create();
 2. 设置业务需要的监听事件，监听状态变化及错误上报。
 
 | 事件类型 | 说明 |
-
 | --- | --- |
-
 | OnStateChange | 监听AVRecorder的状态改变。 |
-
 | OnError | 监听AVRecorder的错误信息。 |
 
   

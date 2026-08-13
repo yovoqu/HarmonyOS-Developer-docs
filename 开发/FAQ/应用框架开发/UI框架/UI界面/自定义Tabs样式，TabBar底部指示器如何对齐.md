@@ -149,11 +149,8 @@ struct TabSolution1 {
 **初始位置**：因为保持了初始位置与页签0对齐且底部指示器与页签的宽度相同，只需要通过onAreaChange事件拿到新位置的X坐标，然后让底部指示器左侧外边距的大小等于该值即可。
 
 | 名称 | 图片说明 |
-
 | --- | --- |
-
 | 偏移量计算 |  |
-
 | 运行效果 |  |
 
   
@@ -197,11 +194,8 @@ myTabBar(tabName: string, tabItem: number, tabIndex: number) {
 - **TabBar切换（不涉及滑动）**：在Tabs的onAnimationStart和onAnimationEnd事件，通过getInspectorByKey(id:string)方法获取页签距离左侧的偏移量和页签的宽度，接着进行单位转换（px转vp），最后给到底部指示器。
 
 | 名称 | 图片说明 |
-
 | --- | --- |
-
 | 偏移量计算 |  |
-
 | 运行效果 |  |
 
   
@@ -300,11 +294,8 @@ private startAnimateTo(duration: number, leftMargin: number, width: number) {
 - **TabBar切换（涉及滑动）**：底部指示器根据方案二的第二步流程（即TabBar切换且不涉及滑动的场景）设置到对应页签下，然后通过onDidScroll事件跟随页签一起移动。伪代码：第一步是底部指示器左侧偏移量等于目标页签距离左侧的偏移量，第二步即由第一步得到的偏移量减去滑动偏移量。
 
 | 名称 | 图片说明 |
-
 | --- | --- |
-
 | 偏移量计算 |  |
-
 | 运行效果 |  |
 
   
@@ -333,11 +324,8 @@ List({ space: 20, initialIndex: 0, scroller: this.scrollerForScroll }) {
 - **仅滑动（不涉及切换）**：通过onDidScroll事件跟随TabBar一起移动。
 
 | 名称 | 图片说明 |
-
 | --- | --- |
-
 | 偏移量计算 |  |
-
 | 运行效果 |  |
 
   该情况实现的代码同上述 **TabBar切换（涉及滑动）** 实现代码一致。

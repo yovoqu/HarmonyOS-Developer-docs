@@ -72,15 +72,10 @@ export default {
   确保模块下的module.json5的type字段的值和hvigorfile.ts中export default的对象的system字段符合以下对应关系：
 
 | module.json5的type字段 | hvigorfile.ts中export default的对象的system字段 |
-
 | --- | --- |
-
 | entry | hapTasks |
-
 | feature | hapTasks |
-
 | shared | hspTasks |
-
 | har | harTasks |
 - **场景五：****问题现象**
 

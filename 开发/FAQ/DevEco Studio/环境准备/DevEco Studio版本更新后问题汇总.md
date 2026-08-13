@@ -21,13 +21,9 @@ DevEco Studio不支持自更新，需要开发者前往[官网链接](https://de
 - **DevEco Studio版本更新无法正常使用，可能有多种现象和原因，汇总如下：**
 
 | 问题现象 | 问题原因 |
-
 | 项目无法正常启动，提示hvigor没能同步 | hvigor相关配置文件未更新 |
-
 | 项目运行失败，报错“A page configured in 'test_pages.json' must have one and only one '@Entry' decorator” | 新版本默认路径文件夹名变更 |
-
 | 执行测试任务失败 | 新版本测试框架版本与原工程不匹配 |
-
 | DevEco Studio无法正常启动 | 旧版本缓存文件未清理 |
 
  

@@ -15,28 +15,21 @@
 - [pdfViewManager（PDF预览）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage)中[getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getpagepixelmap)：获取对应PDF页面的缩略图，使用Promise异步回调。**参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
-
 | --- | --- | --- | --- |
-
 | pageIndex | number | 是 | 页面索引，0为起始页。 |
-
 | isSync | boolean | 否 | 是否同步获取PDF页面的缩略图，true：是，false：否，默认值：false。 |
 
   **返回值：**
 
 | 类型 | 说明 |
-
 | --- | --- |
-
 | Promise<image.PixelMap> | Promise对象，返回image.PixelMap类型。 |
 
  
 - [pdfService（PDF服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice)中[getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getpagepixelmap)：获取当前页的图片。**返回值：**
 
 | 类型 | 说明 |
-
 | --- | --- |
-
 | image.PixelMap | 当前页的image.PixelMap类型。 |
 
  

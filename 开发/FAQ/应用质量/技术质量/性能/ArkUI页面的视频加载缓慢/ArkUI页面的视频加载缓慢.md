@@ -19,21 +19,13 @@
 - DevEco Profiler：集成在DevEco Studio中的性能调优工具，提供场景化的性能调优功能体验，可以检测应用的性能指标、录制Trace信息，通过分析Trace数据能够发现代码中的性能瓶颈，进而优化性能，相关内容可看[DevEco Profiler调优工具简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-profiler)。视频加载关键Trace点如下：
 
 | Trace关键字 | 描述 | 泳道/线程 |
-
 | --- | --- | --- |
-
 | H:DispatchTouchEvent xxx type=1 | 应用收到手指离开屏幕的事件 | 应用主进程 |
-
 | H:Create[组件名][self:组件id] | 组件创建 | 应用主进程 |
-
 | H:PlayerServer::PrepareAsync | 系统播放器服务准备播放 | media_service进程的H:PlayerServer::PrepareAsync泳道 |
-
 | H:PlayerServer::Play | 系统播放器服务启动播放 | media_service进程的H:PlayerServer::Play泳道 |
-
 | H:HiPlayerImpl::PrepareAsync | 播放器引擎实例初始化，准备播放。与H:PlayerServer::PrepareAsync对应，分析H:PlayerServer::PrepareAsync具体耗时情况需要分析该Trace关键字，如下图所示 | media_service进程的PlayerEngine线程 |
-
 | H:HiPlayerImpl::Play | 播放器引擎实例启动播放。与H:PlayerServer::Play对应，分析H:PlayerServer::Play具体耗时情况需要分析该Trace关键字，如下图所示 | media_service进程的PlayerEngine线程 |
-
 | H:HttpRequest | http请求 | 应用进程的H:HttpRequest泳道 |
 
  
@@ -66,9 +58,7 @@
 耗时主要集中在从应用收到手指离开屏幕事件到Video组件创建阶段，如下表所示。
 
 | 应用收到手指离开屏幕事件到Video组件创建 | Video组件创建到播放器准备 | 播放器准备耗时 | 播放器播放耗时 |
-
 | --- | --- | --- | --- |
-
 | 10s | 41ms | 314ms | 25ms |
 
   
@@ -98,9 +88,7 @@
 2. 耗时主要集中在播放器准备，如下表所示，需要通过日志分析视频数据下载情况。
 
 | 应用收到手指离开屏幕事件到Video组件创建 | Video组件创建到播放器准备 | 播放器准备耗时 | 播放器播放耗时 |
-
 | --- | --- | --- | --- |
-
 | 394ms | 18.1ms | 12.4s | 44.4ms |
 
   

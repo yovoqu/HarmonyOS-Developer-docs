@@ -25,11 +25,8 @@
 - ColorPicker取色类与readPixels方法的对比：
 
 | 取色方式 | 方法返回值 | 适用场景 |
-
 | --- | --- | --- |
-
 | ColorPicker | Promise对象（包含颜色信息），或Color实例，包含红、绿、蓝、透明度四个值 | 对整张图进行分析，通过取色类中的不同接口能获得不同颜色值。 |
-
 | readPixels | BGRA_8888格式 | 获得给定坐标位置的颜色，如：取色笔 |
 
  
@@ -68,13 +65,9 @@ console.info('get main color =', '{red:', color.red, 'green:', color.green, 'blu
 4. **与相似接口区别：**getMainColor与getMainColorSync都用于提取图像主色，其核心区别在于**执行方式**和**适用场景**。
 
 |    | getMainColor | getMainColorSync |
-
 | --- | --- | --- |
-
 | 执行方式 | 异步（基于回调） | 同步 |
-
 | 返回值 | 通过回调函数返回Color对象 | 直接返回Color对象 |
-
 | 适用场景 | 适用于对主线程流畅性要求高的场景：①用于精确计算、复杂图像处理（如：医疗影像中的主色识别）；②大文件主色提取（如：4K壁纸的主色提取）。 | 适用于需要立即获取结果且对性能影响可控的场景：①动画切换时的实时背景色更新；②需要快速响应用户交互的主色提取（如：点击按钮后立即变色）。 |
 
 5. **方案二：高频色统计**。
@@ -121,13 +114,9 @@ for (let index = 0; index < topColors.length; index++) {
 8. **与相似接口区别：**在HarmonyOS中，getLargestProportionColor与getMainColor均用于提取图像颜色特征，但两者的算法逻辑和应用场景存在显著差异。
 
 |    | getTopProportionColors | getLargestProportionColor | getMainColorSync |
-
 | --- | --- | --- | --- |
-
 | 算法逻辑 | 统计占比前N的颜色，支持自定义数量 | 统计像素颜色频率，直接选取出现次数最多的颜色值（即占比最高的单一颜色）。 | 综合计算颜色权重，可能结合亮度、饱和度或位置分布等因素，生成代表整体色调的主色。 |
-
 | 结果特性 | 返回占比前N的Color数组 | 返回单个Color对象 | 返回单个Color对象 |
-
 | 适用场景 | ①图像分类：通过颜色分布特征识别图片类型（如自然风景、人工制品）；②动态适配：根据主色生成配套UI元素（如按钮、图标颜色匹配）。 | 需要快速获取图像中最突出的单一颜色（如提取LOGO主色、检测明显色块）。 | 需要反映图像整体色调（如主题色适配）。 |
 
 9. **方案三：平均色统计**。
@@ -181,13 +170,9 @@ console.info('get highest SatColor color =', '{red:', highestSatColor.red, 'gree
 17. **与相似接口区别：**
 
 |    | getHighestSaturationColor | getLargestProportionColor | getMainColorSync |
-
 | --- | --- | --- | --- |
-
 | 算法逻辑 | 基于HSV模型筛选S值最高的颜色 | 统计像素频率最高颜色 | 综合亮度、位置等权重计算主色 |
-
 | 结果特性 | 鲜艳度最高的单一颜色（如亮红色） | 占比最大的颜色（可能低饱和） | 视觉显著色（可能非最高饱和） |
-
 | 适用场景 | ①识别图像中的强调色（如广告中的促销标识）；②为设计工具提供高饱和度配色方案（如海报设计、品牌色提取）。 | 提取LOGO主色、检测明显色块等。 | 主题色适配等。 |
 
 18. **方案五：黑白灰属性分析**。
@@ -204,13 +189,9 @@ console.info('isBlackOrWhiteOrGrayColor', isNeutral);
 20. **与相似接口区别：**
 
 |    | isBlackOrWhiteOrGrayColor | getHighestSaturationColor | getAverageColor |
-
 | --- | --- | --- | --- |
-
 | 算法逻辑 | 基于RGB通道差异或HSV饱和度判断 | 筛选饱和度最高的颜色 | 计算颜色均值 |
-
 | 结果特性 | 返回布尔值，仅标识是否为无彩色 | 返回具体颜色值（高饱和彩色） | 返回混合色（可能包含灰调） |
-
 | 适用场景 | ①深色模式适配：检测系统或UI元素颜色是否为黑白灰，避免与深色背景冲突；②图像分类：识别黑白照片或灰度界面截图；③无障碍设计：确保文字与背景颜色对比度符合无障碍标准 | 识别图像中的强调色等。 | 渐变背景色适配等。 |
 
 21. **像素级操作取色**。

@@ -15,15 +15,10 @@ Mac DevEco Studio使用出现异常，原因有哪些。
 - idea.properties用于定制化DevEco Studio运行参数，基于IntelliJ平台扩展了HarmonyOS开发专属配置项，需通过菜单栏Help > Edit Custom Properties修改。
 
 | 参数 | 说明 | 默认值 | 风险提示 |
-
 | --- | --- | --- | --- |
-
 | grs_url | 设置云端环境连接地址 | - | 需确保地址合法性 |
-
 | npm_config_strict_ssl | 控制npm的HTTPS证书校验(true=开启校验，false=关闭) | true | 关闭后存在安全风险 |
-
 | ohpm_config_strict_ssl | 控制ohpm的HTTPS证书校验(true=开启校验，false=关闭) | true | 关闭后存在安全风险 |
-
 | arkts.server.max.old.space.size | 设置Node进程内存上限（单位：MB）示例：arkts.server.max.old.space.size=12288 | 8192 (8GB) | 需根据物理内存调整 |
 
  
@@ -34,15 +29,10 @@ Mac DevEco Studio使用出现异常，原因有哪些。
 - **Mac DevEco Studio无法正常使用，可能有多种现象和原因，汇总如下：**
 
 | 问题现象 | 问题原因 |
-
 | --- | --- |
-
 | 引用时出现延迟 需要等待一会才会找到命名的常量 | 内存溢出导致的卡顿 |
-
 | Mac DevEco Studio新建工程就报错: 00302013 Script Error | 用户Home目录中安装了hvigor |
-
 | Mac DevEco Studio 5.1.1 更新后 build报错 | 服务器的运行应用程序的打开文件的最大数及最大进程数设置 |
-
 | Mac DevEco Studio 的编辑器无法打开预览器和构建应用，报错 | IDE显示了Mac 系统中由 Finder 自动生成的隐藏文件DS_Store |
 - **场景一：引用时出现延迟,需要等待一会才会找到命名的常量：**命名常量，引用时出现延迟，需要等待一会才会找到命名的常量。
 - **场景二：Mac DevEco Studio新建工程就报错:00302013_Script_Error：**Mac DevEco Studio新建工程就报错:00302013_Script_Error:

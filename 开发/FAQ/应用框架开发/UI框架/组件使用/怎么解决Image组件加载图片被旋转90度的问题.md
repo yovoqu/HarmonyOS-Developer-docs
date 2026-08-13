@@ -48,17 +48,11 @@ struct ImageRotationProblem {
 2. 检查原图片Exif信息，定位其orientation属性。通过在线网站查看图片信息得知该图片的拍摄方向为逆时针旋转90度。由此，定位到图片被旋转的原因。
 
 | 属性 | 说明 | 值 |
-
 | --- | --- | --- |
-
 | ImageWidth | 像素宽度 | 4032 |
-
 | XResolution | X分辨率 | 72 |
-
 | YResolution | Y分辨率 | 72 |
-
 | Resolution | 分辨率单位 | 英寸 |
-
 | Orientation | 拍摄方向 | 6（逆时针旋转90°） |
  
  

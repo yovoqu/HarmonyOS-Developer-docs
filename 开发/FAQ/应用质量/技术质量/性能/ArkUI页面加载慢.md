@@ -16,19 +16,12 @@
 - [Smartperf-Host](https://gitcode.com/openharmony-sig/smartperf)是一款深入挖掘数据、细粒度地展示数据的性能功耗调优工具，旨在为开发者提供一套性能调优平台，支持对CPU调度、频点、进程线程时间片、堆内存、帧率等数据进行采集和展示，展示方式为泳道图，支持GUI（图形用户界面）操作进行详细数据分析。页面加载相关Trace关键字如下：
 
 | 关键字 | 说明 |
-
 | --- | --- |
-
 | H:DispatchTouchEvent 位置 type=1 | 应用收到点击离手的事件 |
-
 | H:ABILITY_OR_PAGE_SWITCH | 页面切换过程 |
-
 | H:HttpRequestInner | http请求 |
-
 | H:CustomNode:BuildItem[组件名][self:组件ID][parent:父组件ID] | 构建自定义组件 |
-
 | H:CustomNodeBase:Destroy[组件名] | 自定义组件销毁 |
-
 | H:CreateTaskMeasure[组件名][self:组件ID][parent:父组件ID] | 创建组件的测量任务，确定组件的宽高 |
 - 在日志中搜索关键字应用包名/NETSTACK可以看到应用发起http网络请求时的耗时情况，其中的参数含义为：**size**：上传或者下载的数据大小（byte）。
 

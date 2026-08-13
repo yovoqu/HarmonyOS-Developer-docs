@@ -102,17 +102,11 @@ HarmonyOS折叠电脑凭借其独特的折叠设计、全屏触控和[虚拟键�
 
 
 | API | 说明 |
-
 | --- | --- |
-
 | display.getAllDisplays() | 获取所有的Display对象。不同设备形态下对应的Display区域如上图所示。 |
-
 | display.getDisplayByIdSync() | 根据displayId获取对应的Display对象。具体的displayId可参考屏幕规格信息表格中屏幕ID行。 除半折叠态（关闭全尺寸键盘）分为上下两屏，上屏displayId为0，下屏displayId为999，其余状态折叠电脑屏幕的displayId均为0。 |
-
 | display.getDefaultDisplaySync() | 获取当前默认的Display对象。除半折叠态（关闭全尺寸键盘）获取的Display对象为displayId为0的上屏，其余设备形态下获取的Display区域如上图所示。 |
-
 | display.getPrimaryDisplaySync() | 获取主屏信息。对于折叠电脑，当外接屏幕时，获取的是当前主屏幕的Display对象；当没有外接屏幕时，获取的是设备自带屏幕中displayId为0的Display对象。 |
-
 | display.on('add'\|'remove'\|'change') | 开启显示设备新增、移除、变化的监听。 |
 
   
@@ -164,29 +158,20 @@ HarmonyOS折叠电脑凭借其独特的折叠设计、全屏触控和[虚拟键�
 - 获取设备折叠状态相关接口
 
 | API | 说明 |
-
 | --- | --- |
-
 | display.getFoldStatus() | 主动获取可折叠设备的当前折叠状态。具体折叠状态可参考上表中的FoldStatus行。 |
-
 | display.on('foldStatusChange') | 开启折叠设备折叠状态变化的监听。当前设备物理折叠状态FoldStatus变化时，触发回调函数，返回折叠设备当前折叠状态。 |
 - 获取可用区域相关接口
 
 | API | 说明 |
-
 | --- | --- |
-
 | display.getAvailableArea() | 获取当前设备屏幕的可用区域，使用Promise异步回调，仅支持电脑设备。 |
-
 | display.on('availableAreaChange') | 开启当前设备屏幕的可用区域监听。当前设备屏幕有可用区域变化时，触发回调函数，返回可用区域，仅支持电脑设备。 |
-
 | display.getDisplayByIdSync() | 返回displayId对应的display对象。其中包含电脑设备上屏幕的可用区域宽度availableWidth和高度availableHeight。display对应的区域可参考屏幕规格信息中的常用接口部分。 |
 - 获取折痕区域相关接口
 
 | API | 说明 |
-
 | --- | --- |
-
 | display.getCurrentFoldCreaseRegion() | 在当前显示模式下获取折叠折痕区域。返回FoldCreaseRegion对象，即设备在当前显示模式下的折叠折痕区域。具体返回数据可参考设备特有能力表中的FoldCreaseRegion行。 |
 
  

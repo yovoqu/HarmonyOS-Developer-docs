@@ -15,9 +15,7 @@
 - 9-patch图：是一种特殊的PNG格式图片，分为伸缩区（下图灰色，可拉伸区域）和安全区（下图黑色，固定区域），当图片拉伸时，仅对可拉伸区域进行拉伸，固定区域保持原始尺寸与形态不变。
 
 | 水平拉伸（灰色为可拉伸区域） | 垂直拉伸（灰色为可拉伸区域） |
-
 | --- | --- |
-
 |  |  |
 - Image组件的[resizable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#resizable11)属性，可精准指定图片的可拉伸区域与固定区域，从而确保图片在不同尺寸的容器中都能保持良好的视觉效果。
 [slice](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-implementing-image-resizable#section192433524230)参数可以通过上、下、左、右四个偏移量定义四个角的区域为固定区域。

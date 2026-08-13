@@ -30,15 +30,10 @@ OpenSL ES中提供了以下的接口，HarmonyOS当前仅实现了部分[接口]
 - **HarmonyOS上支持的SLInterfaceID：**
 
 | SLInterfaceID | 说明 |
-
 | --- | --- |
-
 | SL_IID_ENGINE | 通用引擎，提供创建播放对象接口。 |
-
 | SL_IID_PLAY | 提供播放状态接口。 |
-
 | SL_IID_VOLUME | 提供音频播放流音量调节和读取接口。 |
-
 | SL_IID_OH_BUFFERQUEUE | 提供音频播放流数据回调注册接口。 |
 - **HarmonyOS上支持的Engine接口：**
 
@@ -73,17 +68,11 @@ SLresult (*SetVolumeLevel) (SLVolumeItf self, SLmillibel level)
   以下接口需引入<OpenSLES_OpenHarmony.h>使用。
 
 | 接口 | 说明 |
-
 | --- | --- |
-
 | SLresult (*Enqueue) (SLOHBufferQueueItf self, const void *buffer, SLuint32 size) | 根据情况将buffer加到相应队列中。 如果是播放操作，则将带有音频数据的buffer插入到filledBufferQ_队列中；如果是录音操作，则将录音使用后的空闲buffer插入到freeBufferQ_队列中。 self：表示调用该函数的BufferQueue接口对象。 buffer：播放时表示带有音频数据的buffer，录音时表示已存储完录音数据后的空闲buffer。 size：表示buffer的大小。 |
-
 | SLresult (*Clear) (SLOHBufferQueueItf self) | 释放BufferQueue接口对象。 self：表示调用该函数的BufferQueue接口对象将被释放。 |
-
 | SLresult (*GetState) (SLOHBufferQueueItf self, SLOHBufferQueueState *state) | 获取BufferQueue接口对象状态。 self：表示调用该函数的BufferQueue接口对象。 state：BufferQueue的当前状态。 |
-
 | SLresult (*RegisterCallback) (SLOHBufferQueueItf self, SlOHBufferQueueCallback callback, void* pContext) | 注册回调函数。 self：表示调用该函数的BufferQueue接口对象。 callback：播放/录音时注册的回调函数。 pContext：播放时传入待播放音频文件，录音时传入将要录制的音频文件。 |
-
 | SLresult (*GetBuffer) (SLOHBufferQueueItf self, SLuint8** buffer, SLuint32* size) | 根据情况获取相应的buffer。 如果是播放操作，则从freeBufferQ_队列中获取空闲buffer；如果是录音操作，则从filledBufferQ_队列中获取携带录音数据的buffer。 self：表示调用该函数的BufferQueue接口对象。 buffer：播放时表示空闲的buffer，录音时表示携带录音数据的buffer。 size：表示buffer的大小。 |
 
  

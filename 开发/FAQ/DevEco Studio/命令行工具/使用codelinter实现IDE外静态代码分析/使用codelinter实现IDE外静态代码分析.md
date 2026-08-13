@@ -54,21 +54,13 @@ codelinter [options] [dir]
 
 
 | 字段名 | 说明 |
-
 | --- | --- |
-
 | filePath | 代码文件路径 |
-
 | messages | 一个数组，每个元素对应检查到的一个问题 |
-
 | line | 问题所在代码行数 |
-
 | column | 问题所在代码列数 |
-
 | severity | 问题严重程度 |
-
 | message | 问题描述 |
-
 | rule | 问题对应的规则 |
 
  

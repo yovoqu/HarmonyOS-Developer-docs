@@ -39,37 +39,23 @@ TCubeTiling结构体包含Matmul Tiling切分算法的相关参数，被传递�
   **表2** TCubeTiling约束条件
 
 | 约束条件 | 说明 |
-
 | --- | --- |
-
 | usedCoreNum <= aiCoreCnt | 使用核数小于等于当前AI处理器的最大核数。 |
-
 | baseM * baseK * sizeof(A_type) * dbL0A< l0a_size | A矩阵base块不超过l0a buffer大小。 |
-
 | baseN * baseK * sizeof(B_type) * dbL0B < l0b_size | B矩阵base块不超过l0b buffer大小。 |
-
 | baseM * baseN * sizeof(int32_t) * dbL0C < l0c_size | C矩阵base块不超过l0c buffer大小。 |
-
 | baseN * sizeof(Bias_type) < biasT_size | Bias的base块不超过BiasTable buffer大小。 |
-
 | stepM * stepKa * db = depthA1 db这里表示为左矩阵MTE2是否开启double buffer，即L1是否开启double buffer，取值1（不开启double buffer）或2（开启double buffer） | depthA1的取值与stepM * stepKa * db相同。 |
-
 | stepN * stepKb * db = depthB1 db这里表示为右矩阵MTE2是否开启double buffer，即L1是否开启double buffer，取值1（不开启double buffer）或2（开启double buffer） | depthB1的取值与stepN * stepKb * db相同。 |
-
 | baseM * baseK * depthA1 * sizeof(A_type) + baseN * baseK * depthB1 * sizeof(B_type) <= L1_size | A矩阵和B矩阵在L1缓存块满足L1 buffer大小限制。 |
-
 | baseM * baseK, baseK * baseN和baseM * baseN按照NZ格式的分形对齐 | A矩阵、B矩阵、C矩阵的base块需要满足对齐约束： baseM和baseN需要以16个元素对齐，baseK需要以C0_size对齐。 说明： half/bfloat16_t数据类型的C0_size为16，float数据类型的C0_size为8，int8_t数据类型的C0_size为32，int4_t数据类型的C0_size为64。 |
 
   **表3** MDL模板补充约束条件
 
 | 约束条件 | 说明 |
-
 | --- | --- |
-
 | Ka不全载时，即Ka / baseK > stepKa，stepM = 1 | K方向非全载时，M方向只能逐块搬运。 |
-
 | Kb不全载时，即Kb / baseK > stepKb，stepN = 1 | K方向非全载时，N方向只能逐块搬运。 |
-
 | kaStepIter_ % kbStepIter_ = 0或者kbStepIter_ % kaStepIter_ = 0 kaStepIter_ = CeilDiv(tiling_->singleCoreK_, tiling_->baseK * tiling_->stepKa) kbStepIter_ = CeilDiv(tiling_->singleCoreK_, tiling_->baseK * tiling_->stepKb) | MDL模板K方向循环搬运要求Ka和Kb方向迭代次数为倍数关系。 kaStepIter_ ：Ka方向循环搬运迭代次数。 kbStepIter_ ：Kb方向循环搬运迭代次数。 |
 - 性能调优推荐取值
 

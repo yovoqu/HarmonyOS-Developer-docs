@@ -220,19 +220,12 @@ $ wukong exec -s 10 -i 1000 -a 0.28 -t 0.72 -c 100
   命令中各参数含义：
 
 | 命令 | 参数值 | 说明 |
-
 | --- | --- | --- |
-
 | wukong exec | - | 主命令。 |
-
 | -s | 10 | 参数设置随机种子，10为种子值。 |
-
 | -i | 1000 | 参数设置应用拉起间隔为1000ms。 |
-
 | -a | 0.28 | 参数设置应用随机拉起测试比例28%。 |
-
 | -t | 0.72 | 参数设置屏幕随机touch测试比例为72%。 |
-
 | -c | 100 | 参数设置执行次数为100次。 |
 - 指定页面压测
 
@@ -404,45 +397,28 @@ FileTransfer finish, Size:76492, File count = 1, time:16ms rate:4780.75kB/s
  1. 基本信息（Base Info）
 
 | 字段 | 描述 |
-
 | --- | --- |
-
 | task status | 任务状态。success表示成功，fail表示失败。 |
-
 | task time | 任务执行时间。单位：秒。 |
-
 | seed | 随机种子。 |
-
 | task count | 事件注入总次数。 |
 2. 故障注入统计（Input Message Statistics）
 
 | 类型 | 描述 |
-
 | --- | --- |
-
 | type | 事件或控件注入的类型，事件注入类型范围请参考随机测试命令参数，控件注入类型范围请参考ArkTS组件。 |
-
 | execTimes | 事件或者控件注入执行次数。 |
-
 | proportion | 当前事件操作在事件注入执行总次数里的占比。 |
-
 | inputedTimes | 遍历的控件类型个数。 |
-
 | expectInputTimes | 应用控件类型总数。 |
-
 | coverage | 控件遍历覆盖率。 |
 3. Ability统计（ability Statistics）
 
 | 字段 | 描述 |
-
 | --- | --- |
-
 | bundleName | 应用的bundleName。 |
-
 | inputedAbilityCount | 遍历的Ability数量。 |
-
 | abilitiesCount | 应用的Ability总数。 |
-
 | coverage | Ability遍历覆盖率。 |
 4. 故障统计（Exception Message Statistics）
 
@@ -452,13 +428,9 @@ FileTransfer finish, Size:76492, File count = 1, time:16ms rate:4780.75kB/s
 
 
 | 字段 | 描述 |
-
 | --- | --- |
-
 | type | 故障类型，故障类型包含：CPP_CRASH、JS_CRASH、SYS_FREEZE、APP_FREEZE等。 |
-
 | times | 故障次数。 |
-
 | proportion | 当前故障在故障总数里的占比。 |
  
   

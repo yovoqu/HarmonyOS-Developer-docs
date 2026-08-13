@@ -20,20 +20,14 @@
 - 文本绘制在开发过程中是一个常见的需求，[@ohos.graphics.text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text)模块提供了接口创建复杂的文本段落，包括多样的文本样式、段落样式、换行规则等，并最终将这些信息转换为能在屏幕上高效渲染的布局数据。实现文本样式的统一设置（如下划线，加粗等）可以使用[CustomSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#customspan)，实现自定义文本绘制逻辑（如动画以及过渡效果等）需要创建[RenderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode)，并在其中定义绘图函数，使用[Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas)中的[attachPen](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas#attachpen)和[attachBrush](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas#attachbrush)接口将画笔画刷的实例设置到画布实例中后在Canvas上进行文本绘制，详细操作步骤可参考[简单文本绘制与显示](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/simple-text-arkts)。CustomSpan和RenderNode的适用场景区别如下表所示。
 
 | 方法 | 适用场景 |
-
 | --- | --- |
-
 | CustomSpan | 富文本展示（如图文混排）、文本样式自定义。 |
-
 | RenderNode | 自定义UI控件或图形绘制、实现动画或复杂布局。 |
 - 文本绘制常用工具有[drawTextBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas#drawtextblob)与[drawSingleCharacter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas#drawsinglecharacter12)，前者常用于绘制一段文字，后者常用于绘制单个字符，两者的使用场景对比如下表所示：
 
 | 方法 | 优点 | 缺点 | 适用场景 |
-
 | --- | --- | --- | --- |
-
 | drawTextBlob | 高效、适合长文本。 | 控制粒度差。 | 绘制长文本、段落、标题。需要字体、颜色、样式统一。 |
-
 | drawSingleCharacter | 灵活、支持逐字符控制。 | 性能较低、不适合大量字符。 | 动态字符、逐字动画、特殊效果。需要独立控制每个字符。单个字符的简单文本绘制。 |
 
  

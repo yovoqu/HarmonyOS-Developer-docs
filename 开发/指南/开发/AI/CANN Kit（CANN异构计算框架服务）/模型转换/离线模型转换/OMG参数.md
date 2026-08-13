@@ -47,53 +47,31 @@
 - 非AIPP场景设定输入类型支持情况
 
 | 原始模型实际输入 | 离线模型期望输入（开发者设定） | 针对OMG参数 |
-
 | --- | --- | --- |
-
 | FP32 | FP16 | --input_type |
-
 | FP32 | FP32 | --input_type |
-
 | FP16 | FP16 | --input_type |
-
 | UINT8 | UINT8 | --input_type |
-
 | INT32 | INT32 | --input_type |
-
 | INT8 | INT8 | --input_type |
 - AIPP场景设定输入类型支持情况
 
 | 原始模型实际输入 | 离线模型期望输入 | 是否有AIPP | 针对OMG参数 |
-
 | --- | --- | --- | --- |
-
 | FP32 | UINT8 | 有 | --input_type |
-
 | FP16 | UINT8 | 有 | --input_type |
-
 | UINT8 | UINT8 | 有 | --input_type |
 - 设定输出类型支持情况
 
 | 原始模型 | 离线模型输出 | 针对OMG参数 |
-
 | --- | --- | --- |
-
 | FP32 | UINT8 | --output_type |
-
 | FP16 | UINT8 | --output_type |
-
 | UINT8 | UINT8 | --output_type |
-
 | FP16 | FP16 | --output_type |
-
 | FP32 | FP32 | --output_type |
-
 | FP32 | FP16 | --output_type |
-
 | FP16 | FP32 | --output_type |
-
 | INT8 | INT8 | --output_type |
-
 | INT32 | INT32 | --output_type |
-
 | INT64 | INT64 | --output_type |

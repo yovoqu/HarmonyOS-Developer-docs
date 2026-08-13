@@ -199,11 +199,8 @@ SIP是macOS的一项安全功能，旨在防止对关键系统文件和资源的
 重新安装DevEco Studio。卸载之后、重新安装之前，需要删除缓存文件：
 
 | 系统 | 默认路径 |
-
 | --- | --- |
-
 | MacOS | /Users/您的用户名/Library/Application Support/Huawei/DevEcoStudio5.0<br/>/Users/您的用户名/Library/Logs/Huawei/DevEcoStudio5.0<br/>/Users/您的用户名/Library/Caches/Huawei/DevEcoStudio5.0 |
-
 | Windows | C:\Program Files\Huawei\DevEco Studio<br/>C:\Users\您的用户名\AppData\Local\Huawei\DevEcoStudio5.0 |
 2. 命令行工具没有足够的App管理权限导致。打开应用，然后在“系统设置->隐私与安全性->安全性”，在提示“已阻止使用DevEco-Studio”附近，点击“仍要打开”。然后在终端执行如下命令：sudo xattr -d com.apple.quarantine /Applications/DevEco-Studio.app
 3. help->find action，输入registry，点击生成registry界面；registry界面中取消勾选jcef.sandbox.enable选项。

@@ -65,11 +65,8 @@ target_link_libraries(sample PUBLIC libhilog_ndk.z.so)
 2. 设置回调监听函数：使用[OH_AVPlayer_SetOnInfoCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setoninfocallback)、[OH_AVPlayer_SetOnErrorCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setonerrorcallback)接口设置信息监听回调函数和错误监听回调函数，搭配全流程场景使用。支持的监听回调函数包括：
 
 | 回调函数类型 | 说明 |
-
 | --- | --- |
-
 | OH_AVPlayerOnInfoCallback | 必要回调函数，监听播放器的过程信息。 需要播放器在AV_IDLE状态下、未调用设置资源接口前完成设置监听，若在调用设置资源接口后再设置监听，可能导致无法收到资源设置过程中上报的信息事件。 |
-
 | OH_AVPlayerOnErrorCallback | 必要回调函数，监听播放器的错误信息。 需要播放器在AV_IDLE状态下、未调用设置资源接口前完成设置监听，若在调用设置资源接口后再设置监听，可能导致无法收到资源设置过程中上报的信息事件。 |
 
   应用使用[OH_AVPlayer_SetOnInfoCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setoninfocallback)、[OH_AVPlayer_SetOnErrorCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setonerrorcallback)接口设置信息监听回调函数和错误监听回调函数，可以获取更多信息，还可以通过设置 userData 区分不同播放实例。

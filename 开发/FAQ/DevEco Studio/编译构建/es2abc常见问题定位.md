@@ -24,35 +24,20 @@ cd out/rk3568/clang_x64/arkcompiler/ets_frontend/
  当不输入任何option参数时，默认生成方舟二进制文件。
 
 | 选项 | 描述 | 取值范围 | 默认值 |
-
 | --- | --- | --- | --- |
-
 | --debug-info | 携带调试信息。 | - | - |
-
 | --debugger-evaluate-expression | 在调试器下对输入的base64格式表达式进行求值。 | - | - |
-
 | --dump-assembly | 输出为汇编文件。 | - | - |
-
 | --dump-ast | 打印解析得到的抽象语法树（AST）。 | - | - |
-
 | --dump-debug-info | 打印调试信息。 | - | - |
-
 | --dump-literal-buffer | 打印字面量缓冲区内容。 | - | - |
-
 | --dump-size-stat | 显示字节码相关的统计信息。 | - | - |
-
 | --extension | 指定输入类型。 | ['js', 'ts', 'as'] | - |
-
 | --help | 帮助提示。 | - | - |
-
 | --module | 按照ESM模式编译。 | - | - |
-
 | --opt-level | 指定编译优化等级。 | ['0', '1', '2'] | 0 |
-
 | --output | 输出文件路径。 | - | - |
-
 | --parse-only | 只对输入文件做解析动作。 | - | - |
-
 | --thread | 指定生成字节码时所用的线程数目。 | 0-机器支持的线程数目 | 0 |
 
   更多使用说明请参考：[方舟运行时使用指南](https://gitcode.com/openharmony/arkcompiler_ets_runtime/blob/master/docs/README_zh.md)。

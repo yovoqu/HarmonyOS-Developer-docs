@@ -52,13 +52,9 @@ OH_AVTranscoder *transcoder = OH_AVTranscoder_Create();
 2. 设置回调事件函数：使用OH_AVTranscoder_SetStateCallback()、OH_AVTranscoder_SetErrorCallback()和OH_AVTranscoder_SetProgressUpdateCallback()接口设置回调转码状态、转码错误事件和转码进度更新回调函数，搭配全流程场景使用。支持的回调事件包括：
 
 | 事件类型 | 说明 |
-
 | --- | --- |
-
 | OH_AVTranscoder_OnStateChange | 可选事件，回调转码过程中状态。 |
-
 | OH_AVTranscoder_OnError | 可选事件，回调转码错误事件。 |
-
 | OH_AVTranscoder_OnProgressUpdate | 可选事件，回调转码进度更新事件。 |
 
   应用使用OH_AVTranscoder_SetStateCallback()、OH_AVTranscoder_SetErrorCallback()和OH_AVTranscoder_SetProgressUpdateCallback()接口设置回调转码状态、转码错误事件和转码进度更新回调函数，可以获取更多信息，还可以通过设置userData自定义数据。

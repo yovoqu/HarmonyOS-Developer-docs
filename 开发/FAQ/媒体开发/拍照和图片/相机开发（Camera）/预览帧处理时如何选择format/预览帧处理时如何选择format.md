@@ -74,19 +74,12 @@ Tid:54261, Name:OS_FFRT_2_2
 - 三者关系：CameraFormat决定nextImage.format，二次预览时则需要根据nextImage.format取值来选择对应的PixelMapFormat和单位像素字节数。芯片根据创建预览输出流时的CameraFormat类型来出图，因此nextImage.format是由CameraFormat来决定的。而在将nextImage处理成pixelMap时，需要根据nextImage.format的值选择对应的PixelMapFormat以及单位像素字节数。三者的对应关系如下表：
 
 | CameraFormat值 | 对应nextImage.format值 | PixelMapFormat取值 | 单位像素字节数 | 适用的输出流 |
-
 | --- | --- | --- | --- | --- |
-
 | CAMERA_FORMAT_RGBA_8888 | - | - | - | - |
-
 | CAMERA_FORMAT_YUV_420_SP | 25 | image.PixelMapFormat.NV21 | 1.5 | 预览流，视频流（NORMAL_VIDEO） |
-
 | CAMERA_FORMAT_JPEG | - | - | - | 拍照流（NORMAL_PHOTO） |
-
 | CAMERA_FORMAT_YCBCR_P010 | 35 | image.PixelMapFormat.YCBCR_P010 | 3 | 预览流（NORMAL_VIDEO），视频流（NORMAL_VIDEO） |
-
 | CAMERA_FORMAT_YCRCB_P010 | 36 | image.PixelMapFormat.YCRCB_P010 | 3 | 预览流（NORMAL_VIDEO），视频流（NORMAL_VIDEO） |
-
 | CAMERA_FORMAT_HEIC | - | - | - | - |
 
   

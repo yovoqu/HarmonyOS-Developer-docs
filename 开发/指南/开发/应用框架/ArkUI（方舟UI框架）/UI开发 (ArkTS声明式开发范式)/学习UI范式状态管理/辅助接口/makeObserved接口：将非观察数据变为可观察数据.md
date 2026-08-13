@@ -200,17 +200,11 @@ struct Page2 {
  - makeObserved传入内置类型或collections类型的实例时，可以观测其API带来的变化：
 
 | 类型 | 可观测变化的API |
-
 | --- | --- |
-
 | Array | push、pop、shift、unshift、splice、copyWithin、fill、reverse、sort |
-
 | collections.Array | push、pop、shift、unshift、splice、fill、reverse、sort、shrinkTo、extendTo |
-
 | Map/collections.Map | set、clear、delete |
-
 | Set/collections.Set | add、clear、delete |
-
 | Date | setFullYear、setMonth、setDate、setHours、setMinutes、setSeconds、setMilliseconds、setTime、setUTCFullYear、setUTCMonth、setUTCDate、setUTCHours、setUTCMinutes、setUTCSeconds、setUTCMilliseconds |
 
 

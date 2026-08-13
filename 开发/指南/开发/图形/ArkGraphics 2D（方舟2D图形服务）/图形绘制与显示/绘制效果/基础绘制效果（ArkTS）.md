@@ -150,13 +150,9 @@ pen.setCapStyle(drawing.CapStyle.SQUARE_CAP);
 CapStyle线帽样式可选分类对应如下：
 
 | 线帽样式 | 说明 | 示意图 |
-
 | --- | --- | --- |
-
 | FLAT_CAP | 没有线帽样式，线条头尾端点处横切。 |  |
-
 | SQUARE_CAP | 线帽的样式为方框，线条的头尾端点处多出一个方框，方框宽度和线段一样宽，高度是线段宽度的一半。 |  |
-
 | ROUND_CAP | 线帽的样式为圆弧，线条的头尾端点处多出一个半圆弧，半圆的直径与线段宽度一致。 |  |
 
 6. 可使用setJoinStyle()接口设置画笔转角样式。
@@ -169,13 +165,9 @@ pen.setJoinStyle(drawing.JoinStyle.ROUND_JOIN);
 JoinStyle转角样式可选分类对应如下：
 
 | 转角样式 | 说明 | 示意图 |
-
 | --- | --- | --- |
-
 | MITER_JOIN | 转角类型为尖角 |  |
-
 | ROUND_JOIN | 转角类型为圆头 |  |
-
 | BEVEL_JOIN | 转角类型为平头 |  |
 
 7. 使用attachPen()接口给Canvas画布设置画笔。画布将会使用设置的画笔样式和颜色等绘制图形轮廓。

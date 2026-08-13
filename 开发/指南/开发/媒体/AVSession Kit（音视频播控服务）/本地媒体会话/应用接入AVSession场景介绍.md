@@ -665,28 +665,18 @@ struct Index {
  - **当AVSessionType是audio时：**
 
 | 应用注册的事件组合 | 播放中心显示按钮 | 按钮是否可用 |
-
 | --- | --- | --- |
-
 | 未注册任何事件 | “上一首”、“下一首” | 所有按钮置灰，无法点击。 |
-
 | 注册上一首/下一首事件 | “上一首”、“下一首” | 注册上一首事件 →“上一首”按钮可用。 注册下一首事件 →“下一首”按钮可用。 未注册对应事件的按钮不可用。 |
-
 | 注册快进/快退事件 | “上一首”、“下一首” | 所有按钮置灰，无法点击。 |
-
 | 注册上一首/下一首及快进/快退事件 | “上一首”、“下一首” | 注册上一首事件 →“上一首”按钮可用。 注册下一首事件 →“下一首”按钮可用。 未注册对应事件的按钮不可用。 |
  - **当AVSessionType是video时：**
 
 | 应用注册的事件组合 | 播放中心显示按钮 | 按钮是否可用 |
-
 | --- | --- | --- |
-
 | 未注册任何事件 | “快进”、“快退” | 所有按钮置灰，无法点击。 |
-
 | 注册上一首/下一首事件 | “上一首”、“下一首” | 注册上一首事件 →“上一首”按钮可用。 注册下一首事件 →“下一首”按钮可用。 未注册对应事件的按钮不可用。 |
-
 | 注册快进/快退事件 | “快进”、“快退” | 注册快进事件 →“快进”按钮可用。 注册快退事件 →“快退”按钮可用。 未注册对应事件的按钮不可用。 |
-
 | 注册上一首/下一首及快进/快退事件 | “快进”、“快退” | 注册快进事件 →“快进”按钮可用。 注册快退事件 →“快退”按钮可用。 未注册对应事件的按钮不可用。 |
 
   
@@ -1042,23 +1032,14 @@ struct Index {
   通过AVSession注册[on('handleKeyEvent')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#onhandlekeyevent10)指令。该回调接口会直接转发媒体按键事件[KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keyevent)。应用需要自行识别按键事件的类型，并响应事件实现对应的功能。目前支持转发的按键事件类型如下：
 
 | 按键类型(KeyCode) | 功能说明 |
-
 | --- | --- |
-
 | KEYCODE_MEDIA_PLAY_PAUSE | 多媒体键：播放/暂停 |
-
 | KEYCODE_MEDIA_STOP | 多媒体键：停止 |
-
 | KEYCODE_MEDIA_NEXT | 多媒体键：下一首 |
-
 | KEYCODE_MEDIA_PREVIOUS | 多媒体键：上一首 |
-
 | KEYCODE_MEDIA_REWIND | 多媒体键：快退 |
-
 | KEYCODE_MEDIA_FAST_FORWARD | 多媒体键：快进 |
-
 | KEYCODE_MEDIA_PLAY | 多媒体键：播放 |
-
 | KEYCODE_MEDIA_PAUSE | 多媒体键：暂停 |
 
   

@@ -410,11 +410,8 @@ shader中texture prefetch需要满足以下条件：
 - 以下采样函数支持texture prefetch。
 
 | gvec4 texture(gsampler2D sampler, vec2 P, [float bias]); bias is imm value or some other uniform variable |
-
 | gvec4 textureLod(gsampler2D sampler, vec2 P, float lod); lod is imm value or some other uniform variable |
-
 | gvec4 textureProj(gsampler2D sampler, vec4(or vec3) P, [float bias]); bias = 0.0 (or no bias parameter) |
-
 | gvec4 textureLodOffset(gsampler2D sampler, vec2 P, float lod, ivec2 offset); lod is imm value or some other uniform variable |
 
  
@@ -807,115 +804,60 @@ IMAGE_USAGE_COLOR_ATTACHMENT_BIT
  - image可支持的format列表如下：
 
 | 序号 | 可支持的format |
-
 | --- | --- |
-
 | 1 | FORMAT_A4B4G4R4_UNORM=2 |
-
 | 2 | FORMAT_A4R4G4B4_UNORM=3 |
-
 | 3 | FORMAT_B5G6R5_UNORM=4 |
-
 | 4 | FORMAT_R5G6B5_UNORM=5 |
-
 | 5 | FORMAT_A1B5G5R5_UNORM=6 |
-
 | 6 | FORMAT_A1R5G5B5_UNORM=7 |
-
 | 7 | FORMAT_B5G5R5A1_UNORM=8 |
-
 | 8 | FORMAT_R8_UNORM=9 |
-
 | 9 | FORMAT_R8_UINT=13 |
-
 | 10 | FORMAT_R8_SINT=14 |
-
 | 11 | FORMAT_R8G8_UNORM=16 |
-
 | 12 | FORMAT_R8G8_UINT=20 |
-
 | 13 | FORMAT_R8G8_SINT=21 |
-
 | 14 | FORMAT_R8G8B8_UNORM=23 |
-
 | 15 | FORMAT_R8G8B8_UINT=27 |
-
 | 16 | FORMAT_R8G8B8_SINT=28 |
-
 | 17 | FORMAT_R8G8B8_SRGB=29 |
-
 | 18 | FORMAT_B8G8R8_UNORM=30 |
-
 | 19 | FORMAT_B8G8R8_UINT=34 |
-
 | 20 | FORMAT_B8G8R8_SINT=35 |
-
 | 21 | FORMAT_B8G8R8_SRGB=36 |
-
 | 22 | FORMAT_R8G8B8A8_UNORM=37 |
-
 | 23 | FORMAT_R8G8B8A8_UINT=41 |
-
 | 24 | FORMAT_R8G8B8A8_SINT=42 |
-
 | 25 | FORMAT_R8G8B8A8_SRGB=43 |
-
 | 26 | FORMAT_B8G8R8A8_UNORM=44 |
-
 | 27 | FORMAT_B8G8R8A8_UINT=48 |
-
 | 28 | FORMAT_B8G8R8A8_SINT=49 |
-
 | 29 | FORMAT_B8G8R8A8_SRGB=50 |
-
 | 30 | FORMAT_B10G10R10A2_UNORM=58 |
-
 | 31 | FORMAT_B10G10R10A2_UINT=62 |
-
 | 32 | FORMAT_R10G10B10A2_UNORM=64 |
-
 | 33 | FORMAT_R10G10B10A2_UINT=68 |
-
 | 34 | FORMAT_R16_UINT=74 |
-
 | 35 | FORMAT_R16_SINT=75 |
-
 | 36 | FORMAT_R16_SFLOAT=76 |
-
 | 37 | FORMAT_R16G16_UINT=81 |
-
 | 38 | FORMAT_R16G16_SINT=82 |
-
 | 39 | FORMAT_R16G16_SFLOAT=83 |
-
 | 40 | FORMAT_R16G16B16_UINT=88 |
-
 | 41 | FORMAT_R16G16B16_SINT=89 |
-
 | 42 | FORMAT_R16G16B16_SFLOAT=90 |
-
 | 43 | FORMAT_R16G16B16A16_UINT=95 |
-
 | 44 | FORMAT_R16G16B16A16_SINT=96 |
-
 | 45 | FORMAT_R16G16B16A16_SFLOAT=97 |
-
 | 46 | FORMAT_R32_UINT=98 |
-
 | 47 | FORMAT_R32_SINT=99 |
-
 | 48 | FORMAT_R32_SFLOAT=100 |
-
 | 49 | FORMAT_R11G11B10_UFLOAT=122 |
-
 | 50 | FORMAT_D16_UNORM=124 |
-
 | 51 | FORMAT_D24_X8_UNORM=125 |
-
 | 52 | FORMAT_D32_SFLOAT=126 |
-
 | 53 | FORMAT_D24_UNORM_S8_UINT=129 |
-
 | 54 | FORMAT_D32_SFLOAT_S8_UINT=130 |
 
  
@@ -927,55 +869,30 @@ IMAGE_USAGE_COLOR_ATTACHMENT_BIT
 - 支持压缩的纹理internal format如下：
 
 | 序号 | 可支持的format |
-
 | --- | --- |
-
 | 1 | GL_RGB8_OES |
-
 | 2 | GL_RGBA8_OES |
-
 | 3 | GL_BGRA8_EXT |
-
 | 4 | GL_RGBA4 |
-
 | 5 | GL_RGB565 |
-
 | 6 | GL_RGB5_A1 |
-
 | 7 | GL_DEPTH_COMPONENT16 |
-
 | 8 | GL_DEPTH_COMPONENT24_OES |
-
 | 9 | GL_DEPTH24_STENCIL8_OES |
-
 | 10 | GL_DEPTH_COMPONENT32F |
-
 | 11 | GL_DEPTH32F_STENCIL8 |
-
 | 12 | GL_RGB10_EXT |
-
 | 13 | GL_RGB10_A2_EXT |
-
 | 14 | GL_R8_EXT |
-
 | 15 | GL_RG8_EXT |
-
 | 16 | GL_R16F |
-
 | 17 | GL_RG16F |
-
 | 18 | GL_RGBA16F |
-
 | 19 | GL_R11F_G11F_B10F |
-
 | 20 | GL_SRGB8_ALPHA8 |
-
 | 21 | GL_RGB10_A2UI |
-
 | 22 | GL_RGBA16UI |
-
 | 23 | GL_RGBA8UI |
-
 | 24 | GL_RGBA16IGL_RGBA8I |
 
  

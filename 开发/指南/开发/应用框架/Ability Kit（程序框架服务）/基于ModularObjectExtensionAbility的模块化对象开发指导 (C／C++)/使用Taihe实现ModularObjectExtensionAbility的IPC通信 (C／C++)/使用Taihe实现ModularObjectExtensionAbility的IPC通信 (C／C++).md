@@ -165,19 +165,12 @@ interface ICalculator {
 3. 生成的代码文件解析。
 
 | 文件名 | 说明 |
-
 | --- | --- |
-
 | icalculator.h | 接口定义头文件。 |
-
 | calculator_proxy.h | 客户端代理类声明。 |
-
 | calculator_proxy.cpp | 代理实现，负责参数序列化、发送IPC请求、解析返回值。 |
-
 | calculator_stub.h | 服务端Stub类声明。 |
-
 | calculator_stub.cpp | Stub实现，负责反序列化请求、调用业务实现、写回响应。 |
-
 | calculator.typelib.json | 类型库信息文件。 |
 
   
@@ -404,13 +397,9 @@ int32_t CalculatorStub::HandleAdd(const OHIPCParcel* data, OHIPCParcel* reply)
 除开发者自定义的接口外，还会自动生成GetTypeLibInfo、GetVersion、GetTaiheVersion等方法。
 
 | 方法 | 默认行为 | 常量 |
-
 | --- | --- | --- |
-
 | GetTypeLibInfo | 返回类型库信息。 | COMMAND_GET_TYPE_LIB_INFO = 1 |
-
 | GetVersion | 返回@main_service注解中 version 声明的版本号。 | COMMAND_GET_VERSION = 2 |
-
 | GetTaiheVersion | 返回Taihe编译器的版本，供系统调用，开发者无需关注。 | COMMAND_GET_TAIHE_VERSION = 3 |
 9. Proxy和Stub源码的使用。
 

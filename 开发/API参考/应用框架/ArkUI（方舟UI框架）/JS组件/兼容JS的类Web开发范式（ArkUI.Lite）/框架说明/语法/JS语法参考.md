@@ -53,11 +53,8 @@ import utils from '../../common/utils.js';
 - 页面对象
 
 | 属性 | 类型 | 描述 |
-
 | --- | --- | --- |
-
 | data | Object/Function | 页面的数据模型，类型是对象或者函数，如果类型是函数，返回值必须是对象。属性名不能以$或_开头，不要使用保留字for, if, show, tid。 |
-
 | $refs | Object | 持有注册过ref 属性的DOM元素或子组件实例的对象。示例见获取DOM元素。 |
 
  

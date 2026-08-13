@@ -36,11 +36,8 @@
 2. **触发Skill**：向AI编码工具描述应用类型和推送场景，并在对话中加入关键词或者Skill名称触发Skill。见以下示例。
 
 | 使用方式 | 示例 |
-
 | --- | --- |
-
 | 关键词触发 | “帮我使用Push自分类推荐”、“帮我推荐xxx场景用什么push分类” |
-
 | Skill名称触发 | “请使用hmos-push-kit-recommend-self-classification推荐自分类权益” |
 3. **获取推荐结果**：Skill分析后返回推荐类别和申请材料清单。
 4. **准备材料并申请通知消息自分类权益**：根据推荐结果准备相应材料，在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)网站提交申请，详情见[申请步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-apply-right#申请步骤)。下图为金融应用的示例，描述场景然后通过Skill名称触发调用，AI返回相应推荐结果。

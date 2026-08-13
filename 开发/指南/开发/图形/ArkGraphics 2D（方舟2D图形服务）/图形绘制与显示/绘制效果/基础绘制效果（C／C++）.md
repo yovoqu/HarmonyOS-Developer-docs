@@ -107,25 +107,15 @@ OH_Drawing_BrushDestroy(brush);
   使用画笔（Pen）设置绘制效果的常用接口如下表所示，详细的使用和参数请见[drawing_pen](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-pen-h)。
 
 | 接口 | 描述 |
-
 | --- | --- |
-
 | OH_Drawing_Pen* OH_Drawing_PenCreate (void) | 用于创建一个画笔对象。 |
-
 | void OH_Drawing_CanvasAttachPen (OH_Drawing_Canvas* , const OH_Drawing_Pen* ) | 用于设置画笔给画布，画布将会使用设置画笔的样式和颜色去绘制图形形状的轮廓。 |
-
 | void OH_Drawing_PenSetColor (OH_Drawing_Pen* , uint32_t color) | 用于设置画笔的颜色属性，颜色属性描述了画笔绘制图形轮廓时使用的颜色，用一个32位（ARGB）的变量表示。 |
-
 | void OH_Drawing_PenSetWidth (OH_Drawing_Pen* , float width) | 用于设置画笔的线宽。0线宽被视作特殊的极细线宽，在绘制时始终会被绘制为1像素，不随画布的缩放而改变；负数线宽在实际绘制时会被视作0线宽。 |
-
 | void OH_Drawing_PenSetAntiAlias (OH_Drawing_Pen* , bool ) | 用于设置画笔的抗锯齿属性，设置为true则画笔在绘制图形时会对图形的边缘像素进行半透明的模糊处理。 |
-
 | void OH_Drawing_PenSetCap (OH_Drawing_Pen* , OH_Drawing_PenLineCapStyle) | 用于设置画笔线帽样式。 |
-
 | void OH_Drawing_PenSetJoin (OH_Drawing_Pen* , OH_Drawing_PenLineJoinStyle) | 用于设置画笔绘制转角的样式。 |
-
 | void OH_Drawing_CanvasDetachPen (OH_Drawing_Canvas*) | 用于去除画布中的画笔，执行后画布将不去绘制图形形状的轮廓，恢复到默认的填充效果。 |
-
 | void OH_Drawing_PenDestroy (OH_Drawing_Pen*) | 用于销毁画笔对象并回收该对象占用的内存。 |
 
   
@@ -183,13 +173,9 @@ OH_Drawing_PenSetCap(pen, OH_Drawing_PenLineCapStyle::LINE_ROUND_CAP);
 OH_Drawing_PenLineCapStyle线帽样式可选分类对应如下：
 
 | 线帽样式 | 说明 | 示意图 |
-
 | --- | --- | --- |
-
 | LINE_FLAT_CAP | 没有线帽样式，线条头尾端点处横切。 |  |
-
 | LINE_SQUARE_CAP | 线帽的样式为方框，线条的头尾端点处多出一个方框，方框宽度和线段一样宽，高度是线段宽度的一半。 |  |
-
 | LINE_ROUND_CAP | 线帽的样式为圆弧，线条的头尾端点处多出一个半圆弧，半圆的直径与线段宽度一致。 |  |
 
 6. 可使用OH_Drawing_PenSetJoin()接口设置画笔转角样式。
@@ -202,13 +188,9 @@ OH_Drawing_PenSetJoin(pen, OH_Drawing_PenLineJoinStyle::LINE_BEVEL_JOIN);
 OH_Drawing_PenLineJoinStyle转角样式可选分类对应如下：
 
 | 转角样式 | 说明 | 示意图 |
-
 | --- | --- | --- |
-
 | LINE_MITER_JOIN | 转角类型为尖角 |  |
-
 | LINE_ROUND_JOIN | 转角类型为圆头 |  |
-
 | LINE_BEVEL_JOIN | 转角类型为平头 |  |
 
 7. 使用OH_Drawing_CanvasAttachPen()接口给Canvas画布设置画笔。接口接受两个参数，一个是画布对象Canvas，请确保已创建或获取得到画布Canvas，具体可见[画布的获取与绘制结果的显示（C/C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-c)；另一个是要设置的画笔对象。画布将会使用设置的画笔样式和颜色等绘制图形轮廓。

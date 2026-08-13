@@ -42,7 +42,6 @@
 
 
 | 新版本 | 历史版本 |
-
 |  |  |
 
 1. 创建以下目录或文件，文件内容示例可在[运行Instrument Test测试用例](#section1574003717165)后，在对应模块的.test/{productName}/intermediates/src/ohosTest（DevEco Studio 6.1.0 Beta1及以上版本）或build/{productName}/intermediates/src/ohosTest（DevEco Studio 6.1.0 Beta1以下版本）下查看，其中productName是当前生效的product，可以通过点击DevEco Studio右上方
@@ -250,13 +249,9 @@ testability目录 > TestAbility.ets文件
 
 
 | Key | 含义说明 | Value取值范围 |
-
 | --- | --- | --- |
-
 | level | 用例级别 | "0","1","2","3","4", 例如：-s level 1 |
-
 | size | 用例粒度 | "small","medium","large", 例如：-s size small |
-
 | testType | 用例测试类型 | "function","performance","power","reliability","security","global","compatibility","user","standard","safety","resilience", 例如：-s testType function |
 
 3. 完成以上配置后，在运行此项配置对应的测试任务时，只运行过滤后的测试用例。
@@ -278,15 +273,10 @@ testability目录 > TestAbility.ets文件
   调试类型Debug type默认为Detect Automatically，关于各调试类型的说明如下表所示：
 
 | 调试类型 | 调试代码 |
-
 | --- | --- |
-
 | Detect Automatically | 自动检测。根据工程模块及其依赖的模块涉及的编程语言，自动启动对应的调试器。 如果检测到是Native模块，出现两个调试窗口（PandaDebugger、Native）；如果不是Native模块，只出现PandaDebugger调试窗口。 |
-
 | ArkTS/JS | 只调试ArkTS/JS，只出现PandaDebugger调试窗口。 |
-
 | Native | 单独调试C++，只出现Native调试窗口。 |
-
 | Dual(ArkTS/JS + Native) | 支持ArkTS/JS和C++混合调试，出现两个调试窗口（PandaDebugger、Native）。 |
 
   

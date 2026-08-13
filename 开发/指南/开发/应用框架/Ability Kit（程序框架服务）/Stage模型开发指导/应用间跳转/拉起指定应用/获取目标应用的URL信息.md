@@ -138,15 +138,10 @@ scheme://host:port/path
 以目标应用为例，其URL构成如下：
 
 | 配置项 | 值 |
-
 | --- | --- |
-
 | scheme | appurl |
-
 | host | www.example.com |
-
 | port | 未指定（可选） |
-
 | path | path1 |
 
   根据上述参数，拼接得到的完整URL为：

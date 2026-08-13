@@ -105,9 +105,7 @@ struct Index {
 1. 在module.json5中新增[linkFeature](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skills标签)属性并设置声明当前应用支持的特性功能，从而系统可以从设备已安装应用中找到当前支持该特性的应用，取值范围如下：
 
 | 取值 | 含义 |
-
 | --- | --- |
-
 | ComposeMail | 声明应用支持撰写邮件功能 |
 
   
@@ -141,19 +139,12 @@ UIAbility.onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void
 在参数**want.parameters**中会携带Caller方传入的参数（与调用方传入的有些差异），如下表所示：
 
 | 参数名 | 类型 | 必填 | 说明 |
-
 | --- | --- | --- | --- |
-
 | email | string[ ] | 否 | 收件人邮箱地址（支持多个且以逗号分隔）。 |
-
 | cc | string[ ] | 否 | 抄送人邮箱地址（支持多个且以逗号分隔）。 |
-
 | bcc | string[ ] | 否 | 密送人邮箱地址（支持多个且以逗号分隔）。 |
-
 | subject | string | 否 | 邮件主题。 |
-
 | body | string | 否 | 邮件内容。 |
-
 | stream | string[ ] | 否 | 邮件附件列表（附件的uri地址列表）。 |
 
   

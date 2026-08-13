@@ -393,31 +393,20 @@ CREATE TABLE table_name(column_name type [, ...]) [WITH(parameter = value [, ...
   **表4** 数据老化策略参数(parameter)
 
 | 参数名称 | 必填 | 取值范围和使用说明 |
-
 | --- | --- | --- |
-
 | time_col | 是 | 列名。类型必须为整数且不为空。 |
-
 | interval | 否 | 老化任务线程的执行间隔时间，超过该时间后执行写操作，触发老化任务，删除符合老化条件的数据；若在间隔时间内执行写操作，不会触发老化任务。取值范围是[5 second, 1 year]，时间单位支持second、minute、hour、day、month、year，不区分大小写或复数形式(1 hour和1 hours均可)，默认是1 day。 |
-
 | ttl | 否 | 数据保留时间。取值范围是[1 hour, 1 year]，时间单位支持second、minute、hour、day、month、year，不区分大小写或复数形式(1 hour和1 hours均可)，默认是3 month。 |
-
 | max_num | 否 | 数据量限制。取值范围是[100, 1024]，默认是1024。老化任务在执行完过期数据删除后，如剩余表内数据超过max_num行，则会找到距离过期时间最近的时间点，删除该时间点对应的所有数据，直到数据量少于max_num。 |
 
   时间相关参数会按数值换算为秒作为原子单位，取值规则如下所示：
 
 | 单位 | 向下换算成秒取值 |
-
 | --- | --- |
-
 | year | 365 * 24 * 60 * 60 |
-
 | month | 30 * 24 * 60 * 60 |
-
 | day | 24 * 60 * 60 |
-
 | hour | 60 * 60 |
-
 | minute | 60 |
 
   例如配置ttl = '3 months'，实际ttl会被换算为3 * (30 * 24 * 60 * 60) = 7776000 seconds。

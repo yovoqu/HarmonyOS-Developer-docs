@@ -18,39 +18,22 @@
 - Trace：一种用于追踪应用程序在运行时的性能和行为的文件，它是通过调用系统提供的Trace类的方法来记录应用程序的操作。通过Trace文件能够分析应用程序运行时各阶段的耗时情况，查看Trace文件可使用[Smartperf_Host](https://gitcode.com/openharmony/developtools_smartperf_host/tree/master/smartperf_host)。页面滑动相关Trace关键字如下：
 
 | 关键字 | 说明 |
-
 | --- | --- |
-
 | H:APP_LIST_FLING | 手指按下开始拖动到抬手后的惯性滚动及最后尾动效的抛滑全过程，用于标记应用页面滑动。 |
-
 | H:PreferredFrameRate | 屏幕刷新率，在render_service泳道中。 |
-
 | H:ReceiveVsync | 接收Vsync信号。 |
-
 | H:FlushDirtyNodeUpdate | 刷新标脏的组件，当状态变量变化时，比如宽度和高度，组件需要重新布局刷新。 |
-
 | H:CustomNodeUpdate 组件名 | 组件刷新，当状态变量变化时触发。 |
-
 | H:CreateTaskMeasure[组件名][self:组件ID][parent:父组件ID] | 创建组件的测量任务，确定组件的宽、高。 |
-
 | H:CreateTaskLayout[组件名][self:组件ID][parent:父组件ID] | 创建组件的布局任务，确定组件的位置。 |
-
 | H:SendCommands | 发送指令，通知图形侧进行渲染。下方H:MarshRSTransactionData表示提交渲染数据给渲染服务。 |
-
 | H:HandleOnAreaChangeEvent | 处理组件区域变化事件，组件的大小、位置发生时触发。 |
-
 | H:HandleVisibleAreaChangeEvent | 处理可见区域变化事件，组件可见面积（即组件在屏幕显示区的面积，只计算父组件内的面积，超出父组件部分不会计算）与组件自身面积的比值与设置的阈值接近时触发。 |
-
 | H:LazyForEach predict | LazyForEach预处理。 |
-
 | H:List predict | List预处理。 |
-
 | H:Builder:BuildLazyItem | 构建LazyItem。 |
-
 | H:CustomNode:BuildItem[组件名][self:组件ID][parent:父组件ID] | 构建自定义组件。 |
-
 | H:ExecuteJS | 运行ArkTS业务逻辑 |
-
 | H:ViewPU.viewPropertyHasChanged 组件名 状态变量名 N | 状态变量更新，N表示该状态变量更新后影响的组件数量。该Trace关键字需要运行hdc shell param set persist.ace.debug.enabled 1命令然后重启应用才能生效。 |
 - DevEco Profiler提供实时监控（Realtime Monitor）能力，提供全方位的设备资源监测，覆盖系统事件、异常报告、CPU占用、内存占用、实时帧率、GPU使用率、能耗以及网络流量消耗等多个维度的数据，帮助识别性能瓶颈，定界问题所在，提高解决问题的效率，相关内容可看[性能调优工具简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-description)。
 

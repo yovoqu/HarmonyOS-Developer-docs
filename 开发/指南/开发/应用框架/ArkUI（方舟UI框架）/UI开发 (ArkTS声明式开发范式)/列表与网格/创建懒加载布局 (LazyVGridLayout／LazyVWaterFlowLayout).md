@@ -115,13 +115,9 @@ LazyVGridLayout() {
 columnsTemplate还支持通过repeat关键字自动计算列数，格式为'repeat(auto-fit/auto-fill/auto-stretch, track-size)'，其中repeat、auto-fit、auto-fill、auto-stretch为关键字，track-size为列宽，支持的单位包括px、vp、%或有效数字，默认单位为vp，track-size至少包含一个有效列宽。
 
 | 模式 | 示例 | 说明 |
-
 | --- | --- | --- |
-
 | auto-fit | 'repeat(auto-fit, 80vp)' | 设置最小列宽，自动计算列数和实际列宽。仅支持一个有效列宽值。 |
-
 | auto-fill | 'repeat(auto-fill, 80vp)' | 设置固定列宽，自动计算列数。支持一个或多个有效列宽，如'repeat(auto-fill, 20 80px)'。 |
-
 | auto-stretch | 'repeat(auto-stretch, 80vp)' | 设置固定列宽，以columnsGap为最小列间距，自动计算列数和实际列间距。仅支持一个有效列宽值，不支持单位%。 |
 
   
@@ -204,15 +200,10 @@ columnsTemplate还支持通过repeat关键字自动计算列数，格式为'repe
   与LazyVGridLayout组件不同的是，LazyVWaterFlowLayout组件的columnsTemplate属性还支持设置为[ItemFillPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#itemfillpolicy22)类型的枚举值，此时会根据组件宽度对应的[栅格容器断点](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-grid-layout#栅格容器断点)类型自动确定列数。例如，设置为ItemFillPolicy.BREAKPOINT_DEFAULT，组件宽度属于sm及更小的断点区间时LazyVWaterFlowLayout显示2列，属于md断点区间时显示3列，属于lg及更大的断点区间时显示5列，且每列均为1fr。
 
 | 模式 | 示例 | 说明 |
-
 | --- | --- | --- |
-
 | auto-fit | 'repeat(auto-fit, 80vp)' | 设置最小列宽，自动计算列数和实际列宽。仅支持一个有效列宽值。 |
-
 | auto-fill | 'repeat(auto-fill, 80vp)' | 设置固定列宽，自动计算列数。支持一个或多个有效列宽，如'repeat(auto-fill, 20 80px)'。 |
-
 | auto-stretch | 'repeat(auto-stretch, 80vp)' | 设置固定列宽，以columnsGap为最小列间距，自动计算列数和实际列间距。仅支持一个有效列宽值，不支持单位%。 |
-
 | 断点适配 | ItemFillPolicy.BREAKPOINT_DEFAULT | 根据组件宽度对应断点类型确定列数。 |
 
   

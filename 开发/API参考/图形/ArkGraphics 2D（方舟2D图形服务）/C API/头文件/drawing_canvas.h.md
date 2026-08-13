@@ -1665,9 +1665,7 @@ void OH_Drawing_CanvasSkew(OH_Drawing_Canvas* canvas, float sx, float sy)
 用于画布倾斜变换。等同于将当前画布矩阵左乘（premultiply）倾斜变换矩阵，并应用到画布上。其中倾斜变换矩阵为：
  
 |1 sx 0| 
- 
 |sy 1 0| 
- 
 |0 0 1|。
  
 本接口会产生错误码，可以通过[OH_Drawing_ErrorCodeGet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-error-code-h#oh_drawing_errorcodeget)查看错误码的取值。

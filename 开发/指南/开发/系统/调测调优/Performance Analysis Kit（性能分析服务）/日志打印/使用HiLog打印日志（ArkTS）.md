@@ -57,23 +57,15 @@ debug版本应用下，setMinLogLevel()和setLogLevel()函数均不生效。
  - **latestSeconds**：距离现在的时间段，单位是秒，取值范围大于0。
 
 | 隐私标识符（private flag） | 说明 |
-
 | --- | --- |
-
 | private | 表示日志打印结果不可见，输出结果为&lt;private&gt;。 |
-
 | public | 表示日志打印结果可见，明文显示参数。 |
-
 | 无 | 缺省值默认为private，日志打印结果不可见。 |
 
 | 格式说明符（specifier） | 说明 | 示例 |
-
 | --- | --- | --- |
-
 | d/i | 支持打印number和bigint类型。 | 123 |
-
 | s | 支持打印string、undefined、boolean和null类型。 | "123" |
-
 | o/O | 支持打印object、undefined和null类型。 从API version 20开始，支持该能力。 | { 'name': "Jack", 'age': 22 } |
 
   格式字符串中可以设置多个参数，例如格式字符串为“%{public}s World”，“%{public}s”表示参数类型为string的变参标识，具体取值在args中定义。

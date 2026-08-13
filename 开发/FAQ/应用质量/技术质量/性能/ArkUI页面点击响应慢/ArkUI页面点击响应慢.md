@@ -17,13 +17,9 @@
 在性能测试中，针对特定场景有相应的测试指标，对于不同级别有不同的时延基线，应用内点击操作响应时延不能超出以下时间。
 
 | 指标分级 | 时延 |
-
 | --- | --- |
-
 | S标 | 100ms |
-
 | A标 | 150ms |
-
 | B标 | 250ms |
 - 用户体验上点击响应慢和性能测试上会有所差异，对点击响应时延的感知在秒级，通常延迟1秒、2秒甚至几秒的时候才会觉得慢。
 
@@ -35,19 +31,12 @@
 - Trace文件是一种用于追踪应用程序在运行时的性能和行为的文件，它是通过调用系统提供的Trace类的方法来记录应用程序的操作。通过Trace文件能够分析应用程序运行时各阶段的耗时情况。查看Trace文件可使用[Smartperf_Host](https://gitcode.com/openharmony/developtools_smartperf_host/tree/master/smartperf_host)工具。点击操作响应慢问题相关Trace关键字如下：
 
 | 关键字 | 线程/泳道 | 说明 | 备注 |
-
 | --- | --- | --- | --- |
-
 | H:originEventHandle code:501 | mmi_service | 点击应用页面内容离手点 | 多模输入起点 |
-
 | H:DispatchTouchEvent id:N, pointX=XXX pointY=XXX type=1 | 应用包名 | 应用收到点击离手的事件 | 多模输入终点，应用模块处理起点 |
-
 | H:SendCommands | 应用包名 | 应用发送渲染请求，下方H:MarshRSTransactionData表示提交绘制相关数据给渲染服务，transactionFlag中包含了应用进程号和序号 | 应用模块处理终点 |
-
 | H:ABILITY_OR_PAGE_SWITCH | H:ABILITY_OR_PAGE_SWITCH | 页面切换过程 |    |
-
 | H:RSMainThread::ProcessCommandUni[应用进程号，序号] | render_service | 渲染服务处理渲染请求，在接收Vsync信号时执行，应用进程号、序号与应用发送渲染请求的transactionFlag相同 | 渲染服务处理起点 |
-
 | H:RSHardwareThread::CommitAndReleaseLayers rate: 帧率，now：时间戳 | RSHardwareThread | 将GPU处理的渲染结果提交到显示硬件，now与H:RSMainThread::ProcessCommandUni上方的H:ReceiveVsync中的now字段一一对应 | 渲染服务处理终点 |
 - DevEco Profiler目前是集成在DevEco Studio中的性能调优工具，提供场景化的性能调优功能体验，目前版本提供六大特性解决快速定界、效率提升、内存分析、内核分析和卡顿分析相关问题，帮助应用开发者定位到问题代码，更多详细内容可看[使用Profiler进行性能调优](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-profiler-introduction)。借助DevEco Profiler Time工具可以查看应用执行的ArkTS代码以及相应耗时，如下图所示，更多详细内容可看[基础耗时分析：Time分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-time)。
 
@@ -100,9 +89,7 @@
   最终得到如下耗时拆分结果，耗时主要集中在应用模块。
 
 | 多模输入模块 | 应用 | 应用->渲染服务（应用结束点到渲染服务起始点） | 渲染服务 | 总和 |
-
 | --- | --- | --- | --- | --- |
-
 | 1.5ms | 142.5ms | 6.0ms | 15.7ms | 165.7ms |
 4. 分析耗时占比较多的模块，按上述步骤分析，耗时最多的部分在应用，应用侧耗时场景可能有：
 场景一：执行业务代码耗时：框选Trace中应用主进程该阶段的运行状态，发现耗时主要在Running部分，查看该阶段的Trace信息，得知其中一部分是加载NewsPage页面，还有另一部分没有Trace点，无法看到在执行什么业务流程。

@@ -36,11 +36,8 @@ Image($rawfile('testPic.png')); <em>// 需要替换为实际项目中的文件�
 - 其他类型文件（例如，db文件、txt文件等，原始文件形式保存）：需要用到资源管理模块resourceManager的常见接口：
 
 |    | getRawFileContent | getRawFd |
-
 | --- | --- | --- |
-
 | 功能 | 用于获取resources/rawfile目录下对应的rawfile文件内容。 | 用于获取resources/rawfile目录下rawfile文件所在Hap的descriptor信息。 |
-
 | 常见适用场景 | 处理文件内容小的文件，直接将rawfile目录下的文件的二进制buffer读取到内存中进行读写。 | 处理文件内容大的文件，需要获取rawfile目录下的文件的fd，将rawfile目录下的文件拷贝到应用沙箱下，再对沙箱文件进行读写。 |
 
   

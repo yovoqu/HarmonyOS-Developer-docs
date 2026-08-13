@@ -162,17 +162,11 @@ OH_AudioStreamBuilder_GenerateCapturer(builder, &audioCapturer);
   录制音频流中包含以下接口，用来实现对音频流的控制。
 
 | 接口 | 说明 |
-
 | --- | --- |
-
 | OH_AudioStream_Result OH_AudioCapturer_Start(OH_AudioCapturer* capturer) | 开始录制。 |
-
 | OH_AudioStream_Result OH_AudioCapturer_Pause(OH_AudioCapturer* capturer) | 暂停录制。 |
-
 | OH_AudioStream_Result OH_AudioCapturer_Stop(OH_AudioCapturer* capturer) | 停止录制。 |
-
 | OH_AudioStream_Result OH_AudioCapturer_Flush(OH_AudioCapturer* capturer) | 释放缓存数据。 |
-
 | OH_AudioStream_Result OH_AudioCapturer_Release(OH_AudioCapturer* capturer) | 释放录制实例。 |
 
   

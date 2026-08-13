@@ -149,17 +149,11 @@ OH_AudioStreamBuilder_GenerateRenderer(builder, &audioRenderer);
   在不再使用该条音频流时，可以释放播放实例，以便更好地管理内存。
 
 | 接口 | 说明 |
-
 | --- | --- |
-
 | OH_AudioRenderer_Start | 开始播放 |
-
 | OH_AudioRenderer_Pause | 暂停播放 |
-
 | OH_AudioRenderer_Stop | 停止播放 |
-
 | OH_AudioRenderer_Flush | 释放缓存数据 |
-
 | OH_AudioRenderer_Release | 释放播放实例 |
 6. 释放构造器。
 

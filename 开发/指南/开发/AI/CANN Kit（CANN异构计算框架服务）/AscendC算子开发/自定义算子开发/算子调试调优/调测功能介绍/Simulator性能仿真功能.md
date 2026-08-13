@@ -108,21 +108,13 @@ data_cmp mean is -1.41e-05 data_gd mean is -1.41e-05
   **表1** 精度比对结果说明
 
 | 信息项 | 说明 |
-
 | --- | --- |
-
 | data_cmp mean | 运行输出数据的均值信息。 |
-
 | data_gd mean | 标杆数据的均值信息。 |
-
 | split_count | 统计输出数据的个数。 |
-
 | max_diff_hd | 输出数据和golden数据的最大误差值阈值。 |
-
 | 详细对比数据展示（部分） | Loop（数据位置）、ExpectOut（期望输出值）、RealOut（实际输出值）、FpDiff （绝对误差值）、RateDiff（相对误差值）。 |
-
 | 整体对比结果展示 | DiffThd（相对误差值阈值）、PctThd （精度达标数据占比阈值）、PctRlt（实际精度达标数据占比）、Result（对比结果）。 |
-
 | Error Line展示项 | 若精度比对结果为Failed，会追加展示部分误差较大的数据的详细信息。 |
 - **（可选）查看dump结果**
 

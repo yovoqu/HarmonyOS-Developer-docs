@@ -58,17 +58,11 @@
   DevEco Testing工具会收集设备/data/log/reliability/resource_leak/路径下的资源泄漏故障日志，根据进程名、故障和时间分类显示。
 
 | 泄漏类型 | 日志文件名称 |
-
 | --- | --- |
-
 | 句柄泄漏（FD_LEAK） | [pid]_fd_leak.txt |
-
 | 线程泄漏（THREAD_LEAK） | [pid]_thread_leak.txt |
-
 | 内存泄漏（MEMORY_LEAK） - js泄漏（JS_LEAK） | memleak-js-[process_name]-[pid]-[tid]-[timestamp].rawheap |
-
 | 内存泄漏（MEMORY_LEAK） - native内存泄漏（PSS_MEMORY） | memleak-native-[process_name]-[pid]-sample.txt memleak-native-[process_name]-[pid]-smaps.txt memleak-native-[process_name]-[pid]-[timestamp].txt |
-
 | 内存泄漏（MEMORY_LEAK） - ASHMEM/DMA（ION）/GPU等内存泄漏（KERNEL_MEMORY） | memleak-kernel-[module]-0-sample.txt memleak-kernel-[module]-0-[timestamp].txt |
 
   
@@ -168,19 +162,12 @@ Dir Type Top 10:
   ASHMEM（共享内存），当TOP 1的句柄类型为ASHMEM时，抓取整机ASHMEM内存的详细信息如下。
 
 | 字段 | 说明 |
-
 | --- | --- |
-
 | Process_name | 持有该ASHMEM内存块的应用进程包名。 |
-
 | Process_ID | 发生故障进程的pid，可以用于在流水日志中搜索相关进程信息。 |
-
 | Fd | 该进程持有的句柄。 |
-
 | Applicant_Pid | 申请该ASHMEM内存块的进程pid，可根据此字段识别该内存块的申请来源。 |
-
 | Ashmem_name | 共享内存的名字，开发者可通过提供的API进行设置，用来判断存储的资源类型，指向不同的领域。 |
-
 | Size | 单个ASHMEM块的大小，单位：B。 |
 
   
@@ -205,17 +192,11 @@ process1 781 18 328233 781 dev/ashmem/PolicyVolumeMap 384
   socket（网络通信），当TOP 1的句柄类型为socket时，抓取整机socket内存的详细信息如下。
 
 | 字段 | 说明 |
-
 | --- | --- |
-
 | ProcessName | 持有该socket内存块的应用进程包名。 |
-
 | ProcessID | 发生故障进程的pid，可以用于在流水日志中搜索相关进程信息。 |
-
 | Fd | 该进程持有的句柄。 |
-
 | inode | 文件系统对象信息。 |
-
 | PeerTid | 对端tid（对于有连接的socket为对应值，无连接为0）。 |
 
   
@@ -233,23 +214,14 @@ process1   6874   3   0    0
   pipe（进程间通信），当TOP 1的句柄类型为pipe时，以fd维度抓取整机pipe内存的详细信息如下。
 
 | 字段 | 说明 |
-
 | --- | --- |
-
 | ProcessName | 持有该pipe内存块的应用进程包名。 |
-
 | ProcessID | 发生故障进程的pid，可以用于在流水日志中搜索相关进程信息。 |
-
 | Fd | 该进程持有的句柄。 |
-
 | PipeName | 管道名。 |
-
 | inode | 文件系统对象信息。 |
-
 | MaxUsage | 最大使用量。 |
-
 | NumAccounted | 累计大小量。 |
-
 | RingSize | RingBuf大小，单位：KB。 |
 
   
@@ -267,27 +239,16 @@ process1 629 8 / 11 16 16 16
   sync_file（显存），当TOP 1的句柄类型为sync_file时，以fd维度抓取整机sync_file的详细信息如下。
 
 | 字段 | 说明 |
-
 | --- | --- |
-
 | ProcessName | 持有该sync_file内存块的应用进程包名。 |
-
 | ProcessID | 发生故障进程的pid，可以用于在流水日志中搜索相关进程信息。 |
-
 | Fd | 该进程持有的句柄。 |
-
 | FenceName | sync_file名字。 |
-
 | inode | 文件系统对象信息。 |
-
 | FenceNum | fence个数。 |
-
 | TimelineName | fence的Timeline名字。 |
-
 | DriverName | 驱动名字。 |
-
 | Status | fence的状态。 |
-
 | Timestamp | fence的时间戳。 |
 
   
@@ -305,21 +266,13 @@ process1 1309 26 NULL 4186 1 0:online_composer_gfx_primary ukmd_release_fence_29
   dmabuf（也称DMA内存），当TOP 1的句柄类型为dmabuf时，以fd维度抓取了整机dmabuf的详细信息如下 **。**
 
 | 字段 | 说明 |
-
 | --- | --- |
-
 | Process name | 持有该DMA（ION）内存块的应用进程包名。 |
-
 | Process ID | 发生故障进程的pid，可以用于在流水日志中搜索相关进程信息。 |
-
 | Fd | 该进程持有的句柄。 |
-
 | size | buffer内存大小，单位：B。 |
-
 | magic | buffer唯一标识（magic相同表示指向同一块buffer） 。 |
-
 | buf->pid | 申请者的pid。 |
-
 | buf->task_comm | 申请buffer的进程名。 |
 
   
@@ -418,13 +371,9 @@ Top 10 Thread Name:
 - **线程启动信息**：可根据线程启动时间推测。
 
 | 字段 | 说明 |
-
 | --- | --- |
-
 | tid | 检测到泄漏时未释放线程的线程号 |
-
 | thread_name | 未释放的线程名 |
-
 | start_time(jiffies) | 线程创建时间 |
 
   
@@ -741,15 +690,10 @@ bins:           size ind    allocated      nmalloc (#/sec)      ndalloc (#/sec) 
  1. 对故障日志一中的进程“LOGGER_MEMCHECK_SMAPS_INFO”信息进行分析，根据以下表格所列方法计算各类型内存占比，筛选占比最高的内存泄漏类型。
 
 | 内存泄漏类型 | 计算方法 |
-
 | --- | --- |
-
 | 虚拟机对象泄漏 | 搜索关键字“ArkTS”，计算“Pss”列和“SwapPss”列之和占总内存比例。 |
-
 | 堆内存泄漏 | 搜索关键字“jemalloc”，计算“Pss”列和“SwapPss”列之和占总内存比例。 |
-
 | ASHMEM内存泄漏 | 搜索关键字“/dev/ashmem”，计算“Pss”列和“SwapPss”列之和占总内存比例。 |
-
 | anon类型内存较大 | 搜索关键字“[anon]”，计算“Pss”列和“SwapPss”列之和占总内存比例。 |
 
   
@@ -816,15 +760,10 @@ Size        Rss         Pss        Clean       Dirty         Clean       Dirty  
 日志文件：memleak-kernel-[module]-0-sample.txt（**方式一**）或 RESOURCE_OVERLIMIT_[TIMESTAMP]_[PID].log（**方式三**）。
 
 | 字段 | 说明 |
-
 | --- | --- |
-
 | memoryName | 内核内存类型，如果发现进程存在泄漏（超过系统设定基线），会显示为该泄漏进程的进程名；如果memoryName打印类型为：ASHMEM/GPU/DMA（ION），则说明无进程泄漏。 |
-
 | softThreshold | 系统设定的软门限（超过8个采样周期，即30+分钟超过软门限后判定泄漏），单位：KB。 |
-
 | hardThreshold | 系统设定的硬门限（单次超过硬门限后判定泄漏），单位：KB。 |
-
 | topMemory | 检测到的内核内存峰值，单位：KB。 |
 
   

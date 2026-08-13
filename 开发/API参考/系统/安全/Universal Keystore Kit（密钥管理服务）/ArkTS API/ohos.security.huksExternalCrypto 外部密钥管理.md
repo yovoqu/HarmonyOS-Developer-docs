@@ -151,19 +151,14 @@ registerProvider(providerName: string, params: Array&lt;HuksExternalCryptoParam&
   **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
-
 | --- | --- | --- | --- |
-
 | providerName | string | 是 | provider名称，最大长度为128字节。建议包含厂商信息，全局唯一，不要包含个人联系方式等敏感数据。 最多支持注册10个provider。 |
-
 | params | Array&lt;HuksExternalCryptoParam&gt; | 是 | 操作时需传入的参数，必选TAG：HUKS_EXT_CRYPTO_TAG_ABILITY_NAME，表示ability的名字，根据业务自己内部定义按照实际填写。 从API版本26.0.0开始，可选TAG：HUKS_EXT_CRYPTO_TAG_ABILITY_INFO，以JSON列表的形式传入PIN码认证自定义弹窗UIAbility的名字以及包名。 |
 
   **返回值：**
 
 | 类型 | 说明 |
-
 | --- | --- |
-
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
   **错误码：**
@@ -171,25 +166,15 @@ registerProvider(providerName: string, params: Array&lt;HuksExternalCryptoParam&
   以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[HUKS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-huks)。
 
 | 错误码ID | 错误信息 |
-
 | --- | --- |
-
 | 201 | check permission failed. |
-
 | 801 | api is not supported. |
-
 | 12000002 | the ability name param is missing. |
-
 | 12000005 | IPC communication failed. |
-
 | 12000014 | memory is insufficient. |
-
 | 12000018 | the input parameter is invalid. |
-
 | 12000019 | the provider is already registered. |
-
 | 12000020 | an error occurred in the dependent module. |
-
 | 12000025 | the number of providers exceeds the limit. |
 
   **示例：**
@@ -237,19 +222,14 @@ huksExternalCrypto.registerProvider(providerName, extProperties)
   **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
-
 | --- | --- | --- | --- |
-
 | providerName | string | 是 | provider名称，最大长度为128字节。建议包含厂商信息，全局唯一，不要包含个人联系方式等敏感数据。如果provider注册了多个扩展能力，则该provider下的扩展能力都会被注销。 |
-
 | params | Array&lt;HuksExternalCryptoParam&gt; | 否 | 操作时需传入的参数。 可以在param参数中指定HUKS_EXT_CRYPTO_TAG_ABILITY_NAME，将根据“包名 + providerName + abilityName”注销对应的cryptoExtensionAbility。 如果未在params参数中指定HUKS_EXT_CRYPTO_TAG_ABILITY_NAME，或者未传入params参数，则注销对应的providerName下的所有Provider。 |
 
   **返回值：**
 
 | 类型 | 说明 |
-
 | --- | --- |
-
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
   **错误码：**
@@ -257,21 +237,13 @@ huksExternalCrypto.registerProvider(providerName, extProperties)
   以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[HUKS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-huks)。
 
 | 错误码ID | 错误信息 |
-
 | --- | --- |
-
 | 201 | check permission failed. |
-
 | 801 | api is not supported. |
-
 | 12000005 | IPC communication failed. |
-
 | 12000011 | the provider is not found. |
-
 | 12000012 | Device environment or input parameter is abnormal. This may happen for several reasons, such as the model already being unloaded. |
-
 | 12000014 | memory is insufficient. |
-
 | 12000018 | the input parameter is invalid. |
 
   **示例：**
@@ -317,19 +289,14 @@ huksExternalCrypto.unregisterProvider(providerName, extProperties)
   **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
-
 | --- | --- | --- | --- |
-
 | resourceId | string | 是 | 资源ID，可通过openAuthorizeDialog获取，其结果中附带资源ID。 |
-
 | params | Array&lt;HuksExternalCryptoParam&gt; | 否 | 操作的属性。不传入时，不向Extension Ability传递额外参数。非系统应用传入HUKS_EXT_CRYPTO_TAG_UID是非法参数。 |
 
   **返回值：**
 
 | 类型 | 说明 |
-
 | --- | --- |
-
 | Promise&lt;HuksExternalPinAuthState&gt; | Promise对象，返回认证结果。 HUKS_EXT_CRYPTO_PIN_NO_AUTH 表示未认证；HUKS_EXT_CRYPTO_PIN_AUTH_SUCCEEDED 表示认证成功；HUKS_EXT_CRYPTO_PIN_LOCKED 表示PIN被锁定。 |
 
   **错误码：**
@@ -337,25 +304,15 @@ huksExternalCrypto.unregisterProvider(providerName, extProperties)
   以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[HUKS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-huks)。
 
 | 错误码ID | 错误信息 |
-
 | --- | --- |
-
 | 801 | api is not supported. |
-
 | 12000005 | IPC communication failed. |
-
 | 12000006 | the UKey driver operation failed. |
-
 | 12000011 | queried entity does not exist. This may happen because the resource ID has not been opened. |
-
 | 12000012 | Device environment or input parameter is abnormal. This error may occur if the process function is not found, or due to other issues. |
-
 | 12000014 | memory is insufficient. |
-
 | 12000018 | the input parameter is invalid. |
-
 | 12000020 | the provider operation failed. |
-
 | 12000024 | the provider or UKey is busy. |
 
   **示例：**

@@ -45,15 +45,10 @@ TabBar的布局效果可以根据不同的设计需求来实现多种样式。�
   综上所述，可以得出下表结论：
 
 | barPosition取值 | vertical取值 | TabBar位置 |
-
 | --- | --- | --- |
-
 | BarPosition.Start（默认值） | true | 屏幕左侧 |
-
 | BarPosition.Start（默认值） | false（默认值） | 屏幕顶部 |
-
 | BarPosition.End | true | 屏幕右侧 |
-
 | BarPosition.End | false（默认值） | 屏幕底部 |
 
   用TabBar位于屏幕左侧举例，实现代码如下：

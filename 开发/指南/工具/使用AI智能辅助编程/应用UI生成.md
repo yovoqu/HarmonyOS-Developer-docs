@@ -26,13 +26,9 @@ UI Generator用于快速生成可编译、可运行的HarmonyOS UI工程，支�
 2. 输入待配置项路径，点击**Next**进入下一步。
 
 | 待配置项 | 说明 |
-
 | --- | --- |
-
 | Installation package path | 待转换的APK应用包的路径，请提供未混淆的Debug版本应用包。 |
-
 | SDK path | 等于或高于编译应用包所使用版本的SDK路径。 |
-
 | Git Bash path | Git Bash工具存放路径。若本地已下载安装Git Bash，插件将自动获取其路径。 |
 
   
@@ -44,11 +40,8 @@ UI Generator用于快速生成可编译、可运行的HarmonyOS UI工程，支�
 4. 配置输出工程待配置项，点击**Finish**进行生成。
 
 | 待配置项 | 说明 |
-
 | --- | --- |
-
 | Destination Path | 生成新工程的保存路径（默认生成到用户目录下UIGenerationProjects，用户可根据需要自行更改） |
-
 | Compatible SDK | 生成的新工程所使用的SDK版本 |
 
   

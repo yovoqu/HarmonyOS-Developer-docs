@@ -20,45 +20,25 @@
 - [Frame分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-frame)：DevEco Profiler提供的Frame场景分析能力，可以录制卡顿过程中的关键数据进行分析，从而识别出导致卡顿丢帧的原因。常见Trace关键字如下：
 
 | 关键字 | 说明 |
-
 | --- | --- |
-
 | H:FlushDirtyNodeUpdate | 刷新标脏的组件，当状态变量变化时，比如宽度和高度，组件需要重新布局刷新 |
-
 | H:CustomNodeUpdate 组件名 | 组件刷新，当状态变量变化时触发 |
-
 | H:CreateTaskMeasure[组件名][self:组件ID][parent:父组件ID] | 创建组件的测量任务，确定组件的宽、高 |
-
 | H:CreateTaskLayout[组件名][self:组件ID][parent:父组件ID] | 创建组件的布局任务，确定组件的位置 |
-
 | H:Create[组件名][self:组件id] | 组件创建 |
-
 | H:SendCommands | 发送指令，通知图形侧进行渲染。下方H:MarshRSTransactionData表示提交渲染数据给渲染服务 |
-
 | H:HandleOnAreaChangeEvent | 处理组件区域变化事件，组件的大小、位置发生时触发。 |
-
 | H:HandleVisibleAreaChangeEvent | 处理可见区域变化事件，组件可见面积（即组件在屏幕显示区的面积，只计算父组件内的面积，超出父组件部分不会计算）与组件自身面积的比值与设置的阈值接近时触发。 |
-
 | H:LazyForEach predict | LazyForEach预处理 |
-
 | H:List predict | List预处理 |
-
 | H:Builder:BuildLazyItem | 构建LazyItem |
-
 | H:CustomNode:BuildItem[组件名][self:组件ID][parent:父组件ID] | 构建自定义组件 |
-
 | H:ExecuteJS | 运行ArkTS业务逻辑 |
-
 | H:ViewPU.viewPropertyHasChanged 组件名 状态变量名 N | 状态变量更新，N表示该状态变量更新后影响的组件数量。该Trace关键字需要运行hdc shell param set persist.ace.debug.enabled 1命令然后重启应用才能生效 |
-
 | H:JSAnimation | 执行显示动画 |
-
 | H:Napi complete | 执行Napi接口函数的回调函数 |
-
 | binder transaction | 同步binder调用 |
-
 | H:DispatchDisplaySync | 帧回调函数执行 |
-
 | H:aboutToBeDeleted | 组件析构时执行，在未使用复用机制时，FlushDirtyNodeUpdate和LazyForEach predict下会析构组件，导致刷新时组件重复创建 |
 - 应用在进行图片解码操作时，需要申请对应内存，当PixelMap较大且使用共享内存时，RS主线程将经历较长的纹理上传时间，导致卡顿现象。图形侧提供了DMA内存零拷贝功能，可在绘制图片时避免纹理上传时间消耗。在hilog日志中搜索CreatePixelMapExtended，通过memoryType的值可以确认PixelMap创建时使用的内存类型，值为2表示共享内存，值为4表示DMA内存。
 
@@ -160,19 +140,12 @@ Frame泳道中的子泳道存在数据：可根据滑动范围框选Frame泳道�
   渲染流程耗时多，可分析H:OnVsyncEvent下方哪部分Trace点较宽来确认问题原因，可能的情况如下表所示：
 
 | Trace关键字 | 含义 | 耗时多的原因 |
-
 | --- | --- | --- |
-
 | H:DispatchDisplaySync | 帧回调函数执行 | 帧回调函数执行耗时业务逻辑 |
-
 | H:DispatchTouchEvent | 点击事件处理 | 点击事件处理时执行耗时逻辑 |
-
 | H:FlushDirtyNodeUpdate | 标脏组件刷新 | 多个状态变量更新，大量组件刷新 |
-
 | H:UITaskScheduler::FlushTask | 刷新UI界面 | 页面组件复杂，测量、布局耗时多 |
-
 | H:HandleOnAreaChangeEvent | 执行OnAreaChange回调函数 | 回调函数中执行耗时业务逻辑 |
-
 | H:HandleVisibleAreaChangeEvent | 执行OnVisibleChange回调函数 | 回调函数中执行耗时业务逻辑 |
 - 预加载（Trace点为H:OnIdle）耗时多。
 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/nqGBrFurT8eehYnx6S6Zqw/zh-cn_image_0000002628555218.png?HW-CC-KV=V1&HW-CC-Date=20260811T005901Z&HW-CC-Expire=86400&HW-CC-Sign=112197E187D9CE40025B4773A6F8D9DC23594DC5AB65BB47FE984F0B28A9AF53)
@@ -181,13 +154,9 @@ Frame泳道中的子泳道存在数据：可根据滑动范围框选Frame泳道�
   预加载耗时多，可分析H:OnIdle下方哪部分Trace点较宽来确认问题原因，可能的情况如下表所示：
 
 | Trace关键字 | 含义 | 耗时多的原因 |
-
 | --- | --- | --- |
-
 | H:LazyForEach predict | LazyForEach预处理 | 未采用组件复用、懒加载条目构建时间长 |
-
 | H:List predict | 列表预加载 | 组件复杂，测量、布局耗时多 |
-
 | H:Preload FlowItem | 瀑布流（WaterFlow）组件的预加载 | 组件复杂，测量、布局耗时多 |
 
  

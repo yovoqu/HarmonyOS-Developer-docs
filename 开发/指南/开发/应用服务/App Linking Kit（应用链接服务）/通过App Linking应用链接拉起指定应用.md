@@ -83,11 +83,8 @@
 
 
 | 参数名称 | 必选(M)/可选(O) | 类型 | 参数说明 |
-
 | --- | --- | --- | --- |
-
 | appIdentifier | M | String | 填写创建应用时生成的APP ID，获取方式请参见查看应用信息。 |
-
 | index | O | Integer | 当App Linking匹配到多个应用时，若希望直接拉起某个指定应用，可以使用index来设置应用跳转的优先级。 index取值范围为[-100,100]，可以重复，不可以为空值，值越大表示优先级越高。 - 如果App Linking匹配到多个应用，但是都未配置index字段，系统会拉起所有匹配的应用，并弹出对话框询问用户选择拉起哪个应用。 - 如果App Linking匹配到多个应用，并且部分或全部配置了index字段，系统会拉起index值最大的应用。当有多个应用的index值最大时，系统会同时拉起这些应用，并弹出对话框询问用户选择拉起哪个应用。 起始版本： 6.1.0(23) |
 2. 将applinking.json配置文件放在域名服务器的固定目录下：https://domain.name/.well-known/applinking.json。例如：开发者的服务器域名为www.example.com，则必须将applinking.json文件放在如下位置：
 

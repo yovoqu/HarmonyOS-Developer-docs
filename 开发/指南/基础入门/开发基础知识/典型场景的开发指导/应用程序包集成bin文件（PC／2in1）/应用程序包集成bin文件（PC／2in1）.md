@@ -29,16 +29,12 @@ bin文件的权限声明存放在二进制程序文件的.permission节中。当
   .permission节中存放JSON格式的权限声明数据：
 
 | 属性名称 | 含义 | 数据类型 | 是否可缺省 |
-
 | --- | --- | --- | --- |
-
 | requestPermissions | 二进制程序声明的权限列表。 | Array&lt;RequestPermission&gt; | 是；缺省时表示该二进制程序不声明权限。 |
 2. RequestPermission标签
 
 | 属性名称 | 含义 | 数据类型 | 是否可缺省 |
-
 | --- | --- | --- | --- |
-
 | name | bin文件所需使用的权限名称。 | string | 是；缺省时表示该二进制程序不声明权限。 |
 
   
@@ -120,13 +116,9 @@ objcopy --add-section .permission=<file> input output
 参数说明：
 
 | 参数 | 说明 |
-
 | --- | --- |
-
 | -file | 内容将作为.permission节的文件 |
-
 | -input | 需要添加.permission节的二进制文件 |
-
 | -output | 添加.permission节后输出的二进制文件 |
 
   示例：

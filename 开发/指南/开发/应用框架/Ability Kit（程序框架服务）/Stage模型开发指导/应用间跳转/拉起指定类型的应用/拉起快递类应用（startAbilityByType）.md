@@ -90,9 +90,7 @@ struct Index {
  - 设置linkFeature属性以声明当前应用支持的特性功能，从而系统可以从设备已安装应用中找到当前支持该特性的应用，取值范围如下：
 
 | 取值 | 含义 |
-
 | --- | --- |
-
 | QueryExpress | 声明应用支持快递查询。 |
 
 2. 设置scheme、host、port、path/pathStartWith属性，与Want中URI相匹配，以便区分不同功能。         
@@ -128,9 +126,7 @@ UIAbility.onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void
   在参数**want.parameters**中会携带Caller方传入的参数，如下所示：
 
 | 参数名 | 类型 | 必填 | 说明 |
-
 | --- | --- | --- | --- |
-
 | expressNo | string | 是 | 快递单号。 |
 
 

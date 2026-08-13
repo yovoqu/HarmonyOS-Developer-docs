@@ -22,79 +22,47 @@
   type属性定义了input元素的类型，影响输入的验证、显示方式和键盘类型。常见的type值包括：
 
 | type值 | 描述 |
-
 | --- | --- |
-
 | text | 默认值。普通文本输入 |
-
 | number | 数字输入 |
-
 | email | 电子邮件地址输入 |
-
 | password | 密码输入 |
-
 | tel | 电话号码输入 |
-
 | url | URL输入 |
-
 | date | 日期选择器 |
-
 | time | 时间选择器 |
-
 | checkbox | 复选框 |
-
 | radio | 单选按钮 |
-
 | file | 文件上传 |
-
 | submit | 提交按钮 |
-
 | reset | 重置按钮 |
-
 | button | 普通按钮 |
  - inputmode属性
 
   inputmode属性用于配置输入法类型，默认值：text。
 
 | inputmode | 描述 |
-
 | --- | --- |
-
 | decimal | 只显示数字键盘，通常还有一个逗号键。 |
-
 | email | 文本键盘，键通常用于电子邮件地址，如[@]。 |
-
 | none | 不应出现键盘。 |
-
 | numeric | 只显示数字键盘。 |
-
 | search | 文本键盘，[enter]键通常显示为[go]。 |
-
 | tel | 只显示数字键盘，通常还有[+]、[*]和[#]键。 |
-
 | text | 默认文本键盘。 |
-
 | url | 文本键盘，键通常用于网址，如[.]和[/]，以及特殊的[.com]键，或者其他通常用于本地设置的域名结束符。 |
  - enterkeyhint属性
 
   enterkeyhint属性用于指定移动设备虚拟键盘上回车键的显示方式。
 
 | enterkeyhint值 | 描述 |
-
 | --- | --- |
-
 | enter | 显示默认的回车键 |
-
 | done | 表示输入完成 |
-
 | go | 表示跳转或执行 |
-
 | next | 进入下一个输入字段 |
-
 | previous | 返回上一个输入字段 |
-
 | search | 执行搜索 |
-
 | send | 发送信息 |
 
 

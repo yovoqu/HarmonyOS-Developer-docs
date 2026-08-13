@@ -39,15 +39,10 @@ mailto:someone@example.com?key1=value1&key2=value2
  - key-value：邮件头参数，详细参数见下表。
 
 | 邮件头 | 含义 | 数据类型 | 是否必填 |
-
 | --- | --- | --- | --- |
-
 | subject | 邮件主题 | string | 否 |
-
 | body | 邮件正文 | string | 否 |
-
 | cc | 抄送人，多个用逗号分隔 | string | 否 |
-
 | bcc | 密送人，多个用逗号分隔 | string | 否 |
 
 

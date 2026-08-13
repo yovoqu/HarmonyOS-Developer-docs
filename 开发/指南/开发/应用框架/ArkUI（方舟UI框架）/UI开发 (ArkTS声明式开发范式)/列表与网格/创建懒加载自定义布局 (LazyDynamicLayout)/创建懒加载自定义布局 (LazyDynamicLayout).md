@@ -378,25 +378,15 @@ private recycleChildren(helper: LazyLayoutHelper): void {
   **关键接口说明**
 
 | 接口 | 说明 |
-
 | --- | --- |
-
 | getChildrenCount | 获取子组件总数。使用ChildrenCountMode.ALL_NOT_EXPAND避免获取子组件总数时全量加载导致懒加载失效。 |
-
 | getChild | 获取指定索引的子组件。使用ExpandMode.LAZY_NOT_EXPAND避免获取子组件时全量加载导致懒加载失效。 |
-
 | getViewStart | 获取可视区域的起始位置（相对于LazyDynamicLayout内容区域顶部）。 |
-
 | getViewEnd | 获取可视区域的结束位置。 |
-
 | getLazyLayoutDirection | 获取当前布局方向。FORWARD表示正向布局（从上到下），BACKWARD表示反向布局（从下到上）。 |
-
 | setAdjustedOffset | 设置偏移调整量。用于布局参数变化后调整滚动位置，保持可视区域第一个子组件位置不变。 |
-
 | setChildrenInactive | 将指定索引的子组件设置为非激活态。非激活态的子组件会被回收，释放内存。 |
-
 | getUserConfigPadding | 获取用户设置的padding属性值。返回LengthMetrics类型，需要转换为像素值。 |
-
 | setMeasuredSize | 设置组件的测量大小。 |
 
   

@@ -19,23 +19,14 @@
   Trace关键字说明：
 
 | 关键字 | 泳道 | 说明 |
-
 | --- | --- | --- |
-
 | DispatchTouchEvent xxx type=1 | 应用主线程 | 应用收到手指离开屏幕的事件 |
-
 | H:ProxyMain::BeginMainFrame | 应用包名:render | 开始一帧的渲染 |
-
 | H:EvaluateScript | 应用包名:render | js编译与执行 |
-
 | H:ResourceFetcher::requestResource | 应用包名:render | 子资源请求发起 |
-
 | SkiaOutputSurfaceImplOnGpu::SwapBuffers | CompositorGpuTh | Web页面渲染输出 |
-
 | H:Task Perform | OS_TaskWorker | 执行taskpool.execute调用时设置的任务 |
-
 | H:Napi execute | - | 调用Napi接口函数 |
-
 | H:Napi complete | - | Napi接口函数执行完成，执行回调函数 |
 
  

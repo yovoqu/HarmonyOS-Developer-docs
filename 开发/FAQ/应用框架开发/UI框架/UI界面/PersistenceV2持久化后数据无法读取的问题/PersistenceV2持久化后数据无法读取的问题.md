@@ -64,11 +64,8 @@ struct PageOne {
 - 若是存在第3点的情况，无法直接判断PersistenceV2.connect是否在EntryAbility.ets中的windowStage.loadContent方法之前调用。经过Debug调试，又确实是在windowStage.loadContent方法之前调用了PersistenceV2.connect。可以参考以下常见问题场景进行修改：
 
 | 场景一细分场景 | 场景描述 | 解决方案 |
-
 | --- | --- | --- |
-
 | 问题场景一 | 例如封装了一个AccountUtil管理类来管理PersistenceV2本地持久化（AccountUtil中初始化PersistenceV2.connect方法），且在EntryAbility.ets文件内通过import方法将导入了该管理类的实例或者依赖该管理类的实例。那么在导入的过程中就会初始化AccountUtil实例，也就会导致PersistenceV2.connect在windowStage.loadContent方法之前调用。 | 不要直接导入整个PersistenceV2的管理类，建议在使用时初始化该管理实例即可。若需要在EntryAbility.ets内使用本地持久化的数据，可以调用PersistenceV2.connect方法获取临时变量即可。 |
-
 | 问题场景二 | 存在多个模块时，通过import { xxx } from 'commonlib'的方式在EntryAbility.ets中导入了“xxx”实例，若PersistenceV2的管理类存在于commonlib模块中，且同时在“commonlib/src/Index.ets”文件中与“xxx”实例一起导出，也会导致PersistenceV2的管理类提前创建。 | EntryAbility.ets内取消import { xxx } from 'commonlib'的导出方式，使用import { xxx } from 'commonlib/src/main/ets/util/xxx'的方式导入，避免执行commonlib模块中的Index.ets文件。保留在EntryAbility.ets内import { xxx } from 'commonlib'的导出方式，取消在与“xxx”相同包中的“commonlib/src/Index.ets”文件中导出PersistenceV2.connect所在的管理类。或者将该管理类写在与“xxx”不同的包中，避免被优先创建。 |
 
  - **场景二**：在使用PersistenceV2进行本地数据存储时，再次进入应用部分属性读取失败的问题。导致该问题的原因是读取数据时由于value属性是可选属性，导致未能准确读取。

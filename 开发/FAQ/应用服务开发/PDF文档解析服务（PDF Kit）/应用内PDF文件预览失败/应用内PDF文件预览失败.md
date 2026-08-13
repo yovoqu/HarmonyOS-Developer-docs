@@ -15,11 +15,8 @@
 - [PdfView预览组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-implements)：HarmonyOS应用通过集成该组件完成PDF文件的预览功能。[预览PDF文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-component)：通过加载本地路径的PDF文档，实现打开PDF文档的预览功能（为了避免文件目录的权限问题，建议通过沙箱目录加载和保存PDF文档）。
 
 | 接口名 | 描述 |
-
 | --- | --- |
-
 | loadDocument() | 加载PDF文档。 |
-
 | saveDocument() | 保存PDF文档。 |
 - [Web组件预览PDF文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-pdf-preview)：Web组件提供了在网页中预览PDF的能力。应用通过Web组件的[src](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-i#weboptions)参数和[loadUrl()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loadurl)接口加载PDF文档。
 

@@ -97,17 +97,11 @@ RS进程将ArkUI控件统一绘制到UI图层。UI内容来自应用定义的Ark
   **注****：****典型高阶视效动作****列表**
 
 | 视效类型 | ArkUI接口 |
-
 | 背景模糊 | .blur()；.backdropBlur() |
-
 | 提亮 | .backgroundBrightness() |
-
 | 灰阶 | .grayscale() |
-
 | 阴影取色 | .shadow() |
-
 | 压暗提亮 | .lightUpEffect() |
-
 | 前景模糊 | .foregroundEffect() |
 - **在存在自渲染图层的情况下，合理调整ArkUI定义控件与自渲染图层间的交叠关系**这里存在以下两种情况：
 

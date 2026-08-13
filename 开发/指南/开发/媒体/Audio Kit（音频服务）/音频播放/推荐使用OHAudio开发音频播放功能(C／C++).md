@@ -144,17 +144,11 @@ OH_AudioRenderer* audioRenderer;
   音频流中包含以下接口，用来实现对音频流的控制。
 
 | 接口 | 说明 |
-
 | --- | --- |
-
 | OH_AudioStream_Result OH_AudioRenderer_Start(OH_AudioRenderer* renderer) | 开始播放。 |
-
 | OH_AudioStream_Result OH_AudioRenderer_Pause(OH_AudioRenderer* renderer) | 暂停播放。 |
-
 | OH_AudioStream_Result OH_AudioRenderer_Stop(OH_AudioRenderer* renderer) | 停止播放。 |
-
 | OH_AudioStream_Result OH_AudioRenderer_Flush(OH_AudioRenderer* renderer) | 释放缓存数据。 |
-
 | OH_AudioStream_Result OH_AudioRenderer_Release(OH_AudioRenderer* renderer) | 释放播放实例。 |
 
   

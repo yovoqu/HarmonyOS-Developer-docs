@@ -17,11 +17,8 @@
 - [Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-graphics-display)：ArkUI提供的图片显示接口，常用于在应用中显示图片。其主要的参数为：
 
 | 参数名 | 说明 |
-
 | --- | --- |
-
 | src | 图片的数据源，支持本地图片和网络图片。 |
-
 | alt | 设置图片加载时显示的占位图。 |
 - ArkUI Inspector：DevEco Studio提供的[布局分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-arkui-inspector)工具，可用于查看应用在真机上的UI显示效果，能够快速分析定位状态变量、组件嵌套层次、UI界面布局存在的问题等。
 - 图片下载相关日志：1. 通过搜索NETSTACK日志关键字可以查看到应用通过http请求下载资源的耗时情况，其中的参数含义为：size：上传或者下载的数据大小（byte）。
@@ -44,17 +41,11 @@
   Trace关键字说明：
 
 | 关键字 | 说明 |
-
 | --- | --- |
-
 | H:DispatchTouchEvent id:X, pointX=XXX pointY=XXX type=1 | 应用收到手指离开屏幕的事件。 |
-
 | H:OnImageLoadSuccess[self:组件Id][src:图片来源] | 图片加载完成。 |
-
 | H:HttpRequestInner | http请求。 |
-
 | H:DownloadImageSuccess[src:图片来源] | 图片下载完成。 |
-
 | H:ABILITY_OR_PAGE_SWITCH | 页面切换过程。 |
 - 网络环境质量日志：可在日志中搜索关键字SignalPoll或chload|noise|rssi来判断网络环境质量。
 
