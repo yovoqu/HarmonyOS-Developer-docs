@@ -1,6 +1,6 @@
 # UIAbilityContext
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -189,7 +189,7 @@ startAbility(want: Want, options: StartOptions, callback: AsyncCallback&lt;void&
 | 16000019 | No matching ability is found. 适用版本：12+ |
 | 16000050 | Internal error. |
 | 16000053 | The ability is not on the top of the UI. |
-| 16000055 | Installation-free timed out. 适用版本：12+ |
+| 16000055 | Installation-free timed out. |
 | 16000067 | The StartOptions check failed. 适用版本：12+ |
 | 16000068 | The ability is already running. 适用版本：12+ |
 | 16300003 | The target application is not the current application. 适用版本：12+ |
@@ -1024,7 +1024,7 @@ connectServiceExtensionAbility(want: Want, options: ConnectOptions): number
 将当前UIAbility连接到一个[ServiceExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/extensionability-overview)，通过返回的proxy与ServiceExtensionAbility进行通信，以使用ServiceExtensionAbility对外提供的能力。仅支持在主线程调用。
 
 > [!NOTE]
-> 组件启动规则详见： 组件启动规则（Stage模型） 。
+> 组件启动规则详见： 组件启动规则（Stage模型） 。 该接口不支持应用分身。
 
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
@@ -1749,7 +1749,7 @@ requestDialogService(want: Want, result: AsyncCallback<dialogRequest.RequestResu
 启动一个支持模态弹框的ServiceExtensionAbility。ServiceExtensionAbility被启动后，应用弹出模态弹框，通过调用[setRequestResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-dialogrequest#requestcallbacksetrequestresult)接口返回结果给调用者。使用callback异步回调。仅支持在主线程调用。
 
 > [!NOTE]
-> 组件启动规则详见： 组件启动规则（Stage模型） 。
+> 组件启动规则详见： 组件启动规则（Stage模型） 。 该接口不支持应用分身。
 
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
@@ -1832,7 +1832,7 @@ requestDialogService(want: Want): Promise<dialogRequest.RequestResult>
 启动一个支持模态弹框的ServiceExtensionAbility。ServiceExtensionAbility被启动后，应用弹出模态弹框，通过调用[setRequestResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-dialogrequest#requestcallbacksetrequestresult)接口返回结果给调用者。使用Promise异步回调。仅支持在主线程调用。
 
 > [!NOTE]
-> 组件启动规则详见： 组件启动规则（Stage模型） 。
+> 组件启动规则详见： 组件启动规则（Stage模型） 。 该接口不支持应用分身。
 
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
@@ -2845,7 +2845,7 @@ startUIServiceExtensionAbility(want: Want): Promise&lt;void&gt;
 启动一个UIServiceExtensionAbility。使用Promise异步回调。
 
 > [!NOTE]
-> 组件启动规则详见： 组件启动规则（Stage模型） 。
+> 组件启动规则详见： 组件启动规则（Stage模型） 。 该接口不支持应用分身。
 
 
 **元服务API**：从API version 14开始，该接口支持在元服务中使用。
@@ -2939,7 +2939,7 @@ connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnect
 连接一个UIServiceExtensionAbility。使用Promise异步回调。
 
 > [!NOTE]
-> 组件启动规则详见： 组件启动规则（Stage模型） 。
+> 组件启动规则详见： 组件启动规则（Stage模型） 。 该接口不支持应用分身。
 
 
 **元服务API**：从API version 14开始，该接口支持在元服务中使用。
@@ -3469,7 +3469,7 @@ stopAppServiceExtensionAbility(want: Want): Promise&lt;void&gt;
 停止[AppServiceExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-appserviceextensionability)实例。使用Promise异步回调。
 
 > [!NOTE]
-> 该接口的调用方必须为 AppServiceExtensionAbility 所属应用或者在AppServiceExtensionAbility支持的应用清单（即 extensionAbilities标签 的appIdentifierAllowList属性）中的应用。
+> 该接口的调用方必须为 AppServiceExtensionAbility 所属应用或者在AppServiceExtensionAbility支持的应用清单（即 extensionAbilities标签 的appIdentifierAllowList属性）中的应用。 该接口不支持应用分身。
 
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
@@ -3552,7 +3552,7 @@ connectAppServiceExtensionAbility(want: Want, callback: ConnectOptions): number
 将当前UIAbility连接到[AppServiceExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-appserviceextensionability)。通过返回的proxy与AppServiceExtensionAbility进行通信，以使用AppServiceExtensionAbility对外提供的能力。仅支持在主线程调用。
 
 > [!NOTE]
-> 如果 AppServiceExtensionAbility 实例未启动，该接口的调用方必须为AppServiceExtensionAbility所属应用或者在AppServiceExtensionAbility支持的应用清单（即 extensionAbilities标签 的appIdentifierAllowList属性）中的应用。
+> 如果 AppServiceExtensionAbility 实例未启动，该接口的调用方必须为AppServiceExtensionAbility所属应用或者在AppServiceExtensionAbility支持的应用清单（即 extensionAbilities标签 的appIdentifierAllowList属性）中的应用。 该接口不支持应用分身。
 
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
@@ -3789,7 +3789,7 @@ startSelfUIAbilityInCurrentProcess(want: Want, specifiedFlag: string, options?: 
 在当前进程中启动应用程序自己的UIAbility。
 
 > [!NOTE]
-> 只能冷启动目标UIAbility，如果目标UIAbility实例已经启动过，则启动失败。 通过该接口启动的UIAbility实例，将运行在调用方所在的进程中。其他关于目标UIAbility的进程相关的策略（例如在 module.json5配置文件 中通过isolationProcess或isolationMode字段来指定进程），均不会生效。
+> 只能冷启动目标UIAbility，如果目标UIAbility实例已经启动过，则启动失败。 通过该接口启动的UIAbility实例，将运行在调用方所在的进程中。其他关于目标UIAbility的进程相关的策略（例如在 module.json5配置文件 中通过isolationProcess或isolationMode字段来指定进程），均不会生效。 该接口不支持应用分身。
 
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
@@ -3881,7 +3881,7 @@ restartApp(want: Want): Promise&lt;void&gt;
 如果指定UIAbility就是当前UIAbility，则会刷新窗口至初始状态；如果是其他UIAbility，则会跳转并打开新的UIAbility窗口。
 
 > [!NOTE]
-> 通过该接口重启进程时，不会触发进程中Ability的onDestroy生命周期回调。 在元服务调用本接口成功后的3秒内，再次调用本接口、 restartSelfAtomicService() 或 ApplicationContext.restartApp() 接口中的任一接口，系统将返回错误码16000064。 在应用调用本接口成功后的3秒内，若再次调用本接口或 ApplicationContext.restartApp() 接口中的任一接口，系统将返回错误码16000064。
+> 通过该接口重启进程时，不会触发进程中Ability的onDestroy生命周期回调。 在元服务调用本接口成功后的3秒内，再次调用本接口、 restartSelfAtomicService() 或 ApplicationContext.restartApp() 接口中的任一接口，系统将返回错误码16000064。 在应用调用本接口成功后的3秒内，若再次调用本接口或 ApplicationContext.restartApp() 接口中的任一接口，系统将返回错误码16000064。 该接口不支持通过Want指定appCloneIndex来切换分身，仅支持在当前分身内重启。
 
 
 **元服务API**：从API version 22开始，该接口支持在元服务中使用。
@@ -4070,7 +4070,7 @@ startSelf(): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Capability not supported, because starting self to foreground from background is not supported in current devive or current UIAbility is a non-native UIAbility. |
+| 801 | Capability not supported, because starting self to foreground from background is not supported in current device or current UIAbility is a non-native UIAbility. |
 | 16000011 | The context does not exist. |
 | 16000050 | Internal error. Connect to system service failed. |
 | 16000082 | The UIAbility is being started. The UIAbility has not completed onCreate or onWindowStageCreate. |
@@ -4114,7 +4114,7 @@ startSelfUIAbilityInChildProcess(want: Want, specifiedFlag: string): Promise&lt;
 在子进程中启动当前应用的UIAbility，子进程中的UIAbility支持加载Native模块。使用Promise异步回调。
 
 > [!NOTE]
-> 子进程生命周期跟随父进程，父进程退出时子进程自动退出。
+> 子进程生命周期跟随父进程，父进程退出时子进程自动退出。 该接口不支持应用分身。
 
 
 **起始版本：** 26.0.0

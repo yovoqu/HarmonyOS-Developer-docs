@@ -1,6 +1,6 @@
 # 如何解决AES解密Base64格式密文失败的问题
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-43
 
@@ -96,7 +96,7 @@ AES加解密算法是一种常见的对称加解密算法。
 <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
 ```
 
-2. 获取到错误码[17630001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework#section17630001-算法相关的操作错误调用三方算法库api出错)，查询错误码信息可以分析得出输入参数错误。
+2. 获取到错误码[17630001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework#section17630001-密码操作错误)，查询错误码信息可以分析得出输入参数错误。
 ```text
 <span style="color: rgb(0,0,255);">DecryptString failed</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">error </span><span style="color: rgb(181,106,1);">code</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">17630001</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">error </span><span style="color: rgb(181,106,1);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">doFinal failed</span><span style="color: rgb(181,106,1);">.</span>
 ```

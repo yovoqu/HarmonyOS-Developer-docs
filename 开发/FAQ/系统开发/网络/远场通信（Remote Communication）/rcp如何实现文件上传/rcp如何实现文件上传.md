@@ -1,6 +1,6 @@
 # rcp如何实现文件上传
 
-更新时间：2026-07-30 01:55:38
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-15
 
@@ -13,7 +13,7 @@
 #### 背景知识
 
 - [uploadFromFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#uploadfromfile)：为rcp模块独有接口，是结合[Core File Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-file-kit-intro)模块，通过直接输入文件路径、文件描述符、文件数据的方式快速实现上传和下载功能，无需额外配置请求参数。
-- [post](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#post)：post请求为http常见请求方法，rcp模块的post请求体参数为[RequestContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#requestcontent)，其中请求体参数[MultipartForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section1420174317517)类型可用于上传文字文件混合表单数据。
+- [post](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#post)：post请求为http常见请求方法，rcp模块的post请求体参数为[RequestContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#requestcontent)，其中请求体参数[MultipartForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#multipartform)类型可用于上传文字文件混合表单数据。
 - rcp模块上传文件包括2种方案，第一种方案使用uploadFromFile方法上传文件。第二种方案使用post方法并设置请求体为MultipartForm类型用于上传文字文件表单混合数据，详细对比如下表。
 
   
@@ -71,7 +71,7 @@ session.uploadFromFile('xx.xx.xx.xx', new rcp.UploadFromFile(fileOrPath)) <em>//
  **场景1运行效果：使用uploadFromFile方法上传文件content-type系统默认为'application/octet-stream'，运行日志如下图所示。**
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/fb2BKRXVRvuuoJt5RbiH8w/zh-cn_image_0000002628772382.png?HW-CC-KV=V1&HW-CC-Date=20260811T005942Z&HW-CC-Expire=86400&HW-CC-Sign=6CDF4C547C39E2C6F9C00BDBA2A38335EBB345DC193EE7749FE80FFEA1E2D552)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/tO4zxw4BTKK1Zdod2MA5YQ/zh-cn_image_0000002628772382.png?HW-CC-KV=V1&HW-CC-Date=20260813T095610Z&HW-CC-Expire=86400&HW-CC-Sign=8F4F56AE83EA880D3A4E89696E4E097CA88B815A400932722F3D55E50E677AD8)
 
 - **场景2：使用读取文件数据回调函数作为入参上传文件，具体参考官方指南上传功能实现。**
 
@@ -120,7 +120,7 @@ uploadMultiPartFormFileForCommon(multiForm: rcp.MultipartForm) {
   使用沙箱路径上传表单文件，系统默认会根据文件名类型匹配content-type，此为图片类型文件上传，即为image/jpeg，运行日志如下图所示。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/DiTeUlAoSyC8al5bRxPXLg/zh-cn_image_0000002658971703.png?HW-CC-KV=V1&HW-CC-Date=20260811T005942Z&HW-CC-Expire=86400&HW-CC-Sign=7430D1C92F6503B486A879A236F61F9CFE23BB35CBDD83B0BE0C189E651E05C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/iqySuWXBS3qZ9wxvLTtj7A/zh-cn_image_0000002658971703.png?HW-CC-KV=V1&HW-CC-Date=20260813T095610Z&HW-CC-Expire=86400&HW-CC-Sign=9270C9AC882381A7D98857AA33706CFE2DCA4C93E6281E4F28247D1EAF5B0446)
 
 - **场景2：使用文件数据上传表单文件。**1. 基于文件URI将文件数据读取到ArrayBuffer中，并构建类型为FileContent的contentOrPath参数。
 ```text
@@ -148,10 +148,10 @@ let multiForm = new rcp.MultipartForm({ 'test': multiFormFieldValue, 'test1': mu
 
   
 如果配置参数remoteFileName，系统默认会根据文件名类型匹配content-type，此为图片类型文件上传，即为'image/jpeg'，运行日志如下图所示。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/_gLBD8yQRzKEREY-NMHLPA/zh-cn_image_0000002628612492.png?HW-CC-KV=V1&HW-CC-Date=20260811T005942Z&HW-CC-Expire=86400&HW-CC-Sign=D02EECF1CAC26D8A593F2847AC83C93349C05CBDBF83B469D5E5B6F968A3081E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/QrNxwPDLTVu6ylRDt3TH1Q/zh-cn_image_0000002628612492.png?HW-CC-KV=V1&HW-CC-Date=20260813T095610Z&HW-CC-Expire=86400&HW-CC-Sign=73F2AA61E4EB4CF3F0239BBDE76A9F768D15AA7EA4EC6CA0380BC3B3A006876E)
 
 - 如果不配置参数remoteFileName，或者设置为undefined，系统无法识别为图片类型文件，即使设置contentType参数为'image/jpeg'，上传数据依然无法识别，运行日志如下图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/uTywycuXRCSSJzjmZKQi_w/zh-cn_image_0000002658851749.png?HW-CC-KV=V1&HW-CC-Date=20260811T005942Z&HW-CC-Expire=86400&HW-CC-Sign=A10B7E3F952B722DC40EEFAB82D8434D9339416F2D33FC7218456EF36EF0B81B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/R8RZb1_oQoSr33jN79XUiw/zh-cn_image_0000002658851749.png?HW-CC-KV=V1&HW-CC-Date=20260813T095610Z&HW-CC-Expire=86400&HW-CC-Sign=5FD118EA3468E9D73B9D8CC81B9D2CA3D7080165F0B1F1BF1C248EDC5290A339)
 
 
  

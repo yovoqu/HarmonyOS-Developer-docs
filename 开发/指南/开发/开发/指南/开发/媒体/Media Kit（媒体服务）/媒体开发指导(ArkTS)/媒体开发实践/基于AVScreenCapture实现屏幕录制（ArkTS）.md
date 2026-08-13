@@ -1,6 +1,6 @@
 # 基于AVScreenCapture实现屏幕录制（ArkTS）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avscreencapture-screen-recording-arkts
 
@@ -38,7 +38,7 @@ HarmonyOS 提供了用于实现录屏功能的ArkTS接口，能够支持屏幕�
 **调用流程图**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/tO3FkfMQQ_6WxdX5HDxbvw/zh-cn_image_0000002685926929.png?HW-CC-KV=V1&HW-CC-Date=20260730T072030Z&HW-CC-Expire=86400&HW-CC-Sign=E205F391A2F57E0992DA61DAA77FAF36601F38A93BBA3F909850BD008E7D750F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/S-sxTRhFSlOHJBNtBoVdAA/zh-cn_image_0000002704273207.png?HW-CC-KV=V1&HW-CC-Date=20260813T095905Z&HW-CC-Expire=86400&HW-CC-Sign=03AD2EF2BA09513E3ADCF046DCD9B632B6E44A1B61F1DBDDAFEA6112C91EDDFF)
 
  
 当点击录制按钮时，会调用异步方法进行屏幕录制。关键过程如下：
@@ -64,13 +64,13 @@ HarmonyOS 提供了用于实现录屏功能的ArkTS接口，能够支持屏幕�
   获取沙箱路径。
 
   
-```text
+```ArkTS
 private filesDir = this.getUIContext().getHostContext()?.filesDir;
 ```
   拼接文件路径并获取文件信息。
 
   
-```text
+```ArkTS
 public updateFileFd(filesDir: string) {
   this.fileName = systemDateTime.getTime(true).toString() + '.mp4';
   this.path = filesDir + '/' + this.fileName;
@@ -89,7 +89,7 @@ public updateFileFd(filesDir: string) {
   通过MediaKit提供的createAVScreenCaptureRecorder()接口构建实例对象，然后使用.on接口为其绑定可选的监听回调函数。在以下示例中，订阅了两个回调事件：stateChange（状态切换事件回调）和error（错误事件回调）。对于同一个回调事件，用户只能订阅一次，若重复订阅，则以最后一次订阅的回调接口为准。已订阅的回调事件还可以通过off接口取消订阅。
 
   
-```text
+```ArkTS
 public async startRecording(filesDir: string) {
   this.updateFileFd(filesDir);
 
@@ -165,13 +165,13 @@ public async startRecording(filesDir: string) {
   示例中通过 getDefaultDisplaySync() 方法获取屏幕宽高。开发者也可以自定义屏幕宽高，但需注意，若设置不当，可能会导致录制的视频界面出现黑边。
 
   
-```text
+```ArkTS
 let displayInfo = display.getDefaultDisplaySync();
 ```
   以下配置了屏幕录制参数，除了fd配置外，其余配置均为可选。未配置时，将采用默认值。默认值可参考：[AVScreenCaptureRecordConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avscreencapturerecordconfig12)。
 
   
-```text
+```ArkTS
 private captureConfig: media.AVScreenCaptureRecordConfig = {
   frameWidth: this.displayInfo.width,
   frameHeight: this.displayInfo.height,
@@ -186,7 +186,7 @@ private captureConfig: media.AVScreenCaptureRecordConfig = {
   基于上述配置信息初始化screenCapture实例对象。
 
   
-```text
+```ArkTS
 await this.screenCapture?.init(this.captureConfig);
 ```
 
@@ -195,7 +195,7 @@ await this.screenCapture?.init(this.captureConfig);
   startRecording()接口以异步方式启动录屏，启动后录屏不会影响页面操作。
 
   
-```text
+```ArkTS
 await this.screenCapture?.startRecording();
 ```
 
@@ -204,7 +204,7 @@ await this.screenCapture?.startRecording();
   同样的，stopRecording()接口也是异步接口，示例中首先通过stopRecording()接口停止录制，然后调用release()方法销毁实例，释放资源。
 
   
-```text
+```ArkTS
 public async stopRecording() {
   if (this.screenCapture == undefined) {
     hilog.info(0xFF00, CommonConstants.LOG_TAG, 'ScreenCapture exception.');

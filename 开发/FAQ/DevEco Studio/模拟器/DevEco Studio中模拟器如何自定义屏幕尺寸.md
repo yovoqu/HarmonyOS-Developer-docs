@@ -1,6 +1,6 @@
 # DevEco Studio中模拟器如何自定义屏幕尺寸
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-06-26 07:47:42（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-7
 

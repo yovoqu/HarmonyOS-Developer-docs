@@ -1,6 +1,6 @@
 # @ohos.file.cloudSync (端云同步能力)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-cloudsync
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -556,7 +556,7 @@ fileSync.getLastSyncTime((err: BusinessError, timeStamp: number) => {
 
 
 
-#### construct11+
+#### constructor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1696,7 +1696,7 @@ cloudSync.unregisterChange(uri);
 
 
 
-#### construct20+
+#### constructor20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

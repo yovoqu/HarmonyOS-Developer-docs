@@ -1,6 +1,6 @@
 # 列表选择弹窗 (ActionSheet)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-action-sheet
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -608,7 +608,7 @@ struct ActionSheetExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/Fw1x-J1cQ4m2uy7eWrmMzg/zh-cn_image_0000002686088355.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=423E2116702A926F65E20C93EC33F49BEEA8D07FE8138DA061C4AA1FDC2EAC8C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/qsbZu_Y_TxmmUT_QjiyAKg/zh-cn_image_0000002704394979.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=CCB8FCDCFF2DF9649BCE358FFD46EB24F1D3E87C351FED0FF0354DB5DAAAE3F9)
 
 
 
@@ -690,7 +690,7 @@ struct Example1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/4Uoilkc0T_-Zfn7oMrMtrQ/zh-cn_image_0000002685928523.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=20E16649B04F22B3A522ED9C145A361E657BD79C4F99BE36A8C740B7D426D746)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/5ppXvOVyTFeg-1319di8_w/zh-cn_image_0000002674634858.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=4CAEBA5025169ED41151751ABD4BE48170029242A19C79ECA7F21DDEE3178BFF)
 
 
 
@@ -754,7 +754,7 @@ struct ActionSheetExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/sHLb5239Q2qDs-ugVNxoCA/zh-cn_image_0000002656008846.png?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=F31345B991EABFBAE27FB6E297D8C5B6A67DEB5A169767ED116C3EAF385355BE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/FIJMsggDSByMtWYKvUREww/zh-cn_image_0000002704274811.png?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=021C4CDD31A7407492A3BFD1D0A6BC56211E319C41B788D2F85081565EB603F1)
 
 
 
@@ -819,7 +819,7 @@ struct ActionSheetExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/12FR5e9aQ5yQW6hFF9iZFQ/zh-cn_image_0000002655848926.png?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=DD4F939C05C2505DB8C849B716491216CBA9B66C9FED36066F3D833DDBFA0AF6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/bj4_gb7xTReJJwUAQSPMxA/zh-cn_image_0000002674475020.png?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=37C6334C34130E77DD7140B781DB6B66D3362D9E1A42FC3E2C7A6B0DC7DAA703)
 
 
 
@@ -880,4 +880,4 @@ struct ActionSheetExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/01Av5p5uTO2xx1bz3xbgrA/zh-cn_image_0000002686088357.png?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=21C602948CDEEDF8C9D837CDD6A06206F5851C0012760AB3D3252B67AC0970EB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/ojtcJmdzQDubv54FzEMvNg/zh-cn_image_0000002704394981.png?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=E2509E17A53321C8C8F17043FEE2A35E443313CBBE62B49B3A456E6EA6816E78)

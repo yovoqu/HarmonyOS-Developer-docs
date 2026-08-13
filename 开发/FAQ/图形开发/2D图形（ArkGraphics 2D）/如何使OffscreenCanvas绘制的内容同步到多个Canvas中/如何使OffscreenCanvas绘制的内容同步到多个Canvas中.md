@@ -1,6 +1,6 @@
 # 如何使OffscreenCanvas绘制的内容同步到多个Canvas中
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:42:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-40
 
@@ -13,7 +13,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/_lI9ezk6S92ruVfctqOBbw/zh-cn_image_0000002628393364.png?HW-CC-KV=V1&HW-CC-Date=20260811T005532Z&HW-CC-Expire=86400&HW-CC-Sign=7AE3D8D4215A90426AB8F463677EB45490E805FE4B3AC563595F75989BD59156)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/J6HT67w-TeGlqdzPZ7iDNA/zh-cn_image_0000002628393364.png?HW-CC-KV=V1&HW-CC-Date=20260813T095548Z&HW-CC-Expire=86400&HW-CC-Sign=BC374CCD7827F34A459167937E6CA1B7667DC6A0E41877794D717E98AE1476A7)
 
  
  
@@ -21,7 +21,7 @@
 #### 背景知识
 
 - [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)是画布组件，提供了一个用于绘制内容的区域。
-- [OffscreenCanvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-offscreencanvas)是用于离屏绘制的画笔，可以在一个类中创建并绘制内容，然后在自定义组件中通过[getImageData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#getimagedata)将绘制的内容传递到不同Canvas上。
+- [OffscreenCanvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-offscreencanvas)是用于离屏绘制的画笔，可以在一个类中创建并绘制内容，然后在自定义组件中通过[getImageData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#getimagedata)将绘制的内容传递到不同Canvas上。
 - [使用状态变量驱动画布刷新](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-drawing-customization-on-canvas#使用状态变量驱动画布刷新)：状态变量变更时，本身不会导致Canvas中绘制内容的更新，这时可以用@Watch去监听状态变量的更新，通过@Watch的回调方法去主动地更新绘制内容。
 
  

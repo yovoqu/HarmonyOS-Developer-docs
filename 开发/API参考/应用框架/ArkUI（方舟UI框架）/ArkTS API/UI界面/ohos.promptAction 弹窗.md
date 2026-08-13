@@ -1,6 +1,6 @@
 # @ohos.promptAction (弹窗)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -304,7 +304,7 @@ Toast的选项。
 
 
 
-#### CommonState20+枚举说明
+#### CommonState20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -433,7 +433,7 @@ getState(): CommonState
 
 static clamp(order: number): LevelOrder
 
-创建指定顺序的弹窗层级。
+创建指定顺序的弹窗层级，数值越大弹窗显示越上层。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -713,7 +713,7 @@ Dialog关闭的信息。
 
 
 
-#### LevelMode15+枚举说明
+#### LevelMode15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -733,7 +733,7 @@ Dialog关闭的信息。
 
 
 
-#### ImmersiveMode15+枚举说明
+#### ImmersiveMode15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1102,7 +1102,7 @@ try {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/VjHP3YbBTAa2FQ3jKYq4og/zh-cn_image_0000002655848278.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071447Z&HW-CC-Expire=86400&HW-CC-Sign=00389FF16E50C2232EB85D826883074AB0BE6A8B5C534748AA6339B3B97EA074)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/Cg_s_IOoSg-GL1wKgXhArA/zh-cn_image_0000002704274165.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095445Z&HW-CC-Expire=86400&HW-CC-Sign=6668F8F29C1D4758E65AB5F141BAE4F975DB648DF76F73058012B68795CAA9A5)
 
 
 当弹窗的showInSubWindow属性为true时，弹窗可显示在窗口外。
@@ -1142,7 +1142,7 @@ try {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/0BAi4jbGQpWa5yP56pWiOA/zh-cn_image_0000002686087707.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071447Z&HW-CC-Expire=86400&HW-CC-Sign=7B9FDBB0CE5AF9644778DB7C0D9D3008DCE91724CF649F0FEDFF0537F1369DA1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/Ea1rsOo9SVWiyF5EPUNPzg/zh-cn_image_0000002674474372.jpg?HW-CC-KV=V1&HW-CC-Date=20260813T095445Z&HW-CC-Expire=86400&HW-CC-Sign=403388B68464DAC7169C151228201B5C23FECFAF952B612161A414F30387DA6B)
 
 
 从API version 19开始，该示例通过调用[ShowDialogOptions](#showdialogoptions)中的onDidAppear、onDidDisappear、onWillAppear和onWillDisappear属性展示了弹窗生命周期的相关接口的使用方法。
@@ -1207,7 +1207,7 @@ struct DialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/nlSjTRUvQSmEieizqPReXw/zh-cn_image_0000002685927879.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071447Z&HW-CC-Expire=86400&HW-CC-Sign=7D4B7734E2C25BDF79BF46FE7FD9BCC7910DF50CE4882A644FAFBED1C4438493)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/6HC_YUFFRK-ya_vAPAc0CQ/zh-cn_image_0000002704394331.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095445Z&HW-CC-Expire=86400&HW-CC-Sign=41BF2841693F59BBE4A83A4ECA8C80E5BBA86214A173C332D4546B8E7F83BD92)
 
 
 
@@ -1280,7 +1280,7 @@ try {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/AzZUOE8dSY6-p56g3pu0xw/zh-cn_image_0000002656008200.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071447Z&HW-CC-Expire=86400&HW-CC-Sign=31D07C70B0219B84BEA257FAE2C494FDBCE6EEC8E7BD05D432968C9101A35675)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/8k7eBQ_nQUus7z2t5yV3EQ/zh-cn_image_0000002674634210.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095445Z&HW-CC-Expire=86400&HW-CC-Sign=770FA0CCD743EF1AA854288AC264924BEBD19EDEC29304A8AA8FC925B27A8C82)
 
 
 **示例：2**
@@ -1357,7 +1357,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/T8xsOQuWQ-C0Xssf6PMIqA/zh-cn_image_0000002655848280.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071447Z&HW-CC-Expire=86400&HW-CC-Sign=4AF0FF8DE0C28DE469778FC4CEFE446E8C9A0A27F2DDA1095BCD914C25086003)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/UQ3tX2OnQwi_1ut0rn2SYQ/zh-cn_image_0000002704274167.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095445Z&HW-CC-Expire=86400&HW-CC-Sign=6DB368139E39F378DE2B4357248965CE7039639E8BD794F6F452A9CD3433FFB6)
 
 
 
@@ -1429,7 +1429,7 @@ promptAction.showActionMenu({
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/aBxsap9CQiCAIR2uEW9KAg/zh-cn_image_0000002686087709.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071447Z&HW-CC-Expire=86400&HW-CC-Sign=B3E0123CDF7FD9A945971852B57FB2B27632289157FA7DC2878AEDB680C870AF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/gsXypA6JSbejPjOvUdDUcw/zh-cn_image_0000002674474374.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095445Z&HW-CC-Expire=86400&HW-CC-Sign=21C93BBAAE69D1929C37D386788433F118D8D3E4D3C0FE1E99AF63777644FE13)
 
 
 
@@ -1633,7 +1633,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/-Y3mIKrvQC6c8uIOa5AdiQ/zh-cn_image_0000002685927881.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071447Z&HW-CC-Expire=86400&HW-CC-Sign=A94CA775AFD30CDCF63814F0B2BCF2739239C72D8EA00E45985871C767726427)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/b7e61IpSSoyK6WMYvhHdsA/zh-cn_image_0000002704394333.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095445Z&HW-CC-Expire=86400&HW-CC-Sign=30AD53785DFF486C18D9704880D2F648ECEC284D4CEA674E3EE8E359B53D7901)
 
 
 该示例实现了一个页面内的弹窗。
@@ -1725,7 +1725,7 @@ struct Next {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/4UcyLGGhQK2k85V1R2rxbQ/zh-cn_image_0000002656008202.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071447Z&HW-CC-Expire=86400&HW-CC-Sign=F2F374C58E46EFB4782318BE971163AA8C45A8488D1642D31A6C9E6100E94575)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/Fnl1NrFgREiTr2iEEIJ0pA/zh-cn_image_0000002674634212.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095445Z&HW-CC-Expire=86400&HW-CC-Sign=825220DF8F9285F9255E3E610BBBBD66AAD26F078B2CF74E5D9F3D5D9138E8BD)
 
 
 

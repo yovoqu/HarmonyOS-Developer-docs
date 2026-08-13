@@ -1,6 +1,6 @@
 # 创建懒加载布局 (LazyColumnLayout/LazyVGridLayout/LazyVWaterFlowLayout)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-lazy-layout
 
@@ -98,7 +98,7 @@ Scroll() {
   **图1** 列数占比示例图
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/baXJ7obxRaCPguJ04FIgRQ/zh-cn_image_0000002686085687.png?HW-CC-KV=V1&HW-CC-Date=20260730T072026Z&HW-CC-Expire=86400&HW-CC-Sign=8C2CDDB095E7F95F5A89CD67B2408A91B4235CDAFCCA4135A8ADEF15F311330F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/vqIYHyZHQNuvsT8wfvO_dg/zh-cn_image_0000002704392293.png?HW-CC-KV=V1&HW-CC-Date=20260813T095859Z&HW-CC-Expire=86400&HW-CC-Sign=E0D91BDCE8E6567427C00608FD7B81D8CCA7E0166C57616AD08A2A7508742B4B)
 
 
   如上图所示，构建的是一个三行三列的网格布局，其在水平方向上分为四等份，第一列占一份，第二列占两份，第三列占一份。只要将columnsTemplate设置为'1fr 2fr 1fr'，即可实现上述网格布局。
@@ -138,7 +138,7 @@ columnsTemplate还支持通过repeat关键字自动计算列数，格式为'repe
   **图2** 网格的行列间距示例图
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/_sUwpXekTJyiSxCzbQksWg/zh-cn_image_0000002686085673.png?HW-CC-KV=V1&HW-CC-Date=20260730T072026Z&HW-CC-Expire=86400&HW-CC-Sign=43234057C77C957C9BDCAE5F41644522BC2D5D4793512763D25122F85B052150)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/QEyDEIJWTeeZulgJEgbQtQ/zh-cn_image_0000002704392279.png?HW-CC-KV=V1&HW-CC-Date=20260813T095859Z&HW-CC-Expire=86400&HW-CC-Sign=3CB110E4C5092CBBA53549248F9C5920B5394C3C55AB89FE3EBE40E1685109C1)
 
 
   LazyVGridLayout组件提供了[rowsGap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazyvgridlayout#rowsgap)和[columnsGap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazyvgridlayout#columnsgap)属性分别设置行间距和列间距。默认值均为LengthMetrics.vp(0)，设置为小于0的值时按默认值显示。
@@ -255,7 +255,7 @@ LazyVWaterFlowLayout() {
   以下以在[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)组件中为例，展示了LazyColumnLayout的创建方式。创建时，需要确保Scroll的布局方向为ScrollDirection.Vertical。
 
   
-```text
+```ArkTS
 Scroll() {
   LazyColumnLayout() {
     // 子组件
@@ -274,7 +274,7 @@ Scroll() {
   LazyColumnLayout组件提供了[space](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazycolumnlayout#space)属性用于设置子组件在垂直方向上的间距。默认值为LengthMetrics.vp(0)，设置为小于0的值时按默认值显示。
 
   
-```text
+```ArkTS
 LazyColumnLayout() {
   // 子组件
   // ...
@@ -290,7 +290,7 @@ LazyColumnLayout() {
   LazyColumnLayout组件提供了[alignItems](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazycolumnlayout#alignitems)属性用于设置子组件在水平方向上的对齐方式。未设置时，对齐方式默认值为HorizontalAlign.Center。
 
   
-```text
+```ArkTS
 LazyColumnLayout() {
   // 子组件
   // ...
@@ -307,7 +307,7 @@ LazyColumnLayout() {
   LazyColumnLayout支持嵌套使用LazyVGridLayout、LazyVWaterFlowLayout及其自身，以实现更复杂的混合布局。被嵌套的懒加载布局容器会作为LazyColumnLayout的子组件，在进入可视区域时按需加载。
 
   
-```text
+```ArkTS
 Scroll() {
   LazyColumnLayout() {
     // ...
@@ -345,7 +345,7 @@ Scroll() {
   以下示例分别展示了三种懒加载布局容器注册onVisibleIndexesChange事件回调的方式。
 
   
-```text
+```ArkTS
 // 区域一：线性列表
 LazyColumnLayout() {
   // ...
@@ -595,7 +595,7 @@ export struct ListNestedLazyLayout {
 **图3** List嵌套懒加载布局容器效果示例图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/y9nULZeFR4aEfx5i69lYwA/zh-cn_image_0000002686085651.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072026Z&HW-CC-Expire=86400&HW-CC-Sign=50B3CC482DBA28C7F07B6F8D3C69C394FB134DC7C2D3C37FECD185D3AF30D5D6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/nsZq08eiS0aqEegHDJeKqw/zh-cn_image_0000002704392257.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095859Z&HW-CC-Expire=86400&HW-CC-Sign=220ACF1C5A23A94402455CB254A7C9459F2A1F31ACEBDBEDB58014A07BB55FFA)
 
 
  - 通过LazyColumnLayout嵌套组合多种懒加载布局容器
@@ -605,7 +605,7 @@ export struct ListNestedLazyLayout {
 
 以下示例以[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)组件作为可滚动父组件为例，使用LazyColumnLayout作为主布局容器，嵌套LazyColumnLayout（线性列表区域）、LazyVGridLayout（网格区域）和LazyVWaterFlowLayout（瀑布流区域），实现了多种布局方式的混合展示。
 
-```text
+```ArkTS
 import {
   LengthMetrics,
   LazyVWaterFlowLayout,
@@ -828,7 +828,7 @@ export struct LazyColumnLayoutNestedLazyLayout {
 **图4** LazyColumnLayout嵌套懒加载布局容器效果示例图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/cUH4D8ovSketQqaA-Gnqcw/zh-cn_image_0000002685925859.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072026Z&HW-CC-Expire=86400&HW-CC-Sign=748FE1097F64400BE33ABE67D9DAC59AD97907A91FF10C0C5590E17889563CAA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/KVI1OnjNSyujYrf78zlgqw/zh-cn_image_0000002674632172.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095859Z&HW-CC-Expire=86400&HW-CC-Sign=E707C2212EC29F6D14F820FF86319F864B696C9D20574A06FEE4E7D859C6D695)
 
 
 
@@ -843,7 +843,7 @@ export struct LazyColumnLayoutNestedLazyLayout {
 
 可以通过[header](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazyvgridlayout#header)属性为懒加载布局容器添加头部组件，用于展示分组标题。以下示例使用[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)构建了一个带参数的分组标题组件，并通过header属性设置到[LazyVGridLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazyvgridlayout)中。
 
-```text
+```ArkTS
 // 内层分组header：显示月份标题，滚动时吸顶
 @Builder
 MonthHeaderBuilder(title: string, count: number) {
@@ -890,7 +890,7 @@ build() {
 
 可以通过[footer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazycolumnlayout#footer)属性为懒加载布局容器添加尾部组件，用于提示数据加载完毕。以下示例使用[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)构建了一个尾部提示组件，并通过footer属性设置到[LazyColumnLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazycolumnlayout)中。
 
-```text
+```ArkTS
 // 外层footer：显示"已经到底了"
 @Builder
 GroupFooterBuilder() {
@@ -941,7 +941,7 @@ build() {
 
 以下示例模拟图库页面，展示了分组展示与粘性标题的效果。外层[LazyColumnLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazycolumnlayout)通过footer显示”已经到底了”，提示数据已全部加载；内层通过[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)动态创建多个[LazyVGridLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazyvgridlayout)展示各月份照片网格，每个LazyVGridLayout设置了header和sticky(StickyStyle.Header)，使月份标题在滚动时吸顶。
 
-```text
+```ArkTS
 import { LengthMetrics, LazyColumnLayout, LazyColumnLayoutAttribute } from '@kit.ArkUI';
 
 class BasicDataSource<T> implements IDataSource {
@@ -1149,4 +1149,4 @@ export struct LazyLayoutGroup {
 **图6** 分组展示与粘性标题效果示例图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/aClVFot6RQusRK51fPrPUA/zh-cn_image_0000002685925861.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072026Z&HW-CC-Expire=86400&HW-CC-Sign=466B7BA8DDD36A305C13EFC60BE21A88999004BEA40DC5C8797F56E10FA09DC6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/dQ0yMaxNRv-m6YTwsXCzJA/zh-cn_image_0000002674632174.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095859Z&HW-CC-Expire=86400&HW-CC-Sign=B7CEE85AA410C13234D63829933076A0E064714E41FC914C6CB9907503842B17)

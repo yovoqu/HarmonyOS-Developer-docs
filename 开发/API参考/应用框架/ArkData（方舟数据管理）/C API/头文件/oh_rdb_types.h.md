@@ -1,6 +1,6 @@
 # oh_rdb_types.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-rdb-types-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -202,7 +202,7 @@ int OH_RDB_SetMaxReturningCount(OH_RDB_ReturningContext *context, int32_t count)
 | 参数项 | 描述 |
 | --- | --- |
 | OH_RDB_ReturningContext *context | 指向OH_RDB_ReturningContext实例的指针。 |
-| int32_t count | 表示返回结果集的最大条目数。 |
+| int32_t count | 表示返回结果集的最大行数量。 |
  
  
 **返回：**

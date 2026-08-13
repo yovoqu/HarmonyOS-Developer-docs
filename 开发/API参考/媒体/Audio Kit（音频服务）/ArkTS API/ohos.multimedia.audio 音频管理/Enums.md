@@ -1,6 +1,6 @@
 # Enums
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -672,7 +672,7 @@
 | SOURCE_TYPE_MIC | 0 | Mic音频源。 系统能力： SystemCapability.Multimedia.Audio.Core |
 | SOURCE_TYPE_VOICE_RECOGNITION9+ | 1 | 语音识别源。 系统能力： SystemCapability.Multimedia.Audio.Core |
 | SOURCE_TYPE_PLAYBACK_CAPTURE(deprecated) | 2 | 播放音频流（内录）录制音频源。 系统能力： SystemCapability.Multimedia.Audio.PlaybackCapture 从API version 10开始支持，从API version 12开始废弃，建议使用录屏接口AVScreenCapture替代。 |
-| SOURCE_TYPE_VOICE_COMMUNICATION | 7 | 语音通话场景的音频源（单独启动录制不会开启3A算法，需同时使用STREAM_USAGE_VOICE_COMMUNICATION或STREAM_USAGE_VIDEO_COMMUNICATION类型的AudioRender起播才会触发开启3A算法）。 系统能力： SystemCapability.Multimedia.Audio.Core |
+| SOURCE_TYPE_VOICE_COMMUNICATION | 7 | 语音通话场景的音频源。该流类型启动录音时，会触发开启3A算法。 系统能力： SystemCapability.Multimedia.Audio.Core |
 | SOURCE_TYPE_VOICE_MESSAGE12+ | 10 | 短语音消息的音频源。 系统能力： SystemCapability.Multimedia.Audio.Core |
 | SOURCE_TYPE_CAMCORDER13+ | 13 | 录像的音频源。 系统能力： SystemCapability.Multimedia.Audio.Core |
 | SOURCE_TYPE_UNPROCESSED14+ | 14 | 麦克风纯净录音的音频源（系统不做任何算法处理）。 系统能力： SystemCapability.Multimedia.Audio.Core |

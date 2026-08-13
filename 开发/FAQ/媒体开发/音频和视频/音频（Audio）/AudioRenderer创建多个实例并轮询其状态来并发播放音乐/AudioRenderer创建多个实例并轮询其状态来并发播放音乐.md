@@ -1,12 +1,12 @@
 # AudioRenderer创建多个实例并轮询其状态来并发播放音乐
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-51
 
 #### 问题现象
 
-AudioRenderer支持低时延播放，可以通过创建多个实例并轮询其状态来管理多个音频的播放，在一个实例空闲时使用它来播放下一个音效，从而有效地处理大量的短音频并发播放请求，具体该如何实现？
+AudioRenderer支持低时延播放。可以通过创建多个实例并轮询其状态来管理多个音频的播放。在一个实例空闲时使用它来播放下一个音效，从而有效地处理大量的短音频并发播放请求。
  
  
 
@@ -21,265 +21,279 @@ AudioRenderer支持低时延播放，可以通过创建多个实例并轮询其�
 通过循环创建多个AudioRenderer实例，通过周期性定时器不断轮询所有AudioRenderer实例的状态，取其中空闲状态的实例作为当前实例，用来播放当前音乐，当播放下一首音乐时，使用的是从所有AudioRenderer实例轮询出来的空闲实例，不影响当前音乐的播放，从而有效地处理大量的音频并发播放请求。
  1. 循环创建多个AudioRenderer实例。
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">循环创建多个实例</span></em>
-for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">num </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">num </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">num</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createAudioRenderer</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">audioRendererOptions</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">`Invoke createAudioRenderer failed, code is </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message is </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      return<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Invoke createAudioRenderer succeeded.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">audioRendererList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建的实例放到数组中</span></em>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+<em>// 循环创建多个实例</em>
+    for (let num = 0; num < 4; num++) {
+      audio.createAudioRenderer(this.audioRendererOptions, (err, data) => {
+        if (err) {
+          console.error(TAG, `Invoke createAudioRenderer failed, code is ${err.code}, message is ${err.message}`);
+          return;
+        } else {
+          console.info(TAG, 'Invoke createAudioRenderer succeeded.');
+          this.audioRendererList.push(data);<em> // 创建的实例放到数组中</em>
+        }
+      });
+    }
 ```
 
 2. 通过周期性定时器不断轮询所有AudioRenderer实例的状态，取其中空闲状态的实例作为当前实例。
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">轮询</span><span style="color: rgb(128,128,128);">audioRenderer</span><span style="color: rgb(128,128,128);">实例数组中，空闲的实例，并设为当前实例，为后续播放做准备</span></em>
-<span style="color: rgb(0,0,255);">setInterval</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-  for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">num </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">num </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">num</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">renderModelTemp </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">audioRendererList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">num</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当数组中</span><span style="color: rgb(128,128,128);">audioRenderer</span><span style="color: rgb(128,128,128);">实例状态为</span><span style="color: rgb(128,128,128);">prepared</span><span style="color: rgb(128,128,128);">时，将该实例赋给当前实例</span></em>
-    if <span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">renderModelTemp </span>as <span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRenderer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">state</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">valueOf</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">renderModelTemp</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TAG </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">`AudioRenderer state: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">renderModelTemp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">state</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TAG </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">`AudioRenderer state: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">renderModelTemp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">state</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
-<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<em>// 轮询audioRenderer实例数组中，空闲的实例，并设为当前实例，为后续播放做准备</em>
+    setInterval(() => {
+      for (let num = 0; num < 4; num++) {
+        let renderModelTemp = this.audioRendererList[num];
+     <em>   // 当数组中audioRenderer实例状态为prepared时，将该实例赋给当前实例</em>
+        if ((renderModelTemp as audio.AudioRenderer).state.valueOf() == 1) {
+          this.renderModel = renderModelTemp;
+          console.info(TAG + `AudioRenderer state: ${renderModelTemp.state}`);
+        } else {
+          console.info(TAG + `AudioRenderer state: ${renderModelTemp.state}`);
+        }
+      }
+    }, 10);
 ```
 
 3. 调用当前AudioRenderer实例来播放音乐。
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">开始一次音频渲染。</span></em>
-<span style="color: rgb(0,0,255);">start</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">stateGroup </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">STATE_PREPARED</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">STATE_PAUSED</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">STATE_STOPPED</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">stateGroup</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indexOf</span><span style="color: rgb(255,0,170);">((</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span>as <span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRenderer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">state</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">valueOf</span><span style="color: rgb(255,0,170);">()) </span><span style="color: rgb(181,106,1);">===</span>
-<span style="color: rgb(181,106,1);">      -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{ </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当前状态为</span><span style="color: rgb(128,128,128);">prepared</span><span style="color: rgb(128,128,128);">、</span><span style="color: rgb(128,128,128);">paused</span><span style="color: rgb(128,128,128);">和</span><span style="color: rgb(128,128,128);">stopped</span><span style="color: rgb(128,128,128);">之一时才能启动渲染。</span></em>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TAG </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">'start failed'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      return<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">启动渲染。</span></em>
-    <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span>as <span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRenderer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">start</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Renderer start failed.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Renderer start success.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+<em>// 开始一次音频渲染。</em>
+  start() {
+    if (this.renderModel !== undefined) {
+      let stateGroup = [audio.AudioState.STATE_PREPARED, audio.AudioState.STATE_PAUSED, audio.AudioState.STATE_STOPPED];
+      if (stateGroup.indexOf((this.renderModel as audio.AudioRenderer).state.valueOf()) ===
+        -1) {<em> // 当前状态为prepared、paused和stopped之一时才能启动渲染。</em>
+        console.error(TAG + 'start failed');
+        return;
+      }
+     <em> // 启动渲染。</em>
+      (this.renderModel as audio.AudioRenderer).start((err: BusinessError) => {
+        if (err) {
+          console.error('Renderer start failed.');
+        } else {
+          console.info('Renderer start success.');
+        }
+      });
+    }
+  }
 ```
 
  
-完整示例参考如下：
+完整示例如下：
  
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">audio </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.AudioKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BusinessError </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">fileIo </span>as <span style="color: rgb(255,255,255);">fs </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.CoreFileKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { audio } from '@kit.AudioKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { fileIo as fs } from '@kit.CoreFileKit';
 
-const <span style="color: rgb(255,255,255);">TAG </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'AudioRendererDemo'</span><span style="color: rgb(181,106,1);">;</span>
+const TAG = 'AudioRendererDemo';
 
-class <span style="color: rgb(0,0,255);">Options </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">offset</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+class Options {
+  offset?: number;
+  length?: number;
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">Context</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">renderModel</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRenderer </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">File </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">此处仅作示例，如下</span><span style="color: rgb(128,128,128);">pcm</span><span style="color: rgb(128,128,128);">资源，实际使用时需要将文件替换为应用要播放的</span><span style="color: rgb(128,128,128);">PCM</span><span style="color: rgb(128,128,128);">文件，否则无法成功运行。</span></em>
-  private <span style="color: rgb(255,255,255);">fileStr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">'XXXX.pcm'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'XXXX.pcm'</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">bufferSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">audioRendererList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRenderer</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
-  public <span style="color: rgb(255,255,255);">audioStreamInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioStreamInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">samplingRate</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioSamplingRate</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SAMPLE_RATE_48000</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">channels</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioChannel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CHANNEL_2</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">sampleFormat</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioSampleFormat</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SAMPLE_FORMAT_S16LE</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">encodingType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioEncodingType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ENCODING_TYPE_RAW</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-  public <span style="color: rgb(255,255,255);">audioRendererInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRendererInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">usage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">StreamUsage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">STREAM_USAGE_MUSIC</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">rendererFlags</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-  public <span style="color: rgb(255,255,255);">audioRendererOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRendererOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">streamInfo</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">audioStreamInfo</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">rendererInfo</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">audioRendererInfo</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  context: Context = this.getUIContext().getHostContext() as Context;
+  @State renderModel: audio.AudioRenderer | undefined = undefined;
+  @State file: fs.File | undefined = undefined;
+ <em> // 此处仅作示例，如下pcm资源，实际使用时需要将文件替换为应用要播放的PCM文件，否则无法成功运行。</em>
+  private fileStr: string[] = ['XXXX.pcm', 'XXXX.pcm'];
+  private bufferSize: number = 0;
+  private audioRendererList: Array<audio.AudioRenderer> = [];
+  public audioStreamInfo: audio.AudioStreamInfo = {
+    samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_48000,
+    channels: audio.AudioChannel.CHANNEL_2,
+    sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE,
+    encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW
+  };
+  public audioRendererInfo: audio.AudioRendererInfo = {
+    usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+    rendererFlags: 0
+  };
+  public audioRendererOptions: audio.AudioRendererOptions = {
+    streamInfo: this.audioStreamInfo,
+    rendererInfo: this.audioRendererInfo
+  };
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
- <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">循环创建多个实例</span></em>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">num </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">num </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">num</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createAudioRenderer</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">audioRendererOptions</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">`Invoke createAudioRenderer failed, code is </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message is </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          return<span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Invoke createAudioRenderer succeeded.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">audioRendererList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">创建的实例放到数组中</span></em>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
+  aboutToAppear(): void {
 
- <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">轮询</span><span style="color: rgb(128,128,128);">audioRenderer</span><span style="color: rgb(128,128,128);">实例数组中，空闲的实例，并设为当前实例，为后续播放做准备</span></em>
-    <span style="color: rgb(0,0,255);">setInterval</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">num </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">num </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">num</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        let <span style="color: rgb(255,255,255);">renderModelTemp </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">audioRendererList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">num</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-    <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当数组中</span><span style="color: rgb(128,128,128);">audioRenderer</span><span style="color: rgb(128,128,128);">实例状态为</span><span style="color: rgb(128,128,128);">prepared</span><span style="color: rgb(128,128,128);">时，将该实例赋给当前实例</span></em>
-        if <span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">renderModelTemp </span>as <span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRenderer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">state</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">valueOf</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">renderModelTemp</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TAG </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">`AudioRenderer state: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">renderModelTemp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">state</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TAG </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">`AudioRenderer state: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">renderModelTemp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">state</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span>
-<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+   <em> // 循环创建多个实例</em>
+    for (let num = 0; num < 4; num++) {
+      audio.createAudioRenderer(this.audioRendererOptions, (err, data) => {
+        if (err) {
+          console.error(TAG, `Invoke createAudioRenderer failed, code is ${err.code}, message is ${err.message}`);
+          return;
+        } else {
+          console.info(TAG, 'Invoke createAudioRenderer succeeded.');
+          this.audioRendererList.push(data); <em>// 创建的实例放到数组中</em>
+        }
+      });
+    }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">开始一次音频渲染。</span></em>
-  <span style="color: rgb(0,0,255);">start</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      let <span style="color: rgb(255,255,255);">stateGroup </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">STATE_PREPARED</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">STATE_PAUSED</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">STATE_STOPPED</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">stateGroup</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indexOf</span><span style="color: rgb(255,0,170);">((</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span>as <span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRenderer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">state</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">valueOf</span><span style="color: rgb(255,0,170);">()) </span><span style="color: rgb(181,106,1);">===</span>
-<span style="color: rgb(181,106,1);">        -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{ </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当前状态为</span><span style="color: rgb(128,128,128);">prepared</span><span style="color: rgb(128,128,128);">、</span><span style="color: rgb(128,128,128);">paused</span><span style="color: rgb(128,128,128);">和</span><span style="color: rgb(128,128,128);">stopped</span><span style="color: rgb(128,128,128);">之一时才能启动渲染。</span></em>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TAG </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">'start failed'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        return<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">启动渲染。</span></em>
-      <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span>as <span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRenderer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">start</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Renderer start failed.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Renderer start success.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
 
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">暂停渲染。</span></em>
-  <span style="color: rgb(0,0,255);">pause</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">只有渲染器状态为</span><span style="color: rgb(128,128,128);">running</span><span style="color: rgb(128,128,128);">的时候才能暂停。</span></em>
-      if <span style="color: rgb(255,0,170);">((</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span>as <span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRenderer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">state</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">valueOf</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">STATE_RUNNING</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Renderer is not running'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        return<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">暂停渲染。</span></em>
-      <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span>as <span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRenderer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pause</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Renderer pause failed.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Renderer pause success.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
 
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">停止渲染。</span></em>
-  async <span style="color: rgb(0,0,255);">stop</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">只有渲染器状态为</span><span style="color: rgb(128,128,128);">running</span><span style="color: rgb(128,128,128);">或</span><span style="color: rgb(128,128,128);">paused</span><span style="color: rgb(128,128,128);">的时候才可以停止。</span></em>
-      if <span style="color: rgb(255,0,170);">((</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span>as <span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRenderer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">state</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">valueOf</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">STATE_RUNNING </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span>
-        <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span>as <span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRenderer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">state</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">valueOf</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">STATE_PAUSED</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Renderer is not running or paused.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        return<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">停止渲染。</span></em>
-      <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span>as <span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRenderer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stop</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Renderer stop failed.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Renderer stop success.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+   <em> // 轮询audioRenderer实例数组中，空闲的实例，并设为当前实例，为后续播放做准备</em>
+    setInterval(() => {
+      for (let num = 0; num < 4; num++) {
+        let renderModelTemp = this.audioRendererList[num];
+       <em> // 当数组中audioRenderer实例状态为prepared时，将该实例赋给当前实例</em>
+        if ((renderModelTemp as audio.AudioRenderer).state.valueOf() == 1) {
+          this.renderModel = renderModelTemp;
+          console.info(TAG + `AudioRenderer state: ${renderModelTemp.state}`);
+        } else {
+          console.info(TAG + `AudioRenderer state: ${renderModelTemp.state}`);
+        }
+      }
+    }, 10);
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">销毁实例，释放资源。</span></em>
-  async <span style="color: rgb(0,0,255);">release</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">渲染器状态不是</span><span style="color: rgb(128,128,128);">released</span><span style="color: rgb(128,128,128);">状态，才能</span><span style="color: rgb(128,128,128);">release</span><span style="color: rgb(128,128,128);">。</span></em>
-      if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">state</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">valueOf</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">STATE_RELEASED</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Renderer already released'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        return<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">释放资源。</span></em>
-      <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span>as <span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRenderer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">release</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Renderer release failed.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Renderer release success.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">播放音乐</span><span style="color: rgb(132,63,161);">1'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        let <span style="color: rgb(255,255,255);">path </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">cacheDir</span><span style="color: rgb(181,106,1);">;</span>
 
-        let <span style="color: rgb(255,255,255);">filePath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">path </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">'/' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fileStr</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-        let <span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">File </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">filePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">READ_ONLY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">file </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">;</span>
-        let <span style="color: rgb(255,255,255);">writeDataCallback </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ArrayBuffer</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          let <span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Options </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">offset</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">bufferSize</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">byteLength</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-          try <span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">bufferSize </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">byteLength</span><span style="color: rgb(181,106,1);">;</span>
-            return <span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioDataCallbackResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">VALID</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Error reading file`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            return <span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioDataCallbackResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">INVALID</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(181,106,1);">;</span>
-        if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span>as <span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRenderer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'writeData'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">writeDataCallback</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">start</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+ <em> // 开始一次音频渲染。</em>
+  start() {
+    if (this.renderModel !== undefined) {
+      let stateGroup = [audio.AudioState.STATE_PREPARED, audio.AudioState.STATE_PAUSED, audio.AudioState.STATE_STOPPED];
+      if (stateGroup.indexOf((this.renderModel as audio.AudioRenderer).state.valueOf()) ===
+        -1) {<em> // 当前状态为prepared、paused和stopped之一时才能启动渲染。</em>
+        console.error(TAG + 'start failed');
+        return;
+      }
+     <em> // 启动渲染。</em>
+      (this.renderModel as audio.AudioRenderer).start((err: BusinessError) => {
+        if (err) {
+          console.error('Renderer start failed.');
+        } else {
+          console.info('Renderer start success.');
+        }
+      });
+    }
+  }
 
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">播放音乐</span><span style="color: rgb(132,63,161);">2'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        let <span style="color: rgb(255,255,255);">path </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">cacheDir</span><span style="color: rgb(181,106,1);">;</span>
-        let <span style="color: rgb(255,255,255);">filePath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">path </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">'/' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fileStr</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-        let <span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">File </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">filePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">READ_ONLY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">file </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">;</span>
-        let <span style="color: rgb(255,255,255);">writeDataCallback </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ArrayBuffer</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          let <span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Options </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">offset</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">bufferSize</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">byteLength</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-          try <span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">bufferSize </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">byteLength</span><span style="color: rgb(181,106,1);">;</span>
-            return <span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioDataCallbackResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">VALID</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Error reading file`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            return <span style="color: rgb(255,255,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioDataCallbackResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">INVALID</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(181,106,1);">;</span>
-        if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">renderModel </span>as <span style="color: rgb(181,106,1);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AudioRenderer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'writeData'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">writeDataCallback</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">start</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  <em>// 暂停渲染。</em>
+  pause() {
+    if (this.renderModel !== undefined) {
+     <em> // 只有渲染器状态为running的时候才能暂停。</em>
+      if ((this.renderModel as audio.AudioRenderer).state.valueOf() !== audio.AudioState.STATE_RUNNING) {
+        console.info('Renderer is not running');
+        return;
+      }
+     <em> // 暂停渲染。</em>
+      (this.renderModel as audio.AudioRenderer).pause((err: BusinessError) => {
+        if (err) {
+          console.error('Renderer pause failed.');
+        } else {
+          console.info('Renderer pause success.');
+        }
+      });
+    }
+  }
+
+ <em> // 停止渲染。</em>
+  async stop() {
+    if (this.renderModel !== undefined) {
+    <em>  // 只有渲染器状态为running或paused的时候才可以停止。</em>
+      if ((this.renderModel as audio.AudioRenderer).state.valueOf() !== audio.AudioState.STATE_RUNNING &&
+        (this.renderModel as audio.AudioRenderer).state.valueOf() !== audio.AudioState.STATE_PAUSED) {
+        console.info('Renderer is not running or paused.');
+        return;
+      }
+    <em>  // 停止渲染。</em>
+      (this.renderModel as audio.AudioRenderer).stop((err: BusinessError) => {
+        if (err) {
+          console.error('Renderer stop failed.');
+        } else {
+          fs.close(this.file);
+          console.info('Renderer stop success.');
+        }
+      });
+    }
+  }
+
+ <em> // 销毁实例，释放资源。</em>
+  async release() {
+    if (this.renderModel !== undefined) {
+   <em>   // 渲染器状态不是released状态，才能release。</em>
+      if (this.renderModel.state.valueOf() === audio.AudioState.STATE_RELEASED) {
+        console.info('Renderer already released');
+        return;
+      }
+   <em>   // 释放资源。</em>
+      (this.renderModel as audio.AudioRenderer).release((err: BusinessError) => {
+        if (err) {
+          console.error('Renderer release failed.');
+        } else {
+          console.info('Renderer release success.');
+        }
+      });
+    }
+  }
+
+  build() {
+    Column({ space: 20 }) {
+      Button('播放音乐1').onClick(() => {
+        let path = this.context.cacheDir;
+
+        let filePath = path + '/' + this.fileStr[0];
+        let file: fs.File = fs.openSync(filePath, fs.OpenMode.READ_ONLY);
+        this.file = file;
+        let writeDataCallback = (buffer: ArrayBuffer) => {
+          let options: Options = {
+            offset: this.bufferSize,
+            length: buffer.byteLength
+          };
+          try {
+            fs.readSync(file.fd, buffer, options);
+            this.bufferSize += buffer.byteLength;
+            return audio.AudioDataCallbackResult.VALID;
+          } catch (error) {
+            console.error(`Error reading file`);
+            return audio.AudioDataCallbackResult.INVALID;
+          }
+        };
+        if (this.renderModel !== undefined) {
+          (this.renderModel as audio.AudioRenderer).on('writeData', writeDataCallback);
+          this.start();
+        }
+      });
+
+      Button('播放音乐2').onClick(() => {
+        let path = this.context.cacheDir;
+        let filePath = path + '/' + this.fileStr[1];
+        let file: fs.File = fs.openSync(filePath, fs.OpenMode.READ_ONLY);
+        this.file = file;
+        let writeDataCallback = (buffer: ArrayBuffer) => {
+          let options: Options = {
+            offset: this.bufferSize,
+            length: buffer.byteLength
+          };
+
+          try {
+            fs.readSync(file.fd, buffer, options);
+            this.bufferSize += buffer.byteLength;
+            return audio.AudioDataCallbackResult.VALID;
+          } catch (error) {
+            console.error(`Error reading file`);
+            return audio.AudioDataCallbackResult.INVALID;
+          }
+        };
+        if (this.renderModel !== undefined) {
+          (this.renderModel as audio.AudioRenderer).on('writeData', writeDataCallback);
+          this.start();
+        }
+      });
+    }
+    .width('100%')
+    .height('100%')
+    .justifyContent(FlexAlign.Center);
+  }
+}
 ```
+ 
+ 
+
+#### 常见FAQ
+
+Q：使用AudioRenderer播放多路音频时如何实现混音效果？
+ 
+A：创建多个AudioRenderer实例并行写入音频数据，系统会自动将多路音频混合输出。两个Renderer使用不同的usage或相同usage，系统都会自动混音。

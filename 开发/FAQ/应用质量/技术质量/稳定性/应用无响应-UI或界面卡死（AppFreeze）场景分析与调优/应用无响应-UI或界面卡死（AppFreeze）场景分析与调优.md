@@ -1,6 +1,6 @@
 # 应用无响应-UI或界面卡死（AppFreeze）场景分析与调优
 
-更新时间：2026-07-30 01:24:30
+更新时间：2026-08-13 01:42:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-64
 
@@ -16,17 +16,17 @@
 [AppFreeze（应用冻屏）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines)是一种看门狗机制。当应用主线程被长时间阻塞，无法及时响应用户输入或系统调度时，系统会强制终止该应用。
  
 AppFreeze主要包含以下两种核心检测机制：
- 1. [THREAD_BLOCK_6S 应用主线程卡死超时](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#thread_block_6s-应用主线程卡死超时)。
+ 1. [THREAD_BLOCK_6S 应用主线程卡死超时](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#thread_block_6s应用主线程卡死超时)。
 - 检测原理：系统会周期性地检测应用主线程的任务执行情况。watchdog（看门狗）线程向主线程发送检测任务或检查时间戳。如果主线程正在执行的任务耗时过长，导致在**6秒**内无法处理完当前任务或无法响应看门狗的检测，系统判定主线程卡死。
 
 2. 触发流程：通常在主线程卡顿达到3秒时，系统会抓取一次瞬时日志（Warning）；若卡顿持续达到6秒，则触发AppFreeze（Event），杀死进程并生成最终故障日志。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/F_SXUJ8fTUiFWQ9iDWY1dw/zh-cn_image_0000002658914221.png?HW-CC-KV=V1&HW-CC-Date=20260811T005911Z&HW-CC-Expire=86400&HW-CC-Sign=0CAB18BE97CCA1002A84F81430C331D5194581E7C7F6B485D753EC7F8EC1273F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/29WCe9p_SxeVSreY-DtC4w/zh-cn_image_0000002658914221.png?HW-CC-KV=V1&HW-CC-Date=20260813T095606Z&HW-CC-Expire=86400&HW-CC-Sign=8D807E554538356FD10DDD46CAC0197A40E5A06E1F8A6819C3CB7E1FDA8072C8)
 
 
 3. [APP_INPUT_BLOCK 用户输入响应超时](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#日志差异性信息)。**检测原理**：当用户对设备进行操作（如点击屏幕、按键）时，多模输入服务（Multimodal Input Service）会将事件派发给应用。如果应用的主线程在收到输入事件后，超过**5秒**仍未反馈处理结果（即未完成事件分发回调），系统认为该应用无法响应用户输入，触发输入阻塞故障。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/RMgHusZeRkyb6fkMfU83ZQ/zh-cn_image_0000002658794265.png?HW-CC-KV=V1&HW-CC-Date=20260811T005911Z&HW-CC-Expire=86400&HW-CC-Sign=611EE90EE157C52A3CDA7B650DD56EA1B5A89CB0306897C9A010B910CB1D4DAC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/c9dQm5N6Tfm-UDOilbnPTQ/zh-cn_image_0000002658794265.png?HW-CC-KV=V1&HW-CC-Date=20260813T095606Z&HW-CC-Expire=86400&HW-CC-Sign=41BDAAF18CA579ADE247135C4960AB2630064398457D43DB4D4C3BBB6FF8068E)
 
 
   

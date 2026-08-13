@@ -1,6 +1,6 @@
-# 创建瀑布流（WaterFlow）
+# 创建瀑布流 (WaterFlow)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-waterflow
 
@@ -304,7 +304,7 @@ export struct WaterFlowGroupingMixing {
     for (let i = 0; i < 15; ++i) {
       this.gridItems.push(i);
     }
-    // 所有分组的itemCount之和需要和WaterFlow下数据源的子节点总数相等，否则无法正常布局
+    // 所有分组的itemsCount之和需要和WaterFlow下数据源的子节点总数相等，否则无法正常布局
     let sectionOptions: SectionOptions[] = [this.oneColumnSection, this.twoColumnSection, this.lastSection];
     this.sections.splice(0, 0, sectionOptions);
   }
@@ -344,7 +344,7 @@ export struct WaterFlowGroupingMixing {
           if (last + 20 >= this.dataSource.totalCount()) {
             setTimeout(() => {
               this.dataSource.addNewItems(100);
-              // 增加数据后同步调整对应分组的itemCount
+              // 增加数据后同步调整对应分组的itemsCount
               this.twoColumnSection.itemsCount += 100;
               this.sections.update(1, this.twoColumnSection);
             }, 1000);
@@ -358,7 +358,7 @@ export struct WaterFlowGroupingMixing {
 ```
 
 > [!NOTE]
-> 使用分组混合布局时不支持单独设置footer，可以使用最后一个分组作为尾部组件。 增加或删除数据后需要同步修改对应分组的itemCount。
+> 使用分组混合布局时不支持单独设置footer，可以使用最后一个分组作为尾部组件。 增加或删除数据后需要同步修改对应分组的itemsCount。
 
 
 

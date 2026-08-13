@@ -1,6 +1,6 @@
 # 切换按钮 (Toggle)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-switch
 
@@ -15,7 +15,7 @@ Toggle通过调用[ToggleOptions](https://developer.huawei.com/consumer/cn/doc/h
 Toggle(options: { type: ToggleType, isOn?: boolean })
 ```
 
-其中，ToggleType为开关类型，包括Button、Checkbox和Switch，isOn为切换按钮的状态。
+其中，ToggleType为切换类型，包括Button、Checkbox和Switch，isOn为切换按钮的状态。
 
 API version 11开始，Checkbox默认样式由圆角方形变为圆形。
 

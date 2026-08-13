@@ -1,6 +1,6 @@
 # healthService (运动健康联动服务)(Lite)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthservice-lite
 **支持设备：** lite_wearable
@@ -600,7 +600,7 @@ onData(listener: Callback<SampleReal[]>): void
 | 201 | Permission verification failed. For the app, ensure that you have requested Health Service Kit, selected the product type, and enabled required data read and write permissions, and that the user has granted authorization. |
 | 1009104001 | Sports service busy. Workout has already been started by another app. |
 | 1009104003 | Invalid command. The API is called when workout is not started. |
-| 1009104999 | System internal error. |
+| 1009104999 | Internal system error. |
  
  
 **示例：**

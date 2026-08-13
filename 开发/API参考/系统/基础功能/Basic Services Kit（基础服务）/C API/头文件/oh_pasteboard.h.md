@@ -1,6 +1,6 @@
 # oh_pasteboard.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,8 +36,8 @@
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | Pasteboard_ProgressInfo | Pasteboard_ProgressInfo | 定义进度上报的数据结构。 |
-| Pasteboard_GetDataParams | Pasteboard_GetDataParams | 表示从剪贴板获取粘贴数据和进度时需要写入的参数。 |
-| OH_PasteboardObserver | OH_PasteboardObserver | 定义剪贴板数据变更观察者。 |
+| Pasteboard_GetDataParams | Pasteboard_GetDataParams | 表示从剪贴板获取粘贴数据和进度时需要提供的参数。 |
+| OH_PasteboardObserver | OH_PasteboardObserver | 定义剪贴板数据变更观察者。用于监听系统剪贴板数据的变化事件，当剪贴板内容发生更新时，通过回调通知应用。典型使用场景：需要响应剪贴板内容变化的应用。 |
 | OH_Pasteboard | OH_Pasteboard | 定义剪贴板对象，用以操作系统剪贴板。 |
 
 
@@ -1203,7 +1203,7 @@ void OH_Pasteboard_SyncDelayedDataAsync(OH_Pasteboard* pasteboard, void (*callba
 通知剪贴板从应用同步所有延迟数据（延迟数据指在延迟复制模式下，先写入数据类型到剪贴板，实际数据内容按需延迟加载的数据传输机制），与延迟复制接口[OH_UdmfRecordProvider_SetData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-h#oh_udmfrecordprovider_setdata)搭配使用。当所有延迟数据同步完成时，使用callback异步通知应用。当应用使用延迟复制功能复制时，仅将应用支持的数据类型写入剪贴板。应用应在退出时，重新调用[OH_Pasteboard_SetData](#oh_pasteboard_setdata)接口主动提交所有复制数据或调用此接口通知剪贴板获取全量数据，等待数据同步完成再继续退出，否则可能导致其他应用粘贴获取不到数据。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/AiPoxAVcTaa7alEnF6gm_g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071633Z&HW-CC-Expire=86400&HW-CC-Sign=BE44A6F362FB3A881523A1CB13A579BA6233CE317C75A9498190E1A0D6225139)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/MFe-FHtRRaKH798pfjm1Jw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095513Z&HW-CC-Expire=86400&HW-CC-Sign=635390A1F0E2AD4D3ABAF9A43F02ACDAFFCBEB4E9EB90AC484A8300D2B8CCDA7)
 
 
  - 调用此接口会延长退出过程，建议应用直接设置数据到剪贴板，而不是调用延迟复制接口[OH_UdmfRecordProvider_SetData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-h#oh_udmfrecordprovider_setdata)和此接口。

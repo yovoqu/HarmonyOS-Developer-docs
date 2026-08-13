@@ -1,6 +1,6 @@
 # fs.writeSync写文件时如何在文件末尾追加内容
 
-更新时间：2026-07-30 01:55:38
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-64
 
@@ -13,14 +13,14 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/QVAQBVHZSim9Tov_Q3-jnA/zh-cn_image_0000002629059024.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005849Z&HW-CC-Expire=86400&HW-CC-Sign=6AFAE63C7A0FA788AB30E593D5F04B228A68FF92C4ECC91D4B909E49115CD728)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/Vjq81w2pQAWvmWT0sXtRnQ/zh-cn_image_0000002629059024.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095605Z&HW-CC-Expire=86400&HW-CC-Sign=68A872990CA178011B35C49A0510DEABB6532CE7A1D97F338347290CA58CEEBF)
 
  
  
 
 #### 解决方案
 
-[fs.writeSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fswritesync)写文件时需要先使用[fs.openSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioopensync)打开文件，打开文件时可设置模式为“OpenMode.APPEND”，以追加方式打开。
+[fs.writeSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiowritesync)写文件时需要先使用[fs.openSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioopensync)打开文件，打开文件时可设置模式为“OpenMode.APPEND”，以追加方式打开。
  
 ```text
 import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">systemDateTime </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>

@@ -1,6 +1,6 @@
 # Function Flow Runtime开发指导
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ffrt-development-guideline
 
@@ -682,11 +682,11 @@ void abnormal_case_4()
  
   
 
-#### Using FFRT in DevEco Studio
+#### 在DevEco Studio中使用FFRT
 
   
 
-#### Using FFRT C API
+#### 使用FFRT C API
 
 NDK（Native Development Kit）是系统提供的Native API的集合，方便开发者使用C或C++语言实现应用的关键功能。
  
@@ -706,7 +706,7 @@ FFRT C API已集成在NDK中，在DevEco Studio中可以直接使用对应的接
  
   
 
-#### Using FFRT C++ API
+#### 使用FFRT C++ API
 
 FFRT的部署依赖FFRT动态库libffrt.so和一组头文件，其中动态库仅导出C接口，C++接口调用C接口，并基于头文件的方式将API中的C++元素编译到用户的动态库中，从而保证了ABI兼容性。
  

@@ -1,6 +1,6 @@
 # 如何解决AppLinking跳转与推送通知消息跳转配置冲突问题
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-linking-1
 
@@ -45,7 +45,7 @@ AppLinking配置与推送通知配置存在冲突问题，如果在skill中配�
 #### 背景知识
 
 - 使用[App Linking](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-linking-startup)进行跳转时，系统会根据接口传入的uri信息（HTTPS链接）将用户引导至目标应用中的特定内容，无论应用是否已安装，用户都可以访问到链接对应的内容，跳转体验相比Deep Linking方式更加顺畅。
-- 使用推送服务[点击消息进入应用首页并传递数据](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-send-alert#section1792616175914)时，检查项目模块级别下的src/main/module.json5中的skills标签配置，其中用于标识应用首页的skill（即配置了"entity.system.home"和"action.system.home"的skill）中不要配置uris。
+- 使用推送服务[点击消息进入应用首页并传递数据](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-send-alert#点击消息进入应用首页)时，检查项目模块级别下的src/main/module.json5中的skills标签配置，其中用于标识应用首页的skill（即配置了"entity.system.home"和"action.system.home"的skill）中不要配置uris。
 
  
  
@@ -64,7 +64,7 @@ AppLinking跳转需要配置uri，推送消息跳转用于标识应用首页的s
 
 #### 修改建议
 
-可以在skills数组中创建不同的skill对象，分别映射对应的能力，参考[点击消息进入应用内页](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-send-alert#section8794131614597)步骤1中方式二的示例代码。
+可以在skills数组中创建不同的skill对象，分别映射对应的能力，参考[点击消息进入应用内页](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-send-alert#点击消息进入应用内页)步骤1中方式二的示例代码。
  
  
 

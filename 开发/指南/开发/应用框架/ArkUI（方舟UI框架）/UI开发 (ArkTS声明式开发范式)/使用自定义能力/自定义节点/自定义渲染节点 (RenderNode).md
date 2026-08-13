@@ -1,6 +1,6 @@
 # 自定义渲染节点 (RenderNode)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-rendernode
 
@@ -594,7 +594,7 @@ export struct CustomDrawCanvas {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/f2teDHb4QbCcH8F-Y_UE_w/zh-cn_image_0000002656006496.png?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=1E2ACEB15928F7F1711B17F9CDF32C58CA1D546587421D3A256D832F5077C828)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/B31bIkZdQ5q0_7q7pJbN7w/zh-cn_image_0000002704272443.png?HW-CC-KV=V1&HW-CC-Date=20260813T095721Z&HW-CC-Expire=86400&HW-CC-Sign=CBA1E40BA8B7C87A2AD5F227647AEFCFF74BE7065B90820717B689BCFA059E8C)
 
 
 **Node-API调用示例：**
@@ -770,7 +770,7 @@ export struct CustomDrawCanvasNative {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/XM6xbhwDTbavkPEjqDK00Q/zh-cn_image_0000002655846576.png?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=ED73B2F05D5F7D61B763889650064F893C402D409237B679E17D548D6757EA68)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/Oc9benXxR8aXFyrtadKi6w/zh-cn_image_0000002674472646.png?HW-CC-KV=V1&HW-CC-Date=20260813T095721Z&HW-CC-Expire=86400&HW-CC-Sign=3136476EAC55B3BC66745DE45B8234DB72AD0879CD0AA94021894DB80900D607)
 
 
 
@@ -829,7 +829,7 @@ export struct SetLabel {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/hciIljkbTPiZRR8QBZldNQ/zh-cn_image_0000002686086005.png?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=DE3218DE93445DB38B6E9312F4811C56657E418A8BC93810FE0954658502106F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/cXP6E3oxQsySMe3Q0itk1w/zh-cn_image_0000002704392611.png?HW-CC-KV=V1&HW-CC-Date=20260813T095721Z&HW-CC-Expire=86400&HW-CC-Sign=324D9D385019932EE7DFF3672F7FB711F567E3AD9FD340495FF25743007A0BD4)
 
 
 
@@ -911,4 +911,4 @@ export struct CheckRenderNodeDisposed {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/RB01rbDMS_K1gGnskBIEUw/zh-cn_image_0000002685926177.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=349C465197BC5125385F426C9CF8A3071612369D3BEA78290544AB0EE618FEBE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/29XjFkSoTmitXLCm9FlbfQ/zh-cn_image_0000002674632490.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095721Z&HW-CC-Expire=86400&HW-CC-Sign=6ABA54104EC0C4C839E8B0BFC17A422172379600E3F6A1537575C8549C2B499E)

@@ -1,6 +1,6 @@
 # Class (UIContext)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -656,7 +656,7 @@ struct Index{
     Column()
       .width("100%")
       .height("100%")
-      .onClick(()=>{
+      .onClick(() => {
       console.info(`id:${this.getUIContext()?.getId()}`);
     })
   }
@@ -3948,7 +3948,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/1dyCvnfOS5O6wf3dYTv3eA/zh-cn_image_0000002656008186.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071445Z&HW-CC-Expire=86400&HW-CC-Sign=D24ACA16C65213AF1F3025E618F23F0AA2FB60657607F33F96CA18AC6D07800D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/6Hen6f4bTZmVIFIkK2KkQw/zh-cn_image_0000002674634196.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095444Z&HW-CC-Expire=86400&HW-CC-Sign=DAE5E0248104186C2C8A6AA6CB907F20B93DDF10EE95E9FB433091CD1CE4D747)
 
 
 
@@ -4659,7 +4659,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/qgM9a7LQSlek1awj6LoOlw/zh-cn_image_0000002655848266.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071445Z&HW-CC-Expire=86400&HW-CC-Sign=034AB4F258319D3C38333970EE5ECEF11FA97C38E9FF921F3AC5946B009CE121)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/0eY-rrpNQ-W2J85jgdEM-A/zh-cn_image_0000002704274153.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095444Z&HW-CC-Expire=86400&HW-CC-Sign=3869CF3FA4856CC6C785EE1E9AD7B28E920C78C96FAB71A13B0710649F7967EB)
 
 
 
@@ -4820,7 +4820,7 @@ export struct PageThree {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/IHfhbTYsQC6cIWDLKNfuzQ/zh-cn_image_0000002686087695.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071445Z&HW-CC-Expire=86400&HW-CC-Sign=78F3157093E4009AD00AFF28C185616A133067384D229CDC2CF423C7C092E162)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/H6MgZgbNRpyg2TFF-NL6Nw/zh-cn_image_0000002674474360.jpg?HW-CC-KV=V1&HW-CC-Date=20260813T095444Z&HW-CC-Expire=86400&HW-CC-Sign=E634F59706A5D654B8B125242360F3BCAC4E5BF19EF053F9573FB519B70F0E17)
 
 
 

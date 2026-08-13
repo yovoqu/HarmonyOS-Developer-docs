@@ -1,6 +1,6 @@
 # 接入ArkTS页面
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-access-the-arkts-page
 
@@ -176,7 +176,7 @@ arkUINativeNodeApi->registerNodeEvent(stack, NODE_ON_CLICK, 0, nullptr);
 **图1** Native文本列表
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/-L8jalZgQdWYhyEwv1afug/zh-cn_image_0000002685926235.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071853Z&HW-CC-Expire=86400&HW-CC-Sign=60C4E8E4DC84BD1C628C5CD76E85B2664AD936295029DD828FE3E2F0D14BE8B0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/wbI5hPPqRkmOps1xtlOJKA/zh-cn_image_0000002674632548.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095728Z&HW-CC-Expire=86400&HW-CC-Sign=6EBC10ED4B207A0AFB19C65B8F25B7F0A46098229381B736ADC49E7ACC2545CB)
 
 1. 在ArkTS页面上声明用于Native页面挂载的占位组件，并在页面创建时通知Native侧创建文本列表。
 

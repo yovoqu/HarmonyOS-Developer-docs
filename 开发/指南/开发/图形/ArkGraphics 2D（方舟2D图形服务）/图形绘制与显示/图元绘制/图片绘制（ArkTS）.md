@@ -1,6 +1,6 @@
 # 图片绘制（ArkTS）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pixelmap-drawing-arkts
 
@@ -96,7 +96,7 @@ canvas.drawImage(pixelMap, 0, 0);
 绘制效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/36AijXfwRnavF7YJtB0slQ/zh-cn_image_0000002656348679.png?HW-CC-KV=V1&HW-CC-Date=20260624T020914Z&HW-CC-Expire=86400&HW-CC-Sign=7D44789005A7515A5341F9813F2B5FADD472CC53EEC8D3B7A1BD2055443A1E84)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/UnsF4oTxQQyGflpb28CXuQ/zh-cn_image_0000002704273273.png?HW-CC-KV=V1&HW-CC-Date=20260813T095834Z&HW-CC-Expire=86400&HW-CC-Sign=B48B988FE66EAF2C9851489F2A2A78A78946F474D757251E19A60C180833430D)
 
 
 

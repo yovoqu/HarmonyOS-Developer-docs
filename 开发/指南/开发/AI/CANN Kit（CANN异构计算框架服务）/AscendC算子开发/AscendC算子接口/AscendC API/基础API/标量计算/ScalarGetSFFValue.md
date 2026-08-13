@@ -1,12 +1,12 @@
 # ScalarGetSFFValue
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-scalargetsffvalue
 
 #### 功能说明
 
-获取一个uint64_t类型数字的二进制中第一个0或1出现的位置，如果没找到则返回-1。
+获取一个uint64_t类型数字的二进制中第一个0或1出现的位置，索引从最低位（索引0）开始计数，若未找到则返回-1。当countValue参数为1时，查找的是第一个1的位置；当countValue参数为0时，查找的是第一个0的位置。此函数常用于位操作优化、数据压缩算法等场景中以提高处理效率。
  
   
 

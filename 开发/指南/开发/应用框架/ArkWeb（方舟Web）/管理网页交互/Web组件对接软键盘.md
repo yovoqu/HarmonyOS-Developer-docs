@@ -1,6 +1,6 @@
 # Web组件对接软键盘
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-docking-softkeyboard
 
@@ -488,10 +488,10 @@ ArkWeb自定义键盘的示例效果如图4、图5和图6所示。
 **图5** ArkWeb自定义键盘字母键盘
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/h7Es9_JMRlCBwG6OJi5w6g/zh-cn_image_0000002677666107.png?HW-CC-KV=V1&HW-CC-Date=20260723T012139Z&HW-CC-Expire=86400&HW-CC-Sign=1BB506C836ACBE187BD18D00E9557A9A7BAF3732E8A5C85DBC73C5EB3944D1DB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/zLyk70SlTV-vMQ77jWoNYw/zh-cn_image_0000002674632724.png?HW-CC-KV=V1&HW-CC-Date=20260813T095735Z&HW-CC-Expire=86400&HW-CC-Sign=D0EDBDBBBDAB8FAAF4A7A66F83129AA159E41460B1301DBB7560617CF42EE1C2)
 
 
 **图6** ArkWeb自定义键盘符号键盘
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/LDvX2i-JQlWsXm9KaIJpdA/zh-cn_image_0000002647746226.png?HW-CC-KV=V1&HW-CC-Date=20260723T012139Z&HW-CC-Expire=86400&HW-CC-Sign=1A4DFF811EF2113E46920560BABF2D81C062481547FB41998D5327CFEF58F307)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/Dhv-geiBTvOoJ5cabLEtYg/zh-cn_image_0000002704272677.png?HW-CC-KV=V1&HW-CC-Date=20260813T095735Z&HW-CC-Expire=86400&HW-CC-Sign=174A8BB7C332F15CA51215C1CB8B41FE543EB535EE30AE3EAA06C6A4AEE3DA90)

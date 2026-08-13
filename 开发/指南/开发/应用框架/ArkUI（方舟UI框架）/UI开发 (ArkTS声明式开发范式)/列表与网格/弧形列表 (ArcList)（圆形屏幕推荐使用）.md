@@ -1,6 +1,6 @@
 # 弧形列表 (ArcList)（圆形屏幕推荐使用）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-arclist
 
@@ -472,7 +472,7 @@ export struct ArcListArcIndexerBar {
 **图8** 弧形列表与弧形索引条联动
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/uQaXYIvOTXGXXSGfmhdyTg/zh-cn_image_0000002686085669.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071845Z&HW-CC-Expire=86400&HW-CC-Sign=0B9D78B2770D555CCFB36F659DF53E91B569D89CB038B298A89D2401263A1FC1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/1JZKSWwgSiG0g4dCKlPgwg/zh-cn_image_0000002704392275.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095711Z&HW-CC-Expire=86400&HW-CC-Sign=C0494EAA0C2F0E0020CD813E684CE2473250006305F1C641FFE5392A85B93B59)
 
 
 
@@ -535,7 +535,7 @@ ArcListItem() {
 **图9** 侧滑删除列表项
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/XuEG7lOqTmKFjELnTa9uFg/zh-cn_image_0000002685925841.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071845Z&HW-CC-Expire=86400&HW-CC-Sign=B47BDA68008705C79D2C45C09A4886F8F6A28BFC64FDD10E579953C2E0A0D521)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/aC0n-HZwTTSGBRzdqPuQ-Q/zh-cn_image_0000002674632154.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095711Z&HW-CC-Expire=86400&HW-CC-Sign=7CAA59FD893A9B68CA062C2FDF024957C65D3ECDFC3E3776EB36032E42C0B225)
 
 
 

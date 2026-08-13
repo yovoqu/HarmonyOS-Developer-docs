@@ -1,6 +1,6 @@
 # OH_Pixelmap_ImageInfo
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-imageinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -24,8 +24,8 @@ OH_Pixelmap_ImageInfo结构体内容和操作方式如下：
 | --- | --- | --- | --- | --- |
 | uint32_t | width | 图片宽，单位：像素（px）。 | OH_PixelmapImageInfo_GetWidth | 获取图片宽。 |
 | uint32_t | height | 图片高，单位：像素（px）。 | OH_PixelmapImageInfo_GetHeight | 获取图片高。 |
-| uint32_t | rowStride | 行跨距，单位：字节（Byte）。表示每行像素数据在内存中占用的字节数。受内存对齐影响，该值可能大于图片宽度对应的实际像素数据字节数。 | OH_PixelmapImageInfo_GetRowStride | 获取行跨距。 |
-| int32_t | pixelFormat | 像素格式，取值参考PIXEL_FORMAT。 | OH_PixelmapImageInfo_GetPixelFormat | 获取像素格式。 |
+| uint32_t | rowStride | 行跨距，表示内存中每行像素所占的空间。单位：字节（Byte）。受内存对齐影响，该值可能大于图片宽度对应的实际像素数据字节数。 | OH_PixelmapImageInfo_GetRowStride | 获取行跨距。 |
+| int32_t | pixelFormat | 像素格式，表示像素数据的颜色通道排列和位深信息，取值参考PIXEL_FORMAT。 | OH_PixelmapImageInfo_GetPixelFormat | 获取像素格式。 |
 | int32_t | alphaType | 透明度类型，取值参考PIXELMAP_ALPHA_TYPE。 | OH_PixelmapImageInfo_GetAlphaType | 获取透明度类型。 |
 | bool | isHdr | 是否为高动态范围（HDR）的信息。true表示是HDR，false表示非HDR。 | OH_PixelmapImageInfo_GetDynamicRange | 获取Pixelmap是否为高动态范围的信息。返回true表示是HDR，返回false表示非HDR。 |
  

@@ -1,6 +1,6 @@
 # CollaborationService (跨设备互通组件)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-collaborationservice
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -402,8 +402,7 @@ struct Index {
   myToolBarMenu() {
     Menu() {
       // create collaboration camera menuItems to show camera devices.
-      createCollaborationServiceMenuItems([0, 5
-      ], 50);
+      createCollaborationServiceMenuItems([0, 5], 50);
     }
   }
 

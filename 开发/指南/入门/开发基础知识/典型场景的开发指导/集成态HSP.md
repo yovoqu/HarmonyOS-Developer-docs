@@ -1,6 +1,6 @@
 # 集成态HSP
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/integrated-hsp
 
@@ -89,7 +89,7 @@
   (2) 配置release模式。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/EWO2BjreSwC5gXIlhsoxIA/zh-cn_image_0000002626068002.png?HW-CC-KV=V1&HW-CC-Date=20260624T020655Z&HW-CC-Expire=86400&HW-CC-Sign=2D3B49767C9A463A632683B00E0C06F954FBC9BC291E5B34D310CE68658F7031)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/kiuAcbzlS-u9tq5t2z1xqA/zh-cn_image_0000002704271609.png?HW-CC-KV=V1&HW-CC-Date=20260813T095611Z&HW-CC-Expire=86400&HW-CC-Sign=759F8D142AA5106E33C21FFCE451EF09E188DDEEDD8728052A61B0A900855FB9)
 
 
   (3) 选择library目录，执行Build -> Make Module 'library'。

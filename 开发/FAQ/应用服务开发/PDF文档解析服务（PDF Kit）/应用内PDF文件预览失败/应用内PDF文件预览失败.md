@@ -1,6 +1,6 @@
 # 应用内PDF文件预览失败
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-1
 
@@ -24,7 +24,7 @@
 - [Web组件预览PDF文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-pdf-preview)：Web组件提供了在网页中预览PDF的能力。应用通过Web组件的[src](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-i#weboptions)参数和[loadUrl()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loadurl)接口加载PDF文档。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/kkQqpMhdSh-YvcUa_vivLw/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260811T005601Z&HW-CC-Expire=86400&HW-CC-Sign=1781500B5151CD1EC6E0CC9397ABC1E90DE09713138311DA3F216BECAFD900FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/Kkp5dCcDSvSKm9o-7hVfSg/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095552Z&HW-CC-Expire=86400&HW-CC-Sign=79DC79E12CA7C2A33DED356AB2E145FB9768ED0380075853C6CC47B479661649)
  
 
   由于PDF预览页面会根据用户操作使用window.localStorage记录侧边导航栏的展开状态，因此需要开启文档对象模型存储[domStorageAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#domstorageaccess)权限。
@@ -33,19 +33,19 @@
  
 
 #### 问题定位
-1. [PdfView预览组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-implements)提供预览PDF文档能力：搜索[loadDocument()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage#section073321844615)，检查传入的文件是否属于本地文件，不支持在线预览。
+1. [PdfView预览组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-implements)提供预览PDF文档能力：搜索[loadDocument()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage#loaddocument)，检查传入的文件是否属于本地文件，不支持在线预览。
 2. 使用Web组件的PDF文档预览能力：
 搜索[domStorageAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#domstorageaccess)，检查是否开启文档对象模型存储接口。
 3. 搜索Web组件的[src](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-i#weboptions)参数和[loadUrl()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loadurl)接口，检查传入的URL是否正确。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/bC0YHd60SYmwknAg2CfylQ/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260811T005601Z&HW-CC-Expire=86400&HW-CC-Sign=F36067E38A9C3D6D0C2BC4D20FC899F9801CA7C543FE294D4159DA30FB7619C6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/P3vUdiQiSQK4sR4Q9RzI1A/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095552Z&HW-CC-Expire=86400&HW-CC-Sign=DDF38C9FCFE0B1E9F1E3673481625571C1AD43B101D0641E15304EF8BFFEB885)
  
 
   对于加载应用沙箱内PDF文档，检查是否开启应用中文件系统的访问[fileAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#fileaccess)权限。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/nIQ3OoWhSN6TQEngWMLL6w/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260811T005601Z&HW-CC-Expire=86400&HW-CC-Sign=A68E4AA65D00391D21A1F0B046D952DC2FD8D9258583D8A1B731282CB26E0F88)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/R4qS-w_BQHu28NzARTC8Ow/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095552Z&HW-CC-Expire=86400&HW-CC-Sign=21126A51764FB5BB0E76BC0635BD2E43AF54AEF137CF0583162FB366DC6F8B16)
  
 
   Web组件的第一个参数变量src不能通过状态变量（例如：@State）动态更改地址，如需更改，请通过loadUrl()重新加载。

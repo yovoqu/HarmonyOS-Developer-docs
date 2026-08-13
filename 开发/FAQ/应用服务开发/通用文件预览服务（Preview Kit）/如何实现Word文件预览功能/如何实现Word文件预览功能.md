@@ -1,6 +1,6 @@
 # 如何实现Word文件预览功能
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-6
 
@@ -168,4 +168,4 @@ struct <span style="color: rgb(0,0,255);">filePreviewDemo </span><span style="co
 
 Q：如何在代码判断文件是否支持使用openPreview接口进行预览？
  
-A：使用[canPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#section3643113161616)接口根据文件的uri判断文件是否可预览，接口仅针对文件是否存在以及文件格式是否为支持的文件类型进行检验，后续openPreview进行文件查看时需要调用方保证文件可以被转授权。
+A：使用[canPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#canpreview)接口根据文件的uri判断文件是否可预览，接口仅针对文件是否存在以及文件格式是否为支持的文件类型进行检验，后续openPreview进行文件查看时需要调用方保证文件可以被转授权。

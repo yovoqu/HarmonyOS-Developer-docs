@@ -1,6 +1,6 @@
 # SM2算法的C1C3C2格式密文与ASN.1编码格式如何互换
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-31
 
@@ -196,7 +196,7 @@ A：升级到API20，[genEccSignatureSpec](https://developer.huawei.com/consumer
  
 Q：解密时遇到错误码17630001该如何解决？
  
-A：错误码[17630001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework#section17630001-算法相关的操作错误调用三方算法库api出错)表示调用三方算法库API出错，可以检查加密时SM2密文参数的长度是否规范。
+A：错误码[17630001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework#section17630001-密码操作错误)表示调用三方算法库API出错，可以检查加密时SM2密文参数的长度是否规范。
  
 国密算法的底层实现是OpenSSL，为了防止数据在拼接的时候被截取到，在返回OpenSSL数据时是直接透传返回的，中间不作任何操作来保证安全性。而OpenSSL底层返回的数据时高位如果是0会默认被舍弃，针对这种情况需要业务自己实现，即在拼接生成C1C3C2格式的密文时，检查x分量（C1_X）或y分量（C1_Y）的长度是否为32字节，如果长度不够需要在高位补0，使得x分量和y分量的长度均为32字节。
  

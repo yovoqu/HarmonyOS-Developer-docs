@@ -1,6 +1,6 @@
 # 使用AVTranscoder进行视频转码失败
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-25
 
@@ -78,7 +78,7 @@ private avConfig: media.AVTranscoderConfig = {
 
 - **场景三**：用户媒体相册里的文件怎么转码，需要复制到沙箱再转码吗？
 
-  用户使用[photoViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-photoviewpicker)选择视频文件获取uri后，可通过[fs.opensync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsopensync)获取源视频文件fd后直接转码，不用复制到沙箱再转，示例代码如下，完整代码可[参考官网](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avtranscoder-for-transcodering)。
+  用户使用[photoViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-photoviewpicker)选择视频文件获取uri后，可通过[fs.opensync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioopensync)获取源视频文件fd后直接转码，不用复制到沙箱再转，示例代码如下，完整代码可[参考官网](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avtranscoder-for-transcodering)。
 ```text
 async picture() {
   let PhotoSelectOptions = new photoAccessHelper.PhotoSelectOptions();

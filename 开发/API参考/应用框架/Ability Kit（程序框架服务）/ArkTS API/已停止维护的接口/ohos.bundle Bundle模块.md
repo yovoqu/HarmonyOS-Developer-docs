@@ -1,6 +1,6 @@
 # @ohos.bundle (Bundle模块)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -40,15 +40,15 @@ import bundle from '@ohos.bundle';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 getApplicationInfo(bundleName: string, bundleFlags: number, userId?: number): Promise&lt;ApplicationInfo&gt;
 
 根据给定的Bundle名称获取ApplicationInfo。使用Promise异步回调。
 
 获取调用方自己的信息时不需要权限。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **需要权限：**
 
@@ -98,15 +98,15 @@ bundle.getApplicationInfo(bundleName, bundleFlags, userId)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 getApplicationInfo(bundleName: string, bundleFlags: number, userId: number, callback: AsyncCallback&lt;ApplicationInfo&gt;): void
 
 根据给定的Bundle名称获取指定用户下的ApplicationInfo，使用callback异步回调。
 
 获取调用方自己的信息时不需要权限。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **需要权限：**
 
@@ -150,15 +150,15 @@ bundle.getApplicationInfo(bundleName, bundleFlags, userId, (err, data) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 getApplicationInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback&lt;ApplicationInfo&gt;): void
 
 根据给定的Bundle名称获取ApplicationInfo，使用callback异步回调。
 
 获取调用方自己的信息时不需要权限。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **需要权限：**
 
@@ -200,13 +200,13 @@ bundle.getApplicationInfo(bundleName, bundleFlags, (err, data) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 getAllBundleInfo(bundleFlag: BundleFlag, userId?: number): Promise<Array&lt;BundleInfo&gt;>
 
 获取指定用户所有的BundleInfo，使用Promise形式异步回调。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **需要权限：**
 
@@ -254,13 +254,13 @@ bundle.getAllBundleInfo(bundleFlag, userId)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 getAllBundleInfo(bundleFlag: BundleFlag, callback: AsyncCallback<Array&lt;BundleInfo&gt;>): void
 
 获取当前用户所有的BundleInfo，使用callback异步回调。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **需要权限：**
 
@@ -300,13 +300,13 @@ bundle.getAllBundleInfo(bundleFlag, (err, data) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 getAllBundleInfo(bundleFlag: BundleFlag, userId: number, callback: AsyncCallback<Array&lt;BundleInfo&gt;>): void
 
 获取系统中指定用户下所有的BundleInfo，使用callback异步回调。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **需要权限：**
 
@@ -348,15 +348,15 @@ bundle.getAllBundleInfo(bundleFlag, userId, (err, data) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用 getBundleInfo 替代。
-
-
 getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions): Promise&lt;BundleInfo&gt;
 
 根据给定的Bundle名称获取BundleInfo，使用Promise异步回调。
 
 获取调用方自己的信息时不需要权限。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 getBundleInfo 替代。
+
 
 **需要权限：**
 
@@ -408,15 +408,15 @@ bundle.getBundleInfo(bundleName, bundleFlags, options)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用 getBundleInfo 替代。
-
-
 getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback&lt;BundleInfo&gt;): void
 
 根据给定的Bundle名称获取BundleInfo，使用callback异步回调。
 
 获取调用方自己的信息时不需要权限。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 getBundleInfo 替代。
+
 
 **需要权限：**
 
@@ -458,15 +458,15 @@ bundle.getBundleInfo(bundleName, bundleFlags, (err, data) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用 getBundleInfo 替代。
-
-
 getBundleInfo(bundleName: string, bundleFlags: number, options: BundleOptions, callback: AsyncCallback&lt;BundleInfo&gt;): void
 
 根据给定的Bundle名称获取BundleInfo，使用callback异步回调。
 
 获取调用方自己的信息时不需要权限。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 getBundleInfo 替代。
+
 
 **需要权限：**
 
@@ -512,13 +512,13 @@ bundle.getBundleInfo(bundleName, bundleFlags, options, (err, data) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 getAllApplicationInfo(bundleFlags: number, userId?: number): Promise<Array&lt;ApplicationInfo&gt;>
 
 获取指定用户下所有已安装的应用信息，使用Promise异步回调。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **需要权限：**
 
@@ -566,13 +566,13 @@ bundle.getAllApplicationInfo(bundleFlags, userId)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 getAllApplicationInfo(bundleFlags: number, userId: number, callback: AsyncCallback<Array&lt;ApplicationInfo&gt;>): void
 
 获取指定用户下所有已安装的应用信息，使用callback异步回调。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **需要权限：**
 
@@ -614,13 +614,13 @@ bundle.getAllApplicationInfo(bundleFlags, userId, (err, data) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 getAllApplicationInfo(bundleFlags: number, callback: AsyncCallback<Array&lt;ApplicationInfo&gt;>): void
 
 获取调用方所在用户下已安装的应用信息，使用callback异步回调。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **需要权限：**
 
@@ -660,13 +660,13 @@ bundle.getAllApplicationInfo(bundleFlags, (err, data) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 getBundleArchiveInfo(hapFilePath: string, bundleFlags: number) : Promise&lt;BundleInfo&gt;
 
 获取有关HAP中包含的应用程序包的信息，使用Promise异步回调。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **系统能力：**
 
@@ -710,13 +710,13 @@ bundle.getBundleArchiveInfo(hapFilePath, bundleFlags)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback&lt;BundleInfo&gt;) : void
 
 获取有关HAP中包含的应用程序包的信息，使用callback异步回调。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **系统能力：**
 
@@ -754,15 +754,15 @@ bundle.getBundleArchiveInfo(hapFilePath, bundleFlags, (err, data) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 getAbilityInfo(bundleName: string, abilityName: string): Promise&lt;AbilityInfo&gt;
 
 通过Bundle名称和组件名获取Ability组件信息，使用Promise形式异步回调。
 
 获取调用方自己的信息时不需要权限。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **需要权限：**
 
@@ -810,15 +810,15 @@ bundle.getAbilityInfo(bundleName, abilityName)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 getAbilityInfo(bundleName: string, abilityName: string, callback: AsyncCallback&lt;AbilityInfo&gt;): void
 
 通过Bundle名称和组件名获取Ability组件信息，使用callback异步回调。
 
 获取调用方自己的信息时不需要权限。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **需要权限：**
 
@@ -860,15 +860,15 @@ bundle.getAbilityInfo(bundleName, abilityName, (err, data) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 getAbilityLabel(bundleName: string, abilityName: string): Promise&lt;string&gt;
 
 通过Bundle名称和ability名称获取应用名称，使用Promise异步回调。
 
 获取调用方自己的信息时不需要权限。
+
+> [!NOTE]
+> 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **需要权限：**
 
@@ -916,15 +916,15 @@ bundle.getAbilityLabel(bundleName, abilityName)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 getAbilityLabel(bundleName: string, abilityName: string, callback : AsyncCallback&lt;string&gt;): void
 
 通过Bundle名称和Ability组件名获取应用名称，使用callback异步回调。
 
 获取调用方自己的信息时不需要权限。
+
+> [!NOTE]
+> 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **需要权限：**
 
@@ -966,13 +966,13 @@ bundle.getAbilityLabel(bundleName, abilityName, (err, data) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 isAbilityEnabled(info: AbilityInfo): Promise&lt;boolean&gt;
 
 根据给定的AbilityInfo查询ability是否已经启用，使用Promise异步回调。
+
+> [!NOTE]
+> 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **系统能力：**
 
@@ -1016,13 +1016,13 @@ bundle.getAbilityInfo(bundleName, abilityName).then((abilityInfo) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 isAbilityEnabled(info : AbilityInfo, callback : AsyncCallback&lt;boolean&gt;): void
 
 根据给定的AbilityInfo查询ability是否已经启用，使用callback异步回调。
+
+> [!NOTE]
+> 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **系统能力：**
 
@@ -1061,13 +1061,13 @@ bundle.getAbilityInfo(bundleName, abilityName).then((abilityInfo) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 isApplicationEnabled(bundleName: string): Promise&lt;boolean&gt;
 
 根据给定的bundleName查询指定应用程序是否已经启用，使用Promise异步回调。
+
+> [!NOTE]
+> 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **系统能力：**
 
@@ -1109,13 +1109,13 @@ bundle.isApplicationEnabled(bundleName)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 isApplicationEnabled(bundleName: string, callback : AsyncCallback&lt;boolean&gt;): void
 
 根据给定的bundleName查询指定应用程序是否已经启用，使用callback异步回调。
+
+> [!NOTE]
+> 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **系统能力：**
 
@@ -1151,15 +1151,15 @@ bundle.isApplicationEnabled(bundleName, (err, data) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 queryAbilityByWant(want: Want, bundleFlags: number, userId?: number): Promise<Array&lt;AbilityInfo&gt;>
 
 根据给定的意图获取Ability组件信息，使用Promise异步回调。
 
 获取调用方自己的信息时不需要权限。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **需要权限：**
 
@@ -1213,15 +1213,15 @@ bundle.queryAbilityByWant(want, bundleFlags, userId)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 queryAbilityByWant(want: Want, bundleFlags: number, userId: number, callback: AsyncCallback<Array&lt;AbilityInfo&gt;>): void
 
 根据给定的意图获取指定用户下Ability信息，使用callback异步回调。
 
 获取调用方自己的信息时不需要权限。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **需要权限：**
 
@@ -1269,15 +1269,15 @@ bundle.queryAbilityByWant(want, bundleFlags, userId, (err, data) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 queryAbilityByWant(want: Want, bundleFlags: number, callback: AsyncCallback<Array&lt;AbilityInfo&gt;>): void
 
 根据给定的意图获取Ability信息，使用callback异步回调。
 
 获取调用方自己的信息时不需要权限。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **需要权限：**
 
@@ -1323,13 +1323,13 @@ bundle.queryAbilityByWant(want, bundleFlags, (err, data) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 getLaunchWantForBundle(bundleName: string): Promise&lt;Want&gt;
 
 查询拉起指定应用的want对象，使用Promise异步回调。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **需要权限：**
 
@@ -1375,13 +1375,13 @@ bundle.getLaunchWantForBundle(bundleName)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
-
-
 getLaunchWantForBundle(bundleName: string, callback: AsyncCallback&lt;Want&gt;): void
 
 查询拉起指定应用的want对象，使用callback异步回调。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
+
 
 **需要权限：**
 
@@ -1421,13 +1421,13 @@ bundle.getLaunchWantForBundle(bundleName, (err, data) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用 getBundleNameByUid 替代。
-
-
 getNameForUid(uid: number): Promise&lt;string&gt;
 
 通过uid获取对应的Bundle名称，使用Promise异步回调。
+
+> [!NOTE]
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 getBundleNameByUid 替代。
+
 
 **系统能力：**
 
@@ -1465,17 +1465,17 @@ bundle.getNameForUid(uid)
 
 
 
-#### bundle.8+ deprecated
+#### bundle.getNameForUid8+ deprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-> [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用 getBundleNameByUid 替代。
-
 
 getNameForUid(uid: number, callback: AsyncCallback&lt;string&gt;) : void
 
 通过uid获取对应的Bundle名称，使用callback异步回调。
+
+> [!NOTE]
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 getBundleNameByUid 替代。
+
 
 **系统能力：**
 
@@ -1511,15 +1511,15 @@ bundle.getNameForUid(uid, (err, data) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用 resourceManager.getMediaContent 替代。
-
-
 getAbilityIcon(bundleName: string, abilityName: string): Promise<image.PixelMap>
 
 通过bundleName和abilityName获取对应Icon的[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)，使用Promise异步回调。
 
 获取调用方自己的信息时不需要权限。
+
+> [!NOTE]
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 resourceManager.getMediaContent 替代。
+
 
 **需要权限：**
 
@@ -1567,15 +1567,15 @@ bundle.getAbilityIcon(bundleName, abilityName)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用 resourceManager.getMediaContent 替代。
-
-
 getAbilityIcon(bundleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void
 
 通过bundleName和abilityName获取对应Icon的[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)，使用callback异步回调。
 
 获取调用方自己的信息时不需要权限。
+
+> [!NOTE]
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 resourceManager.getMediaContent 替代。
+
 
 **需要权限：**
 

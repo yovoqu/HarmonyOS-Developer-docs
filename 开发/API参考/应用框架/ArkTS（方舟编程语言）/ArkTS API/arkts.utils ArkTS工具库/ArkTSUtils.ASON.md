@@ -1,6 +1,6 @@
-# ArkTSUtils.ASON
+# namespace (ASON)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-utils-ason
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -185,9 +185,9 @@ let options2: ArkTSUtils.ASON.ParseOptions = {
 }
 let mapText = '{"largeNumber":112233445566778899}';
 let parsedMap = ArkTSUtils.ASON.parse(mapText, undefined, options2);
-console.info("parsedMap is " + parsedMap);
+console.info(`parsedMap is ${parsedMap}`);
 // 期望输出：parsedMap is [object SendableMap]
-console.info("largeNumber is " + (parsedMap as collections.Map<string,bigint>).get("largeNumber"));
+console.info(`largeNumber is ${(parsedMap as collections.Map<string,bigint>).get("largeNumber")}`);
 // 期望输出：largeNumber is 112233445566778899
 ```
 

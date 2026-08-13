@@ -1,6 +1,6 @@
 # 应用使用API如何在不同系统版本设备上做兼容性保护判断（ArkTS/C++）
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-18
 
@@ -48,7 +48,7 @@ NavDestination() {
 
 - 基于C++语言进行API接口兼容性保护使用[OH_GetDistributionOSApiVersion()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-deviceinfo-h#oh_getdistributionosapiversion)方法获取当前设备SDK版本，然后和目标版本进行比对。
 
-  以Native侧的Button组件使用为例。在5.1.1（19）及以上版本时，使用[ArkUI_ButtonType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_buttontype)枚举的ARKUI_BUTTON_ROUNDED_RECTANGLE设置Button圆角效果；在5.1.1（19）以下版本时，使用ARKUI_BUTTON_TYPE_CAPSULE设置Button圆角效果。
+  以Native侧的Button组件使用为例。在5.1.1（19）及以上版本时，使用[ArkUI_ButtonType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-button-h#arkui_buttontype)枚举的ARKUI_BUTTON_ROUNDED_RECTANGLE设置Button圆角效果；在5.1.1（19）以下版本时，使用ARKUI_BUTTON_TYPE_CAPSULE设置Button圆角效果。
 
   
 ```text

@@ -1,6 +1,6 @@
 # Navigation页面路由
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-jump
 
@@ -728,4 +728,4 @@ export struct PageTwo {
 2. 工程配置文件[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中配置{"routerMap": "$profile:router_map"}。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/wLRobGW9RSKod1napWnXxw/zh-cn_image_0000002686085547.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071844Z&HW-CC-Expire=86400&HW-CC-Sign=6611D9772D182E501DB858944C8BA408B48AE51EA27EB3DC444898DA8752A40B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/6FtyI1NnQl257YF7fv9UWw/zh-cn_image_0000002704392153.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095709Z&HW-CC-Expire=86400&HW-CC-Sign=F1C34582B6C0EC346AD55203CAB9DE102F9B283D3221A83BC540A8DD41B88F0C)

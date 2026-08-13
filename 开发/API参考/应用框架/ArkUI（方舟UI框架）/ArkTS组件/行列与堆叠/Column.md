@@ -1,6 +1,6 @@
 # Column
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -330,7 +330,7 @@ struct ColumnExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/xiWYuYjtRa-feu7ukI4U7A/zh-cn_image_0000002686087889.png?HW-CC-KV=V1&HW-CC-Date=20260730T071459Z&HW-CC-Expire=86400&HW-CC-Sign=F57B48DDE93D32B3BF9EE79D8B093A32A65F8D6ACD222E8FD673DAB9233A3AC1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/RSklBEK4Rh2rEk2eI-tS5Q/zh-cn_image_0000002674474558.png?HW-CC-KV=V1&HW-CC-Date=20260813T095448Z&HW-CC-Expire=86400&HW-CC-Sign=1F0164A12B46B110F268C8D0A2BC8C8F79E3956745E9BBC97BC58A8492DBCE9F)
 
  
   
@@ -364,4 +364,4 @@ struct ColumnReverseSample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/ShcIY_G8Q3qT0MkHoXxnTA/zh-cn_image_0000002685928061.png?HW-CC-KV=V1&HW-CC-Date=20260730T071459Z&HW-CC-Expire=86400&HW-CC-Sign=BF32839BFDF7EBB2068F1FEBE94044E8C80071F658B3C257F3567129FB3EB793)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/hAvdJxYxSBmNqEMdUCdYUQ/zh-cn_image_0000002704394515.png?HW-CC-KV=V1&HW-CC-Date=20260813T095448Z&HW-CC-Expire=86400&HW-CC-Sign=1CA8B5550F1BD9C3C5F0A46163DBA9D158D7CF81481665654F34AE2894241B21)

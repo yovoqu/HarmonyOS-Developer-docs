@@ -1,6 +1,6 @@
 # @ohos.hidebug (Debug调试)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hidebug
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -305,7 +305,7 @@ getServiceDump(serviceid: number, fd: number, args: Array&lt;string&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | the parameter check failed,Possible causes:1.the parameter type error 2.the args parameter is not string array. |
+| 401 | The parameter check failed,Possible causes:1.The parameter type error. 2.The args parameter is not string array. |
 | 11400101 | ServiceId invalid. The system ability does not exist. |
 
 
@@ -359,7 +359,7 @@ startJsCpuProfiling(filename: string): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | the parameter check failed,Parameter type error. |
+| 401 | The parameter check failed,Parameter type error. |
 
 
 **示例**：
@@ -437,7 +437,7 @@ dumpJsHeapData(filename: string): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | the parameter check failed, Parameter type error. |
+| 401 | The parameter check failed, Parameter type error. |
 
 
 **示例**：
@@ -732,7 +732,7 @@ trace单位流量实测方法：limitSize设置为最大值500M，调用startApp
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Invalid argument, Possible causes:1.The limit parameter is too small 2.The parameter is not within the enumeration type 3.The parameter type error or parameter order error. |
+| 401 | Invalid argument, Possible causes:1.The limit parameter is too small. 2.The parameter is not within the enumeration type. 3.The parameter type error or parameter order error. |
 | 11400102 | Capture trace already enabled. |
 | 11400103 | No write permission on the file. |
 | 11400104 | Abnormal trace status. |
@@ -989,7 +989,7 @@ setAppResourceLimit(type: string, value: number, enableDebugLog: boolean): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Invalid argument, Possible causes:1.The limit parameter is too small 2.The parameter is not in the specified type 3.The parameter type error or parameter order error. |
+| 401 | Invalid argument, Possible causes:1.The limit parameter is too small. 2.The parameter is not in the specified type. 3.The parameter type error or parameter order error. |
 | 11400104 | Set limit failed due to remote exception. |
 
 
@@ -1215,7 +1215,7 @@ getVMRuntimeStat(item: string): number
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Possible causes:1. Invalid parameter, a string parameter required. 2. Invalid parameter, unknown property. |
+| 401 | Possible causes: 1. Invalid parameter, a string parameter required. 2. Invalid parameter, unknown property. |
 
 
 **示例**：
@@ -1288,7 +1288,7 @@ VM内存信息。
 
 
 
-#### hidebug.tags12+
+#### tags12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1795,7 +1795,7 @@ dumpJsRawHeapData(needGC: boolean, needClean: boolean, processDump: boolean): Pr
 为当前线程或其所属进程生成虚拟机的原始堆快照，并支持清除nodeId缓存，生成的文件为rawheap格式。使用Promise异步回调。文件可通过[rawheap-translator工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/rawheap-translator)转换为heapsnapshot格式文件进行解析。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/Infun6dzQyWEVLJHXmOfSw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071645Z&HW-CC-Expire=86400&HW-CC-Sign=A8674DC43D0D12503B0C00586BF106AE61156B4EC44CDB459C010F31CEFCFB44)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/rmI0Ls9SQmO8Wxtbmq9AUA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095516Z&HW-CC-Expire=86400&HW-CC-Sign=FFED69CFC8C607FF83DF2DD59B347C3FB0060624CAAE46E83F51C1F804DA1065)
 
 
 系统通过该接口转储快照会消耗大量资源，因此严格限制了调用频率和次数。处理完生成的文件后，请立即删除。
@@ -2018,7 +2018,7 @@ setJsRawHeapTrimLevel(level: JsRawHeapTrimLevel): void
 设置当前进程转储虚拟机原始堆快照的裁剪级别。使用该接口并传入参数TRIM_LEVEL_2，可以有效减少堆快照的文件大小。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/Ao0NkwifQ8mcoIdXOUQvHw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071645Z&HW-CC-Expire=86400&HW-CC-Sign=2BA40DDE3D3E1AA2B3E8CCA36A16488C1BFAE51B792522CBCA115D0D8076FA0B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/RcIfYqGEREujeWBeKFAV0Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095516Z&HW-CC-Expire=86400&HW-CC-Sign=CF0CFF9C4A1CE8A5FCB12FFAF7A0DA9BC5A4614B67B7F7D505345310B52392AC)
 
 
 默认裁剪级别是TRIM_LEVEL_1。如果设置了TRIM_LEVEL_2裁剪，需使用API version 20之后的[rawheap-translator](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/rawheap-translator)工具才能将.rawheap文件转换为.heapsnapshot文件，否则可能导致转换失败。
@@ -2073,7 +2073,7 @@ setProcDumpInSharedOOM(enable: boolean): void
 将转储的堆快照由线程级改为进程级。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/ZqJEuBwWSkW3jWfsyLtrKg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071645Z&HW-CC-Expire=86400&HW-CC-Sign=E9AFF8F2F5AE4857DEB47B509E989B317B038D350EA4550022170E23E794B73C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/YtkhuX3kQgO_da2SVOMYtA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095516Z&HW-CC-Expire=86400&HW-CC-Sign=670D43553B42E8FB2FF23378F2D5C6BCF73D32A95666FEC6C35794D1296EAFF2)
 
 
 要想转储进程级的堆快照，调用该接口并传参true、进程OOM时发生的是SharedHeap OOM，两个条件缺一不可。
@@ -2120,7 +2120,7 @@ getRssInfo(): RssInfo
 **系统能力**：SystemCapability.HiviewDFX.HiProfiler.HiDebug
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/7jbJQFzdQZOzk2JealXcVg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071645Z&HW-CC-Expire=86400&HW-CC-Sign=D1D4D37A58A5BF8DB17E51AAA853F99BC2EE5947E038B1B6707A53253CE2FD8D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/eEl2wGYTSoGBRKPt6qi1hA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095516Z&HW-CC-Expire=86400&HW-CC-Sign=F1DF1DD7BA590081BD8F9F1B35FC701AF86F3CE0AEFFD52CDF8F3CF8AAD49A7F)
 
 
 读取/proc/{pid}/status耗时很短，与[hidebug.getAppNativeMemInfo](#hidebuggetappnativememinfo12)接口中获取的rss值相比存在一点误差，但该接口更加轻量，为避免应用丢帧或卡顿推荐使用该接口。

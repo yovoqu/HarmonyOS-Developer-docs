@@ -1,6 +1,6 @@
 # 页面路由 (@ohos.router)(不推荐)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-routing
 
@@ -445,7 +445,7 @@ router自定义转场可以通过[pageTransition](https://developer.huawei.com/c
 **图3** 页面返回前增加一个询问框
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/UOc3vKPwTMCBaAro34UQYA/zh-cn_image_0000002685925727.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071844Z&HW-CC-Expire=86400&HW-CC-Sign=AD113A75370C1354A59C4462BC362392631550DCFE9C539BE3C1806ECF6DE8AE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/nO2cY9WzTMi3wP8WaQemng/zh-cn_image_0000002674632040.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095710Z&HW-CC-Expire=86400&HW-CC-Sign=889425DF170C129C721A2F165B55CD608D9BA3CC8F64A97FF97986FD187BA915)
 
 
 
@@ -559,7 +559,7 @@ onBackClick() {
 **图4** 命名路由跳转
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/t4EqgZ9xQgGiwoP1su-9Jw/zh-cn_image_0000002656006048.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071844Z&HW-CC-Expire=86400&HW-CC-Sign=6D8E7FF6BF5E654165CA69306DA39C728C14AAD82612C81C0392F247F7A7FECC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/VWmTsC_5TWSFw-QFb1qO1Q/zh-cn_image_0000002704271993.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095710Z&HW-CC-Expire=86400&HW-CC-Sign=2CCAE94968540E45FCCF5479653254151B0C1132E781078F23E77CFA202C3E9C)
 
 
 在想要跳转到的共享包[HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package)或者[HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp)页面里，给[@Entry](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#entry)装饰的自定义组件EntryOptions命名：

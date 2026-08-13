@@ -1,6 +1,6 @@
 # oh_rdb_crypto_param.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-rdb-crypto-param-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -224,7 +224,7 @@ int OH_Crypto_SetEncryptionKey(OH_Rdb_CryptoParam *param, const uint8_t *key, in
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Rdb_CryptoParam *param | 表示指向OH_Rdb_CryptoParam实例的指针。 |
-| const uint8_t *key | 表示指向数组数据的指针。 |
+| const uint8_t *key | 表示指向密钥数据的指针。 |
 | int32_t length | 表示密钥数组的大小。 |
  
  

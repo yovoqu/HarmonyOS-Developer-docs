@@ -1,6 +1,6 @@
 # Function Flow Runtime并发范式
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ffrt-concurrency-paradigm
 
@@ -58,7 +58,7 @@
 
 #### 任务伙伴（Job Partner）
 
-从API version 20开始，FFRT支持Job_Partner(任务伙伴)功能。任务伙伴任务并发范式常用于解决以下场景中的问题：
+从API version 20开始，FFRT支持Job_Partner(任务伙伴)功能。任务伙伴并发范式常用于解决以下场景中的问题：
  1. **多线程协作**：在许多实际应用中，某些功能需要在特定环境进行运行，而其他功能可以在任何环境运行，这个时候需要多线程协作，部分功能在A线程运行，然后回到B线程，最后再回到A线程。
 
   

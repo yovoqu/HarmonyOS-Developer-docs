@@ -1,6 +1,6 @@
 # Scan Kit简介
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scan-introduction
 
@@ -56,7 +56,7 @@ Scan Kit提供了系统“扫码直达”、开发者应用内扫码等多种能
 
 #### 模拟器支持情况
 
-本Kit支持模拟器开发，但与真机存在部分能力差异，具体差异如下：
+本Kit支持模拟器，但与真机存在部分能力差异，具体差异如下：
 
  - 通用差异：请参见“[模拟器与真机的差异](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-specification#section1227613205203)”。
  - 从API版本6.0.0(20)开始，模拟器支持默认界面扫码能力开发，模拟器中默认界面扫码的相机流存在镜像问题，且由于仅支持固定分辨率比例，画面会出现上下黑边。

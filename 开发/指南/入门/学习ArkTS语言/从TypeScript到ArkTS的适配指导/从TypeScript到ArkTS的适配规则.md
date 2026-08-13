@@ -1,6 +1,6 @@
 # 从TypeScript到ArkTS的适配规则
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/typescript-to-arkts-migration-guide
 
@@ -2170,7 +2170,7 @@ class Label {
 
 // 'Label'类型
 let z: Label = {
-  public text: 'hello',
+  text: 'hello'
 }
 ```
  

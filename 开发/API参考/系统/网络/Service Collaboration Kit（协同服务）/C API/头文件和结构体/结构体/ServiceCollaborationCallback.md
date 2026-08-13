@@ -1,6 +1,6 @@
 # ServiceCollaborationCallback
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaborationcallback
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -61,7 +61,7 @@ int32_t(* ServiceCollaborationCallback::OnDataCallback) (ServiceCollaborationEve
 | --- | --- |
 | ServiceCollaborationEventCode code | 错误码。 |
 | ServiceCollaborationDataType dataType | 回传数据类型。 |
-| uint32_t dataSize | 数据大小，单位是字节。 |
+| uint32_t dataSize | 数据大小，单位：byte。 |
 | char *data | 数据。 |
  
  

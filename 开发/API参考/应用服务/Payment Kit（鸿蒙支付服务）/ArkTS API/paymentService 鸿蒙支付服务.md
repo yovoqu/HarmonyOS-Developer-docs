@@ -1,6 +1,6 @@
 # paymentService (鸿蒙支付服务)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-paymentservice
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -687,7 +687,7 @@ requestBindCard(context: common.UIAbilityContext | common.UIExtensionContext): P
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error.Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
+| 401 | Parameter error.Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 | 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
 | 1001930000 | The operation was canceled by the user. |
 | 1001930011 | Network connection error. |

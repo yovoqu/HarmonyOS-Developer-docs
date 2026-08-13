@@ -1,6 +1,6 @@
 # Native内存泄漏导致应用闪退
 
-更新时间：2026-07-30 01:24:30
+更新时间：2026-08-13 01:42:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-11
 
@@ -13,7 +13,7 @@
 #### 背景知识
 
 - 内存泄漏是指程序在申请分配内存后，由于疏忽或错误未能释放已经不再使用的内存空间，导致这部分内存无法被后续的程序使用。随着时间推移，未释放的内存会逐渐累积，最终可能导致系统性能下降甚至崩溃。
-- 参考文档[日志获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-leak-guidelines#section166893320117)，native内存泄漏包括以下三个日志文件：
+- 参考文档[日志获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-leak-guidelines#日志获取)，native内存泄漏包括以下三个日志文件：
 memleak-native-[process_name]-[pid]-sample.txt。
 - memleak-native-[process_name]-[pid]-smaps.txt。
 - memleak-native-[process_name]-[pid]-[timestamp].txt。

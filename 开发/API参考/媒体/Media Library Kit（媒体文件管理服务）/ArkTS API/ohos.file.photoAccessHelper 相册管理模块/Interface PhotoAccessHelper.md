@@ -1,6 +1,6 @@
 # Interface (PhotoAccessHelper)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1415,7 +1415,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 requestPhotoUrisReadPermissionEx(srcFileUris: Array&lt;string&gt;): Promise&lt;RequestReadPermissionResult&gt;
 
-应用调用接口为未授权的URI授权。使用promise异步回调。
+应用调用接口为未授权的URI授权。使用Promise异步回调。
 
 返回授权结果，其中包含已创建并授予保存权限的URI列表以及无效的URI列表。
 

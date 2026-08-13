@@ -1,6 +1,6 @@
 # LazyForEach懒加载修改数据界面不刷新
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-605
 
@@ -13,8 +13,8 @@
 #### 背景知识
 
 - [onDatasetChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach#ondatasetchange12)：进行批量的数据处理后，调用onDatasetChange接口通知组件按照dataOperations刷新组件。
-- [DataReloadOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach#datareloadoperation)：重载所有数据操作。当onDatasetChange含有DataOperationType.RELOAD操作时，其余操作全部失效，框架会自己调用keyGenerator进行键值比对。
-- [DataChangeOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach#datachangeoperation)：改变数据操作。
+- [DataReloadOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach#datareloadoperation12)：重载所有数据操作。当onDatasetChange含有DataOperationType.RELOAD操作时，其余操作全部失效，框架会自己调用keyGenerator进行键值比对。
+- [DataChangeOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach#datachangeoperation12)：改变数据操作。
 - LazyForEach提供了参数keyGenerator，如果未定义keyGenerator函数，ArkUI框架将使用默认的键值生成函数：(item: Object, index: number) => { return viewId + '-' + index.toString(); }。其中viewId在编译器转换过程中生成，同一个LazyForEach组件内的viewId一致。详细参考：[键值生成规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach#键值生成规则)。
 
  
@@ -22,7 +22,7 @@
 
 #### 问题定位
 
-查看数据修改后刷新数据的实现，修改数据后调用刷新的操作是[DataReloadOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach#datareloadoperation)，查看LazyForEach的参数keyGenerator，调用刷新操作后LazyForEach生成的键值没有变化，界面没有刷新。
+查看数据修改后刷新数据的实现，修改数据后调用刷新的操作是[DataReloadOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach#datareloadoperation12)，查看LazyForEach的参数keyGenerator，调用刷新操作后LazyForEach生成的键值没有变化，界面没有刷新。
  
 ```text
 <em>// 数据修改后刷新界面的实现</em>
@@ -43,7 +43,7 @@ notifyDataReload() {
 
 #### 修改建议
 
-- 方案一：修改数据后刷新操作从[DataReloadOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach#datareloadoperation)改为[DataChangeOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach#datachangeoperation)，使用DataChangeOperation会重新渲染数据对应组件，界面正常更新。
+- 方案一：修改数据后刷新操作从[DataReloadOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach#datareloadoperation12)改为[DataChangeOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach#datachangeoperation12)，使用DataChangeOperation会重新渲染数据对应组件，界面正常更新。
 ```text
 notifyDataChange(index: number) {
   this.listeners.forEach(listener => {
@@ -52,7 +52,7 @@ notifyDataChange(index: number) {
 }
 ```
 
-- 方案二：保持[DataReloadOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach#datareloadoperation)操作，修改LazyForEach的参数keyGenerator，确保修改数据后生成的键值与修改前的键值不同，界面正常更新。
+- 方案二：保持[DataReloadOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach#datareloadoperation12)操作，修改LazyForEach的参数keyGenerator，确保修改数据后生成的键值与修改前的键值不同，界面正常更新。
 ```json
 LazyForEach(this.data2, (p: Person, index: number) => {
   Column({ space: 8 }) {

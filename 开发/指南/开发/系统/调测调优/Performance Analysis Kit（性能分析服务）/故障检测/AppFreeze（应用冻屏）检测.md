@@ -1,6 +1,6 @@
 # AppFreeze（应用冻屏）检测
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines
 
@@ -951,7 +951,7 @@ AppFreeze故障日志信息中的故障线程信息表示业务线程发生故�
 AppFreeze故障信息聚类方法同Cpp Crash一致，参考[CppCrash聚类](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines#cppcrash聚类)。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/x_XaiYF3SZq1j_xwgbyLdQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071929Z&HW-CC-Expire=86400&HW-CC-Sign=F37177909ABF4921146CB75D69085E3893107E07B2C18194F35246E44F3CD333)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/IaAerAX8TwO0knRdJkORQg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095814Z&HW-CC-Expire=86400&HW-CC-Sign=BA55859AFE7E8FDA03BE30408900F47C8D324F02DDF798064A6BC15EB03A1D02)
 
 
 如果故障线程堆栈中有IPC栈帧，可获取[binder堆栈](#对端信息与当前故障进程通信的进程信息)信息用于聚类。
@@ -965,3 +965,77 @@ AppFreeze故障信息聚类方法同Cpp Crash一致，参考[CppCrash聚类](htt
 增强日志信息聚类规格与AppFreeze故障信息提取堆栈聚类规格一致，该部分参与聚类主要是为了解决AppFreeze故障堆栈信息不足导致的无法聚类问题。
 
 开发者可参考[AppFreeze故障信息聚类](#appfreeze故障信息聚类)方法获取聚类特征，对增强日志信息进行聚类。
+
+
+
+#### 屏蔽AppFreeze检测
+
+在开发调试阶段，开发者可以通过以下命令屏蔽AppFreeze检测，避免调试过程中的超时检测影响开发调试。
+
+
+
+#### 环境要求
+
+在使用屏蔽指令前，开发者需要先获取[hdc工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc#环境准备)，并通过hdc shell进入设备shell。
+
+
+
+#### 约束与限制
+
+ - **应用类型限制**：仅支持debug类型应用屏蔽检测，release类型应用不支持此功能。
+ - **执行时机限制**：需在应用启动后执行屏蔽指令。
+
+
+
+
+#### 使用方法
+
+**进入调试模式**
+
+```bash
+aa attach -b <bundleName>
+```
+
+例如：
+
+```bash
+aa attach -b com.example.appfreeze
+```
+
+当应用成功进入调试模式时，返回：
+
+```text
+attach app debug successfully.
+```
+
+当给定的&lt;bundleName&gt;参数不合法或者不存在时，返回如下内容，更多详细说明请参考：[进入调试模式命令（attach）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/aa-tool#进入调试模式命令attach)：
+
+```text
+error: failed to attach app debug.
+```
+
+**退出调试模式**
+
+开发者在调试完成后，使用执行aa detach命令退出调试模式，恢复AppFreeze检测能力，确保应用正常运行时的故障检测不受影响。
+
+```bash
+aa detach -b <bundleName>
+```
+
+例如：
+
+```bash
+aa detach -b com.example.appfreeze
+```
+
+当应用退出调试模式时，返回：
+
+```text
+detach app debug successfully.
+```
+
+当给定的&lt;bundleName&gt;参数不合法或者不存在时，返回如下内容，更多详细说明请参考：[退出调试模式命令（detach）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/aa-tool#退出调试模式命令detach)：
+
+```text
+error: failed to detach app debug.
+```

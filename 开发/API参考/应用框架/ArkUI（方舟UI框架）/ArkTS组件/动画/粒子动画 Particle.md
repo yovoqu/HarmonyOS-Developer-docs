@@ -1,6 +1,6 @@
 # 粒子动画 (Particle)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-particle-animation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1058,7 +1058,7 @@ struct ParticleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/W8a_raNYQqu5RfAV0VAVLA/zh-cn_image_0000002655848914.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=DEB265325F29270805620E7E48E5E03928773DF8C3479DA71A307C900376B7D4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/22LUFpqITCy1fQNfsEIXZg/zh-cn_image_0000002674475008.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=56401493C326C035A6496F90F4ECCFC0CAC1071ED2F0FA6BFC1D117B9215DBBA)
 
 
 
@@ -1170,7 +1170,7 @@ struct ParticleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/1mPtTUmqRSGWObyQMT5EJQ/zh-cn_image_0000002686088345.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=54C16A8AEFDE08C8E265DDF81C5392CA5804FBEECF1BD6043BEB7FED483C3E85)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/h6QZvX4ZSl25AowMguEZuA/zh-cn_image_0000002704394969.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=77E15A5D386EA57A9267FAB6072CDD82BFCE7C3D61D0075CD5996AE18958BCE6)
 
 
 
@@ -1302,7 +1302,7 @@ struct ParticleExample3 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/w_VEZIUXQw-vsnfcnrhhAQ/zh-cn_image_0000002685928513.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=C132E6D6C944BE6803AED84ED26C7A2F1BCC4DF914F37BEBD301FC0B1AC7325B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/4y9xPWO6Ssa2jSafX7c6AA/zh-cn_image_0000002674634848.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=A4CC9C2D3BC4F4E00C4FF507C0FEDD562C96FC2775E2E2B2F8876A1E6D47F016)
 
 
 
@@ -1385,7 +1385,7 @@ struct ParticleExample4 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/jI4sQadeRDuzQMw3kJM2Vg/zh-cn_image_0000002656008836.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=5E069890DA062A0E3EA73821725334532842947A74952DE3E65109E5BE9F471B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/vNoVU61wS5WH-Ba9SjsNdQ/zh-cn_image_0000002704274801.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=A7408B17999AAC4C00FB6DD741030CEA2FB42E8280EADAD02835EDF27253BDBD)
 
 
 
@@ -1476,7 +1476,7 @@ struct ParticleExample5 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/hnTrQMXRSqKksC7nW4K5Mw/zh-cn_image_0000002655848916.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=4DB611DF3F32176E0164DA1D1E000920F27C4A77A00AB7A007C7BE0DA92A003C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/1ftwPjWnTRq80umP1tdFyw/zh-cn_image_0000002674475010.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=2FAED979BE1FBB17667B9872F322DC567B02EC4198B16124D7D3F6469DAFA3C4)
 
 
 
@@ -1596,7 +1596,7 @@ struct ParticleExample6 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/5EAtf5x1RuqjasUGFU6qnw/zh-cn_image_0000002686088347.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=E8A3A59D930791040839CA4E00C609B1F9CE81EE564C340399EAD3A6B73F917A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/KcGNEZv2RaeG_r1LCOgpQQ/zh-cn_image_0000002704394971.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=4A45E0F3D8C6DF81838741E7BF83D82B951BE9904F957F9D6E264BB28A53457F)
 
 
 
@@ -1729,4 +1729,4 @@ struct ParticleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/3V7EJnt8QxOz_WqmBWHX3A/zh-cn_image_0000002685928515.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=E23826D465548B46A16AE32499C3C29E299F2A27D5A07737F23F49AFFE9AFC5D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/cEBNLPJCRQSmty-5_hbDag/zh-cn_image_0000002674634850.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=24D34C2D241E794FF24CF88D93BFC338DCEA9102DA315A250A8A18A20EBED674)

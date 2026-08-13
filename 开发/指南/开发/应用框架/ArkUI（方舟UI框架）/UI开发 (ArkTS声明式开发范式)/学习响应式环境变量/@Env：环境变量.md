@@ -1,6 +1,6 @@
 # @Env：环境变量
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-env-system-property
 
@@ -22,10 +22,12 @@
  - [SystemProperties.WINDOW_SIZE_PX23+](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#systemproperties)，用于获取窗口的大小信息，单位为px。
  - [SystemProperties.WINDOW_AVOID_AREA23+](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#systemproperties)，用于获取窗口的避让区域信息，单位为vp。
  - [SystemProperties.WINDOW_AVOID_AREA_PX23+](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#systemproperties)，用于获取窗口的避让区域信息，单位为px。
- - [SystemProperties.WINDOW_DISPLAY_ID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#systemproperties)，用于获取窗口所在屏幕的ID，从API版本26.0.0开始支持。
- - [SystemProperties.WINDOW_SYSTEM_DENSITY](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#systemproperties)，用于获取窗口所在屏幕的系统显示大小缩放系数，从API版本26.0.0开始支持。
- - [WritableEnvKey.FONT_SCALE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#属性-1)，用于为后代组件提供局部字体缩放比例，从API版本26.0.0开始支持。
- - [WritableEnvKey.DIRECTION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#属性-1)，用于获取窗口所在屏幕的布局方向，从API版本26.0.0开始支持。
+ - [ReadonlyEnvKey.WINDOW_DISPLAY_ID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#属性-1)，用于获取窗口所在屏幕的ID，从API版本26.0.0开始支持。
+ - [ReadonlyEnvKey.WINDOW_SYSTEM_DENSITY](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#属性-1)，用于获取窗口所在屏幕的系统显示大小缩放系数，从API版本26.0.0开始支持。
+ - [ReadonlyEnvKey.WINDOW_IS_FOCUSED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#属性-1)，用于获取当前自定义组件所在窗口是否处于获焦状态，从API版本26.0.0开始支持。
+ - [ReadonlyEnvKey.WINDOW_IS_HIGHLIGHTED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#属性-1)，用于获取当前自定义组件所在窗口是否处于高亮状态，从API版本26.0.0开始支持。
+ - [WritableEnvKey.FONT_SCALE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#writableenvkey)，用于为后代组件提供局部字体缩放比例，从API版本26.0.0开始支持。
+ - [WritableEnvKey.DIRECTION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#writableenvkey)，用于获取窗口所在屏幕的布局方向，从API版本26.0.0开始支持。
  - 系统环境变量改变时，通知@Env装饰的变量更新，并触发@Env关联组件刷新，以实现界面内容的同步更新，@Env的参数为WritableEnvKey.FONT_SCALE和WritableEnvKey.DIRECTION时，父组件可通过[WithEnv](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-with-env)中的[.env](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-with-env#env)方法向子组件中的@Env传值。
  - @Env装饰的变量不允许开发者初始化。       
 当@Env装饰的类型是复杂类型时，@Env会返回给开发者可观察的环境变量类（由[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰，且其由属性[@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰）的实例。开发者如果想监听环境变量的变化，可以使用[addMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-addmonitor-clearmonitor)，具体示例见[在@ComponentV2中使用@Env](#在componentv2中使用env)。
@@ -127,8 +129,10 @@ struct Index {
  - @Env使用SystemProperties.WINDOW_SIZE_PX时，装饰的变量类型必须为window.Size类型。
  - @Env使用SystemProperties.WINDOW_AVOID_AREA时，装饰的变量类型必须为window.UIEnvWindowAvoidAreaInfoVP类型。
  - @Env使用SystemProperties.WINDOW_AVOID_AREA_PX时，装饰的变量类型必须为window.UIEnvWindowAvoidAreaInfoPX类型。
- - @Env使用SystemProperties.WINDOW_DISPLAY_ID时，装饰的变量类型必须为number类型。
- - @Env使用SystemProperties.WINDOW_SYSTEM_DENSITY时，装饰的变量类型必须为number类型。
+ - @Env使用ReadonlyEnvKey.WINDOW_DISPLAY_ID时，装饰的变量类型必须为number类型。
+ - @Env使用ReadonlyEnvKey.WINDOW_SYSTEM_DENSITY时，装饰的变量类型必须为number类型。
+ - @Env使用ReadonlyEnvKey.WINDOW_IS_FOCUSED时，装饰的变量类型必须为boolean类型。
+ - @Env使用ReadonlyEnvKey.WINDOW_IS_HIGHLIGHTED时，装饰的变量类型必须为boolean类型。
  - @Env使用WritableEnvKey.FONT_SCALE时，装饰的变量类型必须为number类型。
  - @Env使用WritableEnvKey.DIRECTION时，装饰的变量类型必须为Direction类型。
 
@@ -270,7 +274,7 @@ struct CompInvalid {
 8. 复用窗口中SystemProperties.BREAK_POINT对应的环境变量实例。
 
   
-```text
+```ArkTS
 import { uiObserver } from '@kit.ArkUI';
 
 @Entry
@@ -353,7 +357,7 @@ struct GrandChild2 {
  - 点击Button('Landscape')和Button('Portrait')切换横竖屏，Index、CompV2和Comp关联组件进行对应的刷新，orientationChange被触发监听回调。
 
 
-```text
+```ArkTS
 import { uiObserver, UIUtils, window } from '@kit.ArkUI';
 import { common } from '@kit.AbilityKit';
 
@@ -430,7 +434,7 @@ struct Comp {
 
 @Env在@Component中使用和其在@ComponentV2中使用类似，示例如下。
 
-```text
+```ArkTS
 import { uiObserver, UIUtils, window } from '@kit.ArkUI';
 import { common } from '@kit.AbilityKit';
 
@@ -542,15 +546,14 @@ export default class EntryAbility extends UIAbility {
 ```
 
 ```ArkTS
-// Index.ets
 import { BuilderNode, FrameNode, NodeController, uiObserver, window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const DOMAIN = 0x0000;
 
-let windowStage_: window.WindowStage | undefined = undefined;
-let sub_windowClass: window.Window | undefined = undefined;
+let windowStage: window.WindowStage | undefined = undefined;
+let subWindowClass: window.Window | undefined = undefined;
 let globalBuilderNode: BuilderNode<[]> | undefined = undefined;
 
 export class MyNodeController extends NodeController {
@@ -600,25 +603,25 @@ struct Index {
   private nodeController: MyNodeController = new MyNodeController();
 
   private createSubWindow() {
-    windowStage_ = AppStorage.get('windowStage');
-    if (windowStage_ == null) {
-      hilog.error(DOMAIN, 'testTag', 'Failed to create the subwindow. Cause: windowStage_ is null');
+    windowStage = AppStorage.get('windowStage');
+    if (windowStage == null) {
+      hilog.error(DOMAIN, 'testTag', 'Failed to create the subwindow. Cause: windowStage is null');
     } else {
       // 创建应用子窗口。
-      windowStage_.createSubWindow('mySubWindow', (err: BusinessError, data) => {
+      windowStage.createSubWindow('mySubWindow', (err: BusinessError, data) => {
         let errCode: number = err.code;
         if (errCode) {
           hilog.error(DOMAIN, 'testTag', 'Failed to create the subwindow. Cause: ' + JSON.stringify(err));
           return;
         }
-        sub_windowClass = data;
-        if (!sub_windowClass) {
-          hilog.error(DOMAIN, 'testTag', 'sub_windowClass is null');
+        subWindowClass = data;
+        if (!subWindowClass) {
+          hilog.error(DOMAIN, 'testTag', 'subWindowClass is null');
           return;
         }
         hilog.info(DOMAIN, 'testTag', 'Succeeded in creating the subwindow. Data: ' + JSON.stringify(data));
         // 子窗口创建成功后，设置子窗口的位置、大小及相关属性等。
-        sub_windowClass.moveWindowTo(200, 1300, (err: BusinessError) => {
+        subWindowClass.moveWindowTo(200, 1300, (err: BusinessError) => {
           let errCode: number = err.code;
           if (errCode) {
             hilog.error(DOMAIN, 'testTag', 'Failed to move the window. Cause:' + JSON.stringify(err));
@@ -626,7 +629,7 @@ struct Index {
           }
           hilog.info(DOMAIN, 'testTag', 'Succeeded in moving the window.');
         });
-        sub_windowClass.resize(900, 1800, (err: BusinessError) => {
+        subWindowClass.resize(900, 1800, (err: BusinessError) => {
           let errCode: number = err.code;
           if (errCode) {
             hilog.error(DOMAIN, 'testTag', 'Failed to change the window size. Cause:' + JSON.stringify(err));
@@ -635,18 +638,18 @@ struct Index {
           hilog.info(DOMAIN, 'testTag', 'Succeeded in changing the window size.');
         });
          // 为子窗口加载对应的目标页面。
-        sub_windowClass.setUIContent('pages/SubWindow', (err: BusinessError) => {
+        subWindowClass.setUIContent('pages/EnvBuilderNodeSubWindow', (err: BusinessError) => {
           let errCode: number = err.code;
           if (errCode) {
             hilog.error(DOMAIN, 'testTag', 'Failed to load the content. Cause:' + JSON.stringify(err));
             return;
           }
           hilog.info(DOMAIN, 'testTag', 'Succeeded in loading the content.');
-          if (!sub_windowClass) {
-            hilog.error(DOMAIN, 'testTag', 'sub_windowClass is null');
+          if (!subWindowClass) {
+            hilog.error(DOMAIN, 'testTag', 'subWindowClass is null');
             return;
           }
-          sub_windowClass.showWindow((err: BusinessError) => {
+          subWindowClass.showWindow((err: BusinessError) => {
             let errCode: number = err.code;
             if (errCode) {
               hilog.error(DOMAIN, 'testTag', 'Failed to show the window. Cause: ' + JSON.stringify(err));
@@ -660,12 +663,12 @@ struct Index {
   }
 
   private destroySubWindow() {
-    if (!sub_windowClass) {
-      console.error('sub_windowClass is null');
+    if (!subWindowClass) {
+      console.error('subWindowClass is null');
       return;
     }
     // 销毁子窗口。当不再需要子窗口时，可根据具体实现逻辑，使用destroy对其进行销毁。
-    sub_windowClass.destroyWindow((err: BusinessError) => {
+    subWindowClass.destroyWindow((err: BusinessError) => {
       let errCode: number = err.code;
       if (errCode) {
         console.error('Failed to destroy the window. Cause: ' + JSON.stringify(err));
@@ -746,8 +749,7 @@ struct Comp {
 ```
 
 ```ArkTS
-// SubWindow.ets
-import { MyNodeController } from './Index';
+import { MyNodeController } from './EnvBuilderNode';
 
 @Entry
 @Component
@@ -784,171 +786,10 @@ struct SubWindow {
 
 可以使用lambda闭包函数将ComponentUnderBuilderNode中的@Env向下传递。通过这种方式ComponentUnderBuilderNode中的@Env可以收集到子组件Comp内组件的依赖，在切换窗口实例的时候触发Comp内组件的刷新。
 
-具体示例如下。
+仅需修改ComponentUnderBuilderNode向Comp的传参方式以及Comp自身的取值方式，其余部分（EntryAbility、MyNodeController、Index、createSubWindow、destroySubWindow、SubWindow、CompV2）与上例完全相同。具体示例如下。
 
-```json
-import { BuilderNode, FrameNode, NodeController, uiObserver, window } from '@kit.ArkUI';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { hilog } from '@kit.PerformanceAnalysisKit';
-
-const DOMAIN = 0x0000;
-
-let windowStage_: window.WindowStage | undefined = undefined;
-let sub_windowClass: window.Window | undefined = undefined;
-let globalBuilderNode: BuilderNode<[]> | undefined = undefined;
-
-export class MyNodeController extends NodeController {
-  private rootNode: FrameNode | null = null;
-  private uiContext: UIContext | null = null;
-
-  makeNode(uiContext: UIContext): FrameNode | null {
-    this.rootNode = new FrameNode(uiContext);
-    this.uiContext = uiContext;
-    return this.rootNode;
-  }
-
-  addBuilderNode(): void {
-    if (!globalBuilderNode && this.uiContext) {
-      globalBuilderNode = new BuilderNode(this.uiContext);
-      globalBuilderNode.build(wrapBuilder<[]>(buildComponent), undefined);
-    }
-    if (this.rootNode && globalBuilderNode) {
-      this.rootNode.appendChild(globalBuilderNode.getFrameNode());
-    }
-  }
-
-  removeBuilderNode(): void {
-    if (this.rootNode && globalBuilderNode) {
-      this.rootNode.removeChild(globalBuilderNode.getFrameNode());
-    }
-  }
-
-  disposeNode(): void {
-    if (this.rootNode && globalBuilderNode) {
-      globalBuilderNode.dispose();
-      globalBuilderNode = undefined;
-    }
-  }
-}
-
-@Builder
-function buildComponent() {
-  Column() {
-    ComponentUnderBuilderNode()
-  }
-}
-
-@Entry
-@ComponentV2
-struct Index {
-  private nodeController: MyNodeController = new MyNodeController();
-
-  private createSubWindow() {
-    windowStage_ = AppStorage.get('windowStage');
-    if (windowStage_ == null) {
-      hilog.error(DOMAIN, 'testTag', 'Failed to create the subwindow. Cause: windowStage_ is null');
-    } else {
-      // 创建应用子窗口。
-      windowStage_.createSubWindow('mySubWindow', (err: BusinessError, data) => {
-        let errCode: number = err.code;
-        if (errCode) {
-          hilog.error(DOMAIN, 'testTag', 'Failed to create the subwindow. Cause: ' + JSON.stringify(err));
-          return;
-        }
-        sub_windowClass = data;
-        if (!sub_windowClass) {
-          hilog.error(DOMAIN, 'testTag', 'sub_windowClass is null');
-          return;
-        }
-        hilog.info(DOMAIN, 'testTag', 'Succeeded in creating the subwindow. Data: ' + JSON.stringify(data));
-        // 子窗口创建成功后，设置子窗口的位置、大小及相关属性等。
-        sub_windowClass.moveWindowTo(200, 1300, (err: BusinessError) => {
-          let errCode: number = err.code;
-          if (errCode) {
-            hilog.error(DOMAIN, 'testTag', 'Failed to move the window. Cause:' + JSON.stringify(err));
-            return;
-          }
-          hilog.info(DOMAIN, 'testTag', 'Succeeded in moving the window.');
-        });
-        sub_windowClass.resize(900, 1800, (err: BusinessError) => {
-          let errCode: number = err.code;
-          if (errCode) {
-            hilog.error(DOMAIN, 'testTag', 'Failed to change the window size. Cause:' + JSON.stringify(err));
-            return;
-          }
-          hilog.info(DOMAIN, 'testTag', 'Succeeded in changing the window size.');
-        });
-         // 为子窗口加载对应的目标页面。
-        sub_windowClass.setUIContent('pages/SubWindow', (err: BusinessError) => {
-          let errCode: number = err.code;
-          if (errCode) {
-            hilog.error(DOMAIN, 'testTag', 'Failed to load the content. Cause:' + JSON.stringify(err));
-            return;
-          }
-          hilog.info(DOMAIN, 'testTag', 'Succeeded in loading the content.');
-          if (!sub_windowClass) {
-            hilog.error(DOMAIN, 'testTag', 'sub_windowClass is null');
-            return;
-          }
-          sub_windowClass.showWindow((err: BusinessError) => {
-            let errCode: number = err.code;
-            if (errCode) {
-              hilog.error(DOMAIN, 'testTag', 'Failed to show the window. Cause: ' + JSON.stringify(err));
-              return;
-            }
-            hilog.info(DOMAIN, 'testTag', 'Succeeded in showing the window.');
-          });
-        });
-      })
-    }
-  }
-
-  private destroySubWindow() {
-    if (!sub_windowClass) {
-      console.error('sub_windowClass is null');
-      return;
-    }
-    // 销毁子窗口。当不再需要子窗口时，可根据具体实现逻辑，使用destroy对其进行销毁。
-    sub_windowClass.destroyWindow((err: BusinessError) => {
-      let errCode: number = err.code;
-      if (errCode) {
-        console.error('Failed to destroy the window. Cause: ' + JSON.stringify(err));
-        return;
-      }
-      console.info('Succeeded in destroying the window.');
-    });
-  }
-
-  build() {
-    Column({ space: 10 }) {
-      Text(`Index`)
-      // 第一步：创建globalBuilderNode，并将globalBuilderNode下的节点挂在NodeContainer的占位节点下
-      Button('add node to tree').width(200).onClick(() => {
-        this.nodeController.addBuilderNode();
-      })
-      // 第二步：从NodeContainer的占位节点下移除globalBuilderNode下的节点
-      Button('remove node from tree').width(200).onClick(() => {
-        this.nodeController.removeBuilderNode();
-      })
-      // 销毁globalBuilderNode下的节点
-      Button('dispose node').width(200).onClick(() => {
-        this.nodeController.disposeNode();
-      })
-      // 第三步：创建子窗
-      Button(`create sub window`).width(200).onClick(() => {
-        this.createSubWindow();
-      })
-      // 销毁子窗
-      Button(`destroy sub window`).width(200).onClick(() => {
-        this.destroySubWindow();
-      })
-      NodeContainer(this.nodeController).backgroundColor('#FFEEF0')
-    }
-    .width('100%')
-    .height('100%')
-  }
-}
-
+```ArkTS
+// 仅修改 ComponentUnderBuilderNode 与 Comp，其余与上例相同
 @Component
 struct ComponentUnderBuilderNode {
   @Env(SystemProperties.BREAK_POINT) breakpoint: uiObserver.WindowSizeLayoutBreakpointInfo;
@@ -961,18 +802,6 @@ struct ComponentUnderBuilderNode {
       CompV2({ breakpoint: this.breakpoint })
       // 通过lambda闭包函数，使得@Env可以关联到Comp内的组件
       Comp({ getEnv: () => this.breakpoint })
-    }
-  }
-}
-
-@ComponentV2
-struct CompV2 {
-  @Require @Param breakpoint: uiObserver.WindowSizeLayoutBreakpointInfo;
-
-  build() {
-    Column() {
-      Text(`CompV2 breakpoint width: ${this.breakpoint.widthBreakpoint}`)
-      Text(`CompV2 breakpoint height: ${this.breakpoint.heightBreakpoint}`)
     }
   }
 }
@@ -1003,7 +832,7 @@ struct Comp {
 
 从API版本26.0.0开始，在@Component中，可通过[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)监听@Env装饰变量的变化。需要注意的是，仅当@Env装饰的变量被整体赋值时才会触发@Watch监听回调，其内部属性的变化不会触发回调。
 
-```text
+```ArkTS
 import { WithEnv } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -1054,7 +883,7 @@ struct ChildV1 {
 
 在@ComponentV2中，可通过@Monitor监听@Env装饰变量的变化。需要注意的是，仅当@Env装饰的变量被整体赋值时才会触发@Monitor监听回调，其内部属性的变化不会触发回调。
 
-```text
+```ArkTS
 import { WithEnv } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -1062,7 +891,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 @Entry
 @ComponentV2
 struct MonitorTest {
-  @Local message: number = 20;
+  @Local message: number = 2;
 
   build() {
     Row() {

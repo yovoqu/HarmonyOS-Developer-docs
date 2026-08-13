@@ -1,6 +1,6 @@
 # 使用Web组件的广告过滤功能
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-adsblock
 

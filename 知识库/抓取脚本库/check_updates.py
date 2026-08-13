@@ -20,8 +20,13 @@ OUTPUT_FILE = BASE / "docs_to_update.json"
 PROGRESS_FILE = BASE / "知识库/抓取脚本库/.check_progress.json"
 
 # Map manifest location to catalog name
+# ⚠️ 必须最长匹配优先！"设计指南" 必须先于 "指南"，
+#    否则 设计/设计指南 的 manifest 会被误判为 harmonyos-guides。
+#    同样 "设计指南" 必须先于 "最佳实践"（应用设计最佳实践）。
 def catalog_for_manifest(manifest_path):
     rel = str(manifest_path.relative_to(BASE))
+    if "设计指南" in rel:
+        return "design-guides"
     if "指南" in rel:
         return "harmonyos-guides"
     if "API参考" in rel:
@@ -32,8 +37,6 @@ def catalog_for_manifest(manifest_path):
         return "best-practices"
     if "版本说明" in rel:
         return "harmonyos-releases"
-    if "设计指南" in rel:
-        return "design-guides"
     return "unknown"
 
 def get_session():

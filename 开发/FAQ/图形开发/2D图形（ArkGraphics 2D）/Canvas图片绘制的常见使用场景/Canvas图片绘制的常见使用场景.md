@@ -1,6 +1,6 @@
 # Canvas图片绘制的常见使用场景
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:42:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-39
 
@@ -18,9 +18,9 @@
 #### 背景知识
 
 - [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)：提供画布组件，用于自定义绘制图形，开发者使用[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)对象和[OffscreenCanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d)对象在Canvas组件上进行绘制，绘制对象可以是基础形状、文本、图片等。
-- [getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#getpixelmap)：以当前Canvas指定区域内的像素创建PixelMap对象。
+- [getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#getpixelmap)：以当前Canvas指定区域内的像素创建PixelMap对象。
 - [Image Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-overview)：提供了对图片文件进行解析、处理、重新构造的能力。
-- [drawImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#drawimage)：提供了多种绘制模式，可根据实际需求，对图像进行完整绘制、拉伸/压缩绘制，或先进行裁剪再进行拉伸/压缩绘制，灵活适应不同场景下的图像处理需求。
+- [drawImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#drawimage)：提供了多种绘制模式，可根据实际需求，对图像进行完整绘制、拉伸/压缩绘制，或先进行裁剪再进行拉伸/压缩绘制，灵活适应不同场景下的图像处理需求。
 
  
  

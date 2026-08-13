@@ -1,6 +1,6 @@
 # Preview Kit预览文件失败
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-1
 
@@ -12,7 +12,7 @@
 
 #### 背景知识
 
-[Preview Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/preview-introduction?ha_source=sousuo&ha_sourceId=89000251)：为应用提供便捷的文件快速预览和文件打开加速能力，打开加速提供了预加载机制提前加载文件，缩短用户打开文件时间，给用户提供流畅顺滑的预览体验。Preview Kit能够对图片、视频、音频、文本、html进行预览查看，满足绝大多数办公开发的需求，具体可以参考[文件预览支持的文件类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/preview-introduction#section44960372019)。
+[Preview Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/preview-introduction?ha_source=sousuo&ha_sourceId=89000251)：为应用提供便捷的文件快速预览和文件打开加速能力，打开加速提供了预加载机制提前加载文件，缩短用户打开文件时间，给用户提供流畅顺滑的预览体验。Preview Kit能够对图片、视频、音频、文本、html进行预览查看，满足绝大多数办公开发的需求，具体可以参考[文件预览支持的文件类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/preview-introduction#文件预览支持的文件类型)。
  
  
 

@@ -1,6 +1,6 @@
 # jsvm.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -179,7 +179,7 @@
 | JSVM_EXTERN JSVM_Status OH_JSVM_ObjectFreeze(JSVM_Env env,JSVM_Value object) | 冻结指定的对象，防止为其添加新的属性、删除现有属性、更改现有属性的可枚举性/可配置性/可写性、更改现有属性的值、改变对象原型等操作。 |
 | JSVM_EXTERN JSVM_Status OH_JSVM_ObjectSeal(JSVM_Env env,JSVM_Value object) | 封装指定的对象，防止为其添加新的属性并将所有现有属性标记为不可配置。 |
 | JSVM_EXTERN JSVM_Status OH_JSVM_CallFunction(JSVM_Env env,JSVM_Value recv,JSVM_Value func,size_t argc,const JSVM_Value* argv,JSVM_Value* result) | 支持从native代码调用JavaScript函数对象，这是从native代码回调到JavaScript的主要机制。 |
-| JSVM_EXTERN JSVM_Status OH_JSVM_CreateFunction(JSVM_Env env,const char* utf8name,size_t length,JSVM_Callback cb,JSVM_Value* result) | 支持在native代码中创建函数对象，这是从JavaScript调用native代码的主要机制。在此调用之后，新创建的函数在脚本中不再自动可见。相反，必须在JavaScript可见的任何对象上显示设置属性，才能从脚本访问该函数。 |
+| JSVM_EXTERN JSVM_Status OH_JSVM_CreateFunction(JSVM_Env env,const char* utf8name,size_t length,JSVM_Callback cb,JSVM_Value* result) | 支持在native代码中创建函数对象，这是从JavaScript调用native代码的主要机制。在此调用之后，新创建的函数在脚本中不再自动可见。相反，必须在JavaScript可见的任何对象上显式设置属性，才能从脚本访问该函数。 |
 | JSVM_EXTERN JSVM_Status OH_JSVM_GetCbInfo(JSVM_Env env,JSVM_CallbackInfo cbinfo,size_t* argc,JSVM_Value* argv,JSVM_Value* thisArg,void** data) | 此方法在回调函数中用于检索有关调用的详细信息，例如来自给定回调信息的参数和this指针。 |
 | JSVM_EXTERN JSVM_Status OH_JSVM_GetNewTarget(JSVM_Env env,JSVM_CallbackInfo cbinfo,JSVM_Value* result) | 返回构造函数调用的new target。如果当前回调不是构造函数调用，结果为NULL。 |
 | JSVM_EXTERN JSVM_Status OH_JSVM_NewInstance(JSVM_Env env,JSVM_Value constructor,size_t argc,const JSVM_Value* argv,JSVM_Value* result) | 使用给定的JSVM_Value表示的构造函数来实例化新的JavaScript值。 |
@@ -1937,7 +1937,7 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateArrayBufferFromExternalMemory(JSVM_Env env
 **描述**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/AP20L0OPS7eOuWvKvx2gdA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071747Z&HW-CC-Expire=86400&HW-CC-Sign=FA716EA1D7AF13B6BC9F243AF89E581B97B0A9B3BD9DFD4637CE8834DA45D945)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/eI8bjGqISzSUP2aJrIQ4Qg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095543Z&HW-CC-Expire=86400&HW-CC-Sign=C5A3482854A68C0F51ABD3F237150C5D76F9F098990D4BB1F74BBF97E7D65A7C)
 
 
 此接口是实验性接口，需定义JSVM_EXPERIMENTAL宏后方可使用。
@@ -4330,7 +4330,7 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateFunction(JSVM_Env env,const char* utf8name
 
 **描述**
 
-支持在native代码中创建函数对象，这是从JavaScript调用native代码的主要机制。在此调用之后，新创建的函数在脚本中不再自动可见。相反，必须在JavaScript可见的任何对象上显示设置属性，才能从脚本访问该函数。
+支持在native代码中创建函数对象，这是从JavaScript调用native代码的主要机制。在此调用之后，新创建的函数在脚本中不再自动可见。相反，必须在JavaScript可见的任何对象上显式设置属性，才能从脚本访问该函数。
 
 **起始版本：** 11
 

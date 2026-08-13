@@ -1,6 +1,6 @@
 # PersistenceV2: 持久化存储UI状态
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-persistencev2
 
@@ -155,7 +155,7 @@ struct Page1 {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/y1EnTQHfR7CTVuR812DG2A/zh-cn_image_0000002656005938.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=52F3563F2DD67364E86A1B85B5B7C7C917C6FD0F6AE571E652214118B2C17BAC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/o7QT0tEjQEKBkwKiPjVhYQ/zh-cn_image_0000002704271883.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=04C8272E4967304FD100AC25E3C7807AD9450CB000BCB19553C1FA5593DB19E7)
 
  - globalConnect在持久化多个相同[集合类型](#globalconnect支持集合的类型)时，需要提供不同的key来区分持久化数据。
 
@@ -254,7 +254,7 @@ struct Comp {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/WkgT2tIJRi20jwQ7G9QV0Q/zh-cn_image_0000002655846018.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=FCB008D1460258A760A18E8F1CCA112CAC2580A42A51CBBD3954B74804FAD6C6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/jQ0xU79HR9KJE3GFEoNU6Q/zh-cn_image_0000002674472084.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=64B218AF577E07E931DC40F3B3EBAF68F712A83A21CDB3D9F72B62B00069F7BD)
 
 
   如下为globalConnect支持Date类型的持久化示例：
@@ -290,7 +290,7 @@ struct Page1 {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/LtaowzFqTVez-E63PSQQFA/zh-cn_image_0000002686085447.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=422BC6CCC245FB3114CBD23093FB08BE78523DB16A08086943F71B407E0C9AF9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/6wUY63llSBaA-dbFqjn0QA/zh-cn_image_0000002704392053.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=BF1EC39366B7FCC02F6370E0010C0E5B31B32E15C6D7B234F001AA80235DF9C2)
 
 
   如下为globalConnect支持Number类型作为class子属性的持久化示例：
@@ -333,7 +333,7 @@ struct Page1 {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/DkmndASsSOSSg9hrpezTNQ/zh-cn_image_0000002685925619.png?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=97F3C832C8DB59BF7563E4EE23FCD368E34C9CC6C6D50A2AB0FB5EBC6C3219D4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/9xvylL7hRaOVqR3RkFizeQ/zh-cn_image_0000002674631930.png?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=57B0B9B9EA16451DC4B48978AE9D926927C935FE3DBA494B2DCF099F45DC6ABA)
 
 
 
@@ -406,7 +406,7 @@ struct Page1 {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/Fr6ZXObeQla1iJO4Rh1LWQ/zh-cn_image_0000002656005940.png?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=BA0A1140B03C6783B8ABC1C38DA7B562E07E721E2B68584573BFD5809FF7DA77)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/bRdCFlqYTp2L-LB0CntQUA/zh-cn_image_0000002704271885.png?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=70FBFA747C39C3AB4F848EAA4D05224BAE816FC6564AC6124A890D17EE279CCD)
 
 
 
@@ -653,7 +653,7 @@ struct Page1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/XpAdfi43QW2jaO0jUSWANQ/zh-cn_image_0000002655846020.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=A105F0B9D7FEE79A04175C02F16350D8261B46BA897D955BAA8DBD3FCFAC8C32)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/virtoPsERVi4ZoAn6NI3XA/zh-cn_image_0000002674472086.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=3503DC17AA79B9AAAF696F02334450E8030155BC67C8CC35649AD47585C6B94A)
 
 
 
@@ -847,7 +847,7 @@ struct Page2 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/fSeSAgUMR7a7EBlym9zKnA/zh-cn_image_0000002686085449.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=F7A413623B481FEC9332875DD0D598CD3143B9B72BA234F048BE840606F7E793)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/Tj6EgaYzR1y7LOLKDJZ4mg/zh-cn_image_0000002704392055.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=166A1936D6737DC2A352A2AC9A028A79073AC699D8430ABC58F7CC2C3DBD4AD3)
 
 
 
@@ -1014,7 +1014,7 @@ struct Page1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/j00TlISEQHyExXZwFeHTtA/zh-cn_image_0000002685925621.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=77C5470E33557675862FF5BA417BA1D6C8AA9E21C3150695DBB682EBD748EE78)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/vmpGwTVzTvizAghV3t14uA/zh-cn_image_0000002674631932.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=6CB534220D3AF72DAB8950CB84EE8C2241B1DF961F8A8DBBFA88E849B4BCA77D)
 
 
 
@@ -1124,7 +1124,7 @@ struct Page1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/aTtO2HTjSm626AEdJnNz6w/zh-cn_image_0000002656005942.png?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=0BC757DB7E2DEB0890A7F92F382AF05DFDE395BFB01ED6756C78EEACF42A1F6D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/rPJMQf_dRQqIR1uxLPj24g/zh-cn_image_0000002704271887.png?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=B5F05A722D812357BE0B158949CF7735AAB568C7FA614466852B4CCDC79CF099)
 
 
 ```ArkTS
@@ -1186,7 +1186,7 @@ struct Page1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/L7amoleqR4iueK5MKW0foQ/zh-cn_image_0000002655846022.png?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=3329F46C9DB80569502F88CC63DABE4052C585B11416C1B623BF95F2A743129A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/mLQKNxSXTpSP7sCcmcRJJQ/zh-cn_image_0000002674472088.png?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=394F014536B1472C1D09C39D032F2AB7A1909A5058D692F9EE117C0F02AAB3BB)
 
 
 当开发者对newModule使用不同启动方式会有以下现象：
@@ -1275,7 +1275,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/WgjtN6djRZuusonU0F611A/zh-cn_image_0000002686085451.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=F13EA1FD836551B7B3F85B70AE3595F73506EE3DB14EAE9930AC9F44A64EB4BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/7HT5mG7HRByDhNjqK23Bgg/zh-cn_image_0000002704392057.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=3063D4824E880A4CFE42E2D55CEF778E6859F3DB995004FE906A3C84202960FF)
 
 
 起始时，SampleChild中的childInfo变量类型为SampleInfo，正常存储后，将childInfo变量的类型切换为number，并赋值为1，之后再次启动程序，此时会由于存储数据的结构与当前数据的结构不一致，导致数据反序列化失败。此时会通过notifyOnError中写入的回调，将磁盘中存储的旧的序列化数据打印出来。即在Error日志中显示：
@@ -1355,7 +1355,7 @@ struct Page1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/4R7raiZ3RsmiQiXpsnxqEg/zh-cn_image_0000002685925623.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=E0B6B064AAF8B3A6F45E8E1CF82251AA20BBFA34822D86BFD55A4E5350E69E94)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/gdQcZ-ORQMyAZwYgHCKx9g/zh-cn_image_0000002674631934.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=C57734F3B8BC8485942DB1D77125C22DF12EA2E491AC5684966F2053144AE151)
 
 
 ```ArkTS
@@ -1441,7 +1441,7 @@ struct Page1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/z4iPbQMHRt-X-1b15Qwi0A/zh-cn_image_0000002656005944.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=755878B4E3680FE6D6FF08C08C0BE53DEF70AD4294B09C90B58779F854738F6B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/ErLLO1CwQVK2skp1sQ-Lbw/zh-cn_image_0000002704271889.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=81358B425C07B6C2BFA75C03C39E90BA73F48E108BF2F5BFE91DC634E24A44FF)
 
 
 connect向globalConnect迁移，需要将key绑定的value赋值给globalConnect进行存储，之后当自定义组件使用globalConnect连接时，globalConnect绑定的数据即为之前使用connect保存的数据，开发者可以自定义move函数，并将其放在合适位置迁移即可。
@@ -1503,7 +1503,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/UI1KK4OPSgaMGiBjB4gUnw/zh-cn_image_0000002655846024.png?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=DB3AA7971B82498F69204A1CF9D3C101C84DC46A27849B67C189FB9B52C7815C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/yEHKM0ICTCSuTuc18h4_yQ/zh-cn_image_0000002674472090.png?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=9E6EED683A98FE65C46B51CCCDD17C8C3D4B4C7289DC9B9DD3DBA5130BA384AE)
 
 
 下表将结合样例，说明在变更数据结构时会触发notifyOnError的情形。

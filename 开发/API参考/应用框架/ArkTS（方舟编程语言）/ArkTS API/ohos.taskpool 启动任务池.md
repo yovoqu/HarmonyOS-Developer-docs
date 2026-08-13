@@ -1,6 +1,6 @@
 # @ohos.taskpool (启动任务池)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-taskpool
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2453,7 +2453,7 @@ function testWithArray(args: [number, string]): string {
   return "success";
 }
 
-let task1: taskpool.Task = new taskpool.GenericsTask<[string], string>(printArgs, "this is my first LongTask");
+let task1: taskpool.Task = new taskpool.GenericsTask<[string], string>(printArgs, "this is my first GenericsTask");
 
 let task2: taskpool.Task = new taskpool.GenericsTask<[number, string, number], string>(testWithThreeParams, 100, "test", 100);
 

@@ -1,6 +1,6 @@
 # @ohos.request和rcp的上传下载功能有何区别
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-3
 
@@ -47,7 +47,7 @@ A：
 2. HTTP请求没有session，如果需要用到session，只能用rcp请求了，rcp请求的session是可以复用的session。
 
  
-- rcp请求相关问题：1. [rcp.createSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section163819131811)创建的session可以用于发送多个网络请求，可以复用。
+- rcp请求相关问题：1. [rcp.createSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#createsession)创建的session可以用于发送多个网络请求，可以复用。
 
 2. 当用户的证书发生变化时，确实可能需要重新创建session。这是因为session可能会缓存一些认证信息，如果证书改变，这些缓存的信息可能变得无效。建议在检测到用户证书变化时，注销现有的session并重新创建一个新的session。
 

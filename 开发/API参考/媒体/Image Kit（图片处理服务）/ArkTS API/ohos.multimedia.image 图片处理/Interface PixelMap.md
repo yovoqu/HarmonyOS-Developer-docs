@@ -1,6 +1,6 @@
 # Interface (PixelMap)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2170,7 +2170,11 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 function createAlphaPixelmapSync(pixelMap: image.PixelMap) {
   try {
-    let pixelmap: image.PixelMap = pixelMap.createAlphaPixelmapSync();
+    let alphaPixelMap: image.PixelMap = pixelMap.createAlphaPixelmapSync();
+    if (alphaPixelMap == undefined) {
+      console.error(`Failed to create alpha PixelMap.`);
+      return;
+    }
     console.info('Succeeded in creating alpha PixelMap.');
   } catch (e) {
     const err = e as BusinessError;
@@ -4744,7 +4748,7 @@ release(): Promise&lt;void&gt;
 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/cNgxUQs6QlOZfn-DfPgcwg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071704Z&HW-CC-Expire=86400&HW-CC-Sign=E6574C9BBB23216FAC3B297F8E182B4C0102C28D218BE5DB9283E2220CC8AA4B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/-mi6c1XtSvqRbo9A3PSAPA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095522Z&HW-CC-Expire=86400&HW-CC-Sign=5CAAB9B25D6DDEEABCB2C32B0FE5DEE302FEB610BF92C53A242E7B1B5367BE4B)
 
 
 释放指的是ArkTS对象释放与之关联的native对象的管理权。仅当所有管理该native对象的ArkTS对象都被释放时，native对象占用的内存才会被回收。
@@ -4793,7 +4797,7 @@ release(callback: AsyncCallback&lt;void&gt;): void
 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/tEmIeYwARaqFDl9Op9vi-g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071704Z&HW-CC-Expire=86400&HW-CC-Sign=7380DF173E9B6BC671C2A595811B92577ABBBFD907E4FE3099FFBBB805874E64)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/Rt6W6VzMQuCUyGRSaBWnKQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095522Z&HW-CC-Expire=86400&HW-CC-Sign=C4A2D630AB1E0652E0298FF5B140299709E12C005E8445882476B5EF3F38755F)
 
 
 释放指的是ArkTS对象释放与之关联的native对象的管理权。仅当所有管理该native对象的ArkTS对象都被释放时，native对象占用的内存才会被回收。
@@ -4844,7 +4848,7 @@ YUV和RGB类型互转。使用Promise异步回调。
 从API version 18开始，可用于ASTC_4x4类型转为RGBA_8888类型，目前仅支持ASTC_4x4转为RGBA_8888。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/B2g9k5fjSXOncX7qN_gLUA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071704Z&HW-CC-Expire=86400&HW-CC-Sign=AF3D4FB7EB8736A3B146B5EB8F6717E26A0EBDCE0967AABED61A5CDBE36D143B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/5SgiS_kpSIi0kIwgsZkz_w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095522Z&HW-CC-Expire=86400&HW-CC-Sign=AAE434D3B230A93C4BCD237EE8AE8FBE42538C4FE2DFE98AF07E8A5AB406948C)
 
 
 仅在ASTC_4x4格式的图像需要进行像素访问时，建议调用此接口将ASTC_4x4类型转为RGBA_8888类型。由于使用ASTC_4x4反解为RGBA_8888时延较高，其余情况下不推荐使用。
@@ -4997,7 +5001,7 @@ isReleased(): boolean
 检查PixelMap对象是否已被释放。如果已被释放，则任何访问该对象内部数据的方法调用将会失败。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/40pqevbXR7e7KKeQ0QDpNg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071704Z&HW-CC-Expire=86400&HW-CC-Sign=08DC1EE440C2D7B1747B6CCFAF8A66F98204158DBDE2A9ED15E578FEF18DBD6D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/V94sTDw6TPKanari0VATvA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095522Z&HW-CC-Expire=86400&HW-CC-Sign=37E6C1F3D79EF0693C7FEE21EFBBB1A6A4CB309F6C7E8AA75B455F1855C2198C)
 
 
 释放指的是ArkTS对象释放与之关联的native对象的管理权。仅当所有管理该native对象的ArkTS对象都被释放时，native对象占用的内存才会被回收。

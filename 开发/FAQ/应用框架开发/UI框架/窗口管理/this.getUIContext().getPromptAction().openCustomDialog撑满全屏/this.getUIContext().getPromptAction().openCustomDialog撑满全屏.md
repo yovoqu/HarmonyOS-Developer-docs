@@ -1,6 +1,6 @@
 # this.getUIContext().getPromptAction().openCustomDialog撑满全屏
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1494
 
@@ -11,7 +11,7 @@
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/4VBkDjX1Rmi9hJXrevuj2Q/zh-cn_image_0000002658965035.png?HW-CC-KV=V1&HW-CC-Date=20260811T005735Z&HW-CC-Expire=86400&HW-CC-Sign=2C00F5C7F53C2FB9BE2AD6B68C9C30BF92A8536958BE303D20D7ABB669986C22)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/etzr1ynER0i5wGbq-8D5QA/zh-cn_image_0000002658965035.png?HW-CC-KV=V1&HW-CC-Date=20260813T095602Z&HW-CC-Expire=86400&HW-CC-Sign=802FEC1937F79118BC3D0C9A2A62BCA63DA3BC053BE491973757DC00202F740D)
 
  
  
@@ -19,14 +19,14 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/sCtNi4UYSxSs76-xmrUq3Q/zh-cn_image_0000002628605830.png?HW-CC-KV=V1&HW-CC-Date=20260811T005735Z&HW-CC-Expire=86400&HW-CC-Sign=902422880781CED2C25517B9F1E7FE1B036D20A1BCC75B6DFFADE99B41C72845)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/vUFVD6R9T0Cp-fukbcZ-uQ/zh-cn_image_0000002628605830.png?HW-CC-KV=V1&HW-CC-Date=20260813T095602Z&HW-CC-Expire=86400&HW-CC-Sign=4B7C674DC414CC1C120BE0819FB4A1D260E93F97BD066A3739ADDA2F0D9BE285)
 
  
  
 
 #### 背景知识
 
-- [沉浸式页面](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-immersive)：沉浸式页面开发常通过将应用页面延伸到状态栏和导航栏，使用[setWindowLayoutFullScreen](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowlayoutfullscreen9)方法可以设置窗口为全屏模式。
+- [沉浸式页面](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-immersive)：沉浸式页面开发常通过将应用页面延伸到状态栏和导航栏，使用[setWindowLayoutFullScreen](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowlayoutfullscreen9)方法可以设置窗口为全屏模式。
 - [@ohos.display (屏幕属性)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display)：屏幕属性提供管理显示设备的一些基础能力，包括获取默认显示设备的信息，display.getDefaultDisplaySync().height方法可以获取到设备的屏幕高度。
 
  

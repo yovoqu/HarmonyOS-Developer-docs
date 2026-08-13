@@ -1,6 +1,6 @@
 # SysCap (系统能力)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-syscap
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -20,7 +20,7 @@ canIUse(syscap: string): boolean
  
 查询系统是否具备某个系统能力。
  
-**元服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  

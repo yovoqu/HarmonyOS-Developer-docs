@@ -1,6 +1,6 @@
 # functionalButtonComponentManager(场景化融合Button组件管理)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-functionalbuttoncomponentmanager
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -2066,7 +2066,7 @@ onRequestSubscribeMessage(callback: AsyncCallback&lt;RequestSubscribeMessageResu
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS组件错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scenario-fusion)。
+以下错误码的详细介绍请参见[ArkTS组件错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scenario-fusion)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2159,7 +2159,7 @@ onShare(callback: AsyncCallback&lt;void&gt;): FunctionalButtonController
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS组件错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scenario-fusion)。
+以下错误码的详细介绍请参见[ArkTS组件错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scenario-fusion)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2255,7 +2255,7 @@ onFeedback(callback: AsyncCallback&lt;void&gt;): FunctionalButtonController
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS组件错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scenario-fusion)。
+以下错误码的详细介绍请参见[ArkTS组件错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scenario-fusion)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3545,4 +3545,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/js0fYvMzS-GmDOPdhslN-Q/zh-cn_image_0000002685929429.png?HW-CC-KV=V1&HW-CC-Date=20260730T071743Z&HW-CC-Expire=86400&HW-CC-Sign=86BD2F8C328A0E9DF530E7E4FC1448D52B9D42AE8599DF36727A83E27DF9AE3C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/meA7bbo0TC2yTl8r_PceyA/zh-cn_image_0000002704275715.png?HW-CC-KV=V1&HW-CC-Date=20260813T095542Z&HW-CC-Expire=86400&HW-CC-Sign=AF9EEB22053FA0241336018EB580B6B8A7F93A005AE71277C3C2C9FFA2033627)

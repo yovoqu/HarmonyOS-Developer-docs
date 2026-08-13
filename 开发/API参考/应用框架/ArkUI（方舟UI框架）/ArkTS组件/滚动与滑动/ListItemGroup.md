@@ -1,6 +1,6 @@
 # ListItemGroup
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitemgroup
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -716,3 +716,82 @@ struct ListItemGroupExample {
 
 
 ![](assets/ListItemGroup/file-20260525091150346-002.jpeg)
+
+
+
+
+#### 示例5（设置悬浮态）
+
+该示例通过将ListItemGroup的[headerStyle](#listitemgroupoptions对象说明)设置为[ListItemGroupHeaderFooterStyle.FLOATING](#listitemgroupheaderfooterstyle)，实现分组头部在滚动时悬浮显示的效果。
+
+```ArkTS
+// xxx.ets
+export interface ContactGroup {
+  letter: string;
+  names: string[];
+}
+
+@Entry
+@Component
+struct Index {
+  private scroller: Scroller = new Scroller();
+  @State groups: ContactGroup[] = [];
+
+  aboutToAppear(): void {
+    this.groups = [
+      {
+        letter: 'A',
+        names: ['Alice', 'Anna', 'Aaron']
+      },
+      {
+        letter: 'B',
+        names: ['Bob', 'Bella', 'Brian']
+      },
+      {
+        letter: 'C',
+        names: ['Cindy', 'Charlie']
+      },
+      {
+        letter: 'D',
+        names: ['David', 'Diana', 'Doris']
+      }
+    ]
+  }
+
+  @Builder
+  private GroupHeader(letter: string) {
+    Row() {
+      Text(letter)
+        .fontSize("16.0fp")
+        .size({width: 40, height: 28})
+        .textAlign(TextAlign.Center)
+    }.margin({left: 14, right: 14})
+  }
+
+  build() {
+    List({ scroller: this.scroller , space: 8}) {
+      ForEach(this.groups, (group: ContactGroup) => {
+        ListItemGroup({ header: this.GroupHeader(group.letter), headerStyle: ListItemGroupHeaderFooterStyle.FLOATING }) {
+          ForEach(group.names, (name: string) => {
+            ListItem() {
+              Text(name)
+                .fontSize(16)
+                .fontColor('#182431')
+                .width('100%')
+                .height(72)
+                .padding({ left: 16 })
+            }
+          }, (name: string) => name)
+        }
+      }, (group: ContactGroup) => group.letter)
+    }
+    .height('100%')
+    .width('100%')
+    .scrollBar(BarState.Off)
+    .sticky(StickyStyle.Header)
+  }
+}
+```
+
+
+![](assets/ListItemGroup/file-20260525091150347-003.gif)

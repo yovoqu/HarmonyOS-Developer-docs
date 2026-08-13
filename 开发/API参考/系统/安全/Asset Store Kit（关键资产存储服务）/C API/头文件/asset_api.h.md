@@ -1,6 +1,6 @@
 # asset_api.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-asset-api-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -83,7 +83,7 @@ int32_t OH_Asset_Add(const Asset_Attr *attributes, uint32_t attrCnt)
 
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | Asset_ResultCode: ASSET_SUCCESS = 0：操作成功。 ASSET_PERMISSION_DENIED = 201：调用方不是一个系统应用。 ASSET_INVALID_ARGUMENT = 401：参数错误。 可能原因: 1. 必选参数未指定。 2. 参数类型错误。 3. 参数校验失败。 ASSET_SERVICE_UNAVAILABLE = 24000001：关键资产服务不可用。 ASSET_DUPLICATED = 24000003：关键资产已存在。 ASSET_STATUS_MISMATCH = 24000005：锁屏状态不匹配。 ASSET_OUT_OF_MEMORY = 24000006：系统内存不足。 ASSET_DATA_CORRUPTED = 24000007：关键资产损坏。 ASSET_DATABASE_ERROR = 24000008：数据库操作失败。 ASSET_CRYPTO_ERROR = 24000009：算法库操作失败。 ASSET_IPC_ERROR = 24000010：进程通信错误。 ASSET_BMS_ERROR = 24000011：包管理服务异常。 ASSET_ACCOUNT_ERROR = 24000012：账号系统服务异常。 ASSET_ACCESS_TOKEN_ERROR = 24000013：访问控制服务异常。 ASSET_FILE_OPERATION_ERROR = 24000014：文件操作失败。 ASSET_GET_SYSTEM_TIME_ERROR = 24000015：获取系统时间失败。 |
+| int32_t | Asset_ResultCode： ASSET_SUCCESS = 0：操作成功。 ASSET_PERMISSION_DENIED = 201：调用者没有权限。 ASSET_INVALID_ARGUMENT = 401：参数错误。 可能原因： 1. 必选参数未指定。 2. 参数类型错误。 3. 参数校验失败。 ASSET_SERVICE_UNAVAILABLE = 24000001：关键资产服务不可用。 ASSET_DUPLICATED = 24000003：关键资产已存在。 ASSET_STATUS_MISMATCH = 24000005：锁屏状态不匹配。 ASSET_OUT_OF_MEMORY = 24000006：系统内存不足。 ASSET_DATA_CORRUPTED = 24000007：关键资产损坏。 ASSET_DATABASE_ERROR = 24000008：数据库操作失败。 ASSET_CRYPTO_ERROR = 24000009：算法库操作失败。 ASSET_IPC_ERROR = 24000010：进程通信错误。 ASSET_BMS_ERROR = 24000011：包管理服务异常。 ASSET_ACCOUNT_ERROR = 24000012：账号系统服务异常。 ASSET_ACCESS_TOKEN_ERROR = 24000013：访问控制服务异常。 ASSET_FILE_OPERATION_ERROR = 24000014：文件操作失败。 ASSET_GET_SYSTEM_TIME_ERROR = 24000015：获取系统时间失败。 |
 
 
 
@@ -124,7 +124,7 @@ int32_t OH_Asset_Remove(const Asset_Attr *query, uint32_t queryCnt)
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-int32_t OH_Asset_Update(const Asset_Attr *query, uint32_t queryCnt,const Asset_Attr *attributesToUpdate, uint32_t updateCnt)
+int32_t OH_Asset_Update(const Asset_Attr *query, uint32_t queryCnt, const Asset_Attr *attributesToUpdate, uint32_t updateCnt)
 ```
 
 **描述**
@@ -305,7 +305,7 @@ Asset_Attr *OH_Asset_ParseAttr(const Asset_Result *result, Asset_Tag tag)
 
 | 类型 | 说明 |
 | --- | --- |
-| Asset_Attr | 如果操作成功，则以Asset_Attr的形式返回属性，该属性不需要业务进行释放；否则返回NULL。 |
+| Asset_Attr* | 如果操作成功，则以Asset_Attr的形式返回属性，该属性不需要业务进行释放；否则返回NULL。 |
 
 
 

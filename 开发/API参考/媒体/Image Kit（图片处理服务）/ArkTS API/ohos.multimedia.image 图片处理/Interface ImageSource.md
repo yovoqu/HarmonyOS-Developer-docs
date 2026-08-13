@@ -1,6 +1,6 @@
 # Interface (ImageSource)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -223,6 +223,10 @@ getImageProperty(key:PropertyKey, options?: ImagePropertyOptions): Promise&lt;st
 
 该接口仅支持JPEG、PNG、HEIF12+、WEBP23+和DNG23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
 
+> [!NOTE]
+> 应用使用 PhotoAccessHelper 查询媒体库中的图片，并通过返回的PhotoAsset获取图片数据。在使用本接口读取 PropertyKey 中的GPS_LATITUDE、GPS_LONGITUDE、GPS_ALTITUDE、GPS_TIME_STAMP和GPS_DATE_STAMP等GPS相关字段前，应先声明并向用户申请 ohos.permission.MEDIA_LOCATION 权限。如果上述字段返回全为0或为空，请先检查该权限是否已获授权，并确认原始图片是否包含GPS信息。
+
+
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
 **参数：**
@@ -288,6 +292,10 @@ getImageProperties(key: Array&lt;PropertyKey&gt;): Promise<Record<PropertyKey, s
 
 该接口仅支持JPEG、PNG、HEIF、WEBP23+和DNG23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
 
+> [!NOTE]
+> 应用使用 PhotoAccessHelper 查询媒体库中的图片，并通过返回的PhotoAsset获取图片数据。在使用本接口读取 PropertyKey 中的GPS_LATITUDE、GPS_LONGITUDE、GPS_ALTITUDE、GPS_TIME_STAMP和GPS_DATE_STAMP等GPS相关字段前，应先声明并向用户申请 ohos.permission.MEDIA_LOCATION 权限。如果上述字段返回全为0或为空，请先检查该权限是否已获授权，并确认原始图片是否包含GPS信息。
+
+
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
 **参数：**
@@ -326,8 +334,14 @@ async function GetImageProperties(imageSourceObj : image.ImageSource) {
   let key = [image.PropertyKey.IMAGE_WIDTH, image.PropertyKey.IMAGE_LENGTH];
   imageSourceObj.getImageProperties(key).then((data) => {
     console.info(JSON.stringify(data));
-  }).catch((err: BusinessError) => {
-    console.error(`Failed to get the properties, error.code ${err.code}, error.message ${err.message}`);
+  }).catch((err: BusinessError | BusinessError[]) => {
+    if (Array.isArray(err)) {
+      (err as BusinessError[]).forEach(e => {
+        console.error(`Failed to get the properties, error.code ${e.code}, error.message ${e.message}`);
+      });
+    } else {
+      console.error(`Failed to get the properties, error.code ${err.code}, error.message ${err.message}`);
+    }
   });
 }
 ```
@@ -343,7 +357,7 @@ getImagePropertySync(key:PropertyKey): string
 获取图片Exif指定属性键的值，使用同步形式返回结果。
 
 > [!NOTE]
-> 该方法仅支持JPEG、PNG、HEIF、WEBP 23+ 和DNG 23+ （不同硬件设备支持情况不同）文件，且需要包含Exif信息。 Exif信息是图片的元数据，包含拍摄时间、相机型号、光圈、焦距、ISO等。 该方法为同步方法，调用时会阻塞当前线程，不建议在主线程中调用，否则可能导致应用卡顿、掉帧或响应延迟。具体场景参考 耗时任务并发场景简介 。
+> 该方法仅支持JPEG、PNG、HEIF、WEBP 23+ 和DNG 23+ （不同硬件设备支持情况不同）文件，且需要包含Exif信息。 Exif信息是图片的元数据，包含拍摄时间、相机型号、光圈、焦距、ISO等。 应用使用 PhotoAccessHelper 查询媒体库中的图片，并通过返回的PhotoAsset获取图片数据。在使用本接口读取 PropertyKey 中的GPS_LATITUDE、GPS_LONGITUDE、GPS_ALTITUDE、GPS_TIME_STAMP和GPS_DATE_STAMP等GPS相关字段前，应先声明并向用户申请 ohos.permission.MEDIA_LOCATION 权限。如果上述字段返回全为0或为空，请先检查该权限是否已获授权，并确认原始图片是否包含GPS信息。 该方法为同步方法，调用时会阻塞当前线程，不建议在主线程中调用，否则可能导致应用卡顿、掉帧或响应延迟。具体场景参考 耗时任务并发场景简介 。
 
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
@@ -599,7 +613,7 @@ readImageMetadata(propertyKeys?: string[], index?: number): Promise&lt;ImageMeta
 该接口仅支持JPEG、PNG、HEIF、WebP、DNG、GIF、TIFF、HEIFS、JFIF和AVIS（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
 
 > [!NOTE]
-> 读取DNG格式图片时，该接口对部分propertyKeys有特殊处理。以下字段的字符串取值请参考 PropertyKey 中的值： NewSubfileType、ImageWidth、ImageLength、DefaultCropSize、Orientation、Compression、PhotometricInterpretation、PlanarConfiguration、RowsPerStrip、StripOffsets、StripByteCounts、SamplesPerPixel、BitsPerSample、YCbCrCoefficients、YCbCrSubSampling、YCbCrPositioning、ReferenceBlackWhite、XResolution、YResolution、ResolutionUnit字段：返回主图相关的字段值。 ImageUniqueID字段：根据规范进行校验，不符合规范时会返回空字符串。 ExifVersion、FlashpixVersion、ColorSpace字段：当图片中不存在该标签时，返回错误码。 DNGVersion字段：当版本号小于1.0.0.0时，统一返回1.0.0.0。 GPSVersionID字段：当没有有效的GPS数据时，会清除GPS版本号并返回0。 GPSAltitudeRef字段：当未设置GPSAltitude时，会设置为0xFFFFFFFF。 ISOSpeedRatings字段：当该标签值为0或65535时，会优先使用推荐曝光指数，若不存在则依次使用标准输出灵敏度、ISO速度、曝光指数。 从API version 24开始，支持读取DNG元数据。要查询的属性的具体信息请参考 DngPropertyKey 。 从API version 24开始，支持读取HEIFS元数据。要查询的属性的具体信息请参考 HeifsPropertyKey 。 从API版本26.0.0开始，支持读取PNG元数据。要查询的属性的具体信息请参考 PngPropertyKey 。 从API版本26.0.0开始，支持读取JFIF元数据。要查询的属性的具体信息请参考 JfifPropertyKey 。 从API版本26.0.0开始，支持读取TIFF元数据。要查询的属性的具体信息请参考 TiffPropertyKey 。 从API版本26.0.0开始，支持读取GIF元数据。要查询的属性的具体信息请参考 GifPropertyKey 。 从API版本26.0.0开始，支持读取JPEG、PNG、GIF、DNG、TIFF格式图片的XMP元数据。XMP元数据的操作方法可以参考 XMPMetadata 。 从API版本26.0.0开始，支持读取AVIS元数据。要查询的属性的具体信息请参考 AvisPropertyKey 。
+> 应用使用 PhotoAccessHelper 查询媒体库中的图片，并通过返回的PhotoAsset获取图片数据。使用本接口时，propertyKeys应传入GPSLatitude、GPSLongitude、GPSAltitude、GPSTimeStamp和GPSDateStamp等GPS相关Exif标签字符串。在读取这些字段前，应先声明并向用户申请 ohos.permission.MEDIA_LOCATION 权限。如果上述字段返回全为0或为空，请先检查该权限是否已获授权，并确认原始图片是否包含GPS信息。 读取DNG格式图片时，该接口对部分propertyKeys有特殊处理。以下字段的字符串取值请参考 PropertyKey 中的值： NewSubfileType、ImageWidth、ImageLength、DefaultCropSize、Orientation、Compression、PhotometricInterpretation、PlanarConfiguration、RowsPerStrip、StripOffsets、StripByteCounts、SamplesPerPixel、BitsPerSample、YCbCrCoefficients、YCbCrSubSampling、YCbCrPositioning、ReferenceBlackWhite、XResolution、YResolution、ResolutionUnit字段：返回主图相关的字段值。 ImageUniqueID字段：根据规范进行校验，不符合规范时会返回空字符串。 ExifVersion、FlashpixVersion、ColorSpace字段：当图片中不存在该标签时，返回错误码。 DNGVersion字段：当版本号小于1.0.0.0时，统一返回1.0.0.0。 GPSVersionID字段：当没有有效的GPS数据时，会清除GPS版本号并返回0。 GPSAltitudeRef字段：当未设置GPSAltitude时，会设置为0xFFFFFFFF。 ISOSpeedRatings字段：当该标签值为0或65535时，会优先使用推荐曝光指数，若不存在则依次使用标准输出灵敏度、ISO速度、曝光指数。 从API version 24开始，支持读取DNG元数据。要查询的属性的具体信息请参考 DngPropertyKey 。 从API version 24开始，支持读取HEIFS元数据。要查询的属性的具体信息请参考 HeifsPropertyKey 。 从API版本26.0.0开始，支持读取PNG元数据。要查询的属性的具体信息请参考 PngPropertyKey 。 从API版本26.0.0开始，支持读取JFIF元数据。要查询的属性的具体信息请参考 JfifPropertyKey 。 从API版本26.0.0开始，支持读取TIFF元数据。要查询的属性的具体信息请参考 TiffPropertyKey 。 从API版本26.0.0开始，支持读取GIF元数据。要查询的属性的具体信息请参考 GifPropertyKey 。 从API版本26.0.0开始，支持读取JPEG、PNG、GIF、DNG、TIFF格式图片的XMP元数据。XMP元数据的操作方法可以参考 XMPMetadata 。 从API版本26.0.0开始，支持读取AVIS元数据。要查询的属性的具体信息请参考 AvisPropertyKey 。
 
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -951,7 +965,7 @@ createPicture(options?: DecodingOptionsForPicture): Promise&lt;Picture&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.2.Incorrect parameter types; 3.Parameter verification failed. |
+| 401 | Parameter error.Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. |
 | 7700203 | Unsupported options. For example, unsupported desiredPixelFormat causes a failure in converting an image into the desired pixel format. 适用版本：24+ |
 | 7700301 | Decode failed. |
 

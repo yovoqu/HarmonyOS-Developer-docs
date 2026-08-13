@@ -1,6 +1,6 @@
 # @Watch装饰器：状态变量更改通知
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch
 
@@ -237,7 +237,7 @@ struct BasketModifier {
 效果图如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/LF_W4sd7QTKw6lt11SZYAg/zh-cn_image_0000002655845952.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=30DDF115CE6F8CB722AFF4FB0EC48E70C1F8162A96AF7AB01610E50C222D2BCA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/TrAbaLe1Soe-UrgFP_tpXQ/zh-cn_image_0000002674472018.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=6DEB5CFEF11B66B75428E8A9F382FDF45BF6E96B58C74656405C6893F51D6AAF)
 
 
 
@@ -360,7 +360,7 @@ struct ChildComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/L0ulZ8oKR_ONc0oiCdgUsA/zh-cn_image_0000002686085381.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=934B56D1E875CF751217AB8D741F386D90ADDFA0E71BEA8DCEA5A2E74A6DAE39)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/jPA8Myx7QDGGELrqrQDtVw/zh-cn_image_0000002704391987.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=DF4892DAF6A0B63CEF4B74B3E1FFE274777B6E8F9C1301C4231694AC3763D1D9)
 
 
 处理步骤如下：
@@ -429,7 +429,7 @@ struct UsePropertyName {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/gt3yefQrRBqqyk-EwEXTPA/zh-cn_image_0000002685925553.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=BFFD2D6E717EF924323A6803884B3F4493CC698D6B125A9550FFA89510510745)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/lKbBpNJ2T0eOeFh8HhkEaA/zh-cn_image_0000002674631864.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=516B2893B30B2C6A93796A0BB015698EC9201FBD38E8D84ECA7044E4BAB9BC99)
 
 
 处理步骤如下：

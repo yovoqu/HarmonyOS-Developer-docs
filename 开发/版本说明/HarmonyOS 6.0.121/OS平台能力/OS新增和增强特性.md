@@ -1,6 +1,6 @@
 # OS新增和增强特性
 
-更新时间：2026-06-27 01:41:31
+更新时间：2026-08-04 06:19:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/os-new-feature-601
 
@@ -258,7 +258,7 @@ customizeSchemes新增同名接口，可设置接口内部是否跳过初始化W
 #### MDM Kit
 
 - 企业应用的应用管理（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-applicationmanager)）和包管理（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-bundlemanager)）的相关接口在需要传入appIds参数时均新增支持使用appIdentifier参数作为入参，代替原先使用appId的方式。可在对应模块的API参考中搜索“appIds”了解详情。
-- 可设置禁用/启用的特性新增如下（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy)）：
+- 可设置禁用/启用的特性新增如下（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicydeprecated)）：
 应用分身能力（appClone）
 - 外置存储能力（externalStorageCard）
 - Wi-Fi链接时使用随机MAC（randomMac）

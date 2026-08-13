@@ -1,6 +1,6 @@
 # Class (MediaAssetChangeRequest)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaassetchangerequest
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -418,7 +418,7 @@ getAsset(): PhotoAsset
 获取当前资产变更请求中的资产。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/SbvL99nISWm80wCYY3NayQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071754Z&HW-CC-Expire=86400&HW-CC-Sign=597F3CF8F310699E9486A2366F3BEA5BC234B299FFEEC23DD12954968EBD5A9A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/OB4tSAFIRFO-pCJ_y_Spnw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095544Z&HW-CC-Expire=86400&HW-CC-Sign=4F9ECFB20261CEAD91F8C095227B51355E6D26471FABA293D03DDFFCE1C430F9)
 
 
 对于创建资产的变更请求，在调用接口[applyChanges](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#applychanges11)的提交生效之前，该接口会返回null。
@@ -545,7 +545,7 @@ getWriteCacheHandler(): Promise&lt;number&gt;
 获取临时文件写句柄。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/Isi7wND4Q-6wMC7XgrG52A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071754Z&HW-CC-Expire=86400&HW-CC-Sign=0E4B2CC098CB6628113249C5B73BE61F2F8EB9A595D5291F7855EC62CEFFFAF6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/5zm2AeEHSJeAkTmNFM-UOQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095544Z&HW-CC-Expire=86400&HW-CC-Sign=0BC4317B5393A875A0A098648620C220CA7D78FC227AA43A5ADDB28130F8FC49)
 
 
 对于同一个资产变更请求，不支持在成功获取临时文件写句柄后，重复调用该接口。
@@ -610,7 +610,7 @@ addResource(type: ResourceType, fileUri: string): void
 通过文件URI从应用沙箱添加资源，待添加资源的数据来源可参考[@ohos.file.fileuri (文件URI)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri)。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/X6PZ8cs3RHiVLFg6IkY_xQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071754Z&HW-CC-Expire=86400&HW-CC-Sign=EEBBD4D0A9D449EBE2EDF79CDEC29882D02481029B3E57BB1D71F9DB44584C57)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/rN8-VObGStGnHsYtPiARqg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095544Z&HW-CC-Expire=86400&HW-CC-Sign=083F95020BCA57505C055494C0FF5FD96D0E76AC8E39A27E35CE1E1500CCC109)
 
 
 对于同一个资产变更请求，成功添加资源后不支持重复调用该接口。对于动态照片，可调用两次该接口分别添加图片和视频资源。
@@ -674,7 +674,7 @@ addResource(type: ResourceType, data: ArrayBuffer): void
 通过ArrayBuffer数据添加资源。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/VsoH6-xBT3WzDcZemWQeHw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071754Z&HW-CC-Expire=86400&HW-CC-Sign=BEEA3DD8480AB63519CFF8499E3F46BA54C5E914542E869AEE4A17BF7D797044)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/jcI0BZuTRl-m2UW1hStGZw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095544Z&HW-CC-Expire=86400&HW-CC-Sign=3EAEF0A9822F9248F01A5E9BD317C87DF2EC709162670DF36338963ECBD51A41)
 
 
 对于同一个资产变更请求，成功添加资源后不支持重复调用该接口。对于动态照片，可调用两次该接口分别添加图片和视频资源。
@@ -733,7 +733,11 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 saveCameraPhoto(): void
 
-保存相机拍摄的照片。
+拍照场景下，使用该接口保存相机拍摄的照片资源。
+
+> [!NOTE]
+> 非YUV拍摄模式下，照片资源保存的编码格式与 CameraFormat 保持一致。 YUV拍摄模式下，该接口无法指定编码格式，图片资源保存为默认的jpg格式。
+
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
 
@@ -773,7 +777,11 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, asse
 
 saveCameraPhoto(imageFileType: ImageFileType): void
 
-保存相机拍摄的照片。需要指定保存的类型。
+拍照场景下，使用该接口保存相机拍摄的照片资源。
+
+> [!NOTE]
+> 非YUV拍摄模式下，照片资源保存的编码格式与 CameraFormat 保持一致。 YUV拍摄模式下，该接口根据 ImageFileType 将YUV对象编码为指定格式。 当该接口与 addResource 组合使用时，照片资源保存的编码格式与 addResource 添加资源的编码格式保持一致。
+
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
 

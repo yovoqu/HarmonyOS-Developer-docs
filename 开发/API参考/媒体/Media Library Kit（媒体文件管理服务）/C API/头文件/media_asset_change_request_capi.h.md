@@ -1,6 +1,6 @@
 # media_asset_change_request_capi.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-media-asset-change-request-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -190,7 +190,13 @@ MediaLibrary_ErrorCode OH_MediaAssetChangeRequest_SaveCameraPhoto(OH_MediaAssetC
  
 **描述**
  
-保存相机拍摄的照片资源。
+拍照场景下，使用该接口保存相机拍摄的照片资源。
+ 
+非YUV拍摄模式下，照片资源保存的编码格式与[Camera_Format](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_format)中的编码格式保持一致。
+ 
+YUV拍摄模式下，该接口根据[MediaLibrary_ImageFileType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-media-asset-base-capi-h#medialibrary_imagefiletype)将YUV对象编码保存为指定格式。
+ 
+当该接口与[OH_MediaAssetChangeRequest_AddResourceWithUri](#oh_mediaassetchangerequest_addresourcewithuri)或[OH_MediaAssetChangeRequest_AddResourceWithBuffer](#oh_mediaassetchangerequest_addresourcewithbuffer)组合使用时，照片资源保存的编码格式与[OH_MediaAssetChangeRequest_AddResourceWithUri](#oh_mediaassetchangerequest_addresourcewithuri)或[OH_MediaAssetChangeRequest_AddResourceWithBuffer](#oh_mediaassetchangerequest_addresourcewithbuffer)添加资源的编码格式保持一致。
  
 **起始版本：** 12
  

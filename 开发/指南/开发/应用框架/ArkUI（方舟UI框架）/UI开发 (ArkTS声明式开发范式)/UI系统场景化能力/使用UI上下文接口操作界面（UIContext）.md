@@ -1,6 +1,6 @@
 # 使用UI上下文接口操作界面（UIContext）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-global-interface
 
@@ -392,8 +392,6 @@ export default class EntryAbility extends UIAbility {
       hilog.info(DOMAIN, 'testTag', `20vp equals to ${pxValue}px`);
     });
     // loadContent是异步接口，在此处调用不能保证UI实例已经创建成功。
-    pxValue = vp2px(20);
-    hilog.info(DOMAIN, 'testTag', `20vp equals to ${pxValue}px`);
   }
 
   onWindowStageDestroy(): void {

@@ -1,6 +1,6 @@
 # 基于DialogHub的通用弹窗
 
-更新时间：2026-07-22 06:05:01
+更新时间：2026-08-10 06:55:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-hadss_dialoghub
 
@@ -279,7 +279,7 @@ if (!this.intervalsDisappearsDialog) {
   if (this.intervalID === -1) {
     this.intervalID = setInterval(() => {
       time -= 1;
-      params.content = `${time} ${this.resourceMgr!.getStringSync($r('app.string.SecondsClose').id)}`;
+      params.content = `${time} ${this.getParamString($r('app.string.SecondsClose').id)}`;
       this.intervalsDisappearsDialog?.updateContent(params)
       if (time <= 0 && this.intervalID) {
         clearInterval(this.intervalID);
@@ -346,16 +346,19 @@ setConfig()中preferPlacement可配置箭头偏向。
 
  
 ```ArkTS
-DialogHub.getPopup()
+this.arrowPointingPopup = DialogHub.getPopup()
 // ...
   .setComponentTargetId('PopupDialog1')
+  .setStyle({
+    edgePadding: this.edgePadding
+  })
   .setConfig({
     dialogPosition: {
       preferPlacement: Placement.Bottom
     }
   })
-  .build()
-  .show();
+  .build();
+this.arrowPointingPopup.show();
 ```
  
 
@@ -391,10 +394,10 @@ this.activelyCloseDialog = this.activelyCloseDialog ?? DialogHub.getCustomDialog
   .setOperableContent(wrapBuilder(ActiveCloseBuilder), (action: DialogAction) => {
     let param =
       new ActiveCloseParams(
-        this.resourceMgr!.getStringSync($r('app.string.LogOut').id),
-        this.resourceMgr!.getStringSync($r('app.string.LogOutTips').id),
-        this.resourceMgr!.getStringSync($r('app.string.Cancel').id),
-        this.resourceMgr!.getStringSync($r('app.string.Exit').id),
+        this.getParamString($r('app.string.LogOut').id),
+        this.getParamString($r('app.string.LogOutTips').id),
+        this.getParamString($r('app.string.Cancel').id),
+        this.getParamString($r('app.string.Exit').id),
         () => {
           action.dismiss();
         },
@@ -422,7 +425,7 @@ this.activelyCloseDialog.show();
 - 获取DialogHub的Sheet类型弹窗实例
 ```ArkTS
 this.adjustSheetDialog = DialogHub.getSheet()
-  .setContent(wrapBuilder(SheetBuilder), sheetParams)
+  .setContent(wrapBuilder(SheetBuilder), { type: 0 } as SheetParams)
   .setStyle({
     preferType: SheetType.BOTTOM,
     detents: [CommonConstant.SHEET_MIDDLE, CommonConstant.SHEET_LARGE],
@@ -437,15 +440,15 @@ this.adjustSheetDialog = DialogHub.getSheet()
 this.adjustSheetDialog.addLifeCycleListener({
   onHeightDidChange: (h: number) => {
     let vpValue = this.getUIContext().px2vp(h);
+    let keyboardHeight = this.mainWindow?.getWindowAvoidArea(window.AvoidAreaType.TYPE_KEYBOARD).bottomRect.height;
     if (this.isKeyboardShow) {
       this.getUIContext().getFocusController().clearFocus();
     }
-    if (vpValue <= CommonConstant.SHEET_MIDDLE && sheetParams.type != 0) {
-      sheetParams.type = 0
-    } else if (vpValue > CommonConstant.SHEET_MIDDLE && sheetParams.type != 1 && this.keyboardHeightChange == 0) {
-      sheetParams.type = 1
+    if (vpValue <= CommonConstant.SHEET_MIDDLE) {
+      this.adjustSheetDialog?.updateContent({ type: 0 } as SheetParams);
+    } else if (vpValue > CommonConstant.SHEET_MIDDLE && keyboardHeight === 0) {
+      this.adjustSheetDialog?.updateContent({ type: 1 } as SheetParams);
     }
-    this.adjustSheetDialog?.updateContent(sheetParams)
   },
   // ...
 });
@@ -456,7 +459,7 @@ this.adjustSheetDialog.addLifeCycleListener({
 
  
 > [!NOTE]
-> sheet类型弹窗须调用 setComponentTargetId(targetCompId ) 以实现页面级弹窗，并且保证绑定的组件id存在。
+> sheet类型弹窗须调用 setComponentTargetId(targetCompId ) 以实现页面级弹窗，并且保证绑定的组件id存在。 当前示例主要面向直板机等窄屏场景使用。因此对于如PC、三折叠展开态等屏幕宽度大于600vp的场景，会自动隐藏对应入口。
 
  
 
@@ -536,8 +539,8 @@ this.sensorDialog?.getStatus();
 let passThroughGestureDialog = DialogHub.getCustomDialog()
   .setOperableContent(wrapBuilder(SimpleCustomBuilder), (action: DialogAction) => {
     return new SimpleCustomParams(
-      this.resourceMgr!.getStringSync($r('app.string.Dialog').id),
-      this.resourceMgr!.getStringSync($r('app.string.passThroughDialog').id),
+      this.getParamString($r('app.string.Dialog').id),
+      this.getParamString($r('app.string.passThroughDialog').id),
       () => {
         action.dismiss();
       })
@@ -601,7 +604,7 @@ this.returnDataDialog.show();
 修改Builder参数内容，再调用updateContent()进行修改。
  
 ```ArkTS
-let params = new ProgressParams(this.resourceMgr!.getStringSync($r('app.string.Uploading').id),
+let params = new ProgressParams(this.getParamString($r('app.string.Uploading').id),
   CommonConstant.progressNameStart,
   CommonConstant.progressNameTotal);
 
@@ -610,6 +613,10 @@ this.updateByParentDialog = DialogHub.getCustomDialog()
   .setConfig({ dialogBehavior: { isModal: true, autoDismiss: false } })
   .build();
 this.updateByParentDialog.show();
+if (this.intervalID >= 0) {
+  clearInterval(this.intervalID);
+  this.intervalID = -1;
+}
 this.intervalID = setInterval(() => {
   params.value += 1
   if (params.value >= CommonConstant.progressNameTotal && this.intervalID >= 0) {
@@ -781,7 +788,7 @@ this.originalTemplateDialog?.show();
 
   
 ```ArkTS
-if (this.dialogA?.getStatus() != DialogStatus.SHOW) {
+if (this.dialogA?.getStatus() !== DialogStatus.SHOW) {
   this.dialogB?.show();
 }
 ```
@@ -806,7 +813,7 @@ if (DialogHub.getCurrentPageDialogs().length === 0) {
 - 设置弹窗层级setLayerIndex()
 ```ArkTS
 this.dialogF = this.dialogF ??
-  this.createMessageBuilder(`${this.resourceMgr?.getStringSync($r('app.string.Dialog').id)} F`,
+  this.createMessageBuilder(`${this.getParamString($r('app.string.Dialog').id)} F`,
     CommonConstant.DIALOG_F_CONTENT)
     .setLayerIndex(CommonConstant.DIALOG_F_LAYER_INDEX)
     .build();
@@ -817,7 +824,7 @@ this.dialogF = this.dialogF ??
 - 设置置顶弹窗OLD_FIRST (老置顶弹窗优先，新的置顶弹窗无法弹出)
 ```ArkTS
 this.dialogG = this.dialogG ??
-  this.createMessageBuilder(`${this.resourceMgr?.getStringSync($r('app.string.Dialog').id)} G`,
+  this.createMessageBuilder(`${this.getParamString($r('app.string.Dialog').id)} G`,
     CommonConstant.DIALOG_G_CONTENT).setConfig({
     dialogBehavior: {
       layerPolicy: { alwaysTop: true, topDialogPriority: TopDialogPriority.OLD_FIRST }
@@ -830,7 +837,7 @@ this.dialogG = this.dialogG ??
 - 设置置顶弹窗NEW_FIRST (新弹窗优先，新的置顶弹窗弹出，老置顶弹窗被覆盖)
 ```ArkTS
 this.dialogH = this.dialogH ??
-  this.createMessageBuilder(`${this.resourceMgr?.getStringSync($r('app.string.Dialog').id)} H`,
+  this.createMessageBuilder(`${this.getParamString($r('app.string.Dialog').id)} H`,
     CommonConstant.DIALOG_H_CONTENT).setConfig({
     dialogBehavior: {
       layerPolicy: { alwaysTop: true, topDialogPriority: TopDialogPriority.NEW_FIRST }

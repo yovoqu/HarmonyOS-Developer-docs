@@ -1,6 +1,6 @@
 # Web组件嵌套滚动
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-nested-scrolling
 
@@ -351,7 +351,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/XCyVzCG9RLuU6pcdfNUvtg/zh-cn_image_0000002647586312.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012139Z&HW-CC-Expire=86400&HW-CC-Sign=C6333C3D6F20E4D22D547C9A0631960D4477F41DD59456A949F355CF8E2EDFD7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/u8bUN4jERbWqKjXKSPXBaQ/zh-cn_image_0000002674472876.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095734Z&HW-CC-Expire=86400&HW-CC-Sign=4D43344E28257D91B95BEB7442F408CA2158F691F93C97FAED224893985D09EF)
 
 
 

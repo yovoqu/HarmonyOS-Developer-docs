@@ -1,6 +1,6 @@
 # 创建网格 (Grid/GridItem)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-grid
 
@@ -57,7 +57,7 @@ Grid组件根据行列数量与占比属性的设置，可以分为三种布局�
 
 通过设置行列数量与尺寸占比可以确定网格布局的整体排列方式。Grid组件提供了[rowsTemplate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#rowstemplate)和[columnsTemplate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#columnstemplate)属性用于设置网格布局行列数量与尺寸占比。
 
-rowsTemplate和columnsTemplate属性值是一个由多个空格和'数字+fr'间隔拼接的字符串，fr的个数即网格布局的行或列数，fr前面的数值大小，用于计算该行或列在网格布局宽度上的占比，最终决定该行或列宽度。
+rowsTemplate和columnsTemplate属性值是一个由多个空格和'数字+fr'间隔拼接的字符串，fr的个数即网格布局的行或列数，fr前面的数值大小，用于计算该行或列在网格布局对应方向上的尺寸占比，最终决定该行的高度或列的宽度。
 
 **图3** 行列数量占比示例
 
@@ -93,7 +93,7 @@ Grid() {
 ![](assets/创建网格%20(Grid／GridItem)/file-20260514130612000-5.png)
 
 
-例如计算器的按键布局就是常见的不均匀网格布局场景。如下图，计算器中的按键“0”和“=”，按键“0”横跨第一、二两列，按键“=”横跨第五、六两行。使用Grid构建的网格布局，其行列标号从0开始，依次编号。
+例如计算器的按键布局就是常见的不均匀网格布局场景。如下图，计算器中的按键“0”和“=”，按键“0”横跨第一、二两列，按键“=”横跨第六、七两行。使用Grid构建的网格布局，其行列标号从0开始，依次编号。
 
 **图5** 计算器
 
@@ -103,7 +103,7 @@ Grid() {
 
 在网格中，可以通过onGetRectByIndex返回的[rowStart,columnStart,rowSpan,columnSpan]来实现跨行跨列布局，其中rowStart和columnStart属性表示指定当前元素起始行号和起始列号，rowSpan和columnSpan属性表示指定当前元素的占用行数和占用列数。
 
-所以“0”按键横跨第一列和第二列，“=”按键横跨第五行和第六行，只要将“0”对应onGetRectByIndex的rowStart和columnStart设为6和0，rowSpan和columnSpan设为1和2，将“=”对应onGetRectByIndex的rowStart和columnStart设为5和3，rowSpan和columnSpan设为2和1即可。
+所以“0”按键横跨第一列和第二列，“=”按键横跨第六行和第七行，只要将“0”对应onGetRectByIndex的rowStart和columnStart设为6和0，rowSpan和columnSpan设为1和2，将“=”对应onGetRectByIndex的rowStart和columnStart设为5和3，rowSpan和columnSpan设为2和1即可。
 
 ```ArkTS
 layoutOptions: GridLayoutOptions = {
@@ -248,7 +248,7 @@ export struct DataInGrid {
 **图8** 网格的行列间距
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/DYuE0EGhSfOVhLwteIqTag/zh-cn_image_0000002686085673.png?HW-CC-KV=V1&HW-CC-Date=20260730T071845Z&HW-CC-Expire=86400&HW-CC-Sign=C0FC32518DE1F7994518BC3F8FD0C7F24595D69D83AC6AFC5FF30617490A1A64)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/iF-1CWHNQ1GeBFei2JKVFg/zh-cn_image_0000002704392279.png?HW-CC-KV=V1&HW-CC-Date=20260813T095711Z&HW-CC-Expire=86400&HW-CC-Sign=BBDA30972F07409C89269428BD14323A132971CFC4B65AA8886C6BCE7B9D735C)
 
 
 通过Grid的[rowsGap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#rowsgap)和[columnsGap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#columnsgap)可以设置网格布局的行列间距。在图5所示的计算器中，行间距为15vp，列间距为10vp。
@@ -270,7 +270,7 @@ Grid() {
 **图9** 横向可滚动网格布局
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/gmWzHzIzRD2hwAXXn3Dpmg/zh-cn_image_0000002685925845.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071845Z&HW-CC-Expire=86400&HW-CC-Sign=5B74609C4B04E51DCB6BC2E1946498FB1765A955D875606466CAB3DA3BB20691)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/SKbmOU7MTdGn8eJ3FVDU4Q/zh-cn_image_0000002674632158.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095711Z&HW-CC-Expire=86400&HW-CC-Sign=21A1A7875940FA125B610C9C78641B1664181319A222706DC57438C61780E242)
 
 
 如果设置的是columnsTemplate，Grid的滚动方向为垂直方向；如果设置的是rowsTemplate，Grid的滚动方向为水平方向。
@@ -323,7 +323,7 @@ export struct ScrollableGrid {
 **图10** 日历翻页
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/fAuaAQdES3a33c7KkoiJQA/zh-cn_image_0000002656006166.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071845Z&HW-CC-Expire=86400&HW-CC-Sign=275B54F02AAC1FFC2FF85DA20E9AD348B71832FED9DB9EE9C49675C9A282B410)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/x9EPN2xlTgumkG0jDk9Ckw/zh-cn_image_0000002704272113.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095711Z&HW-CC-Expire=86400&HW-CC-Sign=F4E149246C2CD42AD63F88E3684EEC3A363C3E2D4890965C13CBAFE1256BFF4F)
 
 
 Grid组件初始化时，可以绑定一个[Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)对象，用于进行滚动控制，例如通过Scroller对象的[scrollPage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollpage9)方法进行翻页。
@@ -394,7 +394,7 @@ ScrollBar({ scroller: this.gridScroller })
 **图11** 网格的外置滚动条
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/CB5fbhbJT5ekYGiFtyu55A/zh-cn_image_0000002655846246.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071845Z&HW-CC-Expire=86400&HW-CC-Sign=DE28E3F767AF3DC31BEB057E85F27BE0E6B085B27C57413ED9F7E42EBB96C236)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/qxFdkG09RBK6TxSpu8RqkA/zh-cn_image_0000002674472314.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095711Z&HW-CC-Expire=86400&HW-CC-Sign=F1B56C4FA80E0F0FF80D211BEB6FFC1F9574E1DB696A072B612B265EA6637B5A)
 
 
 > [!NOTE]
@@ -410,7 +410,7 @@ ScrollBar({ scroller: this.gridScroller })
 **Grid手指滑动多选示例效果图**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/C2zK6VaDSbGoEzBEukJ2VQ/zh-cn_image_0000002686085675.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071845Z&HW-CC-Expire=86400&HW-CC-Sign=4F69D43E7D4E110DA74717560650FF5E633A4ED1A7FF581FE18CF106A18A1255)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/2OwvoNsYR2mTXYHec_5K0w/zh-cn_image_0000002704392281.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095711Z&HW-CC-Expire=86400&HW-CC-Sign=D7423E426B62F584910F1FCC454F99F609A40FF2711689CD4ADE0943124C057D)
 
 
 
@@ -421,7 +421,7 @@ ScrollBar({ scroller: this.gridScroller })
 
 通过[editModeOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#editmodeoptions23)配置编辑模式下的多选行为。editModeOptions中有两个滑动多选相关参数，分别是useDefaultMultiSelectStyle和enableTwoFingerMultiSelect，默认值均为true。前者控制是否显示GridItem右下角的系统复选框，后者控制是否允许用户通过双指滑动自动进入编辑模式并进行多选。开发者需要自定义样式时，可将useDefaultMultiSelectStyle设置为false。开发者需要关闭双指滑动自动进入编辑模式时，可将enableTwoFingerMultiSelect设置为false。
 
-```text
+```ArkTS
 Grid() {
   // ...
 }
@@ -438,7 +438,7 @@ Grid() {
 
 在GridItem上配置[selectable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-griditem#selectable8)、[selected](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-griditem#selected10)和[onSelect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-griditem#onselect8)。selectable用于设置网格项是否允许被选择，selected用于设置网格项当前是否被选中。滑动多选过程中，组件会触发onSelect回调，应用可以在回调中记录每个网格项的最新选择结果。
 
-```text
+```ArkTS
 GridItem() {
   this.GridCard(item, index)
 }

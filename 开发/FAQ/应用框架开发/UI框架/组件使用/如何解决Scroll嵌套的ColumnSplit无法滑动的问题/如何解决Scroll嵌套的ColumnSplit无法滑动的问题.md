@@ -1,6 +1,6 @@
 # 如何解决Scroll嵌套的ColumnSplit无法滑动的问题
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-930
 
@@ -46,7 +46,7 @@ struct <span style="color: rgb(0,0,255);">ColumnSplitExample </span><span style=
 #### 背景知识
 
 - ColumnSplit组件可通过[resizeable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-columnsplit#resizeable)属性设置分割线是否可拖拽。
-- [手势响应控制方法](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-gestures-practice#section23479595317)中的[手势拦截增强](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-blocking-enhancement)能力，可以动态控制手势事件的触发。
+- [手势响应控制方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-gesture-event-conflict-faq#动态控制自定义手势是否响应)中的[手势拦截增强](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-blocking-enhancement)能力，可以动态控制手势事件的触发。
 - 通过[onGestureRecognizerJudgeBegin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-blocking-enhancement#ongesturerecognizerjudgebegin)属性可以自定义不同手势下的回调，可参考[嵌套场景下拦截内部容器手势](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-blocking-enhancement#示例2嵌套场景下拦截内部容器手势)示例。
 
  

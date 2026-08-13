@@ -1,6 +1,6 @@
 # 建立应用侧与前端页面数据通道(C/C++)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkweb-ndk-page-data-channel
 

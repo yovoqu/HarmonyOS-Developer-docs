@@ -1,6 +1,6 @@
 # 警告弹窗 (AlertDialog)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-alert-dialog-box
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -697,7 +697,7 @@ struct AlertDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/3pCjm9yjR9mXOmY5rW7oqA/zh-cn_image_0000002656008840.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=B73827ADF8AF58884A2A5582C503FC3B16659574916E9113349B9B6AC6646A29)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/LioI-RrqSZC17MDueEABvw/zh-cn_image_0000002704274805.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=124E1B5A79121698825033BF87E5C4D79A81462FB7D50AC0E5D7B7DFDC15FD24)
 
 
 
@@ -753,7 +753,7 @@ struct AlertDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/l5Ucz_evTaysAnOwyHiP0w/zh-cn_image_0000002655848920.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=AB5A08AF3BFABB82DC900055C0F89E69E0C0FC8236D83C347EF025691EB02122)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/kulcqleRRzODWCs5LXkt8A/zh-cn_image_0000002674475014.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=42A4A53F3EC754026800BCB280D0FDEC7ACD644673FC2436990C9DF5DEBBC401)
 
 
 
@@ -813,7 +813,7 @@ struct AlertDialogLifecycleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/3V4SjDBhTBCTitwsfOOjeA/zh-cn_image_0000002686088351.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=0B132A083204A9EB5C9B363A996333EC5F2C4A9B3DD95257280D3FC1B2DABF52)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/w0KikRIjSsS3SeEaQ6l6Dg/zh-cn_image_0000002704394975.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=A15D5C3D044914023323AE2BD592148566840C431A9265883A2E5F11FCA32335)
 
 
 
@@ -868,7 +868,7 @@ struct AlertDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/ce_8Ior3Qme9jH3F9T6OYw/zh-cn_image_0000002685928519.png?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=0ACF2D6029B520B7731C7B3D3FB1081DCEFA2E36F240B47B0F87EBAAF5C23D61)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/fY4twkfkTLKAVo_2vfoOwg/zh-cn_image_0000002674634854.png?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=3E249A1416B5700B582E39CECDF83265492CBFB9EF45D148741E32F4B4260F7B)
 
 
 
@@ -924,7 +924,7 @@ struct AlertDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/UKjRIXVGTeC3QFk_g9-7Lg/zh-cn_image_0000002656008842.png?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=6168AAB0AFFA0E5B69B6672C1194DE002F6E5EF81A479C4A79443B641F0CD46F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/vf_EPOtPT7iw30p3P-bB3w/zh-cn_image_0000002704274807.png?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=2A73F5E86462E7358C9EF1E71C6AE12AC1D7CD8919E27A440F600DF88F243BA9)
 
 
 
@@ -975,4 +975,4 @@ struct AlertDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/1X5myEX2Q12UIzMxQ0_pBw/zh-cn_image_0000002655848922.png?HW-CC-KV=V1&HW-CC-Date=20260730T071514Z&HW-CC-Expire=86400&HW-CC-Sign=A00FE55291CDFF51A6A251CD7B3259A7F863BA5715FB3BCFC038692022E3546F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/ybN3vi5DR7qAC-OF6Tj3Tg/zh-cn_image_0000002674475016.png?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=34D1168B30895DD0BFD56D6A39E2F8A3CD849E3EDDFE3AEC2F77CE096D30A3A0)

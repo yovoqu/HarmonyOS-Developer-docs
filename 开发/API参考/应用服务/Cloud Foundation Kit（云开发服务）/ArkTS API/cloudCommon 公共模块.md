@@ -1,6 +1,6 @@
 # cloudCommon (公共模块)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cloudfoundation-cloudcommon
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -69,8 +69,8 @@ cloudCommon.init({
   authProvider: authProvider,
   functionOptions: { timeout: 10 * 1000 },
   storageOptions: { mode: request.agent.Mode.BACKGROUND, network: request.agent.Network.ANY },
-  databaseOptions: { schema: "schema.json", traceId: "traceId" }
-})
+  databaseOptions: { schema: 'schema.json', traceId: 'traceId' }
+});
 ```
  
   
@@ -196,8 +196,8 @@ cloudCommon.init({
   authProvider: authProvider,
   functionOptions: { timeout: 10 * 1000 },
   storageOptions: { mode: request.agent.Mode.BACKGROUND, network: request.agent.Network.ANY },
-  databaseOptions: { schema: "schema.json", traceId: "traceId" }
-})
+  databaseOptions: { schema: 'schema.json', traceId: 'traceId' }
+});
 ```
 
 - 方式二：
@@ -213,7 +213,7 @@ let accessToken = '';
 export class MyAuthProvider implements cloudCommon.AuthProvider {
   async getAccessToken(isForceRefresh: boolean): Promise<string> {
     let data =
-      "grant_type=refresh_token&client_id=xxxx&client_secret=xxxx&refresh_token=";
+      'grant_type=refresh_token&client_id=xxxx&client_secret=xxxx&refresh_token=';
     let refreshToken =
       encodeURIComponent('xxxx'); // xxxx为使用华为账号服务获取用户级凭证接口获取的refresh_token
     // access_token过期则强制刷新
@@ -226,9 +226,9 @@ export class MyAuthProvider implements cloudCommon.AuthProvider {
           header: {
             'Content-Type': 'application/x-www-form-urlencoded'
           },
-          extraData: data,
+          extraData: data
         };
-        let url = "https://oauth-login.cloud.huawei.com/oauth2/v3/token";
+        let url = 'https://oauth-login.cloud.huawei.com/oauth2/v3/token';
         let resp = await httpRequest.request(url, ohosOptions);
         accessToken = JSON.parse(resp.result.toString()).access_token;
       } catch (err) {
@@ -253,8 +253,8 @@ cloudCommon.init({
   authProvider: authProvider,
   functionOptions: { timeout: 10 * 1000 },
   storageOptions: { mode: request.agent.Mode.BACKGROUND, network: request.agent.Network.ANY },
-  databaseOptions: { schema: "schema.json", traceId: "traceId" }
-})
+  databaseOptions: { schema: 'schema.json', traceId: 'traceId' }
+});
 ```
 
 

@@ -1,6 +1,6 @@
 # HdsActionBar
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsactionbar
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -20,7 +20,7 @@ import { HdsActionBar } from '@kit.UIDesignKit';
  
   
 
-#### 接口
+#### HdsActionBar
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -41,7 +41,7 @@ HdsActionBar核心操作组件。
 | 参数名 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
 | primaryButton | ActionBarButton | 否 | @Param | 主按钮。 |
-| primaryButtonBuilder | CustomBuilder | 否 | @BuilderParam | 自定义主按钮。 说明：primaryButtonBuilder优先级高于primaryButton。 |
+| primaryButtonBuilder | CustomBuilder | 否 | @BuilderParam | 自定义主按钮。 primaryButtonBuilder优先级高于primaryButton。 说明：设置primaryButtonBuilder时必须同时设置primaryButtonBuilderWidth属性。 |
 | primaryButtonBuilderWidth | LengthMetrics | 否 | @Param | 主按钮是自定义组件时，需要设置主按钮宽度。 |
 | startButtons | Array&lt;ActionBarButton&gt; | 否 | @Param | HdsActionBar布局起始位置按钮组。 |
 | endButtons | Array&lt;ActionBarButton&gt; | 否 | @Param | HdsActionBar布局末尾位置按钮组。 |

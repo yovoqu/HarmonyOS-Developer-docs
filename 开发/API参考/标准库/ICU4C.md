@@ -1,6 +1,6 @@
 # ICU4C
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/icu4c
 
@@ -37,7 +37,7 @@
 #include <unicode/uloc.h>
 ```
  
-其次在CMakeLists.txt中添加以下动态库:
+其次在CMakeLists.txt中添加以下动态库：
  
 ```text
 libicu.so

@@ -1,6 +1,6 @@
 # Enums
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -684,7 +684,7 @@
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| PITCH | 0 | 俯仰轴。相控制相机机身上下旋转，即机身围绕与镜头水平方向的轴旋转。 |
+| PITCH | 0 | 俯仰轴。控制相机机身上下旋转，即机身围绕与镜头水平方向的轴旋转。 |
 | YAW | 1 | 偏航轴。控制相机机身左右旋转，即机身围绕与镜头垂直方向的轴旋转。 |
  
  

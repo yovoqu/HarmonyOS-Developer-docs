@@ -1,6 +1,6 @@
 # drag_and_drop.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drag-and-drop-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2082,7 +2082,7 @@ int32_t OH_ArkUI_DragEvent_RequestDragEndPending(ArkUI_DragEvent* event, int32_t
 
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED 当前阶段不允许该操作。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED 当前拖拽事件处理阶段不允许执行请求的操作。 |
 
 
 
@@ -2113,7 +2113,7 @@ int32_t OH_ArkUI_NotifyDragResult(int32_t requestIdentify, ArkUI_DragResult resu
 
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED 当前阶段不允许该操作。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED 当前拖拽事件处理阶段不允许执行请求的操作。 |
 
 
 
@@ -2205,7 +2205,7 @@ int32_t OH_ArkUI_NotifyDragEndPendingDone(int32_t requestIdentify)
 
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED 当前阶段不允许该操作。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED 当前拖拽事件处理阶段不允许执行请求的操作。 |
 
 
 

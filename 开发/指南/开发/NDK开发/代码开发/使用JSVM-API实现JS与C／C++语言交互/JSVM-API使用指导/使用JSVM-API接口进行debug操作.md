@@ -1,6 +1,6 @@
 # 使用JSVM-API接口进行debug操作
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-debug-option
 
@@ -109,17 +109,6 @@ static int32_t TestJSVM()
 hilog中有以下结果输出：
  
 ```text
-ADD_VAL_TO_SCOPE_CHECK in function: NewString
-CHECK_SCOPE in function: OH_JSVM_CompileScript
-ADD_VAL_TO_SCOPE_CHECK in function: OH_JSVM_GetCbInfo
-ADD_VAL_TO_SCOPE_CHECK in function: OH_JSVM_GetCbInfo
-ADD_VAL_TO_SCOPE_CHECK in function: OH_JSVM_GetCbInfo
-CHECK_SCOPE in function: OH_JSVM_StrictEquals
-CHECK_SCOPE in function: OH_JSVM_StrictEquals
-JSVM OH_JSVM_StrictEquals: success: 0
-ADD_VAL_TO_SCOPE_CHECK in function: OH_JSVM_GetBoolean
-ADD_VAL_TO_SCOPE_CHECK in function: OH_JSVM_RunScript
-CHECK_SCOPE in function: OH_JSVM_IsBoolean
 JSVM OH_JSVM_IsBoolean: success: 1
 ```
  

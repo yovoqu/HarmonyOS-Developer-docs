@@ -1,6 +1,6 @@
 # 多摄同开(C/C++)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-concurrent-open
 
@@ -127,7 +127,7 @@ void CameraInputOpen(Camera_Manager *cameraManager, Camera_Device *cameras)
 }
 ```
 
-7. 会话流程。配置对应的相机输入流[Camera_Input](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-input)和需要的相机输出流，此处以预览输出流[Camera_PreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-previewoutput)为例 。
+7. 会话流程。配置对应的相机输入流[Camera_Input](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-input)和需要的相机输出流，此处以预览输出流[Camera_PreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-previewoutput)为例。
 
   
 ```text

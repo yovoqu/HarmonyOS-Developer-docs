@@ -1,6 +1,6 @@
 # 异步并发 (Promise和async/await)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/async-concurrency-overview
 
@@ -110,7 +110,7 @@ struct PromiseAsyncAwait {
           .fontWeight(FontWeight.Bold)
           .onClick(async () => {
             let res = await myAsyncFunction();
-            console.info('Result is: ' + res);
+            console.info(`Result is:  ${res}`);
             this.message = 'success';
           })
       }

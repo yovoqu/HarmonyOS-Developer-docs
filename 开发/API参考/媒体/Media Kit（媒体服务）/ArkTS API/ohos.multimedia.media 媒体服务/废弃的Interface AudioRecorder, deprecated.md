@@ -1,6 +1,6 @@
 # 废弃的Interface (AudioRecorder, deprecated)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-audiorecorder
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -51,7 +51,7 @@ prepare(config: AudioRecorderConfig): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | permission denied |
+| 201 | permission denied. 适用版本：12+ |
 
 
 **示例：**
@@ -245,7 +245,7 @@ on(type: 'prepare' | 'start' | 'pause' | 'resume' | 'stop' | 'release' | 'reset'
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 录制事件回调类型，支持的事件包括：'prepare' \| 'start' \| 'pause' \| ’resume‘ \| 'stop' \| 'release' \| 'reset'。 - 'prepare' ：完成prepare调用，音频录制参数设置完成，触发该事件。 - 'start' ：完成start调用，音频录制开始，触发该事件。 - 'pause': 完成pause调用，音频暂停录制，触发该事件。 - 'resume': 完成resume调用，音频恢复录制，触发该事件。 - 'stop' ：完成stop调用，音频停止录制，触发该事件。 - 'release' ：完成release调用，音频释放录制资源，触发该事件。 - 'reset'：完成reset调用，音频重置为初始状态，触发该事件。 |
+| type | string | 是 | 录制事件回调类型，支持的事件包括：'prepare' \| 'start' \| 'pause' \| 'resume' \| 'stop' \| 'release' \| 'reset'。 - 'prepare' ：完成prepare调用，音频录制参数设置完成，触发该事件。 - 'start' ：完成start调用，音频录制开始，触发该事件。 - 'pause': 完成pause调用，音频暂停录制，触发该事件。 - 'resume': 完成resume调用，音频恢复录制，触发该事件。 - 'stop' ：完成stop调用，音频停止录制，触发该事件。 - 'release' ：完成release调用，音频释放录制资源，触发该事件。 - 'reset'：完成reset调用，音频重置为初始状态，触发该事件。 |
 | callback | ()=>void | 是 | 录制事件回调方法。 |
 
 

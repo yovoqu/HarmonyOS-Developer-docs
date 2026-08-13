@@ -1,6 +1,6 @@
 # 创建懒加载自定义布局 (LazyDynamicLayout)
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-lazy-custom-layout
 
@@ -213,7 +213,7 @@ onMeasure(self: FrameNode, constraint: LayoutConstraint, helper?: LazyLayoutHelp
 
 2. 处理空子元素或非懒加载布局。
 
-  首先获取子组件总数，使用[ChildrenCountMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#childrencountmode).ALL_NOT_EXPAND避免全量加载导致懒加载失效。如果子组件数量为0，清空测量状态并设置容器高度为0。如果helper参数为undefined，表示不支持懒加载（如在List多列模式下），需要全量测量所有子组件。
+  首先获取子组件总数，使用[ChildrenCountMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#childrencountmode).ALL_NOT_EXPAND避免全量加载导致懒加载失效。如果子组件数量为0，清空测量状态并设置容器高度为垂直内边距（topPadding + bottomPadding）。如果helper参数为undefined，表示不支持懒加载（如在List多列模式下），需要全量测量所有子组件。
 
 3. 处理布局参数变化保持滚动稳定。
 
@@ -539,7 +539,7 @@ LazyDynamicLayout(this.lazyAlgorithm) {
   上述示例中，点击底部按钮可以切换行间距。由于布局算法中实现了[setAdjustedOffset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-lazylayoutalgorithm#setadjustedoffset)调整逻辑，切换间距后锚点子组件（正向布局时为可视区域第一个子组件，反向布局时为可视区域最后一个子组件）的位置保持不变，避免了滚动跳动。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/72sfoZeGTY2ajgpj9y12VQ/zh-cn_image_0000002668460444.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005945Z&HW-CC-Expire=86400&HW-CC-Sign=63E8C1367042B710A05C727C6E187ED7DBF1E8FCBE6BE3A496E3E3D85379ECAA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/5-q2gKvcSEibHMYIl4Lrkg/zh-cn_image_0000002704272129.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095907Z&HW-CC-Expire=86400&HW-CC-Sign=282812C000B721280312DECAF327CDD86462CB11EE4C6B99DE3DDB1DB02EDB02)
 
 
   针对自定义懒加载布局的开发，有以下相关实例可供参考。

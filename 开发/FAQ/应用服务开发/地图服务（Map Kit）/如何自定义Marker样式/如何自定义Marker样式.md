@@ -1,6 +1,6 @@
 # 如何自定义Marker样式
 
-更新时间：2026-07-30 01:03:01
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-50
 
@@ -12,8 +12,8 @@
 
 #### 背景知识
 
-- 开发准备：使用地图服务，需要先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#section16133115441516)。
-- [getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#getpixelmap)：以当前canvas指定区域内的像素创建PixelMap对象。
+- 开发准备：使用地图服务，需要先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#开通地图服务)。
+- [getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#getpixelmap)：以当前canvas指定区域内的像素创建PixelMap对象。
 - [createPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#createpixelmap7)：通过图片解码参数创建PixelMap对象。
 
  
@@ -82,7 +82,7 @@ try {
 }
 ```
 
-- 方式三：替换Marker标记为自定义画布内容。通过[OffscreenCanvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-offscreencanvas)绘制自定义画布内容，使用[getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#getpixelmap)接口转换为PixelMap格式图片，配置[mapCommon.MarkerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#markeroptions)中icon参数为转换后的PixelMap图片。
+- 方式三：替换Marker标记为自定义画布内容。通过[OffscreenCanvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-offscreencanvas)绘制自定义画布内容，使用[getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#getpixelmap)接口转换为PixelMap格式图片，配置[mapCommon.MarkerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#markeroptions)中icon参数为转换后的PixelMap图片。
 
   
 ```text
@@ -158,7 +158,7 @@ try {
 效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/mHHYaEvDTaiaGaNrBGO0dw/zh-cn_image_0000002628394396.png?HW-CC-KV=V1&HW-CC-Date=20260811T005613Z&HW-CC-Expire=86400&HW-CC-Sign=3CC3D5AA0E06D184E23EAD99BD2C409D116CF1B840A1B8D9F3643A3462F39C79)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/PvlQ3r2FR3WKilS6mU4e6g/zh-cn_image_0000002628394396.png?HW-CC-KV=V1&HW-CC-Date=20260813T095556Z&HW-CC-Expire=86400&HW-CC-Sign=BDF2DD1981C2F90A9ADE5F6DFBCE5E261F94D963A667471FE6AA92CCACD79463)
 
  
 完整代码：

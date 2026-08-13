@@ -1,6 +1,6 @@
 # oh_data_value.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-data-value-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -69,7 +69,7 @@
 | int OH_Value_PutAsset(OH_Data_Value *value, const Data_Asset *val) | 添加ASSET类型数据。 |
 | int OH_Value_PutAssets(OH_Data_Value *value, const Data_Asset * const * val, size_t length) | 添加ASSETS类型数据。 |
 | int OH_Value_PutFloatVector(OH_Data_Value *value, const float *val, size_t length) | 添加float数组类型数据。 |
-| int OH_Value_PutUnlimitedInt(OH_Data_Value *value, int sign, const uint64_t *trueForm, size_t length) | 添加任意长度的整型数组数据。 |
+| int OH_Value_PutUnlimitedInt(OH_Data_Value *value, int sign, const uint64_t *trueForm, size_t length) | 添加任意长度的整型数据。 |
 | int OH_Value_GetType(OH_Data_Value *value, OH_ColumnType *type) | 获取数据类型。 |
 | int OH_Value_IsNull(OH_Data_Value *value, bool *val) | 检查数据是否为空。 |
 | int OH_Value_GetInt(OH_Data_Value *value, int64_t *val) | 获取整型数据。 |
@@ -441,7 +441,7 @@ int OH_Value_PutUnlimitedInt(OH_Data_Value *value, int sign, const uint64_t *tru
  
 **描述**
  
-添加任意长度的整型数组数据。
+添加任意长度的整型数据。
  
 **起始版本：** 18
  

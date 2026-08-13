@@ -1,6 +1,6 @@
 # 显示图片 (Image)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-graphics-display
 
@@ -777,7 +777,7 @@ struct AddFilterEffectsToImages {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/KIJaZFsnQ0eL_WFqyYUGtA/zh-cn_image_0000002656006274.png?HW-CC-KV=V1&HW-CC-Date=20260730T071846Z&HW-CC-Expire=86400&HW-CC-Sign=6B45B5E83C96A508BE5A97A3156E1D678639BEB1184BC7E8A16C75142724DC3B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/NGslo2beStqoi4QW93ZNYw/zh-cn_image_0000002704272221.png?HW-CC-KV=V1&HW-CC-Date=20260813T095712Z&HW-CC-Expire=86400&HW-CC-Sign=F92B6167FFDF45162718CF96CB027870679455126C5A71D8C826FBA8E45014A8)
 
 
 
@@ -853,4 +853,4 @@ struct EventCall {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/Km7Vj_TJS3mXSfRxqGaN-g/zh-cn_image_0000002655846354.png?HW-CC-KV=V1&HW-CC-Date=20260730T071846Z&HW-CC-Expire=86400&HW-CC-Sign=BE4ECC29BF45899D83A3F7DE5CF39BE88DA6014590855171813F632C10D58279)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/4YA8CdqxQNeLr-g9oZT7_Q/zh-cn_image_0000002674472422.png?HW-CC-KV=V1&HW-CC-Date=20260813T095712Z&HW-CC-Expire=86400&HW-CC-Sign=9D0CCE3D3F28BBA76CD9DC83A6F001BEFA9EE7E0D74FEBD0EC30F6BBA737F33B)

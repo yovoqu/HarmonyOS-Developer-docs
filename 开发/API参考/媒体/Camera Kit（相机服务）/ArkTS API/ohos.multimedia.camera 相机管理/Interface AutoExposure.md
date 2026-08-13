@@ -1,6 +1,6 @@
 # Interface (AutoExposure)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autoexposure
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -177,9 +177,9 @@ function getMeteringPoint(photoSession: camera.PhotoSession): camera.Point | und
 
 setMeteringPoint(point: Point): void
  
-设置曝光区域中心点，曝光点应在0-1坐标系内，该坐标系左上角为{0，0}，右下角为{1，1}。
+设置曝光区域中心点，曝光点应在0-1坐标系内，该坐标系左上角为{0,0}，右下角为{1,1}。
  
-此坐标系是以设备充电口在右侧时的横向设备方向为基准的，例如应用的预览界面布局以设备充电口在下侧时的竖向方向为基准，布局宽高为{w，h}，且触摸点为{x，y}，则转换后的坐标点为{y/h，1-x/w}。
+此坐标系是以设备充电口在右侧时的横向设备方向为基准的，例如应用的预览界面布局以设备充电口在下侧时的竖向方向为基准，布局宽高为{w,h}，且触摸点为{x,y}，则转换后的坐标点为{y/h,1-x/w}。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
  
@@ -189,7 +189,7 @@ setMeteringPoint(point: Point): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| point | Point | 是 | 曝光点，x、y设置范围应在[0，1]之内，超过范围，如果小于0设置0，大于1设置1。 |
+| point | Point | 是 | 曝光点，x、y设置范围应在[0,1]之内，超过范围，如果小于0设置0，大于1设置1。 |
  
  
 **错误码：**

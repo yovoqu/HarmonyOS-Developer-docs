@@ -1,6 +1,6 @@
 # Interface (CameraManager)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -151,7 +151,7 @@ function getSupportedOutputCapability(camera: camera.CameraDevice, cameraManager
 
 getSupportedFullOutputCapability(camera: CameraDevice, mode: SceneMode): CameraOutputCapability
 
-查询指定相机在指定模式下支持的完整输出能力，包括未压缩图（YUV）、HEIF和HDR等能力。
+查询指定相机在指定模式下支持的完整输出能力，包括未压缩图像（YUV）、HEIF和HDR等能力。
 
 > [!NOTE]
 > 使用YUV，HEIF或HDR等能力前，需要先显式调用此方法确保获取完整输出能力。

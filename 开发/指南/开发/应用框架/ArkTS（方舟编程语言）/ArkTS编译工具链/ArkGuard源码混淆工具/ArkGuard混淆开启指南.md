@@ -1,6 +1,6 @@
 # ArkGuard混淆开启指南
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide
 
@@ -154,7 +154,7 @@ console.info(obj002.dynamicPropertyName);// 使用点语法静态访问属性，
 3. 若代码中使用点语法访问未在ArkTS/TS/JS代码中定义的字段，比如访问native实现的so库，字段固定的json文件与数据库等场景：
 
   
-若在代码中引用so库的api，如import testNapi from 'library.so';testNapi.foo();需要使用[-keep-property-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep-property-name) foo 来保留属性名称。
+若在代码中引用so库的API，如import testNapi from 'library.so';testNapi.foo();需要使用[-keep-property-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep-property-name) foo 来保留属性名称。
 
 4. 若在代码中使用json文件中的字段，需要使用-keep-property-name保留json文件中的字段名称。
 
@@ -166,14 +166,14 @@ console.info(obj002.dynamicPropertyName);// 使用点语法静态访问属性，
 
 2. 若构建HAR模块并发布给其他模块使用的场景，要在HAR模块中的obfuscation-rules.txt文件中将对外接口使用-keep-global-name来保留，将对外暴露的class/interface等语法中的属性使用-keep-property-name保留。
 
-3. 若在代码中引用so库的api，如import { napiA } from 'library.so'；需要使用-keep-global-namenapiA保留so接口名称。
+3. 若在代码中引用so库的API，如import { napiA } from 'library.so'；需要使用-keep-global-name napiA保留so接口名称。
 
 4. 验证应用功能以及模块被依赖时的接口调用功能，排查遗漏的场景。若应用出现功能异常，依据混淆后的报错栈从对应的[中间产物](#查看混淆效果)中找到报错行的代码，排查需要配置的白名单并进行保留。
 - 待上述选项应用适配成功后，开启-enable-filename-obfuscation选项。此选项开启后，以下场景需要适配：1. 若代码中有动态import语句，如const path = './filePath'; import(path)，会出现文件引用失败的情况，需要使用-keep-file-name filePath来保留这个文件名。
 
 2. 若应用中有描述路由表信息的[routerMap配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#routermap标签)，其中的pageSourceFile字段标记页面在模块的路径，需要使用-keep-file-name来保留这个路径。
 
-3. 若代码中有传入ohmUrl进行页面跳转，如router.pushUrl({url: '@bundle:com.example.routerPage/Library/Index'})，使用-keep-file-name来保留这个路径。
+3. 若代码中有传入ohmUrl进行页面跳转，如router.pushUrl({url: '@bundle:com.example.routerPage/Library/Index'})，需要使用-keep-file-name来保留该路径中的文件名部分（如Library和Index）。
 
 4. 验证应用功能，排查遗漏的场景。若应用出现功能异常，且报错栈中的路径为混淆后的路径，可以在模块中的build/default/[...]/release/obfuscation/nameCache.json文件中查询到原始路径，进而找到源码文件。另外，[插件hstack](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-hstack)支持自动还原混淆后的报错堆栈。在定位到需要保留的路径后，使用-keep-file-name来保留此路径。
 
@@ -218,4 +218,4 @@ console.info(obj002.dynamicPropertyName);// 使用点语法静态访问属性，
 源代码映射信息文件：sourceMaps.map，该文件记录了压缩/转换后的代码到原始源代码之间的映射关系。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/tPvcJDOURwKmBQGCz8pR6A/zh-cn_image_0000002656005760.png?HW-CC-KV=V1&HW-CC-Date=20260730T071833Z&HW-CC-Expire=86400&HW-CC-Sign=29EECA7D3F7971C3CB522AEE61EE11379EB8049078E5FF62B5A8A09AADD6EA26)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/LihNK7baQfCrtWdESTxYDg/zh-cn_image_0000002674471902.png?HW-CC-KV=V1&HW-CC-Date=20260813T095655Z&HW-CC-Expire=86400&HW-CC-Sign=68D7EB755BFBDF40791D59BFBA6812B6C84AA7989F5674C247F9C0E0B80E1779)

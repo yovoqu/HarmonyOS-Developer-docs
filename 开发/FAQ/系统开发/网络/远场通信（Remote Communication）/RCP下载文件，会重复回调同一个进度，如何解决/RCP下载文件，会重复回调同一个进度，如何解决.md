@@ -1,6 +1,6 @@
 # RCP下载文件，会重复回调同一个进度，如何解决
 
-更新时间：2026-07-30 01:55:38
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-13
 
@@ -9,16 +9,16 @@
 使用RCP接口下载文件，onDownloadProgress会重复回调同一个进度，导致业务逻辑重复执行。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/5NTcbRGkTMWga7vlTmLVLQ/zh-cn_image_0000002628612488.png?HW-CC-KV=V1&HW-CC-Date=20260811T005941Z&HW-CC-Expire=86400&HW-CC-Sign=E4C763B7BF7C7058904FF649CDAF73673B606D26C8D4EE9BDAFAB8ADA2553114)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/UGBRbAeHR9SMgcqhPcymbg/zh-cn_image_0000002628612488.png?HW-CC-KV=V1&HW-CC-Date=20260813T095610Z&HW-CC-Expire=86400&HW-CC-Sign=B1401FBCB7C110A188D149112BC798A809A055D4E9E5D923CEF3117A3F8F9D70)
 
  
  
 
 #### 背景知识
 
-- 通过[downloadToFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section16508121443318)接口下载文件，会在[onDownloadProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section832314187551)回调中返回当前下载进度，该接口需要配置ohos.permission.INTERNET权限，如果使用[PathPreference](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO权限。
+- 通过[downloadToFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#downloadtofile)接口下载文件，会在[onDownloadProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#ondownloadprogress)回调中返回当前下载进度，该接口需要配置ohos.permission.INTERNET权限，如果使用[PathPreference](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO权限。
 - [onHeaderReceive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#onheaderreceive)回调中可以通过content-length获取下载文件的总长度。
-- [onDataReceive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section9264115918536)回调可以获取到当前返回内容的长度。
+- [onDataReceive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#ondatareceive)回调可以获取到当前返回内容的长度。
 
  
  

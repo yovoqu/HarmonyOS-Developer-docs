@@ -1,6 +1,6 @@
 # 冷启动产生ArkCompiler错误日志
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-threading-model-10
 
@@ -97,4 +97,4 @@ ArkTS提供了[TaskPool](https://developer.huawei.com/consumer/cn/doc/harmonyos-
 
 #### 修改建议
 
-将[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)、[AppStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage)等UI装饰器或状态变量和其他的类分开，具体参考：[根据业务场景合理划分项目结构，避免在子线程中直接或间接引入UI](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-taskpool_usage_specifications_and_faqs#section88003418524)的正例部分。
+将[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)、[AppStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage)等UI装饰器或状态变量和其他的类分开，具体参考：[根据业务场景合理划分项目结构，避免在子线程中直接或间接引入UI](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/task-pool-usage-guidelines#根据业务场景合理划分项目结构避免在子线程中直接或间接引入ui)的正例部分。

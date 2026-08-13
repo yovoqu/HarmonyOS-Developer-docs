@@ -1,6 +1,6 @@
 # Class (Int16Array)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-int16array
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,15 +28,15 @@ import { collections } from '@kit.ArkTS';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-**系统能力：** SystemCapability.Utils.Lang
- 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.Utils.Lang
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | buffer | ArrayBuffer | 是 | 否 | ArkTS Int16Array底层使用的buffer。 |
 | byteLength | number | 是 | 否 | ArkTS Int16Array所占的字节数。 |
-| byteOffset | number | 是 | 否 | ArkTS Int16Array距离其ArrayBuffer起始位置的偏移。 |
+| byteOffset | number | 是 | 否 | ArkTS Int16Array距离其ArrayBuffer起始位置的字节偏移。 |
 | length | number | 是 | 否 | ArkTS Int16Array元素个数。 |
 | BYTES_PER_ELEMENT | number | 是 | 否 | ArkTS Int16Array中每个元素所占的字节数。 |
  
@@ -51,9 +51,9 @@ constructor()
  
 构造函数，用于创建一个空ArkTS Int16Array对象。
  
-**系统能力：** SystemCapability.Utils.Lang
- 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.Utils.Lang
  
 **错误码：**
  
@@ -67,6 +67,7 @@ constructor()
 **示例：**
  
 ```text
+// 创建空的ArkTS Int16Array对象
 let int16Array: collections.Int16Array = new collections.Int16Array();
 ```
  
@@ -93,7 +94,7 @@ constructor(length: number)
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -130,7 +131,7 @@ constructor(elements: Iterable&lt;number&gt;)
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -143,7 +144,7 @@ constructor(elements: Iterable&lt;number&gt;)
 // 从一个Iterable构造对象
 let set: Set<number> = new Set<number>([1, 2, 3]);
 // Int16Array [1, 2, 3]
-let array: collections.Int16Array = new collections.Int16Array(set);
+let int16Array: collections.Int16Array = new collections.Int16Array(set);
 ```
  
   
@@ -169,7 +170,7 @@ constructor(array: ArrayLike&lt;number&gt; | ArrayBuffer)
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -181,13 +182,13 @@ constructor(array: ArrayLike&lt;number&gt; | ArrayBuffer)
 ```text
 // 例1 从一个ArrayLike构造对象
 let arrayLike = [1, 3, 5];
-let array: collections.Int16Array = new collections.Int16Array(arrayLike);
+let int16Array: collections.Int16Array = new collections.Int16Array(arrayLike);
 ```
  
 ```text
 // 例2 从一个ArrayBuffer构造对象
 let arrayBuffer: collections.ArrayBuffer = new collections.ArrayBuffer(12);
-let array: collections.Int16Array = new collections.Int16Array(arrayBuffer);
+let int16Array: collections.Int16Array = new collections.Int16Array(arrayBuffer);
 ```
  
 ```text
@@ -218,13 +219,13 @@ constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | buffer | ArrayBuffer | 是 | 用于构造ArkTS Int16Array的ArrayBuffer对象。buffer所占的字节数需是2的整数倍。 |
-| byteOffset | number | 否 | 指定buffer的字节偏移，从0开始，默认为0。 |
+| byteOffset | number | 否 | 指定buffer的字节偏移，从0开始，默认值为0。取值需为2的倍数。 |
 | length | number | 否 | 指定ArkTS Int16Array的长度，默认值为0。 取值需为非负整数，且需满足byteOffset + length * 2 <= buffer.byteLength。 |
  
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -294,7 +295,7 @@ static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;, mapFn: TypedArrayFromMapFn<T
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| arrayLike | ArrayLike&lt;T&gt; | 是 | 用于构造ArrayLike对象。 |
+| arrayLike | ArrayLike&lt;T&gt; | 是 | 用于构造ArkTS Int16Array的ArrayLike对象。 |
 | mapFn | TypedArrayFromMapFn<T, number> | 是 | 映射函数。 |
  
  
@@ -343,7 +344,7 @@ static from(arrayLike: Iterable&lt;number&gt;, mapFn?: TypedArrayFromMapFn<numbe
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| arrayLike | Iterable&lt;number&gt; | 是 | 用于构造的可迭代对象。 |
+| arrayLike | Iterable&lt;number&gt; | 是 | 用于构造ArkTS Int16Array的可迭代对象。 |
 | mapFn | TypedArrayFromMapFn<number, number> | 否 | 映射函数。如果省略，则不对元素进行加工处理。 |
  
  
@@ -402,8 +403,9 @@ static of(...items: number[]): Int16Array
 **示例：**
  
 ```text
-let arr: collections.Int16Array = collections.Int16Array.of(1, 2, 3, 4);
-console.info(arr.toString()); // 预期输出：1,2,3,4
+// 通过of方法创建Int16Array
+let int16Array: collections.Int16Array = collections.Int16Array.of(1, 2, 3, 4);
+console.info(int16Array.toString()); // 预期输出：1,2,3,4
 ```
  
   
@@ -414,7 +416,7 @@ console.info(arr.toString()); // 预期输出：1,2,3,4
 
 toString(): string
  
-ArkTS Int16Array转换为字符串。
+将ArkTS Int16Array转换为字符串，各元素以逗号分隔拼接。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
@@ -429,7 +431,7 @@ ArkTS Int16Array转换为字符串。
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -440,8 +442,8 @@ ArkTS Int16Array转换为字符串。
 **示例：**
  
 ```text
-let array = new collections.Int16Array([1, 2, 3, 4, 5]);
-let stringArray = array.toString();
+let int16Array: collections.Int16Array = new collections.Int16Array([1, 2, 3, 4, 5]);
+let stringArray = int16Array.toString();
 console.info(stringArray); // 预期输出：1,2,3,4,5
 ```
  
@@ -468,7 +470,7 @@ toLocaleString(): string
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -512,12 +514,12 @@ copyWithin(target: number, start: number, end?: number): Int16Array
   
 | 类型 | 说明 |
 | --- | --- |
-| Int16Array | 修改后的Int16Array。 |
+| Int16Array | 修改后的ArkTS Int16Array。 |
  
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -528,9 +530,9 @@ copyWithin(target: number, start: number, end?: number): Int16Array
 **示例：**
  
 ```text
-let array: collections.Int16Array = collections.Int16Array.from([1, 2, 3, 4, 5, 6, 7, 8]);
+let int16Array: collections.Int16Array = collections.Int16Array.from([1, 2, 3, 4, 5, 6, 7, 8]);
 // Int16Array [1, 2, 3, 2, 3, 6, 7, 8]
-let copied: collections.Int16Array = array.copyWithin(3, 1, 3);
+let copied: collections.Int16Array = int16Array.copyWithin(3, 1, 3);
 ```
  
   
@@ -563,7 +565,7 @@ some(predicate: TypedArrayPredicateFn<number, Int16Array>): boolean
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -576,6 +578,7 @@ some(predicate: TypedArrayPredicateFn<number, Int16Array>): boolean
 ```text
 let arrayLike = [-10, 20, -30, 40, -50];
 let int16Array: collections.Int16Array = new collections.Int16Array(arrayLike);
+// 判断是否存在小于0的元素
 int16Array.some((element: number) => element < 0); // true
 ```
  
@@ -609,7 +612,7 @@ every(predicate: TypedArrayPredicateFn<number, Int16Array>): boolean
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -622,6 +625,7 @@ every(predicate: TypedArrayPredicateFn<number, Int16Array>): boolean
 ```text
 let arrayLike = [-10, 20, -30, 40, -50];
 let int16Array: collections.Int16Array = new collections.Int16Array(arrayLike);
+// 判断是否所有元素都大于0
 int16Array.every((element: number) => element > 0);  // false
 ```
  
@@ -652,12 +656,12 @@ fill(value: number, start?: number, end?: number): Int16Array
   
 | 类型 | 说明 |
 | --- | --- |
-| Int16Array | 填充后的Int16Array。 |
+| Int16Array | 填充后的ArkTS Int16Array。 |
  
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -669,8 +673,11 @@ fill(value: number, start?: number, end?: number): Int16Array
  
 ```text
 let arrayLike = [1, 2, 3];
+// 使用4填充所有元素
 new collections.Int16Array(arrayLike).fill(4); // Int16Array [4, 4, 4]
+// 从索引1开始填充4
 new collections.Int16Array(arrayLike).fill(4, 1); // Int16Array [1, 4, 4]
+// 从索引1到2（不含2）填充4
 new collections.Int16Array(arrayLike).fill(4, 1, 2); // Int16Array [1, 4, 3]
 ```
  
@@ -704,7 +711,7 @@ filter(predicate: TypedArrayPredicateFn<number, Int16Array>): Int16Array
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -750,7 +757,7 @@ find(predicate: TypedArrayPredicateFn<number, Int16Array>): number | undefined
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -796,7 +803,7 @@ findIndex(predicate: TypedArrayPredicateFn<number, Int16Array>): number
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -807,8 +814,8 @@ findIndex(predicate: TypedArrayPredicateFn<number, Int16Array>): number
 **示例：**
  
 ```text
-const array: collections.Int16Array = collections.Int16Array.from([1, 2, 3, 4, 5]);
-let foundIndex: number = array.findIndex((element: number) => element % 2 === 0); // 1
+let int16Array: collections.Int16Array = collections.Int16Array.from([1, 2, 3, 4, 5]);
+let foundIndex: number = int16Array.findIndex((element: number) => element % 2 === 0); // 1
 ```
  
   
@@ -834,7 +841,7 @@ forEach(callbackFn: TypedArrayForEachCallback<number, Int16Array>): void
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -846,8 +853,9 @@ forEach(callbackFn: TypedArrayForEachCallback<number, Int16Array>): void
  
 ```text
 let int16Array: collections.Int16Array = collections.Int16Array.from([1, 2, 3]);
+// 遍历Int16Array的每个元素，打印元素值和索引
 int16Array.forEach((value: number, index: number, array: collections.Int16Array) => {
-  console.info(`Element ${value} at index ${index}`);
+  console.info("Element " + value + " at index " + index);
 });
 ```
  
@@ -882,7 +890,7 @@ indexOf(searchElement: number, fromIndex?: number): number
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -979,7 +987,7 @@ join(separator?: string): string
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -991,7 +999,7 @@ join(separator?: string): string
  
 ```text
 let array: collections.Int16Array = collections.Int16Array.from([1, 2, 3, 4, 5]);
-let joined: string = array.join('-'); // "1-2-3-4-5"
+let joined: string = array.join("-"); // "1-2-3-4-5"
 ```
  
   
@@ -1024,7 +1032,7 @@ map(callbackFn: TypedArrayMapCallback<number, Int16Array>): Int16Array
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1069,7 +1077,7 @@ reduce(callbackFn: TypedArrayReduceCallback<number, number, Int16Array>): number
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1093,7 +1101,7 @@ let reducedValue: number = array.reduce((accumulator: number, value: number) => 
 
 reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Int16Array>): number
  
-反向遍历ArkTS Int16Array，对ArkTS Int16Array中的每个元素执行归约函数，并返回最终的归约结果。
+反向遍历ArkTS Int16Array，对每个元素执行归约函数，并返回最终的归约结果。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
@@ -1150,7 +1158,7 @@ reduce(callbackFn: TypedArrayReduceCallback<number, number, Int16Array>, initial
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callbackFn | TypedArrayReduceCallback<number, number, Int16Array> | 是 | 归约函数。 |
-| initialValue | number | 是 | 初始值。 |
+| initialValue | number | 是 | 归约函数首次调用时的初始累加值。 |
  
  
 **返回值：**
@@ -1162,7 +1170,7 @@ reduce(callbackFn: TypedArrayReduceCallback<number, number, Int16Array>, initial
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1197,7 +1205,7 @@ reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Int16Arr
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callbackFn | TypedArrayReduceCallback<U, number, Int16Array> | 是 | 归约函数。 |
-| initialValue | U | 是 | 初始值。 |
+| initialValue | U | 是 | 归约函数首次调用时的初始累加值。 |
  
  
 **返回值：**
@@ -1244,7 +1252,7 @@ reduce&lt;U&gt;(callbackFn: TypedArrayReduceCallback<U, number, Int16Array>, ini
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callbackFn | TypedArrayReduceCallback<U, number, Int16Array> | 是 | 归约函数。 |
-| initialValue | U | 是 | 初始值。 |
+| initialValue | U | 是 | 归约函数首次调用时的初始累加值。 |
  
  
 **返回值：**
@@ -1256,7 +1264,7 @@ reduce&lt;U&gt;(callbackFn: TypedArrayReduceCallback<U, number, Int16Array>, ini
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1280,7 +1288,7 @@ let reducedValue: string = array.reduce<string>((accumulator: string, value: num
 
 reverse(): Int16Array
  
-反转ArkTS Int16Array。
+反转ArkTS Int16Array中元素的顺序。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -1329,12 +1337,12 @@ set(array: ArrayLike&lt;number&gt;, offset?: number): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | array | ArrayLike&lt;number&gt; | 是 | 用于设置的ArrayLike对象。 |
-| offset | number | 否 | 写入的起始位置。默认为0。 |
+| offset | number | 否 | 写入的起始位置。默认值为0。取值为非负整数，且offset + array.length不超过当前Int16Array的长度。 |
  
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1358,7 +1366,7 @@ array.set([1, 2, 3], 3); // Int16Array [0, 0, 0, 1, 2, 3, 0, 0]
 
 slice(start?: number, end?: number): Int16Array
  
-返回一个新的ArkTS Int16Array对象，其包含原ArkTS Int16Array指定范围的内容。
+返回一个新的ArkTS Int16Array对象，其包含原ArkTS Int16Array指定范围的内容。与subarray不同，slice返回的对象不会影响原数组。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -1368,7 +1376,7 @@ slice(start?: number, end?: number): Int16Array
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| start | number | 否 | 开始索引，如果start < 0，则会从start + Int16Array.length位置开始。默认为0。 |
+| start | number | 否 | 开始索引，如果start < 0，则会从start + Int16Array.length位置开始。默认值为0。 |
 | end | number | 否 | 结束索引（不包括该元素），如果end < 0，则会到end + Int16Array.length位置结束。默认为ArkTS Int16Array的长度。 |
  
  
@@ -1376,12 +1384,12 @@ slice(start?: number, end?: number): Int16Array
   
 | 类型 | 说明 |
 | --- | --- |
-| Int16Array | 新的ArkTS Int16Array对象。 |
+| Int16Array | 包含原ArkTS Int16Array指定范围元素的新ArkTS Int16Array对象。 |
  
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1428,7 +1436,7 @@ sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Int16Array
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1440,7 +1448,7 @@ sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Int16Array
  
 ```text
 let array: collections.Int16Array = collections.Int16Array.from([1, 3, 5, 4, 2]);
- // 默认升序排序
+// 默认升序排序
 array.sort(); // Int16Array [1, 2, 3, 4, 5]
 // 使用比较函数升序排序
 array.sort((first: number, second: number) => first - second); // Int16Array [1, 2, 3, 4, 5]
@@ -1474,12 +1482,12 @@ subarray(begin?: number, end?: number): Int16Array
   
 | 类型 | 说明 |
 | --- | --- |
-| Int16Array | 新的ArkTS Int16Array对象。 |
+| Int16Array | 基于相同ArrayBuffer的新ArkTS Int16Array对象。 |
  
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1513,7 +1521,7 @@ at(index: number): number | undefined
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 要返回的Array元素的索引（从零开始），取值为整数。如果index < 0，则会访问index + Int16Array.length位置的元素。 |
+| index | number | 是 | 要返回的ArkTS Int16Array元素的索引（从零开始），取值为整数。如果index < 0，则会访问index + Int16Array.length位置的元素。 |
  
  
 **返回值：**
@@ -1525,7 +1533,7 @@ at(index: number): number | undefined
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1550,7 +1558,7 @@ console.info("element: " + array.at(6));  // element: undefined
 
 includes(searchElement: number, fromIndex?: number): boolean
  
-判断ArkTS Int16Array是否包含特定元素。
+判断ArkTS Int16Array是否包含指定元素。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -1573,7 +1581,7 @@ includes(searchElement: number, fromIndex?: number): boolean
  
 **错误码：**
  
-以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1608,7 +1616,7 @@ entries(): IterableIterator<[number, number]>
   
 | 类型 | 说明 |
 | --- | --- |
-| IterableIterator<[number, number]> | 新的迭代器对象。 |
+| IterableIterator<[number, number]> | 包含ArkTS Int16Array中每个元素键值对的迭代器对象。 |
  
  
 **错误码：**
@@ -1690,7 +1698,7 @@ values(): IterableIterator&lt;number&gt;
   
 | 类型 | 说明 |
 | --- | --- |
-| IterableIterator&lt;number&gt; | 新的迭代器对象。 |
+| IterableIterator&lt;number&gt; | 包含ArkTS Int16Array中每个元素值的迭代器对象。 |
  
  
 **错误码：**
@@ -1751,9 +1759,9 @@ for (const value of iterator) {
  
 ```text
 let int16Array: collections.Int16Array = collections.Int16Array.from([1, 2, 3, 4, 5, 6]);
-
+// 通过迭代器迭代Int16Array
 for (let item of int16Array) {
-  console.info(`value : ${item}`);
+  console.info("value : " + item);
 }
 ```
  
@@ -1775,19 +1783,20 @@ for (let item of int16Array) {
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 所需代码单元的从零开始的索引。 |
+| index | number | 是 | 从0开始的元素索引。取值范围为[0, Int16Array.length - 1]。 |
  
  
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| number | 返回number数据类型。 |
+| number | 返回指定索引位置的元素值。 |
  
  
 **示例：**
  
 ```text
 let int16Array = collections.Int16Array.from([1, 2, 4]);
-console.info("Element at index 1: ", int16Array[1]);
+// 通过索引访问Int16Array的元素
+console.info("Element at index 1: " + int16Array[1]);
 ```

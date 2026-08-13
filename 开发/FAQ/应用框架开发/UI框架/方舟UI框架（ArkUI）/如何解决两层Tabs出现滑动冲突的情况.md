@@ -1,6 +1,6 @@
 # 如何解决两层Tabs出现滑动冲突的情况
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-19
 
@@ -56,4 +56,4 @@ struct TwoLayerTabNestedSliding {
 }
 ```
  
-[限制导航栏的滑动切换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-tabs#限制导航栏的滑动切换)
+[限制导航栏的滑动切换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-tabs#双层tabs嵌套滑动)

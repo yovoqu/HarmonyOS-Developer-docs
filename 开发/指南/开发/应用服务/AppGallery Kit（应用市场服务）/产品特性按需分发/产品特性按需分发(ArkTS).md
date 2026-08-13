@@ -1,6 +1,6 @@
 # 产品特性按需分发(ArkTS)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-moduleinstall_arkts
 
@@ -37,7 +37,7 @@
 #### 约束与限制
 
  - 应用需要上架应用市场。
- - 产品特性按需分发功能支持Phone、Tablet、PC/2in1设备。并且从5.1.1(19)版本开始，新增支持TV设备；从26.0.0版本开始，新增支持Car设备。
+ - 产品特性按需分发功能支持Phone、Tablet、PC/2in1设备。并且从5.1.1(19)版本开始，新增支持TV设备。
  - 产品特性按需分发接入调试功能支持ARM版本、X86版本的模拟器。
  - 使用按需分发前，需先将应用拆分为基础包与增强功能模块，详细操作请参考[模块管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-module-management)。
 
@@ -563,6 +563,6 @@ hdc install entry.hap
 3. [访问设备沙箱路径](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-device-file-explorer#section48216711204)，在[应用el2级别加密数据目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory#应用沙箱路径和真实物理路径的对应关系)下，创建cache/moduleinstall/&lt;ModuleName&gt;目录（这里&lt;ModuleName&gt;是AModulelib），将模块调试包AModulelib.hsp上传至对应模块目录下（请确保模块调试包文件应有读写权限）。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/lkdi6N0GTEWTv-S8MS0h3w/zh-cn_image_0000002656007452.png?HW-CC-KV=V1&HW-CC-Date=20260730T071957Z&HW-CC-Expire=86400&HW-CC-Sign=C37229C2ADD08B0BD93F0E2C41A213BA4531023C3A9F67741AF5DB98C8CF2134)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/fqwfNDhAQwuQAobK3bIxlA/zh-cn_image_0000002674473616.png?HW-CC-KV=V1&HW-CC-Date=20260813T095840Z&HW-CC-Expire=86400&HW-CC-Sign=62B41AA8D53D5EE9E7D1DA1291BE56D7474E6439B14634B75596EBD3ABC55082)
 
 4. 按照[创建按需加载的请求实例](#创建按需加载的请求实例)、[请求按需加载的接口](#请求按需加载模块)、[取消下载任务](#取消下载任务)、[恢复下载任务](#恢复下载任务)和[使用动态模块](#使用动态模块)，无需改动参数即可安装好模块调试包，实现取消及恢复下载任务。监听到安装成功后，对应模块目录下的文件会被自动删除。

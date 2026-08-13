@@ -1,6 +1,6 @@
 # hiappevent_cfg.h
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiappevent-cfg-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,7 +36,7 @@
 | 名称 | 描述 |
 | --- | --- |
 | DISABLE "disable" | 事件打点开关。默认值为false。true：关闭打点功能，false：开启打点功能。 起始版本： 8 |
-| MAX_STORAGE "max_storage" | 事件文件目录存储配额大小。默认值为“10M”（MB）。 起始版本： 8 |
+| MAX_STORAGE "max_storage" | 事件文件目录存储配额大小。默认值为“10MB”。 起始版本： 8 |
  
  
   
@@ -73,6 +73,6 @@
  
 **描述**
  
-事件文件目录存储配额大小。默认值为“10M”。
+事件文件目录存储配额大小。默认值为“10MB”。
  
 **起始版本：** 8

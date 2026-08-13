@@ -1,6 +1,6 @@
 # mutableBuilder：实现全局@Builder动态更新
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-mutablebuilder
 
@@ -180,9 +180,9 @@ Button(`MutableBuilder`).onClick(() => {
 
 使用@Builder装饰器装饰的方法textBuilder作为mutableBuilder的参数，然后将mutableBuilder的返回值赋值给变量switchingBuilder，在Button的点击事件中，使用@Builder装饰器装饰的方法buttonBuilder作为mutableBuilder的参数，将mutableBuilder的返回值再次赋值给变量switchingBuilder，可实现textBuilder 更新为buttonBuilder，以解决wrapBuilder不支持二次赋值的问题。
 
-```text
+```ArkTS
 class TextContent {
-  text: string = '';
+  public text: string = '';
 }
 
 @Builder
@@ -232,7 +232,7 @@ struct MyApp {
 
 由于MutableBuilder继承自WrappedBuilder，故mutableBuilder对应的@Builder具有跟WrappedBuilder同等能力，如下示例，mutableBuilder对应的@Builder方法可作为bindMenu入参，支持点击弹出菜单。
 
-```json
+```ArkTS
 @Builder
 function overBuilder() {
   Row() {
@@ -276,7 +276,7 @@ struct Index {
 
 mutableBuilder对应的@Builder函数中可使用[MutableBinding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#mutablebindingt20)进行包裹来观察状态变量的变化，同时可通过[@Monitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)或[addMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-addmonitor-clearmonitor)监听mutableBuilder中@Builder的变化。
 
-```text
+```ArkTS
 import { UIUtils, MutableBinding } from '@kit.ArkUI';
 
 @Builder

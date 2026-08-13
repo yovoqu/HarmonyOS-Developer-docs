@@ -1,6 +1,6 @@
 # Native侧如何实现socket连接
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-117
 
@@ -65,7 +65,7 @@
 - 非阻塞模式：通过fcntl函数将套接字设置为非阻塞模式。调用recv时，如果套接字的接收缓冲区中没有数据可读，调用将立即返回，返回值为-1，并且errno被设置为EWOULDBLOCK或EAGAIN。适用于需要快速响应或处理多个连接的场景，提高程序的响应速度和处理能力。
 
  - 在非阻塞模式下，recv函数可能会立即返回EAGAIN或EWOULDBLOCK，表示没有数据可读。为了正确处理这种情况，需要使用select或poll等函数来等待数据可读。
-- 网络连接属于耗时任务，所以需要在Native侧创建子线程去执行连接任务，避免主线程因连接时间较长触发[THREAD_BLOCK_6S](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#thread_block_6s-应用主线程卡死超时)。
+- 网络连接属于耗时任务，所以需要在Native侧创建子线程去执行连接任务，避免主线程因连接时间较长触发[THREAD_BLOCK_6S](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#thread_block_6s应用主线程卡死超时)。
 
  
  

@@ -1,6 +1,6 @@
 # AVRecorder录制WAV封装格式的音频文件并识别为文字
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-43
 
@@ -60,7 +60,7 @@ async convert2PCM(wavFilePath: string, pcmFilePath: string) {
 }
 ```
 
-3. 启动语音识别，读取PCM音频文件，通过[writeAudio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#section72131731149)接口持续写入待识别音频数据，并监听识别结果。
+3. 启动语音识别，读取PCM音频文件，通过[writeAudio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#writeaudio)接口持续写入待识别音频数据，并监听识别结果。
 ```json
 onStart: (sessionId: string, eventMessage: string) => {
   console.info(`onStart, sessionId: ${sessionId} eventMessage: ${eventMessage}`);

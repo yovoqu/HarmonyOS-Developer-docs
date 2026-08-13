@@ -1,6 +1,6 @@
 # 如何处理自定义地图通过JSON指定元素无法显示问题
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-38
 
@@ -38,14 +38,14 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/I-nLdF9bSDqe5nV99y4iVQ/zh-cn_image_0000002658793645.png?HW-CC-KV=V1&HW-CC-Date=20260811T005613Z&HW-CC-Expire=86400&HW-CC-Sign=6D4A70F1BCC7D436C395C079D08F7FC709E7CB2606B64609A7AF5E2C2497C31F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/2qHdJEbfTBykqQ8pwcRABA/zh-cn_image_0000002658793645.png?HW-CC-KV=V1&HW-CC-Date=20260813T095555Z&HW-CC-Expire=86400&HW-CC-Sign=F5EBD6E098715B4F2EFDA8239F6E1F4B8223F55ED65DB0104A846D26F68D46CC)
 
  
  
 
 #### 背景知识
 
-[显示自定义地图](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-style)提供两种方法设置自定义地图样式，其中一种方式设置样式内容：通过传入自定义JSON更改地图样式，JSON的定义参见[样式参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-style#section156991344101012)。
+[显示自定义地图](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-style)提供两种方法设置自定义地图样式，其中一种方式设置样式内容：通过传入自定义JSON更改地图样式，JSON的定义参见[样式参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-style#样式参考)。
  
  
 
@@ -65,7 +65,7 @@
 
 #### 修改建议
 
-前提条件：请优先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#section16133115441516)，如需设置沉浸式请参考[窗口全屏布局方案](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-develop-apply-immersive-effects#section15671730447)。
+前提条件：请优先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#开通地图服务)，如需设置沉浸式请参考[窗口全屏布局方案](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-develop-apply-immersive-effects#窗口全屏布局方案)。
  
 - JSON文件如mapStyle.json中将visibility可见属性应该从hidden改为false。
 ```json
@@ -98,7 +98,7 @@
 ```
 
 - JSON文件放入..\entry\src\main\resources\rawfile下。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/4b-UL1guRrW-cCP1GsHIPQ/zh-cn_image_0000002628554280.png?HW-CC-KV=V1&HW-CC-Date=20260811T005613Z&HW-CC-Expire=86400&HW-CC-Sign=CFA79CD269089892CE4FE6A8BF48DA1E86A48ABB51BD8F27FEB808FB88A33581)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/gjdrvRkcRyqywx1etu6MbA/zh-cn_image_0000002628554280.png?HW-CC-KV=V1&HW-CC-Date=20260813T095555Z&HW-CC-Expire=86400&HW-CC-Sign=F935C723FEF17A2EC84119B858736DF9C3C106A3B054E2D6447A8F5491074BA3)
 
 - 代码示例如下：
 ```json

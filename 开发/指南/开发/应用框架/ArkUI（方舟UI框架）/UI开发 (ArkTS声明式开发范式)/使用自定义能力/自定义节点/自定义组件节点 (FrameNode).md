@@ -1,6 +1,6 @@
 # 自定义组件节点 (FrameNode)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-framenode
 
@@ -2107,7 +2107,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/fLwdd5j2ScuasSTVi__8MQ/zh-cn_image_0000002686086001.png?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=165A344BAE0B995C36289DD860AE8C97D6A53CB5AE1BCC5930B3E3273CEEF489)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/8dHRkgFcTXqw_lYk8Y9l6g/zh-cn_image_0000002704392607.png?HW-CC-KV=V1&HW-CC-Date=20260813T095720Z&HW-CC-Expire=86400&HW-CC-Sign=B18CD09A3FA3930E165BAE7F72AEA7C42820C324ADBB6172BD9C7F1BCCBCDECB)
 
 
 
@@ -2211,7 +2211,7 @@ struct ListNodeTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/nFSyB_fTQRObaMnCGtp5lg/zh-cn_image_0000002685926173.png?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=54CCC361FECE039BCA0B155941DB1313D97CEC8A55DBF0B8B2D65C3DB4A95EE0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/U0VDrKxJRHKUnHrGS5f2Yw/zh-cn_image_0000002674632486.png?HW-CC-KV=V1&HW-CC-Date=20260813T095720Z&HW-CC-Expire=86400&HW-CC-Sign=1FDE39326F811D6ACD20418EEFC9723A29F53948CA793DDB6F57E6F82189D024)
 
 
 
@@ -2286,4 +2286,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/2JaqROwxTIymln5rytcxjQ/zh-cn_image_0000002656006494.png?HW-CC-KV=V1&HW-CC-Date=20260730T071851Z&HW-CC-Expire=86400&HW-CC-Sign=3258265BCB9B508083ECE80FB21BE56D25DF0FC520B4EBA1C25C498015828183)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/8IUwq7DWTcul3-E2kljYtg/zh-cn_image_0000002704272441.png?HW-CC-KV=V1&HW-CC-Date=20260813T095720Z&HW-CC-Expire=86400&HW-CC-Sign=13EC18349D05C7ABC81BCC65875851D2A9872DC5E19E402C078E9E766B7146B6)

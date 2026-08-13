@@ -1,6 +1,6 @@
 # 基于HMRouter的页面跳转
 
-更新时间：2026-07-28 03:34:01
+更新时间：2026-08-10 06:55:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-hmrouter
 
@@ -53,9 +53,8 @@ HMRouterMgr.to('ProductContent')
   .onResult((popInfo: HMPopInfo) => {
     const pageName = popInfo.srcPageInfo.name;
     const params = popInfo.result;
-    console.log(`page name is ${pageName}, params is ${JSON.stringify(params)}`);
   })
-  .pushAsync()
+  .pushAsync();
 ```
 
 3. 在跳转的目标页面使用HMRouterMgr.getCurrentParam()获取到传递的页面参数。
@@ -75,7 +74,7 @@ export struct ProductContent {
 
 4. 如需使用页面返回功能，在对应的业务逻辑位置使用HMRouterMgr提供的pop()方法实现页面返回，同样的pop()方法支持传入navigationId，同时HMRouter还支持在返回时通过配置param参数向其所返回的页面传递参数。
 ```ArkTS
-HMRouterMgr.pop({ navigationId: 'mainNavigationId', param: this.param })
+HMRouterMgr.pop({ navigationId: 'mainNavigationId', param: this.param });
 ```
 
  
@@ -89,7 +88,7 @@ HMRouterMgr.pop({ navigationId: 'mainNavigationId', param: this.param })
 HMRouterMgr.to('MainPage')
   .withNavigation('mainNavigationId')
   .withParam(0)
-  .pushAsync()
+  .pushAsync();
 ```
  
  
@@ -115,7 +114,7 @@ export class LoginCheckInterceptor implements IHMInterceptor {
     const context = chain.getContext();
     // ...
       if (!!AppStorage.get('isLogin')) {
-        await chain.onContinue()
+        await chain.onContinue();
       } else {
         info.context.getPromptAction().showToast({ message: '请先登录' });
         HMRouterMgr.push({
@@ -185,7 +184,7 @@ export struct PrivacyDialogDetail {
 
 当从某些页面返回时，应用希望通过弹窗方式让用户确认是否要执行返回操作，例如在订单支付页面中用户执行返回操作时，通常会弹窗提示用户是否确认退出，当用户点击确认后才会执行页面退出逻辑，此场景下就可以考虑使用弹窗类型页面加上自定义生命周期来实现。操作步骤如下：1. 开发者首先需要根据自己的业务需求，来进行自定义弹窗的开发。
 ```ArkTS
-@HMRouter({ pageUrl: 'PayCancel', dialog: true,animator:'PayCancelDialog' })
+@HMRouter({ pageUrl: 'PayCancel', dialog: true, animator:'PayCancelDialog' })
 @Component
 export struct PayCancel {
   // ...
@@ -224,12 +223,12 @@ export struct PayCancel {
 ```ArkTS
 @HMLifecycle({ lifecycleName: 'ExitPayLifecycle' })
 export class ExitPayLifecycle implements IHMLifecycle {
-  model: ObservedModel = new ObservedModel();
+  public model: ObservedModel = new ObservedModel();
 
   onBackPressed(): boolean {
     HMRouterMgr.to('PayCancel')
       .withParam(this.model.pageUrl)
-      .pushAsync()
+      .pushAsync();
     return true;
   }
 }
@@ -316,7 +315,7 @@ const globalPageTransitionEffect: IHMAnimator.Effect = new IHMAnimator.Effect({
   direction: IHMAnimator.Direction.BOTTOM_TO_TOP,
   opacity: { opacity: 0.5 },
   scale: { x: 0.5, y: 0.2 }
-})
+});
 ```
  定义完成后，只需要将实例传入HMNavigation组件的dialogAnimator参数即可。
 
@@ -326,7 +325,7 @@ HMNavigation({
   navigationId: 'mainNavigationId', homePageUrl: 'HomeContent', options: {
     dialogAnimator: globalPageTransitionEffect,
   }
-})
+});
 ```
 
 - 定义全局弹窗效果。同样的，开发者也只需要按照业务需求创建出对应的IHMAnimator.Effect实例，代码示例如下。
@@ -335,7 +334,7 @@ const globalPageTransitionEffect: IHMAnimator.Effect = new IHMAnimator.Effect({
   direction: IHMAnimator.Direction.BOTTOM_TO_TOP,
   opacity: { opacity: 0.5 },
   scale: { x: 0.5, y: 0.2 }
-})
+});
 ```
  将创建好的实例作为dialogAnimator的参数进行传入即可。
 
@@ -345,7 +344,7 @@ HMNavigation({
   navigationId: 'mainNavigationId', homePageUrl: 'HomeContent', options: {
     dialogAnimator: globalPageTransitionEffect,
   }
-})
+});
 ```
 
 
@@ -368,20 +367,28 @@ export class CustomAnimator implements IHMAnimator {
   effect(enterHandle: HMAnimatorHandle, exitHandle: HMAnimatorHandle): void {
     // to animator
     enterHandle.start((modifier: AttributeUpdater<NavDestinationAttribute>) => {
-      modifier.attribute?.translate({ y: '100%' }).scale({ x: 0.7 }).opacity(0.3)
+      modifier.attribute?.translate({ y: ANIMATOR_TRANSLATE_Y_START })
+        .scale({ x: ANIMATOR_SCALE_X })
+        .opacity(ANIMATOR_OPACITY_START);
     }).finish((modifier: AttributeUpdater<NavDestinationAttribute>) => {
-      modifier.attribute?.translate({ y: '0' }).scale({ x: 1 }).opacity(1)
-    })
-    enterHandle.duration = 400;
+      modifier.attribute?.translate({ y: ANIMATOR_TRANSLATE_Y_END })
+        .scale({ x: 1 })
+        .opacity(ANIMATOR_OPACITY_END);
+    });
+    enterHandle.duration = ANIMATOR_DURATION;
     enterHandle.curve = Curve.Linear;
 
     // cut animator
     exitHandle.start((modifier: AttributeUpdater<NavDestinationAttribute>) => {
-      modifier.attribute?.translate({ y: '0' }).scale({ x: 1 }).opacity(1)
+      modifier.attribute?.translate({ y: ANIMATOR_TRANSLATE_Y_END })
+        .scale({ x: 1 })
+        .opacity(ANIMATOR_OPACITY_END);
     }).finish((modifier: AttributeUpdater<NavDestinationAttribute>) => {
-      modifier.attribute?.translate({ y: '100%' }).scale({ x: 0.7 }).opacity(0.3)
-    })
-    exitHandle.duration = 400;
+      modifier.attribute?.translate({ y: ANIMATOR_TRANSLATE_Y_START })
+        .scale({ x: ANIMATOR_SCALE_X })
+        .opacity(ANIMATOR_OPACITY_START);
+    });
+    exitHandle.duration = ANIMATOR_DURATION;
     enterHandle.curve = Curve.Linear;
   }
 }
@@ -392,7 +399,7 @@ export class CustomAnimator implements IHMAnimator {
 ```ArkTS
 HMRouterMgr.to('ProductContent')
   .withAnimator(new CustomAnimator())
-  .pushAsync()
+  .pushAsync();
 ```
  
  
@@ -420,16 +427,16 @@ HMRouterMgr.to('ProductContent')
 export class MyAnimator1 implements IHMAnimator {
   effect(enterHandle: HMAnimatorHandle, exitHandle: HMAnimatorHandle): void {
     enterHandle.start((modifier: AttributeUpdater<NavDestinationAttribute>) => {
-      modifier.attribute?.translate({ y: '100%' })
+      modifier.attribute?.translate({ y: ANIMATOR_TRANSLATE_START });
     }).finish((modifier: AttributeUpdater<NavDestinationAttribute>) => {
-      modifier.attribute?.translate({ y: '0' })
-    })
+      modifier.attribute?.translate({ y: ANIMATOR_TRANSLATE_END });
+    });
 
     exitHandle.start((modifier: AttributeUpdater<NavDestinationAttribute>) => {
-      modifier.attribute?.translate({ y: '0' })
+      modifier.attribute?.translate({ y: ANIMATOR_TRANSLATE_END });
     }).finish((modifier: AttributeUpdater<NavDestinationAttribute>) => {
-      modifier.attribute?.translate({ y: '100%' })
-    })
+      modifier.attribute?.translate({ y: ANIMATOR_TRANSLATE_START });
+    });
   }
 }
 ```
@@ -441,18 +448,18 @@ export class MyAnimator1 implements IHMAnimator {
 export class MyAnimator2 implements IHMAnimator {
   effect(enterHandle: HMAnimatorHandle, exitHandle: HMAnimatorHandle): void {
     enterHandle.start((modifier: AttributeUpdater<NavDestinationAttribute>) => {
-      modifier.attribute?.translate({ x: '100%', y: '0' })
+      modifier.attribute?.translate({ x: ANIMATOR_TRANSLATE_START, y: ANIMATOR_TRANSLATE_END });
     }).finish((modifier: AttributeUpdater<NavDestinationAttribute>) => {
-      modifier.attribute?.translate({ x: 0 })
-    })
-    enterHandle.duration = 500;
+      modifier.attribute?.translate({ x: 0 });
+    });
+    enterHandle.duration = ANIMATOR_DURATION;
 
     exitHandle.start((modifier: AttributeUpdater<NavDestinationAttribute>) => {
-      modifier.attribute?.translate({ x: '0' })
+      modifier.attribute?.translate({ x: ANIMATOR_TRANSLATE_END });
     }).finish((modifier: AttributeUpdater<NavDestinationAttribute>) => {
-      modifier.attribute?.translate({ x: '100%' })
-    })
-    exitHandle.duration = 500;
+      modifier.attribute?.translate({ x: ANIMATOR_TRANSLATE_START });
+    });
+    exitHandle.duration = ANIMATOR_DURATION;
   }
 }
 ```
@@ -467,9 +474,9 @@ export struct CommentInput {
   build() {
     Row() {
       Image($r('app.media.icon_comments'))
-        .width(24)
-        .height(24)
-        .margin({ right: 16 })
+        .width(IMAGE_WIDTH_AND_HEIGHT)
+        .height(IMAGE_WIDTH_AND_HEIGHT)
+        .margin({ right: IMAGE_MARGIN_RIGHT })
         .onClick(() => {
           if (this.isLandscape) {
             HMRouterMgr.to('liveComments')
@@ -477,23 +484,23 @@ export struct CommentInput {
               .withParam({commentRenderNode: ''})
               .withAnimator(new MyAnimator2())
               .onResult((paramInfo: PopInfo)=>{
-                this.videoWidth = '100%';
+                this.videoWidth = VIDEO_WIDTH_FULL;
               })
-              .pushAsync()
-            this.videoWidth = '50%';
+              .pushAsync();
+            this.videoWidth = VIDEO_WIDTH_HALF;
           } else {
             HMRouterMgr.to('liveComments')
               .withNavigation(this.queryNavigationInfo()?.navigationId)
               .withParam({commentRenderNode: ''})
               .withAnimator(new MyAnimator1())
               .onResult((paramInfo: PopInfo)=>{
-                this.videoHeight = '100%';
+                this.videoHeight = VIDEO_HEIGHT_FULL;
               })
-              .pushAsync()
-            this.videoHeight = '30%'
+              .pushAsync();
+            this.videoHeight = VIDEO_HEIGHT_MINI;
           }
         });
-    }
+    };
   }
 }
 ```
@@ -593,10 +600,8 @@ export class ExampleLifecycle implements IHMLifecycle {
   private requestModel: RequestModel = new RequestModel();
 
   onPrepare(): void {
-    console.log(this.requestModel.data);
     let task: taskpool.Task = new taskpool.Task(networkRequest, 'onPrepare');
-    taskpool.execute(task).then((res: Object) => {
-      console.log(res + '');
+    taskpool.execute(task).then((res: object) => {
     });
   }
 
@@ -623,8 +628,8 @@ function buildComment(liveComments: LiveCommentsProduct[]) {
 }
 
 export class CommentNodeController extends NodeController {
-  commentList: BuilderNode<[LiveCommentsProduct[]]> | null = null;
-  commentListData: LiveCommentsProduct[] = new LiveCommentsModel().getLiveCommentsList();
+  public commentList: BuilderNode<[LiveCommentsProduct[]]> | null = null;
+  public commentListData: LiveCommentsProduct[] = new LiveCommentsModel().getLiveCommentsList();
 
   constructor() {
     super();
@@ -637,14 +642,14 @@ export class CommentNodeController extends NodeController {
     return this.commentList!.getFrameNode();
   }
 
-  nodeBuild(context: UIContext) {
+  nodeBuild(context: UIContext): void {
     this.commentList = new BuilderNode(context);
     if (this.commentList !== null) {
       this.commentList.build(wrapBuilder<[LiveCommentsProduct[]]>(buildComment), this.commentListData);
     }
   }
 
-  dispose() {
+  dispose(): void {
     if (this.commentList !== null) {
       this.commentList.dispose();
     }
@@ -656,7 +661,7 @@ export class CommentNodeController extends NodeController {
 ```ArkTS
 @HMLifecycle({ lifecycleName: 'liveHomeLifecycle' })
 export class LiveHomeLifecycle implements IHMLifecycle {
-  commentRenderNode: CommentNodeController = new CommentNodeController();
+  public commentRenderNode: CommentNodeController = new CommentNodeController();
   // ...
   onAppear(ctx: HMLifecycleContext): void {
     this.commentRenderNode.makeNode(ctx.uiContext);
@@ -707,7 +712,6 @@ export class PageDurationLifecycle implements IHMLifecycle {
 
   onHidden(ctx: HMLifecycleContext): void {
     const duration = new Date().getTime() - this.time;
-    console.log(`Page ${ctx.navContext?.pathInfo.name} stay ${duration}`);
   }
 }
 ```

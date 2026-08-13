@@ -1,6 +1,6 @@
 # 使用OHAudio开发音频会话功能(C/C++)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohaudio-for-session
 
@@ -329,7 +329,7 @@ void AudioSessionStateChangedCallback(OH_AudioSession_StateChangedEvent event)
 
 如果本应用未使用音频会话管理，也可以针对单条音频流设置独立的音频会话行为。对于播放流，详情请参考[OH_AudioRenderer_SetIndependentAudioSessionStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h#oh_audiorenderer_setindependentaudiosessionstrategy)。对于录音流，详情请参考[OH_AudioCapturer_SetIndependentAudioSessionStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiocapturer-h#oh_audiocapturer_setindependentaudiosessionstrategy)。
 
-```cpp
+```text
 // AUDIO_SESSION_SCENE_MEDIA 仅为示例，实际使用时请根据具体情况进行修改。
 OH_AudioSessionManager_SetScene(audioSessionManager, AUDIO_SESSION_SCENE_MEDIA);
     

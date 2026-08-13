@@ -1,6 +1,6 @@
 # 使用typeNode实现画中画功能开发（ArkTS）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pipwindow-typenode
 
@@ -1883,4 +1883,4 @@ export class PipManager {
 以上示例代码对应的示意图如下所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/HD1K7vQHSge1mVfqn1pulQ/zh-cn_image_0000002656468073.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020805Z&HW-CC-Expire=86400&HW-CC-Sign=1328425F262A7BF789A154187D39AE713CA72183AF202A30908F648951EEF67B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/PHEYSAqwTmuRcNr9tIRJRQ/zh-cn_image_0000002704272631.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095733Z&HW-CC-Expire=86400&HW-CC-Sign=6B446DCA9E11C6E8CE25D08E85789F36D5DFA4545EEC7601E515690C3264DED5)

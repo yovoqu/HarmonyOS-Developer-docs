@@ -1,6 +1,6 @@
 # HdsVisualComponent
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hds-visual-component
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -107,8 +107,6 @@ scene(sceneType: HdsSceneType, controller: HdsSceneController, callback?: HdsSce
 视效场景。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
- 
-**卡片能力：** 从6.0.2(22)开始，该接口支持在ArkTS卡片中使用。
  
 **系统能力：** SystemCapability.UIDesign.HDSComponent.Core
  
@@ -349,4 +347,4 @@ struct EdgeFlowLightVisualComponent {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/_Y5U2qogQXGDQ1fTPLjSww/zh-cn_image_0000002626231234.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020050Z&HW-CC-Expire=86400&HW-CC-Sign=5928B394A898CD5F34F74B7BE1F9939C2B35BAD810DC316A323C72D49DF5FE78)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/sPqR7BG6QG-dQ9MGEBUkvg/zh-cn_image_0000002704395499.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095502Z&HW-CC-Expire=86400&HW-CC-Sign=FAB4599A878F3D77D40E1BD76C042ABFFD731962B8A113D0EE45B28C0AAE0AD9)

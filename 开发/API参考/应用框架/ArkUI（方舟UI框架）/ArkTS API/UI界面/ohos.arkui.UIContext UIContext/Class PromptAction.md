@@ -1,6 +1,6 @@
 # Class (PromptAction)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -387,13 +387,13 @@ struct Index {
 未设置系统材质时：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/PWMXfrk1QS2GvhoNIsWEnQ/zh-cn_image_0000002656006376.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071445Z&HW-CC-Expire=86400&HW-CC-Sign=375ECBCA474FD39CDE8B6C4A56914838585D5B637ACCF29CD07C8F0BB259ACB7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/yH8llrYeRGSzfZH_VVFbGw/zh-cn_image_0000002704272323.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095444Z&HW-CC-Expire=86400&HW-CC-Sign=7D972DC6F660CBA601A1C32C10F9722A3668FCFB38A14E2D225061A28F10FC1C)
 
 
 设置系统材质后：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/ZjzE_UNJQnqT5BaUY5ypSg/zh-cn_image_0000002655846456.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071445Z&HW-CC-Expire=86400&HW-CC-Sign=9252EEEA8C75567206CA9BC4D5B3C095D87C36BF5A50819F7E71ADF4E844E487)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/KZViPfYCTBmrhDHxzjB2iA/zh-cn_image_0000002674472524.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095444Z&HW-CC-Expire=86400&HW-CC-Sign=9EDCE66DA7EFB65213B6440E1A991E86CD370B8792DC4E61D54F06D65D13B248)
 
 
 
@@ -732,7 +732,7 @@ struct Index {
 
 openCustomDialog<T extends Object>(dialogContent: ComponentContent&lt;T&gt;, options?: promptAction.BaseDialogOptions): Promise&lt;void&gt;
 
-创建并弹出dialogContent对应的自定义弹窗，使用Promise异步回调。通过该接口弹出的弹窗内容样式完全按照dialogContent中设置的样式显示，即相当于customDialog设置customStyle为true时的显示效果。
+创建并弹出dialogContent对应的自定义弹窗，使用Promise异步回调。通过该接口弹出的弹窗内容样式完全按照dialogContent中设置的样式显示，即相当于customDialog设置[customStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontrolleroptions对象说明)为true时的显示效果。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -990,7 +990,7 @@ openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent
 
 创建并弹出dialogContent对应的自定义弹窗，使用Promise异步回调。支持传入弹窗控制器与自定义弹窗绑定，后续可以通过控制器控制自定义弹窗。
 
-通过该接口弹出的弹窗内容样式完全按照dialogContent中设置的样式显示，即相当于customDialog设置customStyle为true时的显示效果。
+通过该接口弹出的弹窗内容样式完全按照dialogContent中设置的样式显示，即相当于customDialog设置[customStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontrolleroptions对象说明)为true时的显示效果。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 

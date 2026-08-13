@@ -1,6 +1,6 @@
 # oh_display_manager.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-display-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -313,7 +313,7 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_GetDefaultDisplayDensityD
   
 | 参数项 | 描述 |
 | --- | --- |
-| int32_t *densityDpi | 屏幕的物理像素密度，表示每英寸上的像素点数。该参数为整数，单位为px，实际能取到的值取决于不同设备设置里提供的可选值。此处作为出参返回。 |
+| int32_t *densityDpi | 屏幕的物理像素密度，表示每英寸上的像素点数。该参数为整数，实际能取到的值取决于不同设备设置里提供的可选值。此处作为出参返回。 |
  
  
 **返回：**

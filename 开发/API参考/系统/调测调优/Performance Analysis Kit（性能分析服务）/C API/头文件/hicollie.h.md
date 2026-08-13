@@ -1,6 +1,6 @@
 # hicollie.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hicollie-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -153,14 +153,14 @@ enum OH_HiCollie_Freeze_Type
 
 | 枚举项 | 描述 |
 | --- | --- |
-| OH_THREAD_BLOCK_3S | 主线程超时一个周期。 起始版本： 24 |
-| OH_THREAD_BLOCK_6S | 主线程超时两个周期。 起始版本： 24 |
-| OH_LIFECYCLE_HALF_TIMEOUT | Ability生命周期超时一个周期。 起始版本： 24 |
-| OH_LIFECYCLE_TIMEOUT | Ability生命周期超时两个周期。 起始版本： 24 |
-| OH_APP_INPUT_BLOCK | 输入事件超时。 起始版本： 24 |
-| OH_BUSINESS_THREAD_BLOCK_3S | 通过OH_HiCollie_Report上报3S冻屏事件。 起始版本： 24 |
-| OH_BUSINESS_THREAD_BLOCK_6S | 通过OH_HiCollie_Report上报6S冻屏事件。 起始版本： 24 |
-| OH_BUSINESS_INPUT_BLOCK | 通过OH_HiCollie_ReportInputBlock上报冻屏事件。 起始版本： 24 |
+| OH_THREAD_BLOCK_3S | 主线程超时一个周期。 |
+| OH_THREAD_BLOCK_6S | 主线程超时两个周期。 |
+| OH_LIFECYCLE_HALF_TIMEOUT | Ability生命周期超时一个周期。 |
+| OH_LIFECYCLE_TIMEOUT | Ability生命周期超时两个周期。 |
+| OH_APP_INPUT_BLOCK | 输入事件超时。 |
+| OH_BUSINESS_THREAD_BLOCK_3S | 通过OH_HiCollie_Report上报3S冻屏事件。 |
+| OH_BUSINESS_THREAD_BLOCK_6S | 通过OH_HiCollie_Report上报6S冻屏事件。 |
+| OH_BUSINESS_INPUT_BLOCK | 通过OH_HiCollie_ReportInputBlock上报冻屏事件。 |
 
 
 
@@ -540,7 +540,7 @@ typedef size_t (*OH_HiCollie_FreezeCallback)(OH_HiCollie_Freeze_Type type, void*
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/QHfFwguWS3CIBIUIPzvCdA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071647Z&HW-CC-Expire=86400&HW-CC-Sign=74CF5C47B947DE422D45F206E1DE16E951CE7DBB80CBB477302742C62B629C6B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/utPMJrDwRdSPa_wpur2cyg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095517Z&HW-CC-Expire=86400&HW-CC-Sign=B1606597D1118DF3BDD7A07F4DE6C5FEF9A96BBABBBE30A8AB2D971F343F0DA1)
 
 
 返回值超过64KB时，日志内容可能为空。

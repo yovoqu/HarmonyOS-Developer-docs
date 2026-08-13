@@ -1,6 +1,6 @@
 # 画布操作及状态处理（ArkTS）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-operation-state-arkts
 
@@ -236,7 +236,7 @@ canvas.detachPen();
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/KIjOsQlkS7i8IS8RDdjKew/zh-cn_image_0000002626069332.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020913Z&HW-CC-Expire=86400&HW-CC-Sign=4CD70E8EC577765E165ACB8D0D0AFC67AE911CF26B8103DF50EBAB31C8F1B0D6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/oi5NjLLNSLKJSHr2SPmrlw/zh-cn_image_0000002704393415.jpg?HW-CC-KV=V1&HW-CC-Date=20260813T095833Z&HW-CC-Expire=86400&HW-CC-Sign=979DBE3461F2CB7017E82F99F6528F61C44F10325BAFC270EE0E9ED9EBC42C64)
 
 
 

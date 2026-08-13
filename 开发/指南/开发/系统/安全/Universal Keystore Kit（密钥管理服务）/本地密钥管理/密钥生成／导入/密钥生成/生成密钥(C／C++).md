@@ -1,13 +1,13 @@
 # 生成密钥(C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-ndk
 
 以ECC算法为例，生成随机密钥。具体的场景介绍及支持的算法规格，请参考[密钥生成支持的算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview#支持的算法)。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/93xNSsB1RbybEQ5c9JBPgQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020837Z&HW-CC-Expire=86400&HW-CC-Sign=1D8C330C468AF61FD37AE3331BEFEF6B260C037AC316EBA33F6EEC15386BD39B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/pj3yExE-TP6sRkftjR_YRA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095801Z&HW-CC-Expire=86400&HW-CC-Sign=11124E40112C0209555533C3450C474881320B1E750CF7E873169BBEAD211D5E)
 
 
 密钥别名中禁止包含个人数据等敏感信息。

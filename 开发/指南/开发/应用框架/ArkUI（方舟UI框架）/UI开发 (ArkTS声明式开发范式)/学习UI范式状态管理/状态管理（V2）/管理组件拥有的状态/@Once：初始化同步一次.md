@@ -1,6 +1,6 @@
 # @Once：初始化同步一次
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-once
 
@@ -116,7 +116,7 @@ struct MyComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/m9PryaIISfeZyA_Cb_hJxw/zh-cn_image_0000002686085411.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=3D75371ABB66AFE978CCF717512394E7EA15ACEC0BDEB2EF5487A81B5F9400CD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/KxPC_asMQaCP8R6hrOY1Mw/zh-cn_image_0000002704392017.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=25A516C74C8A7CE0DA94A2488CE22623A47DB0DDAED1E139394561890E7FBB98)
 
 
 
@@ -200,4 +200,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/edCJI6_ySKmp3tbO0Zhv3g/zh-cn_image_0000002685925583.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=96B258450276281BEB623B6B9CF54892A24E371D341DFCF29D041C3AC0CAF827)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/db_c5tnGReiW1FTNNXnQEA/zh-cn_image_0000002674631894.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=FA06CF5A11FB6167768E62B651EBAD767CCCBC77D369AD73C98064BEBB0600C7)

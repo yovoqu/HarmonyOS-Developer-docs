@@ -1,6 +1,6 @@
 # image_mdk.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-mdk-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,7 +37,7 @@
 | --- | --- | --- |
 | OhosImageRect | - | 定义图像矩形信息。 |
 | ImageNative_ | ImageNative | 为图像接口定义native层图像对象。 |
-| OhosImageComponent | - | 定义图像组成信息。 |
+| OhosImageComponent | - | 定义图像组件信息。 |
 
 
 

@@ -1,6 +1,6 @@
 # @ohos.geoLocationManager (位置服务)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -3443,8 +3443,8 @@ try {
     "additionSize": 0
   }
   let location2: geoLocationManager.Location = {
-    "latitude": 30.12,
-    "longitude": 120.11,
+    "latitude": 31.12,
+    "longitude": 121.11,
     "altitude": 0,
     "accuracy": 0,
     "speed": 0,

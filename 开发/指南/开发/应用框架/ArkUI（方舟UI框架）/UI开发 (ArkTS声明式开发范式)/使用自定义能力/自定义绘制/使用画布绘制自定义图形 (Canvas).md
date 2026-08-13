@@ -1,6 +1,6 @@
 # 使用画布绘制自定义图形 (Canvas)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-drawing-customization-on-canvas
 
@@ -439,13 +439,13 @@ struct CanvasContentUpdate {
 
  - 从API version 13开始，使用[setOnVisibleAreaApproximateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-uicommonevent#setonvisibleareaapproximatechange)接口监听Canvas组件可见性。
 
-  
-```text
+
+```ArkTS
 import { ColorMetrics } from '@kit.ArkUI';
 
 @Entry
 @Component
-struct Page {
+struct CanvasContentSetOnVisibleAreaApproximateChange {
   private canvasContext: CanvasRenderingContext2D = new CanvasRenderingContext2D()
   private timerId: number = -1;
 
@@ -475,22 +475,22 @@ struct Page {
           let frameNode = this.canvasContext.canvas;
           frameNode.commonEvent.setOnVisibleAreaApproximateChange({ ratios: [0.0] },
             (isVisible: boolean, currentRatio: number) => {
-            // canvas不可见
-            if (!isVisible && currentRatio <= 0) {
-              clearInterval(this.timerId)
-              this.timerId = -2
-            }
-            // canvas可见
-            if (isVisible) {
-              if (this.timerId == -2) {
-                this.timerId = setInterval(() => {
-                  this.drawRandomCircle()
-                }, 500)
+              // canvas不可见
+              if (!isVisible && currentRatio <= 0) {
+                clearInterval(this.timerId)
+                this.timerId = -2
               }
-            }
-          })
+              // canvas可见
+              if (isVisible) {
+                if (this.timerId == -2) {
+                  this.timerId = setInterval(() => {
+                    this.drawRandomCircle()
+                  }, 500)
+                }
+              }
+            })
         })
-      Button("draw sth")
+      Button('draw sth')
         .onClick(() => {
           if (this.timerId < 0) {
             this.timerId = setInterval(() => {
@@ -505,17 +505,19 @@ struct Page {
 }
 ```
 
+
 ![](assets/使用画布绘制自定义图形%20(Canvas)/file-20260514130718664-6.jpg)
+
 
  - 从API version 17开始，使用[onVisibleAreaApproximateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-visible-area-change-event#onvisibleareaapproximatechange17)接口监听Canvas组件可见性。
 
-  
-```text
+
+```ArkTS
 import { ColorMetrics } from '@kit.ArkUI';
 
 @Entry
 @Component
-struct Page {
+struct CanvasContentOnVisibleAreaApproximateChange {
   private canvasContext: CanvasRenderingContext2D = new CanvasRenderingContext2D()
   private timerId: number = -1;
 
@@ -542,22 +544,22 @@ struct Page {
         .width(300)
         .height(300)
         .onVisibleAreaApproximateChange({ ratios: [0.0] },
-            (isVisible: boolean, currentRatio: number) => {
-              // canvas不可见
-              if (!isVisible && currentRatio <= 0) {
-                clearInterval(this.timerId)
-                this.timerId = -2
+          (isVisible: boolean, currentRatio: number) => {
+            // canvas不可见
+            if (!isVisible && currentRatio <= 0) {
+              clearInterval(this.timerId)
+              this.timerId = -2
+            }
+            // canvas可见
+            if (isVisible) {
+              if (this.timerId == -2) {
+                this.timerId = setInterval(() => {
+                  this.drawRandomCircle()
+                }, 500)
               }
-              // canvas可见
-              if (isVisible) {
-                if (this.timerId == -2) {
-                  this.timerId = setInterval(() => {
-                    this.drawRandomCircle()
-                  }, 500)
-                }
-              }
-            })
-      Button("draw sth")
+            }
+          })
+      Button('draw sth')
         .onClick(() => {
           if (this.timerId < 0) {
             this.timerId = setInterval(() => {
@@ -572,8 +574,8 @@ struct Page {
 }
 ```
 
-![](assets/使用画布绘制自定义图形%20(Canvas)/file-20260514130718664-7.png)
 
+![](assets/使用画布绘制自定义图形%20(Canvas)/file-20260514130718664-7.png)
 
 
 

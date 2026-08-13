@@ -1,6 +1,6 @@
 # 人脸活体检测结果mPixelMap的获取
 
-更新时间：2026-07-30 01:18:30
+更新时间：2026-08-13 01:22:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-15
 
@@ -62,7 +62,7 @@ A：人脸活体检测是端侧的，不存在远程服务器，数据不保存�
  
 Q：HarmonyOS活体检测是否支持公安比对能力？
  
-A：当前活体检测检测成功之后会返回最具有活体特征的图片，公安对比能力需开发者自行拿图片进行后续操作。
+A：当前活体检测成功之后会返回最具有活体特征的图片，公安比对能力需开发者自行拿图片进行后续操作。
  
 Q：活体检测返回的图片，人脸部分是蓝色的，后端无法识别，是什么原因？
  
@@ -70,6 +70,10 @@ A：出现偏蓝的情况可能是因为光线、相机曝光等原因导致的�
  1. 调整光线：将环境光线调整到适宜的亮度，避免过暗或过亮的情况。
 2. 调整相机曝光：可以尝试调整相机曝光参数，使得拍摄的图片更加清晰明亮。
  
-Q：[getInteractiveLivenessResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#getinteractivelivenessresult)和[startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section887319119114)都可以获取检测结果，一个是Promise回调一个是使用callback回调获取检测结果，有什么区别？
+Q：[getInteractiveLivenessResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#getinteractivelivenessresult)和[startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#startlivenessdetection)都可以获取检测结果，一个是Promise回调一个是使用callback回调获取检测结果，有什么区别？
  
-A：[startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section887319119114)的callback回调函数当前只适用于RouteRedirectionMode.BACK_MODE跳转模式。如果是RouteRedirectionMode.REPLACE_MODE模式需要使用[getInteractiveLivenessResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#getinteractivelivenessresult)，参考人脸活体检测[开发实例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/vision-interactiveliveness#开发实例)。
+A：[startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#startlivenessdetection)的callback回调函数当前只适用于RouteRedirectionMode.BACK_MODE跳转模式。如果是RouteRedirectionMode.REPLACE_MODE模式需要使用[getInteractiveLivenessResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#getinteractivelivenessresult)，参考人脸活体检测[开发实例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/vision-interactiveliveness#开发实例)。
+ 
+Q：调用[getInteractiveLivenessResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#getinteractivelivenessresult)方法时，data.mPixelMap为undefined的情况有哪些？
+ 
+A：活体检测失败时data.mPixelMap为undefined，常见原因包括：强光、强逆光、暗光、人脸遮挡、使用相册照片等。另外，建议判断[LivenessType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#livenesstype)为0时再取data.mPixelMap，避免在非活体检测场景下访问该字段。

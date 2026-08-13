@@ -1,6 +1,6 @@
 # Test Kit简介
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/test-kit-overview
 
@@ -30,6 +30,7 @@ Test Kit为开发者提供了自动化测试框架，框架提供单元、UI和�
  
 此外，Test Kit还为开发者提供了如下命令行工具。
  
+- HiSmartPerf Device性能功耗测试：支持FPS、CPU、GPU、RAM、Temp等指标的实时监测与可视化展示（Device hap端），以及通过Shell命令行方式进行无屏/有屏设备的数据采集与报告生成（Device daemon端），具体使用方法请参考[HiSmartPerf Device使用指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/smartperf-guidelines)。
 - wukong稳定性测试：支持Ability的随机事件注入、控件注入、异常捕获、报告生成和对Ability数据遍历截图等特性，具体使用方法请参考[wukong稳定性工具使用指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wukong-guidelines)。
 
  

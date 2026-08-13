@@ -1,6 +1,6 @@
 # security_audit.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-security-audit-8h
 **支持设备：** PC/2in1
@@ -83,7 +83,7 @@
 | int32_t HMS_SecurityAudit_AddFilter (const SecurityAudit_Client *client, SecurityAudit_Notify_Event event, const SecurityAudit_Filter *filter) | 为通知事件添加过滤条件。 |
 | int32_t HMS_SecurityAudit_RemoveFilter (const SecurityAudit_Client *client, SecurityAudit_Notify_Event event, const SecurityAudit_Filter *filter) | 删除通知事件的过滤条件。 |
 | int32_t HMS_SecurityAudit_NewAuthClient (SecurityAudit_AuthClient **client, SecurityAudit_Handler handler) | 创建一个新的阻断类事件客户端（超时默认放行）。 |
-| int32_t HMS_SecurityAudit_NewAuthClientWithConfiguration (SecurityAudit_AuthClient **outOwnedClient, SecurityAudit_Handler handler, SecurityAudit_AuthClientConfiguration *configuration) | 创建一个新的阻断类事件客户端（可配置超时默认阻断策略）。 |
+| int32_t HMS_SecurityAudit_NewAuthClientWithConfiguration (SecurityAudit_AuthClient **outOwnedClient, SecurityAudit_Handler handler, const SecurityAudit_AuthClientConfiguration *configuration) | 创建一个新的阻断类事件客户端（可配置超时默认阻断策略）。 |
 | int32_t HMS_SecurityAudit_CreateAuthClientConfiguration (SecurityAudit_AuthClientConfiguration **outOwnedConfiguration) | 创建授权客户端配置对象。 |
 | int32_t HMS_SecurityAudit_DestroyAuthClientConfiguration (SecurityAudit_AuthClientConfiguration *configuration) | 销毁授权客户端配置对象。 |
 | int32_t HMS_SecurityAudit_AuthClientConfiguration_SetTimeoutAuthResult (SecurityAudit_AuthClientConfiguration *configuration, SecurityAudit_AuthResult authResult) | 设置超时默认授权结果。 |

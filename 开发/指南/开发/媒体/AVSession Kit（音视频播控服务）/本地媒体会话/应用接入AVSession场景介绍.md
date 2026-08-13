@@ -1,6 +1,6 @@
 # 应用接入AVSession场景介绍
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avsession-access-scene
 
@@ -33,7 +33,7 @@ AVSession会对后台音频播放、VoIP通话进行约束。因此，长音频�
 
 #### 创建不同类型的会话
 
-AVSession在构造方法中支持不同的类型参数，由 [AVSessionType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-t#avsessiontype10) 定义，不同的类型代表了不同场景的控制能力，对于播控中心来说，会展示不同的控制模版。
+AVSession在构造方法中支持不同的类型参数，由 [AVSessionType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-t#avsessiontype10) 定义，不同的类型代表了不同场景的控制能力，对于播控中心来说，会展示不同的控制模板。
 
  - audio类型，播控中心的控制样式为：收藏、上一首、播放/暂停、下一首、循环模式。
  - video类型，播控中心的控制样式为：快退、上一首、播放/暂停、下一首、快进。

@@ -1,6 +1,6 @@
 # FAST Kit简介
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-introduction
 
@@ -132,8 +132,8 @@ UI渲染与布局优化：多个相邻UI控件背景合并为更少的绘制区�
 | 哈希表数据结构 | Phone、Tablet、PC/2in1 |
 | 通用排序算法 | Phone、Tablet、PC/2in1 |
 | 智能序列预测 | Phone、Tablet、PC/2in1 |
-| 系统性能优化（ArkTS） | Phone、Tablet、PC/2in1、Wearable、TV、Car |
-| 系统性能优化（C/C++） | Phone、Tablet、PC/2in1、Wearable、TV、Car |
+| 系统性能优化（ArkTS） | Phone、Tablet、PC/2in1、Wearable、TV |
+| 系统性能优化（C/C++） | Phone、Tablet、PC/2in1、Wearable、TV |
  
  
   

@@ -1,6 +1,6 @@
 # 基于AVPlayer播放短视频实践
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avplayer-short-video
 
@@ -52,7 +52,7 @@
 **图 1** **流程图**
  
 
-![](assets/基于AVPlayer播放短视频实践/file-202607081035158eb456c4.png)
+![](assets/基于AVPlayer播放短视频实践/file-202607081035152cc8e368.png)
 
  1. 使用视频播放框架AVPlayer可以将Audio/Video媒体资源（比如mp4/mp3/mkv/mpeg-ts等）转码为可供渲染的图像和可听见的音频模拟信号，并通过输出设备进行播放。
 2. 使用LazyForEach进行数据懒加载，设置cachedCount属性指定缓存数量，搭配组件复用能力。冷启动时创建并初始化AVPlayer到prepared阶段。
@@ -66,7 +66,7 @@
 **图 2** **异步加载示意图**
  
 
-![](assets/基于AVPlayer播放短视频实践/file-202607081035152cc8e368.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/B_tm6_OXT7mGw9bAj6peRA/zh-cn_image_0000002704273199.png?HW-CC-KV=V1&HW-CC-Date=20260813T095905Z&HW-CC-Expire=86400&HW-CC-Sign=F69AC0D8983FEB50B87E775167E61B5CD355B4501ADC0B51FCB3FF8DB07E2D2E)
 
  
 在缓存池中有多个播放器实例，播放视频A时，提前预加载视频B并进入prepare状态；切换短视频时，可以立即播放已预加载的视频B，减少切换时间。手势上下滑动的时候，在动画开始时就更新当前索引值，最终实现短视频快速切换，综合起播时间≤230ms。
@@ -78,7 +78,7 @@
 2. 通过设置Swiper组件cachedCount属性确定缓存池大小，缓存池中的视频提前进入prepared状态；在动画开始的回调函数onAnimationStart()中就更新当前索引curIndex，而不是等动画结束更新。不使用默认的弹簧曲线（弹簧动效持续560毫秒），将曲线改为Curve.Ease，并将持续时间设置为300毫秒。
 
   
-```text
+```ArkTS
 Swiper(this.swiperController) {
   LazyForEach(new AVDataSource(SOURCES), (item: VideoData, index: number) => {
     AVPlayerView({
@@ -104,7 +104,7 @@ Swiper(this.swiperController) {
 3. 使用@Watch监听当前索引curIndex值，对比当前索引curIndex和轮播索引index，仅播放索引相同的视频，缓存池其余视频均暂停。
 
   
-```text
+```ArkTS
 async onIndexChange() {
   if (this.curIndex !== this.index) {
     this.avPlayerController.videoPause();

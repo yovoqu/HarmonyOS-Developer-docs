@@ -1,6 +1,6 @@
 # wrapBuilder：封装全局@Builder
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-wrapbuilder
 
@@ -103,7 +103,7 @@ struct TestIndex {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/kHSKNGMhT1G3vaCGOZL6NQ/zh-cn_image_0000002686085335.png?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=D638FBEBD04DD04B4032BAD9EF8B195B22FDF4CB867DBCE94F69CE1C72136328)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/CuDZ0wRhTEKRkv8bT17kqg/zh-cn_image_0000002704391941.png?HW-CC-KV=V1&HW-CC-Date=20260813T095701Z&HW-CC-Expire=86400&HW-CC-Sign=1A64445BA2D2D6EED622B431082D0EF8BB318A2BBFA3A24039D4E1BEE682BD70)
 
 
 
@@ -155,18 +155,18 @@ struct IndexItem {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/BmDQCNDpSqSfCWUY9YTihQ/zh-cn_image_0000002685925507.png?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=0992B4A3BFE563A31ED43EBCC1793DCFCD4AE0C1E5B639AACB04A67D6BADE713)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/j4z9KAGwQCeo_EIYJWYVhw/zh-cn_image_0000002674631818.png?HW-CC-KV=V1&HW-CC-Date=20260813T095701Z&HW-CC-Expire=86400&HW-CC-Sign=FBA2E2E3FF176DCF484DC539D183F6708ECA67AA29761C516C6639F372A8355A)
 
 
 
 
 #### @Builder方法赋值给类或者接口的属性
 
-使用@Builder装饰器装饰的方法MyBuilder作为wrapBuilder的参数，然后将wrapBuilder的返回值赋值给接口ChildOptions中的属性，可以以数据的形式传递给其他子组件调用。
+使用@Builder装饰器装饰的方法myBuilder作为wrapBuilder的参数，然后将wrapBuilder的返回值赋值给接口ChildOptions中的属性，可以以数据的形式传递给其他子组件调用。
 
-```text
+```ArkTS
 @Builder
-function MyBuilder(value: string, size: number) {
+function myBuilder(value: string, size: number) {
   Text(value)
     .fontSize(size)
     .margin(10)
@@ -180,7 +180,7 @@ interface ChildOptions {
 @Component
 struct Index {
   childOptions: ChildOptions = {
-    wrappedBuilder: wrapBuilder(MyBuilder)
+    wrappedBuilder: wrapBuilder(myBuilder)
   };
 
   build() {
@@ -204,7 +204,7 @@ struct Child {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/nBL_kXv2S4qWiZgXvnA7CA/zh-cn_image_0000002656005828.png?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=41A72659103D9CF6D69AAA67F58DF072389AB32BC2234531DB1AD1A1686C009C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/I0FGrs7USBWBp2_ZFHRyag/zh-cn_image_0000002704271773.png?HW-CC-KV=V1&HW-CC-Date=20260813T095701Z&HW-CC-Expire=86400&HW-CC-Sign=6AD380801F16F9F72CECF6087FA853AFFDC274120EECCE04F96D7C0C294C1250)
 
 
 
@@ -252,7 +252,7 @@ struct Parent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/ir9pf92FSYyaoDOoXesdeg/zh-cn_image_0000002655845908.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=FA5A082F2F88DA80BB626CCCE8D08240F83DBFC57F239E5D83900587F51E5985)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/MiiT8C6sRfmHaa_WeomxPg/zh-cn_image_0000002674471974.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095701Z&HW-CC-Expire=86400&HW-CC-Sign=6B20C07655C7740390E48B27F1493437DFE926009817AE75D727125CBF16A958)
 
 
 
@@ -310,4 +310,4 @@ struct TestBuilderIndex {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/HTzR_QjWQKireUNosQ7uHg/zh-cn_image_0000002686085337.png?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=C1DF333F55EA888EEA4EEB175CCC9ADEDC10CA59443A789A5C98235CAA1781EF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/jbyibByZTOWS2TRu4XaYPg/zh-cn_image_0000002704391943.png?HW-CC-KV=V1&HW-CC-Date=20260813T095701Z&HW-CC-Expire=86400&HW-CC-Sign=FE26BBA7F84011E59FCD8F8835AD8E427124DD946B64411FF120019446263F0D)

@@ -1,6 +1,6 @@
 # Checkbox更改样式
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1190
 
@@ -11,7 +11,7 @@ Checkbox组件在交互的过程中有默认样式，但根据界面设计需求
 - 场景一：如何自定义边框的宽度？效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/uS_ewSytQOK2aM1BiWKmhg/zh-cn_image_0000002658952183.png?HW-CC-KV=V1&HW-CC-Date=20260811T005743Z&HW-CC-Expire=86400&HW-CC-Sign=A72106C42A639F82D817742A97659B293DC16FC402C8F369EB56063A68E0FC05)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/3EIq20PhSkW4l56jy41mIA/zh-cn_image_0000002658952183.png?HW-CC-KV=V1&HW-CC-Date=20260813T095603Z&HW-CC-Expire=86400&HW-CC-Sign=596E2246265E872F2541BD30FBE3A029473A52F34B6AAFE60FB17E6A28687DD5)
 
 - 场景二：如何修改Checkbox未选择状态时的背景？
 
@@ -23,7 +23,7 @@ Checkbox组件在交互的过程中有默认样式，但根据界面设计需求
 - [Checkbox](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkbox)：提供多选框组件，通常用于某选项的打开或关闭。
 - [contentModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkbox#contentmodifier12)：定制Checkbox内容区的方法。设置该属性时，会导致其他属性设置失效。
 - [CheckBoxConfiguration对象说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkbox#checkboxconfiguration12对象说明)：开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
-- [Circle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-circle)：用于绘制圆形的组件，其[strokeWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-circle#strokewidth)属性可以设置边框宽度。
+- [Circle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-circle)：用于绘制圆形的组件，其[strokeWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-circle#circleoptions对象说明)属性可以设置边框宽度。
 
  
  
@@ -99,7 +99,7 @@ function buildCheckbox(config: CheckBoxConfiguration) {
   示例代码运行效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/7Z-TqdAZQtiQVcg0QNUqHw/zh-cn_image_0000002628592970.png?HW-CC-KV=V1&HW-CC-Date=20260811T005743Z&HW-CC-Expire=86400&HW-CC-Sign=CD660A1555E79F0AE87CA4DAC2C45BD631C1C1F740CDCD1B35518883FF62B255)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/NNA20oPeRLy7zgNO6Gvafw/zh-cn_image_0000002628592970.png?HW-CC-KV=V1&HW-CC-Date=20260813T095603Z&HW-CC-Expire=86400&HW-CC-Sign=9D1012D2C0ACB584624E3BB77FD720FAB41180C193933FC8F97AAD56F00AF7FE)
 
 
  
@@ -168,7 +168,7 @@ function buildCheckboxTwo(config: CheckBoxConfiguration) {
   示例代码运行效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/nFBnrP4vRWiHUkLpXoeiAw/zh-cn_image_0000002658832225.png?HW-CC-KV=V1&HW-CC-Date=20260811T005743Z&HW-CC-Expire=86400&HW-CC-Sign=161FDE0F7F79536043C27DB4697448537F2DE54AFA133DAB5259F438426486F2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/sssRwGc2Sw-n9JqgJ0zANA/zh-cn_image_0000002658832225.png?HW-CC-KV=V1&HW-CC-Date=20260813T095603Z&HW-CC-Expire=86400&HW-CC-Sign=558275AA58E35EA9B0D3E3D3C9296B4C248B78F743ACCCADBAB95E9C1E06D356)
 
 
  

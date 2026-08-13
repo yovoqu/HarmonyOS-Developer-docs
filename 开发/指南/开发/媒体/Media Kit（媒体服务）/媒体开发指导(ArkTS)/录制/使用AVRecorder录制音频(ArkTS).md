@@ -1,6 +1,6 @@
 # 使用AVRecorder录制音频（ArkTS）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avrecorder-for-recording
 
@@ -52,7 +52,7 @@
 
 
   
-```text
+```ArkTS
 this.avRecorder = await media.createAVRecorder();
 ```
 
@@ -67,7 +67,7 @@ this.avRecorder = await media.createAVRecorder();
 | error | 必要事件，监听AVRecorder的错误信息。 |
 
   
-```text
+```ArkTS
 this.avRecorder?.on('stateChange', (state: media.AVRecorderState, reason: media.StateChangeReason) => {
   console.info(`AVRecorder state is changed to ${state}, reason: ${reason}`);
   // 用户可以在此补充状态发生切换后想要进行的动作。
@@ -82,11 +82,11 @@ this.avRecorder?.on('error', (error: BusinessError) => {
 
   
 > [!WARNING]
-> 配置参数需要注意： 配置参数之前需要确保完成对应权限的申请，请参考 申请权限 。 prepare接口的入参avConfig中仅设置音频相关的配置参数，如示例代码所示。 如果只需要录制音频，请不要设置视频相关配置参数；如果需要录制视频，可以参考 视频录制开发指导 进行开发。直接设置视频相关参数会导致后续步骤报错。 需要使用支持的 录制规格 ，具体录制参数配置可参考 AVRecorderProfile 。 录制输出的url地址（即示例里avConfig中的url），形式为fd://xx (fd number)。需要基础文件操作接口（ Core File Kit的ohos.file.fs ）实现应用文件访问能力，获取方式参考 应用文件访问与管理 。 示例中配置的audioCodec音频编码格式、aacProfile音频编码扩展格式、fileFormat封装格式请参考 AVRecorderProfile 。
+> 配置参数需要注意： 配置参数之前需要确保完成对应权限的申请，请参考 申请权限 。 prepare接口的入参config中仅设置音频相关的配置参数，如示例代码所示。 如果只需要录制音频，请不要设置视频相关配置参数；如果需要录制视频，可以参考 视频录制开发指导 进行开发。直接设置视频相关参数会导致后续步骤报错。 需要使用支持的 录制规格 ，具体录制参数配置可参考 AVRecorderProfile 。 录制输出的URL地址（即示例里avRecorderConfig中的url），形式为fd://xx（fd number）。需要基础文件操作接口（ Core File Kit的ohos.file.fs ）实现应用文件访问能力，获取方式参考 应用文件访问与管理 。 示例中配置的audioCodec音频编码格式、fileFormat封装格式请参考 AVRecorderProfile 。
 
 
   
-```text
+```ArkTS
 public async prepareAudioRecorder(context: common.Context): Promise<void> {
   let path: string = context.filesDir + '/audio_example.m4a';
   let file: fileIo.File = await fileIo.open(path, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);
@@ -100,7 +100,7 @@ public async prepareAudioRecorder(context: common.Context): Promise<void> {
       audioCodec: media.CodecMimeType.AUDIO_AAC, // 音频编码格式。
       audioSampleRate: this.audioSampleRate, // 音频采样率。
       fileFormat: media.ContainerFormatType.CFT_MPEG_4A // 封装格式。
-    },
+    } as media.AVRecorderProfile,
     url: 'fd://' + file.fd.toString()
   };
 
@@ -111,6 +111,7 @@ public async prepareAudioRecorder(context: common.Context): Promise<void> {
   } catch (error) {
     let err = error as BusinessError;
     console.error(`Failed to prepare avRecorder, error code: ${err.code}, message: ${err.message}`);
+    await this.closeFd();
   }
 }
 ```
@@ -118,42 +119,43 @@ public async prepareAudioRecorder(context: common.Context): Promise<void> {
 4. 开始录制，调用[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#start9-1)接口，此时进入started状态。
 
   
-```text
+```ArkTS
 await this.avRecorder?.start();
 ```
 
 5. 暂停录制，调用[pause](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#pause9-1)接口，此时进入paused状态。
 
   
-```text
+```ArkTS
 await this.avRecorder?.pause();
 ```
 
 6. 恢复录制，调用[resume](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#resume9-1)接口，此时再次进入started状态。
 
   
-```text
+```ArkTS
 await this.avRecorder?.resume();
 ```
 
 7. 停止录制，调用[stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#stop9-1)接口，此时进入stopped状态。
 
   
-```text
+```ArkTS
 await this.avRecorder?.stop();
+await this.closeFd();
 ```
 
 8. 重置资源，调用[reset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#reset9-1)接口，重新进入idle状态，允许重新配置录制参数。
 
   
-```text
+```ArkTS
 await this.avRecorder?.reset();
 ```
 
 9. 销毁实例，调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#release9-1)接口，进入released状态，退出录制。
 
   
-```text
+```ArkTS
 await this.avRecorder?.release();
 ```
 
@@ -166,11 +168,11 @@ await this.avRecorder?.release();
 
 使用当前示例代码时，需要申请**ohos.permission.MICROPHONE**麦克风权限。申请方式请参考：[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。
 
-```text
-import { BusinessError } from '@ohos.base';
-import media from '@ohos.multimedia.media';
-import fileIo from '@ohos.file.fs';
-import common from '@ohos.app.ability.common';
+```ArkTS
+import { BusinessError } from '@kit.BasicServicesKit';
+import { media } from '@kit.MediaKit';
+import { fileIo } from '@kit.CoreFileKit';
+import { common } from '@kit.AbilityKit';
 import { Resolution } from './CommonTypes';
 
 export default class AVRecorderService {
@@ -220,7 +222,7 @@ export default class AVRecorderService {
         audioCodec: media.CodecMimeType.AUDIO_AAC, // 音频编码格式。
         audioSampleRate: this.audioSampleRate, // 音频采样率。
         fileFormat: media.ContainerFormatType.CFT_MPEG_4A // 封装格式。
-      },
+      } as media.AVRecorderProfile,
       url: 'fd://' + file.fd.toString()
     };
 
@@ -231,6 +233,7 @@ export default class AVRecorderService {
     } catch (error) {
       let err = error as BusinessError;
       console.error(`Failed to prepare avRecorder, error code: ${err.code}, message: ${err.message}`);
+      await this.closeFd();
     }
   }
 
@@ -273,10 +276,12 @@ export default class AVRecorderService {
     try {
       if (this.avRecorder?.state === 'started' || this.avRecorder?.state === 'paused') {
         await this.avRecorder?.stop();
+        await this.closeFd();
       }
     } catch (error) {
       let err = error as BusinessError;
       console.error(`Failed to stop avRecorder, error code: ${err.code}, message: ${err.message}`);
+      await this.closeFd();
     }
   }
 

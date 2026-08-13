@@ -1,6 +1,6 @@
 # wearEngine（穿戴设备能力开放）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api
 **支持设备：** Phone | Tablet | Wearable
@@ -838,7 +838,7 @@ queryStatus(deviceRandomId: string, item: MonitorItem): Promise&lt;MonitorData&g
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| 801 | The wearable device does not support the capabilities. |
+| 801 | The wearable device does not support the capabilities. 适用版本：6.1.0(23)+ |
 | 1008500001 | Network error. The network is unavailable. |
 | 1008500002 | No device is bound. |
 | 1008500003 | Device disconnected. |
@@ -919,7 +919,7 @@ subscribeEvent(deviceRandomId: string, type: MonitorEvent, callback: Callback&lt
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| 801 | In Wearable, when subscribing to events other than changes in device connection status, this error code is returned. |
+| 801 | In Wearable, when subscribing to events other than changes in device connection status, this error code is returned. 适用版本：6.1.0(23)+ |
 | 1008500001 | Network error. The network is unavailable. |
 | 1008500002 | No device is bound. |
 | 1008500003 | Device disconnected. |
@@ -1007,7 +1007,7 @@ unsubscribeEvent(deviceRandomId: string, type: MonitorEvent, callback: Callback&
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| 801 | In Wearable, when unsubscribing to events other than changes in device connection status, this error code is returned. |
+| 801 | In Wearable, when unsubscribing to events other than changes in device connection status, this error code is returned. 适用版本：6.1.0(23)+ |
 | 1008500001 | Network error. The network is unavailable. |
 | 1008500002 | No device is bound. |
 | 1008500003 | Device disconnected. |
@@ -1105,12 +1105,12 @@ try {
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| EVENT_CONNECTION_STATUS_CHANGED | connectionStatus | 设备连接状态变化。 返回值含义：2：连接成功；3：连接断开；5：设备解绑 |
-| EVENT_BATTERY_LEVEL_DROPPED | lowPower | 设备电量降低。 返回值含义：剩余电量百分比（0~100）。 |
-| EVENT_WEAR_STATUS_CHANGED | wearStatus | 设备佩戴状态变化。 返回值含义：1：佩戴，2：未佩戴。 |
-| EVENT_HEART_RATE_ALARM | heartRateAlarm | 心率告警。 返回值含义：1：静态心率过高，2：静态心率过低，3：运动心率过高，4：运动心率过低。 |
-| EVENT_CHARGE_STATUS_CHANGED | chargeStatus | 充电状态变化。 返回值含义：1：充电开始，2：充电结束，3：充电完成。 |
-| EVENT_POWER_MODE_CHANGED | powerMode | 电源模式切换。 返回值含义：0：切换至智能模式，1：切换至超长续航模式。 |
+| EVENT_CONNECTION_STATUS_CHANGED | 'connectionStatus' | 设备连接状态变化。 返回值含义：2：连接成功；3：连接断开；5：设备解绑 |
+| EVENT_BATTERY_LEVEL_DROPPED | 'lowPower' | 设备电量降低。 返回值含义：剩余电量百分比（0~100）。 |
+| EVENT_WEAR_STATUS_CHANGED | 'wearStatus' | 设备佩戴状态变化。 返回值含义：1：佩戴，2：未佩戴。 |
+| EVENT_HEART_RATE_ALARM | 'heartRateAlarm' | 心率告警。 返回值含义：1：静态心率过高，2：静态心率过低，3：运动心率过高，4：运动心率过低。 |
+| EVENT_CHARGE_STATUS_CHANGED | 'chargeStatus' | 充电状态变化。 返回值含义：1：充电开始，2：充电结束，3：充电完成。 |
+| EVENT_POWER_MODE_CHANGED | 'powerMode' | 电源模式切换。 返回值含义：0：切换至智能模式，1：切换至超长续航模式。 |
 
 
 
@@ -1716,7 +1716,7 @@ transferFile(deviceRandomId: string, appParam: P2pAppParam, file: P2pFile, callb
 | deviceRandomId | string | 是 | Device的随机标识符，用于指定本次订阅的设备。 |
 | appParam | P2pAppParam | 是 | 指定的设备侧应用参数。 |
 | file | P2pFile | 是 | 需要传输的文件。 |
-| callback | AsyncCallback&lt;P2pResult&gt; | 是 | 回调函数，返回P2p通信的结果。 |
+| callback | AsyncCallback&lt;P2pResult&gt; | 是 | 回调函数，向对端设备的指定应用发送文件成功，err为undefined，data为返回P2p通信的结果；否则为错误对象。 |
 
 
 **错误码：**
@@ -1796,14 +1796,14 @@ try {
               }
               if (p2pResult.code) {
                 if (p2pResult.code === wearEngine.P2pResultCode.COMMUNICATION_SUCCESS) {
-                  console.info(`Succeeded in transfering file, the result is ${p2pResult.code}.`);
+                  console.info(`Succeeded in transferring file, the result is ${p2pResult.code}.`);
                 } else {
                   console.error(`Failed to transfer file, the error code is ${p2pResult.code}.`);
                 }
                 closeFile();
               }
               if (p2pResult.progress) {
-                console.info(`Succeeded in transfering file, the progress is ${p2pResult.progress}.`);
+                console.info(`Succeeded in transferring file, the progress is ${p2pResult.progress}.`);
               }
             });
           } catch (fileErr) {

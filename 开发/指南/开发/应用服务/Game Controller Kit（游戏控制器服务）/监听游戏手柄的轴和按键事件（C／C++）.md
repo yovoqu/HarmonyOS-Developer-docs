@@ -1,6 +1,6 @@
 # 监听游戏手柄的轴和按键事件（C/C++）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/game-controller-monitor-pad
 
@@ -20,7 +20,7 @@ Game Controller Kit提供游戏手柄轴事件和按键事件的监听能力。�
 Game Controller Kit支持的手柄键位参考图如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/0viAvNn5SZCxoLLFgvq1wA/zh-cn_image_0000002686087067.png?HW-CC-KV=V1&HW-CC-Date=20260730T072004Z&HW-CC-Expire=86400&HW-CC-Sign=6891BD69739AC77CB9057EC0A4A6B1A14543F5CBF57035304BE3657803BF1DE0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/TVOghHeSR0aakpVCpXYN3w/zh-cn_image_0000002674633566.png?HW-CC-KV=V1&HW-CC-Date=20260813T095844Z&HW-CC-Expire=86400&HW-CC-Sign=81435386095FCFADEE203C6DB9F4A26C1715655FF1EF1E6C4E3DC8DAFA692556)
 
 
 
@@ -95,6 +95,7 @@ target_link_libraries(entry PUBLIC libohgame_controller.z.so)
 以LeftThumbstick轴事件为例。
 
 ```text
+// 注册LeftThumbstick轴事件监听
 napi_value GamePad::LeftThumbstick_RegisterAxisInputMonitor(napi_env env, napi_callback_info info) {
     napi_value result;
     GameController_ErrorCode errorCode =
@@ -109,6 +110,7 @@ napi_value GamePad::LeftThumbstick_RegisterAxisInputMonitor(napi_env env, napi_c
     return result;
 }
 
+// 取消注册LeftThumbstick轴事件监听
 napi_value GamePad::LeftThumbstick_UnregisterAxisInputMonitor(napi_env env, napi_callback_info info) {
     napi_value result;
     GameController_ErrorCode errorCode = OH_GamePad_LeftThumbstick_UnregisterAxisInputMonitor();
@@ -166,6 +168,7 @@ void GamePad::LeftThumbstick_OnAxisEvent(const struct GamePad_AxisEvent *axisEve
 以LeftShoulder按键事件为例。
 
 ```text
+// 注册LeftShoulder按键事件监听
 napi_value GamePad::LeftShoulder_RegisterButtonInputMonitor(napi_env env, napi_callback_info info) {
     napi_value result;
     GameController_ErrorCode errorCode =
@@ -180,6 +183,7 @@ napi_value GamePad::LeftShoulder_RegisterButtonInputMonitor(napi_env env, napi_c
     return result;
 }
 
+// 取消注册LeftShoulder按键事件监听
 napi_value GamePad::LeftShoulder_UnregisterButtonInputMonitor(napi_env env, napi_callback_info info) {
     napi_value result;
     GameController_ErrorCode errorCode = OH_GamePad_LeftShoulder_UnregisterButtonInputMonitor();

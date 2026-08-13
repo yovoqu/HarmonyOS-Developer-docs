@@ -1,6 +1,6 @@
 # PDF文档转换成的图片如何重命名
 
-更新时间：2026-07-30 01:03:01
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-8
 
@@ -12,7 +12,7 @@
 
 #### 背景知识
 
-- [convertToImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section1029783924311)：转换PDF文档为图片。
+- [convertToImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#converttoimage)：转换PDF文档为图片。
 - [fs.renameSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiorenamesync)：以同步方法重命名文件或目录。
 
  
@@ -132,7 +132,7 @@ struct PdfPreview {
 可使用[Device File Browser](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-device-file-explorer#section165192211111)查看重命名效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/KsqBgPyzRR-R5EAThNBVZA/zh-cn_image_0000002658793613.png?HW-CC-KV=V1&HW-CC-Date=20260811T005600Z&HW-CC-Expire=86400&HW-CC-Sign=6C0C071B49636051204F91A7CE928E0DD2A310961A3AA084ECBB0C142EA0BC1F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/SGd1bOOQQoC0-gz4mOLGgA/zh-cn_image_0000002658793613.png?HW-CC-KV=V1&HW-CC-Date=20260813T095552Z&HW-CC-Expire=86400&HW-CC-Sign=E02E0840E349B17A1C223EBB108F12D6E7C1CBBE5988D58D4C0802670F3A2EA6)
 
 > [!NOTE]
 > convertToImage将PDF文档转换成图片是耗时任务，若PDF文件过大，需要放到子线程里执行。 若有多个PDF文件需要转图片，由于convertToImage生成的图片以数字顺序命名，若放在同一个目录下会存在图片文件覆盖问题，可以按PDF文件名新建目录存放生成的图片，重命名后再移动到同一个目录下。

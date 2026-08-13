@@ -1,6 +1,6 @@
 # 如何进行App加固操作
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-13 01:22:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-219
 
@@ -27,7 +27,7 @@
 
 2. 混淆配置能力：混淆配置文件obfuscation-rules.txt默认开启了四项推荐的混淆选项：**-enable-property-obfuscation**、**-enable-toplevel-obfuscation**、**-enable-filename-obfuscation**和 **-enable-export-obfuscation**，开发者可以根据需要进一步修改混淆配置。如果存在多个混淆规则文件，则可以参考[混淆规则合并策略](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-app-code-ob#section1842224516252)。
 
-3. 配置保留选项：代码中可能有部分字段，方法不希望被混淆，这个时候可以通过配置混淆白名单，参考[保留选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#保留选项)。混淆常见案例汇总可以查看[扫描任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-build-obfuscation#section18125192133818)中的混淆示例。
+3. 配置保留选项：代码中可能有部分字段，方法不希望被混淆，这个时候可以通过配置混淆白名单，参考[保留选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options)。混淆常见案例汇总可以查看[扫描任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-build-obfuscation#section18125192133818)中的混淆示例。
 - 应用加密：为了保护应用代码安全，保护开发者的核心资产，HarmonyOS提供了端到端的应用代码保护机制，该机制以系统安全为基础，构建内核级应用生命周期内的代码安全保护能力。 **开发者向应用市场提交上架申请，上传应用包后可选择是否加密。选择加密的应用，在经过应用市场审核后，应用市场会对上架应用做代码加密。** 应用在设备上安装时，安装文件落盘后仍是处于加密状态，有效的保护应用程序；当应用程序启动时按需解密。应用加密采用标准AES加密算法，解密后的明文只存在于内存中，不会存储到设备。
 
  

@@ -1,6 +1,6 @@
 # Interface (AudioStreamManager)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiostreammanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -10,7 +10,7 @@
 在使用AudioStreamManager的接口之前，需先通过[getStreamManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiomanager#getstreammanager9)获取AudioStreamManager实例。
 
 > [!NOTE]
-> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 9开始支持。
+> 本模块首批接口从API版本7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API版本9开始支持。
 
 
 
@@ -428,8 +428,8 @@ isActive(volumeType: AudioVolumeType, callback: AsyncCallback&lt;boolean&gt;): v
 
 获取指定音频流活跃状态。使用callback异步回调。
 
-> [!NOTE]
-> 从API version 9开始支持，从API version 20开始废弃，建议使用 isStreamActive 替代。
+> [!WARNING]
+> 从API版本9开始支持，从API版本20开始废弃，建议使用 isStreamActive 替代。注意替代接口与原接口入参存在差异，例如 StreamUsage 中提供了STREAM_USAGE_MUSIC、STREAM_USAGE_MOVIE、STREAM_USAGE_AUDIOBOOK、STREAM_USAGE_GAME等更细分的类型，而 AudioVolumeType 中这些类型统一归入MEDIA类型。具体映射关系请参考 音量控制 中常见的播放流类型与音量类型的对应关系，迁移时根据实际业务场景选择对应的StreamUsage值。
 
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
@@ -466,8 +466,8 @@ isActive(volumeType: AudioVolumeType): Promise&lt;boolean&gt;
 
 获取指定音频流是否为活跃状态。使用Promise异步回调。
 
-> [!NOTE]
-> 从API version 9开始支持，从API version 20开始废弃，建议使用 isStreamActive 替代。
+> [!WARNING]
+> 从API版本9开始支持，从API版本20开始废弃，建议使用 isStreamActive 替代。注意替代接口与原接口入参存在差异，例如 StreamUsage 中提供了STREAM_USAGE_MUSIC、STREAM_USAGE_MOVIE、STREAM_USAGE_AUDIOBOOK、STREAM_USAGE_GAME等更细分的类型，而 AudioVolumeType 中这些类型统一归入MEDIA类型。具体映射关系请参考 音量控制 中常见的播放流类型与音量类型的对应关系，迁移时根据实际业务场景选择对应的StreamUsage值。
 
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
@@ -504,8 +504,8 @@ isActiveSync(volumeType: AudioVolumeType): boolean
 
 获取指定音频流是否为活跃状态。同步返回结果。
 
-> [!NOTE]
-> 从API version 10开始支持，从API version 20开始废弃，建议使用 isStreamActive 替代。
+> [!WARNING]
+> 从API版本9开始支持，从API版本20开始废弃，建议使用 isStreamActive 替代。注意替代接口与原接口入参存在差异，例如 StreamUsage 中提供了STREAM_USAGE_MUSIC、STREAM_USAGE_MOVIE、STREAM_USAGE_AUDIOBOOK、STREAM_USAGE_GAME等更细分的类型，而 AudioVolumeType 中这些类型统一归入MEDIA类型。具体映射关系请参考 音量控制 中常见的播放流类型与音量类型的对应关系，迁移时根据实际业务场景选择对应的StreamUsage值。
 
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer

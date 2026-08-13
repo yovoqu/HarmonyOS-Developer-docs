@@ -1,6 +1,6 @@
 # @Local装饰器：组件内部状态
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local
 
@@ -705,7 +705,7 @@ struct Index {
 
 在下面的场景中，[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)暂不支持直接在状态管理V2中使用。
 
-```text
+```ArkTS
 @Entry
 @ComponentV2
 struct Index {
@@ -749,7 +749,7 @@ struct Index {
 
 从API version 22开始，可以使用[applySync接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-applysync-flushupdates-flushuiupdates)实现预期的显示效果。
 
-```text
+```ArkTS
 import { UIUtils } from '@kit.ArkUI';
 
 @Entry

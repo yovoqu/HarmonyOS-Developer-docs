@@ -1,6 +1,6 @@
 # hdc
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc
 
@@ -59,7 +59,7 @@ hdc支持USB和无线两种连接调试方式。在设备的设置>系统>开发
 echo $SHELL
 ```
 
-如果输出结果为bin/bash，执行以下命令打开.bashrc文件。
+如果输出结果为/bin/bash，执行以下命令打开.bashrc文件。
 
   
 ```bash
@@ -766,7 +766,7 @@ hdc install [-cwd path|-r|-s|-w waitingTime|-u userId|-p|-g|-h] src
 **使用方法**：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/VZQ7YKurRP6au_FXz0OPHA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071933Z&HW-CC-Expire=86400&HW-CC-Sign=9AE9D213B9F81B439425088EDC9393DD49C707AB7EDA4BB7FAB71BE1BBC400D3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/nHX2Twj2Spe6NUIjiaRzng/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095817Z&HW-CC-Expire=86400&HW-CC-Sign=25E7380410247764F8EECA83B11B98B250A3C29D771D2DA28FEF2FED63BABFFA)
 
 
 执行install命令使用bm模块命令参数，对-w和-u参数需参数值组合使用的情况，需将参数变量和参数值放在引号内使用，如"-w 180"，"-u 100"，防止参数解析异常导致命令执行失败。
@@ -1575,7 +1575,7 @@ hdc bugreport [FILE]
 
 | 返回信息 | 说明 |
 | --- | --- |
-| -------------------------------[base]------------------------------- BuildId: xxx RleaseType: xxx OsVersion: default/default/default/default/xxx DeviceType: default Manufacture: default ----- | 设备基本信息。 |
+| -------------------------------[base]------------------------------- BuildId: xxx ReleaseType: xxx OsVersion: default/default/default/default/xxx DeviceType: default Manufacture: default ----- | 设备基本信息。 |
 
 
 **使用方法**：
@@ -1585,7 +1585,7 @@ $ hdc bugreport
 -------------------------------[base]-------------------------------
 
 BuildId: xxx
-RleaseType: xxx
+ReleaseType: xxx
 OsVersion: default/default/default/default/xxx
 DeviceType: default
 Manufacture: default
@@ -1891,7 +1891,7 @@ Kill subservers finish
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/yII5H0ZUTgyWACZHutZeRQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071933Z&HW-CC-Expire=86400&HW-CC-Sign=EAA73090F935886437425BC563F15C0F1D5353E9099ADF2E796EEC9180F21441)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/oDOXL9n-QayzRSDBX5rcNw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095817Z&HW-CC-Expire=86400&HW-CC-Sign=0390987238E149B0EE9DCF3F7742850BBA23984762AE4E0A82BE860F65A6C1C1)
 
 
 如果开发者当前运行的hdc版本较低，某些功能存在兼容性问题，需要根据功能特性提升版本时，可参考对应API版本说明下载最新版本。
@@ -2074,7 +2074,7 @@ sudo udevadm control --reload
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/Jm4OrBblSYemQot2PnBDPg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071933Z&HW-CC-Expire=86400&HW-CC-Sign=48BD617844CD9B955169B5D9F7A5C1736B323F8370B419C9B57046CE8050CFF9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/hB1kKDdpThO_k3WDOsxabg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095817Z&HW-CC-Expire=86400&HW-CC-Sign=447A9A108370066CA49EBD2727A149A92BC423C1BB589AA10060748EC220B8AE)
 
 
 开启非管理员角色的USB设备操作权限可以解决在Linux环境在非管理员权限下使用hdc因权限不足无法找到设备的情况。但权限最大化可能存在潜在安全问题，请开发者根据使用场景自行评估是否开启此权限。
@@ -2108,7 +2108,7 @@ sudo udevadm control --reload
 hdc文件传输命令执行出现乱码，如使用file recv从设备端发送带有中文名称的文件到本地，报错提示[Fail]Error opening file: no such file or directory, path:XXXXX，其中path显示中文乱码。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/TRB2vxCtTQi9_mLZjdFUuQ/zh-cn_image_0000002686086613.png?HW-CC-KV=V1&HW-CC-Date=20260730T071933Z&HW-CC-Expire=86400&HW-CC-Sign=20CE646B25C93A82127E40B72BB449FE76BFC49070C29B68EE15F8824AEB1680)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/GfZRo40zQAOorOktkFThIA/zh-cn_image_0000002674633108.png?HW-CC-KV=V1&HW-CC-Date=20260813T095817Z&HW-CC-Expire=86400&HW-CC-Sign=762112E85E4301658E5B17A1948B68B2673ADC2A5CD3C4ABB1E65975A21FA626)
 
 
 **可能原因&解决方法**
@@ -2126,7 +2126,7 @@ hdc文件传输命令执行出现乱码，如使用file recv从设备端发送�
 使用hdc list targets命令查询已连接设备，连接设备标识后显示Unauthorized。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/xq0jtJL6SIaLY5PvJkt0DQ/zh-cn_image_0000002685926785.png?HW-CC-KV=V1&HW-CC-Date=20260730T071933Z&HW-CC-Expire=86400&HW-CC-Sign=172012320C38FF7022FF089B17A4FE6FDFDF6025E7D022EF4FD955118FCAC4E2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/cYExkaNOT4K2PT2sj-O1mg/zh-cn_image_0000002704273061.png?HW-CC-KV=V1&HW-CC-Date=20260813T095817Z&HW-CC-Expire=86400&HW-CC-Sign=B50567366EAA426D77CE4EFB5D2A0CBB97A0DE6F2610177523136C7471FF3FDD)
 
 
 **可能原因&解决方法**

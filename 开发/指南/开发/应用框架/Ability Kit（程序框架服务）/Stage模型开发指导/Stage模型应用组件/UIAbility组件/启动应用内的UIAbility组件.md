@@ -1,6 +1,6 @@
 # 启动应用内的UIAbility组件
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-intra-device-interaction
 
@@ -461,7 +461,7 @@ export default class ColdStartAbility extends UIAbility {
 图1 目标UIAbility热启动
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/ixiF3tYMQ424JWSIvWlznQ/zh-cn_image_0000002686085187.png?HW-CC-KV=V1&HW-CC-Date=20260730T071824Z&HW-CC-Expire=86400&HW-CC-Sign=88C833FBEC55ABCD9F11A5470AED98A4C9E3BF325078A955EFFE563D283212AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/BGKJCkFDSnCGTBwXBXH1BA/zh-cn_image_0000002674631668.png?HW-CC-KV=V1&HW-CC-Date=20260813T095617Z&HW-CC-Expire=86400&HW-CC-Sign=357ADE6CB801BBC3FA6B3F29EE9F0E7FFC811F5147F671CF0EE882ECC20FD229)
 
 
 开发步骤如下所示。

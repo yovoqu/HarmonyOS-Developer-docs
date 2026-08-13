@@ -1,6 +1,6 @@
 # 读取和编辑图片XMP元数据
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-xmp-metadata
 
@@ -150,7 +150,7 @@ async setAndGetBasicTag(xmpMetadata: image.XMPMetadata): Promise<void> {
 使用"[]"配合索引值定位数组中的元素，索引从1开始计数（1代表第一个元素），或使用"last()"访问最后一个元素。
 
 
-![](assets/读取和编辑图片XMP元数据/file-20260708103508e7f448b4.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/0wO2Ej0eS6S7dH96hIaiVw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095904Z&HW-CC-Expire=86400&HW-CC-Sign=E1AD289776618501561BE5A9F5497A76E59C7D01D0ED8CA8801C7F5C05AB57E7)
 
 
 在使用数组索引添加数组元素前，必须先确保已创建数组容器节点。使用setValue为数组路径设置UNORDERED_ARRAY、ORDERED_ARRAY、ALTERNATE_ARRAY或ALTERNATE_TEXT类型，即可创建数组容器。
@@ -206,7 +206,7 @@ async getArrayElements(xmpMetadata: image.XMPMetadata): Promise<void> {
 使用"/"指定结构体成员。当某个标签的类型是STRUCTURE时，可通过该语法访问其内部的子成员。
 
 
-![](assets/读取和编辑图片XMP元数据/file-20260708103509e7f448b4.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/QVGcbLftSOK944GYxle0YA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095904Z&HW-CC-Expire=86400&HW-CC-Sign=0D0CA1E7E205506157BE267D462D2D7E1BF4E9829FE9AD025B7600C0C74963E7)
 
 
 在使用结构体成员路径添加子成员前，必须先创建结构体父节点。使用setValue为结构体路径设置STRUCTURE类型，即可创建结构体容器。
@@ -248,7 +248,7 @@ async createStructAndOperateMembers(xmpMetadata: image.XMPMetadata): Promise<voi
 使用"/?"指定限定符。限定符用于对主标签提供额外的修饰信息，也常用于访问多语言文本数组中元素的语言属性。
 
 
-![](assets/读取和编辑图片XMP元数据/file-20260708103509e7f448b4.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/MF8aw0bQTB-HUXTt7XFoBg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095904Z&HW-CC-Expire=86400&HW-CC-Sign=424439822242439045DDA9A774EE562620BF56866A2DBAFAC2E50F3E51B9AC21)
 
 
 在使用限定符路径添加限定符前，必须先创建主标签。使用setValue为主标签路径设置适当类型，即可创建主标签。
@@ -311,7 +311,7 @@ async setLanguageQualifier(xmpMetadata: image.XMPMetadata): Promise<void> {
 仅指定命名空间前缀，遍历该命名空间下所有标签。
 
 
-![](assets/读取和编辑图片XMP元数据/file-20260708103509e7f448b4.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/9HALGE9FQhWFyXbpBJO7Nw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095904Z&HW-CC-Expire=86400&HW-CC-Sign=D13738C7A9FC79D61F8320C9537716100DA41A05AC2DB7175E3D4C1422199CC1)
 
 
 该语法仅适用于[enumerateTags](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-xmpmetadata#enumeratetags)和[getTags](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-xmpmetadata#gettags)接口的rootPath参数。

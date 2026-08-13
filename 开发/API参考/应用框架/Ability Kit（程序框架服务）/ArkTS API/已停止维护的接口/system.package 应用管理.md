@@ -1,6 +1,6 @@
 # @system.package (应用管理)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-package
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -24,13 +24,13 @@ import Package from '@system.package';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 从API version 3开始支持，从API version 9开始废弃，建议使用 getBundleInfo 替代。
-
- 
 hasInstalled(options: CheckPackageHasInstalledOptions): void
  
 查询指定应用是否存在，或者应用是否安装。
+ 
+> [!NOTE]
+> 从API version 3开始支持，从API version 9开始废弃，建议使用 getBundleInfo 替代。
+
  
 **系统能力：** SystemCapability.BundleManager.BundleFramework
  

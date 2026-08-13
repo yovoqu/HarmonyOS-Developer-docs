@@ -1,6 +1,6 @@
 # 录像(ArkTS)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-recording
 
@@ -129,9 +129,11 @@ async stopVideo(): Promise<void> {
 
   
 ```ArkTS
-previewOutput.on('frameStart', (): void => {
-  Logger.debug(TAG, 'Preview frame started');
-  AppStorage.setOrCreate('frameStart', ++this.frameStartFlag);
+videoOutput.on('frameStart', (err: BusinessError) => {
+  if (err !== undefined && err.code !== 0) {
+    return;
+  }
+  console.info('Video frame started');
 });
 ```
 
@@ -139,17 +141,20 @@ previewOutput.on('frameStart', (): void => {
 
   
 ```ArkTS
-previewOutput.on('frameEnd', (): void => {
-  Logger.debug(TAG, 'Preview frame ended');
+videoOutput.on('frameEnd', (err: BusinessError) => {
+  if (err !== undefined && err.code !== 0) {
+    return;
+  }
+  console.info('Video frame ended');
 });
 ```
 
  - 通过注册固定的error回调函数获取监听录像输出错误结果，callback返回预览输出接口使用错误时对应的错误码，错误码类型参见[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。
 
   
-```ArkTS
-previewOutput.on('error', (previewOutputError: BusinessError): void => {
-  Logger.info(TAG, `Preview output previewOutputError: ${JSON.stringify(previewOutputError)}`);
+```text
+videoOutput.on('error', (error: BusinessError) => {
+  console.error(`Video output error code: ${error.code}`);
 });
 ```
 

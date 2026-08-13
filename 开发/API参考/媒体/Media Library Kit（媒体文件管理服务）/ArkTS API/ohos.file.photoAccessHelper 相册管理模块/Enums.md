@@ -1,6 +1,6 @@
 # Enums
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-e
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -577,9 +577,9 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| SPACIOUS | 0 | 宽松宫格档位。该挡位为标准宫格的列数减1。 |
+| SPACIOUS | 0 | 宽松宫格档位。该档位为标准宫格的列数减1。 |
 | STANDARD | 1 | 标准宫格档位。不同设备尺寸对应的标准宫格列数各不相同，当未配置标准宫格列数时，系统将使用默认列数。 |
-| COMPACT | 2 | 紧密宫格档位。该挡位为标准宫格的列数加1。 |
+| COMPACT | 2 | 紧密宫格档位。该档位为标准宫格的列数加1。 |
 
 
 
@@ -663,4 +663,4 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 | --- | --- | --- |
 | DEFAULT | 0 | 根据配置的资产兼容性功能执行转码。 |
 | CURRENT | 1 | 不进行转码。资产将以其原始格式返回。 |
-| COMPATIBLE | 2 | 所有资产都被转码为最广泛兼容的格式(如JPEG)。 |
+| COMPATIBLE | 2 | 所有资产都被转码为最广泛兼容的格式（如JPEG）。 |

@@ -1,6 +1,6 @@
 # MDM设置网络白名单功能异常
 
-更新时间：2026-07-09 10:22:31
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-3
 
@@ -16,7 +16,7 @@ MDM应用可以通过[addAllowedWifiList](https://developer.huawei.com/consumer/
  
 以下情况下，调用本接口会报策略冲突：
  
-- 已经通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy)接口禁用了设备Wi-Fi能力。通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy)解除Wi-Fi禁用后，可解除冲突。
+- 已经通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy24)接口禁用了设备Wi-Fi能力。通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy24)解除Wi-Fi禁用后，可解除冲突。
 - 已经通过[addDisallowedWifiList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager#wifimanageradddisallowedwifilist19)接口添加了Wi-Fi禁用名单。通过[removeDisallowedWifiList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager#wifimanagerremovedisallowedwifilist19)移除Wi-Fi禁用名单后，可解除冲突。
 
  
@@ -27,7 +27,7 @@ MDM应用可以通过[addAllowedWifiList](https://developer.huawei.com/consumer/
 有问题的操作步骤如下：
  1. 确保[restrictions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions)中启用Wi-Fi，wifiManager确保没有[Disallowed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager#wifimanageradddisallowedwifilist19)和[Allowed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager#wifimanageraddallowedwifilist19)的Wi-Fi。
 2. 使用[addAllowedWifiList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager#wifimanageraddallowedwifilist19)添加一个Wi-Fi白名单，其参数类似[{"ssid":"mate60","BSSID":"92:EF:1C:F1:21:81"}]，BSSID值在此处获取：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/jWg97mpiStmHNOpVr_99dw/zh-cn_image_0000002633616294.png?HW-CC-KV=V1&HW-CC-Date=20260811T005914Z&HW-CC-Expire=86400&HW-CC-Sign=AE3465A072C363BC4E7DA8847E8CF09908494DA05260DAE4508AED657D31DDDB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/t1J7IdKESjGhTkxlYqA-hA/zh-cn_image_0000002633616294.png?HW-CC-KV=V1&HW-CC-Date=20260813T095607Z&HW-CC-Expire=86400&HW-CC-Sign=20B3FACC6D70919BE4C33A2F148BCC2B24BA73F5B975DB59FFBCDDF86AF7B6A3)
 
 3. 设置后，Wi-Fi白名单未生效。
  
@@ -35,10 +35,10 @@ MDM应用可以通过[addAllowedWifiList](https://developer.huawei.com/consumer/
  
 BSSID的正确获取方法：
  1. 打开“开发者选项”-->"开启wlan详细日志记录"：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/IMirVKWqTYOqGKZruiAqbQ/zh-cn_image_0000002633456400.png?HW-CC-KV=V1&HW-CC-Date=20260811T005914Z&HW-CC-Expire=86400&HW-CC-Sign=313924FFD2A6E3F02AB12C35C749D470405C069AB495374DFF4F043AC99C622A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/FWKD92X4S66-kK2rpaajxA/zh-cn_image_0000002633456400.png?HW-CC-KV=V1&HW-CC-Date=20260813T095607Z&HW-CC-Expire=86400&HW-CC-Sign=E4E67841C82A5ADA3A987FC2C64D3B6C4A76D47D342D20477FDB834FD51A31C7)
 
 2. 查看BSSID：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/a6PUkImwT3OMO88QPD7j_Q/zh-cn_image_0000002663855485.png?HW-CC-KV=V1&HW-CC-Date=20260811T005914Z&HW-CC-Expire=86400&HW-CC-Sign=27BC4EC245A644DDBFE492AC80730466A98AF429AA907223EB828785D8246D62)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/Z6q8OLa9TveeiP32Rhc7ug/zh-cn_image_0000002663855485.png?HW-CC-KV=V1&HW-CC-Date=20260813T095607Z&HW-CC-Expire=86400&HW-CC-Sign=59FBA240B6A9B14336942A54602D3F379F817B60866E83DECD468300B56C3BB6)
 
  
  

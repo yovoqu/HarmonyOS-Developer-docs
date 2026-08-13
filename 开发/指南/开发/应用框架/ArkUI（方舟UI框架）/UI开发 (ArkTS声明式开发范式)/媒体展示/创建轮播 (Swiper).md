@@ -1,6 +1,6 @@
 # 创建轮播 (Swiper)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-looping
 
@@ -210,7 +210,7 @@ Swiper支持手指滑动、点击导航点和通过控制器三种方式切换�
 // @Entry
 @Component
 export struct SwiperPageSwitchMethod {
-  private swiperBackgroundColors: Color[] = [Color.Blue, Color.Brown, Color.Gray, Color.Green, Color.Orange,
+  private swiperBackgroundColors: Color[] = [Color.Blue, Color.Gray, Color.Green, Color.Orange, Color.Brown,
     Color.Pink, Color.Red, Color.Yellow];
   private swiperAnimationMode: (SwiperAnimationMode | boolean | undefined)[] = [undefined, true, false,
     SwiperAnimationMode.NO_ANIMATION, SwiperAnimationMode.DEFAULT_ANIMATION, SwiperAnimationMode.FAST_ANIMATION];

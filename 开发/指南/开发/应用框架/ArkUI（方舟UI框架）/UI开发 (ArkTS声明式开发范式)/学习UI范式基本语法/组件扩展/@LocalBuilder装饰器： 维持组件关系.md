@@ -1,6 +1,6 @@
 # @LocalBuilder装饰器： 维持组件关系
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localbuilder
 
@@ -280,7 +280,7 @@ struct Parent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/5EooPHp9SSqYnLeWuTFUEg/zh-cn_image_0000002685925499.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=23E6758844DB517EE3A6FD55A66E4A4C4F8DA31343D6DD67F752D44269708D93)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/6uomsTf3Rr-G4e1D84pE5g/zh-cn_image_0000002674631810.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095701Z&HW-CC-Expire=86400&HW-CC-Sign=416E601A4F7E8E444AD5E9E510C85684F58D93468458AD5913C24CFF1660911B)
 
 
 当子组件引用父组件的@LocalBuilder函数并传入状态变量时，状态变量的改变不会触发@LocalBuilder函数内的UI刷新。这是因为调用@LocalBuilder装饰的函数创建出来的组件绑定于父组件，而状态变量的刷新机制仅作用于当前组件及其子组件，对父组件无效。而使用@Builder修饰函数可触发UI刷新，原因在于@Builder改变了函数的this指向，使创建出来的组件绑定到子组件上，从而在子组件修改变量能够实现@Builder中的UI刷新。
@@ -384,7 +384,7 @@ struct Child {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/Z9MZFxqnSGyeIA_wUA7ZUQ/zh-cn_image_0000002656005820.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=2D6AB476C6A0BE2A22AB3620B7F1CAFAC363C62E25D5502D6F4E9E095809340B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/nX_4tUXRRb-kRRGEwX3AjA/zh-cn_image_0000002704271765.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095701Z&HW-CC-Expire=86400&HW-CC-Sign=4D432D5B42BAA54FD42F87000398C56D465CE1E091CCFDE219DD5C04C5F35F63)
 
 
 
@@ -423,7 +423,7 @@ struct Parent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/ircy4ygoQRCBWzOth0lYUg/zh-cn_image_0000002655845900.png?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=AD7FF77926C0E691C42629FD3101AED095501B03443D293665D8DEC59D9ED2FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/z1jDH4EoS7qWJJv7ij6rKQ/zh-cn_image_0000002674471966.png?HW-CC-KV=V1&HW-CC-Date=20260813T095701Z&HW-CC-Expire=86400&HW-CC-Sign=B2E918EE50F813209286B65479E018DCEF4EB5F98FDAE94F08F5C40A4CF9E8E4)
 
 
 
@@ -521,7 +521,7 @@ struct ParentPage {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/fs3Km1PgT5-77bUeyzGDVw/zh-cn_image_0000002686085329.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=1CDC8CDAA56CE308BE9A557498AE5F82337F26DD8BCB045D4C5F28D327F5BB79)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/DJgq--anTrmtZrt1TLGtBw/zh-cn_image_0000002704391935.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095701Z&HW-CC-Expire=86400&HW-CC-Sign=131EACC7D7FD709109A620D675DF354C2F81E3EE544DEBEE4821C9047ACA3008)
 
 
 
@@ -631,7 +631,7 @@ struct Child {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/ujD2ljqbRrilmGDEdRiNzw/zh-cn_image_0000002685925501.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=52F90CBEE34E60114F0497D439511945AC3660563FDD1D309ABC538EC5B57E68)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/NuGurhkpRiGPo-6pGpWWBA/zh-cn_image_0000002674631812.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095701Z&HW-CC-Expire=86400&HW-CC-Sign=4B630B684DFA4AE1A61395F1BC05992B2C096D493AE860A3AE3C3F03445CD5F7)
 
 
 
@@ -675,7 +675,7 @@ struct Page {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/P_F43EDOQ3WmOF1vtoWwRg/zh-cn_image_0000002656005822.png?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=E823D9B7887A0EC741E8E79BB5A0085EFF4F4315A1BB616EDF2EF6FF7F197945)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/x1N1h48AQ_mUCJfzhDFylQ/zh-cn_image_0000002704271767.png?HW-CC-KV=V1&HW-CC-Date=20260813T095701Z&HW-CC-Expire=86400&HW-CC-Sign=EC64656F594C6940DF2AA6D238E010A348D4D31BC6504B19D03AF7D7E3881442)
 
 
 【正例】
@@ -715,4 +715,4 @@ struct Page {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/oVr2kce3Q1O7eXhV0nBunA/zh-cn_image_0000002655845902.png?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=F4A635B1BFE0025EF70396038D230D29BDA64DBC7718F04B3710D26A801DFA69)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/QvCoZCCuTzaviGYCWU1-sw/zh-cn_image_0000002674471968.png?HW-CC-KV=V1&HW-CC-Date=20260813T095701Z&HW-CC-Expire=86400&HW-CC-Sign=DA945C482A892DB30B449DE5EFFAF8EF22D1AD86C7159B45D86A328733646A44)

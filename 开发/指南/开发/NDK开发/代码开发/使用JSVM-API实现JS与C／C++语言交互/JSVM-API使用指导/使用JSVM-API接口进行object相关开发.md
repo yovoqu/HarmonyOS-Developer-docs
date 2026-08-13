@@ -1,6 +1,6 @@
 # 使用JSVM-API接口进行object相关开发
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-object
 
@@ -438,7 +438,7 @@ cpp部分代码：
 #include "napi/native_api.h"
 #include "hilog/log.h"
 #include "ark_runtime/jsvm.h"
-#define NUMBERINT_FOUR
+#define NUMBERINT_FOUR 4
 // ...
 // 定义一个静态常量JSVM_TypeTag数组存储类型标签
 static const JSVM_TypeTag TagsData[NUMBERINT_FOUR] = {
@@ -484,9 +484,9 @@ static JSVM_Value CheckObjectTypeTag(JSVM_Env env, JSVM_CallbackInfo info)
     bool checkResult = false;
     JSVM_Status status = OH_JSVM_CheckObjectTypeTag(env, args[0], &TagsData[index], &checkResult);
     if (status != JSVM_OK) {
-        OH_LOG_ERROR(LOG_APP, "JSVM SetTypeTagToObject fail");
+        OH_LOG_ERROR(LOG_APP, "JSVM CheckObjectTypeTag fail");
     } else {
-        OH_LOG_INFO(LOG_APP, "JSVM SetTypeTagToObject:%{public}d", checkResult);
+        OH_LOG_INFO(LOG_APP, "JSVM CheckObjectTypeTag:%{public}d", checkResult);
     }
     // 将bool结果转换为JSVM_Value并返回
     JSVM_Value checked = nullptr;

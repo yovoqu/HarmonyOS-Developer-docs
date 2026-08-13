@@ -1,6 +1,6 @@
 # 离屏获取文本像素图并使用OpenGL绘制
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:42:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-32
 
@@ -17,8 +17,8 @@
 [glTexImage2D](https://developer.huawei.com/consumer/cn/doc/graphics-References/glteximage-0000001050170287)接口用于加载图像像素数据创建二维纹理对象。
 
  - [OffscreenCanvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-offscreencanvas)是一个可以在屏幕外渲染的画布，可以离屏绘制文本。
-[fillText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#filltext)接口用于在画布指定位置绘制填充类文本内容。
-- [getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#getpixelmap)接口用于拷贝画布指定区域的像素数据。
+[fillText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#filltext)接口用于在画布指定位置绘制填充类文本内容。
+- [getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#getpixelmap)接口用于拷贝画布指定区域的像素数据。
 
  - [Drawing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing)模块支持创建[CPU后端](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-c#cpu后端canvas的创建与显示)或[GPU后端](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-c#gpu后端canvas的创建与显示)的离屏画布，可以离屏绘制文本。
 [OH_Drawing_CanvasDrawSingleCharacter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-canvas-h#oh_drawing_canvasdrawsinglecharacter)用于绘制单个字符，当前字型中的字体不支持待绘制字符时，退化到使用系统字体绘制字符。

@@ -1,6 +1,6 @@
 # PDF Kit提供的PDF转图片的多个API有什么区别
 
-更新时间：2026-07-30 01:03:01
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-9
 
@@ -13,7 +13,7 @@ PDF Kit中的pdfService和pdfViewManager都提供了PDF转图片的API，它们�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/noHt5g-uRc-k4ksCWwL3qg/zh-cn_image_0000002628554246.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005600Z&HW-CC-Expire=86400&HW-CC-Sign=47C607263C24C915AF7A98294D58DB6773EA0FBF45F655BE1161F4CF6D6AB4FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/gBhvCTSdSHygSEIMjQCC5w/zh-cn_image_0000002628554246.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095552Z&HW-CC-Expire=86400&HW-CC-Sign=C8DF5D38F116DEEF9AA78E2C70D38632F563B561B720BD3AEEF922B1E7A42DB4)
 
  
  
@@ -25,7 +25,7 @@ PDF Kit中的pdfService和pdfViewManager都提供了PDF转图片的API，它们�
 - [getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getpagepixelmap)：获取当前页的图片。
 - [getCustomPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getcustompagepixelmap)：获取指定PdfPage区间的图片内容。
 - [getAreaPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getareapixelmap)：获取指定PdfPage区间的图片内容，并指定图片的宽和高。
-- [getAreaPixelMapWithOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section5838210143810)：获取指定PdfPage区域的图片内容，并指定图片的宽和高等参数。
+- [getAreaPixelMapWithOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getareapixelmapwithoptions)：获取指定PdfPage区域的图片内容，并指定图片的宽和高等参数。
 
  - pdfViewManager（PDF预览）提供PDF转图片的API如下：[getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getpagepixelmap)：获取对应PDF页面的缩略图，使用Promise异步回调。
 
@@ -277,10 +277,10 @@ struct Index {
 效果预览图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/yvxLuU3EQoi4jPRZRK3UlQ/zh-cn_image_0000002658913563.png?HW-CC-KV=V1&HW-CC-Date=20260811T005600Z&HW-CC-Expire=86400&HW-CC-Sign=AC67A614CC5FAFDC3FDE86C2FF6F608F6B8DF335BCB3D1122854E05F351F3724)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/0XQMU5cJS2GOCfOUIS7wUQ/zh-cn_image_0000002658913563.png?HW-CC-KV=V1&HW-CC-Date=20260813T095552Z&HW-CC-Expire=86400&HW-CC-Sign=369BF956388BB62D433D38FAF5CA2C916361A3D0CB4925A08EF100CA1EFF93C9)
 
  
 参考Device File Browser[操作步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-device-file-explorer#section165192211111)查看生成的图片：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/Nujw_TUsS1G-hAHbdrEJHQ/zh-cn_image_0000002628394350.png?HW-CC-KV=V1&HW-CC-Date=20260811T005600Z&HW-CC-Expire=86400&HW-CC-Sign=701A45A56580F0E50057D50AB4CDF2DA551980D6D42BA83136860B1C1515596F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/vXjKJ79PR6GhW6sEj3CbxQ/zh-cn_image_0000002628394350.png?HW-CC-KV=V1&HW-CC-Date=20260813T095552Z&HW-CC-Expire=86400&HW-CC-Sign=1FE0A59FE7267039AF48BB25E0FB50B64B5E8EDE12F86D73BF4F4B5C0D771417)

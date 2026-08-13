@@ -1,6 +1,6 @@
 # 使用AVPlayer播放视频(C/C++)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ndk-avplayer-for-video-playback
 
@@ -52,7 +52,7 @@ target_link_libraries(sample PUBLIC libnative_media_core.so)
 #include <hilog/log.h>
 ```
 
-并需要在CMake脚本中链接如下动态库:
+并需要在CMake脚本中链接如下动态库：
 
 ```text
 target_link_libraries(sample PUBLIC libhilog_ndk.z.so)

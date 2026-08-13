@@ -1,6 +1,6 @@
 # RemoteNotificationExtensionAbility（通知扩展Ability）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-remote-notification-extension-ability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ RemoteNotificationExtensionAbility为通知扩展Ability，提供获取消息数
 - 生命周期根据场景受控，默认小于10秒，超过10秒子进程生命周期结束。
 
  
-执行ExtensionAbility失败可能会返回错误，请按具体报错信息排查，详请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
+执行ExtensionAbility失败可能会返回错误，请按具体报错信息排查，详见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
  
 若应用进程在前台，Push Kit将不会弹出通知提醒，开发者可以在应用进程中调用[pushService.receiveMessage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushservice#pushservicereceivemessage)接收消息内容并自行完成业务处理。
  
@@ -23,6 +23,14 @@ RemoteNotificationExtensionAbility为通知扩展Ability，提供获取消息数
 **系统能力：** SystemCapability.Push.PushService
  
 **起始版本：** 4.1.0(11)
+  
+
+#### 约束限制
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+为保障系统安全性和稳定性，防止RemoteNotificationExtensionAbility滥用系统资源，系统对其能力进行管控， 不支持部分模块的引用，详情请参考[附录](#附录)。
+ 
   
 
 #### 导入模块
@@ -42,6 +50,8 @@ import { RemoteNotificationExtensionAbility } from '@kit.PushKit';
 **模型约束：** 属性仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Push.PushService
+ 
+**设备行为差异：** 对于5.1.0(18)以前版本，该属性在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)~6.0.2(22)版本，该属性在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该属性在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
  
 **起始版本：** 4.1.0(11)
   
@@ -63,6 +73,8 @@ onReceiveMessage(remoteNotificationInfo: pushCommon.RemoteNotificationInfo): Pro
 **模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Push.PushService
+ 
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)~6.0.2(22)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
  
 **起始版本：** 4.1.0(11)
  
@@ -143,6 +155,8 @@ onDestroy(): void
  
 **系统能力：** SystemCapability.Push.PushService
  
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)~6.0.2(22)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
+ 
 **起始版本：** 4.1.0(11)
  
 **示例：**
@@ -176,3 +190,19 @@ export default class RemoteNotificationExtAbility extends RemoteNotificationExte
   }
 }
 ```
+ 
+  
+
+#### 附录
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+RemoteNotificationExtensionAbility不支持以下模块的引用。
+  
+| Kit | 模块 |
+| --- | --- |
+| Notification Kit | @ohos.notification (Notification模块) @ohos.notificationManager (NotificationManager模块) |
+| Form Kit | @ohos.app.form.formProvider (formProvider) @ohos.app.form.formInfo (formInfo) @ohos.app.form.formBindingData (卡片数据绑定类) @ohos.app.form.FormExtensionAbility (FormExtensionAbility) @ohos.application.formBindingData (卡片数据绑定类) @ohos.application.formInfo (formInfo) @ohos.application.formProvider (formProvider) |
+| ArkUI | @ohos.prompt (弹窗) @ohos.promptAction (弹窗) @ohos.window (窗口) |
+| Live View Kit | core.liveview.liveViewManager |
+| Call Service Kit | telephony.voipCall |

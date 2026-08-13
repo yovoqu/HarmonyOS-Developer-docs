@@ -1,6 +1,6 @@
 # HdsSideBar
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdssidebar
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -20,7 +20,7 @@ import { HdsSideBar } from '@kit.UIDesignKit';
  
   
 
-#### 接口
+#### HdsSideBar
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -40,7 +40,7 @@ HdsSideBar({contentAreaMask?: boolean, isShowSideBar?: boolean, $isShowSideBar?:
 | --- | --- | --- | --- | --- |
 | contentAreaMask | boolean | 否 | @Param | 设置HdsSideBar组件侧边栏悬浮显示的场景下内容区是否有蒙层。 true：内容区有蒙层。false：内容区没有蒙层。 默认值：true。 |
 | isShowSideBar | boolean | 否 | @Param | 设置HdsSideBar组件是否显示侧边栏。 true：显示侧边栏。 false：不显示侧边栏。 默认值：true。 |
-| $isShowSideBar | Callback&lt;boolean&gt; | 否 | @Event | HdsSideBar组件侧边栏控制按钮点击后，是否显示侧边栏的回调。 |
+| $isShowSideBar | Callback&lt;boolean&gt; | 否 | @Event | HdsSideBar组件侧边栏控制按钮点击后，是否显示侧边栏的回调。 true：显示侧边栏。 false：不显示侧边栏。 |
 | minSideBarWidth | Length | 否 | @Param | 设置HdsSideBar组件侧边栏的最小宽度。 默认值：200vp。 |
 | maxSideBarWidth | Length | 否 | @Param | 设置HdsSideBar组件侧边栏的最大宽度。 默认值：280vp。 |
 | minContentWidth | Length | 否 | @Param | 设置HdsSideBar组件内容区可显示的最小宽度。 默认值：360vp。 |

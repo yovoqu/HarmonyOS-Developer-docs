@@ -1,6 +1,6 @@
 # 使用JSVM-API获取堆快照及监控堆内存阈值
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-threshold-callback
 

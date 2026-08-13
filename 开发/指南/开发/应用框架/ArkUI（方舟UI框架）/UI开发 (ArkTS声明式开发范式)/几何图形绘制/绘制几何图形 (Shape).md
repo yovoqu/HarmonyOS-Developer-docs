@@ -1,6 +1,6 @@
 # 绘制几何图形 (Shape)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-geometric-shape-drawing
 
@@ -590,4 +590,4 @@ struct CircleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/UfroyUPCTfOPrx4W8MsBgA/zh-cn_image_0000002656006392.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071848Z&HW-CC-Expire=86400&HW-CC-Sign=9C5F3E780732DE070CE9878CFA9A03B7237912C90CFECAA8E0D238FF8AAB5316)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/YGtEkaouTK-B0qJ97axPYw/zh-cn_image_0000002704272339.jpg?HW-CC-KV=V1&HW-CC-Date=20260813T095715Z&HW-CC-Expire=86400&HW-CC-Sign=6BFDABB0F378761656644815F240CA36CA332569FC73CEBEF7E78E124420BF33)

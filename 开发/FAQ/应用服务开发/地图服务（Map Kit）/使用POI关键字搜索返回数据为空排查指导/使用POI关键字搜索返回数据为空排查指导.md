@@ -1,6 +1,6 @@
 # 使用POI关键字搜索返回数据为空排查指导
 
-更新时间：2026-07-30 01:03:01
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-14
 
@@ -23,7 +23,7 @@
  
 
 #### 问题定位
-1. 首先需要排查下是否[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#section16133115441516)。
+1. 首先需要排查下是否[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#开通地图服务)。
 2. 开启“地图服务”开放能力后，是否完成[手动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section297715173233)。
 3. 若使用原有的Profile文件，还要确保在申请Profile文件之前已开启“地图服务”，否则开启后需要重新申请Profile文件，并重新配置签名信息。
  

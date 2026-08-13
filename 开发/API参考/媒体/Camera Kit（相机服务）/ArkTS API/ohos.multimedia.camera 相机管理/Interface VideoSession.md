@@ -1,6 +1,6 @@
 # Interface (VideoSession)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videosession
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -533,7 +533,7 @@ off(type: 'systemPressureLevelChange', callback?: AsyncCallback&lt;SystemPressur
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 注销监听事件，固定为'systemPressureLevelChange'，session创建成功可触发此事件。 |
-| callback | AsyncCallback&lt;SystemPressureLevel&gt; | 否 | 回调函数，如果指定参数则取消对应callback (callback对象不可是匿名函数)，否则参数默认为空，取消所有callback。 |
+| callback | AsyncCallback&lt;SystemPressureLevel&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则参数默认为空，取消所有callback。 |
 
 
 **示例：**
@@ -607,7 +607,7 @@ off(type: 'controlCenterEffectStatusChange', callback?: AsyncCallback&lt;Control
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 注销监听事件，固定为'controlCenterEffectStatusChange'，session创建成功可触发此事件。 |
-| callback | AsyncCallback&lt;ControlCenterStatusInfo&gt; | 否 | 回调函数，如果指定参数则取消对应callback (callback对象不可是匿名函数)，否则参数默认为空，取消所有callback。 |
+| callback | AsyncCallback&lt;ControlCenterStatusInfo&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则参数默认为空，取消所有callback。 |
 
 
 **示例：**
@@ -677,7 +677,7 @@ off(type: 'macroStatusChanged', callback?: AsyncCallback&lt;boolean&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 注销监听事件，固定为'macroStatusChanged'，session创建成功可触发此事件。 |
-| callback | AsyncCallback&lt;boolean&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则参数默认为空，取消所有callback, 返回true表示成功，false表示失败。 |
+| callback | AsyncCallback&lt;boolean&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则参数默认为空，取消所有callback，返回true表示成功，false表示失败。 |
 
 
 **示例：**

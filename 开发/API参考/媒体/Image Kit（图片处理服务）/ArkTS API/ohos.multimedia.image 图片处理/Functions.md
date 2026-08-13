@@ -1,6 +1,6 @@
 # Functions
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -569,6 +569,10 @@ function createPixelMapSync() {
   };
   try {
     let pixelMap: image.PixelMap = image.createPixelMapSync(color, opts);
+    if (pixelMap == undefined) {
+      console.error(`Failed to create the PixelMap.`);
+      return;
+    }
     console.info('Succeeded in creating the PixelMap.');
   } catch (e) {
     const err = e as BusinessError;
@@ -625,6 +629,10 @@ function createPixelMapSync() {
   let opts: image.InitializationOptions = { editable: true, pixelFormat: image.PixelMapFormat.RGBA_1010102, size: { height: 4, width: 6 } };
   try {
     let pixelMap: image.PixelMap = image.createPixelMapSync(opts);
+    if (pixelMap == undefined) {
+      console.error(`Failed to create the PixelMap.`);
+      return;
+    }
     console.info('Succeeded in creating the PixelMap.');
   } catch (e) {
     const err = e as BusinessError;
@@ -755,6 +763,10 @@ function createPixelMapUsingAllocatorSync() {
   };
   try {
     let pixelMap: image.PixelMap = image.createPixelMapUsingAllocatorSync(color, opts, image.AllocatorType.DMA);
+    if (pixelMap == undefined) {
+      console.error(`Failed to create the PixelMap.`);
+      return;
+    }
     console.info('Succeeded in creating the PixelMap.');
   } catch (e) {
     const err = e as BusinessError;
@@ -813,6 +825,10 @@ function createPixelMapUsingAllocatorSync() {
   let opts: image.InitializationOptions = { editable: true, pixelFormat: image.PixelMapFormat.BGRA_8888, size: { height: 4, width: 6 } };
   try {
     let pixelMap: image.PixelMap = image.createPixelMapUsingAllocatorSync(opts, image.AllocatorType.DMA);
+    if (pixelMap == undefined) {
+      console.error(`Failed to create the PixelMap.`);
+      return;
+    }
     console.info('Succeeded in creating the PixelMap.');
   } catch (e) {
     const err = e as BusinessError;
@@ -1054,7 +1070,7 @@ createPixelMapFromSurface(surfaceId: string): Promise&lt;PixelMap&gt;
 从Surface ID创建一个PixelMap对象。使用Promise异步回调。
 
 > [!NOTE]
-> 若Surface携带旋转或翻转的变换信息且需要处理，请使用 image.createPixelMapFromSurfaceWithTransformation 。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法及时释放内存。释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+> 如果Surface携带旋转或翻转的变换信息且需要校正方向，请使用 image.createPixelMapFromSurfaceWithTransformation 。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法及时释放内存。释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
 
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -1109,7 +1125,7 @@ createPixelMapFromSurfaceSync(surfaceId: string): PixelMap
 从Surface ID创建一个PixelMap对象。同步返回结果。
 
 > [!NOTE]
-> 若Surface携带旋转或翻转的变换信息且需要处理，请使用 image.createPixelMapFromSurfaceWithTransformationSync 。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法及时释放内存。释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+> 如果Surface携带旋转或翻转的变换信息且需要校正方向，请使用 image.createPixelMapFromSurfaceWithTransformationSync 。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法及时释放内存。释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
 
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -1166,7 +1182,7 @@ createPixelMapFromSurfaceWithTransformation(surfaceId: string, transformEnabled:
 通过Surface的ID创建一个预览流画面的PixelMap对象。该Surface可能携带旋转或翻转的变换信息。使用Promise异步回调。
 
 > [!NOTE]
-> 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法及时释放内存。释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+> 在API版本23之前，如果要获取无变换效果的PixelMap，可使用 @ohos.arkui.componentSnapshot (组件截图) 能力，或者使用 image.createPixelMapFromSurface 截取后再调用 rotate / flip 手动校正方向。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法及时释放内存。释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
 
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1178,7 +1194,7 @@ createPixelMapFromSurfaceWithTransformation(surfaceId: string, transformEnabled:
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | surfaceId | string | 是 | 对应Surface的ID，可通过预览组件获取，如XComponent组件。 |
-| transformEnabled | boolean | 是 | 是否对携带变换信息的Surface预先进行逆变换来消除PixelMap的旋转或翻转效果。若Surface未携带变换信息，本参数不生效。 true表示进行逆变换，变换的角度与Surface携带的角度一致且方向相反，输出的PixelMap无旋转或翻转效果。 false表示不进行逆变换，输出的PixelMap会根据Surface中的变换信息而带有旋转或翻转效果。 |
+| transformEnabled | boolean | 是 | 是否对携带变换信息的Surface预先进行逆变换来消除PixelMap的旋转或翻转效果，即是否进行方向校正。如果Surface未携带变换信息，则本参数不生效。 true表示进行逆变换，变换的角度与Surface携带的角度一致且方向相反，输出的PixelMap无旋转或翻转效果。 false表示不进行逆变换，输出的PixelMap会根据Surface中的变换信息而带有旋转或翻转效果。 |
 
 
 **返回值：**
@@ -1225,7 +1241,7 @@ createPixelMapFromSurfaceWithTransformationSync(surfaceId: string, transformEnab
 通过Surface的ID创建一个预览流画面的PixelMap对象。该Surface可能携带旋转或翻转的变换信息。同步返回结果。
 
 > [!NOTE]
-> 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法及时释放内存。释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+> 在API版本23之前，如果要获取无变换效果的PixelMap，可使用 @ohos.arkui.componentSnapshot (组件截图) 能力，或者使用 image.createPixelMapFromSurfaceSync 截取后再调用 rotateSync / flipSync 手动校正方向。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法及时释放内存。释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
 
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1237,7 +1253,7 @@ createPixelMapFromSurfaceWithTransformationSync(surfaceId: string, transformEnab
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | surfaceId | string | 是 | 对应Surface的ID，可通过预览组件获取，如XComponent组件。 |
-| transformEnabled | boolean | 是 | 是否对携带变换信息的Surface预先进行逆变换来消除PixelMap的旋转或翻转效果。若Surface未携带变换信息，本参数不生效。 true表示进行逆变换，变换的角度与Surface携带的角度一致且方向相反，输出的PixelMap无旋转或翻转效果。 false表示不进行逆变换，输出的PixelMap会根据Surface中的变换信息而带有旋转或翻转效果。 |
+| transformEnabled | boolean | 是 | 是否对携带变换信息的Surface预先进行逆变换来消除PixelMap的旋转或翻转效果，即是否进行方向校正。如果Surface未携带变换信息，则本参数不生效。 true表示进行逆变换，变换的角度与Surface携带的角度一致且方向相反，输出的PixelMap无旋转或翻转效果。 false表示不进行逆变换，输出的PixelMap会根据Surface中的变换信息而带有旋转或翻转效果。 |
 
 
 **返回值：**
@@ -1725,7 +1741,7 @@ async function CreateImageSource(context : Context) {
 
 createImageSource(buf: ArrayBuffer): ImageSource
 
-通过缓冲区创建ImageSource实例。buf数据是未解码的数据，不可以传入类似于RBGA，YUV的像素buffer数据，如果想通过像素buffer数据创建pixelMap，可以调用[image.createPixelMapSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmapsync12)这一类接口。
+通过缓冲区创建ImageSource实例。buf数据是未解码的数据，不可以传入类似于RGBA，YUV的像素buffer数据，如果想通过像素buffer数据创建pixelMap，可以调用[image.createPixelMapSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmapsync12)这一类接口。
 
 由于图片占用内存较大，所以当ImageSource实例使用完成后，应主动调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#release)方法及时释放内存。释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
 
@@ -1766,7 +1782,7 @@ async function CreateImageSource() {
 
 createImageSource(buf: ArrayBuffer, options: SourceOptions): ImageSource
 
-通过缓冲区创建ImageSource实例。buf数据是未解码的数据，不可以传入类似于RBGA，YUV的像素buffer数据，如果想通过像素buffer数据创建pixelMap，可以调用[image.createPixelMapSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmapsync12)这一类接口。
+通过缓冲区创建ImageSource实例。buf数据是未解码的数据，不可以传入类似于RGBA，YUV的像素buffer数据，如果想通过像素buffer数据创建pixelMap，可以调用[image.createPixelMapSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmapsync12)这一类接口。
 
 由于图片占用内存较大，所以当ImageSource实例使用完成后，应主动调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#release)方法及时释放内存。释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
 
@@ -2338,7 +2354,7 @@ let creator: image.ImageCreator = image.createImageCreator(size, image.ImageForm
 
 createImageReceiver(width: number, height: number, format: number, capacity: number): ImageReceiver
 
-通过宽、高、图片格式、容量创建ImageReceiver实例。ImageReceiver做为图片的接收方、消费者，它的参数属性实际上不会对接收到的图片产生影响。图片属性的配置应在发送方、生产者进行，如相机预览流[createPreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createpreviewoutput)。
+通过宽、高、图片格式、容量创建ImageReceiver实例。ImageReceiver作为图片的接收方、消费者，它的参数属性实际上不会对接收到的图片产生影响。图片属性的配置应在发送方、生产者进行，如相机预览流[createPreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createpreviewoutput)。
 
 由于图片占用内存较大，所以当ImageReceiver实例使用完成后，应主动调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagereceiver#release9)方法及时释放内存。释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
 

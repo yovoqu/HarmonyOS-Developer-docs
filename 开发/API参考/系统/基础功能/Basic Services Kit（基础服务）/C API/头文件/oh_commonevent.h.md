@@ -1,6 +1,6 @@
 # oh_commonevent.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-commonevent-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1560,7 +1560,7 @@ CommonEvent_ErrCode OH_CommonEvent_Publish(const char* event)
   
 | 类型 | 说明 |
 | --- | --- |
-| CommonEvent_ErrCode | 返回错误码。 返回COMMONEVENT_ERR_OK表示成功。 返回COMMONEVENT_ERR_INVALID_PARAMETER表示参数错误。 返回COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED表示事件发送频率过高。 返回COMMONEVENT_ERR_SENDING_REQUEST_FAILED表示IPC请求发送失败。 返回COMMONEVENT_ERR_INIT_UNDONE表示公共事件服务未初始化。 返回COMMONEVENT_ERR_NOT_SYSTEM_SERVICE表示三方应用无法发送系统公共事件。 |
+| CommonEvent_ErrCode | 返回错误码。 返回COMMONEVENT_ERR_OK表示成功。 返回COMMONEVENT_ERR_INVALID_PARAMETER表示参数错误。 返回COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED表示事件发送频率过高。 返回COMMONEVENT_ERR_SENDING_REQUEST_FAILED表示IPC请求发送失败。 返回COMMONEVENT_ERR_INIT_UNDONE表示公共事件服务未初始化。 |
  
  
   

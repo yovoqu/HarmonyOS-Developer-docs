@@ -1,6 +1,6 @@
 # getTarget接口：获取状态管理框架代理前的原始对象
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-gettarget
 
@@ -91,7 +91,7 @@ struct GetTargetObject {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/aaHUckp3RcOMykC6DeA5Bg/zh-cn_image_0000002686085453.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=C96CEF9ADBF5A3C754ECE3A0EDB422BA33FB67BDEF5C94323ED5B1493B343B3B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/J9CLFKhcQjuWaJ1RTF4HOw/zh-cn_image_0000002704392059.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=841BFFDACB5BF4228B8D6EFC61A0ED9798B54618BDD669FA472EF47AFC990BB8)
 
 
 
@@ -156,7 +156,7 @@ struct GetTargetNoChange {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/tKggvOMyRTGoY7v-soW04g/zh-cn_image_0000002685925625.png?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=C99A750C81AC49C3F5C0ABC25786C2F8A5D2151509007E76BBE943CBE9969402)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/eJw4j2bXTheUYtwHIzIRYQ/zh-cn_image_0000002674631936.png?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=6DD919890090ED543CB029EB2BBE7815F593CD56EF3C6F59BCCF3AE6D01FA423)
 
 
 使用UIUtils.getTarget接口可以获取代理前的原始对象。
@@ -219,7 +219,7 @@ struct GetTargetAgent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/Yjv74-V-T0-3BzRJZj5IWg/zh-cn_image_0000002656005946.png?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=8DFC01F2D00BA7786440C2F335A46D5D6A0EF162C9D5061DBB00BB79B26AA074)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/wjHp79CoTAGSNxPWNJHOdQ/zh-cn_image_0000002704271891.png?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=4D35D5DEA91668AA8BADC90003C1D4A51798E37C9ECFF89862B9050CF8442DBE)
 
 
 
@@ -262,7 +262,7 @@ struct GetAgentObject {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/D_Zs3C79QoW2BLmJctQ-fg/zh-cn_image_0000002655846026.png?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=0D76F1E42C36641AE51628CF0AF284457A485856185B2B6238714CFA3975FBAD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/9LCT2c0xS-aINjvwBhSoeQ/zh-cn_image_0000002674472092.png?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=BA1F5F9B8F92ADED7FC9BEF1C3E3E164ADB92DABB6A0BFDA1ED0D4043285F822)
 
 
 使用UIUtils.getTarget接口可以获取代理前的原始对象。
@@ -316,7 +316,7 @@ struct GetBeforeAgent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/-a2YV09mSsK58SBjdtNzZw/zh-cn_image_0000002686085455.png?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=E41CDD5F8D7B190CD2219BF44034B883FD87BE1D21E88EC0F3707528565ABBCF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/iWgfu7Y1Sn2UQT5gWcWVaQ/zh-cn_image_0000002704392061.png?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=2E52DBB20074A94A29B66CA696968241CA91F66A4963232F9834F5C95C250A18)
 
 
 状态管理V2装饰器会为装饰的变量生成getter和setter方法，同时为原有变量名添加"__ob_"的前缀。出于性能考虑，getTarget接口不会对V2装饰器生成的前缀进行处理，因此向getTarget接口传入@ObservedV2装饰的类对象实例时，返回的对象依旧为对象本身，且被@Trace装饰的属性名仍有"__ob_"前缀。

@@ -1,6 +1,6 @@
 # OS新增和增强特性
 
-更新时间：2026-06-27 01:41:31
+更新时间：2026-08-04 06:19:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/os-new-feature-600
 
@@ -195,7 +195,7 @@ voip接口新增支持wearable设备。([指南](https://developer.huawei.com/co
 
 #### Enterprise Data Guard Kit
 
-新增获取重置锁屏密码的企业恢复密钥。（[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/recoverykey-getkeyforresetpin)、[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-recoverykey#getenterpriserecoverykeyforresettingpin)）
+新增获取重置锁屏密码的企业恢复密钥。（[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/recoverykey-getkeyforresetpin)、[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-recoverykey#recoverykeygetenterpriserecoverykeyforresettingpin)）
  
  
 
@@ -244,11 +244,11 @@ voip接口新增支持wearable设备。([指南](https://developer.huawei.com/co
 
 #### MDM Kit
 
-- 允许设置禁用/启用的特性新增短信（sms）、蜂窝数据（mobileData）、飞行模式（airplaneMode）、通知消息（notification）、NFC（nfc）。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy)）
+- 允许设置禁用/启用的特性新增短信（sms）、蜂窝数据（mobileData）、飞行模式（airplaneMode）、通知消息（notification）、NFC（nfc）。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicydeprecated)）
 - 新增支持针对指定应用设置user_grant权限的管理策略。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-securitymanager#securitymanagersetpermissionmanagedstate20)）
 - 新增支持通过设备管理设置桌面壁纸。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-devicesettings#devicesettingssethomewallpaper20)）
 - 针对PC/2in1设备，新增支持对无锁屏密码的设备设置重启后自动解锁。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-systemmanager#systemmanagersetautounlockafterreboot20)）
-- 针对PC/2in1设备，新增支持多项用户行为限制策略，如禁止用户修改网卡IP地址、禁止用户修改设备名称、禁止用户修改锁屏密码等。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetuserrestriction20)）
+- 针对PC/2in1设备，新增支持多项用户行为限制策略，如禁止用户修改网卡IP地址、禁止用户修改设备名称、禁止用户修改锁屏密码等。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetuserrestrictiondeprecated)）
 
  
  
@@ -633,7 +633,7 @@ C API新增支持低功耗音视频播放的能力。（[API参考-低功耗音�
 新增文本装饰线样式，支持对文本设置删除线和下划线。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#constructor20)）
 - 文本组件新增支持定义所设置的文本行间距是否对首行生效。（[API参考-Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#linespacing20)、[API参考-TextArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea#linespacing20)）
 - 文本组件的基础定义新增支持设置文本超长时的显示效果。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#maxlinesoptions20对象说明)）
-- 文本输入组件（TextInput、TextArea、Search）新增验证码类型的输入模式ONE_TIME_CODE。（[API参考-TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#inputtype枚举说明)、[API参考-TextArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea#textareatype11枚举说明)、[API参考-Search](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-search#searchtype11枚举说明)）同时也对应提供的C API属性ARKUI_TEXTINPUT_TYPE_ONE_TIME_CODE。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_textinputtype)）
+- 文本输入组件（TextInput、TextArea、Search）新增验证码类型的输入模式ONE_TIME_CODE。（[API参考-TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#inputtype枚举说明)、[API参考-TextArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea#textareatype11枚举说明)、[API参考-Search](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-search#searchtype11枚举说明)）同时也对应提供的C API属性ARKUI_TEXTINPUT_TYPE_ONE_TIME_CODE。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-input-h#arkui_textinputtype)）
 - 文本组件新增文本描边样式，支持设置描述宽度和颜色。（[API参考-属性字符串](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#textstyleinterface对象说明)、[API参考-TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#strokewidth20)、[API参考-TextArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea#strokewidth20)、[API参考-Search](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-search#strokewidth20)）
 - 新增C API，支持统计文本组件中的文本行数（NODE_TEXT_LINE_COUNT）。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)）
 - 新增C API，支持触发Span组件的长按事件（NODE_TEXT_SPAN_ON_LONG_PRESS）。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeeventtype)）
@@ -644,7 +644,7 @@ C API新增支持低功耗音视频播放的能力。（[API参考-低功耗音�
 - Swiper组件支持在显示区域上方或前方插入或删除数据时，设置是否保持可见内容的位置不变。（[API参考-ArkTS API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#maintainvisiblecontentposition20)、[API参考-C API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)）
 - 拖拽事件支持获取事件发生时所在的屏幕ID。（[API参考-ArkTS API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#getdisplayid20)、[API参考-C API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drag-and-drop-h#oh_arkui_dragevent_getdisplayid)）
 - 图形变化过程中，支持设置单个方向的旋转角。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#rotate20)）
-- 自定弹窗支持获取初始化等弹窗状态。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#getstate20)）
+- 自定义弹窗支持获取初始化等弹窗状态。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#getstate20)）
 - 优化栅格布局断点，若未配置更小断点的栅格列数，系统取已配置的更大断点的栅格列数补全未配置的栅格列数。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-gridrow#gridrowcolumnoption)、[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-grid-layout)）
 - 新增ToolBarItem组件，支持为窗口标题栏添加工具栏项。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toolbaritem)）
 - 新增无障碍事件的相关能力，在系统开启无障碍模式后，提供拦截无障碍事件的能力。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-accessibility-event#onaccessibilityactionintercept20)）
@@ -652,7 +652,7 @@ C API新增支持低功耗音视频播放的能力。（[API参考-低功耗音�
 - 支持查询当前ComponentContent对象是否已解除与后端实体节点的引用关系。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent#isdisposed20)）
 - 新增C API，支持通过百分比或具体数值形式设置组件平移（NODE_TRANSLATE_WITH_PERCENT）。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)）
 - 绘制类组件支持通过attributeModifier动态设置属性方法。（[API参考-Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)、[API参考-Shape](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-shape)）
-- CanvasRenderingContext2D支持绘制圆角矩形。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#roundrect20)）
+- CanvasRenderingContext2D支持绘制圆角矩形。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#roundrect20)）
 
  
  
@@ -726,7 +726,7 @@ C API新增支持低功耗音视频播放的能力。（[API参考-低功耗音�
 #### MDM Kit
 
 - 新增支持禁用公网环境下升级的能力。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-systemmanager#otaupdatepolicy)）
-- 允许设置禁用/启用的特性新增设备维修模式（maintenanceMode）、备份恢复能力（backupAndRestore）、收发彩信能力（mms）。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy)）
+- 允许设置禁用/启用的特性新增设备维修模式（maintenanceMode）、备份恢复能力（backupAndRestore）、收发彩信能力（mms）。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicydeprecated)）
 
  
  

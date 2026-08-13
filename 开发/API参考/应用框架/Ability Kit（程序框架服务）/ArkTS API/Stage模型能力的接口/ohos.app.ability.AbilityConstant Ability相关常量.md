@@ -1,6 +1,6 @@
 # @ohos.app.ability.AbilityConstant (Ability相关常量)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilityconstant
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -161,7 +161,7 @@ export default class MyAbility extends UIAbility {
 
 
 > [!NOTE]
-> 建议通过 App Killed 检测来获取应用异常退出的信息，不再建议使用exitSubReason获取。 exitSubReason取值的含义如下： LastExitReason 为NORMAL时： 9：内核强制终止，终止信号SIGKILL。 15：内核强制终止，终止信号SIGTERM。 LastExitReason 为PERFORMANCE_CONTROL时： 100：进入户外模式查杀。 101：退出户外模式查杀。 102：户外模式中查杀。 3000：冻结异常管控，后台存在不合理订阅导致的回调唤醒。 3001：冻结异常管控，后台存在不合理订阅导致应用处理回调卡死。 3002：GNSS工作异常清理。 3003：蓝牙工作异常清理。 3004：RunningLock持锁异常清理。 3005：Kernel锁异常清理。 3006：省电模式清理。 3007：模块高耗电异常清理。 3030：应急模式、超级省电模式或睡眠模式的清理，具体错误原因可通过 LaunchParam.lastExitMessage 区分。 LastExitReason 为RESOURCE_CONTROL时： 101：未申请合理的后台任务，但是后台有大量音频播放。 102：应用未申请合理的后台任务，但是后台有录音。 103：应用后台CPU高负载。 105：应用IO超限。 106：ION内存泄漏管控或恶意使用后台任务查杀，具体错误原因可通过 LaunchParam.lastExitMessage 区分。 107：后台应用内存占用超过检测阈值两倍，其中PSS内存占比最高。 108：后台应用内存占用超过特定阈值，其中PSS内存占比最高。 110：GPU内存泄漏管控。 111：VMA内存泄漏管控。 112：句柄泄漏管控。 113：线程泄漏管控。 114：ASHMEM内存泄漏管控。 117：页表泄漏管控。 301：GPU内存超限或热清理，具体错误原因可通过 LaunchParam.lastExitMessage 区分。
+> 建议通过 App Killed 检测来获取应用异常退出的信息，不再建议使用exitSubReason获取。 exitSubReason取值的含义如下： LastExitReason 为NORMAL时： 9：内核强制终止，终止信号SIGKILL。 15：内核强制终止，终止信号SIGTERM。 LastExitReason 为PERFORMANCE_CONTROL时： 100：进入户外模式查杀。 101：退出户外模式查杀。 102：户外模式中查杀。 3000：冻结异常管控，后台存在不合理订阅导致的回调唤醒。 3001：冻结异常管控，后台存在不合理订阅导致应用处理回调卡死。 3002：GNSS工作异常清理。 3003：蓝牙工作异常清理。 3004：RunningLock持锁异常清理。 3005：Kernel锁异常清理。 3006：省电模式清理。 3007：模块高耗电异常清理。 3042：应急模式或超级省电模式清理，具体错误原因可通过 LaunchParam.lastExitMessage 区分。 LastExitReason 为RESOURCE_CONTROL时： 101：未申请合理的后台任务，但是后台有大量音频播放。 102：应用未申请合理的后台任务，但是后台有录音。 103：应用后台CPU高负载。 105：应用IO超限。 106：ION内存泄漏管控或恶意使用后台任务查杀，具体错误原因可通过 LaunchParam.lastExitMessage 区分。 107：后台应用内存占用超过检测阈值两倍，其中PSS内存占比最高。 108：后台应用内存占用超过特定阈值，其中PSS内存占比最高。 110：GPU内存泄漏管控。 111：VMA内存泄漏管控。 112：句柄泄漏管控。 113：线程泄漏管控。 114：ASHMEM内存泄漏管控。 117：页表泄漏管控。 301：GPU内存超限或热清理，具体错误原因可通过 LaunchParam.lastExitMessage 区分。
 
 
 **示例**:
@@ -273,7 +273,7 @@ export default class MyAbility extends UIAbility {
 | WINDOW_MODE_FULLSCREEN | 1 | 全屏模式。仅在2in1和Tablet设备上生效。 |
 | WINDOW_MODE_SPLIT_PRIMARY | 100 | 支持应用内拉起Ability时设置为分屏，左侧分屏。仅在Tablet设备、PC/2in1设备，以及支持横屏桌面且处于展开状态的折叠屏设备上生效。 |
 | WINDOW_MODE_SPLIT_SECONDARY | 101 | 支持应用内拉起Ability时设置为分屏，右侧分屏。仅在Tablet设备、PC/2in1设备，以及支持横屏桌面且处于展开状态的折叠屏设备上生效。 |
-| WINDOW_MODE_SPLIT | 105 | 支持应用内拉起Ability时设置为分屏，新增窗口默认显示在焦点窗口右侧。仅在折叠屏和Tablet设备上生效。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| WINDOW_MODE_SPLIT | 105 | 支持应用内拉起Ability时设置为分屏，新增窗口默认显示在焦点窗口右侧。仅在折叠屏和Tablet设备上生效。 起始版本： 26.0.0 |
 
 
 **示例：**
@@ -446,7 +446,7 @@ export default class MyAbility extends UIAbility {
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| TERMINATE_IMMEDIATELY | 0 | 表示立即执行结束动作，默认值。 |
+| TERMINATE_IMMEDIATELY | 0 | 表示立即执行结束动作。 |
 | CANCEL | 1 | 表示取消结束动作。 |
 
 

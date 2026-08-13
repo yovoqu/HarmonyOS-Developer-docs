@@ -1,6 +1,6 @@
 # hiappevent_param.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiappevent-param-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -279,6 +279,6 @@
 
 **描述**
 
-用于APP_CRASH事件，是否使能minidump。
+用于设置APP_CRASH事件中的CPP_CRASH类型的日志规格，是否在CPP_CRASH场景收集minidump日志。
 
 **起始版本：** 26.0.0

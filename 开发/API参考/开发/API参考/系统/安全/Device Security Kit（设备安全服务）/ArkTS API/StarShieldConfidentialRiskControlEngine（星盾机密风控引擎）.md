@@ -1,6 +1,6 @@
 # RiskControlEngine（星盾机密风控引擎）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-riskcontrolengine-api
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -132,7 +132,7 @@ type ValueType = number | boolean | string
  
   
 
-#### importRiskFactors
+#### riskControlEngine.importRiskFactors
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -213,7 +213,7 @@ try {
  
   
 
-#### getRiskControlResult
+#### riskControlEngine.getRiskControlResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

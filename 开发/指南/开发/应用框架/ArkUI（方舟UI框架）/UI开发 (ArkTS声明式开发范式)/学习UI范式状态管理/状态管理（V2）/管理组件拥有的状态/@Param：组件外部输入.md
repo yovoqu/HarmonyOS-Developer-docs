@@ -1,6 +1,6 @@
 # @Param：组件外部输入
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-param
 
@@ -102,7 +102,7 @@ struct Child {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/YJ29k8OtQx6Gz8aeoN4Ecg/zh-cn_image_0000002685925577.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=23D9A456B7917359878AEBE88EE64EA215910E17BF2C1C2E732AAB5DF402BA7F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/zbMFNuBgTPKxyxu-g0aMlw/zh-cn_image_0000002674631888.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=3A44B2626DECDA6333CA16B23CC2F303FB70BEEAC569E09212B86A2DB5D28A74)
 
 
 在上面的示例中，@State仅能在初始化时接收info的引用，改变info之后无法同步。@Prop虽然能够进行单向同步，但是对于较复杂的类型来说，深拷贝性能较差。@Link能够接受传入的引用进行双向同步，但它必须要求数据源也是状态变量，因此无法接受info中的成员属性region。@ObjectLink能够接受类成员属性，但是要求该属性类型必须为@Observed装饰的类。装饰器的不同限制使得父子组件之间的传值规则复杂、不易使用。因此推出@Param装饰器，表示组件从外部传入的状态。
@@ -202,7 +202,7 @@ struct Child {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/jqF6syBxT8aF5KuZ2Ngd6Q/zh-cn_image_0000002656005898.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=ED62B690043567390EADD7ED1FAAF77EE95C19D710C921F0A372DDD24CD524EC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/jrbslytCRwmD-xvB04VwTA/zh-cn_image_0000002704271843.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=8E37CADDCBBCA10A89FE1694BECE6AB56FDAA1E86A3972C6371CB4BA7206322C)
 
  - 当装饰的变量类型为类对象时，仅可以观察到对类对象整体赋值的变化，无法直接观察到对类成员属性赋值的变化，对类成员属性的观察依赖[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)和[@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰器，也可以使用[makeObserved](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved)将该对象变为可观察对象。
 
@@ -284,7 +284,7 @@ struct Child {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/sp-m_oI3T1S3ByxnRv9EVA/zh-cn_image_0000002655845978.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=0F54BD97804108BD0C60BFE7D25370131A0C21036ADCB999823A131C76E5FEEA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/6XVkxHBYQzGP50-lyhaNnQ/zh-cn_image_0000002674472044.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=7E85DBE9A8D9A5B749389FFD4A574C97DADBD66CDCE397F4CD28A069A606B971)
 
  - 装饰的变量为简单类型数组时，可观察数组整体或数组项变化。
 
@@ -368,7 +368,7 @@ struct Child {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/Rzh5CBANQdGlYzMqoOaAXQ/zh-cn_image_0000002686085407.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=694491DB99E54E0C192A79026AE2762A928D147D5FC0929CC2A4CFFBCDE55B6B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/5xUOzWh9Qi2MbY0eIM2-Eg/zh-cn_image_0000002704392013.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=989B5AB51E150E56C801F170540E7B0F254333912C5E58C0EE629894C0DF2B7E)
 
  - 当装饰的变量是嵌套类或对象数组时，@Param无法观察深层对象属性的变化。对深层对象属性的观测依赖@ObservedV2与@Trace装饰器。
 
@@ -485,7 +485,7 @@ struct Child {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/ePYChg1PSXOezOcMBuRXmg/zh-cn_image_0000002685925579.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=05A2FCA4EF47F2987B6236E2606DB26846BD07D7C1F919F34050AA05B5D45803)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/BFeiG222TWWk7EZIRKqkEA/zh-cn_image_0000002674631890.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=1843D7A59C19D128BCA54D737628AE964CE651D436C07CEFB19341E44E107BD5)
 
  - 装饰的变量为内置类型时，可观察变量整体赋值和API调用的变化。
 
@@ -706,7 +706,7 @@ struct SubComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/4-BuMjKZShq2zzrtd1Uflg/zh-cn_image_0000002656005900.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=8A2CA344C39E74C6EF906C00662FE05C3205254613CD63A324D41BEF467920B9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/0XPhwC_0SOCs1uYa3ipLyA/zh-cn_image_0000002704271845.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=AC0CC4B5907120C0B3453045ECEE69CA19002E99B5D8CA6C98AEE3A678F21093)
 
 
 
@@ -781,7 +781,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/RNVLFjXoSLiMV2gkjTS0xw/zh-cn_image_0000002655845980.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=4EDD4FE153DBD0B865C62BF36E09C5105B8D0610A5081D651BDAF179BB7DE8FD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/bMRmd4hvS4WaT1D-8eR0TA/zh-cn_image_0000002674472046.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=A9076E78EAD135611383EF061FED946F91D254378BE4A33B3554EE5F52814607)
 
 
 
@@ -852,7 +852,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/D3LnBOP0SZixMDX5h2syCg/zh-cn_image_0000002686085409.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=C7CB1730F356FA572ED2D1844ECA62EEFA8A5F179CDA43CC91B683A26D2C346E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/e4hR-cJESoq6dAKt2Vw-tQ/zh-cn_image_0000002704392015.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=B103E3D4A32A9553B2D93A0D659A08B18D9B34730C6E67627D5ED47B67513E5C)
 
 
 
@@ -937,7 +937,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/sV1K_TRuT12szHrMYylJAQ/zh-cn_image_0000002685925581.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=17DD76E561EB36D3A682F4560532BB7F2F2FC62536523E1576102F1DB1ECE424)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/4nX1QTOSSsSv7CZPktSjvQ/zh-cn_image_0000002674631892.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=968B7199C95BDADB0E7BA4A68F43B9D4E9D640D01C73F8BB52F56D3AF230DF44)
 
 
 
@@ -1012,7 +1012,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/Ru1x-jDtQACB3AN1W80N8w/zh-cn_image_0000002656005902.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=FC39655A288D46A47AFC19E2532C9E68E5B4519CBBE5D48B35E03EBD2C23A11B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/_FUHMxM6SM-0moMmJ4OqxQ/zh-cn_image_0000002704271847.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=EB457A3C958872EF28CB1F227FE45C1D3B559B77E39FEBD77977A48AA6DCA29D)
 
 
 
@@ -1058,4 +1058,4 @@ struct MyComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/r1sdCCqNTf2xEriC1AI4QQ/zh-cn_image_0000002655845982.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=0107A728B9A26D91F5CC150A5742BCD45B9642B4D32B4FD02DE340C3292329ED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/G6GzYFx5RlOykSd0ktaY5w/zh-cn_image_0000002674472048.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=280C910723CDB19B286486DA0C8CBDBD8C5A93BD5AA7264B580B8A57411D78C2)

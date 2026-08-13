@@ -1,6 +1,6 @@
 # 不依赖UI组件的全局自定义弹出框 (openCustomDialog)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-uicontext-custom-dialog
 
@@ -194,7 +194,7 @@ export struct CustomDialogComponentWithTransition {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/aRcpT4lFQQi39E9klvpGLw/zh-cn_image_0000002656006326.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071847Z&HW-CC-Expire=86400&HW-CC-Sign=4661B79108C660B3F488DA80C5E4572C7E03F72C51C73E074E904665211C47E8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/G35j75F-Q--rjyQaQ2azaA/zh-cn_image_0000002704272273.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095713Z&HW-CC-Expire=86400&HW-CC-Sign=D812F4743F7451A13CAF756F10D50E83A3F9B6D1D664EC8197CBEE53C5036DEC)
 
 
 
@@ -255,7 +255,7 @@ export struct CustomDialogWithKeyboardAvoidDistance {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/mYPFhXXaSGy76dBwW-zv8w/zh-cn_image_0000002655846406.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071847Z&HW-CC-Expire=86400&HW-CC-Sign=B1DEAD747E95040EDCDFA605C0F0FDF4B5F0556DE79E62FC1AA6DEDC1C8C15DE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/qLqToYHsTgmHy5HA3cUHYA/zh-cn_image_0000002674472474.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095713Z&HW-CC-Expire=86400&HW-CC-Sign=DC7DF6316696840915D14CAD5BD86383026C74F3B3528F2870E078B7F38DD00C)
 
 
 
@@ -411,4 +411,4 @@ export struct OpenDialogAndUpdate {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/tUurtqjSSu6IAhUB01I6Jw/zh-cn_image_0000002686085835.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071847Z&HW-CC-Expire=86400&HW-CC-Sign=831DD382E4F365FFCEA0EF1097B0BAD9B61FB40C9E5967D3FD751B886A958185)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/3BxjcbEbR1ONhGdJ3EBVeg/zh-cn_image_0000002704392441.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095713Z&HW-CC-Expire=86400&HW-CC-Sign=05DBD130CE63785B1A8379B3AAEBEED2B55F214A34EFB1B984CA077175AB0ACE)

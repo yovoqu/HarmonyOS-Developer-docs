@@ -1,6 +1,6 @@
 # CanvasRenderingContext2D对象
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-components-canvas-canvasrenderingcontext2d
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -8,7 +8,7 @@
 使用CanvasRenderingContext2D在canvas画布组件上进行绘制，绘制对象可以是矩形、文本。
  
 > [!NOTE]
-> 从API版本23开始，预览器不再受JS文件大小不能超过48KB的限制。对于API版本22及之前，JS文件大小不能超过48 KB。
+> 从API版本23开始，预览器已取消JS文件48KB的大小限制。对于API版本22及之前，JS文件大小不能超过48KB。
 
  
 **示例：**
@@ -442,7 +442,7 @@ ctx.stroke();
 **示例：**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/TbE9w2JCSZuGChYqRy44Ww/zh-cn_image_0000002685928929.png?HW-CC-KV=V1&HW-CC-Date=20260730T071526Z&HW-CC-Expire=86400&HW-CC-Sign=7698B9EBF323B9CBA5E37E9DAAAE220528C2D4A17DE271123CF0FEBF9FB999FF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/gi-Yv6A4T9-IXOJuUSsGIA/zh-cn_image_0000002674635262.png?HW-CC-KV=V1&HW-CC-Date=20260813T095451Z&HW-CC-Expire=86400&HW-CC-Sign=0C7768986728DBBC3094DD560068D4975B0E2C06610C7E1FFF3E92600C217B87)
 
  
 ```text

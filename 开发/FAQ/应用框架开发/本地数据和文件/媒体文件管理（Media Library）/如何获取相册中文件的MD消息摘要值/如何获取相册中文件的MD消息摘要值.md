@@ -1,6 +1,6 @@
 # 如何获取相册中文件的MD消息摘要值
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-library-19
 
@@ -41,7 +41,7 @@ export async function <span style="color: rgb(0,0,255);">readUserPicFile</span><
 <span style="color: rgb(255,0,170);">}</span>
 ```
 
-2. 通过[文件复制](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fscopyfilesync)能力，将相册文件数据复制到沙箱文件中。
+2. 通过[文件复制](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiocopyfilesync)能力，将相册文件数据复制到沙箱文件中。
 ```text
 <em>// </em><em><span style="color: rgb(128,128,128);">复制文件到沙箱</span></em>
 let <span style="color: rgb(0,0,255);">file </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">READ_ONLY</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>

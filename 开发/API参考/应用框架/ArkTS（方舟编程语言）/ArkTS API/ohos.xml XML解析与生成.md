@@ -1,22 +1,22 @@
 # @ohos.xml (XML解析与生成)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-xml
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块提供XML生成和解析的接口。
+本模块提供XML生成和解析的接口，支持多种方式的XML文本生成与解析，可帮助开发者高效处理结构化XML数据。
 
 本模块提供了两种生成XML文件的方式:
 
- - [XmlSerializer](#xmlserializer)：适用于已知XML文本大小的情况。
- - [XmlDynamicSerializer20+](#xmldynamicserializer20)：适用于未知XML文本大小的情况。
+ - [XmlSerializer](#xmlserializer)：适用于已知XML文本大小的情况。需要开发者自行创建ArrayBuffer作为缓存区域，需确保缓存区域足以容纳生成的文本内容。
+ - [XmlDynamicSerializer20+](#xmldynamicserializer20)：适用于未知XML文本大小的情况。无需自行创建ArrayBuffer，程序动态扩容，但序列化结果字符串长度上限为100000。
 
 
 本模块提供了两种解析XML文件的方式:
 
- - [XmlPullParser](#xmlpullparser)：适用于对xml文本进行随机访问和灵活解析的场景。
- - [XmlSAXParser24+](#xmlsaxparser24)：适用于流式解析xml文本的场景，当xml文本较大，其他解析方式会消耗较多内存，建议采用流式解析。
+ - [XmlPullParser](#xmlpullparser)：适用于对XML文本进行随机访问和灵活解析的场景。
+ - [XmlSAXParser24+](#xmlsaxparser24)：适用于流式解析XML文本的场景，当XML文本较大，其他解析方式会消耗较多内存，建议采用流式解析。
 
 
 > [!NOTE]
@@ -38,7 +38,7 @@ import { xml } from '@kit.ArkTS';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-XmlSerializer接口用于生成XML文件。
+XmlSerializer接口用于生成XML文件。该接口基于预分配的ArrayBuffer缓存区域，通过顺序调用元素写入方法（如startElement、setAttributes、setText和endElement）将XML文本写入缓存。
 
 
 
@@ -48,10 +48,10 @@ XmlSerializer接口用于生成XML文件。
 
 constructor(buffer: ArrayBuffer | DataView, encoding?: string)
 
-XmlSerializer的构造函数。
+构造并返回一个XmlSerializer对象，用于将XML信息写入指定的ArrayBuffer或DataView内存中。
 
 > [!NOTE]
-> buffer是开发者根据需要自定义大小的缓存区域，用于临时存储生成的XML文本。在使用过程中必须确保缓存区域足以容纳生成的文本内容。
+> buffer是开发者根据需要自定义大小的缓冲区，用于临时存储生成的XML文本。在使用过程中必须确保缓冲区足以容纳生成的文本内容。
 
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
@@ -62,7 +62,7 @@ XmlSerializer的构造函数。
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| buffer | ArrayBuffer \| DataView | 是 | 用于接收写入XML信息的ArrayBuffer或DataView内存。 |
+| buffer | ArrayBuffer \| DataView | 是 | 用于接收写入XML信息的ArrayBuffer或DataView内存，需确保缓存区域足以容纳生成的文本内容。 |
 | encoding | string | 否 | 编码格式，默认'utf-8'（目前仅支持'utf-8'）。 |
 
 
@@ -70,7 +70,7 @@ XmlSerializer的构造函数。
 
 ```xml
 let arrayBuffer = new ArrayBuffer(2048);
-let thatSer = new xml.XmlSerializer(arrayBuffer, "utf-8");
+let xmlSerializer = new xml.XmlSerializer(arrayBuffer, "utf-8");
 ```
 
 
@@ -84,7 +84,7 @@ setAttributes(name: string, value: string): void
 添加元素的属性和属性值。
 
 > [!NOTE]
-> 该接口对所添加数据不做标准XML校验处理，确保所添加的数据符合标准XML规范。例如不允许添加数字开头的属性名称以及添加多个同名的属性名称。
+> 该接口必须在 startElement 之后调用，用于为当前已开启的元素设置属性。在元素开始标记写入之前调用此接口将产生无效XML。 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。例如不允许添加数字开头的属性名称以及添加多个同名的属性名称。
 
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
@@ -95,8 +95,8 @@ setAttributes(name: string, value: string): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| name | string | 是 | 属性。 |
-| value | string | 是 | 属性值。 |
+| name | string | 是 | XML元素的属性名称。 |
+| value | string | 是 | XML元素的属性值，与name参数指定的属性名对应。 |
 
 
 **示例：**
@@ -125,7 +125,7 @@ addEmptyElement(name: string): void
 添加一个空元素。
 
 > [!NOTE]
-> 该接口对所添加数据不做标准XML校验处理，确保所添加的数据符合标准XML规范。例如不允许添加数字开头的元素名称。
+> 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。例如不允许添加数字开头的元素名称。
 
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
@@ -136,7 +136,7 @@ addEmptyElement(name: string): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| name | string | 是 | 元素的名称。 |
+| name | string | 是 | 元素的名称，取值原则：不允许以数字开头。 |
 
 
 **示例：**
@@ -160,7 +160,7 @@ console.info(result); // <d/>
 
 setDeclaration(): void
 
-设置带有编码信息的文件声明。
+设置带有编码信息的文件声明，调用后将在XML文本中生成<?xml version="1.0" encoding="utf-8"?>格式的声明。
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
@@ -191,7 +191,7 @@ startElement(name: string): void
 根据给定名称添加元素开始标记。
 
 > [!NOTE]
-> 调用该接口后须调用 endElement 写入元素结束标记，以确保节点正确闭合。 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。比如不允许添加数字开头的元素名称。
+> 调用该接口后须调用 endElement 写入元素结束标记，以确保节点正确闭合。 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。例如不允许添加数字开头的元素名称。
 
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
@@ -263,10 +263,10 @@ console.info(result);
 
 setNamespace(prefix: string, namespace: string): void
 
-添加当前元素标记的命名空间。
+添加当前元素标记的命名空间，适用于需要在同一XML文档中区分来自不同词汇表或模式的元素的场景，如混合使用多个XML标准的文档。
 
 > [!NOTE]
-> 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。例如禁止添加数字开头的前缀以及为同一个元素设置多个命名空间。
+> 该接口应在 startElement 之前调用，为即将开启的元素设置命名空间前缀。调用顺序：先调用setNamespace设置命名空间，再调用startElement开启元素。 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。例如禁止添加数字开头的前缀以及为同一个元素设置多个命名空间。
 
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
@@ -305,7 +305,7 @@ console.info(result);
 
 setComment(text: string): void
 
-添加注释内容。
+添加注释内容，所生成的注释结构为：<!-- + 注释内容 + -->。
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
@@ -339,10 +339,10 @@ console.info(result); // <!--Hello, World!-->
 
 setCDATA(text: string): void
 
-提供在CDATA标签中添加数据的能力，所生成的CDATA标签结构为："<![CDATA[" + 所添加的数据 + "]]>"。
+提供在CDATA标签中添加数据的能力，适用于XML内容中包含特殊字符（如<、&等）需要原样保留而不被XML解析器处理的场景。所生成的CDATA标签结构为：<![CDATA[ + 所添加的数据 + ]]>。
 
 > [!NOTE]
-> 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。比如不允许在CDATA标签中添加包含"]]>"字符串的数据。
+> 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。例如不允许在CDATA标签中添加包含"]]>"字符串的数据。
 
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
@@ -353,7 +353,7 @@ setCDATA(text: string): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| text | string | 是 | CDATA属性的内容。 |
+| text | string | 是 | CDATA标签中的数据内容。 |
 
 
 **示例：**
@@ -363,7 +363,7 @@ import { util } from '@kit.ArkTS';
 
 let arrayBuffer = new ArrayBuffer(2048);
 let thatSer = new xml.XmlSerializer(arrayBuffer);
-thatSer.setCDATA('root SYSTEM')
+thatSer.setCDATA('root SYSTEM');
 let uint8 = new Uint8Array(arrayBuffer);
 let result = util.TextDecoder.create().decodeToString(uint8);
 console.info(result); // <![CDATA[root SYSTEM]]>
@@ -377,7 +377,7 @@ console.info(result); // <![CDATA[root SYSTEM]]>
 
 setText(text: string): void
 
-添加标签值。
+添加标签值，标签值将作为当前元素的文本内容，写入元素的开始标记与结束标记之间。
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
@@ -387,7 +387,7 @@ setText(text: string): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| text | string | 是 | text属性的内容。 |
+| text | string | 是 | XML元素的标签文本内容。 |
 
 
 **示例：**
@@ -414,7 +414,7 @@ console.info(result); // <note importance="high">Happy</note>
 
 setDocType(text: string): void
 
-添加文档类型。
+添加文档类型，调用后将在XML文本中生成<!DOCTYPE ...>格式的文档类型声明。
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
@@ -424,7 +424,7 @@ setDocType(text: string): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| text | string | 是 | DocType属性的内容。 |
+| text | string | 是 | 文档类型声明的内容。 |
 
 
 **示例：**
@@ -460,7 +460,7 @@ XmlDynamicSerializer类用于动态生成XML字符串。当无法确定XML内容
 
 constructor(encoding?: string)
 
-XmlDynamicSerializer的构造函数。
+构造并返回一个XmlDynamicSerializer对象，该对象支持动态扩容生成XML字符串，无需预先指定缓存大小。
 
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
 
@@ -470,7 +470,7 @@ XmlDynamicSerializer的构造函数。
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| encoding | string | 否 | 编码格式，默认'utf-8'(目前仅支持'utf-8')。 |
+| encoding | string | 否 | 编码格式，默认'utf-8'（目前仅支持'utf-8'）。 |
 
 
 **错误码：**
@@ -535,7 +535,7 @@ setAttributes(name: string, value: string): void
 写入元素的属性和属性值。
 
 > [!NOTE]
-> 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。比如不允许添加数字开头的属性名称以及添加多个同名的属性名称。
+> 该接口必须在 startElement 20+ 之后调用，用于为当前已开启的元素设置属性。 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。例如不允许添加数字开头的属性名称以及添加多个同名的属性名称。
 
 
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
@@ -546,8 +546,8 @@ setAttributes(name: string, value: string): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| name | string | 是 | 属性。所组成的XML长度不能超过100000，不可为空字符。 |
-| value | string | 是 | 属性值。所组成的XML长度不能超过100000。 |
+| name | string | 是 | 属性名。所组成的XML长度不能超过100000，不可为空字符。 |
+| value | string | 是 | 属性值。所组成的XML长度不能超过100000字符。 |
 
 
 **错误码：**
@@ -587,7 +587,7 @@ addEmptyElement(name: string): void
 写入一个空元素。
 
 > [!NOTE]
-> 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。比如不允许添加数字开头的元素名称。
+> 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。例如不允许添加数字开头的元素名称。
 
 
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
@@ -598,7 +598,7 @@ addEmptyElement(name: string): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| name | string | 是 | 该空元素的元素名。所组成的XML长度不能超过100000。 |
+| name | string | 是 | 该空元素的元素名，所组成的XML长度不能超过100000。 |
 
 
 **错误码：**
@@ -632,7 +632,7 @@ console.info(result); // <d/>
 
 setDeclaration(): void
 
-编写带有编码的文件声明。
+编写带有编码的文件声明，调用后将在XML文本中生成<?xml version="1.0" encoding="utf-8"?>格式的声明。
 
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
 
@@ -672,7 +672,7 @@ startElement(name: string): void
 写入元素开始标记。
 
 > [!NOTE]
-> 调用该接口后须调用 endElement 写入元素结束标记，以确保节点正确闭合。 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。比如不允许添加数字开头的元素名称。
+> 调用该接口后须调用 endElement 20+ 写入元素结束标记，以确保节点正确闭合。 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。例如不允许添加数字开头的元素名称。
 
 
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
@@ -683,7 +683,7 @@ startElement(name: string): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| name | string | 是 | 当前元素的元素名。所组成的XML长度不能超过100000。 |
+| name | string | 是 | 当前元素的元素名。所组成的XML长度不能超过100000，不可为空字符。 |
 
 
 **错误码：**
@@ -722,7 +722,7 @@ endElement(): void
 写入元素结束标记。
 
 > [!NOTE]
-> 调用该接口前必须先调用 startElement 接口写入元素开始标记。
+> 调用该接口前必须先调用 startElement 20+ 接口写入元素开始标记。
 
 
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
@@ -765,7 +765,7 @@ setNamespace(prefix: string, namespace: string): void
 写入当前元素标记的命名空间。
 
 > [!NOTE]
-> 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。比如不允许添加数字开头的前缀以及对同一个元素设置多个命名空间。
+> 该接口应在 startElement 20+ 之前调用，为即将开启的元素设置命名空间前缀。调用顺序：先调用setNamespace设置命名空间，再调用startElement开启元素。 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。例如不允许添加数字开头的前缀以及为同一个元素设置多个命名空间。
 
 
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
@@ -776,8 +776,8 @@ setNamespace(prefix: string, namespace: string): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| prefix | string | 是 | 当前元素及其子元素的前缀。所组成的XML长度不能超过100000，不可为空字符。 |
-| namespace | string | 是 | 当前元素及其子元素的命名空间。所组成的XML长度不能超过100000，不可为空字符。 |
+| prefix | string | 是 | 当前元素及其子元素的前缀。所组成的XML长度不能超过100000，不可为空字符串。 |
+| namespace | string | 是 | 当前元素及其子元素的命名空间。所组成的XML长度不能超过100000，不可为空字符串。 |
 
 
 **错误码：**
@@ -813,7 +813,7 @@ console.info(result); // <h:note xmlns:h="http://www.w3.org/TR/html4/"/>
 
 setComment(text: string): void
 
-写入注释内容。
+写入注释内容，所生成的注释结构为：<!-- + 注释内容 + -->。
 
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
 
@@ -823,7 +823,7 @@ setComment(text: string): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| text | string | 是 | 当前元素的注释内容。所组成的XML长度不能超过100000。 |
+| text | string | 是 | 当前元素的注释内容。所组成的XML长度不能超过100000，不可为空字符。 |
 
 
 **错误码：**
@@ -857,10 +857,10 @@ console.info(result); // <!--Hello, World!-->
 
 setCdata(text: string): void
 
-提供在CDATA标签中添加数据的能力，所生成的CDATA标签结构为："<![CDATA[" + 所添加的数据 + "]]>"。
+提供在CDATA标签中添加数据的能力，所生成的CDATA标签结构为：<![CDATA[ + 所添加的数据 + ]]>。
 
 > [!NOTE]
-> 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。比如不允许在CDATA标签中添加包含"]]>"字符串的数据。
+> 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。例如不允许在CDATA标签中添加包含"]]>"字符串的数据。
 
 
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
@@ -871,7 +871,7 @@ setCdata(text: string): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| text | string | 是 | CDATA属性的内容。所组成的XML长度不能超过100000。 |
+| text | string | 是 | CDATA标签中的数据内容。所组成的XML长度不能超过100000。 |
 
 
 **错误码：**
@@ -907,6 +907,10 @@ setText(text: string): void
 
 写入标签值。
 
+> [!NOTE]
+> 该接口必须在 startElement 20+ 之后、 endElement 20+ 之前调用，用于设置当前元素的文本内容。
+
+
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
@@ -915,7 +919,7 @@ setText(text: string): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| text | string | 是 | 标签值。所组成的XML长度不能超过100000。 |
+| text | string | 是 | 标签值。所组成的XML长度不能超过100000，不可为空字符。 |
 
 
 **错误码：**
@@ -962,7 +966,7 @@ setDocType(text: string): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| text | string | 是 | DocType属性的内容。所组成的XML长度不能超过100000。 |
+| text | string | 是 | 文档类型声明的内容。所组成的XML长度不能超过100000。 |
 
 
 **错误码：**
@@ -994,7 +998,7 @@ console.info(result); // <!DOCTYPE root SYSTEM "http://www.test.org/test.dtd">
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-XmlPullParser接口用于解析现有的XML文件。
+XmlPullParser接口用于解析现有的XML文件，适用于对XML文本进行随机访问和灵活解析的场景。
 
 
 
@@ -1014,7 +1018,7 @@ constructor(buffer: ArrayBuffer | DataView, encoding?: string)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| buffer | ArrayBuffer \| DataView | 是 | 用于解析的XML文本信息。 |
+| buffer | ArrayBuffer \| DataView | 是 | 用于解析的XML文本数据所在的ArrayBuffer或DataView内存。 |
 | encoding | string | 否 | 编码格式，默认'utf-8'（目前仅支持'utf-8'）。 |
 
 
@@ -1026,7 +1030,7 @@ import { util } from '@kit.ArkTS';
 let strXml = '<title>Happy</title>'
 let textEncoder = new util.TextEncoder();
 let uint8Array = textEncoder.encodeInto(strXml);
-let that = new xml.XmlPullParser(uint8Array.buffer as object as ArrayBuffer, 'UTF-8');
+let xmlParser = new xml.XmlPullParser(uint8Array.buffer as object as ArrayBuffer, 'UTF-8');
 ```
 
 
@@ -1037,9 +1041,9 @@ let that = new xml.XmlPullParser(uint8Array.buffer as object as ArrayBuffer, 'UT
 
 parseXml(option: ParseOptions): void
 
-解析XML。
+解析XML，调用后将根据ParseOptions中配置的回调函数触发相应的解析事件，通过回调函数传递标签、属性、文本等解析信息。
 
-**元服务API**：从API version 14 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 14开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
 
@@ -1052,26 +1056,26 @@ parseXml(option: ParseOptions): void
 
 **示例：**
 
-具体使用场景可参照[解析XML标签和标签值](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/xml-parsing#解析xml标签和标签值)和[解析XML属性和属性值](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/xml-parsing#解析xml属性和属性值)
+具体使用场景可参照[解析XML标签和标签值](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/xml-parsing#解析xml标签和标签值)和[解析XML属性和属性值](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/xml-parsing#解析xml属性和属性值)。
 
 ```json
 import { xml, util } from '@kit.ArkTS';
 
-let strxml =
+let strXml =
   '<?xml version="1.0" encoding="utf-8"?>' +
     '<note importance="high" logged="true">' +
     '    <title><![CDATA[测试\n测试]]></title>' +
     '</note>';
 let textEncoder = new util.TextEncoder();
-let uint8 = textEncoder.encodeInto(strxml);
+let uint8 = textEncoder.encodeInto(strXml);
 
-function func(key: xml.EventType, value: xml.ParseInfo) {
+function onParseEvent(key: xml.EventType, value: xml.ParseInfo) {
   if (key == xml.EventType.CDSECT) {
     console.info(JSON.stringify(value.getText()));
   }
   return true;
 }
-let options: xml.ParseOptions = {supportDoctype:true, ignoreNameSpace:true, tokenValueCallbackFunction:func}
+let options: xml.ParseOptions = {supportDoctype: true, ignoreNameSpace: true, tokenValueCallbackFunction: onParseEvent}
 let pullParser = new xml.XmlPullParser(uint8.buffer as object as ArrayBuffer);
 pullParser.parseXml(options);
 // "测试\n测试"
@@ -1085,7 +1089,7 @@ pullParser.parseXml(options);
 
 parse(option: ParseOptions): void
 
-该接口用于解析XML。
+该接口用于根据指定的解析选项解析XML文本。
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 14开始废弃，建议使用 parseXml 14+ 替代。
@@ -1116,10 +1120,10 @@ let strXml =
 let textEncoder = new util.TextEncoder();
 let arrBuffer = textEncoder.encodeInto(strXml);
 let that = new xml.XmlPullParser(arrBuffer.buffer as object as ArrayBuffer, 'UTF-8');
-let str = '';
+let parseResult = '';
 function func(name: string, value: string) {
-  str = name + value;
-  console.info(str);
+  parseResult = name + value;
+  console.info(parseResult);
   return true;
 }
 let options: xml.ParseOptions = {supportDoctype:true, ignoreNameSpace:true, tagValueCallbackFunction:func}
@@ -1142,7 +1146,7 @@ that.parse(options);
 
 type AttributeWithTagCb = (tagName: string, key: string, value: string) => boolean
 
-**元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+**元服务API**：从API version 20开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
 
@@ -1168,17 +1172,17 @@ type AttributeWithTagCb = (tagName: string, key: string, value: string) => boole
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-XML解析选项。
+XML解析选项，用于配置XmlPullParser的解析行为。开发者可通过supportDoctype和ignoreNameSpace控制解析范围，通过注册回调函数（tagValueCallbackFunction、attributeValueCallbackFunction、tokenValueCallbackFunction等）接收不同类型的解析事件。
 
-**系统能力：** SystemCapability.Utils.Lang。
+**系统能力：** SystemCapability.Utils.Lang
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| supportDoctype | boolean | 否 | 是 | 是否解析文档类型，false表示不解析文档类型，true表示解析文档类型，默认值false。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| ignoreNameSpace | boolean | 否 | 是 | 是否忽略命名空间，忽略命名空间后，将不会对其进行解析。true表示忽略命名空间，false表示不忽略命名空间，默认值false。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| tagValueCallbackFunction | (name: string, value: string) => boolean | 否 | 是 | 解析开始标签、标签值和结束标签，默认值undefined，表示不解析。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| attributeValueCallbackFunction | (name: string, value: string) => boolean | 否 | 是 | 解析属性和属性值，默认值undefined，表示不解析。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| tokenValueCallbackFunction | (eventType: EventType, value: ParseInfo) => boolean | 否 | 是 | 解析元素事件类型(EventType)和ParseInfo属性，默认值undefined，表示不解析。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| supportDoctype | boolean | 否 | 是 | 是否解析文档类型，false表示不解析文档类型，true表示解析文档类型，默认值为false。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| ignoreNameSpace | boolean | 否 | 是 | 是否忽略命名空间，忽略命名空间后，将不会对其进行解析。true表示忽略命名空间，false表示不忽略命名空间，默认值为false。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| tagValueCallbackFunction | (name: string, value: string) => boolean | 否 | 是 | 解析开始标签、标签值和结束标签，返回true表示继续解析，返回false表示停止解析，默认值为undefined，表示不解析。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| attributeValueCallbackFunction | (name: string, value: string) => boolean | 否 | 是 | 解析属性和属性值，返回true表示继续解析，返回false表示停止解析，默认值为undefined，表示不解析。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| tokenValueCallbackFunction | (eventType: EventType, value: ParseInfo) => boolean | 否 | 是 | 解析元素事件类型(EventType)和ParseInfo属性，默认值为undefined，表示不解析。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | attributeWithTagCallbackFunction20+ | AttributeWithTagCb | 否 | 是 | 解析标签名称、属性名称及属性的值，默认值为undefined，表示不执行解析。 元服务API：从API version 20开始，该接口支持在元服务中使用。 |
 
 
@@ -1208,7 +1212,7 @@ getColumnNumber(): number
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 返回当前列号。 |
+| number | 当前元素的列号（从1开始），用于定位XML解析位置。 |
 
 
 **示例：**
@@ -1253,7 +1257,7 @@ getDepth(): number
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 返回元素的当前深度。 |
+| number | 元素的嵌套深度（从0开始），用于判断XML层级结构。 |
 
 
 **示例：**
@@ -1298,7 +1302,7 @@ getLineNumber(): number
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 返回当前行号。 |
+| number | 当前元素的行号（从1开始），用于定位XML解析位置。 |
 
 
 **示例：**
@@ -1339,7 +1343,7 @@ getName(): string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 返回当前元素名称。 |
+| string | 当前元素的名称（不包含命名空间前缀），用于标识XML元素。 |
 
 
 **示例：**
@@ -1415,7 +1419,7 @@ console.info(str);
 
 getPrefix(): string
 
-获取当前元素前缀。
+获取当前元素的命名空间前缀。
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
@@ -1425,7 +1429,7 @@ getPrefix(): string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 返回当前元素前缀。 |
+| string | 返回当前元素的命名空间前缀，如果元素没有命名空间前缀则返回空字符串。 |
 
 
 **示例：**
@@ -1470,7 +1474,7 @@ getText(): string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 返回当前事件的文本内容。 |
+| string | 当前事件的文本内容（如标签值、注释等），用于获取解析的XML数据。 |
 
 
 **示例：**
@@ -1546,7 +1550,7 @@ console.info(str);
 
 isWhitespace(): boolean
 
-判断当前事件是否仅包含空格字符。
+判断当前事件是否只包含空格字符。
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
@@ -1591,7 +1595,7 @@ console.info(str);
 
 getAttributeCount(): number
 
-获取当前开始标记的属性数。
+获取当前开始标记的属性数量。
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
@@ -1601,7 +1605,7 @@ getAttributeCount(): number
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 当前开始标记的属性数。 |
+| number | 当前开始标记的属性数量，用于遍历和处理XML属性。 |
 
 
 **示例：**
@@ -1630,7 +1634,7 @@ console.info(str);
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-事件类型枚举。
+事件类型枚举，定义了XmlPullParser在解析XML过程中可能触发的各类事件。解析时事件按START_DOCUMENT→START_TAG→TEXT/CDSECT→END_TAG→END_DOCUMENT等顺序依次触发，开发者可通过tokenValueCallbackFunction回调接收对应事件。
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
@@ -1671,10 +1675,10 @@ XmlSAXParser类用于以流式方式解析XML文本。适用于需要边读取�
 
 constructor(inputStream: stream.Readable, encoding?: string)
 
-XmlSAXParser的构造函数。
+构造并返回一个XmlSAXParser对象，用于以SAX方式从可读流中流式解析XML文本。
 
 > [!NOTE]
-> inputStream参数必须传入继承自 Readable 且实现 Doread 的类。可以传入其他模块中满足该条件的类，如 ReadStream 。
+> inputStream参数必须传入继承自 Readable 且实现 doRead 的类。可以传入其他模块中满足该条件的类，如 ReadStream 。
 
 
 **元服务API**：从API version 24开始，该接口支持在元服务中使用。
@@ -1776,7 +1780,7 @@ saxParser.parse(handler);
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-XmlSAXHandler定义了SAX解析xml文本时的回调方法。开发者需要实现这些回调方法来处理xml文本的不同部分。这些回调方法会在xml解析过程的对应时机触发。startDocument会在开始解析文档时触发，endDocument会在结束文档解析时触发，startElement会在开始解析元素时触发，endElement会在结束解析元素时触发，characters则会在解析元素间文本内容时触发。
+XmlSAXHandler定义了SAX解析XML文本时的回调方法。开发者需要实现这些回调方法来处理XML文本的不同部分。这些回调方法会在XML解析过程的对应时机触发。startDocument会在开始解析文档时触发，endDocument会在结束文档解析时触发，startElement会在开始解析元素时触发，endElement会在结束解析元素时触发，characters则会在解析元素间文本内容时触发。
 
 
 
@@ -1822,7 +1826,7 @@ endDocument(): void
 
 startElement(elementName: string, namespaceURI: string | undefined, qName: string | undefined, attributes: Map<string, string>): void
 
-当解析器在XML文本中元素开始解析时触发的回调函数。该回调函数需要开发者自行实现。具体使用示例可见[characters24+](#characters24)。
+当解析器遇到XML元素的开始标签时触发的回调函数。该回调函数需要开发者自行实现。具体使用示例可见[characters24+](#characters24)。
 
 **元服务API**：从API version 24开始，该接口支持在元服务中使用。
 
@@ -1848,7 +1852,7 @@ startElement(elementName: string, namespaceURI: string | undefined, qName: strin
 
 endElement(elementName: string, namespaceURI: string | undefined, qName: string | undefined): void
 
-当解析器在XML文本中元素结束解析触发的回调函数。该回调函数需要开发者自行实现。具体使用示例可见[characters24+](#characters24)。
+当解析器遇到XML元素的结束标签时触发的回调函数。该回调函数需要开发者自行实现。具体使用示例可见[characters24+](#characters24)。
 
 **元服务API**：从API version 24开始，该接口支持在元服务中使用。
 

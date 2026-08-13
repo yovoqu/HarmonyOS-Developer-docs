@@ -1,6 +1,6 @@
 # 订阅资源泄漏事件（ArkTS）
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-resourceleak-events-arkts
 
@@ -185,11 +185,11 @@ HiAppEvent eventInfo.params.page_switch_log="[\"/data/storage/el2/log/page_switc
 ```
 如上，eventInfo中包含资源泄漏事件的[params字段](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-resourceleak-events#params字段说明)，可以根据eventInfo中的resource_type字段来判断当前的泄漏类型。
 
-8. 提前在“开发者选项”中开启“系统资源泄漏日志”开关（开启或关闭开关均需重启设备）。点击 DevEco Studio 窗口中的运行按钮，运行应用工程。点击“js leak”按钮，等待 3 到 5 秒，应用会闪退。重新打开应用后，系统将上报js内存泄漏事件。
+8. 提前在“开发者选项”中开启“系统资源泄漏日志”开关（开启或关闭开关均需重启设备）。点击 DevEco Studio 窗口中的运行按钮，运行应用工程。点击“js leak”按钮，等待 3 到 5 秒，应用会闪退。重新打开应用后，系统将上报JS内存泄漏事件。
 
-  同一个应用，24小时内至多上报一次js内存泄漏，如果短时间内要二次上报，需要重启设备。
+  同一个应用，24小时内至多上报一次JS内存泄漏，如果短时间内要二次上报，需要重启设备。
 
-9. js内存泄漏事件上报后，系统会回调应用的onReceive函数，在该函数中可在Log窗口查看系统事件数据的处理日志。
+9. JS内存泄漏事件上报后，系统会回调应用的onReceive函数，在该函数中可在Log窗口查看系统事件数据的处理日志。
 
   
 ```text

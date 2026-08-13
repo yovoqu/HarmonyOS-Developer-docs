@@ -1,6 +1,6 @@
 # SharedArrayBuffer对象
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/shared-arraybuffer-object
 
@@ -50,8 +50,8 @@ struct CSharedArrayBuffer {
             this.message = 'success';
             console.info(`this res is: ${res}`);
           }).catch((e: BusinessError) => {
-              this.message = 'fail';
-              console.error(`taskpool: execute task: code: ${e.code}, message: ${e.message}`);
+            this.message = 'fail';
+            console.error(`taskpool: execute task: code: ${e.code}, message: ${e.message}`);
           });
           setTimeout(() => {
             Atomics.notify(int32, 0, 1);

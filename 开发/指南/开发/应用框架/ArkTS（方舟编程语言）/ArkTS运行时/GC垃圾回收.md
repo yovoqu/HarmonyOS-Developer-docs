@@ -1,6 +1,6 @@
 # GC垃圾回收
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/gc-introduction
 
@@ -299,7 +299,7 @@ Heap包含两种类型：LocalHeap和SharedHeap。LocalHeap是应用进程中每
 
 根据系统分配堆空间总大小64MB-128MB/128MB-256MB/大于256MB的三个范围，以下参数系统会设置不同的大小。如果表格内范围仅有一个值，则表示该参数值不随堆空间总大小变化。手机设备堆空间总大小默认为大于256MB。
 
-开发者可以查阅[hidebug接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hidebug)，使用相关接口查询内存信息。
+开发者可以查阅[@ohos.hidebug](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hidebug)，使用相关接口查询内存信息。
 
 **堆大小相关参数**
 
@@ -447,7 +447,7 @@ Smart GC是一种智能GC抑制机制，在冷启动场景和性能敏感场景�
 **交互流程**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/SHr4-ifRTyq_lSLKOySxng/zh-cn_image_0000002611833425.png?HW-CC-KV=V1&HW-CC-Date=20260528T030518Z&HW-CC-Expire=86400&HW-CC-Sign=2629661A96B5C21033F76BD72CAB6167FCE58868599BD2E955E642B770A2FE4E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/8OuNcKZvTN-EihkDKMTcFg/zh-cn_image_0000002704271691.png?HW-CC-KV=V1&HW-CC-Date=20260813T095650Z&HW-CC-Expire=86400&HW-CC-Sign=DE25906F9DB2277E23823999D761835BC38C8C7C22DBED1E5CBB3C36CB915FEC)
 
 
 
@@ -537,7 +537,7 @@ C03F00/ArkCompiler: Heap average alive rate: 0.635325
 #### GC开发者调试接口
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/ZYm0PyEKTViWEj4blSCvuA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030518Z&HW-CC-Expire=86400&HW-CC-Sign=85CEB9A8301C3EF9296A961F318E31790FBA4DF0AAF04AD89BF05DF4EE922406)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/DmkbJ0HzQECT-nEnesv72w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095650Z&HW-CC-Expire=86400&HW-CC-Sign=9B49C13EB3E9B767A3CD20C3B2D9F3047676432BA354744B0875ADC56516A60C)
 
 
 以下接口仅供调试使用，非正式对外SDK接口，不应在应用正式版本中使用。
@@ -557,7 +557,7 @@ C03F00/ArkCompiler: Heap average alive rate: 0.635325
 
 **使用参考：**
 
-```text
+```ArkTS
 // 首先需要声明接口
 declare class ArkTools {
   static hintGC(): void;
@@ -574,8 +574,9 @@ struct Index {
         Text(this.message)
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
-        Button("触发HintGC").onClick((event: ClickEvent) => {
+        Button('触发HintGC').onClick((event: ClickEvent) => {
           ArkTools.hintGC(); // 方法内直接调用
+          this.message = 'Success';
         })
       }
       .width('100%')

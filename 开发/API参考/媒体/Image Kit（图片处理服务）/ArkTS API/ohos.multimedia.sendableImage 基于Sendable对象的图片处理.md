@@ -1,6 +1,6 @@
 # @ohos.multimedia.sendableImage (基于Sendable对象的图片处理)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sendableimage
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -906,7 +906,7 @@ getImageInfoSync(): image.ImageInfo
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 501 | Resource Unavailable |
+| 501 | Resource Unavailable. |
 
 
 **示例：**
@@ -2177,7 +2177,7 @@ async function CreateImageSource(context : Context) {
 
 createImageSource(buf: ArrayBuffer): ImageSource
 
-通过缓冲区创建ImageSource实例。buf数据是未解码的数据，不可以传入类似于RBGA，YUV的像素buffer数据，如果想通过像素buffer数据创建pixelMap，可以调用[sendableImage.createPixelMap](#sendableimagecreatepixelmap)这一类方法。
+通过缓冲区创建ImageSource实例。buf数据是未解码的数据，不可以传入类似于RGBA，YUV的像素buffer数据，如果想通过像素buffer数据创建pixelMap，可以调用[sendableImage.createPixelMap](#sendableimagecreatepixelmap)这一类方法。
 
 由于图片占用内存较大，所以当ImageSource实例使用完成后，应主动调用[release](#release-1)方法及时释放内存。释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
 
@@ -2562,10 +2562,10 @@ readLatestImage(): Promise&lt;Image&gt;
 从ImageReceiver读取最新的图片。使用promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/aFIK2xMrSR2WgHMLRnU-UA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071705Z&HW-CC-Expire=86400&HW-CC-Sign=F5582E44CB59C0639B2636DF03680A7C65778542C5DA7998AE0F8FCBB7450840)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/tLJuf_FTRJGwUwDLttMjBA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095523Z&HW-CC-Expire=86400&HW-CC-Sign=3B0A8EBD6675A842266E247349AE566C1552EBF24E89352F11A2A79B9C2EA330)
 
 
-此接口需要在[on](#on)回调触发后调用，才能正常的接收到数据。且此接口返回的[Image](#image)对象使用完毕后需要调用[release](#release-2)方法释放，释放后才可以继续接收新的数据。
+此接口需要在[on](#on)回调触发后调用，才能正常地接收到数据。且此接口返回的[Image](#image)对象使用完毕后需要调用[release](#release-2)方法释放，释放后才可以继续接收新的数据。
 
 
 
@@ -2610,10 +2610,10 @@ readNextImage(): Promise&lt;Image&gt;
 从ImageReceiver读取下一张图片。使用promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/jM85QOtITGWVYGl0zGLbTQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071705Z&HW-CC-Expire=86400&HW-CC-Sign=50244A1A6537EE0E50A011799144A517C42B72F75832A9F3F0E48335403D726D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/SMnbiaT-QAKN6_EyqrUPMg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095523Z&HW-CC-Expire=86400&HW-CC-Sign=E4DADD31F0CB8DE9780292D5AC4D62CE848B989A3E75319BF091651F3239CC7D)
 
 
-此接口需要在[on](#on)回调触发后调用，才能正常的接收到数据。且此接口返回的[Image](#image)对象使用完毕后需要调用[release](#release-2)方法释放，释放后才可以继续接收新的数据。
+此接口需要在[on](#on)回调触发后调用，才能正常地接收到数据。且此接口返回的[Image](#image)对象使用完毕后需要调用[release](#release-2)方法释放，释放后才可以继续接收新的数据。
 
 
 

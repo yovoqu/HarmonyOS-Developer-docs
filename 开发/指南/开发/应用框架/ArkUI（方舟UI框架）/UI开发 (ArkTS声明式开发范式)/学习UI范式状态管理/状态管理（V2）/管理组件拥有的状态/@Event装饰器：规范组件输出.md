@@ -1,6 +1,6 @@
 # @Event装饰器：规范组件输出
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-event
 
@@ -127,7 +127,7 @@ struct Child {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/E9vSmYCgTA2wE1MPhECcYA/zh-cn_image_0000002656005904.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=DCD5BD24D209C05B237F31E3E091535017A11007F791BE2F78E1F41A77D61C67)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/sJoFyOl6TMSVTEiDIxUC0w/zh-cn_image_0000002704271849.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=8D875252A6DA6E3DDEC60F74252DC91712660C90F3D90525A31EE7CA6AA06E6C)
 
 
 值得注意的是，使用@Event修改父组件的值是立刻生效的，但从父组件将变化同步回子组件的过程是异步的，即在调用完@Event的方法后，子组件内的值不会立刻变化。这是因为@Event将子组件值实际的变化能力交由父组件处理，在父组件实际决定如何处理后，将最终值在渲染之前同步回子组件。
@@ -177,7 +177,7 @@ struct Index2 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/rXkgBtshSpit6oWWeKLDbQ/zh-cn_image_0000002655845984.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=DC1AB77094D1EF6DDDD348D11B6538F2CE4C843C4B8C9B533CFC419E21174CE3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/yVhmNrbNQMe0pDPu7jpDjA/zh-cn_image_0000002674472050.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=6A8480F0108AE3CB591A5AF7EDFD95052DFE0C2860CD4A0B023AEEE6698ED9FE)
 
 
 在上面的示例中，点击文字触发@Event函数事件改变子组件的值，打印出的日志为：

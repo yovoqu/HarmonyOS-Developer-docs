@@ -1,20 +1,12 @@
 # Node-API
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi
 
 #### 简介
 
 Node-API是用于封装JavaScript能力为Native插件的API，独立于底层JavaScript，并作为Node.js的一部分。
-
-
-
-#### 支持的能力
-
-Node-API可以去除底层的JavaScript引擎的差异，提供一套稳定的接口。
-
-HarmonyOS的Node-API组件对Node-API的接口进行了重新实现，底层对接了ArkJS等引擎。当前支持Node-API标准库中的部分接口。
 
 
 
@@ -34,9 +26,25 @@ libace_napi.z.so
 
 
 
+#### 支持的能力
+
+Node-API可以去除底层的JavaScript引擎的差异，提供一套稳定的接口。
+
+HarmonyOS的Node-API组件对Node-API的接口进行了重新实现，底层对接了ArkJS等引擎。当前支持Node-API标准库中的部分接口，并进行了能力扩展，具体请参考[Node-API组件扩展的接口](#node-api组件扩展的接口)。
+
+
+
 #### 已从Node-API组件标准库中导出的符号列表
 
-从Node-API标准库导出的接口，其使用方法及行为基于[Node.js](https://nodejs.org/docs/latest-v12.x/api/n-api.html)，并进行了部分[能力扩展](#node-api组件扩展的接口)。
+从Node-API标准库导出的接口，其使用方法及行为基于[Node.js](https://nodejs.org/docs/latest-v18.x/api/n-api.html)。部分接口存在差异，请参考[已导出符号列表与标准库对应符号的差异](#已导出符号列表与标准库对应符号的差异)。
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/ppnj7SptRiiGt_Srdw6CqA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095544Z&HW-CC-Expire=86400&HW-CC-Sign=F043C4B534035686D887BE4D644418848AE9E385863031E6804C2F4A6D2C3060)
+
+
+使用 NAPI 接口时，应确保环境、对象和值有效且符合规格；无效或跨生命周期使用可能导致失败、崩溃或未定义行为。开发过程常见问题可参考[Node-API常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-faqs#node-api常见问题)。
+
+
 
 | 符号类型 | 符号名 | 说明 | 起始支持API版本 |
 | --- | --- | --- | --- |

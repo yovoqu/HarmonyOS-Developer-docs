@@ -1,6 +1,6 @@
 # 产品特性按需分发(C/C++)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-moduleinstall_c
 
@@ -24,7 +24,7 @@
 #### 约束与限制
 
  - 应用需要上架应用市场。
- - 产品特性按需分发功能支持Phone、Tablet、PC/2in1设备。并且从5.1.1(19)版本开始，新增支持TV设备；从26.0.0版本开始，新增支持Car设备。
+ - 产品特性按需分发功能支持Phone、Tablet、PC/2in1设备。并且从5.1.1(19)版本开始，新增支持TV设备。
  - 使用按需分发前，需先将应用拆分为基础包与增强功能模块，详细操作请参考[模块管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-module-management)。
 
 

@@ -1,6 +1,6 @@
 # 注册/注销Provider(ArkTS)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-extension-registration-and-unregistration-arkts
 
@@ -98,6 +98,9 @@ async function registerProvider(): Promise<void> {
       {
         tag: huksExternalCrypto.HuksExternalCryptoTag.HUKS_EXT_CRYPTO_TAG_ABILITY_NAME,
         value: StringToUint8Array("CryptoExtension")
+      }, {
+        tag: huksExternalCrypto.HuksExternalCryptoTag.HUKS_EXT_CRYPTO_TAG_ABILITY_INFO,
+        value: StringToUint8Array(abilityInfo)
       }
     ];
 

@@ -1,6 +1,6 @@
 # Sendable使用场景
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sendable-guide
 
@@ -25,7 +25,7 @@ import { BusinessError, emitter } from '@kit.BasicServicesKit';
 // 在并发函数中模拟数据处理
 @Concurrent
 async function taskFunc(obj: Test) {
-  console.info('test task res1 is: ' + obj.data1.name + ' res2 is: ' + obj.data2.name);
+  console.info(`test task res1 is: ${obj.data1.name} res2 is: ${obj.data2.name}`);
 }
 
 async function test() {
@@ -58,10 +58,7 @@ struct Index {
         .fontWeight(FontWeight.Bold)
         .onClick(() => {
           let sensorTask = new taskpool.LongTask(sensorListener);
-          emitter.on({ eventId: 0 }, (data) => {
-            // Do something here
-            console.info(`Receive ACCELEROMETER data: {${data.data?.x}, ${data.data?.y}, ${data.data?.z}}`);
-          });
+          // ...
           taskpool.execute(sensorTask).then(() => {
             this.listenerTask = 'success';
             console.info('Add listener of ACCELEROMETER success');
@@ -133,22 +130,21 @@ import { SendableTestClass, ISendable } from './sendable';
 // 在并发函数中模拟数据处理
 @Concurrent
 async function taskFunc(sendableObj: SendableTestClass) {
-  console.info('SendableTestClass: name is: ' + sendableObj.printName() + ', age is: ' + sendableObj.printAge() +
-    ', sex is: ' + sendableObj.printSex());
+  console.info(`SendableTestClass: name is: ${sendableObj.printName()}, age is: ${sendableObj.printAge()}, sex is: ${sendableObj.printSex()}`);
   sendableObj.setAge(28);
-  console.info('SendableTestClass: age is: ' + sendableObj.printAge());
+  console.info(`SendableTestClass: age is: ${sendableObj.printAge()}`);
 
   // 解析sendableObj.arr数据生成JSON字符串
   let str = ArkTSUtils.ASON.stringify(sendableObj.arr);
-  console.info('SendableTestClass: str is: ' + str);
+  console.info(`SendableTestClass: str is: ${str}`);
 
   // 解析该数据并生成ISendable数据
   let jsonStr = '{"name": "Alexa", "age": 23, "sex": "female"}';
   let obj = ArkTSUtils.ASON.parse(jsonStr) as ISendable;
-  console.info('SendableTestClass: type is: ' + typeof obj);
-  console.info('SendableTestClass: name is: ' + (obj as object)?.['name']); // 输出: 'Alexa'
-  console.info('SendableTestClass: age is: ' + (obj as object)?.['age']); // 输出: 23
-  console.info('SendableTestClass: sex is: ' + (obj as object)?.['sex']); // 输出: 'female'
+  console.info(`SendableTestClass: type is: ${typeof obj}`);
+  console.info(`SendableTestClass: name is: ${(obj as object)?.['name']}`); // 输出: 'Alexa'
+  console.info(`SendableTestClass: age is: ${(obj as object)?.['age']}`); // 输出: 23
+  console.info(`SendableTestClass: sex is: ${(obj as object)?.['sex']}`); // 输出: 'female'
 }
 
 async function test() {
@@ -174,7 +170,7 @@ struct Index {
           middle: { anchor: '__container__', align: HorizontalAlign.Center }
         })
         .onClick(() => {
-          test();
+          await test();
           this.message = 'success';
         })
     }

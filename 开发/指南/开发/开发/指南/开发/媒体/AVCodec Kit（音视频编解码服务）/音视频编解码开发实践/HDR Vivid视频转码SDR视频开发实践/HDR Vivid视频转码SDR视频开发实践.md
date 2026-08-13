@@ -1,6 +1,6 @@
 # HDR Vivid视频转码SDR视频开发实践
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdr-vivid-transcoding-sdr
 
@@ -31,7 +31,7 @@
 使用[AVTranscoder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro#avtranscoder)可以实现视频转码功能，从API version 20开始支持视频转码的C/C++开发，转码功能可在手机、平板、PC/2in1等设备上作为系统提供的基础能力使用。可以通过调用[canIUse()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-syscap#caniuse)接口来判断当前设备是否支持AVTranscoder，当canIUse("SystemCapability.Multimedia.Media.AVTranscoder")的返回值为true时，表示可以使用转码能力。转码步骤如下：初始化与准备阶段，调用[OH_AVTranscoder_Create()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avtranscoder-h#oh_avtranscoder_create)创建`OH_AVTranscoder` 对象；启动与运行阶段，调用OH_AVTranscoder_Start()启动转码任务，此时可调用[OH_AVTranscoder_Pause()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avtranscoder-h#oh_avtranscoder_pause)暂停任务。在暂停状态下，可调用[OH_AVTranscoder_Resume()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avtranscoder-h#oh_avtranscoder_resume)恢复任务；任务进行时，若想取消该任务，可调用[OH_AVTranscoder_Cancel()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avtranscoder-h#oh_avtranscoder_cancel)终止转码任务。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/UNKn8TeyQXuzSGm-ZU_JaA/zh-cn_image_0000002698141247.png?HW-CC-KV=V1&HW-CC-Date=20260811T005948Z&HW-CC-Expire=86400&HW-CC-Sign=A4F2C18C6C9BCEE49B4B6BCD40C66A0350F9C05B9313519F084515128A191851)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/jsgUIBpGRl6Nm9uUx6T_dQ/zh-cn_image_0000002704393295.png?HW-CC-KV=V1&HW-CC-Date=20260813T095908Z&HW-CC-Expire=86400&HW-CC-Sign=3887C66545862564F2EE57640BBA38CC36A2FC54695A1FF9FAC4FE5A05FCD6A9)
 
  
   
@@ -42,7 +42,7 @@
  
 关键点：调用[OH_AVTranscoderConfig_SetDstVideoType()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avtranscoder-h#oh_avtranscoderconfig_setdstvideotype)设置输出视频的编码格式为“video/avc”。
  
-```text
+```cpp
 OH_AVTranscoderConfig_SetDstVideoType(config, "video/avc");
 ```
  1. 创建默认AVTranscoder配置，并设置输出视频的编码格式为“video/avc”。
@@ -152,7 +152,7 @@ int32_t AVTranscoder::ReleaseAVTranscoder() {
  1. 创建解码器实例，查询系统支持的解码器能力，根据查询结果基于name创建硬解码器。
 
   
-```text
+```cpp
 class VideoDecoder {
 // ...
 private:
@@ -161,7 +161,7 @@ private:
 };
 ```
 
-```text
+```cpp
 int32_t VideoDecoder::Create(SampleInfo &sampleInfo) {
     // ...
         OH_AVCapability *capability =
@@ -194,7 +194,7 @@ int32_t VideoDecoder::SetCallback(CodecUserData *codecUserData) {
 3. 调用[OH_VideoDecoder_Configure()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_configure)配置解码器。必选配置项有：视频帧宽度、视频帧高度、视频像素格式、指定输出为SDR。
 
   
-```text
+```cpp
 int32_t VideoDecoder::Configure(const SampleInfo &sampleInfo) {
     OH_AVFormat *format = OH_AVFormat_Create();
     CHECK_AND_RETURN_RET_LOG(format != nullptr, AVCODEC_SAMPLE_ERROR, "Create AVFormat failed");
@@ -241,7 +241,7 @@ HarmonyOS提供了Native侧的[VideoProcessing](https://developer.huawei.com/con
  1. 调用[OH_VideoProcessing_Create()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-h#oh_videoprocessing_create)创建视频处理实例。
 
   
-```text
+```cpp
 void VideoProcessing::SetProcessingSurface(SampleInfo &sampleInfo) {
     VideoProcessing_ErrorCode ret = OH_VideoProcessing_Create(&processor, VIDEO_PROCESSING_TYPE_COLOR_SPACE_CONVERSION);
     ret = OH_VideoProcessing_GetSurface(processor, &sampleInfo.inWindow);
@@ -251,7 +251,7 @@ void VideoProcessing::SetProcessingSurface(SampleInfo &sampleInfo) {
   调用[OH_VideoProcessing_GetSurface()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-h#oh_videoprocessing_getsurface)在视频处理启动之前创建输入surface。
 
   
-```text
+```cpp
 int32_t VideoEncoder::GetSurface(SampleInfo &sampleInfo) {
     int32_t ret;
     if (sampleInfo.processType > 1) {
@@ -311,7 +311,7 @@ void VideoProcessing::StartProcessing() {
 5. 调用[OH_VideoProcessing_Stop()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-h#oh_videoprocessing_stop)停止色彩空间转换处理。
 
   
-```text
+```cpp
 void VideoProcessing::StopProcessing() {
     VideoProcessing_ErrorCode ret = OH_VideoProcessing_Stop(processor);
     CHECK_AND_RETURN_LOG(ret == VIDEO_PROCESSING_SUCCESS, "OH_VideoProcessing_Stop failed");
@@ -375,7 +375,7 @@ bool VideoProcessing::IsColorSpaceConversionSupported(SampleInfo &sampleInfo) {
 2. 设置输入输出的值。
 
   
-```text
+```cpp
 sampleInfo.inputFormat.metadataType = OH_VIDEO_HDR_VIVID;
 sampleInfo.inputFormat.colorSpace = OH_COLORSPACE_BT2020_HLG_LIMIT;
 sampleInfo.inputFormat.pixelFormat = NATIVEBUFFER_PIXEL_FMT_YCRCB_P010;
@@ -419,7 +419,7 @@ void OnNewOutputBuffer(OH_VideoProcessing *videoProcessor, uint32_t index, void 
 }
 ```
 
-```text
+```cpp
 ret = OH_VideoProcessingCallback_Create(&callback);
 CHECK_AND_RETURN_LOG(ret == VIDEO_PROCESSING_SUCCESS, "OH_VideoProcessingCallback_Create failed");
 ret = OH_VideoProcessingCallback_BindOnError(callback, OnError);

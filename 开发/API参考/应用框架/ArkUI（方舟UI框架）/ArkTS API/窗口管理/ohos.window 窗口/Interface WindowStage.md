@@ -1,6 +1,6 @@
 # Interface (WindowStage)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -32,7 +32,7 @@ getMainWindow(callback: AsyncCallback&lt;Window&gt;): void
 
 获取该WindowStage实例下的主窗口，使用callback异步回调。
 
-调用该接口前，建议先通过[loadContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#loadcontent9)方法或者[setUIContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setuicontent9-1)方法完成页面加载。
+调用该接口前，建议先通过[loadContent](#loadcontent9)方法或者[setUIContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setuicontent9-1)方法完成页面加载。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -101,7 +101,7 @@ getMainWindow(): Promise&lt;Window&gt;
 
 获取该WindowStage实例下的主窗口，使用Promise异步回调。
 
-调用该接口前，建议先通过[loadContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#loadcontent9)方法或者[setUIContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setuicontent9-1)方法完成页面加载。
+调用该接口前，建议先通过[loadContent](#loadcontent9)方法或者[setUIContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setuicontent9-1)方法完成页面加载。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -168,7 +168,7 @@ getMainWindowSync(): Window
 
 获取该WindowStage实例下的主窗口，该接口为同步调用。
 
-调用该接口前，建议先通过[loadContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#loadcontent9)方法或者[setUIContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setuicontent9-1)方法完成页面加载。
+调用该接口前，建议先通过[loadContent](#loadcontent9)方法或者[setUIContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setuicontent9-1)方法完成页面加载。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -231,7 +231,7 @@ createSubWindow(name: string, callback: AsyncCallback&lt;Window&gt;): void
 
 创建该WindowStage实例下的子窗口，使用callback异步回调。
 
-子窗口创建后默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)。
+子窗口创建后无标题栏，默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -243,8 +243,8 @@ createSubWindow(name: string, callback: AsyncCallback&lt;Window&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| name | string | 是 | 子窗口的名字。 |
-| callback | AsyncCallback&lt;Window&gt; | 是 | 回调函数。返回当前WindowStage下的子窗口对象。 |
+| name | string | 是 | 子窗口的名字，用于唯一标识子窗口。建议使用有意义的窗口名称作为标识符。 |
+| callback | AsyncCallback&lt;Window&gt; | 是 | 回调函数。返回当前WindowStage对应主窗下的子窗口对象。 |
 
 
 **错误码：**
@@ -324,7 +324,7 @@ createSubWindow(name: string): Promise&lt;Window&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Window&gt; | Promise对象。返回当前WindowStage下的子窗口对象。 |
+| Promise&lt;Window&gt; | Promise对象。返回当前WindowStage对应主窗下的子窗口对象。 |
 
 
 **错误码：**
@@ -392,14 +392,14 @@ createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise&lt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 子窗口的名字。 |
-| options | SubWindowOptions | 是 | 子窗口参数。 |
+| options | SubWindowOptions | 是 | 子窗口创建参数。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Window&gt; | Promise对象。返回当前WindowStage下创建的子窗口对象。 |
+| Promise&lt;Window&gt; | Promise对象。返回当前WindowStage对应主窗下的子窗口对象。 |
 
 
 **错误码：**
@@ -467,7 +467,7 @@ getSubWindow(callback: AsyncCallback<Array&lt;Window&gt;>): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback<Array&lt;Window&gt;> | 是 | 回调函数。返回当前WindowStage下的所有子窗口对象。 |
+| callback | AsyncCallback<Array&lt;Window&gt;> | 是 | 回调函数。返回当前WindowStage对应主窗下的所有子窗口，若无子窗口则返回空数组。 |
 
 
 **错误码：**
@@ -527,7 +527,7 @@ getSubWindow(): Promise<Array&lt;Window&gt;>
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<Array&lt;Window&gt;> | Promise对象。返回当前WindowStage下的所有子窗口对象。 |
+| Promise<Array&lt;Window&gt;> | Promise对象。返回当前WindowStage对应主窗下的所有子窗口，若无子窗口则返回空数组。 |
 
 
 **错误码：**
@@ -705,7 +705,6 @@ export default class EntryAbility extends UIAbility {
     } catch (exception) {
       console.error(`Failed to load the content. Cause code: ${exception.code}, message: ${exception.message}`);
     }
-    ;
   }
 };
 ```
@@ -1869,8 +1868,6 @@ setWindowRectAutoSave(enabled: boolean): Promise&lt;void&gt;
 设置是否启用最后关闭的主窗尺寸的记忆功能，使用Promise异步回调。
 
 启用记忆功能后，在同一个UIAbility下，记忆最后关闭的主窗口的尺寸；此主窗口再次启动时，以记忆的尺寸按照规则进行打开。
-
-层叠规则：1、当前实例是自由窗口时，打开下一实例窗口层叠时，大小要跟随。2、当前实例是最大化或全屏窗口时，打开下一个实例窗口层叠时，保持最大化。
 
 记忆规则：
 

@@ -1,6 +1,6 @@
 # Class (OverlayManager)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -353,7 +353,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/HAvSJ4JRRBOlcrphSP4hpg/zh-cn_image_0000002686087687.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071444Z&HW-CC-Expire=86400&HW-CC-Sign=A505D6B69E92D83DA23947CC28D8118B9E70E9EED5EFF340EABA4BF26605F957)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/FkvsqNjFQgS9zyN-1sglTg/zh-cn_image_0000002674474352.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095444Z&HW-CC-Expire=86400&HW-CC-Sign=BBC64CDDA5902EB97FE21FC5ABCA55770622D4D9B27D9DB3D39961FBF71A431B)
 
  
   

@@ -1,6 +1,6 @@
 # 拍照实践(ArkTS)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-shooting-case
 
@@ -162,7 +162,7 @@ async function cameraShootingCase(context: Context, surfaceId: string): Promise<
       return;
     }
 
-    // 创建预览输出流,其中参数 surfaceId 参考上文 XComponent 组件，预览流为XComponent组件提供的surface。
+    // 创建预览输出流，其中参数 surfaceId 参考上文 XComponent 组件，预览流为XComponent组件提供的surface。
     resources.previewOutput = cameraManager.createPreviewOutput(previewProfilesArray[0], surfaceId);
     if (!resources.previewOutput) {
       console.error('previewOutput is null');

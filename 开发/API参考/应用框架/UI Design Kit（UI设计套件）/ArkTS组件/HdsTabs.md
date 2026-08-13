@@ -1,6 +1,6 @@
 # HdsTabs
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdstabs
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -23,13 +23,13 @@ HdsTabs组件是根视图容器，一般作为Page页面的根容器使用。Hds
 6.0.1(21)及之前版本：
 
 ```text
-import { HdsTabs, HdsTabsAttribute, HdsTabsController } from '@kit.UIDesignKit';
+import { HdsTabs, HdsTabsAttribute, HdsTabsController, bleedIconStyle, CustomTabBuilder } from '@kit.UIDesignKit';
 ```
 
 6.0.2(22)及之后版本：
 
 ```text
-import { HdsTabs, HdsTabsController } from '@kit.UIDesignKit';
+import { HdsTabs, HdsTabsController, bleedIconStyle, CustomTabBuilder } from '@kit.UIDesignKit';
 ```
 
 
@@ -675,7 +675,7 @@ barFloatingStyle(barFloatingStyle?: Optional&lt;HdsTabsFloatingStyle&gt;)
 | barBottomMargin | Length | 否 | 是 | 页签栏与HdsTabs底部距离。 默认值：页签栏距离底部0vp。 |
 | gradientMask | HdsTabsBackgroundStyle | 否 | 是 | 背板蒙层的样式设置，可用来设置背板蒙层的高度和颜色。 默认值：蒙层颜色浅色模式是#CCF1F3F5，深色模式是#99000000。蒙层高度等于页签栏默认高度加16vp。 说明： 蒙层高度不可设置为0。 |
 | miniBar | HdsTabsMiniBar | 否 | 是 | 迷你栏的属性配置。 默认值：undefined，表示没有迷你栏。 |
-| adaptToHandedness | boolean | 否 | 是 | 左右跟手开关。 true：跟手。 false：不跟手。 默认值：false。 |
+| adaptToHandedness | boolean | 否 | 是 | 左右跟手开关。 true：跟手。 false：不跟手。 默认值：false。 说明： 左右手跟手能力依赖底层硬件，部分历史设备硬件能力不支持。 |
 | lightColor | ResourceColor | 否 | 是 | 页签栏光效颜色。 默认值：深色模式#33E5E5E5，浅色模式#33fffffff。 |
 | barOpacity | number | 否 | 是 | 页签栏透明度，1表示不透明，0表示完全透明。 默认值：1。 |
 | thermoCtrl | boolean | 否 | 是 | 温控开关。 true：开启温控。 false：不开启温控。 默认值：false。 |
@@ -1096,7 +1096,7 @@ onContentWillChange(handler: OnTabsContentWillChangeCallback)
 
 onTabBarClick(event: Callback&lt;number&gt;)
 
-Tab页签点击后触发的事件。
+Tab页签点击后触发的事件回调。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1110,7 +1110,7 @@ Tab页签点击后触发的事件。
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | Callback&lt;number&gt; | 是 | 被点击的index索引，索引从0开始计算。 |
+| event | Callback&lt;number&gt; | 是 | 返回被点击的页签索引，索引从0开始计算。 |
 
 
 
@@ -1491,7 +1491,7 @@ struct Index {
 效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/TC5xWG2PT9i9HUZF2q0w9Q/zh-cn_image_0000002677828497.png?HW-CC-KV=V1&HW-CC-Date=20260723T012023Z&HW-CC-Expire=86400&HW-CC-Sign=11D1974607E96A6826C323E62B3EF4209158DAE6AD25006DC507184085FBF08C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/SJJGO7m9SoapB1xhCS1U4w/zh-cn_image_0000002704275323.png?HW-CC-KV=V1&HW-CC-Date=20260813T095502Z&HW-CC-Expire=86400&HW-CC-Sign=961D266B4EC19E86D07F5D62F93AB7B006257D150D309E1ABCE2D92B81D8832F)
 
 
 
@@ -1544,7 +1544,7 @@ struct Index {
 效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/O7vxc1zPT6yDnVj7G3yNLQ/zh-cn_image_0000002677668651.jpg?HW-CC-KV=V1&HW-CC-Date=20260723T012023Z&HW-CC-Expire=86400&HW-CC-Sign=B3F68874B2046AB2792B7A4D7FAD1FE8E1FAFF0D2BD5F42879BA64741B446A52)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/zSGCWAJmS1eRQ7oM-PY1SQ/zh-cn_image_0000002674475532.jpg?HW-CC-KV=V1&HW-CC-Date=20260813T095502Z&HW-CC-Expire=86400&HW-CC-Sign=EFC2E1FC8666CADAED9F702C049D395E7D89D13871CB8C327B80450571D7DDA8)
 
 
 
@@ -1594,7 +1594,7 @@ struct Index {
 效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/b_NKlce6TR-LlUq9-6tOmQ/zh-cn_image_0000002647748768.jpg?HW-CC-KV=V1&HW-CC-Date=20260723T012023Z&HW-CC-Expire=86400&HW-CC-Sign=22C5F7A4374035109EB48B79E8F2F04E2B554FF00A2054368DA189901AD65AF4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/LE3Jpl1FRcSx5xy5evffyQ/zh-cn_image_0000002704395497.jpg?HW-CC-KV=V1&HW-CC-Date=20260813T095502Z&HW-CC-Expire=86400&HW-CC-Sign=42813AF558DD45E319BE98359EC8B2CEFD9B48D3548B74B688AF9E2D284DBDF1)
 
 
 
@@ -1684,4 +1684,4 @@ struct Index {
 效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/c-VKg_LXS8-iufDN8E6XRA/zh-cn_image_0000002647588860.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012023Z&HW-CC-Expire=86400&HW-CC-Sign=B18DA80FFC54233D249441420EC6500ABF0D5A93E8B888FA689F5AD39DF0DA85)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/NYK5cVaGRECjxVb9u5EkkA/zh-cn_image_0000002674635372.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095502Z&HW-CC-Expire=86400&HW-CC-Sign=569A4266F8CBD870D228160C903E955112EC30C2BAA29E611490391A2ECB6A72)

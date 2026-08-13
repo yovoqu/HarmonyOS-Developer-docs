@@ -1,6 +1,6 @@
 # 录像实践(C/C++)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-recording-case
 
@@ -283,7 +283,7 @@ NDKCamera::NDKCamera(char* previewId, char* videoId)
         return;
     }
 
-    // 创建预览输出流,其中参数 surfaceId 参考下面 XComponent 组件，预览流为XComponent组件提供的surface。
+    // 创建预览输出流，其中参数 surfaceId 参考下面 XComponent 组件，预览流为XComponent组件提供的surface。
     ret = OH_CameraManager_CreatePreviewOutput(cameraManager, previewProfile, previewSurfaceId, &previewOutput);
     if (previewProfile == nullptr || previewOutput == nullptr || ret != CAMERA_OK) {
         OH_LOG_ERROR(LOG_APP, "OH_CameraManager_CreatePreviewOutput failed.");

@@ -1,6 +1,6 @@
 # 文件操作API的常见参数类型转换以及场景有哪些
 
-更新时间：2026-07-30 01:55:38
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-56
 
@@ -18,21 +18,21 @@
 - 待处理文件的[应用沙箱路径](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)。对于每个应用，系统会在内部存储空间映射出一个专属的“应用沙箱目录”，它是“应用文件目录”与一部分系统文件（应用运行必需的少量系统文件）所在的目录组成的集合。应用文件目录结构图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/XY6T-RklTt-Xp1Fc0tSDDA/zh-cn_image_0000002659258325.png?HW-CC-KV=V1&HW-CC-Date=20260811T005851Z&HW-CC-Expire=86400&HW-CC-Sign=5CF04A8FAD024D8CEB6450170020CAB9B8BBDA0F0E8581FC2F8F681E977B679A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/c6c8zz8yQ3GsBRAA7Bx_2g/zh-cn_image_0000002659258325.png?HW-CC-KV=V1&HW-CC-Date=20260813T095606Z&HW-CC-Expire=86400&HW-CC-Sign=1164C2A1693B21D73E32B44ADEF9BFC09073D7BB37CB32A73E69BB1AE9058AB9)
 
 
   禁止直接使用上图中四级目录之前的目录名组成的路径字符串，否则可能导致后续应用版本因应用文件路径变化导致不兼容问题。正确的做法应通过上下文Context属性获取应用文件路径，包括但不限于上图中绿色背景的路径。
 - 待处理文件的文件描述符（即fd标识）。ArkTS中系统对象File的属性，File对象的属性见以下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/x6NV9KElShGs35XseSleRQ/zh-cn_image_0000002628899106.png?HW-CC-KV=V1&HW-CC-Date=20260811T005851Z&HW-CC-Expire=86400&HW-CC-Sign=DFE0B4D653D8E7D0EC3143391FB846008A179924509C7F993ADD6C491382C2E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/Y75E_nhkRWajMgs0x7T-wg/zh-cn_image_0000002628899106.png?HW-CC-KV=V1&HW-CC-Date=20260813T095606Z&HW-CC-Expire=86400&HW-CC-Sign=066C7C7AC17F24121D99572DA8E201B86233EB68FBC10BBE06E7DD2ABF1470D6)
 
 - 待处理文件uri。[uri](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-file-uri-intro)（Uniform Resource Identifier）即文件统一资源标志符，是指向资源的字符串标识。
 
  
 常见文件操作API的参数类型转换相关接口：
  
-- [fs.openSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsopensync)：以同步方法打开文件或目录。支持使用uri打开文件。
+- [fs.openSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioopensync)：以同步方法打开文件或目录。支持使用uri打开文件。
 - [fileUri.getUriFromPath](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri#fileurigeturifrompath)：通过传入的路径path生成应用自己的uri(不支持媒体类型uri的获取)；将path转uri时，路径中的中文及非数字字母的特殊字符将会被编译成对应的ASCII码，拼接在uri中。
 - [fs.dup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiodup10)：复制文件描述符，并返回对应的File对象。
 - [FileUri.getFullDirectoryUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri#getfulldirectoryuri11)：获取所在路径uri。uri指向文件则返回所在路径的uri，uri指向目录则不处理直接返回原串；uri指向的文件不存在或属性获取失败则返回空串。

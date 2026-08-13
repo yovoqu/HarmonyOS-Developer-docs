@@ -1,6 +1,6 @@
 # @ohos.busManager.serial (串口通信管理)
 
-更新时间：2026-08-07 10:00:25
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-busmanager-serial
 **支持设备：** PC/2in1
@@ -24,7 +24,7 @@ import { serial } from '@kit.BasicServicesKit';
 
 **支持设备：** PC/2in1
 
-getSerialPortList(): Promise<[SerialPort](#serialport)[]>
+getSerialPortList(): Promise<SerialPort[]>
 
 查询串口设备列表，返回[SerialPort](#serialport)对象数组。使用Promise异步回调。用于需要识别可用串口设备的场景，如工业设备连接、物联网设备管理、嵌入式系统调试等应用。
 
@@ -96,7 +96,7 @@ serial.getSerialPortList().then((portList: serial.SerialPort[]) => {
 
 **支持设备：** PC/2in1
 
-open(config?: [SerialConfigs](#serialconfigs)): Promise&lt;void&gt;
+open(config?: SerialConfigs): Promise&lt;void&gt;
 
 打开串口设备。使用Promise异步回调。用于建立与串口设备的通信连接，如传感器数据采集、设备控制命令发送、串口打印机等场景。
 
@@ -515,6 +515,12 @@ port.drain().then(() => {
 setRts(enable: boolean): Promise&lt;void&gt;
 
 设置RTS（请求发送）信号状态。使用Promise异步回调。需在串口打开后调用。用于控制硬件流控的请求发送信号，如启用RTS/CTS硬件流控时控制发送权、与支持硬件流控的设备通信等场景。
+
+**调用顺序：**
+
+ - 必须先调用open()打开串口，才能调用setRts()设置RTS信号
+ - 未调用open()就调用setRts()会抛出错误码35700005（Port not open）
+
 
 **与setDtr的区别：** setRts和setDtr分别控制RTS/CTS和DTR/DSR两种硬件信号。RTS/CTS主要用于数据流控制，可通过SerialConfigs.rtscts启用自动流控；DTR/DSR主要用于设备状态控制和检测，用于特殊协议或设备状态管理。
 

@@ -1,6 +1,6 @@
 # 如何实现MapComponent地图占满屏幕
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-17
 
@@ -96,4 +96,4 @@ A：若父组件是Stack，子组件从中间布局延伸，则可以满足。�
  
 Q：没有地图具体信息如何解决？
  
-A：地图组件在[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#section16133115441516)后才可以正常加载地图信息。
+A：地图组件在[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#开通地图服务)后才可以正常加载地图信息。

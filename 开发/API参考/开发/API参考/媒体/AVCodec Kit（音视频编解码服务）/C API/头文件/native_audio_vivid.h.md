@@ -1,6 +1,6 @@
 # native_audio_vivid.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-vivid-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -199,7 +199,7 @@ OH_AVErrCode OH_AudioVividMetaBuilder_UpdateObjectGain(OH_AudioVividMetaBuilder 
 | --- | --- |
 | OH_AudioVividMetaBuilder *builder | 指向OH_AudioVividMetaBuilder的指针。 |
 | int32_t objectIndex | 要更新的音频对象索引，从0开始，小于在OH_AudioVividMetaBuilder_Create创建builder时入参format设置的OH_MD_KEY_AUDIO_OBJECT_NUMBER对应的值。 |
-| float gain | 对象渲染时应用的线性增益值，范围为[0.0, 6.0]，线性增益0.0为静音，1.0为不变。此参数可选，如未设置则不应用增益。 |
+| float gain | 对象渲染时应用的线性增益值，范围为[0.0, 6.0]，线性增益0.0为静音，1.0为不变。 |
  
  
 **返回：**

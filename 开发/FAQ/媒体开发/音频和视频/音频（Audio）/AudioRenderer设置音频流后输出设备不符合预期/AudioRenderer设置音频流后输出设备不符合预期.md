@@ -1,6 +1,6 @@
 # AudioRenderer设置音频流后输出设备不符合预期
 
-更新时间：2026-08-05 01:18:37
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-44
 

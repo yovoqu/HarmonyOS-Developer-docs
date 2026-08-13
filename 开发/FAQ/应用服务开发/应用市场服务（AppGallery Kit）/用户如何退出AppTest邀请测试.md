@@ -1,6 +1,6 @@
 # 用户如何退出AppTest邀请测试
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-06-26 07:48:29（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-100
 

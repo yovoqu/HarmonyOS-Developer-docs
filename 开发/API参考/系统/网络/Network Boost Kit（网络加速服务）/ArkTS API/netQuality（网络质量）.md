@@ -1,6 +1,6 @@
 # netQuality（网络质量）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-netquality
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -48,7 +48,7 @@ on(type: 'netQosChange', callback: Callback<Array&lt;NetworkQos&gt;>): void
  
 **错误码**：
  
-涉及错误码均为通用错误码，[通用错误码详细描述查看](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -106,7 +106,7 @@ off(type: 'netQosChange', callback?: Callback<Array&lt;NetworkQos&gt;>): void
  
 **错误码：**
  
-涉及错误码均为通用错误码，[通用错误码详细描述查看](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -157,7 +157,7 @@ on(type: 'netSceneChange', callback: Callback<Array&lt;NetworkScene&gt;>): void
  
 **错误码：**
  
-涉及错误码均为通用错误码，[通用错误码详细描述查看](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -218,7 +218,7 @@ off(type: 'netSceneChange', callback?: Callback<Array&lt;NetworkScene&gt;>): voi
  
 **错误码：**
  
-涉及错误码均为通用错误码，[通用错误码详细描述查看](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -268,7 +268,7 @@ reportQoe(appQoe: AppQoe): void
  
 **错误码：**
  
-涉及错误码均为通用错误码，[通用错误码详细描述查看](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

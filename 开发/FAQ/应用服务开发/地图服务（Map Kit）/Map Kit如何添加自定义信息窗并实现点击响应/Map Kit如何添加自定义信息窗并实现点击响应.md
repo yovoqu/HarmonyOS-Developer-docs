@@ -1,6 +1,6 @@
 # Map Kit如何添加自定义信息窗并实现点击响应
 
-更新时间：2026-07-30 01:03:01
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-45
 
@@ -12,14 +12,14 @@ Map Kit中Marker标记仅能实现简单图标的显示，如何实现标记点�
 
 #### 背景知识
 
-- 开发准备：使用地图服务，需要先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#section16133115441516)。
+- 开发准备：使用地图服务，需要先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#开通地图服务)。
 - [customInfoWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-mapcomponent#mapcomponent)：自定义信息窗。在[customInfoWindowCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-mapcomponent#custominfowindowcallback)中绘制自定义UI样式。
 
  
  
 
 #### 解决方案
-1. 添加Marker，在[MarkerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#section559041743210)中设置clickable为true，设置信息窗title。如果需在信息窗中展示副标题信息，也可以设置snippet信息。
+1. 添加Marker，在[MarkerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#markeroptions)中设置clickable为true，设置信息窗title。如果需在信息窗中展示副标题信息，也可以设置snippet信息。
 ```text
 let markerOptions: mapCommon.MarkerOptions = {
   position: {
@@ -80,7 +80,7 @@ build() {
  实现效果：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/cWjVLNwAQl2G03J1t5I2eQ/zh-cn_image_0000002658793655.png?HW-CC-KV=V1&HW-CC-Date=20260811T005610Z&HW-CC-Expire=86400&HW-CC-Sign=2AD354C11A4C111E1DF4D85A2E2EC1BEC33A695CFE9589E760411D1C29960ACE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/fh81r9QITiiD7VkMUu22JQ/zh-cn_image_0000002658793655.png?HW-CC-KV=V1&HW-CC-Date=20260813T095554Z&HW-CC-Expire=86400&HW-CC-Sign=172C3F0F9E90CB09F0C349522141AA2FA47E3A9489A69768511277FB95E5DE68)
 
 
   完整代码：

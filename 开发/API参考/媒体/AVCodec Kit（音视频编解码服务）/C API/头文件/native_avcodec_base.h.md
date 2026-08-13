@@ -1,6 +1,6 @@
 # native_avcodec_base.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-base-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -176,7 +176,7 @@
 | const char * OH_MD_KEY_DURATION | 媒体文件持续时间的键，单位为微秒，值类型为int64_t。 起始版本： 9 系统能力： SystemCapability.Multimedia.Media.CodecBase |
 | const char * OH_MD_KEY_BITRATE | 比特率的键，单位为bps，值类型为int64_t。可以通过能力查询接口OH_AVCapability_GetEncoderBitrateRange接口来获取取值范围。 起始版本： 9 系统能力： SystemCapability.Multimedia.Media.CodecBase |
 | const char * OH_MD_KEY_MAX_INPUT_SIZE | 设置解码输入码流大小最大值的键，值类型为int32_t。 起始版本： 9 系统能力： SystemCapability.Multimedia.Media.CodecBase |
-| const char * OH_MD_KEY_WIDTH | 视频宽度的键，值类型为int32_t。 对于视频编码，该键用于设置目标编码分辨率。对于视频解码，该键是解码器预分配内部缓冲区的分辨率提示。实际解码输出尺寸由OH_MD_KEY_VIDEO_PIC_WIDTH提供。 虽然该键主要用于控制内存分配，但可参考OH_AVCapability_GetVideoWidthRange获取推荐值范围，该接口定义了编码器支持的解码宽度范围。 起始版本： 9 系统能力： SystemCapability.Multimedia.Media.CodecBase |
+| const char * OH_MD_KEY_WIDTH | 视频宽度的键，值类型为int32_t。 对于视频编码，该键用于设置目标编码分辨率。对于视频解码，该键是解码器预分配内部缓冲区的分辨率提示。实际解码输出尺寸由OH_MD_KEY_VIDEO_PIC_WIDTH提供。 虽然该键主要用于控制内存分配，但可参考OH_AVCapability_GetVideoWidthRange获取推荐值范围，该接口定义了编解码器支持的解码宽度范围。 起始版本： 9 系统能力： SystemCapability.Multimedia.Media.CodecBase |
 | const char * OH_MD_KEY_HEIGHT | 视频高度键，值类型为int32_t。 对于视频编码，该键用于设置目标编码分辨率。对于视频解码，该键是解码器预分配内部缓冲区的分辨率提示。实际解码输出尺寸由OH_MD_KEY_VIDEO_PIC_HEIGHT提供。 虽然该键主要用于控制内存分配，但可参考OH_AVCapability_GetVideoHeightRange获取推荐值范围，该接口定义了编解码器支持的解码高度范围。 起始版本： 9 系统能力： SystemCapability.Multimedia.Media.CodecBase |
 | const char * OH_MD_KEY_PIXEL_FORMAT | 视频像素格式的键，值类型为int32_t，请参见OH_AVPixelFormat。 起始版本： 9 系统能力： SystemCapability.Multimedia.Media.CodecBase |
 | const char * OH_MD_KEY_AUDIO_SAMPLE_FORMAT | 音频原始格式的键，值类型为int32_t，请参见OH_BitsPerSample。 起始版本： 9 系统能力： SystemCapability.Multimedia.Media.CodecBase |

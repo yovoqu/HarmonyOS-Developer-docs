@@ -1,6 +1,6 @@
 # Car Kit简介
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/car-introduction
 
@@ -70,7 +70,7 @@ Car Kit处于HarmonyOS的框架层，作为生态应用和系统应用之间的�
 
 #### 支持的设备
 
-本Kit支持Phone设备，并且从6.1.0(23)版本开始，新增支持Tablet设备，从26.0.0版本开始，新增支持Car设备。
+本Kit支持Phone设备，并且从6.1.0(23)版本开始，新增支持Tablet设备。
  
   
 

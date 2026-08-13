@@ -1,6 +1,6 @@
 # Interface (PhotoAsset)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoasset
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -650,7 +650,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 clone(title: string): Promise&lt;PhotoAsset&gt;
 
-克隆资产，可设置文件名，但不支持修改文件类型。使用promise异步回调。
+克隆资产，可设置文件名，但不支持修改文件类型。使用Promise异步回调。
 
 **需要权限**：ohos.permission.WRITE_IMAGEVIDEO
 
@@ -784,7 +784,7 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 getReadOnlyFd(): Promise&lt;number&gt;
 
-以只读方式打开当前文件。使用promise异步回调。
+以只读方式打开当前文件。使用Promise异步回调。
 
 返回的文件描述符在使用完毕后需要调用close进行释放。
 

@@ -1,6 +1,6 @@
 # 本地模拟器已经启动，但是IDE显示NO Devices
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-06-26 07:47:42（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-2
 

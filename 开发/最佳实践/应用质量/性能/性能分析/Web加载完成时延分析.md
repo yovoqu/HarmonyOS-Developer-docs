@@ -1,6 +1,6 @@
 # Web加载完成时延分析
 
-更新时间：2026-03-12 08:45:02
+更新时间：2026-08-10 06:55:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-completion-delay-analysis
 
@@ -126,7 +126,7 @@ DevTools是一个Web前端开发调试工具，提供在电脑上调试移动设
 
 2. CSS文件加载缓慢会导致内容无样式或页面闪烁。页面渲染时，表现为先无样式再缓慢显示样式，或页面内容快速且不稳定地变化。常见的解决方案包括：将CSS内嵌到HTML以减少外部CSS请求数量，压缩CSS文件，使用CDN加速加载，以及使用缓存。
 
-3. 除以上针对特殊问题的优化方案外，还有其他通用优化方案，如[预渲染](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-develop-optimization#section172031338172719)、[同层渲染](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-render-web-using-same-layer-render)等。
+3. 除以上针对特殊问题的优化方案外，还有其他通用优化方案，如[预渲染](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-develop-optimization#section172031338172719)、[同层渲染](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/same-layer-rendering-native-component)等。
 
   **网络资源下载**（分析NetWork泳道）
 

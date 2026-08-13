@@ -1,6 +1,6 @@
 # 使用HWASan检测内存错误
 
-更新时间：2026-05-30 09:52:30
+更新时间：2026-08-10 06:55:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-hwasan-detection
 
@@ -117,13 +117,13 @@ hvigorw [taskNames...] -p ohos-enable-hwasan=true  <options>
 
 2. 在需要使能HWASan的模块中，通过添加构建参数开启HWASan检测插桩，在对应模块的模块级build-profile.json5中添加命令参数。
 ```text
-// DevEco Studio 6.1.0 Beta1以下版本
+<span style="color: rgb(147,147,147);">// DevEco Studio 6.1.0 Beta1以下版本</span>
 "buildOption": {
   "externalNativeOptions": {
     "arguments": ["-DOHOS_ENABLE_HWASAN=ON"]
   }
 }
-// DevEco Studio 6.1.0 Beta1及以上版本，同时开启有源码和无源码的C++的HWASan检测插桩
+<span style="color: rgb(147,147,147);">// DevEco Studio 6.1.0 Beta1及以上版本，同时开启有源码和无源码的C++的HWASan检测插桩</span>
 "buildOption": {
   "externalNativeOptions": {
     "arguments": ["-DOHOS_ENABLE_HWASAN=ON", "-DOHOS_ENABLE_BINXO=ON"]
@@ -190,7 +190,7 @@ llvm-readelf -s libthird_party.so | grep '__hwasan_init'
  
 **背景**
  
-“stack tag-mismatch”在HWASan中指的是栈内存标签不匹配错误。这种错误通常发生在访问栈内存时，指针携带的标签与栈内存中存储的标签不一致，触发其异常检测码字的异常类型有：stack-buffer-overflow/underflow、stack-use-after-return。
+“stack tag-mismatch”在HWASan中指的是栈内存标签不匹配错误。这种错误通常发生在访问栈内存时，指针携带的标签与栈内存中存储的标签不一致，触发该检测的异常类型有：stack-buffer-overflow/underflow、stack-use-after-return。
  
 **代码实例**
  
@@ -262,7 +262,7 @@ stack-use-after-return：在作用域内使用局部变量，如果需要在函�
  
 **背景**
  
-访问堆内存越界（上下界），触发其异常检测码字的异常类型有：heap-buffer-overflow、heap-buffer-underflow
+访问堆内存越界（上下界），触发该检测的异常类型有：heap-buffer-overflow、heap-buffer-underflow
  
 **代码实例**
  
@@ -326,7 +326,7 @@ heap-buffer-underflow：访问数组位置不要越下界
  
 **背景**
  
-触发其异常检测码字的异常类型有：heap-use-after-free、double-free
+触发该检测的异常类型有：heap-use-after-free、double-free
  
 heap-use-after-free：当指针指向的内存被释放后，仍然通过该指针访问已经被释放的内存，就会触发heap-use-after-free
  

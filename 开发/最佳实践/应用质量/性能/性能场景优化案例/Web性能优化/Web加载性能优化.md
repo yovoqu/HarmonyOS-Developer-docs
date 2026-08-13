@@ -1,6 +1,6 @@
 # Web加载性能优化
 
-更新时间：2026-07-28 03:34:01
+更新时间：2026-08-10 06:55:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-develop-optimization
 
@@ -408,11 +408,11 @@ export struct Second {
 
 **原理介绍**
  
-应用启动和UIAbility的onCreate生命周期完成后，Web组件才能初始化和运行。ArkWeb组件运行阶段包括onAppear、load、onPageBegin、onPageEnd步骤。预解析、预连接优化适用于Web页面启动和跳转场景，例如应用启动时加载Web首页。创建ArkWeb组件实例后，开发者可以选择不同时机设置URL并进行预解析、预连接。
+应用启动和UIAbility的onCreate生命周期完成后，Web组件才能初始化和运行。ArkWeb组件运行阶段包括onAppear()、load()、onPageBegin()、onPageEnd()步骤。预解析、预连接优化适用于Web页面启动和跳转场景，例如应用启动时加载Web首页。创建ArkWeb组件实例后，开发者可以选择不同时机设置URL并进行预解析、预连接。
  
 - 如下图中a节点所示，如果是应用首页，推荐在ArkWeb组件初始化后设置首页URL，进行预解析和预连接。
-- 如下图中b节点所示，对于应用内页面，推荐在ArkWeb组件的onAppear阶段设置当前页面的URL，进行预解析和预连接。
-- 如下图中c节点所示，页面加载完成后，设置用户下一步可能点击页面的URL，进行预解析和预连接，推荐在onPageEnd及后续时机执行。
+- 如下图中b节点所示，对于应用内页面，推荐在ArkWeb组件的onAppear()阶段设置当前页面的URL，进行预解析和预连接。
+- 如下图中c节点所示，页面加载完成后，设置用户下一步可能点击页面的URL，进行预解析和预连接，推荐在onPageEnd()及后续时机执行。
 
  
 图3 **预连接优化原理图**
@@ -420,13 +420,13 @@ export struct Second {
 
  
 > [!WARNING]
-> 在设置预解析和预连接进行优化时，需要注意： 预连接存在时效性，建议在5分钟内复用已建立的连接，超时后连接将被关闭。 预连接存在耗时，建议预加载时间比页面实际时间提前150ms以上。 当前页面加载完成后，即onPageEnd回调后，可复用当前ArkWeb组件预连接新的页面或预下载资源。
+> 在设置预解析和预连接进行优化时，需要注意： 预连接存在时效性，建议在5分钟内复用已建立的连接，超时后连接将被关闭。 预连接存在耗时，建议预加载时间比页面实际时间提前150ms以上。 当前页面加载完成后，即onPageEnd()回调后，可复用当前ArkWeb组件预连接新的页面或预下载资源。
 
  
  
 **实践案例**
  
-案例一：如果需要提前对应用的首页进行操作，可以调用initializeWebEngine()初始化ArkWeb组件的内核，然后调用prepareForPageLoad()预连接即将加载的页面。在prepareForPageLoad中，将第二个参数设为true以进行预连接，设为false时仅进行DNS预解析。具体代码如下所示。
+案例一：如果需要提前对应用的首页进行操作，可以调用initializeWebEngine()初始化ArkWeb组件的内核，然后调用prepareForPageLoad()预连接即将加载的页面。在prepareForPageLoad()中，将第二个参数设为true以进行预连接，设为false时仅进行DNS预解析。具体代码如下所示。
  
 ```ArkTS
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
@@ -451,10 +451,10 @@ export default class EntryAbility extends UIAbility {
 ```
  
 > [!NOTE]
-> prepareForPageLoad预解析和预连接只和host相关，URL带参数的情况下也能进行预解析和预连接。
+> prepareForPageLoad()预解析和预连接只和host相关，URL带参数的情况下也能进行预解析和预连接。
 
  
-案例二：如果需要提前连接当前页面的Web页面，可以在Web组件的 `onAppear` 方法中预连接要加载的页面。具体代码如下所示：
+案例二：如果需要提前连接当前页面的Web页面，可以在Web组件的 onAppear()方法中预连接要加载的页面。具体代码如下所示：
  
 ```ArkTS
 import { webview } from '@kit.ArkWeb';
@@ -509,7 +509,7 @@ struct WebComponent {
 
 **原理介绍**
  
-如下图所示，ArkWeb组件运行包含onAppear、load、onPageBegin、onPageEnd。开发者可以在onPageEnd设置下一步访问的URL，提前下载所需资源。这种方式适用于Web页面启动和跳转场景，例如，在引导流程完成后，预下载需要跳转的页面。创建ArkWeb组件实例后，可以在当前页面加载完成后，设置URL并进行预下载。本方案可以消除资源下载耗时及资源下载导致的页面DOM解析、JS代码编译执行的阻塞耗时，预估收益在数百毫秒（具体时间依赖当前网络环境）。
+如下图所示，ArkWeb组件运行包含onAppear()、load()、onPageBegin()、onPageEnd()。开发者可以在onPageEnd()设置下一步访问的URL，提前下载所需资源。这种方式适用于Web页面启动和跳转场景，例如，在引导流程完成后，预下载需要跳转的页面。创建ArkWeb组件实例后，可以在当前页面加载完成后，设置URL并进行预下载。本方案可以消除资源下载耗时及资源下载导致的页面DOM解析、JS代码编译执行的阻塞耗时，预估收益在数百毫秒（具体时间依赖当前网络环境）。
  
 图4 **预下载优化原理图**
 ![](assets/Web加载性能优化/file-20260515115035550-18.png)
@@ -522,7 +522,7 @@ struct WebComponent {
  
 **实践案例**
  
-如下示例所示，在onPageEnd阶段，调用[prefetchPage()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#prefetchpage10)方法，即可提前下载页面所需的资源，包括主资源子资源，但不会执行网页JavaScript代码或呈现网页，以加快加载速度。
+如下示例所示，在onPageEnd()阶段，调用[prefetchPage()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#prefetchpage10)方法，即可提前下载页面所需的资源，包括主资源子资源，但不会执行网页JavaScript代码或呈现网页，以加快加载速度。
  
 ```ArkTS
 import { webview } from '@kit.ArkWeb';
@@ -554,7 +554,7 @@ struct WebComponent {
  
 预渲染优化适用于Web页面启动和跳转场景，例如首页跳转到子页。与预连接、预下载不同，预渲染需创建新的ArkWeb组件并进行后台预渲染，此时组件不会挂载到组件树上（状态为Hidden和InActive）。开发者可在后续按需动态挂载。
  
-具体原理如下图所示。首先，需要定义一个自定义组件封装 ArkWeb 组件，该组件被离线创建，并包含在一个无状态的节点 NodeContainer 中，与相应的 NodeController 绑定。ArkWeb 组件在后台完成预渲染后，需要展示时，再通过 NodeController 将其挂载到 ViewTree 的 NodeContainer 中，即通过 NodeController 绑定到对应的 NodeContainer 组件。预渲染通用实现的步骤如下：
+具体原理如下图所示。首先，需要定义一个自定义组件封装 ArkWeb 组件，该组件被离线创建，并包含在一个无状态的节点NodeContainer中，与相应的NodeController绑定。ArkWeb组件在后台完成预渲染后，需要展示时，再通过NodeController将其挂载到ViewTree的NodeContainer中，即通过NodeController绑定到对应的NodeContainer组件。预渲染通用实现的步骤如下：
  1. 创建自定义ArkWeb组件：根据实际场景创建封装，组件被离线创建。
 2. 创建并绑定[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)：实现NodeController接口，管理节点的创建、显示、更新等操作。将NodeController对象放入容器中，等待调用。
 3. 绑定[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)组件：与NodeController绑定，实现动态页面显示。
@@ -1982,7 +1982,7 @@ struct WebComponent {
  
 
  
-经过多轮测试，从点击ArkTS侧的Button到触发H5侧的htmlTest方法，耗时7到9毫秒。
+经过多轮测试，从点击ArkTS侧的Button到触发H5侧的htmlTest()方法，耗时7到9毫秒。
  
 
  
@@ -2369,7 +2369,7 @@ runJS.html作为应用前端页面：
 </html>
 ```
  
-点击“runJS hello”按钮后，触发H5页面的`runJSRetStr`方法，页面内容更新为当前时间戳。
+点击“runJS hello”按钮后，触发H5页面的runJSRetStr()方法，页面内容更新为当前时间戳。
  
 
 ![](assets/Web加载性能优化/file-20260525085643756-019.png)
@@ -2580,7 +2580,7 @@ struct Index {
  
 
  
-案例二：使用 `registerJavaScriptProxy` 或 `javaScriptProxy` 注册异步函数或异步同步共存函数。H5 侧调用 JSBridge 函数时，建议避免使用不推荐的用法。
+案例二：使用registerJavaScriptProxy()或 javaScriptProxy()注册异步函数或异步同步共存函数。H5侧调用JSBridge函数时，建议避免使用不推荐的用法。
  
 ```ArkTS
 Button('refresh')
@@ -2628,7 +2628,7 @@ Web({src: $rawfile('index.html'),controller: this.controller})
 | 异步方法 | 2ms，2ms，4ms | 异步函数调用不阻塞JavaScript线程 |
  
  
-运行数据显示，`async`异步方法在JavaScript单线程任务队列中不会长时间占用，因为它们不需要等待结果。而同步方法则需要等待ArkTS侧主线程同步执行后才能返回结果。
+运行数据显示，async异步方法在JavaScript单线程任务队列中不会长时间占用，因为它们不需要等待结果。而同步方法则需要等待ArkTS侧主线程同步执行后才能返回结果。
  
 > [!NOTE]
 > JSBridge接口在注册时，即会根据注册调用的接口决定其调用方式（同步/异步）。开发者需根据当前业务区分， 是否将其注册为异步函数。 同步函数调用会阻塞JavaScript执行，等待JSBridge函数执行结束，适用于需要返回值或存在时序问题的场景。 异步函数调用时不会等待JSBridge函数执行结束，后续JavaScript可在特定时间后继续执行。JSBridge函数无法直接返回值。 注册在ETS侧的JSBridge函数调用时需要在主线程上执行；NDK侧注册的函数将在其他线程中执行。 异步JSBridge接口与同步接口在JavaScript侧的调用方式一致，仅注册方式不同，本部分调用方式仅作简要示范。

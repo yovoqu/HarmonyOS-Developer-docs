@@ -1,6 +1,6 @@
 # 适配相机旋转角度(C/C++)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-angle-adaptation-native
 
@@ -95,7 +95,7 @@ void createVideosession(Camera_Manager *cameraManager) {
 isDisplayLocked：Surface在屏幕旋转时是否锁定方向。当设置为false，即屏幕方向未锁定，[预览旋转角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term-native#预览旋转角度)将根据[相机镜头角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term-native#相机镜头安装角度)和[屏幕显示旋转角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term-native#屏幕旋转角度)的值计算；当设置为true，Surface旋转锁定，不跟随窗口变化，旋转角度仅取相机镜头角度计算。
 
   
-```text
+```cpp
 int32_t NDKCamera::GetDefaultDisplayRotation()
 {
     int32_t imageRotation = 0;
@@ -133,7 +133,7 @@ void NDKCamera::GetAndSetPreviewRotation()
 isDisplayLocked：Surface在屏幕旋转时是否锁定方向。当设置为false，即屏幕方向未锁定，[预览旋转角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term-native#预览旋转角度)将根据[相机镜头角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term-native#相机镜头安装角度)和[屏幕显示旋转角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term-native#屏幕旋转角度)的值计算；当设置为true，Surface旋转锁定，不跟随窗口变化，旋转角度仅取相机镜头角度计算。
 
   
-```text
+```cpp
 void NDKCamera::GetAndSetPreviewRotationWithoutDisplayRotation()
 {
     // previewOutput_是创建的预览输出
@@ -158,7 +158,7 @@ void NDKCamera::GetAndSetPreviewRotationWithoutDisplayRotation()
   由应用获取displayRotation（[显示设备的屏幕旋转角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term-native#屏幕旋转角度)）并将对应角度填入[OH_PreviewOutput_GetPreviewRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-preview-output-h#oh_previewoutput_getpreviewrotation)接口。
 
   
-```text
+```cpp
 // 应用需监听屏幕状态变化，使用如下回调函数对预览流进行角度修正
 void NDKCamera::DisplayChangeCallback(uint64_t displayId)
 {
@@ -183,7 +183,7 @@ void NDKCamera::DisplayChangeCallback(uint64_t displayId)
   从API版本23开始，可通过[OH_PreviewOutput_GetPreviewRotationWithoutDisplayRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-preview-output-h#oh_previewoutput_getpreviewrotationwithoutdisplayrotation)接口，获取预览旋转角度。该方案由系统获取displayRotation，并进行预览旋转角度计算。如果应用涉及使用USB相机或在多屏场景下，建议使用方案二。
 
   
-```text
+```cpp
 // 应用需监听屏幕状态变化，使用如下回调函数对预览流进行角度修正
 void NDKCamera::DisplayChangeCallback(uint64_t displayId)
 {
@@ -219,7 +219,7 @@ void NDKCamera::DisplayChangeCallback(uint64_t displayId)
   deviceDegree：设备旋转角度。拍照的旋转角度与重力方向（即设备旋转角度）相关，获取方式请见[计算设备旋转角度](#计算设备旋转角度)。
 
   
-```text
+```cpp
 Camera_ImageRotation NDKCamera::GetPhotoRotation(Camera_PhotoOutput* photoOutput, int32_t deviceDegree)
 {
     Camera_ImageRotation photoRotation = IAMGE_ROTATION_0;
@@ -238,7 +238,7 @@ Camera_ImageRotation NDKCamera::GetPhotoRotation(Camera_PhotoOutput* photoOutput
   该接口需要在session调用[OH_CaptureSession_CommitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_commitconfig)完成配流后调用。
 
   
-```text
+```cpp
 Camera_ImageRotation NDKCamera::GetPhotoRotationWithoutDeviceDegree(Camera_PhotoOutput* photoOutput)
 {
     Camera_ImageRotation photoRotation = IAMGE_ROTATION_0;
@@ -268,7 +268,7 @@ Camera_ImageRotation NDKCamera::GetPhotoRotationWithoutDeviceDegree(Camera_Photo
   deviceDegree：设备旋转角度。录像的旋转角度与重力方向（即设备旋转角度）相关，获取方式请见[计算设备旋转角度](#计算设备旋转角度)。
 
   
-```text
+```cpp
 Camera_ImageRotation NDKCamera::GetVideoRotation(int32_t deviceDegree)
 {
     Camera_ImageRotation videoRotation = IAMGE_ROTATION_0;
@@ -287,7 +287,7 @@ Camera_ImageRotation NDKCamera::GetVideoRotation(int32_t deviceDegree)
   该接口需要在session调用[OH_CaptureSession_CommitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_commitconfig)完成配流后调用。
 
   
-```text
+```cpp
 Camera_ImageRotation NDKCamera::GetVideoRotationWithoutDeviceDegree()
 {
     Camera_ImageRotation videoRotation = IAMGE_ROTATION_0;
@@ -310,7 +310,7 @@ Camera_ImageRotation NDKCamera::GetVideoRotationWithoutDeviceDegree()
 
 如果无法获得重力传感器数据，需要申请重力传感器权限ohos.permission.ACCELEROMETER。权限申请请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)，如何获取传感器数据请参考[传感器开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sensor-guidelines-capi)。
 
-```text
+```cpp
 Sensor_SubscriptionId *id;
 Sensor_Subscriber *subscriber;
 Sensor_SubscriptionAttribute *attr;
@@ -436,7 +436,7 @@ int32_t CalDeviceDegree()
 
 示例代码如下：
 
-```text
+```cpp
 Camera_ErrorCode NDKCamera::EnablePhysicalCameraOrientation(Camera_Input* cameraInput)
 {
     bool isVariable = false;

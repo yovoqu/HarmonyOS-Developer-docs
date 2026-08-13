@@ -1,6 +1,6 @@
 # Path
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-path
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -38,15 +38,13 @@ new Path(options?: PathOptions)
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
-**模型约束：** 从API version 18开始，使用PathOptions参数时，此接口仅可在Stage模型下使用。
- 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | PathOptions | 否 | Path组件绘制属性的配置对象。 省略时不设置绘制属性，组件按默认尺寸显示。默认尺寸根据路径内容自动计算宽度和高度。 异常值undefined和null按照无效值处理，本次设置不生效。 |
+| options | PathOptions | 否 | Path组件绘制属性的配置对象。 省略时不设置绘制属性，组件按默认尺寸显示。默认尺寸根据路径内容自动计算宽度和高度。 异常值undefined和null按照无效值处理，本次设置不生效。 **说明：**从API version 18开始，使用PathOptions参数时需在Stage模型下使用。 |
  
  
   
@@ -63,15 +61,13 @@ Path(options?: PathOptions)
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
-**模型约束：** 从API version 18开始，使用PathOptions参数时，此接口仅可在Stage模型下使用。
- 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | PathOptions | 否 | Path组件绘制属性的配置对象。 省略时不设置绘制属性，组件按默认尺寸显示。默认尺寸根据路径内容自动计算宽度和高度。 异常值undefined和null按照无效值处理，本次设置不生效。 |
+| options | PathOptions | 否 | Path组件绘制属性的配置对象。 省略时不设置绘制属性，组件按默认尺寸显示。默认尺寸根据路径内容自动计算宽度和高度。 异常值undefined和null按照无效值处理，本次设置不生效。 **说明：**从API version 18开始，使用PathOptions参数时需在Stage模型下使用。 |
  
  
   
@@ -289,7 +285,7 @@ struct PathTypeExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/1VeWz3fuT3Kf8s1zexprbw/zh-cn_image_0000002686088327.png?HW-CC-KV=V1&HW-CC-Date=20260730T071511Z&HW-CC-Expire=86400&HW-CC-Sign=7EC384473552003DB37DCA26B7CAB246BC989E71ADFFCC683F6D076B27B2D0F5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/Sg9NfOoKT4mTT4--S6LfCA/zh-cn_image_0000002704394951.png?HW-CC-KV=V1&HW-CC-Date=20260813T095449Z&HW-CC-Expire=86400&HW-CC-Sign=94701919EFB9C0ACAF287B16D658177D0E11DA2FACB1F0DF99114DD37719EEAA)
 
  
   
@@ -334,4 +330,4 @@ struct PathModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/8HZ5R2PLRASpNzSFR_bsaw/zh-cn_image_0000002685928495.png?HW-CC-KV=V1&HW-CC-Date=20260730T071511Z&HW-CC-Expire=86400&HW-CC-Sign=7D8551E9BDD6497A22C8E0017224BC2B6B4C63E91EB87483C2DB204A2228B7E4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/f-97KLmmRkWMuuZxJoK1iA/zh-cn_image_0000002674634830.png?HW-CC-KV=V1&HW-CC-Date=20260813T095449Z&HW-CC-Expire=86400&HW-CC-Sign=020AA60C886DC3346AAA2E220AF923EC36DF95A52C6224EE96E95950905842BE)

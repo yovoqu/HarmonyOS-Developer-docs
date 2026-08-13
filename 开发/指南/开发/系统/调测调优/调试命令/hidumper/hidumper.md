@@ -1,6 +1,6 @@
 # hidumper
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hidumper
 
@@ -315,7 +315,7 @@ Total Ashmem:144 kB
 | leak_type | ION内存泄漏维测的buffer类型。 |
 
 
-使用hidumper --mem pid --show-gpumem命令可获取指定PID的内存使用情况，并打印GPU内存详细信息。详细信息可参考[ashmem/ion/gpu/gpu_rs内存泄漏日志规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-leak-guidelines#ashmemiongpugpu_rs内存泄漏日志规格)中gpu内存泄漏字段说明。
+使用hidumper --mem pid --show-gpumem命令可获取指定PID的内存使用情况，并打印GPU内存详细信息。详细信息可参考[ASHMEM/DMA/GPU/GPU_RS内存泄漏日志规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-leak-guidelines#ashmemdmagpugpu_rs内存泄漏日志规格)中gpu内存泄漏字段说明。
 
 可使用hidumper --mem-smaps pid命令获取指定进程的详细内存使用情况，该命令会累加相同内存段的内存值。
 
@@ -544,7 +544,7 @@ $ hidumper --mem-heap 65097 --native  -> 65097 为目标应用进程号
 解析说明：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/dNHDcFaKRO2ngBldikAErA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071934Z&HW-CC-Expire=86400&HW-CC-Sign=EE772951E54A658DF7004FBB01BD097362294EEB461D440DD59C5B2D0ECA5339)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/CF8yfMWHTaezZOzDPDsN6g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095817Z&HW-CC-Expire=86400&HW-CC-Sign=8B54EFBBFE26B52AF8A01D56BA390CE1E0D6162543FE6F38BE66672CCAD91336)
 
 
 该文件内容格式为二进制，需要使用十六进制编辑器查看。
@@ -891,7 +891,7 @@ GL_SHADING_LANGUAGE_VERSION: OpenGL ES GLSL ES 3.20
 可使用hidumper -p [pid]命令获取指定进程的相关信息，包括进程的挂载信息，进程的线程信息，线程的运行时间，进程等待通道信息。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/vSluqBnvSv-zckeK3QyuTQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071934Z&HW-CC-Expire=86400&HW-CC-Sign=ED4EE100738E39D702C9D20220820C3EA11BEC480EFD35A187C791220FA09081)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/vfi_GcqdTlG3he1NVURSCg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095817Z&HW-CC-Expire=86400&HW-CC-Sign=B749AC63CE82A5672FA8254A1C748A891E2EE7253385CB858135405E9D903CE3)
 
 
 hidumper -p [pid]命令调试的进程应为“使用调试证书签名的应用”。
@@ -935,7 +935,7 @@ root             2     4     0  127 10:46:59 ?     00:00:00 [call_ebr]
 从API版本26.0.0开始，可使用-p pid --fd/--thread [-v]命令 获取指定进程的文件句柄或线程的摘要信息，其中-v选项为获取指定进程的文件句柄或线程的详细信息。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/jrZE4Hd2SNaeak8G0th15w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071934Z&HW-CC-Expire=86400&HW-CC-Sign=696EE2830E213A67F284F68CA766AF3F17F0AF2619F7C86F94B90831A068FBFC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/QSvhfUAPRM2VnK3la-igqA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095817Z&HW-CC-Expire=86400&HW-CC-Sign=23BB7674D48C4532410F419E2AAF084E03132CB5DD84531F618C11BBF6D4F63E)
 
 
 可使用-p pid --fd/--thread [-v]命令调试的进程应为“使用调试证书签名的应用”。

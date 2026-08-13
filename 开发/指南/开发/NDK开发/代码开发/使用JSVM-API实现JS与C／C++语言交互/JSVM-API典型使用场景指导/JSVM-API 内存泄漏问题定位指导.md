@@ -1,6 +1,6 @@
 # JSVM-API 内存泄漏问题定位指导
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jsvm-locate-memory-leak
 
@@ -11,7 +11,7 @@ JSVM的内存占用包括Native内存占用(C/C++侧的内存占用)和底层的
 
 #### 定性分析
 
-可以通过hdc连接设备，执行如下命令行的方式对目标应用的内存进行采样，比较一段时间内的内存变化情况，从而定性分析是Native内存泄漏还是JS内存。下图中Pss Total列，native heap对应Native内存占用，AnonPage other对应js堆内存占用。
+可以通过hdc连接设备，执行如下命令行的方式对目标应用的内存进行采样，比较一段时间内的内存变化情况，从而定性分析是Native内存泄漏，还是JS堆内存异常增长。下图中Pss Total列，native heap对应Native内存占用，AnonPage other对应js堆内存占用。
  
 ```text
 hidumper --mem $(pidof dest_app)

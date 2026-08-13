@@ -1,6 +1,6 @@
 # image_receiver_native.h
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-receiver-native-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -636,7 +636,7 @@ Image_ErrorCode OH_ImageReceiverNative_OffImageArrive(OH_ImageReceiverNative *re
 | 参数项 | 描述 |
 | --- | --- |
 | OH_ImageReceiverNative *receiver | 处理回调的OH_ImageReceiverNative对象。 |
-| OH_ImageReceiver_ImageArriveCallback callback | 要注册的OH_ImageReceiver_ImageArriveCallback回调。 |
+| OH_ImageReceiver_ImageArriveCallback callback | 要注销的OH_ImageReceiver_ImageArriveCallback回调。 |
 
 
 **返回：**

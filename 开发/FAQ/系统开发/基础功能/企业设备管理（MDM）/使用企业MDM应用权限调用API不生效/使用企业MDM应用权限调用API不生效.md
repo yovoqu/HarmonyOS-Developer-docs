@@ -1,6 +1,6 @@
 # 使用企业MDM应用权限调用API不生效
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-1
 
@@ -66,7 +66,7 @@ A：要求SDK版本为5.0.0（API 12）及以上，且仅支持Stage模型和Har
  
 Q：MDM Kit是否支持自定义设备管理策略？
  
-A：MDM Kit支持自定义设备管理策略。[@ohos.enterprise.restrictions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions)模块提供设置通用限制类策略能力，可以实现全局禁用和解除禁用蓝牙、HDC、USB、Wi-Fi等特性。例如使用[restrictions.setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy)接口设置禁用设备打印能力；使用[restrictions.setUserRestriction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetuserrestriction20)接口设置用户行为（包括APN设置、长按电源键打开电源菜单、修改以太网IP地址、修改设备名称、修改锁屏密码行为）的限制规则。
+A：MDM Kit支持自定义设备管理策略。[@ohos.enterprise.restrictions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions)模块提供设置通用限制类策略能力，可以实现全局禁用和解除禁用蓝牙、HDC、USB、Wi-Fi等特性。例如使用[restrictions.setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy24)接口设置禁用设备打印能力；使用[restrictions.setUserRestriction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetuserrestriction)接口设置用户行为（包括APN设置、长按电源键打开电源菜单、修改以太网IP地址、修改设备名称、修改锁屏密码行为）的限制规则。
  
 Q：添加应用的appIdentifier至白名单，后续会报错：[16000110](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability#section16000110-当前应用不在kiosk模式的列表内)当前应用不在Kiosk模式的列表内，是为什么？
  

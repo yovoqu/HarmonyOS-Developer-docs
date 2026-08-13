@@ -1,6 +1,6 @@
 # native_vsync.h
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-vsync-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -102,7 +102,7 @@ OH_NativeVSync* OH_NativeVSync_Create(const char* name, unsigned int length)
  
 **描述**
  
-创建一个OH_NativeVSync实例，每次调用都会产生一个新的实例。
+创建一个OH_NativeVSync实例，每次调用都会产生一个新的实例，OH_NativeVSync实例存在数量上限，超出后会返回空指针。
  
 本接口需要与[OH_NativeVSync_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-vsync-h#oh_nativevsync_destroy)接口配合使用，否则会存在内存泄漏。
  

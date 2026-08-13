@@ -1,6 +1,6 @@
 # 如何将不同尺寸的图片添加到PDF里
 
-更新时间：2026-07-30 01:03:01
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-7
 
@@ -13,16 +13,16 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/dekOLjjwRKqKrIUHygR5hA/zh-cn_image_0000002628394348.png?HW-CC-KV=V1&HW-CC-Date=20260811T005601Z&HW-CC-Expire=86400&HW-CC-Sign=CBEC9A21DDB811366F89B49F3ECE39F13C5481935F6C64E4B1F2B30A7F27C8CB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/KZznVyhwT8iMEooxQvHIjw/zh-cn_image_0000002628394348.png?HW-CC-KV=V1&HW-CC-Date=20260813T095552Z&HW-CC-Expire=86400&HW-CC-Sign=F144469391C825CD1F7B6067AF797089B923CA74CAA9A2A881025488F6DE2F65)
 
  
  
 
 #### 背景知识
 
-- [fs.listFileSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fslistfilesync)：默认以同步方式列出当前目录下所有文件名和目录名。支持过滤。
+- [fs.listFileSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiolistfilesync)：默认以同步方式列出当前目录下所有文件名和目录名。支持过滤。
 - [getImageInfoSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#getimageinfosync12)：以同步方法获取图像像素信息。
-- [createDocument](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section74801151101719)：创建空白文档。
+- [createDocument](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#createdocument)：创建空白文档。
 - [insertBlankPage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#insertblankpage)：在指定位置插入PDF页。
 - [addImageObject](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#addimageobject)：在PDF文档的页面中添加图片。
 - [saveDocument](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#savedocument)：保存文档。

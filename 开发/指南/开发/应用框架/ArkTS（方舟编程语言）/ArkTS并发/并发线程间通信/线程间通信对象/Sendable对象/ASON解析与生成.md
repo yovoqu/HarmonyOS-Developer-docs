@@ -1,6 +1,6 @@
 # ASON解析与生成
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ason-parsing-generation
 
@@ -36,7 +36,7 @@ struct Index {
           middle: { anchor: '__container__', align: HorizontalAlign.Center }
         })
         .onClick(() => {
-          console.info(ArkTSUtils.ASON.parse('{}'));
+          console.info(`ASON parse object result is ${ArkTSUtils.ASON.parse('{}')}`)
           console.info(ArkTSUtils.ASON.stringify(new collections.Array(1, 2, 3)));
 
           let options2: ArkTSUtils.ASON.ParseOptions = {

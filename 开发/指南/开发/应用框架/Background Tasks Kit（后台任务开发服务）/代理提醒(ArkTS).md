@@ -1,6 +1,6 @@
 # 代理提醒(ArkTS)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agent-powered-reminder
 
@@ -101,13 +101,13 @@
 5. 返回“开放能力接入”页面，原“申请”按钮变为“申请中”，8个工作日反馈申请结果。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/_-ww18PKRtKRNgXxMQqtKQ/zh-cn_image_0000002656006776.png?HW-CC-KV=V1&HW-CC-Date=20260730T071901Z&HW-CC-Expire=86400&HW-CC-Sign=B4B8D330066EB9321FAC7DC1DCAA5DA77106C31EA694051BB6296C8787CF2D67)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/ECTjzYNITcemUvfwzArkOg/zh-cn_image_0000002704392895.png?HW-CC-KV=V1&HW-CC-Date=20260813T095739Z&HW-CC-Expire=86400&HW-CC-Sign=41933AA239F37F16E8ACDFE0F62D2A54E8745E56A8BF7D57E41CC84CC4F1B103)
 
 6. 申请审批通过后，互动中心会发送通知给您，同时“申请中”按钮会变为置灰显示的“申请”。
 7. 能力申请通过后，勾选代理提醒的能力开关，点击右上角“保存”。至此，您的应用已成功接入开放能力。此时，调试和发布应用必须重新生成Profile文件并使用[手动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing)。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/VUbiVmiIT5Sawni-9HO0kw/zh-cn_image_0000002655846856.png?HW-CC-KV=V1&HW-CC-Date=20260730T071901Z&HW-CC-Expire=86400&HW-CC-Sign=D6276144CF44CEB12DD120909E2ECA1072C1C3FBABDA6C712ED04D3482B12268)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/800Pcf_fTWOJgyMVWMIvFA/zh-cn_image_0000002674632774.png?HW-CC-KV=V1&HW-CC-Date=20260813T095739Z&HW-CC-Expire=86400&HW-CC-Sign=E3CB328E053874F9ADC45CCBF6F3E4A53B72B5CF034F9CBE378CC2B3C7CC954F)
 
 
 

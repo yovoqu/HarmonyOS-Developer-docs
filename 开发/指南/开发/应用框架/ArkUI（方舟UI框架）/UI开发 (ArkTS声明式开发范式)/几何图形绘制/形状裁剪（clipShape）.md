@@ -1,6 +1,6 @@
 # 形状裁剪（clipShape）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-clip-shape
 
@@ -147,4 +147,4 @@ struct ClipShapeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/DMNzYeqrQ2mI54tQaKthjw/zh-cn_image_0000002656467819.png?HW-CC-KV=V1&HW-CC-Date=20260624T020754Z&HW-CC-Expire=86400&HW-CC-Sign=214353B17488223D0BA6234249C798364DE2076A638FB6D8434F505CCAC12DF1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/D3x4nCzaQIyU88sxmFyF4w/zh-cn_image_0000002704272341.png?HW-CC-KV=V1&HW-CC-Date=20260813T095715Z&HW-CC-Expire=86400&HW-CC-Sign=8E658D788AD90E6B2B6A1BCB4F7ABF7689835C5198809E0F5607F66D6845BFFF)

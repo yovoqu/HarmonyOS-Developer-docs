@@ -1,6 +1,6 @@
 # textToSpeech文本转语音播报音量无法调节
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:22:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-10
 
@@ -17,4 +17,4 @@ textToSpeech文字转语音播报音量无法调节。
 解决方案：
  1. 去设置里调整小艺音量：设置->声音和振动->小艺。
 2. 在语音播报过程中，通过音量上下键调节。
-3. 开发者使用textToSpeech接口时，主动把播放通道设置为媒体（没有音频播放的情况下音量上下键调整的是媒体音量）。设置方法：[SpeakParams->extraParams->soundChannel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-texttospeech#section7843122735210)。
+3. 开发者使用textToSpeech接口时，主动把播放通道设置为媒体（没有音频播放的情况下音量上下键调整的是媒体音量）。设置方法：[SpeakParams->extraParams->soundChannel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-texttospeech#speakparams)。

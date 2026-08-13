@@ -1,6 +1,6 @@
 # 双路预览(ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-dual-channel-preview
 
@@ -91,10 +91,12 @@ let pixelMapFormatToSizeMap = new Map<image.PixelMapFormat, number>([
 
   
 > [!NOTE]
-> 在通过 createPixelMap 接口创建 PixelMap 实例时，设置的Size、srcPixelFormat等属性必须和相机预览输出流previewProfile中配置的Size、Format属性保持一致，ImageReceiver图片像素格式请参考 PixelMapFormat ，相机预览输出流previewProfile输出格式请参考 CameraFormat 。 由于不同设备产品差异性，应用开发者在创建相机预览输出流前，必须先通过 getSupportedOutputCapability 方法获取当前设备支持的预览输出流previewProfile，再根据实际业务需求选择 CameraFormat 和 Size 适合的预览输出流previewProfile。 ImageReceiver接收预览流图像数据实际format格式由应用开发者在创建预览输出流相机预览输出流时，根据实际业务需求选择的previewProfile中format格式参数影响，详细步骤请参考 创建预览流获取数据 。
+> 在通过 createPixelMap 接口创建 PixelMap 实例时，设置的Size、srcPixelFormat等属性必须和相机预览输出流previewProfile中配置的Size、Format属性保持一致，ImageReceiver图片像素格式请参考 PixelMapFormat ，相机预览输出流previewProfile输出格式请参考 CameraFormat 。 由于不同设备产品差异性，应用开发者在创建相机预览输出流前，必须先通过 getSupportedOutputCapability 方法获取当前设备支持的预览输出流previewProfile，再根据实际业务需求选择 CameraFormat 和 Size 适合的预览输出流previewProfile。
 
 
-  
+ - ImageReceiver接收预览流图像数据实际format格式由应用开发者在创建相机预览输出流时，根据实际业务需求选择的previewProfile中format格式参数影响，详细步骤请参考[创建预览流获取数据](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-dual-channel-preview#创建预览流获取数据)。
+
+
 ```ArkTS
 onImageArrival(receiver: image.ImageReceiver): void {
   receiver.on('imageArrival', () => {
@@ -119,17 +121,19 @@ onImageArrival(receiver: image.ImageReceiver): void {
   });
 }
 ```
+
 通过 [image.Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#component9) 解析图片buffer数据参考：
 
-  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/JG6d8nxJTdW_wQPLVd4Ffg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020906Z&HW-CC-Expire=86400&HW-CC-Sign=AF57952D40048841304AFE4A78D1E393CD3E1E04BDC8D8B7C3F43A20435E5A77)
- 
 
-  需要确认图像的宽width是否与行距rowStride一致，如果不一致可参考以下方式处理：
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/gL7uj9-aRMuEvjOcRs4hVg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095822Z&HW-CC-Expire=86400&HW-CC-Sign=E678D5837AE321547478D704C5263A48518A46B51837653178A518AFE4A72563)
 
-  方式一：去除imgComponent.byteBuffer中stride数据，拷贝得到新的buffer，调用不支持stride的接口处理buffer。
 
-  
+需要确认图像的宽width是否与行距rowStride一致，如果不一致可参考以下方式处理：
+
+
+
+方式一：去除imgComponent.byteBuffer中stride数据，拷贝得到新的buffer，调用不支持stride的接口处理buffer。
+
 ```ArkTS
 async getPixelMap(imgComponent: image.Component, width: number, height: number, stride: number) {
   if (stride === width) {
@@ -150,9 +154,9 @@ async getPixelMap(imgComponent: image.Component, width: number, height: number, 
   });
 }
 ```
+
 方式二：根据stride*height创建pixelMap，然后调用pixelMap的cropSync方法裁剪掉多余的像素。
 
-  
 ```text
 // 创建pixelMap，width宽传行距stride的值。
 let pixelMap = await image.createPixelMap(imgComponent.byteBuffer, {
@@ -160,6 +164,7 @@ let pixelMap = await image.createPixelMap(imgComponent.byteBuffer, {
 // 裁剪多余的像素。
 pixelMap.cropSync({size:{width:width, height:height}, x:0, y:0});
 ```
+
 方式三：将原始imgComponent.byteBuffer和stride信息一起传给支持stride的接口处理。
 
 

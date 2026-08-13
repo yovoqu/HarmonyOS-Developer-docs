@@ -1,6 +1,6 @@
 # ArkTS高性能编程实践
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-high-performance-programming
 
@@ -246,6 +246,13 @@ function sum(num: number): number {
 优化后的代码示例：
  
 ```ArkTS
+function divBetter(a: number, b: number): number {
+  if (a <= 0 || b <= 0) {
+    return NaN;
+  }
+  return a / b;
+}
+
 function sumBetter(num: number): number {
   let sum = 0;
   for (let t = 1; t < 100; t++) {

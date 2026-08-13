@@ -1,6 +1,6 @@
 # LiveViewCardExtensionAbility
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/liveview-card-ability
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -78,6 +78,13 @@ onRender(param: Record<string, string>): CardInfo
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | param | Record<string, string> | 是 | 开发者创建实况窗卡片自定义扩展区时传入的参数CustomLayout.abilityParameters 默认会携带以下key值（由系统赋值，开发者手动修改也不会生效）： 'ohos.extra.param.key.colorMode'：实况卡片深浅色模式（dark：深色模式；light：浅色模式） 'ohos.extra.param.key.fontColor'：实况卡片字体颜色（"#ARGB"16进制格式，长度为9） 'ohos.extra.param.key.contentWidth'：实况窗卡片自定义扩展区的宽度（单位为vp；自定义扩展区左右边界距离实况窗卡片边界各为12vp）。 |
+ 
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| CardInfo | 卡片渲染信息对象。 |
  
  
   

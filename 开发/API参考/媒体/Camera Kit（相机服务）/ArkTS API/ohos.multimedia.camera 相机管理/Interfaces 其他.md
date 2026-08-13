@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -363,7 +363,7 @@
 
 实际预览流的宽高指的是相机输出流的分辨率，请参考[profile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#profile)中的size。
 
-预览流的数据获取请参考[双路预览(ArkTs)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-dual-channel-preview)。
+预览流的数据获取请参考[双路预览(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-dual-channel-preview)。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 

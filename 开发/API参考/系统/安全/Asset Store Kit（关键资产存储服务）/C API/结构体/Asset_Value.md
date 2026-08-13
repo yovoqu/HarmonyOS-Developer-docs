@@ -1,6 +1,6 @@
 # Asset_Value
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-assettype-asset-value
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef union {...} Asset_Value
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-关键资产属性内容。
+关键资产属性的值（内容）。
  
 **起始版本：** 11
  
@@ -36,6 +36,6 @@ typedef union {...} Asset_Value
  
 | 名称 | 描述 |
 | --- | --- |
-| bool boolean | 该字段用于传入bool类型的关键资产。 |
-| uint32_t u32 | 该字段用于传入uint32类型的关键资产。 |
-| Asset_Blob blob | 该字段用于传入bytes类型的关键资产。 |
+| bool boolean | 该字段用于传入bool类型的属性值。 |
+| uint32_t u32 | 该字段用于传入uint32类型的属性值。 |
+| Asset_Blob blob | 该字段用于传入bytes类型的属性值。 |

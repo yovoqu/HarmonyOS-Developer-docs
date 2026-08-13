@@ -1,6 +1,6 @@
 # 使用JSVM-API接口操作bigint类型值
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-bigint
 
@@ -64,7 +64,7 @@ static JSVM_Value GetValueBigintWords(JSVM_Env env, JSVM_CallbackInfo info)
     uint64_t* words{nullptr};
     // 调用OH_JSVM_GetValueBigintWords接口获取wordCount
     JSVM_Status status = OH_JSVM_GetValueBigintWords(env, args[0], nullptr, &wordCount, nullptr);
-    OH_LOG_INFO(LOG_APP, "OH_JSVM_GetValueBigintWords wordCount:%{public}d.", wordCount);
+    OH_LOG_INFO(LOG_APP, "OH_JSVM_GetValueBigintWords wordCount:%{public}zu.", wordCount);
     if (wordCount == 0 || wordCount > MAX_MALLOC_SIZE) {
         OH_LOG_ERROR(LOG_APP, "Invalid wordCount: %{public}zu", wordCount);
         return nullptr;

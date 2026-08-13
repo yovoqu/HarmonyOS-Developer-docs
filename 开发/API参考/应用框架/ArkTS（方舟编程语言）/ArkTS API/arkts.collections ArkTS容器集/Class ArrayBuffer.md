@@ -1,6 +1,6 @@
 # Class (ArrayBuffer)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-arraybuffer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -92,15 +92,15 @@ slice(begin: number, end?: number): ArrayBuffer
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| begin | number | 是 | 开始索引，如果begin < 0，则会从begin + arrayBuffer.byteLength位置开始。 |
-| end | number | 否 | 结束索引（不包括该元素），如果end < 0，则会到end + arrayBuffer.byteLength位置结束。默认为原ArkTS ArrayBuffer的长度。 |
+| begin | number | 是 | 开始索引。如果begin < 0，则会从begin + arrayBuffer.byteLength位置开始。如果begin < -arrayBuffer.byteLength，则从0开始。默认值为0。 |
+| end | number | 否 | 结束索引（不包括该元素）。如果end < 0，则会到end + arrayBuffer.byteLength位置结束。如果end > arrayBuffer.byteLength，则截取到arrayBuffer.byteLength位置。默认为原ArkTS ArrayBuffer的长度。 |
  
  
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| ArrayBuffer | 新的ArkTS ArrayBuffer对象。 |
+| ArrayBuffer | collections.ArrayBuffer |
  
  
 **错误码：**

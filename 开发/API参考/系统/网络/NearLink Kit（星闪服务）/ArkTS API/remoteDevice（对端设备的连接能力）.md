@@ -1,6 +1,6 @@
 # remoteDevice（对端设备的连接能力）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-remote-device
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -140,7 +140,6 @@ createRemoteDevice(address: string): RemoteDevice
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Invalid parameter. |
 | 801 | Capability not supported. |
  
  

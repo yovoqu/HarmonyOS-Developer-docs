@@ -1,6 +1,6 @@
 # Image
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -562,6 +562,8 @@ syncLoad(value: boolean)
 设置是否同步加载图片。建议加载尺寸较小的本地图片时将syncLoad设为true，因为耗时较短，在主线程上执行即可。
 
 当组件的参数类型为[AnimatedDrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-drawabledescriptor#animateddrawabledescriptor12)时设置该属性不生效。
+
+[alt](#alt)占位图始终为异步加载，syncLoad对其不生效。
 
 如果加载图片时出现闪烁，设置syncLoad为true。详情请参见[并发优化](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-click-to-click-response-optimization#section715115119192)。
 
@@ -1304,7 +1306,7 @@ onError(callback: ImageErrorCallback)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | ImageErrorCallback | 是 | 图片加载异常时触发的回调。 说明： 建议开发者使用此回调，可快速确认图片加载失败时的具体原因，参见ImageError的错误信息详细介绍。 |
+| callback | ImageErrorCallback | 是 | 图片加载异常时触发的回调。 说明： 建议开发者使用此回调，可快速确认图片加载失败时的具体原因，参见ImageError的错误信息详细介绍；网络相关的超时上报，重试次数等规格细节，参见CacheDownloadOptions。 |
 
 
 

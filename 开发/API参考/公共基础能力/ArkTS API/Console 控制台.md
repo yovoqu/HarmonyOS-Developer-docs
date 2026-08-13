@@ -1,6 +1,6 @@
-# Console (控制台)
+# Class (Console)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-logs
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -423,14 +423,16 @@ static group(...arguments: Object[]): void
 
 ```text
 console.info("outer");
-// outer
 console.group();
 console.info("level 1");
-//   level 1
 console.group("in level1");
-//   in level1
 console.info("level 2");
-//     level 2
+/**
+ * outer
+ *   level 1
+ *   in level1
+ *     level 2
+ */
 ```
 
 
@@ -458,14 +460,16 @@ static groupCollapsed(...arguments: Object[]): void
 
 ```text
 console.groupCollapsed("outer");
-// outer
 console.groupCollapsed();
 console.info("level 1");
-//   level 1
 console.groupCollapsed("in level1");
-//   in level1
 console.info("level 2");
-//     level 2
+/**
+ * outer
+ *   level 1
+ *   in level1
+ *     level 2
+ */
 ```
 
 
@@ -486,13 +490,15 @@ static groupEnd(): void
 
 ```text
 console.info("outer");
-// outer
 console.group();
 console.info("level 1");
-//   level 1
 console.groupEnd();
 console.info("outer");
-// outer
+/**
+ * outer
+ *   level 1
+ * outer
+ */
 ```
 
 
@@ -679,11 +685,13 @@ static trace(...arguments: Object[]): void
 
 ```text
 console.trace();
-// Trace:
-//     xxxxxxxxxx(当前堆栈信息)
 console.trace("Show the trace");
-// Trace: Show the trace
-//     xxxxxxxxxx(当前堆栈信息)
+/**
+ * Trace:
+ *     xxxxxxxxxx(当前堆栈信息)
+ * Trace: Show the trace
+ *     xxxxxxxxxx(当前堆栈信息)
+ */
 ```
 
 
@@ -704,6 +712,8 @@ static traceHybridStack(): void
 
 ```text
 console.traceHybridStack();
-// TraceHybridStack:
-//     xxxxxxxxxx(当前线程混合堆栈信息)
+/**
+ * TraceHybridStack:
+ *     xxxxxxxxxx(当前线程混合堆栈信息)
+ */
 ```

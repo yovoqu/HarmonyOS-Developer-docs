@@ -1,6 +1,6 @@
 # HarmonyOS 3.x/4.x已接入过华为推送，HarmonyOS Next/5.x及以上版本应用如何升级适配
 
-更新时间：2026-07-30 01:03:01
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-11
 
@@ -18,7 +18,7 @@ HarmonyOS Next/5.x接入[Push Kit](https://developer.huawei.com/consumer/cn/doc/
  
 - 客户端：1. [开通推送服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-config-setting)。
 
-2. [申请通知消息自分类权益](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-apply-right#申请通知消息自分类权益)。
+2. [申请通知消息自分类权益](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-apply-right#section16708911111611)。
 
 3. [Push Token获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-get-token)与[场景化消息推送](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-scenes)。
 - 服务端：1. [基于服务账号生成鉴权令牌](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-jwt-token)。
@@ -52,7 +52,7 @@ HarmonyOS Next/5.x应用升级适配Push Kit流程按客户端和服务端差异
 
 #### 总结
 
-HarmonyOS 3.x/4.x与HarmonyOS Next/5.x客户端和服务端Push Kit接入均存在差异，如果您的项目之前已经基于HarmonyOS 3.x/4.x的系统接入过Push Kit，仍然需要按照HarmonyOS Next/5.x[开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-gettingstart#开发流程)重新进行开发客户端和服务端。
+HarmonyOS 3.x/4.x与HarmonyOS Next/5.x客户端和服务端Push Kit接入均存在差异，如果您的项目之前已经基于HarmonyOS 3.x/4.x的系统接入过Push Kit，仍然需要按照HarmonyOS Next/5.x[开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-gettingstart#section65812095297)重新进行开发客户端和服务端。
  
  
 
@@ -65,3 +65,7 @@ A：HarmonyOS 3.x/4.x和HarmonyOS Next/5.x使用的AppGallery Connect账号可�
 Q：HarmonyOS 5基于服务账号生成鉴权令牌需要创建服务账号密钥，选择的项目中同时包含了HarmonyOS 3.x/4.x和HarmonyOS Next/5.x的应用是否会影响线上HarmonyOS 3.x/4.x应用正常推送？
  
 A：创建[服务账号密钥](https://developer.huawei.com/consumer/cn/doc/start/api-0000001062522591#section3554194116341)不影响项目中HarmonyOS 3.x/4.x应用线上推送。
+ 
+Q：在AppGallery Connect测试推送消息时提示Push Token不合法是什么原因？
+ 
+A：请检查是否选择了正确的推送通知页签。HarmonyOS Next/5.x应用需要选择“推送通知（V3 Beta）”页签，HarmonyOS 3.x/4.x应用需要选择“推送通知（V2）”页签。如果应用类型与页签不匹配，会导致Push Token不合法。

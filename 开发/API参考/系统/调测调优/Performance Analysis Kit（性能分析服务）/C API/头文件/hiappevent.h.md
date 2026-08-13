@@ -1,6 +1,6 @@
 # hiappevent.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiappevent-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -249,9 +249,9 @@ typedef void (*OH_HiAppEvent_OnTrigger)(int row, int size)
 
 **描述**
 
-事件观察者收到事件后，若事件观察者中未设置OH_HiAppEvent_OnReceive回调，将保存该事件。
+事件观察者收到事件后，若事件观察者中未设置[OH_HiAppEvent_OnReceive](#oh_hiappevent_onreceive)回调，将保存该事件。
 
-当保存的事件满足通过OH_HiAppEvent_SetTriggerCondition设定的条件后，将触发该回调。回调结束后，当新保存的事件消息再次满足设定的条件后，将再次进行回调。
+当保存的事件满足通过[OH_HiAppEvent_SetTriggerCondition](#oh_hiappevent_settriggercondition)设定的条件后，将触发该回调。回调结束后，当新保存的事件消息再次满足设定的条件后，将再次进行回调。
 
 **起始版本：** 12
 
@@ -275,7 +275,7 @@ typedef void (*OH_HiAppEvent_OnTake)(const char* const *events, uint32_t eventLe
 
 **描述**
 
-使用OH_HiAppEvent_TakeWatcherData获取事件观察者接收到的事件时，事件观察者接收到的事件将通过该回调函数传递给调用者。注意：回调中的指针所指对象的生命周期仅限于该回调函数内，请勿在该回调函数外直接使用该指针。若需缓存该信息，请对指针指向的内容进行深拷贝。
+使用[OH_HiAppEvent_TakeWatcherData](#oh_hiappevent_takewatcherdata)获取事件观察者接收到的事件时，事件观察者接收到的事件将通过该回调函数传递给调用者。注意：回调中的指针所指对象的生命周期仅限于该回调函数内，请勿在该回调函数外直接使用该指针。若需缓存该信息，请对指针指向的内容进行深拷贝。
 
 **起始版本：** 12
 
@@ -998,7 +998,7 @@ int OH_HiAppEvent_SetTriggerCondition(HiAppEvent_Watcher* watcher, int row, int 
 
 **描述**
 
-用于设置事件观察者OH_HiAppEvent_OnTrigger回调的触发条件。
+用于设置事件观察者[OH_HiAppEvent_OnTrigger](#oh_hiappevent_ontrigger)回调的触发条件。
 
 分别可以从事件观察者新接收事件数量、新接收事件大小、onTrigger触发超时时间，设置触发条件。调用方应至少保证从一个方面设置触发条件。
 
@@ -1166,7 +1166,7 @@ int OH_HiAppEvent_AddWatcher(HiAppEvent_Watcher* watcher)
 添加事件观察者的接口，事件观察者开始监听系统消息。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/AaJjMz8RR0-khOssgff6og/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071646Z&HW-CC-Expire=86400&HW-CC-Sign=EB130E535FD9D1174ACADDCE46C9A40CDF18E08489279FF488813D475D6F45EA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/2SCnq9PWRxCPUqNOQEhfmg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095516Z&HW-CC-Expire=86400&HW-CC-Sign=94FF8B8E586F2D31B012B00797184EA848FF8D1955923A65D96C13C898137E03)
 
 
 OH_HiAppEvent_AddWatcher接口涉及I/O操作。在对性能敏感的业务场景中，开发者应根据实际需要确定该接口是在主线程还是在子线程中调用。
@@ -1203,7 +1203,7 @@ int OH_HiAppEvent_RemoveWatcher(HiAppEvent_Watcher* watcher)
 
 **描述**
 
-移除事件观察者的接口，事件观察者停止监听系统消息。注意：该接口仅仅使事件观察者停止监听系统消息，并未销毁该事件观察者，该事件观察者依然常驻内存，直至调用OH_HiAppEvent_DestroyWatcher接口，内存才会释放。
+移除事件观察者的接口，事件观察者停止监听系统消息。注意：该接口仅仅使事件观察者停止监听系统消息，并未销毁该事件观察者，该事件观察者依然常驻内存，直至调用[OH_HiAppEvent_DestroyWatcher](#oh_hiappevent_destroywatcher)接口，内存才会释放。
 
 **起始版本：** 12
 
@@ -1252,7 +1252,7 @@ HiAppEvent_Processor* OH_HiAppEvent_CreateProcessor(const char* name)
 创建一个用于处理应用事件上报的处理者。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/7DABmdjlR8OCKUeCNvn3MQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071646Z&HW-CC-Expire=86400&HW-CC-Sign=52BDF671AECD306E2ADA7E19B729AF3C551655AB212617690CAF0759E5290D53)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/5Zi66umdQvmkhPOR6xXt-A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095516Z&HW-CC-Expire=86400&HW-CC-Sign=962A45933821900827431483FCEBF4E5EE95715A5018FF5C983FC1BAE1D6CA94)
 
 
 创建的处理者不再使用后，必须通过[OH_HiAppEvent_DestroyProcessor](#oh_hiappevent_destroyprocessor)接口进行销毁。
@@ -1597,7 +1597,7 @@ int OH_HiAppEvent_RemoveProcessor(int64_t processorId)
 
 **描述**
 
-移除数据处理者的接口，处理者停止上报事件。注意：该接口仅仅使处理者停止上报事件，并未销毁该处理者，该处理者依然常驻内存，直至调用OH_HiAppEvent_DestroyProcessor接口，内存才会释放。
+移除数据处理者的接口，处理者停止上报事件。注意：该接口仅仅使处理者停止上报事件，并未销毁该处理者，该处理者依然常驻内存，直至调用[OH_HiAppEvent_DestroyProcessor](#oh_hiappevent_destroyprocessor)接口，内存才会释放。
 
 **起始版本：** 18
 
@@ -1630,7 +1630,7 @@ HiAppEvent_Config* OH_HiAppEvent_CreateConfig(void)
 创建一个指向设置系统事件自定义规格的配置对象的指针。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/RotTGBkGQESfuk1u2D8kyA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071646Z&HW-CC-Expire=86400&HW-CC-Sign=51B4F4AAE6E4B914225C08AD479B4538D3E3EE6BFE10927B43148790CDE9F6AF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/6zfEeDRDRRy56p-UMw9pkg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095516Z&HW-CC-Expire=86400&HW-CC-Sign=117D4ABF5441EB6E09B811E075CAAF4BBF222A6196DAE4A5506DD9BCDA1887B7)
 
 
 创建的指向设置系统事件自定义规格的配置对象的指针不再使用后，必须通过[OH_HiAppEvent_DestroyConfig](#oh_hiappevent_destroyconfig)接口进行销毁。

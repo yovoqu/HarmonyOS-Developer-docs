@@ -1,6 +1,6 @@
 # 基于AVScreenCapture实现屏幕录制（C/C++）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avscreencapture-screen-recording-c
 
@@ -79,7 +79,7 @@
   与上述方案类似，通过时间戳和应用沙箱目录拼接生成文件路径，然后利用文件管理模块提供的openSync()接口获取文件信息。该文件的fd将传递到Native侧，用于配置录屏数据的最终存储位置。在以下示例中，可以看到通过调用Native方法startScreenCaptureToFile()，将文件fd和屏幕的宽度及高度三个参数传递到Native侧。
 
   
-```text
+```ArkTS
 async createVideoFd(): Promise<void> {
   this.tmpFileNameTwo = systemDateTime.getTime(true) + '.mp4';
   AppStorage.setOrCreate('tmpFileNameTwo', this.tmpFileNameTwo);
@@ -104,7 +104,7 @@ async createVideoFd(): Promise<void> {
   这里获取屏幕宽高的实现代码与上述内容一致，都是通过ArkTS接口获取的。开发者也可以选择在Native侧获取，参考：[oh_display_manager.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-display-manager-h)。
 
   
-```text
+```ArkTS
 let displayInfo = display.getDefaultDisplaySync();
 ```
 
@@ -115,7 +115,7 @@ let displayInfo = display.getDefaultDisplaySync();
   创建实例化对象。
 
   
-```text
+```cpp
 napi_value CAVScreenCaptureToFile::StartScreenCaptureToFile(napi_env env, napi_callback_info info) {
     size_t argc = 3;
     napi_value args[3] = {nullptr};
@@ -184,7 +184,7 @@ napi_value CAVScreenCaptureToFile::StartScreenCaptureToFile(napi_env env, napi_c
   上面获取的文件fd信息也是在此处配置的。直接将录屏保存到文件时，需要将dataType值设置为OH_CAPTURE_FILE。当数据格式为OH_CAPTURE_FILE时，必须配置录制文件参数（recorderInfo），其中包含文件保存的路径信息。在将录屏保存为文件时，默认录制内部音频，但也可以同时录制内外音频，且麦克风可以动态开启或关闭。可以使用OH_AVScreenCapture_SetMicrophoneEnabled()函数动态控制麦克风的开关。
 
   
-```text
+```cpp
 OH_AVScreenCaptureConfig config_;
 OH_RecorderInfo recorderInfo;
 
@@ -209,7 +209,7 @@ OH_AVScreenCapture_SetCanvasRotation(g_avCapture_, true);
   上面获取到的屏幕宽高数据是在这里配置的。请注意，内录参数为必填项。如果同时设置了内录和外录参数，内录和麦克风（即外录）的参数设置需要保持一致。
 
   
-```text
+```cpp
 void CAVScreenCaptureToFile::SetConfigAsFile(OH_AVScreenCaptureConfig &config, int32_t videoWidth,
                                              int32_t videoHeight) {
     OH_AudioCaptureInfo micCapInfo = {.audioSampleRate = 48000, .audioChannels = 2, .audioSource = OH_SOURCE_DEFAULT};
@@ -235,7 +235,7 @@ void CAVScreenCaptureToFile::SetConfigAsFile(OH_AVScreenCaptureConfig &config, i
   根据配置初始化AVScreenCapture实例对象。
 
   
-```text
+```cpp
 OH_AVSCREEN_CAPTURE_ErrCode result = OH_AVScreenCapture_Init(g_avCapture_, config_);
 ```
 
@@ -244,7 +244,7 @@ OH_AVSCREEN_CAPTURE_ErrCode result = OH_AVScreenCapture_Init(g_avCapture_, confi
   这里设置了 stateChange（状态切换事件回调）和 error（错误事件回调）。
 
   
-```text
+```cpp
 OH_AVScreenCapture_SetErrorCallback(g_avCapture_, OnErrorSaveFile, nullptr);
 OH_AVScreenCapture_SetStateCallback(g_avCapture_, OnStateChangeSaveFile, nullptr);
 ```
@@ -253,7 +253,7 @@ OH_AVScreenCapture_SetStateCallback(g_avCapture_, OnStateChangeSaveFile, nullptr
   状态变化回调。
 
   
-```text
+```cpp
 void CAVScreenCaptureToFile::OnStateChangeSaveFile(struct OH_AVScreenCapture *capture,
                                                    OH_AVScreenCaptureStateCode stateCode, void *userData) {
     (void)capture;
@@ -331,7 +331,7 @@ void CAVScreenCaptureToFile::OnStateChangeSaveFile(struct OH_AVScreenCapture *ca
   错误监听回调。
 
   
-```text
+```cpp
 void CAVScreenCaptureToFile::OnErrorSaveFile(OH_AVScreenCapture *capture, int32_t errorCode, void *userData) {
     (void)capture;
     OH_LOG_INFO(LOG_APP, "CAVScreenCaptureToFile ScreenCapture OnError errorCode is %{public}d", errorCode);
@@ -342,14 +342,14 @@ void CAVScreenCaptureToFile::OnErrorSaveFile(OH_AVScreenCapture *capture, int32_
 4. 通过OH_AVScreenCapture_StartScreenRecording()开启录制。
 
   
-```text
+```cpp
 result = OH_AVScreenCapture_StartScreenRecording(g_avCapture_);
 ```
 
 5. 通过调用OH_AVScreenCapture_StopScreenRecording()停止录制，然后释放ScreenCapture实例。
 
   
-```text
+```cpp
 napi_value CAVScreenCaptureToFile::StopScreenCaptureToFile(napi_env env, napi_callback_info info) {
     (void)info;
     OH_AVSCREEN_CAPTURE_ErrCode result = AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT;
@@ -383,7 +383,7 @@ napi_value CAVScreenCaptureToFile::StopScreenCaptureToFile(napi_env env, napi_ca
   然后在ArkTS侧关闭文件。
 
   
-```text
+```ArkTS
 async releaseFD() {
   if (this.fileFd != undefined && this.fileFd?.valueOf() > 0) {
     try {
@@ -416,7 +416,7 @@ async releaseFD() {
 **案例展示图：**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/jmI4dgSkSu-pCLEzIqvXhQ/zh-cn_image_0000002655847334.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072030Z&HW-CC-Expire=86400&HW-CC-Sign=9628C394FF842FA4DFAAF37995DECAAA6B68B7C643794C55EF576CEA5E6C20BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/DMpNZY_ORG6P_NL9_k2wwQ/zh-cn_image_0000002704393379.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095905Z&HW-CC-Expire=86400&HW-CC-Sign=AE6CD87DD62319447E71C7116FFAE35F02FA54C9BAC0DE67BC5A267899D06E53)
 
  
   
@@ -426,7 +426,7 @@ async releaseFD() {
 **调用流程图**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/0gqbLON1TwOHPTxRvUcpSQ/zh-cn_image_0000002686086763.png?HW-CC-KV=V1&HW-CC-Date=20260730T072030Z&HW-CC-Expire=86400&HW-CC-Sign=14AA18E0779318FB37CAC6FB087BA9F8633DFE0C1E5994BA0FBB653866901911)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/8A2er1MZTeOQh2b39tLDiA/zh-cn_image_0000002674633258.png?HW-CC-KV=V1&HW-CC-Date=20260813T095905Z&HW-CC-Expire=86400&HW-CC-Sign=2AD2B7DE30DED7664BEE08E745500DE7E36AA2D4D58734B3240025C1A4CF0AED)
 
  
 当点击录制按钮时，系统会调用异步方法来执行屏幕录制。关键过程如下：
@@ -446,7 +446,7 @@ async releaseFD() {
   这一步与C/C++侧录屏存文件的方法一致。通过时间戳和应用沙箱目录拼接出文件路径，然后获取文件信息。接着调用Native方法startScreenCaptureToStream()并传递参数。
 
   
-```text
+```ArkTS
 async createVideoFd(): Promise<void> {
   this.tmpFileNameThree = systemDateTime.getTime(true) + '.mp4';
   AppStorage.setOrCreate('tmpFileNameThree', this.tmpFileNameThree);
@@ -470,7 +470,7 @@ async createVideoFd(): Promise<void> {
   通过ArkTS侧接口获取屏幕宽高，Native侧获取方法参考：[oh_display_manager.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-display-manager-h)。
 
   
-```text
+```ArkTS
 let displayInfo = display.getDefaultDisplaySync();
 ```
 
@@ -481,7 +481,7 @@ let displayInfo = display.getDefaultDisplaySync();
   音视频编码器的相关配置中，sampleInfo用于存储参数配置信息，这些信息将在后续配置音频编码器、视频编码器及封装器配置项时使用。
 
   
-```text
+```cpp
 void CAVScreenCaptureToStream::InitMuxerAndEncoder(int32_t outputFd, int32_t videoWidth, int32_t videoHeight) {
     sampleInfo_.outputFd = outputFd;
 
@@ -521,7 +521,7 @@ void CAVScreenCaptureToStream::InitMuxerAndEncoder(int32_t outputFd, int32_t vid
   需要提供文件fd及封装器的输出格式，此处配置为MP4格式。
 
   
-```text
+```cpp
 int32_t Muxer::Create(int32_t fd) {
     muxer_ = OH_AVMuxer_Create(fd, AV_OUTPUT_FORMAT_MPEG_4);
     if (muxer_ == nullptr) {
@@ -537,7 +537,7 @@ int32_t Muxer::Create(int32_t fd) {
   配置完成后，即可调用OH_AVMuxer_Start()开始封装音视频数据。
 
   
-```text
+```cpp
 int32_t Muxer::Config(SampleInfo &sampleInfo) {
     OH_AVFormat *formatAudio = OH_AVFormat_CreateAudioFormat(sampleInfo.audioCodecMime.data(),
                                                              sampleInfo.audioSampleRate, sampleInfo.audioChannelCount);
@@ -569,7 +569,7 @@ int32_t Muxer::Config(SampleInfo &sampleInfo) {
   从mime类型创建音频编码器实例。
 
   
-```text
+```cpp
 int32_t AudioEncoder::Create(const std::string &codecMime) {
     encoder_ = OH_AudioCodec_CreateByMime(codecMime.c_str(), true);
     return 0;
@@ -580,7 +580,7 @@ int32_t AudioEncoder::Create(const std::string &codecMime) {
   首先，将配置信息写入format，然后通过OH_AudioCodec_Configure()接口配置编码器。接下来，使用OH_AudioCodec_RegisterCallback()方法注册回调函数。这些回调函数包括：监控编解码器操作错误、监控编解码器流变化、监控编解码器需要输入数据、监控编解码器已生成输出数据。请注意，音频编码器目前不支持监控编解码器流变化的回调。
 
   
-```text
+```cpp
 int32_t AudioEncoder::Config(SampleInfo &sampleInfo, CodecUserData *codecUserData) {
     OH_AVFormat *format = OH_AVFormat_Create();
     if (format == nullptr) {
@@ -622,7 +622,7 @@ int32_t AudioEncoder::Config(SampleInfo &sampleInfo, CodecUserData *codecUserDat
   同样从mime类型创建视频编码器实例。
 
   
-```text
+```cpp
 int32_t VideoEncoder::Create(const std::string &videoCodecMime) {
     encoder_ = OH_VideoEncoder_CreateByMime(videoCodecMime.c_str());
     if (encoder_ == nullptr) {
@@ -636,7 +636,7 @@ int32_t VideoEncoder::Create(const std::string &videoCodecMime) {
   与音频编码器配置方法相同，将配置信息写入format，然后通过OH_VideoEncoder_Configure()接口进行编码器配置。接下来，使用OH_VideoEncoder_RegisterCallback()方法注册回调函数。这些回调函数用于监控编解码器操作错误、编解码器流变化、编解码器需要输入数据以及编解码器已生成输出数据。
 
   
-```text
+```cpp
 int32_t VideoEncoder::Config(SampleInfo &sampleInfo, CodecUserData *codecUserData) {
     OH_AVFormat *format = OH_AVFormat_Create();
 
@@ -672,7 +672,7 @@ int32_t VideoEncoder::Config(SampleInfo &sampleInfo, CodecUserData *codecUserDat
   首先，创建一个音频流构造器，然后设置其相关属性值，并设置输入音频流的回调。OnReadData回调用于读取音频数据。接着，通过OH_AudioStreamBuilder_GenerateCapturer()方法，根据音频流构造器创建音频流实例。
 
   
-```text
+```cpp
 void AudioCapturer::AudioCapturerInit(SampleInfo &sampleInfo, CodecUserData *audioEncContext)
 {
     AudioCapturerRelease();
@@ -696,7 +696,7 @@ void AudioCapturer::AudioCapturerInit(SampleInfo &sampleInfo, CodecUserData *aud
   类似于上述C/C+文件存储方法，首先创建实例化对象，接着配置相关回调函数及参数。随后，调用OH_AVScreenCapture_Init()方法初始化视频采集器。
 
   
-```text
+```cpp
 void CAVScreenCaptureToStream::StartScreenCapture(int32_t outputFd, int32_t videoWidth, int32_t videoHeight) {
     InitMuxerAndEncoder(outputFd, videoWidth, videoHeight);
 
@@ -720,7 +720,7 @@ void CAVScreenCaptureToStream::StartScreenCapture(int32_t outputFd, int32_t vide
   这里使用Surface模式启动录屏。通过OH_AVScreenCapture_StartScreenCaptureWithSurface()方法指定Surface并启动录屏。同时启动封装器。
 
   
-```text
+```cpp
 int result = OH_AVScreenCapture_StartScreenCaptureWithSurface(g_avCapture, sampleInfo_.window);
 OH_LOG_INFO(LOG_APP, "OH_VideoEncoder_Start Started 2 %{public}d", result);
 if (result != AV_SCREEN_CAPTURE_ERR_OK) {
@@ -734,7 +734,7 @@ if (result != AV_SCREEN_CAPTURE_ERR_OK) {
   启动音视频编码器和封装器，并将音视频编码器及封装器的数据处理子线程分离以进行数据处理。详细处理逻辑请参见示例代码。
 
   
-```text
+```cpp
 void CAVScreenCaptureToStream::StartMuxerAndEncoder() {
     int32_t ret = muxer_->Start();
     ret = videoEncoder_->Start();
@@ -772,7 +772,7 @@ void CAVScreenCaptureToStream::StartMuxerAndEncoder() {
   首先，等待数据写入完成，然后启动子线程以释放音视频编码器及封装器的相关资源。在资源完全释放后，调用OH_AVScreenCapture_StopScreenRecording()方法停止屏幕录制，最后释放ScreenCapture实例。
 
   
-```text
+```cpp
 void CAVScreenCaptureToStream::StopScreenCapture() {
     int32_t ret = videoEncoder_->NotifyEndOfStream();
 
@@ -804,7 +804,7 @@ void CAVScreenCaptureToStream::StopScreenCapture() {
   音视频编码器及封装器资源释放。
 
   
-```text
+```cpp
 void CAVScreenCaptureToStream::Release() {
     std::lock_guard<std::mutex> lock(mutex_);
     isStarted_ = false;
@@ -863,7 +863,7 @@ void CAVScreenCaptureToStream::Release() {
   最后在ArkTS侧关闭文件。
 
   
-```text
+```ArkTS
 async releaseFD() {
   if (this.fileFd != undefined && this.fileFd?.valueOf() > 0) {
     try {
@@ -895,7 +895,7 @@ async releaseFD() {
  
 其中micCapInfo对应外录（麦克风）配置，innerCapInfo对应内录配置。
  
-```text
+```cpp
 void CAVScreenCaptureToFile::SetConfigAsFile(OH_AVScreenCaptureConfig &config, int32_t videoWidth,
                                              int32_t videoHeight) {
     OH_AudioCaptureInfo micCapInfo = {.audioSampleRate = 48000, .audioChannels = 2, .audioSource = OH_SOURCE_DEFAULT};

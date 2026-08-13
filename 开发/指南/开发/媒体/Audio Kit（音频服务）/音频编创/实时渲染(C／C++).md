@@ -1,6 +1,6 @@
 # 实时预览(C/C++)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-real-time-rendering
 
@@ -166,7 +166,7 @@ OH_AudioSuiteEngine_ConnectNodes(eqNode, outputNode);
 3. 创建[OH_AudioRendererStruct](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiorendererstruct)实例，并在其AudioRendererOnWriteData()回调函数中调用[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)管线的[OH_AudioSuiteEngine_RenderFrame()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_renderframe)接口来处理数据。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/Qxabf_zhRqS68ZSjmmoCJQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071938Z&HW-CC-Expire=86400&HW-CC-Sign=D45E54698A1BE383DFB18E44A3397034D5DDCD71E15E2F5AF7CA6FBFFE7A271A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/L8DYFul3RdyVnbhkbletng/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095820Z&HW-CC-Expire=86400&HW-CC-Sign=BE9A0212B120D465BA7A72A1837457C158778AC6E59CB30E7595332FD8503770)
  
 
   [OH_AudioSuiteEngine_RenderFrame()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_renderframe)接口的处理时长和管线中连接的效果节点数量有关，需要注意接口处理时长，以避免实时预览卡顿。

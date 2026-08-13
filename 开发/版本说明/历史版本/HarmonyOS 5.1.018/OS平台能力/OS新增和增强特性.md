@@ -1,6 +1,6 @@
 # OS新增和增强特性
 
-更新时间：2026-06-27 01:41:31
+更新时间：2026-08-04 06:19:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/os-new-feature-510
 
@@ -77,7 +77,7 @@ HarmonyOS 5.1.0 Release版本重点提供如下的开放能力。全量新增接
 - 富文本（RichEditor）组件支持设置最大行数。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#maxlength18)）
 - TextInput组件支持设置文本省略位置。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#ellipsismode18)）
 - TextInput/TextArea/Search/RichEditor组件支持将文本行间距平分至行的顶部与底部。（[API参考-TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#halfleading18)、[API参考-TextArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea#halfleading18)、[API参考-Search](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-search#halfleading18)、[API参考-RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#richeditortextstyleresult)）
-- TextInput/TextArea组件扩展自动填充类型，包含：车牌号、护照号等。（[API参考-ArkTS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#contenttype12枚举说明)、[API参考-C API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_textinputcontenttype)）
+- TextInput/TextArea组件扩展自动填充类型，包含：车牌号、护照号等。（[API参考-ArkTS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#contenttype12枚举说明)、[API参考-C API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-input-h#arkui_textinputcontenttype)）
 - 富文本（RichEditor）组件在长按预览菜单时支持振动效果。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#previewmenuoptions18)）
 
  - 新增适配圆形屏幕的能力。包括：
@@ -116,7 +116,7 @@ Swiper/Tabs组件增加页面选中元素改变时触发的回调，返回当前
 - List组件支持设置布局样式和滚动效果（NODE_LIST_SCROLL_TO_INDEX_IN_GROUP、 NODE_LIST_LANES、NODE_LIST_SCROLL_SNAP_ALIGN、NODE_LIST_MAINTAIN_VISIBLE_CONTENT_POSITION）（[API参考-C API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)）。
 
  - 新增C API，支持可配置用户自定义数据的手势中断事件回调函数。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativegestureapi-2)）
-- 支持设置组件的自定义焦点走焦逻辑。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-focus#nextfocus18)、[API参考-C API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_focusmove)）
+- 支持设置组件的自定义焦点走焦逻辑。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-focus#nextfocus18)、[API参考-C API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-common-attributes-h#arkui_focusmove)）
 - 支持动态获取手势配置参数，可返回连续点击次数阈值。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-common#taprecognizer18)）
 - 支持手势取消时，触发的onActionCancel回调中返回手势事件信息。（[API参考-LongPressGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-longpressgesture#事件)、[API参考-PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture#事件)、[API参考-PinchGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pinchgesture#事件)、[API参考-RotationGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-rotationgesture#事件)）
 - 无障碍支持自定义焦点顺序（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-accessibility#accessibilitynextfocusid18)）、支持控制组件的屏幕朗读方式（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-accessibility#accessibilityrole18)）、支持设置屏幕朗读滚动操作（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-accessibility#accessibilityscrolltriggerable18)）。
@@ -263,7 +263,7 @@ Swiper/Tabs组件增加页面选中元素改变时触发的回调，返回当前
 
 #### MDM Kit
 
-- 可禁用/启用的特性限制新增MTP（mtpClient/mtpServer）和恢复出厂设置（resetFactory）。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy)）
+- 可禁用/启用的特性限制新增MTP（mtpClient/mtpServer）和恢复出厂设置（resetFactory）。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicydeprecated)）
 - 新增支持按系统账户安装用户证书。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-securitymanager#securitymanagerinstallusercertificate18)）
 - 新增支持订阅账号的新增、删除、切换系统事件。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#managedevent)）
 
@@ -336,7 +336,7 @@ MultipartForm新增boundary分隔符字段，支持开发者在上传多表单�
 
 #### Scan Kit
 
-新增setAutoZoomEnabled接口，支持设置自动变焦。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-customscan-api#customscansetautozoomenabled)）
+新增setAutoZoomEnabled接口，支持设置自动变焦。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-customscan-api#setautozoomenabled)）
  
  
 

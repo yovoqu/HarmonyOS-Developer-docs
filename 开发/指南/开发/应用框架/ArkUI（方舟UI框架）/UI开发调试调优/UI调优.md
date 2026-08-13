@@ -1,6 +1,6 @@
 # UI调优
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-inspector-profiler
 
@@ -37,7 +37,7 @@
 
 下面的例子为嵌套两层子组件的典型示例，使用了装饰器[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)和 [@Link](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link)。开发者可组合使用上述命令，展示前端组件树、状态变量和其影响的组件等信息。
 
-```text
+```ArkTS
 @Entry
 @Component
 struct Page {
@@ -274,7 +274,7 @@ DevEco Studio的ArkUI Inspector可以显示当前页面自定义组件内的状�
 **图3** ArkUI Inspector显示状态变量相关信息
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/kh2HTRDkTcamAgJumEJC_g/zh-cn_image_0000002656006660.png?HW-CC-KV=V1&HW-CC-Date=20260730T071858Z&HW-CC-Expire=86400&HW-CC-Sign=8B3234393B4E3BAC2B85DCC10D8B775945DBF9F8FA9A46B2549F871AF211EC03)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/3_x4qTLhTPSZE2OT3GuJTA/zh-cn_image_0000002674632654.png?HW-CC-KV=V1&HW-CC-Date=20260813T095731Z&HW-CC-Expire=86400&HW-CC-Sign=78C312B063C1B5D566BDE2659772917C81C67D383028F7F9725DF76F24D1A392)
 
 
 > [!NOTE]

@@ -1,6 +1,6 @@
 # PersistentStorage：持久化存储UI状态
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-persiststorage
 
@@ -139,7 +139,7 @@ struct TestPageOne {
   **图1** PersistProp初始化流程
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/eZNeNVp7RVirJXcJMpVdGg/zh-cn_image_0000002655845970.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=69684C04B8281D5DF59465577F7C0196653FE7C0D00FD240E6D0BEE94C13ED97)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/oLMjtfZDRm-wYekepmP6jA/zh-cn_image_0000002674472036.png?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=59FE543DC0A82DFE97DD58DE3CBC6F34A6AB476C54E80A827E9AC9AA93705158)
 
  - 触发点击事件后：
 
@@ -249,7 +249,7 @@ struct TestCase6 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/Nvu_FTuhTKOYRiDY07Qk5A/zh-cn_image_0000002686085399.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=8533830458D5BFD9A5FCC438A86B78B9FC1000283C374D1D2C79A9CB85081DA3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/g33M5ATAQ-mOCIcRY03PHA/zh-cn_image_0000002704392005.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=4930E63BDAD8231DCECAF5B273425E80FC5B2AD06B51D16CB4588B8B8616897F)
 
 
 
@@ -320,7 +320,7 @@ struct PersistedDate {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/NphjqUjUTpa7Us4hsnqlQQ/zh-cn_image_0000002685925571.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=980FA528BC859033BE7886D03A580F90EE895AF118C08EBDC26384BD709FE6E1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/W5qXXPs6SW-ZJo5jMPcH1Q/zh-cn_image_0000002674631882.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=1F67E67290877CCA770E26404A3A82C28ECB435C842B75CFA80E9EA07B7EB21F)
 
 
 
@@ -380,7 +380,7 @@ struct PersistedMap {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/pOzUqKSTR-GgrvFObNCdXg/zh-cn_image_0000002656005892.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=3BA13E9E1E881BF8D5E1553E7C45D31D36F8FAA2942DD0F8C7CE2A703A105F8F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/36LKpdESSpeB1QSJ7kY8BA/zh-cn_image_0000002704271837.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=C9A60AD6E5F94455D50C6632669A95883C87AC97925161351D77D53CB15A2355)
 
 
 
@@ -461,4 +461,4 @@ struct PersistedSet {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/ZtzI-w4OSzeZaIfj74YA-A/zh-cn_image_0000002655845972.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=3D0BA8BA2023A20C2A2E24EE0EF0F8BEFB7671F5BFCC85EADA4DA0D7BB79245C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/eMTEerpGS2SDoXduGMN-aQ/zh-cn_image_0000002674472038.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=CF827CE85AF064D192E715E3BDBDAA20F69BFA244DC89CD1641527E23FAA0E2A)

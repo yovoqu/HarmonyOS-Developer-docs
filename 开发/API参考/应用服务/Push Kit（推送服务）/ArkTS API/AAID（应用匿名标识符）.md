@@ -1,6 +1,6 @@
 # AAID（应用匿名标识符）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-aaid-api
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -58,6 +58,8 @@ getAAID(callback: AsyncCallback&lt;string&gt;): void
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Push.PushService
+ 
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
  
 **起始版本：** 4.0.0(10)
  
@@ -165,6 +167,8 @@ getAAID(): Promise&lt;string&gt;
  
 **系统能力：** SystemCapability.Push.PushService
  
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
+ 
 **起始版本：** 4.0.0(10)
  
 **返回值：**
@@ -263,6 +267,8 @@ deleteAAID(callback: AsyncCallback&lt;void&gt;): void
  
 **系统能力：** SystemCapability.Push.PushService
  
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
+ 
 **起始版本：** 4.0.0(10)
  
 **参数：**
@@ -332,6 +338,8 @@ deleteAAID(): Promise&lt;void&gt;
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Push.PushService
+ 
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
  
 **起始版本：** 4.0.0(10)
  

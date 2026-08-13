@@ -1,6 +1,6 @@
 # 使用DevEco Testing进行稳定性测试
 
-更新时间：2026-06-23 06:26:30
+更新时间：2026-08-10 06:55:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-deveco-testing
 
@@ -69,7 +69,7 @@
 检测不通过或检测异常的规则项，点击查看详情即可查看异常问题详情，包含检测项概览、测试截图、问题列表。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/QfTXM5NkQGWe4fXP5n19rA/zh-cn_image_0000002475048409.png?HW-CC-KV=V1&HW-CC-Date=20260624T020959Z&HW-CC-Expire=86400&HW-CC-Sign=36264697874F2789679C5D20E0D48B73B54A89A47304F187CD8096A9E0BC749F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/S8fBk-QcRwiGIa0KJY5ncA/zh-cn_image_0000002475048409.png?HW-CC-KV=V1&HW-CC-Date=20260813T095916Z&HW-CC-Expire=86400&HW-CC-Sign=26EFB704DD1BEBCCC2CE1D36D6C4BFE54A289AE776830D87786911C9E3A5E39E)
 点击查看按钮，支持查看测试过程中的日志，用户可结合问题描述及日志详情进一步分析。
  
 > [!NOTE]

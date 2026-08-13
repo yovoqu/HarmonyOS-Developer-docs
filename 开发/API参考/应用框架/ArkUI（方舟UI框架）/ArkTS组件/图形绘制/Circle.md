@@ -1,6 +1,6 @@
 # Circle
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-circle
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -104,7 +104,7 @@ Circle(value?: CircleOptions)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-stroke(value: ResourceColor | ColorMetrics): CircleAttribute
+stroke(value: ResourceColor | ColorMetrics)
  
 设置边框颜色，支持使用[ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12)描述颜色，可进行HDR提亮。支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性。不设置时，默认边框颜色为[Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#color).Transparent，即没有边框。异常值undefined和null按照默认值处理，NaN和Infinity按照[Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#color).Black处理。
  
@@ -129,7 +129,7 @@ stroke(value: ResourceColor | ColorMetrics): CircleAttribute
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-fill(value: ResourceColor | ColorMetrics): CircleAttribute
+fill(value: ResourceColor | ColorMetrics)
  
 设置填充区域的颜色，支持使用[ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12)描述颜色，可进行HDR提亮。支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性。不设置时，默认填充颜色为[Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#color).Black。异常值undefined、null、NaN和Infinity按照默认值处理。与通用属性foregroundColor同时设置时，后设置的属性生效。
  

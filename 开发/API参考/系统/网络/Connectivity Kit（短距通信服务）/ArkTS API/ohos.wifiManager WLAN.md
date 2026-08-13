@@ -1,6 +1,6 @@
 # @ohos.wifiManager (WLAN)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1805,7 +1805,7 @@ import { wifiManager } from '@kit.ConnectivityKit';
 | ipAddress | number | 否 | 否 | WLAN连接的IP地址。 1. IP地址在WiFi连接信息和"设置 > 关于本机 > 状态信息"中可以查看。 2. ipAddress值为number类型，需要转换为IP常用格式，具体请参考IP格式转换。 |
 | connState | ConnState | 否 | 否 | WLAN连接状态。 |
 | channelWidth10+ | WifiChannelWidth | 否 | 否 | 当前连接热点的信道带宽。 |
-| wifiStandard10+ | WifiStandard | 否 | 否 | 当前路由器所支持的最高协议版本。 |
+| wifiStandard10+ | WifiStandard | 否 | 否 | 当前路由器支持的最高Wi-Fi标准。 |
 | supportedWifiCategory12+ | WifiCategory | 否 | 否 | 当前手机连接Wi-Fi后支持的最高协议版本。 |
 | isHiLinkNetwork12+ | boolean | 否 | 否 | 热点是否支持hilink，true表示支持， false表示不支持。 |
 | wifiLinkType18+ | WifiLinkType | 否 | 是 | Wi-Fi7连接类型。 |

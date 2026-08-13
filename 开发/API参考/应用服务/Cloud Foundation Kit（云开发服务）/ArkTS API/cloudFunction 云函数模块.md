@@ -1,6 +1,6 @@
 # cloudFunction (云函数模块)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cloudfoundation-cloudfunction
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -80,7 +80,7 @@ cloudFunction.call({
     return;
   }
   hilog.info(0x0000, 'testTag', `Succeeded in calling the function, result: ${JSON.stringify(value.result)}`);
-})
+});
 ```
  
   
@@ -149,7 +149,7 @@ cloudFunction.call({
   hilog.info(0x0000, 'testTag', `Succeeded in calling the function, result: ${JSON.stringify(value.result)}`);
 }).catch((err: BusinessError) => {
   hilog.error(0x0000, 'testTag', `Failed to call the function, code: ${err.code}, message: ${err.message}`);
-})
+});
 ```
  
   

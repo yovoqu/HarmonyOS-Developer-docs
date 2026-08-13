@@ -1,6 +1,6 @@
 # 容器断点 (ContainerReader)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-container-reader
 
@@ -71,7 +71,7 @@ struct Example {
 ```
 
 
-![](assets/容器断点%20(ContainerReader)/file-2026070810364513909c6d.png)
+![](assets/容器断点%20(ContainerReader)/file-20260708103645f309343c.png)
 
 
 [ContainerReader](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-containerreader)作为Flex、Row或Column的子组件使用时，会优先为非ContainerReader类型的子组件测算尺寸，再结合父容器剩余空间与开发者设置为ContainerReader组件分配空间。这在固定内容与自适应内容并存的场景中较为适用。
@@ -119,7 +119,7 @@ struct Example {
 ```
 
 
-![](assets/容器断点%20(ContainerReader)/file-20260708103645db2421b6.png)
+![](assets/容器断点%20(ContainerReader)/file-20260708103646057288bb.png)
 
 
 当Flex、Row或Column容器中有多个[ContainerReader](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-containerreader)子组件时，按开发者书写顺序第一个ContainerReader会占满剩余空间，此时其余ContainerReader组件的主轴大小为0。但开发者可以通过layoutWeight属性使多个ContainerReader平分剩余空间。
@@ -189,7 +189,7 @@ struct Example {
 ```
 
 
-![](assets/容器断点%20(ContainerReader)/file-20260708103645f309343c.png)
+![](assets/容器断点%20(ContainerReader)/file-2026070810364627dd8b5b.png)
 
 
 
@@ -381,7 +381,7 @@ struct MultiContainerExample {
 ```
 
 
-![](assets/容器断点%20(ContainerReader)/file-2026070810364642d5d065.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/pgC5Ltx0QS2D7LVRNqhiOQ/zh-cn_image_0000002674632104.png?HW-CC-KV=V1&HW-CC-Date=20260813T095859Z&HW-CC-Expire=86400&HW-CC-Sign=D279C2DC816F1A43F8E0DBE66C3354C886E7D26B885AEE3FFE572870AD965E34)
 
 
 
@@ -466,7 +466,7 @@ struct GridBreakpointExample {
 ```
 
 
-![](assets/容器断点%20(ContainerReader)/file-20260708103646057288bb.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/gSJqvjSyTe2NXPwmhce9SA/zh-cn_image_0000002704272057.png?HW-CC-KV=V1&HW-CC-Date=20260813T095859Z&HW-CC-Expire=86400&HW-CC-Sign=75F14034CBC5F8461DEBBAEC14AC7834F8009E76F9A06233B1E2923AE1D1D3FD)
 
 
 
@@ -545,7 +545,7 @@ struct AdaptiveCardExample {
 ```
 
 
-![](assets/容器断点%20(ContainerReader)/file-202607081036460021ff06.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/R8WqwmIgScuHo6KM-13wLQ/zh-cn_image_0000002674472260.png?HW-CC-KV=V1&HW-CC-Date=20260813T095859Z&HW-CC-Expire=86400&HW-CC-Sign=C564400F04D361724001C3BA5561C9A4483D642BF81456DB889F96CE8100E533)
 
 
 
@@ -670,10 +670,10 @@ struct SplitLayoutExample {
 窄屏时上下排列。
 
 
-![](assets/容器断点%20(ContainerReader)/file-2026070810364624e852ea.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/ZucPidGdTci8z-qW4uXtiw/zh-cn_image_0000002704392227.png?HW-CC-KV=V1&HW-CC-Date=20260813T095859Z&HW-CC-Expire=86400&HW-CC-Sign=1B245DE5C0342FC9AAED498F7B7C9215E22CE1659D86D1992BFD75FB45CCCC2A)
 
 
 宽屏时左右排列。
 
 
-![](assets/容器断点%20(ContainerReader)/file-2026070810364627dd8b5b.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/kYzN_gX-Sie_8vUSctw1cw/zh-cn_image_0000002674632106.png?HW-CC-KV=V1&HW-CC-Date=20260813T095859Z&HW-CC-Expire=86400&HW-CC-Sign=8FECCCF61075DBE1C2D30476860AA93DEC63E80627F2C0C4AF88DAB8434158A3)

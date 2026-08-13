@@ -1,6 +1,6 @@
 # Popup控制
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -994,7 +994,7 @@ struct PopupExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/ooJHuhieQDySGau0yGmjgQ/zh-cn_image_0000002685928013.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071456Z&HW-CC-Expire=86400&HW-CC-Sign=FE8160ED1E585C223C593187EEB533D0656CBBC8E1D46E1928852697DD34631C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/n0y1-1jyRxe6XsYqYipnfQ/zh-cn_image_0000002704394467.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095447Z&HW-CC-Expire=86400&HW-CC-Sign=EE51298E80FC5650742792128FE300973DB0F7C13A22DF250070725E91E40479)
 
 
 
@@ -1060,4 +1060,4 @@ struct PageTwo {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/e6lRlgrrQzC5mNoW4Xzvqw/zh-cn_image_0000002656008334.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071456Z&HW-CC-Expire=86400&HW-CC-Sign=5C486448CF080C3E0768E62B7F91606514351AB0016B397D81F0915511177EBB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/td8MOn2KSbSHQJ58xby_Wg/zh-cn_image_0000002674634346.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095447Z&HW-CC-Expire=86400&HW-CC-Sign=8FCDCCE7C4186C4F17710160001E8A25F65F371D15FB182AE09F414C8DBF4931)

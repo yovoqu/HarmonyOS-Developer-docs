@@ -1,6 +1,6 @@
 # 废弃的Interface (AudioPlayer, deprecated)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-audioplayer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -30,7 +30,7 @@ import { media } from '@kit.MediaKit';
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| src | string | 否 | 否 | 音频媒体URI，支持当前主流的音频格式(m4a、aac、mp3、ogg、wav、amr)。 支持路径示例： 1. fd类型播放：fd://xx 2. http网络播放: http://xx 3. https网络播放: https://xx 4. hls网络播放路径：http://xx或者https://xx 需要权限： ohos.permission.READ_MEDIA 或 ohos.permission.INTERNET。 |
+| src | string | 否 | 否 | 音频媒体URI，支持当前主流的音频格式(m4a、aac、mp3、ogg、wav、amr)。 支持路径示例： 1. fd类型播放：fd://xx 2. http网络播放：http://xx 3. https网络播放：https://xx 4. hls网络播放路径：http://xx或者https://xx 需要权限： ohos.permission.READ_MEDIA 或 ohos.permission.INTERNET。 |
 | fdSrc9+ | AVFileDescriptor | 否 | 否 | 音频媒体文件描述，使用场景：应用中的音频资源被连续存储在同一个文件中。 使用示例： 假设一个连续存储的音乐文件: 音乐1(地址偏移:0，字节长度:100) 音乐2(地址偏移:101，字节长度:50) 音乐3(地址偏移:151，字节长度:150) 1. 播放音乐1：AVFileDescriptor { fd = 资源句柄; offset = 0; length = 100; } 2. 播放音乐2：AVFileDescriptor { fd = 资源句柄; offset = 101; length = 50; } 3. 播放音乐3：AVFileDescriptor { fd = 资源句柄; offset = 151; length = 150; } 假设是一个独立的音乐文件: 请使用src=fd://xx |
 | loop | boolean | 否 | 否 | 音频循环播放属性，设置为'true'表示循环播放。 |
 | audioInterruptMode9+ | audio.InterruptMode | 否 | 是 | 音频焦点模型。 |

@@ -1,6 +1,6 @@
 # 拦截Web组件发起的网络请求
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-scheme-handler
 
@@ -236,7 +236,7 @@ NDK：[arkweb_net_error_list.h](https://developer.huawei.com/consumer/cn/doc/har
 ArkTS：[@ohos.web.netErrorList (ArkWeb网络协议栈错误列表)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-neterrorlist)。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/_bkHyjwjQyOPv7755Ec_ZQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012140Z&HW-CC-Expire=86400&HW-CC-Sign=91750B94C341107102F941E9BA0B4881B2CFFD4411D92E8E548B8473C8C64782)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/rROUPfzSTTqnTvdg24Nhng/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095736Z&HW-CC-Expire=86400&HW-CC-Sign=464EA8982B0F5A48FDFEC01FFC703257372F85B742174682FD359B4C8D7D4960)
 
 
  - ArkWeb不支持自定义错误码，请使用ArkWeb提供的错误码来结束请求。

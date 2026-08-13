@@ -1,6 +1,6 @@
 # native_interface_bundle.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-bundle-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -154,7 +154,7 @@ OH_NativeBundle_ElementName OH_NativeBundle_GetMainElementName()
 
 | 类型 | 说明 |
 | --- | --- |
-| OH_NativeBundle_ElementName | 返回新创建的OH_NativeBundle_ElementName对象。如果返回的对象为NULL，则表示创建失败。 失败的可能原因是应用程序地址空间已满，导致空间分配失败。 |
+| OH_NativeBundle_ElementName | 返回新创建的OH_NativeBundle_ElementName对象。如果返回的对象中存在为NULL的字段，则表示创建失败。 失败的可能原因是应用程序地址空间已满，导致空间分配失败。 |
 
 
 

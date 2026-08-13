@@ -1,6 +1,6 @@
 # ArkTS API错误码
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -473,7 +473,7 @@ App is not available or not registered.
 
 **处理步骤**
 1. 检查应用或元服务是否在AGC上完成注册，详情请参见[应用开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-overview)。
-2. 检查订阅类型[type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-servicenotification#servicenotificationrequestsubscribenotification)与应用类型是否匹配，仅元服务支持通过华为账号订阅。
+2. 检查订阅类型[type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-servicenotification#servicenotificationrequestsubscribenotification-1)与应用类型是否匹配，其中元服务支持通过华为账号订阅，应用支持Push Token订阅。
 
 
 

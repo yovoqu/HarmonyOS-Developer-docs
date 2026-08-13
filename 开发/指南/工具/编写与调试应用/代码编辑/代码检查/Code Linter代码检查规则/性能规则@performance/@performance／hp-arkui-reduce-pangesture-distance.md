@@ -1,12 +1,12 @@
 # @performance/hp-arkui-reduce-pangesture-distance
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-08-05 02:47:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hp-arkui-reduce-ges-distance
 
 建议设置合理的拖动距离。
  
-应用内点击响应时延场景下，建议优先修改。
+应用内点击响应时延场景，建议优先修改。
  
 
 #### 规则配置

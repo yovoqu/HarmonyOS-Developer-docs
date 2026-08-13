@@ -1,6 +1,6 @@
 # @ReusableV2装饰器：V2组件复用
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-reusablev2
 
@@ -1135,4 +1135,4 @@ struct ChildComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/_FgchxNgTJOUPBkIoWp4Cw/zh-cn_image_0000002685925463.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071834Z&HW-CC-Expire=86400&HW-CC-Sign=63B7DB21D87324ECA335C93BA156E6294B8213ABA2789A6AF46BA8A7BFB89370)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/EPyZQaaVTxyfQ4H0QVHknw/zh-cn_image_0000002704271727.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095659Z&HW-CC-Expire=86400&HW-CC-Sign=EEC2148C2DA6CCFBD21BC06DAB8B06376A87602CF046B8F2E2FBF495AF325DEC)

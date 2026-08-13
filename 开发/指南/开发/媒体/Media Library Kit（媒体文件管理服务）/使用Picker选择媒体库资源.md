@@ -1,6 +1,6 @@
 # 使用Picker选择媒体库资源
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-photoviewpicker
 
@@ -21,7 +21,7 @@ import { fileIo } from '@kit.CoreFileKit';
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 ```
 
-2. 创建图片-音频类型文件选择选项实例。
+2. 创建图片-视频类型文件选择选项实例。
 
   
 ```ArkTS
@@ -132,7 +132,7 @@ export class MediaAssetDataHandler implements photoAccessHelper.MediaAssetDataHa
 2. 使用[getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets-1)接口获取要访问的资产，并通过[requestImageData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaassetmanager#requestimagedata11)获取对应资源。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/ab2XwXu0TwW8bqvsKA1oEw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071945Z&HW-CC-Expire=86400&HW-CC-Sign=BE3D027AB59ADA879CEC5FBC6509711F7380A42A1EC30B86F4A10ECF2848FE0C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/F01vbUlTRQuym7RC1tV8Jw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095832Z&HW-CC-Expire=86400&HW-CC-Sign=AC0C26ADFBF73679D8B3922F1C50F65C7D79E23110C7BE759B0303D1956EB713)
  
 
   出于对用户隐私安全的保护，对媒体资源EXIF中的地理位置和拍摄参数信息做了去隐私化处理。如果需要获取被去隐私化的EXIF信息，需要[申请相册管理模块权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-preparation#申请相册管理模块功能相关权限)'ohos.permission.MEDIA_LOCATION'。

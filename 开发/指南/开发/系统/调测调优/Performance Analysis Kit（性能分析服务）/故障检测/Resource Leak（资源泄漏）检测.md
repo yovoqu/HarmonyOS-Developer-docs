@@ -1,18 +1,18 @@
 # Resource Leak（资源泄漏）检测
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-leak-guidelines
 
 #### 简介
 
-资源泄漏是指句柄、线程或内存等资源，在应用运行过程中没有被正确释放，导致资源被长期占用且无法被其他应用使用，如果某一类资源耗尽，系统可能出现卡死或重启等异常情况。为了应对资源泄漏问题，系统会提供资源泄漏检测、判决、维测日志抓取、日志上报的能力，为开发者提供详细的维测日志以辅助故障定位。本文将主要介绍[资源泄漏检测能力](#实现原理)以及[资源泄漏日志的规格](#日志获取)。
+资源泄漏是指句柄、线程或内存等资源，在应用运行过程中没有被正确释放，导致资源被长期占用且无法被其他应用使用，如果某一类资源耗尽，系统可能出现卡死或重启等异常情况。为了应对资源泄漏问题，系统会提供资源泄漏检测、判决、维测日志抓取、日志上报的能力，为开发者提供详细的维测日志以辅助故障定位。本文将主要介绍[资源泄漏检测的实现原理](#实现原理)以及[资源泄漏日志的规格](#日志获取)。
  
   
 
 #### 基本概念
 
-资源泄漏主要分为三类：内存泄漏、句柄泄漏和线程泄漏。对于每种泄漏，系统会通过周期采样的方式对进程的资源使用情况进行检测，如果资源使用超过阈值，会抓取对应维测并上报泄漏事件。通过Hiappevent资源泄漏事件进行订阅，订阅方法详见[资源泄漏事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-resourceleak-events)。
+资源泄漏主要分为三类：内存泄漏、句柄泄漏和线程泄漏。对于每种泄漏，系统会通过周期采样的方式对进程的资源使用情况进行检测，如果资源使用超过阈值，会抓取对应维测日志并上报泄漏事件。通过Hiappevent资源泄漏事件进行订阅，订阅方法详见[资源泄漏事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-resourceleak-events)。
  
   
 
@@ -30,7 +30,7 @@
  
  
 > [!NOTE]
-> 表格中所述阈值/基线均为系统默认，如果生态在开发过程中需要自行设定基线，可以使用 hidebug.setAppResourceLimit接口 进行设置，该接口建议在开发阶段调用，不要在正式发布阶段使用。 虚拟机内存使用率计算公式 = heapUsed / totalHeap。 heapUsed：当前虚拟机使用的堆大小，单位：KB。可通过 hidebug.getAppVMMemoryInfo() 接口获取。 totalHeap：当前虚拟机的堆总大小，单位：KB。可通过 hidebug.getAppVMMemoryInfo() 接口获取。 当应用上报JS_ERROR/CPP_CRASH故障，Error message包含“OutOfMemory”时，可参考 内存泄漏分析方法 辅助定位。 管控是指当系统判定应用发生泄漏后，主动终止泄漏应用的行为。 在资源泄漏资料中， DMA内存 （ION）、dmaheap、dmabuf 可理解为同一种内存类型，不作强区分。
+> 表格中所述阈值/基线均为系统默认，如果生态在开发过程中需要自行设定基线，可以使用 hidebug.setAppResourceLimit接口 进行设置，该接口建议在开发阶段调用，不要在正式发布阶段使用。 虚拟机内存使用率计算公式 = heapUsed / totalHeap。 heapUsed：当前虚拟机使用的堆大小，单位：KB。可通过 hidebug.getAppVMMemoryInfo() 接口获取。 totalHeap：当前虚拟机的堆总大小，单位：KB。可通过 hidebug.getAppVMMemoryInfo() 接口获取。 当应用上报JS_ERROR/CPP_CRASH故障，Error message包含“OutOfMemory”时，可参考 内存泄漏分析方法 辅助定位。 管控是指当系统判定应用发生泄漏后，主动终止泄漏应用的行为。 在资源泄漏资料中，DMA（ION）、dmaheap、dmabuf 可理解为同一种内存类型，不作强区分。
 
  
 资源泄漏内核管控方式如下：
@@ -38,7 +38,7 @@
 从HarmonyOS 6.1.0开始，应用资源申请过快或前台泄漏导致整机资源不足，比如单应用快速申请（RSS、DMA（ION）、GPU内存）超过阈值，导致整机出现低内存，系统会对应用进行管控，同步提供部分基础的RESOURCE_OVERLIMIT维测信息。
  
 > [!NOTE]
-> 当前支持内核管控的资源类型有：DMA（ION）、GPU、RSS、ASHMEM、THREAD。 内核管控不区分前后台，可能会出现问题应用的前台闪退问题
+> 当前支持内核管控的资源类型有：DMA（ION）、GPU、RSS、ASHMEM、THREAD。 内核管控不区分前后台，可能会出现问题应用的前台闪退问题。
 
  
   
@@ -75,7 +75,7 @@
 ![](assets/Resource%20Leak（资源泄漏）检测/file-20260514131359245-2.png)
  
 
-1. native内存泄漏的调用栈（memleak-native-[process_name]-[pid]-[timestamp].txt）无法直接在DevEco Studio打开，需要修改后缀名为.nas，然后使用DevEco Studio-Profiler-打开并分析，详情见[内存分析及优化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-allocations-memory)。
+1. native内存泄漏的调用栈（memleak-native-[process_name]-[pid]-[timestamp].txt）无法直接在DevEco Studio打开，需要修改后缀名为.nas，然后使用DevEco Studio-Profiler-打开并分析，详情见[内存分析介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-allocations-memory)。
 
 2. js泄漏的维测日志 memleak-js-[process_name]-[pid]-[tid]-[timestamp].rawheap 为二进制内存快照文件，需要通过[translator工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/rawheap-translator)转换为.heapsnapshot文件，通过DevEco Studio或浏览器打开展示，详情见[Snapshot离线导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-snapshot-basic-operations#section6760173514388)。
 - 方式二：通过DevEco Studio主动采集日志。
@@ -706,7 +706,7 @@ bins:           size ind    allocated      nmalloc (#/sec)      ndalloc (#/sec) 
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/eb67X_ZrTMmmPG5nPVWEsw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071929Z&HW-CC-Expire=86400&HW-CC-Sign=D883C229B5630B38F29342D0A35EA05887DD32093323E4B5B8B2A71F1AAC064C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/BL23KYpbRFSvkTRpkKgtLQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095815Z&HW-CC-Expire=86400&HW-CC-Sign=78237972F526691FCA602A11D447E5360EF651BC55E91A5B900458E0B6648483)
  
 
   系统自动抓的调用栈（memleak-native-[process_name]-[pid]-[timestamp].txt）**无法直接在DevEco Studio打开，需要修改后缀名为.nas**。
@@ -715,7 +715,7 @@ bins:           size ind    allocated      nmalloc (#/sec)      ndalloc (#/sec) 
   点击Call Trees可以查看抓取进程的调用栈，筛选“Created & Existing”，根据没有释放的内存占比排序，展开可查看详细进程调用信息，优先排查内存占用较高的堆栈。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/c4vwk3ZoRp6N4BYYnJnhrA/zh-cn_image_0000002656007094.png?HW-CC-KV=V1&HW-CC-Date=20260730T071929Z&HW-CC-Expire=86400&HW-CC-Sign=ED2DA54F0B8ECF6BAA168781C0E3BC4BF3FD301550EC56E14CF5ED3168F43C74)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/n6X5MIhmRdW9snWxqrUfUQ/zh-cn_image_0000002704273049.png?HW-CC-KV=V1&HW-CC-Date=20260813T095815Z&HW-CC-Expire=86400&HW-CC-Sign=EAED01DB6C00DCFACE373D018F28F3060664A913725317DD119DE3BE9FDA9272)
 
 
   
@@ -727,7 +727,7 @@ bins:           size ind    allocated      nmalloc (#/sec)      ndalloc (#/sec) 
   同样选择“Created & Existing”，表示在hook抓取内存申请未释放的。长度越长代表在剩余内存中占用越多，优先排查。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/n1A6s0ilToS9UZSB8a4sVQ/zh-cn_image_0000002655847174.png?HW-CC-KV=V1&HW-CC-Date=20260730T071929Z&HW-CC-Expire=86400&HW-CC-Sign=068D440BAC23F39172804B86595826910821C03BBA41A066A49A62066EAA9D1C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/1ZimOwB6TCuVtPVrKZZ6PQ/zh-cn_image_0000002674473252.png?HW-CC-KV=V1&HW-CC-Date=20260813T095815Z&HW-CC-Expire=86400&HW-CC-Sign=1D5B61E4DAA6BC1486A871DF5D09ADF4DFD3B1714040B64358A7A6AC9A0E04FD)
 
 
  
@@ -788,7 +788,7 @@ Size        Rss         Pss        Clean       Dirty         Clean       Dirty  
 327168      171464      146921      25416       0           146048      0           0           0           17                      [anon:native_heap:jemalloc]
 24600       3924        3586        348         0           3576        0           0           0           18                      [anon:native_heap:jemalloc meta]
 ```
-  如果存在内存调用栈，可以根据NMD维测找到占用最高的内存区间，并结合抓取的调用栈维测聚类到具体代码段或者so作为怀疑点，具体分析方法可参考[Native泄漏分析方法](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-leak-way#section1658571616574)。
+  如果存在内存调用栈，可以根据NMD维测找到占用最高的内存区间，并结合抓取的调用栈维测聚类到具体代码段或者so作为怀疑点，具体分析方法可参考[运维态高效处理Native泄漏](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-native-leak-in-operation)。
 
 4. ASHMEM内存：参考[ASHMEM聚类规则](#ashmemdmagpugpu_rs聚类规则)。
 
@@ -802,7 +802,7 @@ LOGGER_MEMCHECK_SMAPS_INFO
 Size        Rss         Pss        Clean       Dirty         Clean       Dirty       Swap        SwapPss     Counts                 Name
 38760       528         524         4           0           524         0           0           0           56                      [anon]
 ```
-  如果存在内存调用栈，可通过分析调用栈中占比较高的聚类到具体代码段或者so作为怀疑点，具体分析方法可参考[Native泄漏分析方法](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-leak-way#section1658571616574)。
+  如果存在内存调用栈，可通过分析调用栈中占比较高的聚类到具体代码段或者so作为怀疑点，具体分析方法可参考[运维态高效处理Native泄漏](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-native-leak-in-operation)。
 
   
 
@@ -1099,7 +1099,7 @@ C: host default memory (Total memory: 1789351)
 2. 聚类到GPU内存类型后，筛选出其中占用最大的内存段并进行聚类。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/e6eljCdGRX-6sUuSpynzVw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071929Z&HW-CC-Expire=86400&HW-CC-Sign=D208F96AF849E27E99B3C74719425B1F1957CDD5FC9AEEC0D8EC7939D6BE41C5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/StKnERZ2TyCAVVB1yjwXeQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095815Z&HW-CC-Expire=86400&HW-CC-Sign=C45DC0B43C4056FCB464FE8045B6EB6CB35D480784E53A1BDF862C936E050EB3)
  
  
 不同的芯片平台中，GPU表现形式会存在差异：

@@ -1,6 +1,6 @@
 # InstantShapeGenerator（一笔成形功能）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-instantsshapegenerator
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -288,7 +288,7 @@ aboutToDisappear(){
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-onShapeRecognized(callback: Callback&lt;ShapeInfo&gt;): [InstantShapeGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-instantsshapegenerator)
+onShapeRecognized(callback: Callback&lt;ShapeInfo&gt;): InstantShapeGenerator
  
 注册识别完成时的回调方法。使用callback异步回调。
  

@@ -1,6 +1,6 @@
 # 即时反馈（Toast）
 
-更新时间：2026-07-21 07:44:23
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-toast
 
@@ -214,4 +214,4 @@ export struct OpenCloseToastExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/GWTNjBt-S_mrkZf1Jn9Acw/zh-cn_image_0000002647585982.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012135Z&HW-CC-Expire=86400&HW-CC-Sign=21BE05515D00EEAEE93F588E69B58C9950202356597CFF0C06511FA6F767371D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/La5OWehPTRGQTBnumXJsVw/zh-cn_image_0000002704272301.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095714Z&HW-CC-Expire=86400&HW-CC-Sign=F0068191D31A4208DCCFBD392DBD1211A6F0CFAB8BF846D26ADAA4ECAF25386D)

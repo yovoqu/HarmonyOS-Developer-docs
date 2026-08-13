@@ -1,6 +1,6 @@
 # 使用滑动选择器 (Picker)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-picker
 
@@ -251,13 +251,13 @@ picker->SetCanLoop(K_CAN_LOOP);
 
 使用[ArkUI_NativeNodeAPI_1](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1)时可直接调用setAttribute。
 
-```text
+```cpp
 ArkUI_NumberValue itemCountValue = {.i32 = count};
 ArkUI_AttributeItem itemCountItem = {&itemCountValue, sizeof(itemCountValue) / sizeof(ArkUI_NumberValue)};
 g_state->api->setAttribute(g_state->pickerNode, NODE_PICKER_DISPLAYED_ITEM_COUNT, &itemCountItem);
 ```
 
-```text
+```cpp
 ArkUI_NumberValue itemHeightValue = {.f32 = heightVp};
 ArkUI_AttributeItem itemHeightItem = {&itemHeightValue, sizeof(itemHeightValue) / sizeof(ArkUI_NumberValue)};
 g_state->api->setAttribute(g_state->pickerNode, NODE_PICKER_ITEM_HEIGHT, &itemHeightItem);

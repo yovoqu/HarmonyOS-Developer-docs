@@ -1,6 +1,6 @@
 # 如何实现HAP和HAR/HSP页面跳转
 
-更新时间：2026-07-30 01:55:38
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1077
 
@@ -44,7 +44,7 @@ this.getUIContext().getRouter().pushUrl({
 ```
 
 
-4. 在HSP和HAR模块内的配置系统路由表：详情可参考[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation#系统路由表)。
+4. 在HSP和HAR模块内的配置系统路由表：详情可参考[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package#系统路由表)。
 
 5. 构建HspIndexPage、HspPage、HarPage页面，并在对应模块内的Index.ets文件中导出。参考示例如下所示：HSP模块内Index.ets文件：
 

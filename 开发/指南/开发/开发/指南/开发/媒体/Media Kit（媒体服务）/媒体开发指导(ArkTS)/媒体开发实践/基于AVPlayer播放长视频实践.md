@@ -1,6 +1,6 @@
 # 基于AVPlayer播放长视频实践
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avplayer-long-video
 
@@ -51,7 +51,7 @@
 1. 当进入全屏播放模式时，在视频播放界面右侧区域添加Slider组件，用来展示屏幕亮度变化情况。
 
   
-```text
+```ArkTS
 Column() {
   Stack() {
     Slider({
@@ -102,7 +102,7 @@ Column() {
 2. 在视频播放界面绑定PanGesture滑动手势事件，设置触发条件为仅在屏幕右侧区域且垂直方向滑动Pan手势时，调用setWindowBrightness()方法，实现亮度的调节。此处setScreenBrightness()为setWindowBrightness()的封装。
 
   
-```text
+```ArkTS
 private processGesture(event: GestureEvent) {
   if (event.fingerList.length === 0) {
     return;
@@ -125,7 +125,7 @@ private processGesture(event: GestureEvent) {
 }
 ```
 
-```text
+```ArkTS
 .gesture(
   PanGesture({ direction: PanDirection.Vertical })
     .onActionStart(() => {
@@ -173,7 +173,7 @@ private processGesture(event: GestureEvent) {
 2. 当打断类型为INTERRUPT_SHARE、中断提示为INTERRUPT_HINT_RESUME时，调用videoPlay()函数恢复播放视频。此处videoPlay()为[play()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#play9)的封装。
 
   
-```text
+```ArkTS
 private setInterruptCallback() {
   if (!this.avPlayer) {
     return;
@@ -232,13 +232,13 @@ private setInterruptCallback() {
 1. 在主页面的onPageShow()和onPageHide()里变更状态变量。
 
   
-```text
+```ArkTS
 onPageHide(): void {
   this.isPageShow = false;
 }
 ```
 
-```text
+```ArkTS
 onPageShow(): void {
   this.isPageShow = true;
 }
@@ -247,14 +247,14 @@ onPageShow(): void {
 2. 在视频播放组件里对该状态变量添加@Watch装饰器。
 
   
-```text
+```ArkTS
 @Prop @Watch('onPageShowChange') isPageShow: boolean = false;
 ```
 
 3. 通过监听事件onPageShowChange调用AVPlayer的播放/暂停方法，以实现切换到后台时视频暂停播放、切回前台时视频恢复播放。此处avPlayerController为基于AVPlayer实现基本播控的控制器实例，resumePlayback()和pausePlay()分别为[play()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#play9)和[pause()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#pause9)的封装。
 
   
-```text
+```ArkTS
 onPageShowChange() {
   if (!this.isPIPShow && this.curIndex === this.index) {
     this.isPageShow ? this.resumePlayback() : this.pausePlay();
@@ -262,7 +262,7 @@ onPageShowChange() {
 }
 ```
 
-```text
+```ArkTS
 private resumePlayback() {
   if (!this.avPlayerController.isPlaying) {
     this.avPlayerController.videoPlay();
@@ -270,7 +270,7 @@ private resumePlayback() {
 }
 ```
 
-```text
+```ArkTS
 private pausePlay() {
   if (this.avPlayerController.isPlaying) {
     this.avPlayerController.videoPause();
@@ -290,7 +290,7 @@ private pausePlay() {
 视频弹幕发送与显示是影音娱乐类应用中的高频使用场景之一，如用户在播放视频、观看直播时可以发送弹幕，实时评论互动，增强用户参与度。
  
 
-![](assets/基于AVPlayer播放长视频实践/file-20260708103537920cbd95.gif)
+![](assets/基于AVPlayer播放长视频实践/file-2026070810353748fe6d64.gif)
 
  
   
@@ -305,7 +305,7 @@ private pausePlay() {
 1. 在视频播放组件里定义一个空数组，用来保存发送的弹幕，用户输入弹幕点击发送后将输入内容存入当前数组中。
 
   
-```text
+```ArkTS
 private sendBulletComment() {
   if (this.bulletCommentInput.trim()) {
     this.bulletComments = [...this.bulletComments, new BulletComment(this.bulletCommentInput, true)];
@@ -321,7 +321,7 @@ private sendBulletComment() {
 2. 在弹幕展示组件中，通过调用[setInterval](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-timer#setinterval)函数设置定时器，定时器定时刷新承载弹幕内容的Text组件的[translate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-page-transition-animation#translate)属性，刷新所有弹幕位置。
 
   
-```text
+```ArkTS
 private startAnimation() {
   if (this.timerId > 0) {
     clearInterval(this.timerId);
@@ -357,7 +357,7 @@ private startAnimation() {
 视频截图是影音娱乐类应用中的典型场景之一，如用户可在观看视频时截取画面，并对截图的前后帧进行微调，避免所截图片与预期不符。
  
 
-![](assets/基于AVPlayer播放长视频实践/file-2026070810353748fe6d64.gif)
+![](assets/基于AVPlayer播放长视频实践/file-20260708103537920cbd95.gif)
 
  
   
@@ -372,7 +372,7 @@ private startAnimation() {
 1. 通过getUIContext().getComponentSnapshot().get()方法获取视频播放组件XComponent当前截图。
 
   
-```text
+```ArkTS
 private async screenshot() {
   try {
     this.pixmap = await this.getUIContext().getComponentSnapshot().get(`videoXComponent_${this.curSource.index}`);
@@ -385,7 +385,7 @@ private async screenshot() {
 2. 调用AVPlayer的[seek()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#seek9)方法跳转到视频播放的上一秒或下一秒，再次通过步骤1的方法获取当前截图。此处avPlayerController为基于AVPlayer实现基本播控的控制器实例，videoSeek()为seek()的封装。
 
   
-```text
+```ArkTS
 private async clickPreviousFrame() {
   this.avPlayerController?.videoSeek(this.screenshotTime - 1000 / ScreenShotConstants.FRAME_RATE);
   this.pausePlay();
@@ -400,7 +400,7 @@ private async clickPreviousFrame() {
 }
 ```
 
-```text
+```ArkTS
 private async clickNextFrame() {
   this.avPlayerController?.videoSeek(this.screenshotTime + 1000 / ScreenShotConstants.FRAME_RATE);
   this.pausePlay();
@@ -446,7 +446,7 @@ private async clickNextFrame() {
 1. 创建画中画控制器，设置[setAutoStartEnabled()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pipwindow#setautostartenabled)为true以在应用返回桌面时启动画中画。
 
   
-```text
+```ArkTS
 async createPipController() {
   if (!this.pipController) {
     try {
@@ -474,7 +474,7 @@ async createPipController() {
 2. 注册生命周期事件和控制事件回调。
 
   
-```text
+```ArkTS
 onStateChange(state: PiPWindow.PiPState, reason: string) {
   switch (state) {
     case PiPWindow.PiPState.ABOUT_TO_START:
@@ -504,7 +504,7 @@ onStateChange(state: PiPWindow.PiPState, reason: string) {
 }
 ```
 
-```text
+```ArkTS
 onActionEvent(event: PiPWindow.PiPActionEventType, status?: number) {
   switch (event) {
     case 'playbackStateChanged':
@@ -523,7 +523,7 @@ onActionEvent(event: PiPWindow.PiPActionEventType, status?: number) {
 3. 销毁画中画控制器，设置setAutoStartEnabled()为false以关闭画中画。
 
   
-```text
+```ArkTS
 destroyPipController() {
   if (!this.pipController) {
     return;
@@ -547,7 +547,7 @@ destroyPipController() {
 通过播控中心，控制视频的播放、暂停和上下切换。
  
 
-![](assets/基于AVPlayer播放长视频实践/file-202607081035404479e770.gif)
+![](assets/基于AVPlayer播放长视频实践/file-20260708103542503e2137.gif)
 
  
   
@@ -562,7 +562,7 @@ destroyPipController() {
 1. 通过[createAVSession()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-f#avsessioncreateavsession10)创建AVSession实例并激活媒体会话，[AVSessionType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-t#avsessiontype10)设置为“video”。
 
   
-```text
+```ArkTS
 public initAvSession() {
   this.context = AppStorage.get(KeyConstants.KEY_CONTEXT);
   if (!this.context) {
@@ -585,7 +585,7 @@ public initAvSession() {
 2. 通过[setAVMetadata()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#setavmetadata10)把会话的一些元数据信息设置给系统，从而在播控中心界面进行展示。如媒体ID（assetId）、标题（title）、播控中心显示的图片（mediaImage）、媒体时长（duration）等。
 
   
-```text
+```ArkTS
 public async setAVMetadata(curSource: VideoData, duration: number) {
   if (curSource === undefined) {
     Logger.error(TAG, 'SetAVMetadata Error, curSource is null');
@@ -609,7 +609,7 @@ public async setAVMetadata(curSource: VideoData, duration: number) {
 3. 设置用于被播控中心拉起的UIAbility。
 
   
-```text
+```ArkTS
 private setLaunchAbility() {
   if (!this.context) {
     return;
@@ -640,7 +640,7 @@ private setLaunchAbility() {
 4. 注册播控命令事件监听，便于响应用户通过播控中心下发的播控命令，比如播放[on('play')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#onplay10)、暂停[on('pause')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#onpause10)、上一曲[on('playPrevious')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#onplayprevious10)、下一曲[on('playNext')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#onplaynext10)等。
 
   
-```text
+```ArkTS
 public async setAvSessionListener() {
   if (!this.avSessionController) {
     return;
@@ -668,7 +668,7 @@ public async setAvSessionListener() {
 5. 应用状态上报播控中心，当视频状态发生改变时，需要通过[setAVPlaybackState()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#setavplaybackstate10)向播控中心上报视频状态，来达到播控中心与应用的状态同步，包括播放状态（state）、播放位置（position）、当前媒体播放时长（duration）等。
 
   
-```text
+```ArkTS
 private updateIsPlay() {
   this.avSessionController.setAvSessionPlayState({
     state: this.isPlaying ? avSession.PlaybackState.PLAYBACK_STATE_PLAY :
@@ -683,7 +683,7 @@ private updateIsPlay() {
 }
 ```
 
-```text
+```ArkTS
 public setAvSessionPlayState(playbackState: avSession.AVPlaybackState) {
   if (this.avSession) {
     this.avSession.setAVPlaybackState(playbackState, (err: BusinessError) => {
@@ -709,7 +709,7 @@ public setAvSessionPlayState(playbackState: avSession.AVPlaybackState) {
 视频切换到后台播放。
  
 
-![](assets/基于AVPlayer播放长视频实践/file-20260708103542503e2137.gif)
+![](assets/基于AVPlayer播放长视频实践/file-20260708103542d3519338.gif)
 
  
   
@@ -752,7 +752,7 @@ public setAvSessionPlayState(playbackState: avSession.AVPlaybackState) {
 2. 创建后台任务管理类，实现后台任务的申请（startContinuousTask）与取消（stopContinuousTask），长时任务类型选择[AUDIO_PLAYBACK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-backgroundtaskmanager#backgroundmode)，表示视频后台播放。
 
   
-```text
+```ArkTS
 public static startContinuousTask(context?: common.UIAbilityContext): void {
   if (!context) {
     return;
@@ -782,7 +782,7 @@ public static startContinuousTask(context?: common.UIAbilityContext): void {
 }
 ```
 
-```text
+```ArkTS
 public static stopContinuousTask(context?: common.UIAbilityContext): void {
   if (!context) {
     return;
@@ -799,7 +799,7 @@ public static stopContinuousTask(context?: common.UIAbilityContext): void {
 3. 在AVSession创建和释放时，分别申请和销毁后台长时任务。
 
   
-```text
+```ArkTS
 public initAvSession() {
   this.context = AppStorage.get(KeyConstants.KEY_CONTEXT);
   if (!this.context) {
@@ -819,7 +819,7 @@ public initAvSession() {
 }
 ```
 
-```text
+```ArkTS
 async unregisterSessionListener() {
   if (!this.avSession) {
     return;
@@ -850,7 +850,7 @@ async unregisterSessionListener() {
 在播放列表或者窗口中显示视频的首帧。
  
 
-![](assets/基于AVPlayer播放长视频实践/file-20260708103543a0ada764.gif)
+![](assets/基于AVPlayer播放长视频实践/file-20260708103543b8804387.gif)
 
  
   
@@ -869,7 +869,7 @@ async unregisterSessionListener() {
  
 使用media.AVImageGenerator实例的[fetchFrameByTime()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avimagegenerator#fetchframebytime12)方法获取本地视频的首帧图片在列表展示。
  
-```text
+```ArkTS
 public static async getThumbnailFromVideo(src: string, timeUs: number) {
   let pixelMap: image.PixelMap | undefined;
   let queryOption = media.AVImageQueryOptions.AV_IMAGE_QUERY_NEXT_SYNC;
@@ -900,14 +900,14 @@ public static async getThumbnailFromVideo(src: string, timeUs: number) {
 2. 在on('stateChange')方法中initialized状态下，设置播放策略[setPlaybackStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#playbackstrategy12)的showFirstFrameOnPrepare为true。
 
   
-```text
+```ArkTS
 case 'initialized':
   Logger.info(TAG, 'setAVPlayerCallback AVPlayerState initialized called.');
   await this.onInitialized();
   break;
 ```
 
-```text
+```ArkTS
 private async onInitialized() {
   if (!this.avPlayer) {
     return;
@@ -940,7 +940,7 @@ private async onInitialized() {
 用户播放视频时可以根据实际需求进行横竖屏切换。
  
 
-![](assets/基于AVPlayer播放长视频实践/file-20260708103543b8804387.gif)
+![](assets/基于AVPlayer播放长视频实践/file-20260708103543d6c3b36f.png)
 
  
 
@@ -971,7 +971,7 @@ private async onInitialized() {
  1. 封装横竖屏切换的实现方法。
 
   
-```text
+```ArkTS
 setMainWindowOrientation(orientation: window.Orientation, callback?: Function): void {
   if (this.mainWindowClass === undefined) {
     Logger.error(TAG, 'MainWindowClass is undefined');
@@ -988,14 +988,14 @@ setMainWindowOrientation(orientation: window.Orientation, callback?: Function): 
 2. 点击横屏播放按钮时，设置window.Orientation为USER_ROTATION_LANDSCAPE。
 
   
-```text
+```ArkTS
 this.windowUtil.setMainWindowOrientation(window.Orientation.USER_ROTATION_LANDSCAPE);
 ```
 
 3. 点击返回按钮时，设置window.Orientation为USER_ROTATION_PORTRAIT。
 
   
-```text
+```ArkTS
 this.windowUtil.setMainWindowOrientation(window.Orientation.USER_ROTATION_PORTRAIT);
 ```
 
@@ -1011,11 +1011,11 @@ this.windowUtil.setMainWindowOrientation(window.Orientation.USER_ROTATION_PORTRA
 用户在横竖屏切换后，视频保持原有进度继续播放。
  
 
-![](assets/基于AVPlayer播放长视频实践/file-20260708103542d3519338.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/zyHeB-FrRL2gB7chUCp-MQ/zh-cn_image_0000002704273197.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095904Z&HW-CC-Expire=86400&HW-CC-Sign=82C98FD9AB86E5B95024EE18DB658E4C9E14F652C3BF149FBBBA080FBA574468)
 
  
 
-![](assets/基于AVPlayer播放长视频实践/file-20260708103543d6c3b36f.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/pWTACMT4To-Tp64tZAIeKQ/zh-cn_image_0000002674473398.png?HW-CC-KV=V1&HW-CC-Date=20260813T095904Z&HW-CC-Expire=86400&HW-CC-Sign=1EA358A5D2C6322F30B2B2DBA462461308032978AF26C0DE14C5CE6D5F5C1743)
 
  
   

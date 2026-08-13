@@ -1,6 +1,6 @@
 # 适配相机旋转角度(ArkTS)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-angle-adaptation
 
@@ -152,7 +152,7 @@ getPhotoRotation(photoOutput: camera.PhotoOutput, deviceDegree: number): camera.
   从API版本23开始，入参deviceDegree为可选参数，当不传入参数时，由系统获取deviceDegree进行拍照旋转角度计算。当重力传感器数据无效，无法计算deviceDegree时，系统将使用最后一次有效的deviceDegree。如果应用涉及使用USB相机或在多屏场景下，建议使用方案二。
 
   
-```text
+```ArkTS
 getPhotoRotationWithoutDeviceDegree(photoOutput: camera.PhotoOutput): camera.ImageRotation {
   let photoRotation: camera.ImageRotation = camera.ImageRotation.ROTATION_0;
   try {
@@ -203,7 +203,7 @@ getVideoRotation(videoOutput: camera.VideoOutput, deviceDegree: number): camera.
   从API版本23开始开始，入参deviceDegree为可选参数，当不传入参数时，由系统获取deviceDegree进行录像旋转角度计算。当重力传感器数据无效，无法计算deviceDegree时，系统将使用最后一次有效的deviceDegree。如果应用涉及使用USB相机或在多屏场景下，建议使用方案二。
 
   
-```text
+```ArkTS
 getVideoRotationWithoutDeviceDegree(videoOutput: camera.VideoOutput): camera.ImageRotation {
   let videoRotation: camera.ImageRotation = camera.ImageRotation.ROTATION_0;
   try {
@@ -318,7 +318,7 @@ async getCurrentDeviceDegree() : Promise<number> {
 
 示例代码如下：
 
-```text
+```ArkTS
 enablePhysicalCameraOrientation(cameraInput: camera.CameraInput) {
   // 查询设备的相机镜头安装角度是否可变
   let isVariable: boolean = cameraInput.isPhysicalCameraOrientationVariable();

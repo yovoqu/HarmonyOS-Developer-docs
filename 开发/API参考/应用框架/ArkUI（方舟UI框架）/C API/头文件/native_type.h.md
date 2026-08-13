@@ -1,6 +1,6 @@
 # native_type.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -840,7 +840,7 @@ enum ArkUI_CornerDirection
 | ARKUI_CORNER_DIRECTION_TOP_LEFT = 1 << 0 | 设置左上侧方向内容。 |
 | ARKUI_CORNER_DIRECTION_TOP_RIGHT = 1 << 1 | 设置右上侧方向内容。 |
 | ARKUI_CORNER_DIRECTION_BOTTOM_LEFT = 1 << 2 | 设置左下侧方向内容。 |
-| ARKUI_CORNER_DIRECTION_BOTTOM_RIGHT = 1 << 3 | 设置右下侧方向容。 |
+| ARKUI_CORNER_DIRECTION_BOTTOM_RIGHT = 1 << 3 | 设置右下侧方向内容。 |
 
 
 
@@ -1900,7 +1900,7 @@ void OH_ArkUI_ListItemSwipeActionOption_SetStart(ArkUI_ListItemSwipeActionOption
 
 | 参数项 | 描述 |
 | --- | --- |
-| ArkUI_ListItemSwipeActionOption* option | ListItemSwipeActionItem实例。 |
+| ArkUI_ListItemSwipeActionOption* option | ListItemSwipeActionOption实例。 |
 | ArkUI_ListItemSwipeActionItem* item | 布局信息。 |
 
 
@@ -1924,7 +1924,7 @@ void OH_ArkUI_ListItemSwipeActionOption_SetEnd(ArkUI_ListItemSwipeActionOption* 
 
 | 参数项 | 描述 |
 | --- | --- |
-| ArkUI_ListItemSwipeActionOption* option | ListItemSwipeActionItem实例。 |
+| ArkUI_ListItemSwipeActionOption* option | ListItemSwipeActionOption实例。 |
 | ArkUI_ListItemSwipeActionItem* item | 布局信息。 |
 
 
@@ -1948,7 +1948,7 @@ void OH_ArkUI_ListItemSwipeActionOption_SetEdgeEffect(ArkUI_ListItemSwipeActionO
 
 | 参数项 | 描述 |
 | --- | --- |
-| ArkUI_ListItemSwipeActionOption* option | ListItemSwipeActionItem实例。 |
+| ArkUI_ListItemSwipeActionOption* option | ListItemSwipeActionOption实例。 |
 | ArkUI_ListItemSwipeEdgeEffect edgeEffect | 边缘滑动效果。 |
 
 
@@ -1972,7 +1972,7 @@ int32_t OH_ArkUI_ListItemSwipeActionOption_GetEdgeEffect(ArkUI_ListItemSwipeActi
 
 | 参数项 | 描述 |
 | --- | --- |
-| ArkUI_ListItemSwipeActionOption* option | ListItemSwipeActionItem实例。 |
+| ArkUI_ListItemSwipeActionOption* option | ListItemSwipeActionOption实例。 |
 
 
 **返回：**
@@ -2002,7 +2002,7 @@ void OH_ArkUI_ListItemSwipeActionOption_SetOnOffsetChange(ArkUI_ListItemSwipeAct
 
 | 参数项 | 描述 |
 | --- | --- |
-| ArkUI_ListItemSwipeActionOption* option | ListItemSwipeActionItem实例。 |
+| ArkUI_ListItemSwipeActionOption* option | ListItemSwipeActionOption实例。 |
 | callback | 回调事件。offset 滑动偏移量，单位vp。 |
 
 
@@ -2026,7 +2026,7 @@ void OH_ArkUI_ListItemSwipeActionOption_SetOnOffsetChangeWithUserData(ArkUI_List
 
 | 参数项 | 描述 |
 | --- | --- |
-| ArkUI_ListItemSwipeActionOption* option | ListItemSwipeActionItem实例。 |
+| ArkUI_ListItemSwipeActionOption* option | ListItemSwipeActionOption实例。 |
 | void* userData | 用户自定义数据。 |
 | callback | 回调事件。offset 滑动偏移量，单位vp。 |
 

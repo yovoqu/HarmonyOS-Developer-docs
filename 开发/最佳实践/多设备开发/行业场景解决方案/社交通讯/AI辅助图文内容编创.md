@@ -1,6 +1,6 @@
 # AI辅助图文内容编创
 
-更新时间：2026-06-23 06:26:30
+更新时间：2026-08-10 06:55:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-content-creation
 
@@ -171,15 +171,37 @@ public static options: image.DecodingOptions = {
 
 static createPixelMap(uri: string): ImageInfo | undefined {
   let imageInfo: ImageInfo | undefined;
+  let file: fileIo.File | undefined = undefined;
+  let imageSource: image.ImageSource | undefined = undefined;
   try {
-    let file = fileIo.openSync(uri, fileIo.OpenMode.READ_ONLY);
+    file = fileIo.openSync(uri, fileIo.OpenMode.READ_ONLY);
     let displayName = file.name;
-    let imageResource = image.createImageSource(file.fd);
-    let pixelMap = imageResource.createPixelMapSync(FileUtils.options);
+    imageSource = image.createImageSource(file.fd);
+    let pixelMap = imageSource.createPixelMapSync(FileUtils.options);
     imageInfo = { imagePixelMap: pixelMap, imageName: displayName };
-    fileIo.closeSync(file);
   } catch (error) {
-    Logger.error(FileUtils.tag, `createPixelMap error: ${JSON.stringify(error)}`);
+    let err = error as BusinessError;
+    Logger.error(FileUtils.tag,
+      `Failed to create PixelMap, errCode = ${err.code}, errMessage = ${err.message}.`);
+  } finally {
+    if (imageSource !== undefined) {
+      try {
+        imageSource.release();
+      } catch (error) {
+        let err = error as BusinessError;
+        Logger.error(FileUtils.tag,
+          `Failed to release ImageSource, errCode = ${err.code}, errMessage = ${err.message}.`);
+      }
+    }
+    if (file !== undefined) {
+      try {
+        fileIo.closeSync(file);
+      } catch (error) {
+        let err = error as BusinessError;
+        Logger.error(FileUtils.tag,
+          `Failed to close file after createPixelMap, errCode = ${err.code}, errMessage = ${err.message}.`);
+      }
+    }
   }
   return imageInfo;
 }
@@ -214,24 +236,27 @@ static createPixelMap(uri: string): ImageInfo | undefined {
 申请对应权限。
  
 ```ArkTS
-private permissions: Array<Permissions> = [
+private permissions: Permissions[] = [
   'ohos.permission.CAMERA',
   'ohos.permission.MICROPHONE',
-  'ohos.permission.MEDIA_LOCATION',
   'ohos.permission.READ_IMAGEVIDEO',
   'ohos.permission.WRITE_IMAGEVIDEO',
 ];
+
       abilityAccessCtrl.createAtManager().requestPermissionsFromUser(DataUtils.context, this.permissions).then(() => {
         this.surfaceId = this.mXComponentController.getXComponentSurfaceId();
         this.initCamera();
         this.getThumbnail();
-      })
+      }).catch((err: BusinessError) => {
+        Logger.error(this.tag,
+          `Failed to request permissions from user, errCode = ${err.code}, errMessage = ${err.message}.`);
+      });
 ```
  
 相机设置Moving Photo属性。
  
 ```ArkTS
-setEnableLivePhoto(isMovingPhoto: boolean) {
+setEnableLivePhoto(isMovingPhoto: boolean): void {
   try {
     if (this.photoOutput?.isMovingPhotoSupported()) {
       this.photoOutput?.enableMovingPhoto(isMovingPhoto);
@@ -245,15 +270,25 @@ setEnableLivePhoto(isMovingPhoto: boolean) {
 获取媒体库中最新图片地址与缩略图。
 ```ArkTS
 async getThumbnail(): Promise<void> {
+  let requestId = ++this.thumbnailRequestId;
   try {
     let photoAsset: photoAccessHelper.PhotoAsset =
       AppStorage.get(CommonConstants.KEY_PHOTO_ASSET) as photoAccessHelper.PhotoAsset;
     if (photoAsset === undefined) {
       return;
     }
-    this.currentImg = await photoAsset.getThumbnail();
+    let thumbnail: image.PixelMap = await photoAsset.getThumbnail();
+    if (requestId !== this.thumbnailRequestId) {
+      FileUtils.releasePixelMap(thumbnail);
+      return;
+    }
+    this.releaseCurrentImg();
+    this.thumbnailPixelMap = thumbnail;
+    this.currentImg = thumbnail;
   } catch (error) {
-    Logger.error(this.tag, `getThumbnail error: ${JSON.stringify(error)}`);
+    let err = error as BusinessError;
+    Logger.error(this.tag,
+      `Failed to get thumbnail, errCode = ${err.code}, errMessage = ${err.message}.`);
   }
 }
 ```
@@ -262,14 +297,14 @@ async getThumbnail(): Promise<void> {
 引入Moving Photo相关库。
  
 ```ArkTS
-import { MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute } from '@ohos.multimedia.movingphotoview';
+import { MovingPhotoView, MovingPhotoViewController } from '@ohos.multimedia.movingphotoview';
 ```
  
 通过拍摄后获取的photoAccessHelper.PhotoAsset请求Moving Photo。
  
 ```ArkTS
-@StorageLink(CommonConstants.KEY_MOVING_DATA) src: photoAccessHelper.MovingPhoto | undefined = undefined;
-  @StorageLink(CommonConstants.KEY_IMAGE_INFO) imageInfoArr: Array<ImageInfo> = [];
+@StorageLink(CommonConstants.KEY_MOVING_DATA) src?: photoAccessHelper.MovingPhoto = undefined;
+  @StorageLink(CommonConstants.KEY_IMAGE_INFO) imageInfoArr: ImageInfo[] = [];
   @State isMuted: boolean = false;
 
   async aboutToAppear(): Promise<void> {
@@ -279,7 +314,7 @@ import { MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute } 
   }
 
 
-  private requestMovingPhoto() {
+  private requestMovingPhoto(): void {
     let photoAsset: photoAccessHelper.PhotoAsset =
       AppStorage.get(CommonConstants.KEY_PHOTO_ASSET) as photoAccessHelper.PhotoAsset;
     if (photoAsset === undefined) {
@@ -287,10 +322,11 @@ import { MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute } 
     }
     let requestOptions: photoAccessHelper.RequestOptions = {
       deliveryMode: photoAccessHelper.DeliveryMode.FAST_MODE,
-    }
+    };
     photoAccessHelper.MediaAssetManager.requestMovingPhoto(DataUtils.context, photoAsset, requestOptions,
-      new MediaDataHandlerMovingPhoto()).catch(() => {
-      Logger.error(this.tag, `requestMovingPhoto fail!`);
+      new MediaDataHandlerMovingPhoto()).catch((err: BusinessError) => {
+      Logger.error(this.tag,
+        `Failed to request moving photo, errCode = ${err.code}, errMessage = ${err.message}.`);
     });
   }
 
@@ -325,12 +361,12 @@ build() {
         LoadingProgress()
           .color(Color.White)
           .width($r('app.float.size_80'))
-          .height($r('app.float.size_80'))
+          .height($r('app.float.size_80'));
       }
       .width($r('app.string.full_screen'))
       .height($r('app.string.full_screen'))
       .justifyContent(FlexAlign.Center)
-      .backgroundColor('rgba(0,0,0,0.25)')
+      .backgroundColor('rgba(0,0,0,0.25)');
     } else {
       MovingPhotoView({
         movingPhoto: this.src,
@@ -345,12 +381,12 @@ build() {
             md: { bottom: $r('app.float.margin_190') } as Padding,
             lg: { right: $r('app.float.margin_24') } as Padding,
           }
-        ).getValue(this.currentBreakpoint))
+        ).getValue(this.currentBreakpoint));
     }
   }
   .backgroundColor(Color.Black)
   .width($r('app.string.full_screen'))
-  .height($r('app.string.full_screen'))
+  .height($r('app.string.full_screen'));
 }
 ```
  
@@ -412,11 +448,12 @@ import {
   CollaborationServiceStateDialog,
   createCollaborationServiceMenuItems
 } from '@kit.ServiceCollaborationKit';
+
   @Builder
   CollaborationMenu() {
     Menu() {
       createCollaborationServiceMenuItems([CollaborationServiceFilter.ALL]);
-    }
+    };
   }
 ```
  
@@ -436,7 +473,7 @@ setCollaborationDialog() {
 }
 
 private doInsertPicture(stateCode: number, bufferType: string, buffer: ArrayBuffer): void {
-  if (stateCode !== 0) {
+  if (stateCode !== NUM_0) {
     Logger.error(this.tag, `doInsertPicture stateCode: ${stateCode}}`);
     return;
   }
@@ -501,24 +538,6 @@ private doInsertPicture(stateCode: number, bufferType: string, buffer: ArrayBuff
  
 （4）在onContinue回调中使用wantParam传输的数据应控制在100KB以内。对于大于100KB的数据，建议使用分布式数据对象或分布式文件系统，例如图片文件。
  
-申请权限需要在module.json5文件中的module对象的requestPermissions属性中进行。
- 
-```json
-"requestPermissions": [
-  {
-    "name": "ohos.permission.DISTRIBUTED_DATASYNC",
-    "reason": "$string:distributed_desc",
-    "usedScene": {
-      "abilities": [
-        "EntryAbility"
-      ],
-      "when": "always"
-    }
-  }
-  // ...
-]
-```
- 
 打开应用接续开关，在module.json5文件里的module对象的abilities字段内设置"continuable"的值为true。
 ```json
 "abilities": [
@@ -545,6 +564,7 @@ onPageShow(): void {
 }
 
 aboutToDisappear(): void {
+  this.selectedData.clearData();
   this.title = '';
   this.description = '';
   DataUtils.context.setMissionContinueState(AbilityConstant.ContinueState.INACTIVE, (result) => {
@@ -571,7 +591,7 @@ async onContinue(wantParam: Record<string, Object | undefined>): Promise<Ability
     let sessionId: string = distributedDataObject.genSessionId();
     wantParam.distributedSessionId = sessionId;
     // set images assets info
-    let imageInfoArray = AppStorage.get<Array<ImageInfo>>(CommonConstants.KEY_IMAGE_INFO);
+    let imageInfoArray = AppStorage.get<ImageInfo[]>(CommonConstants.KEY_IMAGE_INFO);
     let assets: commonType.Assets = [];
     if (imageInfoArray) {
       for (let i = 0; i < imageInfoArray.length; i++) {
@@ -655,10 +675,19 @@ private restoreDistributedObject(want: Want, launchParam: AbilityConstant.Launch
   }
   try {
     // File copying takes a long time, resulting in the page lifecycle aboutToAppear being executed first.
+    let oldImageInfoArr = AppStorage.get<ImageInfo[]>(CommonConstants.KEY_IMAGE_INFO);
+    let oldRestoreImageInfoArr = AppStorage.get<ImageInfo[]>(CommonConstants.KEY_RESTORE_IMAGE_INFO);
+    if (oldImageInfoArr !== undefined && oldImageInfoArr === oldRestoreImageInfoArr) {
+      FileUtils.releaseImageInfoArray(oldImageInfoArr);
+    } else {
+      FileUtils.releaseImageInfoArray(oldImageInfoArr);
+      FileUtils.releaseImageInfoArray(oldRestoreImageInfoArr);
+    }
     let imageInfoArr: ImageInfo[] = [];
     AppStorage.setOrCreate(CommonConstants.KEY_IMAGE_INFO, imageInfoArr);
+    AppStorage.setOrCreate(CommonConstants.KEY_RESTORE_IMAGE_INFO, []);
     let contentInfo: ContentInfo = new ContentInfo(undefined, undefined, undefined, undefined);
-    // 创建分布式数据对象
+    // Create distributed data object.
     this.distributedObject = distributedDataObject.create(this.context, contentInfo);
     // Add a data restored listener.
     this.distributedObject.on('status',
@@ -667,9 +696,14 @@ private restoreDistributedObject(want: Want, launchParam: AbilityConstant.Launch
           if (!this.distributedObject) {
             return;
           }
-          AppStorage.setOrCreate(CommonConstants.KEY_TITLE, this.distributedObject['title']);
-          AppStorage.setOrCreate(CommonConstants.KEY_DESCRIPTION, this.distributedObject['description']);
-          let attachments = this.distributedObject['attachments'] as commonType.Assets;
+          const titleName = 'title';
+          const titleValue: string = this.distributedObject[titleName];
+          AppStorage.setOrCreate(CommonConstants.KEY_TITLE, titleValue);
+          const descName = 'description';
+          const descValue: string = this.distributedObject[descName];
+          AppStorage.setOrCreate(CommonConstants.KEY_DESCRIPTION, descValue);
+          const attachName = 'attachments';
+          let attachments = this.distributedObject[attachName] as commonType.Assets;
           if (attachments) {
             for (const attachment of attachments) {
               let sourceUri: string =
@@ -691,7 +725,9 @@ private restoreDistributedObject(want: Want, launchParam: AbilityConstant.Launch
     this.distributedObject.setSessionId(sessionId);
     this.context.restoreWindowStage(new LocalStorage());
   } catch (error) {
-    Logger.info(`restoreDistributedObject error: ${JSON.stringify(error)}`);
+    let err = error as BusinessError;
+    Logger.error(this.tag,
+      `Failed to restore distributed object, errCode = ${err.code}, errMessage = ${err.message}.`);
   }
 }
 ```
@@ -699,24 +735,45 @@ private restoreDistributedObject(want: Want, launchParam: AbilityConstant.Launch
 图片的流转需要借助分布式文件系统，发送侧需将文件拷贝到分布式目录下，接受侧再从分布式目录拷贝到本地沙箱使用。
  
 ```ArkTS
-static copyFileToDestination(sourceUri: string, destination: string) {
+static copyFileToDestination(sourceUri: string, destination: string): void {
+  let file: fileIo.File | undefined = undefined;
+  let destinationDistribute: fileIo.File | undefined = undefined;
   try {
     let buf = new ArrayBuffer(CommonConstants.FILE_BUFFER_SIZE);
     let readSize = 0;
-    let file = fileIo.openSync(sourceUri, fileIo.OpenMode.READ_ONLY);
+    file = fileIo.openSync(sourceUri, fileIo.OpenMode.READ_ONLY);
     let readLen = fileIo.readSync(file.fd, buf, { offset: readSize });
-    let destinationDistribute =
+    destinationDistribute =
       fileIo.openSync(`${destination}/${file.name}`, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);
-    while (readLen > 0) {
+    while (readLen > NUM_0) {
       readSize += readLen;
       fileIo.writeSync(destinationDistribute.fd, buf);
       readLen = fileIo.readSync(file.fd, buf, { offset: readSize });
     }
     Logger.info(FileUtils.tag, 'copyFileToDestination success');
-    fileIo.closeSync(file);
-    fileIo.closeSync(destinationDistribute);
-  } catch (err) {
-    Logger.error(FileUtils.tag, `copyFileToDestination failed. Code: ${err.code}, message: ${err.message}`);
+  } catch (error) {
+    let err = error as BusinessError;
+    Logger.error(FileUtils.tag,
+      `Failed to copy file to destination, errCode = ${err.code}, errMessage = ${err.message}.`);
+  } finally {
+    if (file !== undefined) {
+      try {
+        fileIo.closeSync(file);
+      } catch (error) {
+        let err = error as BusinessError;
+        Logger.error(FileUtils.tag,
+          `Failed to close source file, errCode = ${err.code}, errMessage = ${err.message}.`);
+      }
+    }
+    if (destinationDistribute !== undefined) {
+      try {
+        fileIo.closeSync(destinationDistribute);
+      } catch (error) {
+        let err = error as BusinessError;
+        Logger.error(FileUtils.tag,
+          `Failed to close destination file, errCode = ${err.code}, errMessage = ${err.message}.`);
+      }
+    }
   }
 }
 ```

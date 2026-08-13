@@ -1,6 +1,6 @@
 # 基于AVPlayer播放嵌入式短视频实践
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avplayer-embeded-short-video
 
@@ -25,7 +25,7 @@
 用户浏览视频列表时自动播放视频，在用户滑动视频列表时自动切换至首个完全可见的视频播放。
  
 
-![](assets/基于AVPlayer播放嵌入式短视频实践/file-20260708103517d40e110e.gif)
+![](assets/基于AVPlayer播放嵌入式短视频实践/file-202607081035177bd1aee6.png)
 
  
   
@@ -37,7 +37,7 @@
 逻辑如下：
  
 
-![](assets/基于AVPlayer播放嵌入式短视频实践/file-202607081035177bd1aee6.png)
+![](assets/基于AVPlayer播放嵌入式短视频实践/file-20260708103517d40e110e.gif)
 
  
   
@@ -46,7 +46,7 @@
 1. 创建视频列表的模拟数据。
 
   
-```text
+```ArkTS
 export const VIDEO_DATA: VideoItemData[] =
   [
     new VideoItemData($r('app.string.info_detail'), 0, '1.mp4', $r(`app.media.preview1`)),
@@ -59,7 +59,7 @@ export const VIDEO_DATA: VideoItemData[] =
 2. 声明initAVPlayer()方法初始化[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)实例。
 
   
-```text
+```ArkTS
 public async initAVPlayer(source: VideoData, surfaceId: string) {
   // ...
     this.avPlayer = await media.createAVPlayer();
@@ -71,7 +71,7 @@ public async initAVPlayer(source: VideoData, surfaceId: string) {
 3. 创建setStateChangeCallback()状态回调函数，[AVPlayerState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#avplayerstate9)状态为prepared时，使用[emitter.emit()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-emitter#emitteremit)传递当前[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)实例的高度和宽度。
 
   
-```text
+```ArkTS
 private setStateChangeCallback() {
   // ...
   this.avPlayer.on('stateChange', async (state) => {
@@ -97,7 +97,7 @@ private setStateChangeCallback() {
 4. 使用[getDefaultDisplaySync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#displaygetdefaultdisplaysync9)方法获取当前屏幕宽度，以默认16:9的屏幕比例，通过屏幕宽度计算[RelativeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-relativecontainer)组件的高度和宽度，计算[ListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem)所需高度；订阅[AVPlayerState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#avplayerstate9)状态为prepared的事件，获取[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)实例的高度和宽度。
 
   
-```text
+```ArkTS
 aboutToAppear() {
   try {
     this.windowClass.setWindowSystemBarProperties({
@@ -134,7 +134,7 @@ aboutToAppear() {
 5. 根据[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)实例的高度、宽度计算设置[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)的高度、宽度。
 
   
-```text
+```ArkTS
 setXComponentWH(vWidth: number, vHeight: number) {
   let radio = vWidth / vHeight;
   if (radio > 1) {
@@ -158,14 +158,14 @@ setXComponentWH(vWidth: number, vHeight: number) {
 6. 声明AvPlayerController实例。
 
   
-```text
+```ArkTS
 private avPlayerController: AvPlayerController = new AvPlayerController();
 ```
 
 7. 在页面的[onDidBuild()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#ondidbuild12)函数中加载模拟视频数据，初始化加载首个视频数据。
 
   
-```text
+```ArkTS
 onDidBuild(): void {
   this.dataSource.loadData();
   this.play(this.playIdx);
@@ -175,7 +175,7 @@ onDidBuild(): void {
 8. 根据所需播放视频的索引，获取视频相关信息，使用videoReset()方法重置[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)实例，随后利用获取的视频信息调用本节第2步骤initAVPlayer()方法重新初始化，设置该实例的surfaceId，确保其在指定surfaceId的组件上播放。
 
   
-```text
+```ArkTS
 play(index: number) {
   this.startRender = false;
   this.avPlayerController.videoReset().then(() => {
@@ -200,7 +200,7 @@ play(index: number) {
 9. 用[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)显示视频列表，使用[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach)对列表数据进行懒加载。
 
   
-```text
+```ArkTS
 List({ scroller: this.listScroller }) {
   LazyForEach(this.dataSource, (info: VideoInfo, index: number) => {
     ListItem() {
@@ -214,7 +214,7 @@ List({ scroller: this.listScroller }) {
 10. 创建[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件，提供一个Surface，用于图形绘制或将视频画面嵌入视图。
 
   
-```text
+```ArkTS
 XComponent({
   type: XComponentType.SURFACE,
   controller: info.xController
@@ -224,7 +224,7 @@ XComponent({
 11. 在[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件的[onLoad()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#onload)加载事件中，使用[getXComponentSurfaceId()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#getxcomponentsurfaceid9)获取该播放组件的Id，将其Id设置到[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)的surfaceId上，即可实现在该组件上播放视频。
 
   
-```text
+```ArkTS
 .onLoad(() => {
   let surfaceID = info.xController!.getXComponentSurfaceId();
   info.surfaceID = surfaceID;
@@ -237,7 +237,7 @@ XComponent({
 12. 设置[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)的[onScrollStop()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#onscrollstop)事件，在列表滑动停止时触发，根据滑动偏移量及单个[ListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem)的高度计算当前屏幕内首个可完整显示的视频索引。若计算得出的视频索引与当前播放视频索引不符，则使用play()方法重新初始化[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)，切换至计算得出的视频进行播放。
 
   
-```text
+```ArkTS
 .onScrollStop(() => {
    let yOffset = this.listScroller.currentOffset().yOffset;
    let curIndex = Math.floor(yOffset / (this.listItemHeight + Constants.LIST_DIVIDER_WIDTH));
@@ -268,7 +268,7 @@ XComponent({
 视频播放无缝转场是影音娱乐类应用中的典型场景之一，如视频列表中自动播放的热门视频，点击当前播放视频跳转至视频详情页后继续播放。
  
 
-![](assets/基于AVPlayer播放嵌入式短视频实践/file-202607081035189c8014c4.gif)
+![](assets/基于AVPlayer播放嵌入式短视频实践/file-20260708103518524df455.png)
 
  
   
@@ -284,7 +284,7 @@ XComponent({
 逻辑如下：
  
 
-![](assets/基于AVPlayer播放嵌入式短视频实践/file-20260708103518524df455.png)
+![](assets/基于AVPlayer播放嵌入式短视频实践/file-202607081035189c8014c4.gif)
 
  
   
@@ -308,7 +308,7 @@ XComponent({
 2. 创建AppRouter.ets文件，声明页面路由相关操作方法。
 
   
-```text
+```ArkTS
 public getPathStack(): NavPathStack {
   return this.pathStack;
 }
@@ -317,7 +317,7 @@ public getPathStack(): NavPathStack {
 3. 在首页的[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)组件中使用[getPathStack()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#getpathstack19)获取页面路由信息。
 
   
-```text
+```ArkTS
 build() {
   Navigation(AppRouter.getInstance().getPathStack()) {
     // ...
@@ -332,7 +332,7 @@ build() {
 4. 在[pushPathByName()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#pushpathbyname10)基础上封装pushByName()方法，用于页面跳转时的参数传递。
 
   
-```text
+```ArkTS
 public static pushByName(name: string, param: Object, onPop: Callback<PopInfo>): void {
   AppRouter.instance.pushPathByName(name, param, onPop);
 }
@@ -341,7 +341,7 @@ public static pushByName(name: string, param: Object, onPop: Callback<PopInfo>):
 5. 设置[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)的点击事件，当用户点击当前播放的视频时，保存当前播放进度，然后使用上一步中pushByName()方法，在页面跳转的同时将当前播放视频相关信息传递到视频详情页面。
 
   
-```text
+```ArkTS
 .onClick(() => {
   AppStorage.setOrCreate(Constants.SURFACE_ID_KEY, info.surfaceID);
   this.avPlayerController.videoPause();
@@ -361,7 +361,7 @@ public static pushByName(name: string, param: Object, onPop: Callback<PopInfo>):
 6. 基于[getParamByIndex()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#getparambyindex10)封装getLastParams()方法，用于页面跳转后获取传递的参数。
 
   
-```text
+```ArkTS
 public static getLastParams(): Object {
   return AppRouter.instance.pathStack.getParamByIndex(AppRouter.instance.pathStack.size() - 1) as Object;
 }
@@ -370,7 +370,7 @@ public static getLastParams(): Object {
 7. 在视频详情页面的[aboutToAppear()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)事件中，使用上一步中getLastParams()方法获取传递的参数信息，取消[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)实例的静音设置。
 
   
-```text
+```ArkTS
 aboutToAppear(): void {
   try {
     this.mainWin = this.windowStage.getMainWindowSync();
@@ -399,7 +399,7 @@ aboutToAppear(): void {
 8. 在视频详情页面创建[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#xcomponent19)组件。
 
   
-```text
+```ArkTS
 XComponent({
   type: XComponentType.SURFACE,
   controller: this.xComponentController
@@ -410,7 +410,7 @@ XComponent({
 9. [XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#xcomponent19)的[onLoad()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#onload)事件中重新初始化[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)实例，将跳转时的播放时间进度currentTime传递给[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)，然后使用[seek()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#seek9)跳转到currentTime时间帧继续播放。
 
   
-```text
+```ArkTS
 .onLoad(() => {
   this.surfaceId = this.xComponentController.getXComponentSurfaceId();
   if (this.avPlayerController !== undefined) {
@@ -431,7 +431,7 @@ XComponent({
 10. 声明handleBackAction()方法，当在详情页面点击返回按钮时，记录当前播放视频的信息，包括视频当前进度、总时长、索引等。
 
   
-```text
+```ArkTS
 handleBackAction() {
    if (this.isLayoutFullScreen) {
      this.isLayoutFullScreen = false;
@@ -464,7 +464,7 @@ handleBackAction() {
 11. 在视频列表页面的点击跳转事件pushByName()方法中，使用回调函数接收详情页面返回参数信息，随后调用play()方法（参考嵌入式视频列表自动播放开发步骤8），设置[seekTime](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#seek9)为currentTime以继续播放。
 
   
-```text
+```ArkTS
 .onClick(() => {
   AppStorage.setOrCreate(Constants.SURFACE_ID_KEY, info.surfaceID);
   this.avPlayerController.videoPause();

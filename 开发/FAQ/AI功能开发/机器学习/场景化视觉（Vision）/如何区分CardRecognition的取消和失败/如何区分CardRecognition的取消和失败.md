@@ -1,6 +1,6 @@
 # 如何区分CardRecognition的取消和失败
 
-更新时间：2026-07-30 01:18:30
+更新时间：2026-08-13 01:22:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-3
 
@@ -12,8 +12,8 @@
 
 #### 背景知识
 1. [卡证识别](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-card-recognition)提供身份证、行驶证、驾驶证、护照、银行卡等证件的结构化识别服务，满足卡证的自动分类功能，系统可自动判断所属卡证类型并返回结构化信息和卡证图片信息。
-2. [CardRecognitionResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-card-recognition#section161551745133610)可获取卡证识别结果是否成功，其中code表示结果码（200表示识别成功，1008701001表示未识别，1008701002表示识别失败，1008701003表示部分识别失败，1008701004表示未完成识别）。
-3. 关于卡证识别功能，可参考相关[CardRecognition控件API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-card-recognition#section143611912403)和[卡证识别指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/vision-cardrecognition)，以及[Codelabs](https://developer.huawei.com/consumer/cn/codelabsPortal/carddetails/tutorials_Next-VisionKit)提供的示例。
+2. [CardRecognitionResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-card-recognition#cardrecognitionresult)可获取卡证识别结果是否成功，其中code表示结果码（200表示识别成功，1008701001表示未识别，1008701002表示识别失败，1008701003表示部分识别失败，1008701004表示未完成识别）。
+3. 关于卡证识别功能，可参考相关[CardRecognition控件API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-card-recognition#cardrecognition)和[卡证识别指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/vision-cardrecognition)，以及[Codelabs](https://developer.huawei.com/consumer/cn/codelabsPortal/carddetails/tutorials_Next-VisionKit)提供的示例。
  
  
 

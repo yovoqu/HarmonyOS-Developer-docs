@@ -1,6 +1,6 @@
 # @ohos.arkui.theme(主题换肤)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-theme
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -84,10 +84,10 @@ import { Theme, ThemeControl, CustomColors, Colors, CustomTheme, CustomDarkColor
 | backgroundTertiary | ResourceColor | 否 | 否 | 三级背景颜色（实色，不透明）。 影响组件： 暂无组件使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | backgroundFourth | ResourceColor | 否 | 否 | 四级背景颜色（实色，不透明）。 影响组件： 暂无组件使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | backgroundEmphasize | ResourceColor | 否 | 否 | 高亮背景颜色（实色，不透明）。 说明： 当作为CustomColors的属性被使用时，若设置了brand，backgroundEmphasize在浅色模式和深色模式下的缺省值均为brand的颜色值叠加100%透明度。 影响组件： Progress、Button、Slider。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| compForegroundPrimary | ResourceColor | 否 | 否 | 前景色。 影响组件： QRCode。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| compForegroundPrimary | ResourceColor | 否 | 否 | 前背景。 影响组件： QRCode。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | compBackgroundPrimary | ResourceColor | 否 | 否 | 白色背景。 影响组件： 暂无组件使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | compBackgroundPrimaryTran | ResourceColor | 否 | 否 | 白色透明背景。 影响组件： 暂无组件使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| compBackgroundPrimaryContrary | ResourceColor | 否 | 否 | 反转背景。 影响组件： Toggle、Slider。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| compBackgroundPrimaryContrary | ResourceColor | 否 | 否 | 常亮背景。 影响组件： Toggle、Slider。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | compBackgroundGray | ResourceColor | 否 | 否 | 灰色背景。 影响组件： 暂无组件使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | compBackgroundSecondary | ResourceColor | 否 | 否 | 二级背景。 说明： 从API版本26.0.0开始，当作为CustomColors的属性被使用时，若设置了container，compBackgroundSecondary在浅色模式和深色模式下的缺省值均为container的颜色值叠加10%透明度。 影响组件： Swiper、Slider。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | compBackgroundTertiary | ResourceColor | 否 | 否 | 三级背景。 说明： 从API版本26.0.0开始，当作为CustomColors的属性被使用时，若设置了container，compBackgroundTertiary在浅色模式下的缺省值为container的颜色值叠加5%透明度，在深色模式下的缺省值为container的颜色值叠加10%透明度。 影响组件： EditableTitleBar、Progress、AlphabetIndexer、 Button、Select、Toggle、 Chip、TextInput、Search。从API版本26.0.0开始，新增UIPickerComponent、TextPicker。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
@@ -329,4 +329,4 @@ struct TextPage {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/UNCrfLCES6yJoJMxfLqs2g/zh-cn_image_0000002685927851.png?HW-CC-KV=V1&HW-CC-Date=20260730T071443Z&HW-CC-Expire=86400&HW-CC-Sign=A4FE0F9E647DEA0F146F6F5D0E7E85DBC887D610816609A3991C5230FC220A0C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/LlJ82A27RzOuHtoIkJSSow/zh-cn_image_0000002704394303.png?HW-CC-KV=V1&HW-CC-Date=20260813T095444Z&HW-CC-Expire=86400&HW-CC-Sign=A93C3FBE7379211C43725D4D00852B7F77C285C5BC613175B6662F209AD808F6)

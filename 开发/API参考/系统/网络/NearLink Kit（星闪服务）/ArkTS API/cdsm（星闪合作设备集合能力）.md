@@ -1,6 +1,6 @@
 # cdsm（星闪合作设备集合能力）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-cdsm
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -170,7 +170,7 @@ onCdsmInfoChange(callback: Callback&lt;CdsmInfo&gt;): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;CdsmInfo&gt; | 是 | 事件回调类型，返回远端设备合作设备集合信息。 |
+| callback | Callback&lt;CdsmInfo&gt; | 是 | 回调函数，返回远端设备合作设备集合信息。 |
  
  
 **错误码：**
@@ -224,7 +224,7 @@ offCdsmInfoChange(callback?: Callback&lt;CdsmInfo&gt;): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;CdsmInfo&gt; | 否 | 事件回调类型，返回远端设备合作设备集合信息。 填写该参数则取消当前callback订阅。不填写该参数则取消远端设备合作设备集合信息变化事件对应的所有回调。 |
+| callback | Callback&lt;CdsmInfo&gt; | 否 | 回调函数，返回远端设备合作设备集合信息。 填写该参数则取消当前callback订阅。不填写该参数则取消远端设备合作设备集合信息变化事件对应的所有回调。 |
  
  
 **错误码：**

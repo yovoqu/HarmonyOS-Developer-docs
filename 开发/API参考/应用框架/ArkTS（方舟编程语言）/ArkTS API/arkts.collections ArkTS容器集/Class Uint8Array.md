@@ -1,6 +1,6 @@
 # Class (Uint8Array)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-uint8array
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,9 +28,9 @@ import { collections } from '@kit.ArkTS';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-**系统能力：** SystemCapability.Utils.Lang
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Utils.Lang
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -51,9 +51,9 @@ constructor()
 
 构造函数，用于创建一个空ArkTS Uint8Array对象。
 
-**系统能力：** SystemCapability.Utils.Lang
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Utils.Lang
 
 **错误码：**
 
@@ -219,7 +219,7 @@ constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number)
 | --- | --- | --- | --- |
 | buffer | ArrayBuffer | 是 | 用于构造ArkTS Uint8Array的ArrayBuffer对象。且ArkTS Uint8Array和该ArrayBuffer共享内存，修改其中的数据会相互影响。 |
 | byteOffset | number | 否 | 指定buffer的字节偏移，取值为非负整数且须小于buffer.byteLength，超出范围时将抛出异常。默认值为0。 |
-| length | number | 否 | 指定ArkTS Uint8Array的长度，byteOffset和length的总和不能超过buffer.byteLength，超出范围时将抛出异常。默认值为0。 |
+| length | number | 否 | 指定ArkTS Uint8Array的长度，byteOffset和length的总和不能超过buffer.byteLength，超出范围时将抛出异常。默认值为buffer.byteLength - byteOffset。 |
 
 
 **错误码：**
@@ -235,10 +235,10 @@ constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number)
 
 ```text
 let uint8Array: collections.Uint8Array = collections.Uint8Array.from([1, 2, 3, 4, 5, 6]);
-console.info("byteLength: " + uint8Array.buffer.byteLength); // byteLength: 6
+console.info(`byteLength: ${uint8Array.buffer.byteLength}`); // byteLength: 6
 // 从uint8Array的buffer中下标为1的成员开始获取，长度为5
 let uint8Array1: collections.Uint8Array = new collections.Uint8Array(uint8Array.buffer, 1, 5);
-console.info("[" + uint8Array1 + "]"); // [2, 3, 4, 5, 6]
+console.info(`[${uint8Array1}]`); // [2, 3, 4, 5, 6]
 ```
 
 
@@ -946,10 +946,10 @@ lastIndexOf(searchElement: number, fromIndex?: number): number
 
 ```text
 let uint8Array: collections.Uint8Array = collections.Uint8Array.from([3, 5, 9]);
-console.info(uint8Array.lastIndexOf(3) + ''); // 预期输出：0
-console.info(uint8Array.lastIndexOf(7) + ''); // 预期输出：-1
-console.info(uint8Array.lastIndexOf(9, 2) + ''); // 预期输出：2
-console.info(uint8Array.lastIndexOf(9, -2) + ''); // 预期输出：-1
+console.info(`${uint8Array.lastIndexOf(3)}`); // 预期输出：0
+console.info(`${uint8Array.lastIndexOf(7)}`); // 预期输出：-1
+console.info(`${uint8Array.lastIndexOf(9, 2)}`); // 预期输出：2
+console.info(`${uint8Array.lastIndexOf(9, -2)}`); // 预期输出：-1
 ```
 
 
@@ -1131,7 +1131,7 @@ reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Uint8Array>): n
 ```text
 let uint8Array: collections.Uint8Array = collections.Uint8Array.from([1, 2, 3, 4, 5]);
 let reducedValue: number = uint8Array.reduceRight((accumulator: number, value: number) => accumulator + value);
-console.info(reducedValue + ''); // 预期输出： 15
+console.info(`${reducedValue}`); // 预期输出：15
 ```
 
 
@@ -1225,7 +1225,7 @@ reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Uint8Arr
 ```text
 let uint8Array: collections.Uint8Array = collections.Uint8Array.from([1, 2, 3, 4, 5]);
 let reducedValue: number = uint8Array.reduceRight((accumulator: number, value: number) => accumulator + value, 1);
-console.info(reducedValue + ''); // 预期输出： 16
+console.info(`${reducedValue}`); // 预期输出：16
 ```
 
 
@@ -1537,9 +1537,9 @@ at(index: number): number | undefined
 
 ```text
 let uint8Array: collections.Uint8Array = collections.Uint8Array.from([1, 2, 3, 4, 5]);
-console.info("element: " + uint8Array.at(2));  // element: 3
-console.info("element: " + uint8Array.at(-1)); // element: 5
-console.info("element: " + uint8Array.at(6));  // element: undefined
+console.info(`element: ${uint8Array.at(2)}`);  // element: 3
+console.info(`element: ${uint8Array.at(-1)}`); // element: 5
+console.info(`element: ${uint8Array.at(6)}`);  // element: undefined
 ```
 
 
@@ -1585,9 +1585,9 @@ includes(searchElement: number, fromIndex?: number): boolean
 
 ```text
 let uint8Array: collections.Uint8Array = collections.Uint8Array.from([1, 2, 3]);
-console.info("includes: " + uint8Array.includes(2));    // includes: true
-console.info("includes: " + uint8Array.includes(4));    // includes: false
-console.info("includes: " + uint8Array.includes(3, 3)); // includes: false
+console.info(`includes: ${uint8Array.includes(2)}`);    // includes: true
+console.info(`includes: ${uint8Array.includes(4)}`);    // includes: false
+console.info(`includes: ${uint8Array.includes(3, 3)}`); // includes: false
 ```
 
 
@@ -1626,9 +1626,9 @@ entries(): IterableIterator<[number, number]>
 ```text
 let uint8Array: collections.Uint8Array = collections.Uint8Array.from([11, 22, 33]);
 let iterator: IterableIterator<[number, number]> = uint8Array.entries();
-console.info("value: " + iterator.next().value); // value: 0,11
-console.info("value: " + iterator.next().value); // value: 1,22
-console.info("value: " + iterator.next().value); // value: 2,33
+console.info(`value: ${iterator.next().value}`); // value: 0,11
+console.info(`value: ${iterator.next().value}`); // value: 1,22
+console.info(`value: ${iterator.next().value}`); // value: 2,33
 ```
 
 
@@ -1668,7 +1668,7 @@ keys(): IterableIterator&lt;number&gt;
 let uint8Array: collections.Uint8Array = collections.Uint8Array.from([1, 2, 3, 4, 5]);
 let iterator: IterableIterator<number> = uint8Array.keys();
 for (const key of iterator) {
-  console.info("" + key); // 依次输出 0,1,2,3,4
+  console.info(`${key}`); // 依次输出 0,1,2,3,4
 }
 ```
 
@@ -1709,7 +1709,7 @@ values(): IterableIterator&lt;number&gt;
 let uint8Array: collections.Uint8Array = collections.Uint8Array.from([1, 2, 3, 4, 5]);
 let iterator: IterableIterator<number> = uint8Array.values();
 for (const value of iterator) {
-  console.info("" + value); // 依次输出 1,2,3,4,5
+  console.info(`${value}`); // 依次输出 1,2,3,4,5
 }
 ```
 
@@ -1787,5 +1787,5 @@ for (let item of uint8Array) {
 
 ```text
 let uint8Array = collections.Uint8Array.from([1, 2, 4]);
-console.info("Element at index 1: ", uint8Array[1]);
+console.info(`Element at index 1: ${uint8Array[1]}`);
 ```

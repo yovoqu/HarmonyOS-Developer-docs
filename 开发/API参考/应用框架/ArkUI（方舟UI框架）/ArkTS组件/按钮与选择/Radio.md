@@ -1,6 +1,6 @@
 # Radio
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-radio
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -54,7 +54,7 @@ Radio(options: RadioOptions)
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | value | string | 否 | 否 | 当前单选框的值。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| group | string | 否 | 否 | 当前单选框的所属群组名称，相同group的单选框只能有一个被选中。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| group | string | 否 | 否 | 当前单选框的所属群组名称，相同group的单选框只能有一个被选中。group作用域为组件所在页面。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | indicatorType12+ | RadioIndicatorType | 否 | 是 | 配置单选框的选中样式。未设置时按照RadioIndicatorType.TICK进行显示。 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | indicatorBuilder12+ | CustomBuilder | 否 | 是 | 配置单选框的选中样式为自定义组件。自定义组件与Radio组件以中心点对齐显示。indicatorBuilder设置为undefined时，按照RadioIndicatorType.TICK进行显示。 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
@@ -528,4 +528,4 @@ struct RadioExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/Z3hCSuMeThe6CUxQU1Djpg/zh-cn_image_0000002685928199.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071504Z&HW-CC-Expire=86400&HW-CC-Sign=4989AD4F2D1D2B005C4B2E58BC608EA40CE0BE482DB2AD5E4A5E6D6D9E17D9FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/zNccztlrTt6o_puPPL1S_Q/zh-cn_image_0000002674634534.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095449Z&HW-CC-Expire=86400&HW-CC-Sign=59CF3638AA7301B674B31679EE0781965BDA6A66F59F663C474E4DF123E7D6ED)

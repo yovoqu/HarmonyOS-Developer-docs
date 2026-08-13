@@ -1,6 +1,6 @@
 # HdsListItem
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdslistitem
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -163,7 +163,7 @@ HdsListItem({customItemBuilder?: CustomBuilder, hdsListItemCard?: HdsListItemCar
 | backgroundColor | ResourceColor | 否 | 是 | 删除按钮图标背景色。 |
 | iconColor | ResourceColor | 否 | 是 | 删除按钮图标颜色。 |
 | iconOptions | IconOptions | 否 | 是 | 删除按钮图标的能力选项。 |
-| onAction | SwipeActionCallback | 否 | 是 | 点击回调。 |
+| onAction | SwipeActionCallback | 否 | 是 | 删除图标点击回调。 |
  
  
   
@@ -346,6 +346,7 @@ struct HdsListItemExample {
                 }
               }
             },
+            // 横滑会有吸附效果
             swipeActionOptions: {
               icons: [
                 {

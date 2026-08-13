@@ -1,6 +1,6 @@
 # ArkTS语言介绍
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/introduction-to-arkts
 
@@ -2172,7 +2172,7 @@ class MyClass1 {
 注解不是Typescript中的特性，只能在.ets/.d.ets文件中使用。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/Z2QLuuNJTQGEQd2gppPQlA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071810Z&HW-CC-Expire=86400&HW-CC-Sign=C4E01D46C81CACCE637AB30F8286C888F1044586152D5DE70EA0B5BAB0B6D94C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/YwpZyTcwRySYXmgfz_AhEg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095612Z&HW-CC-Expire=86400&HW-CC-Sign=E7920E922287CC97DCB2F81A187F7FA1F049867EDC53D2AA084623C7D68E5BC6)
 
 
 应用开发中，在[release模式下构建](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-har#section19788284410)源码HAR，并同时[开启混淆](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation)时，由于编译产物为JS文件，而在JS中没有注解的实现机制，因此会在编译过程中被移除，导致无法通过注解实现AOP插桩。

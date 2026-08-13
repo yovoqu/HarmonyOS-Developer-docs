@@ -1,6 +1,6 @@
 # Preview Kit简介
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/preview-introduction
 
@@ -52,7 +52,7 @@ Preview Kit能够对图片、视频、音频、文本、html进行预览查看�
 
 #### 支持的设备
 
-文件预览功能支持华为Phone、Tablet、PC/2in1和Car，文件打开加速功能仅支持PC/2in1设备。
+文件预览功能支持华为Phone、Tablet、PC/2in1，文件打开加速功能仅支持PC/2in1设备。
 
 
 

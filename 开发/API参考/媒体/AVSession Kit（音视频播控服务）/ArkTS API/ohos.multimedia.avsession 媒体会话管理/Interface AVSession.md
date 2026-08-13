@@ -1,6 +1,6 @@
 # Interface (AVSession)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1594,7 +1594,7 @@ if (currentAVSession !== undefined) {
 
 setBackgroundPlayMode(mode: BackgroundPlayMode): Promise&lt;void&gt;
 
-设置后台播放模式。使用promise异步回调。
+设置后台播放模式。使用Promise异步回调。
 
 建议与应用内"是否支持后台播放开关"关联。如未设置，'audio'类型会话默认值为ENABLE_BACKGROUND_PLAY；'video'类型会话默认值为DISABLE_BACKGROUND_PLAY。
 

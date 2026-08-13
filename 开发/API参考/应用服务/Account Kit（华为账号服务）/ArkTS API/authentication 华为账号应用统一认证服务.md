@@ -1,6 +1,6 @@
 # @hms.core.authentication (华为账号应用统一认证服务)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -524,7 +524,10 @@ try {
     }
     const loginWithHuaweiIDResponse = data as authentication.LoginWithHuaweiIDResponse;
     const state = loginWithHuaweiIDResponse.state;
-    if (state && loginRequest.state !== state) {
+    // state为空时，归一化处理为空字符串
+    const normalizedRequestState = loginRequest.state || '';
+    const normalizedState = state || '';
+    if (normalizedRequestState !== normalizedState) {
       // state不一致，可能为跨站攻击，需重新登录
       hilog.error(0x0000, 'testTag', `Failed to login. The state is different, response state: ${state}`);
       return;
@@ -695,7 +698,10 @@ try {
     }
     const authorizationWithHuaweiIDResponse = data as authentication.AuthorizationWithHuaweiIDResponse;
     const state = authorizationWithHuaweiIDResponse.state;
-    if (state && authRequest.state !== state) {
+    // state为空时，归一化处理为空字符串
+    const normalizedRequestState = authRequest.state || '';
+    const normalizedState = state || '';
+    if (normalizedRequestState !== normalizedState) {
       // state不一致，可能为跨站攻击，需重新授权
       hilog.error(0x0000, 'testTag', `Failed to authorize. The state is different, response state: ${state}`);
       return;
@@ -849,7 +855,10 @@ try {
     }
     const cancelAuthorizationResponse = data as authentication.CancelAuthorizationResponse;
     const state = cancelAuthorizationResponse.state;
-    if (state && cancelRequest.state !== state) {
+    // state为空时，归一化处理为空字符串
+    const normalizedRequestState = cancelRequest.state || '';
+    const normalizedState = state || '';
+    if (normalizedRequestState !== normalizedState) {
       // state不一致，可能为跨站攻击，需重新取消授权
       hilog.error(0x0000, 'testTag', `Failed to cancel. The state is different, response state: ${state}`);
       return;
@@ -1053,7 +1062,10 @@ try {
     }
     const authorizationWithHuaweiIDResponse = data as authentication.AuthorizationWithHuaweiIDResponse;
     const state = authorizationWithHuaweiIDResponse.state;
-    if (state && authRequest.state !== state) {
+    // state为空时，归一化处理为空字符串
+    const normalizedRequestState = authRequest.state || '';
+    const normalizedState = state || '';
+    if (normalizedRequestState !== normalizedState) {
       // state不一致，可能为跨站攻击，需重新授权
       hilog.error(0x0000, 'testTag', `Failed to authorize. The state is different, response state: ${state}`);
       return;
@@ -1184,7 +1196,10 @@ try {
   controller.executeRequest(authRequest).then((data) => {
     const authorizationWithHuaweiIDResponse = data as authentication.AuthorizationWithHuaweiIDResponse;
     const state = authorizationWithHuaweiIDResponse.state;
-    if (state && authRequest.state !== state) {
+    // state为空时，归一化处理为空字符串
+    const normalizedRequestState = authRequest.state || '';
+    const normalizedState = state || '';
+    if (normalizedRequestState !== normalizedState) {
       // state不一致，可能为跨站攻击，需重新授权
       hilog.error(0x0000, 'testTag', `Failed to authorize. The state is different, response state: ${state}`);
       return;

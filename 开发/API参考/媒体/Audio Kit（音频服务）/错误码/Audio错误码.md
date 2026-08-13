@@ -1,6 +1,6 @@
 # Audio错误码
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -316,3 +316,24 @@ StartAudioStream日志从API版本11开始支持；StartImpl日志从API版本12
 **处理步骤**
 1. 先根据前述案例排除对象状态、应用权限、音频焦点和录音并发问题。
 2. 停止并释放当前AudioCapturer，重新创建后重试一次。避免无条件反复重试。
+
+
+
+#### AudioSessionManager调用activateAudioSession/deactivateAudioSession/clearSelectedMediaInputDevice处理失败-系统异常
+
+**判断依据**
+
+从API版本26.0.0开始，调用[activateAudioSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiosessionmanager#activateaudiosession12)、[deactivateAudioSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiosessionmanager#deactivateaudiosession12)、[clearSelectedMediaInputDevice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiosessionmanager#clearselectedmediainputdevice21)会返回错误码6800301。调用对应接口时，应用捕获到的错误信息如下：
+
+ - "System error. Activate audio session fail."
+ - "System error. Deactivate audio session fail."
+ - "System error. Clear selected input device fail."
+
+
+**可能原因**
+
+系统服务异常无响应。
+
+**处理步骤**
+
+尝试重试或[提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)处理。

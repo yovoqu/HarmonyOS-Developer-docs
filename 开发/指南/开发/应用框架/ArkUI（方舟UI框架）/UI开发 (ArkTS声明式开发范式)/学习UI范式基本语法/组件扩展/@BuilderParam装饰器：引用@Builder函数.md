@@ -1,6 +1,6 @@
 # @BuilderParam装饰器：引用@Builder函数
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builderparam
 
@@ -500,35 +500,6 @@ struct HelloWorldPage {
 }
 ```
 
-**router_map.json**
-
-这个文件位于项目的resources/base/profile目录下。
-
-```ArkTS
-{
-  "routerMap": [
-    {
-      "name": "HelloWorldPage",
-      "buildFunction": "HelloWorldPageBuilder",
-      "pageSourceFile": "src/main/ets/pages/helloworld.ets"
-    }
-  ]
-}
-```
-
-**module.json5**
-
-这个文件位于应用模块的根目录下，例如entry/src/main/module.json5。
-
-```text
-{
-  "module": {
-    "routerMap": "$profile:router_map",
-    ......
-  }
-}
-```
-
 示例效果图
 
 
@@ -622,7 +593,7 @@ struct ParentPage {
 示例效果图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/kJvz1MBMRLGvJ07YRbGN1Q/zh-cn_image_0000002656005826.png?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=B94E7175252C5C6D0D993D109531C1135EAC36E89CD807780302C96CFEA70B53)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/5iOUcpCbRJSSBL6BBhBHJw/zh-cn_image_0000002704271771.png?HW-CC-KV=V1&HW-CC-Date=20260813T095701Z&HW-CC-Expire=86400&HW-CC-Sign=5B77E166FFF0B573776D2EBA95ADA9BD2296FEAD9602EFCDE2175DD1FC72A97D)
 
 
 
@@ -712,7 +683,7 @@ struct ParentPage {
 示例效果图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/dZhbFSdRQPem_PBXnUs9Pg/zh-cn_image_0000002655845906.png?HW-CC-KV=V1&HW-CC-Date=20260730T071838Z&HW-CC-Expire=86400&HW-CC-Sign=73ACB4D0DA991DD85366042FE2A378E0DBE338EB0C284FFE01C852A34A795783)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/uR-RbC1mRm-eJuXRgxZ0KQ/zh-cn_image_0000002674471972.png?HW-CC-KV=V1&HW-CC-Date=20260813T095701Z&HW-CC-Expire=86400&HW-CC-Sign=335B5FA42AA80083E6101EF280B623EACF2B68FF712F24F04A0EC5029423A012)
 
 
 

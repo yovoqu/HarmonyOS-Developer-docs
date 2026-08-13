@@ -1,6 +1,6 @@
 # 批量新增关键资产(ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-js-batch-add
 
@@ -41,7 +41,7 @@
 | DATA_LABEL_NORMAL_LOCAL_412+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
 | CONFLICT_RESOLUTION | 类型为number，取值范围详见ConflictResolution。 | 可选 | 新增关键资产时的冲突（如：别名相同）处理策略，默认值为THROW_ERROR，即抛出异常，由业务进行后续处理。 |
 | REQUIRE_ATTR_ENCRYPTED14+ | 类型为boolean。 | 可选 | 是否加密业务自定义附属信息。为true时表示业务自定义附属信息加密存储，为false时表示业务自定义附属信息不加密存储。默认值为false。 |
-| GROUP_ID<18+ | 类型为Uint8Array，长度为7-127字节。 | 可选 | 待新增的关键资产所属群组，默认新增不属于任何群组的关键资产。 |
+| GROUP_ID18+ | 类型为Uint8Array，长度为7-127字节。 | 可选 | 待新增的关键资产所属群组，默认新增不属于任何群组的关键资产。 |
 | WRAP_TYPE18+ | 类型为number，取值范围详见WrapType。 | 可选 | 关键资产支持的加密导入导出类型，默认值为NEVER，即不允许加密导入导出关键资产。 |
 
 

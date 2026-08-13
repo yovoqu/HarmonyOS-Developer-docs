@@ -1,6 +1,6 @@
 # ArkTS卡片主动刷新
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-active-refresh
 
@@ -278,6 +278,7 @@ export default class EntryFormAbility extends FormExtensionAbility {
 
     let formData = new FormDataClass();
     let formInfo: formBindingData.FormBindingData = formBindingData.createFormBindingData(formData);
+    // 更新卡片数据
     formProvider.updateForm(formId, formInfo).then(() => {
       hilog.info(DOMAIN_NUMBER, TAG, 'FormAbility updateForm success.');
     }).catch((error: BusinessError) => {
@@ -320,7 +321,7 @@ struct Index {
             let context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
             let moduleName: string = 'entry';
             let abilityName: string = 'EntryFormAbility';
-            let formName: string = 'reloadByUIAbilityCard';
+            let formName: string = 'ReloadByUIAbility';
             formProvider.reloadForms(context, moduleName, abilityName, formName).then((reloadNum: number) => {
               console.info(`reloadForms success, reload number: ${reloadNum}`);
             }).catch((error: BusinessError) => {
@@ -340,7 +341,7 @@ struct Index {
               console.error(`promise error, code: ${error.code}, message: ${error.message})`);
             });
           } catch (error) {
-            console.error(`catch error, code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message})`);
+            console.error(`catch error, code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}`);
           }
         })
     }

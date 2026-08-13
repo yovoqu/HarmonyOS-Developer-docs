@@ -1,6 +1,6 @@
 # debug打包运行没问题，release打包后项目运行异常
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-13 01:22:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-82
 
@@ -33,4 +33,4 @@ release包问题，先判断本地调试debug包时是否同样有问题，若�
 
 #### 修改建议
 1. 直接关闭混淆：通过在模块build-profile.json5文件中配置，关闭代码混淆。参考文档：[混淆配置](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-app-code-ob#section171089239254)。
-2. 不关闭混淆：开启混淆后，代码中的方法、属性或路径被混淆，但运行的时候访问的是未混淆的方法、属性或路径，可能导致功能不可用，因此需要将对应的字段配置保留选项。关于保留选项的排查场景及配置方式请参考[保留选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#保留选项)。
+2. 不关闭混淆：开启混淆后，代码中的方法、属性或路径被混淆，但运行的时候访问的是未混淆的方法、属性或路径，可能导致功能不可用，因此需要将对应的字段配置保留选项。关于保留选项的排查场景及配置方式请参考[保留选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options)。

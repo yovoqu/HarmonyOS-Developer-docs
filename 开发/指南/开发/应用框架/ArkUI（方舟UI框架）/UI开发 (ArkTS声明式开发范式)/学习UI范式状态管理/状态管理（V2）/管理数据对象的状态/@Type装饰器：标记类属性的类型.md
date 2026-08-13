@@ -1,6 +1,6 @@
 # @Type装饰器：标记类属性的类型
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-type
 
@@ -111,7 +111,7 @@ struct TestCase {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/9K_O8A4cQ0-pjR8ScDgG1A/zh-cn_image_0000002655846016.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=E2A60F8BAF0EEC785C75EEDA957A8AAFF2598AB9B02BE2163ED3681CFFD6C8FD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/4au2Iqf5S12__UGXeBTn6w/zh-cn_image_0000002674472082.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=A93BA20D26EBF769A5B459BB81B8D72CC1FA30BD1D8CD1AEF59D4F6E38B33FFB)
 
 
 

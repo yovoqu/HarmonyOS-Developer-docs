@@ -1,6 +1,6 @@
 # 如何使用template设置多个模板并解决渲染异常问题
 
-更新时间：2026-07-30 01:55:38
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-606
 
@@ -124,7 +124,7 @@ struct <span style="color: rgb(0,0,255);">RepeatPage </span><span style="color: 
 #### 背景知识
 
 - Repeat：[可复用的循环渲染](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat)，基于数组类型数据来进行循环渲染，一般与滚动容器组件配合使用。
-- [循环渲染能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat#循环渲染能力说明)：Repeat子组件由.each()和.template()属性定义，只允许包含一个子组件。
+- [循环渲染能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat#节点更新复用能力说明)：Repeat子组件由.each()和.template()属性定义，只允许包含一个子组件。
 - [each](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-repeat#each)：组件生成函数。当所有.template()的type和.templateId()返回值不匹配（即当前item不适用任何template定义的样式）时，将使用.each()处理数据项。
 - [virtualScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-repeat#virtualscroll)：Repeat开启虚拟滚动。
 - [templateId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-repeat#templateid)：为当前数据项分配template type。

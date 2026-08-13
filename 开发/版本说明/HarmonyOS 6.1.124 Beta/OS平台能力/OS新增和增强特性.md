@@ -1,6 +1,6 @@
 # OS新增和增强特性
 
-更新时间：2026-06-27 01:41:31
+更新时间：2026-08-04 06:19:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/os-new-feature-611
 
@@ -138,11 +138,11 @@ ArkTS API新增物理光圈对象定义（[API参考](https://developer.huawei.c
 - Text组件新增支持根据坐标获取最近的字符的位置信息。（[ArkTS API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#getcharacterpositionatcoordinate24)、[C API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h#oh_arkui_textlayoutmanager_getcharacterpositionatcoordinate)）
 - 新增拖拽异步通知接口，可以在拖拽的落入行为中指定采取剪切或者复制的处理方式（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drag-and-drop-h#oh_arkui_notifysuggesteddropoperation)），以及指定是否执行拖拽落入行为的动效（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drag-and-drop-h#oh_arkui_notifydisabledefaultdropanimation)）。
 - 新增onNeedSoftkeyboard回调，支持开发者配置焦点转移后不关闭拉起的软键盘。（[ArkTS API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-onneedsoftkeyboard)、[C API参考-NODE_ON_NEED_SOFTKEYBOARD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeeventtype)）
-- CanvasRenderingContext2D（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#antialias24)）和OffscreenCanvasRenderingContext2D（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#antialias24)）新增antialias属性，支持关闭文本抗锯齿功能。
+- CanvasRenderingContext2D和OffscreenCanvasRenderingContext2D新增antialias属性，支持关闭文本抗锯齿功能。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#antialias24)）
 - 分段按钮新增enableStateAnimation配置项，用于指定selectedIndexes在绑定的状态变量发生变化时是否执行系统动画。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbutton#segmentbutton-1)）
 - Tabs组件新增支持嵌套滚动能力。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#nestedscroll24)）
 - JS组件新增支持旋转表冠事件监听接口。（[API参考-ArkUI.Full](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-monitorcrownevents)、[API参考-ArkUI.Lite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-common-monitorcrownevents)）
-- 多行文本的缩略模式新增支持设置为省略行首内容（MULTILINE_START）或省略行中内容（MULTILINE_CENTER）。（[ArkTS API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#ellipsismode11)、[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_ellipsismode)）
+- 多行文本的缩略模式新增支持设置为省略行首内容（MULTILINE_START）或省略行中内容（MULTILINE_CENTER）。（[ArkTS API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#ellipsismode11)、[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-common-h#arkui_ellipsismode)）
 - 新增动态布局容器组件，支持在运行时动态切换不同的布局算法，不改变子组件的状态。（[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-dynamiclayout)）
 - 窗口管理新增支持按需销毁窗口（WindowStage）的页面内容（UIContent）。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#releaseuicontent24)）
 
@@ -223,7 +223,7 @@ ArkTS API新增物理光圈对象定义（[API参考](https://developer.huawei.c
 - 新增放通应用列表管理功能，开发者可设定特定应用不受KIA策略管控。（[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fileguard-unrestricted-app-list)、[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#addunrestrictedapplicationlist)）
 - 新增设置上位机和下位机之间的HDC鉴权密钥。（[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fileguard-set-hdc-authentication-key)、[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#sethdcauthenticationkey)）
 - 新增订阅或取消订阅打印服务启动事件。（[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fileguard-print-startup-event)、[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#onprintstartup)）
-- 新增弹框验证锁屏密码用于获取重置锁屏密码的恢复密钥。（[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/recoverykey-getkeyforresetpin)、[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-recoverykey#verifyuserbydialog)）
+- 新增弹框验证锁屏密码用于获取重置锁屏密码的恢复密钥。（[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/recoverykey-getkeyforresetpin)、[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-recoverykey#recoverykeyverifyuserbydialog)）
 
  
  

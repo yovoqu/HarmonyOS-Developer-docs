@@ -1,6 +1,6 @@
 # ArkTS卡片使用自定义字体
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-load-custom-font
 
@@ -56,4 +56,4 @@ struct loadFontSyncCard {
 #### 运行结果
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/fSgKyQ4jSGuxT1nvT95Ljw/zh-cn_image_0000002655846898.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071905Z&HW-CC-Expire=86400&HW-CC-Sign=F56C983D443BD158AC36C1B7D7EE0E2B35D1AE50C2F6C5EA0EB7F6D9BDC81002)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/Am2qLMpESImUDCwQI-iPKg/zh-cn_image_0000002674632816.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095741Z&HW-CC-Expire=86400&HW-CC-Sign=03EDCBC4B07635B6D65C2A743AC55933E311E3333FED6CAA97678B49D9ACE822)

@@ -1,6 +1,6 @@
 # OS新增和增强特性
 
-更新时间：2026-06-27 01:41:31
+更新时间：2026-08-04 06:19:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/os-new-feature-602
 
@@ -58,12 +58,12 @@ UDMF新增iWork文件格式的标准数据类型定义。详见[UTD预置列表�
 
 - 新增Picker容器组件，支持开发者自定义构造Picker选择器。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-ui-picker-component)）
 - 滚动组件相关能力增强：
-TextArea控件新增C API支持配置滚动条是否显示。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_barstate)）
+TextArea控件新增C API支持配置滚动条是否显示。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-scroll-h#arkui_barstate)）
 - 滚动组件新增支持获取内容总大小的能力。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#contentsize22)）
 - 滚动组件通用接口支持设置滚动内容区域偏移量，实现内容滚动到边缘时有留白、未滚动到边缘时有内容的效果。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#contentstartoffset22)）
-- Grid组件支持通过C API设置布局选项（例如大小规则的GridItem在Grid中占的行数和列数）（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#oh_arkui_gridlayoutoptions_create)），滚动通用属性和事件（例如，设置滚动条宽度，在[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)Attribute表中搜索“Grid从API version 22开始支持”）
+- Grid组件支持通过C API设置布局选项（例如大小规则的GridItem在Grid中占的行数和列数）（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-grid-h#oh_arkui_gridlayoutoptions_create)），滚动通用属性和事件（例如，设置滚动条宽度，在[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)Attribute表中搜索“Grid从API version 22开始支持”）
 - scrollBarColor的入参支持Resource类型，覆盖滚动组件通用接口（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#scrollbarcolor22)）、Scroll组件（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollbarcolor22)）、Grid组件（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#scrollbarcolor22)）。
-- 新增组件可见区域变化事件的回调。（[API参考-ArkTS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-visible-area-change-event#onvisibleareachange22)、[API参考-C API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#oh_arkui_visibleareaeventoptions_setmeasurefromviewport)）
+- 新增组件可见区域变化事件的回调。（[API参考-ArkTS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-visible-area-change-event#onvisibleareachange22)、[API参考-C API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-common-attributes-h#oh_arkui_visibleareaeventoptions_setmeasurefromviewport)）
 
  - 新增C API支持停止指定的Swiper节点正在执行的翻页动画。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_swiper_finishanimation)）
 - Tabs组件新增回调，支持监听Tabs组件初始化时显示首个页签的事件。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uiobserver#ontabchange22)）
@@ -144,7 +144,7 @@ TextArea控件新增C API支持配置滚动条是否显示。（[API参考](http
 
 #### Device Security Kit
 
-- 新增支持模拟点击增强检测。（[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-detectsimulatedclickriskenhanced)、[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-brid-api#detectsimulatedclickriskenhanced)）
+- 新增支持模拟点击增强检测。（[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-detectsimulatedclickriskenhanced)、[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-brid-api#businessriskintelligentdetectiondetectsimulatedclickriskenhanced)）
 - 新增支持查询和监听设备的超级隐私模式状态。（[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-superprivacymode)）
 
  

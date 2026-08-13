@@ -1,6 +1,6 @@
 # ROI视频编码
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-encoding-roi
 
@@ -147,7 +147,7 @@ Surface模式下，相机将视频帧输出到OH_NativeImage的Surface上，开�
 
 
 详细开发步骤如下：
-1. 在CMakeList.txt中链接动态库。
+1. 在CMakeLists.txt中链接动态库。
 
   
 ```cpp
@@ -299,7 +299,7 @@ void RenderThread::FlushAndCleanup(OHNativeWindowBuffer *InBuffer, int32_t fence
 **图3：编码输入参数回调接口配置ROI流程图**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/wScU9w0UTXSZl1n5tuSYtA/zh-cn_image_0000002686086663.png?HW-CC-KV=V1&HW-CC-Date=20260730T071939Z&HW-CC-Expire=86400&HW-CC-Sign=92EEE0D049FCF5A432A288CC112B7EEFEE8703777BF6E0102FF1B84E23F1ECAE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/eygVm8R3RjiuDfpgVaGjTw/zh-cn_image_0000002674633158.png?HW-CC-KV=V1&HW-CC-Date=20260813T095820Z&HW-CC-Expire=86400&HW-CC-Sign=3F7277A17C2244DF7C644E8C5281611687F18ABA3B01912F3F6F9AE897671075)
 
 
 详细开发步骤如下：
@@ -415,7 +415,7 @@ Buffer模式下，视频帧通过OH_VideoEncoder_PushInputBuffer送入编码器�
 **图4：编码输入Buffer回调接口配置ROI流程图**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/fGMAkOZ6Tam71KuyVlf0fA/zh-cn_image_0000002685926835.png?HW-CC-KV=V1&HW-CC-Date=20260730T071939Z&HW-CC-Expire=86400&HW-CC-Sign=16CA82693061767AD293FD6FF7B1318231A5B240942BD856ECA7040B761C0C23)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/oSmVMk2xQASTOCnhDZEmwA/zh-cn_image_0000002704273111.png?HW-CC-KV=V1&HW-CC-Date=20260813T095820Z&HW-CC-Expire=86400&HW-CC-Sign=49CCBAFDC94CDAD9C9356B324480253649491F22ACF971F894A2F41DDB6BF3AA)
 
 
 详细开发步骤如下：
@@ -491,18 +491,57 @@ OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "RenderThread",
 
 6. 在编码输入Buffer回调中配置ROI信息。
 
-  当编码器请求输入Buffer时，从帧队列弹出帧数据项，将像素数据拷贝到编码器Buffer中，并通过OH_AVBuffer_GetParameter获取格式后设置ROI字符串。
+  当编码器请求输入Buffer时，触发OnNeedInputBuffer回调，回调中将Buffer入队供消费线程处理。Buffer模式的消费线程从队列取出Buffer，调用FillBufferModeInput从帧队列弹出帧数据项，将像素数据拷贝到编码器Buffer中，并通过OH_AVBuffer_GetParameter获取格式后设置ROI字符串。
 
-  其中FillBufferModeInput的实现如下：
+  OnNeedInputBuffer回调将Buffer入队，供消费线程处理过程如下：
 
   
 ```text
-static void FillBufferModeInput(OH_AVCodec *codec, uint32_t index, OH_AVBuffer *buffer,
-    CodecUserData *codecUserData)
+void CodecCallback::OnNeedInputBuffer(OH_AVCodec *codec, uint32_t index, OH_AVBuffer *buffer, void *userData)
+{
+    if (userData == nullptr) {
+        return;
+    }
+    CodecUserData *codecUserData = static_cast<CodecUserData *>(userData);
+    std::unique_lock<std::mutex> lock(codecUserData->inputMutex);
+    codecUserData->inputBufferInfoQueue.emplace(index, buffer);
+    codecUserData->inputCond.notify_all();
+}
+```
+Buffer模式消费线程从队列取出Buffer并调用FillBufferModeInput填充帧数据和ROI示例如下：
+
+  
+```text
+void Recorder::VideoEncBufferInputThread()
+{
+    while (isStarted_) {
+        CHECK_AND_BREAK_LOG(isStarted_, "Work done, thread out");
+        std::unique_lock<std::mutex> lock(encContext_->inputMutex);
+        bool condRet = encContext_->inputCond.wait_for(
+            lock, std::chrono::seconds(THREAD_WAIT_TIMEOUT_SEC),
+            [this]() { return !isStarted_ || !encContext_->inputBufferInfoQueue.empty(); });
+        CHECK_AND_BREAK_LOG(isStarted_, "Work done, thread out");
+        CHECK_AND_CONTINUE_LOG(!encContext_->inputBufferInfoQueue.empty(),
+            "Buffer queue is empty, continue, cond ret: %{public}d", condRet);
+
+        CodecBufferInfo bufferInfo = encContext_->inputBufferInfoQueue.front();
+        encContext_->inputBufferInfoQueue.pop();
+        lock.unlock();
+
+        OH_AVBuffer *buffer = reinterpret_cast<OH_AVBuffer *>(bufferInfo.buffer);
+        FillBufferModeInput(bufferInfo.bufferIndex, buffer);
+    }
+}
+```
+FillBufferModeInput的实现如下：
+
+  
+```text
+void Recorder::FillBufferModeInput(uint32_t index, OH_AVBuffer *buffer)
 {
     FrameItem frameItem;
-    if (!codecUserData->frameQueue->Pop(frameItem, std::chrono::milliseconds(FRAME_QUEUE_POP_TIMEOUT_MS))) {
-        OH_VideoEncoder_PushInputBuffer(codec, index);
+    if (!encContext_->frameQueue->Pop(frameItem, std::chrono::milliseconds(FRAME_QUEUE_POP_TIMEOUT_MS))) {
+        OH_VideoEncoder_PushInputBuffer(videoEncoder_->GetCodec(), index);
         return;
     }
     uint8_t *bufferAddr = OH_AVBuffer_GetAddr(buffer);
@@ -521,19 +560,6 @@ static void FillBufferModeInput(OH_AVCodec *codec, uint32_t index, OH_AVBuffer *
             OH_AVFormat_SetStringValue(format, OH_MD_KEY_VIDEO_ENCODER_ROI_PARAMS, frameItem.roiStr.c_str());
         }
     }
-    OH_VideoEncoder_PushInputBuffer(codec, index);
+    OH_VideoEncoder_PushInputBuffer(videoEncoder_->GetCodec(), index);
 }
-
-void CodecCallback::OnNeedInputBuffer(OH_AVCodec *codec, uint32_t index, OH_AVBuffer *buffer, void *userData)
-{
-    if (userData == nullptr) {
-        return;
-    }
-    CodecUserData *codecUserData = static_cast<CodecUserData *>(userData);
-
-    // Buffer模式：用帧队列的像素数据和ROI填充编码器Buffer。
-    if (codecUserData->roiPathType == ROI_PATH_BUFFER_MODE && codecUserData->frameQueue != nullptr) {
-        FillBufferModeInput(codec, index, buffer, codecUserData);
-        return;
-    }
 ```

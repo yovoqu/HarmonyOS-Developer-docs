@@ -1,6 +1,6 @@
 # 地图如何实现添加折线显示在地点名称和图标（底图POI）上层
 
-更新时间：2026-07-30 01:03:01
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-27
 
@@ -9,14 +9,14 @@
 地图添加折线后，折线显示在了地点名称和图标（底图POI）的下层，对折线有遮挡，如何让折线显示在上层。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/TTW8dMxeTPuDBqZ-mAxbPQ/zh-cn_image_0000002658913579.png?HW-CC-KV=V1&HW-CC-Date=20260811T005611Z&HW-CC-Expire=86400&HW-CC-Sign=5B9E16D64C058D2D321E0A280B3424563FE93EB0CF9E3B24D6790F3BAB8C3E63)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/ldO74vgeSMmjTiIIQFTtAg/zh-cn_image_0000002658913579.png?HW-CC-KV=V1&HW-CC-Date=20260813T095554Z&HW-CC-Expire=86400&HW-CC-Sign=228559C499965696138C25CDB07E76E6986360C9777D32F371B4F175ECD67852)
 
  
  
 
 #### 背景知识
 
-- 开发准备：使用地图服务，需要先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#section16133115441516)。
+- 开发准备：使用地图服务，需要先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#开通地图服务)。
 - [setDisplayOrder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#setdisplayorder)：设置地图元素的显示顺序，按照从低到高排列，即后面的覆盖物会压盖前面的覆盖物。从底层到上层，默认顺序为：OVERLAY（覆盖物，包括折线、动态轨迹等）、POI（底图POI）、CUSTOM_POI（点注释、气泡）、MARKER。
 
  

@@ -1,6 +1,6 @@
 # 拍照(ArkTS)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-shooting
 
@@ -239,7 +239,7 @@ capture(captureLocation?: camera.Location): void {
 单段式拍照的体验主要由出图速度和最终图片质量衡量。因此，为满足开发者在不同场景下的差异化需求，对这两项指标的侧重也不同。例如，街头抓拍要求快速捕捉瞬间，而风景或人像拍摄则更追求极致的画质。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/FgKUU3fgTa6pDH8tb5sTjQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071940Z&HW-CC-Expire=86400&HW-CC-Sign=45734014824DF78B99AE0E69446ECF79D28422929D59E55CA9A2F6CD265C0106)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/QVpvXSH3QM-bf-2n18Wc_A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095823Z&HW-CC-Expire=86400&HW-CC-Sign=3857394F36F3398BB6622C0766E356F2CAAD74294628574322D14C523AD09D7B)
 
 
 仅单段式拍照支持设置画质优先策略。若在分段式拍照中设置画质优先策略，该设置将无效。
@@ -260,7 +260,7 @@ capture(captureLocation?: camera.Location): void {
 
 #### 如何正确设置画质优先策略
 
-为了正确的在单段式拍照中设置画质优先策略，高性能拍照功能提供了如下两个接口：
+为了正确地在单段式拍照中设置画质优先策略，高性能拍照功能提供了如下两个接口：
 
  - [isPhotoQualityPrioritizationSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photooutput#isphotoqualityprioritizationsupported21)：查询当前设备是否支持指定的画质优先策略。返回true表示支持，返回false表示不支持。在进行设置画质优先策略之前，必须先查询将要设置的画质优先策略在当前设备上是否可用。
  - [setPhotoQualityPrioritization](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photooutput#setphotoqualityprioritization21)：画质优先策略设置接口，通过该接口设置对应的画质优先策略，实现高性能拍照。

@@ -1,6 +1,6 @@
 # 使用productViewManager.loadProduct拉起的应用商店页如何在其他地方监听
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-53
 
@@ -20,7 +20,7 @@
 
 #### 解决方案
 
-[productViewManager.loadProduct](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-productviewmanager#section144826162913)接口用于展示应用详情页，下载安装目标应用。使用Callback回调，在加载应用详情页面时作为入参用于接收加载过程中的状态变化，包括以下三种状态：
+[productViewManager.loadProduct](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-productviewmanager#productviewmanagerloadproduct)接口用于展示应用详情页，下载安装目标应用。使用Callback回调，在加载应用详情页面时作为入参用于接收加载过程中的状态变化，包括以下三种状态：
  
 - onError：回调函数，接收应用详情页加载失败的错误码；
 - onAppear：回调函数，当应用详情页成功打开时回调该方法；

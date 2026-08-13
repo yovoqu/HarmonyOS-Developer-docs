@@ -1,6 +1,6 @@
 # GamePerformance
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -679,7 +679,7 @@ enum GamePerformance_ErrorCode
 | GAME_PERFORMANCE_PARAM_INVALID | 无效参数。 |
 | GAME_PERFORMANCE_INTERNAL_ERROR | 系统内部错误。 |
 | GAME_PERFORMANCE_AUTH_FAILED | 鉴权失败。 |
-| GAME_PERFORMANCE_INVALID_REQUEST | 非法请求。 |
+| GAME_PERFORMANCE_INVALID_REQUEST | 无效请求。 |
 | GAME_PERFORMANCE_PARAM_ERROR | 参数错误。 起始版本：6.0.2(22) |
  
  
@@ -2064,7 +2064,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_Init (GamePerformance_InitParamete
   
 | 类型 | 说明 |
 | --- | --- |
-| GamePerformance_ErrorCode | GAME_PERFORMANCE_SUCCESS：成功。 GAME_PERFORMANCE_PARAM_INVALID：无效参数。 GAME_PERFORMANCE_INTERNAL_ERROR：系统内部错误。 GAME_PERFORMANCE_AUTH_FAILED：认证失败。 |
+| GamePerformance_ErrorCode | GAME_PERFORMANCE_SUCCESS：成功。 GAME_PERFORMANCE_PARAM_INVALID：无效参数。 GAME_PERFORMANCE_INTERNAL_ERROR：系统内部错误。 GAME_PERFORMANCE_AUTH_FAILED：鉴权失败。 |
  
  
   
@@ -2696,7 +2696,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_RegisterThermalLevelChangedCallbac
   
 | 名称 | 描述 |
 | --- | --- |
-| types[] | 注册回调的设备性能信息类型GamePerformance_DeviceInfoType。 |
+| types | 注册回调的设备性能信息类型GamePerformance_DeviceInfoType。 |
 | size | types数组的长度。 |
 | callback | 回调函数GamePerformance_ThermalLevelChangedCallback。 |
 | userData | 用户指定数据。用户自定义任意类型，callback透传返回。 |

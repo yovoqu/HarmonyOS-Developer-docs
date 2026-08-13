@@ -1,6 +1,6 @@
 # 如何解决Tabs页签切换时的常见问题
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1072
 
@@ -30,7 +30,7 @@
 #### 背景知识
 
 - [Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)：进行内容视图切换的容器组件，每个页签对应一个内容视图。
-- Tabs组件的页面组成包含两个部分，分别是[TabContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent)和[TabBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent#tabbar9)。TabContent是内容页，TabBar是导航页签栏。图示请查阅Tabs[基本布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-tabs#基本布局)。
+- Tabs组件的页面组成包含两个部分，分别是[TabContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent)和[TabBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent#tabbar9)。TabContent是内容页，TabBar是导航页签栏。图示请查阅Tabs[基本布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-tabs#布局方式)。
 - [animationMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#animationmode12)：设置点击TabBar页签或调用TabsController的changeIndex接口时切换TabContent的动画形式，默认值为AnimationMode.CONTENT_FIRST。
 - [onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#onchange)：Tab页签切换后触发的事件。
 

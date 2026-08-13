@@ -1,6 +1,6 @@
 # CA证书开发指导
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/certmanager-ca-certs-guidelines
 
@@ -26,7 +26,7 @@ Device Certificate Kit的CA证书管理功能包含如下能力：
  
 - 系统CA证书管理：由操作系统预安装的CA证书，包括国密算法（SM算法）和国际算法（RSA和ECC算法）的CA证书。
 
-  只有通过[《华为根证书计划》](https://www.huawei.com/cn/root-certification-program)审核的CA证书才能预安装到鸿蒙系统中。
+  只有通过[《华为根证书计划》](https://www.huawei.com/cn/root-certification-program)审核的CA证书才能预安装到HarmonyOS系统中。
 
   系统CA证书包含了业界常用的商业CA证书，可以覆盖绝大部分互联网应用和网站的证书链校验需求。
 

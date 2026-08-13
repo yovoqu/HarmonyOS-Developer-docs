@@ -1,6 +1,6 @@
 # @ohos.hiviewdfx.hiAppEvent (应用事件打点)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -712,7 +712,7 @@ let eventPkg: hiAppEvent.AppEventPackage | null = holder4.takeNext();
 
 write(info: AppEventInfo, callback: AsyncCallback&lt;void&gt;): void
 
-应用事件打点方法，将AppEventInfo类型的事件进行存储，使用callback方式作为异步回调。通过此接口写入的事件对象是开发者自定义的对象，为了避免与系统事件产生冲突混淆，不建议写入系统事件（[Event](#hiappeventevent)中定义的系统事件名称常量）。此接口写入的事件可通过订阅事件观察者（[addWatcher](#hiappeventaddwatcher)）进行订阅。
+应用事件打点方法，将AppEventInfo类型的事件进行存储，使用callback方式作为异步回调。通过此接口写入的事件对象是开发者自定义的对象，为了避免与系统事件产生冲突混淆，不建议写入系统事件（[Event](#event)中定义的系统事件名称常量）。此接口写入的事件可通过订阅事件观察者（[addWatcher](#hiappeventaddwatcher)）进行订阅。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -780,7 +780,7 @@ hiAppEvent.write({
 
 write(info: AppEventInfo): Promise&lt;void&gt;
 
-应用事件打点方法，将AppEventInfo类型的事件进行存储，使用Promise方式作为异步回调。通过此接口写入的事件对象是开发者自定义的对象，为了避免与系统事件产生冲突混淆，不建议写入系统事件（[Event](#hiappeventevent)中定义的系统事件名称常量）。此接口写入的事件可通过订阅事件观察者（[addWatcher](#hiappeventaddwatcher)）进行处理。
+应用事件打点方法，将AppEventInfo类型的事件进行存储，使用Promise方式作为异步回调。通过此接口写入的事件对象是开发者自定义的对象，为了避免与系统事件产生冲突混淆，不建议写入系统事件（[Event](#event)中定义的系统事件名称常量）。此接口写入的事件可通过订阅事件观察者（[addWatcher](#hiappeventaddwatcher)）进行处理。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1323,7 +1323,7 @@ hiAppEvent.configure(config2);
 提供CPU高负载事件配置策略的定义。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/k6NHIX89SCCSGMm_sa3TqA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071646Z&HW-CC-Expire=86400&HW-CC-Sign=80C88C9A87FAD69AEE4215E65A7DAABAA8E36BC13E21CBAD17355CA8EE8262D8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/tlNdWnjBRDyUD4RgyxGZ3Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095516Z&HW-CC-Expire=86400&HW-CC-Sign=DE49D576EBA7DF0CDA277A885A9C7923E3AA636354596F37409F825CCFCC2204)
 
 
 该接口被调用后，会将设置值持久化。后续重复调用该接口时，若不设置对应参数，则取上一次系统取用的值。
@@ -1504,7 +1504,7 @@ type ParamType = number | string | boolean | Array&lt;string&gt;
 
 
 
-#### hiAppEvent.domain11+
+#### domain11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1527,7 +1527,7 @@ type ParamType = number | string | boolean | Array&lt;string&gt;
 
 
 
-#### hiAppEvent.event
+#### event
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1564,7 +1564,7 @@ type ParamType = number | string | boolean | Array&lt;string&gt;
 
 
 
-#### hiAppEvent.param
+#### param
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

@@ -1,6 +1,6 @@
 # 如何实现基于dialogContent的自定义弹窗的双向数据绑定
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1154
 
@@ -19,7 +19,7 @@
 - [openCustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#opencustomdialog12)：创建并弹出dialogContent对应的自定义弹窗，该方法创建弹窗的方式有两种，一种是通过ComponentContent的方式创建弹窗，一种是通过builder的方式创建弹窗。
 - [update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent#update)：该接口属于ComponentContent自带的方法，用于更新通过ComponentContent创建的弹窗。
 - [bindSheet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#bindsheet)：给组件绑定半模态页面，点击后显示模态页面。
-- [@Builder装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder#builder)：ArkUI提供轻量的UI元素复用机制@Builder，其内部UI结构固定，仅与使用方进行数据传递。开发者可将重复使用的UI元素抽象成方法，在build方法中调用。@Builder装饰的函数也称为“自定义构建函数”。
+- [@Builder装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)：ArkUI提供轻量的UI元素复用机制@Builder，其内部UI结构固定，仅与使用方进行数据传递。开发者可将重复使用的UI元素抽象成方法，在build方法中调用。@Builder装饰的函数也称为“自定义构建函数”。
 - [自定义弹窗 (CustomDialog)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontroller)：通过CustomDialogController类显示自定义弹窗。
 
  
@@ -272,7 +272,7 @@ struct SceneOneOptionTwo {
 场景一实现效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/5NxiSQbJRrOxRPQuY_Fauw/zh-cn_image_0000002628569612.png?HW-CC-KV=V1&HW-CC-Date=20260811T005809Z&HW-CC-Expire=86400&HW-CC-Sign=A548949D18A9989AD6EC32AA8A56EADD8CD7C719A52DB32CDF7E968DB8AC7018)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/hMyKw1IbTkKqvstB6hvcJw/zh-cn_image_0000002628569612.png?HW-CC-KV=V1&HW-CC-Date=20260813T095603Z&HW-CC-Expire=86400&HW-CC-Sign=15DE719CE5DEDD903E453C8E5454E03161947E49E028542A7DB8DBB2AB4D5C8E)
 
  - 场景二：使用bindSheet时，如何实现弹窗和页面间的双向数据绑定？该场景下于场景一中的方案二基本一致，只需要注意builder的使用传递规则即可，完整示例代码如下：
 
@@ -340,7 +340,7 @@ struct SceneTwo {
  场景二实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/iibnXt-WRaKnlzMS2ywD_g/zh-cn_image_0000002628409712.png?HW-CC-KV=V1&HW-CC-Date=20260811T005809Z&HW-CC-Expire=86400&HW-CC-Sign=19E9C93AA8DF3DE7F9972CEBCB4F2EE5C0C82D5F937CCCBF736F8A5C209ABC1E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/LwNZDpInQlasuF2G2dbfEA/zh-cn_image_0000002628409712.png?HW-CC-KV=V1&HW-CC-Date=20260813T095603Z&HW-CC-Expire=86400&HW-CC-Sign=1F02BAEC2A3FF8B60635F61099650A9DF57357EAD20E5834EAE1E2F3AE89A880)
 
 - 场景三：使用@CustomDialog时，如何实现弹窗和页面间的双向数据绑定？详情可参考官方文档：[示例6（使用@Link和@Consume监听数据变化）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#示例6使用link和consume监听数据变化)。
 

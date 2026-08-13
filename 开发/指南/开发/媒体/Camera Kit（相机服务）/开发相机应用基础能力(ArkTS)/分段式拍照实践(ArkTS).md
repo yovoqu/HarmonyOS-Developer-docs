@@ -1,6 +1,6 @@
 # 分段式拍照实践(ArkTS)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-deferred-capture-case
 
@@ -169,7 +169,7 @@ async function deferredCaptureCase(context: Context, surfaceId: string): Promise
     console.error('createOutput photoProfilesArray == null || undefined');
   }
 
-  // 创建预览输出流,其中参数surfaceId参考上文XComponent组件，预览流为XComponent组件提供的surface。
+  // 创建预览输出流，其中参数surfaceId参考上文XComponent组件，预览流为XComponent组件提供的surface。
   try {
     previewOutput = cameraManager.createPreviewOutput(previewProfilesArray[0], surfaceId);
   } catch (error) {

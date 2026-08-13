@@ -1,6 +1,6 @@
 # HDR Vivid视频播放与录制开发实践
 
-更新时间：2026-03-19 08:43:01
+更新时间：2026-08-10 06:55:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-hdrvivid
 
@@ -419,7 +419,7 @@ async startRecord() {
 应用通过调用AVCodec实现视频录制时，先通过Camera接口调用相机服务，通过视频HDI捕获图像数据送显至应用，同时送至AVCodec的编码模块将图像数据编码后封装至文件中，实现视频录制功能。流程图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/AZ1IgH2ESXeXQ8Bvs76uKw/zh-cn_image_0000002541848601.png?HW-CC-KV=V1&HW-CC-Date=20260528T024744Z&HW-CC-Expire=86400&HW-CC-Sign=C8FF08A79DB4F079167675926726E9B9774E2919050E1BCF99AC9E7C8C6D712E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/CENLsOHMSlGcJ-iYkqz-bg/zh-cn_image_0000002541848601.png?HW-CC-KV=V1&HW-CC-Date=20260813T095912Z&HW-CC-Expire=86400&HW-CC-Sign=8D5078143F83D67C90A320CFB20BFDC1B7D9F6C4DD76A8166B4880D6937CF82A)
 
  
 使用[Interface (CameraManager)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager)+AVCodec录制HDR Vivid视频，与录制普通视频的区别主要在于：
@@ -723,7 +723,7 @@ int32_t VideoEncoder::Start() {
 
 方案1：可以参考文档使用[hdrBrightness()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#hdrbrightness20)实现用于调整组件播放HDR视频的亮度。
  
-方案2：参考《[基于AVPlayer播放长视频实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-long-video)》中[亮度控制](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-long-video#section512331617222)章节。
+方案2：参考《[基于AVPlayer播放长视频实践](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avplayer-long-video)》中[亮度控制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avplayer-long-video#亮度控制)章节。
  
  
 

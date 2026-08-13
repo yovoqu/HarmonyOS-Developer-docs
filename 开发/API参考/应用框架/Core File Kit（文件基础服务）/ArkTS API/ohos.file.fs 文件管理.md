@@ -1,6 +1,6 @@
 # @ohos.file.fs (文件管理)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -364,7 +364,7 @@ try {
   } else {
     console.info(`Succeeded in checking file, file does not exist.`);
   }
-} catch(error) {
+} catch (error) {
   let err: BusinessError = error as BusinessError;
   console.error(`Failed to accessSync. Code: ${err.code}, message: ${err.message}`);
 }
@@ -417,7 +417,7 @@ try {
   } else {
     console.info(`Succeeded in checking file, file does not exist.`);
   }
-} catch(error) {
+} catch (error) {
   let err: BusinessError = error as BusinessError;
   console.error(`Failed to accessSync. Code: ${err.code}, message: ${err.message}`);
 }
@@ -604,7 +604,7 @@ try {
   }).catch((err: BusinessError)=>{
     console.error(`Failed to copy. Code: ${err.code}, message: ${err.message}`);
   })
-} catch(err) {
+} catch (err) {
   console.error(`Failed to copy.Code: ${err.code}, message: ${err.message}`);
 }
 ```
@@ -658,7 +658,7 @@ try {
     }
     console.info("Succeeded in copying.");
   })
-} catch(err) {
+} catch (err) {
   console.error(`Failed to copy. Code: ${err.code}, message: ${err.message}`);
 }
 ```
@@ -719,7 +719,7 @@ try {
     }
     console.info("Succeeded in copying.");
   })
-} catch(err) {
+} catch (err) {
   console.error(`Failed to copy. Code: ${err.code}, message: ${err.message}`);
 }
 ```
@@ -3172,7 +3172,7 @@ lstat(path: string): Promise&lt;Stat&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| path | string | 是 | 文件的应用沙箱路径path或URI。 说明：从API version 22开始，支持传入URI。 |
+| path | string | 是 | 文件的应用沙箱路径或URI。 说明：从API version 22开始，支持传入URI。 |
 
 
 **返回值：**
@@ -3215,7 +3215,7 @@ lstat(path: string, callback: AsyncCallback&lt;Stat&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| path | string | 是 | 文件的应用沙箱路径path或URI。 说明：从API version 22开始，支持传入URI。 |
+| path | string | 是 | 文件的应用沙箱路径或URI。 说明：从API version 22开始，支持传入URI。 |
 | callback | AsyncCallback&lt;Stat&gt; | 是 | 回调函数，返回Stat对象。 |
 
 
@@ -3254,7 +3254,7 @@ lstatSync(path: string): Stat
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| path | string | 是 | 文件的应用沙箱路径path或URI。 说明：从API version 22开始，支持传入URI。 |
+| path | string | 是 | 文件的应用沙箱路径或URI。 说明：从API version 22开始，支持传入URI。 |
 
 
 **返回值：**
@@ -4893,7 +4893,7 @@ fileIo.closeSync(file);
 
 utimes(path: string, mtime: number): void
 
-更改文件上次修改该文件的时间。
+更改文件的上次修改时间。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
 
@@ -4917,54 +4917,6 @@ let file = fileIo.openSync(filePath, fileIo.OpenMode.CREATE | fileIo.OpenMode.RE
 fileIo.writeSync(file.fd, 'test data');
 fileIo.closeSync(file);
 fileIo.utimes(filePath, new Date().getTime());
-```
-
-
-
-#### fileIo.createRandomAccessFile10+
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-createRandomAccessFile(file: string | File, mode?: number): Promise&lt;RandomAccessFile&gt;
-
-基于文件路径或文件对象创建RandomAccessFile对象。使用Promise异步回调。
-
-**系统能力**：SystemCapability.FileManagement.File.FileIO
-
-**参数：**
-
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| file | string \| File | 是 | 文件的应用沙箱路径或已打开的File对象。 |
-| mode | number | 否 | 创建文件RandomAccessFile对象的OpenMode，仅当传入文件沙箱路径时生效，必须指定如下选项中的一个，默认以只读方式创建： - OpenMode.READ_ONLY(0o0)：只读创建。 - OpenMode.WRITE_ONLY(0o1)：只写创建。 - OpenMode.READ_WRITE(0o2)：读写创建。 给定如下功能选项，以按位或的方式追加，默认不给定任何额外选项： - OpenMode.CREATE(0o100)：若文件不存在，则创建文件。 - OpenMode.TRUNC(0o1000)：如果RandomAccessFile对象存在且对应文件具有写权限，则将其长度裁剪为零。 - OpenMode.APPEND(0o2000)：以追加方式打开，后续写将追加到RandomAccessFile对象末尾。 - OpenMode.NONBLOCK(0o4000)：如果path指向FIFO、块特殊文件或字符特殊文件，则本次打开及后续 IO 进行非阻塞操作。 - OpenMode.DIR(0o200000)：如果path未指向目录，则出错。不允许附加写权限。 - OpenMode.NOFOLLOW(0o400000)：如果path指向符号链接，则出错。 - OpenMode.SYNC(0o4010000)：以同步IO的方式创建RandomAccessFile对象。 |
-
-
-**返回值：**
-
-| 类型 | 说明 |
-| --- | --- |
-| Promise&lt;RandomAccessFile&gt; | Promise对象，返回RandomAccessFile对象的结果。 |
-
-
-**错误码：**
-
-接口抛出错误码的详细介绍请参见[基础文件IO错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement#基础文件io错误码)。
-
-**示例：**
-
-```text
-import { BusinessError } from '@kit.BasicServicesKit';
-
-let filePath = pathDir + "/test.txt";
-let file = fileIo.openSync(filePath, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
-fileIo.createRandomAccessFile(file).then((randomAccessFile: fileIo.RandomAccessFile) => {
-  console.info(`Succeeded in creating randomaccessfile, fd: ${randomAccessFile.fd}`);
-  randomAccessFile.close();
-}).catch((err: BusinessError) => {
-  console.error(`Failed to create randomaccessfile. Code: ${err.code}, message: ${err.message}`);
-}).finally(() => {
-  fileIo.closeSync(file);
-});
 ```
 
 
@@ -5054,7 +5006,7 @@ fileIo.createRandomAccessFile(file, fileIo.OpenMode.READ_ONLY, (err: BusinessErr
 
 
 
-#### fileIo.createRandomAccessFile12+
+#### fileIo.createRandomAccessFile10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5070,7 +5022,7 @@ createRandomAccessFile(file: string | File, mode?: number, options?: RandomAcces
 | --- | --- | --- | --- |
 | file | string \| File | 是 | 文件的应用沙箱路径或已打开的File对象。 |
 | mode | number | 否 | 创建文件RandomAccessFile对象的OpenMode，仅当传入文件沙箱路径时生效，必须指定如下选项中的一个，默认以只读方式创建： - OpenMode.READ_ONLY(0o0)：只读创建。 - OpenMode.WRITE_ONLY(0o1)：只写创建。 - OpenMode.READ_WRITE(0o2)：读写创建。 给定如下功能选项，以按位或的方式追加，默认不给定任何额外选项： - OpenMode.CREATE(0o100)：若文件不存在，则创建文件。 - OpenMode.TRUNC(0o1000)：如果RandomAccessFile对象存在且对应文件具有写权限，则将其长度裁剪为零。 - OpenMode.APPEND(0o2000)：以追加方式打开，后续写将追加到RandomAccessFile对象末尾。 - OpenMode.NONBLOCK(0o4000)：如果path指向FIFO、块特殊文件或字符特殊文件，则本次打开及后续 IO 进行非阻塞操作。 - OpenMode.DIR(0o200000)：如果path不指向目录，则出错。不允许附加写权限。 - OpenMode.NOFOLLOW(0o400000)：如果path指向符号链接，则出错。 - OpenMode.SYNC(0o4010000)：以同步IO的方式创建RandomAccessFile对象。 |
-| options | RandomAccessFileOptions | 否 | 支持如下选项： - start，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。 - end，number类型，表示期望读取结束的位置，单位为Byte。可选，默认文件末尾。 此选项仅对getreadstream及getwritestream获取的文件流对象生效。 |
+| options12+ | RandomAccessFileOptions | 否 | 支持如下选项： - start，number类型，表示文件的起始偏移位置，单位为Byte。可选，默认文件当前位置。 - end，number类型，表示文件的结束偏移位置，单位为Byte。可选，默认文件末尾。 此选项仅对getreadstream及getwritestream获取的文件流对象生效。 |
 
 
 **返回值：**
@@ -5104,46 +5056,6 @@ fileIo.createRandomAccessFile(filePath, fileIo.OpenMode.CREATE | fileIo.OpenMode
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-createRandomAccessFileSync(file: string | File, mode?: number): RandomAccessFile
-
-基于文件路径或文件对象创建RandomAccessFile对象。
-
-**系统能力**：SystemCapability.FileManagement.File.FileIO
-
-**参数：**
-
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| file | string \| File | 是 | 文件的应用沙箱路径或已打开的File对象。 |
-| mode | number | 否 | 创建文件RandomAccessFile对象的OpenMode，仅当传入文件沙箱路径时生效，默认以只读方式创建： - OpenMode.READ_ONLY(0o0)：只读创建。 - OpenMode.WRITE_ONLY(0o1)：只写创建。 - OpenMode.READ_WRITE(0o2)：读写创建。 给定如下功能选项，以按位或的方式追加，默认不给定任何额外选项： - OpenMode.CREATE(0o100)：若文件不存在，则创建文件。 - OpenMode.TRUNC(0o1000)：如果RandomAccessFile对象存在且对应文件具有写权限，则将其长度裁剪为零。 - OpenMode.APPEND(0o2000)：以追加方式打开，后续写将追加到RandomAccessFile对象末尾。 - OpenMode.NONBLOCK(0o4000)：如果path指向FIFO、块特殊文件或字符特殊文件，则本次打开及后续 IO 进行非阻塞操作。 - OpenMode.DIR(0o200000)：如果path不指向目录，则出错。不允许附加写权限。 - OpenMode.NOFOLLOW(0o400000)：如果path指向符号链接，则出错。 - OpenMode.SYNC(0o4010000)：以同步IO的方式创建RandomAccessFile对象。 |
-
-
-**返回值：**
-
-| 类型 | 说明 |
-| --- | --- |
-| RandomAccessFile | 返回RandomAccessFile对象。 |
-
-
-**错误码：**
-
-接口抛出错误码的详细介绍请参见[基础文件IO错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement#基础文件io错误码)。
-
-**示例：**
-
-```text
-let filePath = pathDir + "/test.txt";
-let file = fileIo.openSync(filePath, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
-let randomAccessFile = fileIo.createRandomAccessFileSync(file);
-randomAccessFile.close();
-```
-
-
-
-#### fileIo.createRandomAccessFileSync12+
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 createRandomAccessFileSync(file: string | File, mode?: number, options?: RandomAccessFileOptions): RandomAccessFile
 
 基于文件路径或文件对象创建RandomAccessFile对象。
@@ -5156,7 +5068,7 @@ createRandomAccessFileSync(file: string | File, mode?: number, options?: RandomA
 | --- | --- | --- | --- |
 | file | string \| File | 是 | 文件的应用沙箱路径或已打开的File对象。 |
 | mode | number | 否 | 创建文件RandomAccessFile对象的OpenMode，仅当传入文件沙箱路径时生效，必须指定如下选项中的一个，默认以只读方式创建： - OpenMode.READ_ONLY(0o0)：只读创建。 - OpenMode.WRITE_ONLY(0o1)：只写创建。 - OpenMode.READ_WRITE(0o2)：读写创建。 给定如下功能选项，以按位或的方式追加，默认不给定任何额外选项： - OpenMode.CREATE(0o100)：若文件不存在，则创建文件。 - OpenMode.TRUNC(0o1000)：如果RandomAccessFile对象存在且对应文件具有写权限，则将其长度裁剪为零。 - OpenMode.APPEND(0o2000)：以追加方式打开，后续写将追加到RandomAccessFile对象末尾。 - OpenMode.NONBLOCK(0o4000)：如果path指向FIFO、块特殊文件或字符特殊文件，则本次打开及后续 IO 进行非阻塞操作。 - OpenMode.DIR(0o200000)：如果path不指向目录，则出错。不允许附加写权限。 - OpenMode.NOFOLLOW(0o400000)：如果path指向符号链接，则出错。 - OpenMode.SYNC(0o4010000)：以同步IO的方式创建RandomAccessFile对象。 |
-| options | RandomAccessFileOptions | 否 | 支持如下选项： - start，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。 - end，number类型，表示期望读取结束的位置，单位为Byte。可选，默认文件末尾。 此选项仅对getreadstream及getwritestream获取的文件流对象生效。 |
+| options12+ | RandomAccessFileOptions | 否 | 支持如下选项： - start，number类型，表示文件的起始偏移位置，单位为Byte。可选，默认文件当前位置。 - end，number类型，表示文件的结束偏移位置，单位为Byte。可选，默认文件末尾。 此选项仅对getreadstream及getwritestream获取的文件流对象生效。 |
 
 
 **返回值：**
@@ -5362,7 +5274,7 @@ fileIo.fdopenStream(file.fd, "r+").then((stream: fileIo.Stream) => {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/q0fO5jK1RNi2DL5mPifRhw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012020Z&HW-CC-Expire=86400&HW-CC-Sign=25123458290CAC277B308AA36E4DB8520656D617C95C8F4F286B7EAE530075C5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/7Nptqb45TjW4if-EOKMIlg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095501Z&HW-CC-Expire=86400&HW-CC-Sign=A0A13186F1461344DE8B1A13CA4FCC520141A8B3A5DB852A43DC6F90FC245DBD)
 
 
 使用文件描述符创建的文件流时，文件描述符的生命周期将由文件流对象管理。调用文件流的close()函数后，初始的文件描述符也会被关闭。
@@ -5416,7 +5328,7 @@ fileIo.fdopenStream(file.fd, "r+", (err: BusinessError, stream: fileIo.Stream) =
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/XD4joRYXT-qrUDE1EgIrdQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012020Z&HW-CC-Expire=86400&HW-CC-Sign=3A4E80001791741ACFC45DD5E08CC9C6B887BF077B9EB68EBAB9686F54ABF4BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/7fZZjOY6SvGehUtnT3RiEw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095501Z&HW-CC-Expire=86400&HW-CC-Sign=88DA3052B212BBDF0D890F8FBBED89B1FB911DD8ADD6AB466B9BFA4C67EFF8FC)
 
 
 使用文件描述符创建的文件流，文件描述符的生命周期也交由文件流对象，在调用文件流的close()函数后，初始的文件描述符也会被关闭。
@@ -5466,7 +5378,7 @@ stream.closeSync();
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/luA2sOqSTJO5I-oUvH_BJw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012020Z&HW-CC-Expire=86400&HW-CC-Sign=15FFC05AC335BC3F17EDDE230138A08CE3624E2A3C14C678BDD8C8213993ABF6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/izC-6CJmRLe8faliRz-3NQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095501Z&HW-CC-Expire=86400&HW-CC-Sign=E1BBFD63682F0E4902E05288FBC34423EBE1FDEC6A314DB0C0F12A367F1DAD60)
 
 
 使用文件描述符创建的文件流，文件描述符的生命周期也交由文件流对象，在调用文件流的close()函数后，初始的文件描述符也会被关闭。
@@ -5963,9 +5875,9 @@ let filePath = pathDir + "/test.txt";
 let file = fileIo.openSync(filePath, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);
 let watcher = fileIo.createWatcher(filePath, 0x2 | 0x10, (watchEvent: WatchEvent) => {
   if (watchEvent.event == 0x2) {
-    console.info(watchEvent.fileName + 'was modified');
+    console.info(watchEvent.fileName + ' was modified');
   } else if (watchEvent.event == 0x10) {
-    console.info(watchEvent.fileName + 'was closed');
+    console.info(watchEvent.fileName + ' was closed');
   }
 });
 watcher.start();
@@ -6157,13 +6069,17 @@ copySignal.onCancel();
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
+type ProgressListener = (progress: Progress) => void
+
 拷贝进度监听。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
 
-| 类型 | 说明 |
-| --- | --- |
-| (progress: Progress) => void | 拷贝进度监听 |
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| progress | Progress | 是 | 拷贝进度监听 |
 
 
 **示例：**
@@ -8082,7 +7998,7 @@ fileIo.closeSync(file);
 
 
 
-#### fileIo.DfsListeners12+
+#### DfsListeners12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8943,7 +8859,7 @@ filter(name: string): boolean
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| offset | number | 否 | 是 | 期望读取文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从偏移指针（filePointer）开始读。 |
+| offset | number | 否 | 是 | 期望读取文件位置，单位为Byte。可选，默认从当前位置开始读。 |
 | length | number | 否 | 是 | 期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。 |
 
 
@@ -8976,7 +8892,7 @@ filter(name: string): boolean
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| offset | number | 否 | 是 | 期望写入文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从偏移指针（filePointer）开始写。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| offset | number | 否 | 是 | 期望写入文件位置，单位为Byte。可选，默认从当前位置开始写。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | length | number | 否 | 是 | 期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | encoding | string | 否 | 是 | 当数据是string类型时有效，表示数据的编码方式。默认 'utf-8'。仅支持 'utf-8'。 |
 
@@ -9201,8 +9117,8 @@ ws.close();
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| start | number | 否 | 是 | 表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。 |
-| end | number | 否 | 是 | 表示期望读取结束的位置，单位为Byte。可选，默认文件末尾。 |
+| start | number | 否 | 是 | 表示文件的起始偏移位置，单位为Byte。可选，默认从当前位置开始读。 |
+| end | number | 否 | 是 | 表示文件的结束偏移位置，单位为Byte。可选，默认文件末尾。 |
 
 
 

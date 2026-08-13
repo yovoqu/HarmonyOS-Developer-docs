@@ -1,6 +1,6 @@
 # AppGallery Kit简介
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-introduction
 
@@ -36,13 +36,13 @@ AppGallery Kit（应用市场服务）提供应用市场业务的对外开放能
 | 能力 | 支持设备 |
 | --- | --- |
 | 数字商品服务 | 支持的设备。 |
-| 应用市场推荐 | 支持Phone、PC/2in1、Tablet、TV、Car。 |
-| 产品特性按需分发 | 支持Phone、PC/2in1、Tablet、TV、Car。 |
-| 生态查询服务 | 支持Phone、PC/2in1、Tablet、TV、Car。 |
-| 应用市场更新功能 | 支持Phone、PC/2in1、Tablet、Wearable、TV、Car。 |
-| 应用归因服务 | 支持Phone、PC/2in1、Tablet、TV、Car。 |
-| 隐私管理服务 | 支持Phone、PC/2in1、Tablet、TV、Car。 |
-| 图标管理服务 | 支持Phone、PC/2in1、Tablet、Wearable、TV、Car。 |
+| 应用市场推荐 | 支持Phone、PC/2in1、Tablet、TV。 |
+| 产品特性按需分发 | 支持Phone、PC/2in1、Tablet、TV。 |
+| 生态查询服务 | 支持Phone、PC/2in1、Tablet、TV。 |
+| 应用市场更新功能 | 支持Phone、PC/2in1、Tablet、Wearable、TV。 |
+| 应用归因服务 | 支持Phone、PC/2in1、Tablet、TV。 |
+| 隐私管理服务 | 支持Phone、PC/2in1、Tablet、TV。 |
+| 图标管理服务 | 支持Phone、PC/2in1、Tablet、Wearable、TV。 |
 | 应用评论服务 | 支持Phone、PC/2in1、Tablet。 |
  
  

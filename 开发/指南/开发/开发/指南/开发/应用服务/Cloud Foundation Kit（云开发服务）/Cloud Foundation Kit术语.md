@@ -1,6 +1,6 @@
 # Cloud Foundation Kit术语
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-glossary
 
@@ -8,19 +8,19 @@
 
   
 
-#### Calculate Query；算术计算查询
-
-对查询结果中的字段进行算术计算（求和、平均值、最大值等）的查询方式。
- 
-  
-
-#### Cloud Database；云数据库
+#### Cloud DB；云数据库
 
 Cloud Foundation Kit提供的云端数据库服务，提供数据存储和查询能力，适用于需要实时数据协作的场景。
  
   
 
-#### Cloud Function；云函数
+#### Cloud DB Zone；数据库存储区
+
+云数据库中的逻辑存储单元，用于对数据进行分区管理。
+ 
+  
+
+#### Cloud Functions；云函数
 
 Cloud Foundation Kit提供的云端函数Serverless计算服务，开发者只需聚焦业务逻辑，使用函数开发核心业务代码并上传到云端，云端接管函数的运行并保证资源的高可用与伸缩。
  
@@ -34,18 +34,6 @@ Cloud Foundation Kit提供的云端文件存储服务，支持上传、下载、
 
 #### D
 
-  
-
-#### Database Object；数据库对象
-
-云数据库中对象类型的基类，每一个对象，都是一条完整的数据记录。开发者定义的实体类需继承此类来实现数据操作能力。
- 
-  
-
-#### Database Zone；数据库存储区
-
-云数据库中的逻辑存储单元，用于对数据进行分区管理，一个云数据库实例最多支持创建4个存储区。
- 
   
 
 #### Debug Credential；调试凭据

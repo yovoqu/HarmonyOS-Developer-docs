@@ -1,6 +1,6 @@
 # Interface (AVPlayer)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -494,7 +494,7 @@ removePlaybackMediaSource(id: string): Promise&lt;void&gt;
 从播放器的播放列表中移除指定的媒体源。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/0Zh11XkMSI6Yndg7sRA1vg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071708Z&HW-CC-Expire=86400&HW-CC-Sign=C3FC3166B649A9DD51C2EDD9DA0147EF4954E6139EAFD59FD9AC6829C2F65559)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/72_ytRobRRiudLVjq4gLwg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095525Z&HW-CC-Expire=86400&HW-CC-Sign=04A625566188DC590728D7B949C605DC64B118F259A4566D0435CF540D613292)
 
 
  - 如果该ID在当前播放列表中不存在，将返回错误码。
@@ -2113,7 +2113,7 @@ seek(timeMs: number, mode?:SeekMode): void
 跳转到指定播放位置，只能在prepared/playing/paused/completed状态调用，可以通过[on('seekDone')](#onseekdone9)事件确认是否生效。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/z8yZ3mWiRwCNQPLT-EK0vA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071708Z&HW-CC-Expire=86400&HW-CC-Sign=A8FFA44830E8ED2B5A30CF898540303295E23AE85DC01C6D1765CB4284DAACE5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/LdCM-FhXQKO2fZbJ0e21SQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095525Z&HW-CC-Expire=86400&HW-CC-Sign=503DB0E031546314CC2600AA6BC2CC1F3963FE3713AC2B942A6E876F3F018D7F)
 
 
 从API版本26.0.0开始，直播场景支持seek。
@@ -2268,7 +2268,7 @@ setSpeed(speed: PlaybackSpeed): void
 setSpeed使用固定的枚举倍速值，适合标准倍速场景；setPlaybackRate支持任意倍速值且取值范围更大，适合自定义倍速场景。两者功能相同，建议根据API版本和精度需求选择：API version 9-19，使用setSpeed；API version 20及以上且需要精确倍速控制，使用setPlaybackRate。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/b-IhYwmZSwO0yRhtn8a5qg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071708Z&HW-CC-Expire=86400&HW-CC-Sign=A8B0659A275871AD366114201E84419D415F07F73CF4D94E131028BC0C02DD22)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/7wFUoQzuTlKH-nq0rlTLRw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095525Z&HW-CC-Expire=86400&HW-CC-Sign=EE709C4E3A93F9FD6545029574C34B31F4166AFD887262EDEACF9C3DAFBACD8E)
 
 
 直播场景不支持setSpeed。
@@ -2373,7 +2373,7 @@ setPlaybackRate(rate: number): void
 设置倍速模式。只能在'prepared' | 'playing' | 'paused' | 'completed'状态下调用，在API版本26.0.0及以上的取值范围是[0.125, 8.0]，API版本26.0.0以下的取值范围是[0.125, 4.0]，可以通过[playbackRateDone](#onplaybackratedone20)事件确认是否生效。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/B7su3aKGSA-1221HqqtEMw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071708Z&HW-CC-Expire=86400&HW-CC-Sign=7746A8EA4743E8692CEDC75EFA8461A56DA6AD6AC99171130F75EDFCF26A300D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/JQoOuPXzR6Sr4a_ucGYmRw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095525Z&HW-CC-Expire=86400&HW-CC-Sign=08E1ADF0D8E5005BBA60FE19B3A34C2C440B9DD39247B89C1271515891425197)
 
 
 直播场景不支持setPlaybackRate。
@@ -2398,7 +2398,7 @@ setPlaybackRate(rate: number): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400108 | The parameter check failed, parameter value out of range. |
-| 5400102 | Operation not allowed，if invalid state or live stream. |
+| 5400102 | Operation not allowed, if invalid state or live stream. |
 
 
 **示例：**
@@ -3088,7 +3088,7 @@ on(type: 'timeUpdate', callback: Callback&lt;number&gt;): void
 监听资源播放当前时间，单位为毫秒（ms），用于刷新进度条当前位置，默认间隔100ms时间上报，因用户操作（seek）产生的时间变化会立刻上报。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/pVSS4mUvSh21yDKYNbBBBQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071708Z&HW-CC-Expire=86400&HW-CC-Sign=14E96F4B7F63D32A975E5750FABA466BB3816BC7F33B4224178F58B30524ACDA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/e6onGf2nRtqOLl4h9s8gwQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095525Z&HW-CC-Expire=86400&HW-CC-Sign=BCF4A10A81F254DE25FE2E4B0B3A4F193029E3E584FD8311ADDB542DC8CA7D18)
 
 
  - 直播场景不支持timeUpdate上报。
@@ -3202,7 +3202,7 @@ on(type: 'durationUpdate', callback: Callback&lt;number&gt;): void
 监听资源播放资源的时长，单位为毫秒（ms），用于刷新进度条长度，默认只在prepared上报一次，同时允许一些特殊码流刷新多次时长。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/-IzBnunXRtmVoNheOfUUug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071708Z&HW-CC-Expire=86400&HW-CC-Sign=D649515D1125DED71E8962D29443B298BA08EFA1ADA20E51B1A2E0A44942A9B2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/ejbHq8YbTFefHbvqPrOhmw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095525Z&HW-CC-Expire=86400&HW-CC-Sign=7B88FE74E11BE3B4B129B5A0D22DFF8B0672B33870E7982D95ECD10DBFC7FA10)
 
 
 直播场景不支持durationUpdate上报。

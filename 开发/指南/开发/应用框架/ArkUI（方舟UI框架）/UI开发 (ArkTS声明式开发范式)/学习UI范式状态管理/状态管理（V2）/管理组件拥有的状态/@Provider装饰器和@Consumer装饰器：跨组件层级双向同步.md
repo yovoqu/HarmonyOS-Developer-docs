@@ -1,6 +1,6 @@
 # @Provider装饰器和@Consumer装饰器：跨组件层级双向同步
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-provider-and-consumer
 
@@ -218,7 +218,7 @@ struct Child {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/lCR3FARHTo6MMYCiPtV4RA/zh-cn_image_0000002685925585.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=4B061FF84C1A0637694FD94EDE932DCBAEBA81C45B430AB561E4257CA17F6318)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/N2Hkt529S3-S_bKbj2ZyDg/zh-cn_image_0000002674631896.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=1C65BBFFCFE42E5B4FD3E579574879FD388B79FA78B0950067593C654C90E862)
 
 
   **未建立双向绑定**
@@ -276,7 +276,7 @@ struct Child {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/V8UWT1_VRv2YVYGplKZQXw/zh-cn_image_0000002656005906.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=4831609F93836393CBAEACD844A4E570EFD9831FB23AE0B3F9F23B940E48EEC7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/ZtJtvqclS3yfYs1SXtxXzw/zh-cn_image_0000002704271851.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=4C6F89F12F6BBE269F0114370465E2DC8E19E33BDC8039ACF1F4986F9F4BBAFD)
 
 
   
@@ -365,7 +365,7 @@ struct Child {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/tFysLHheSySIb3yjaPhgcA/zh-cn_image_0000002655845986.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=A8231880EB12512453398CB8D992D4DB02DFDA8D295B670304B779EB35B7FA2A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/FD8ZiiB6QWaigWfevDGv6A/zh-cn_image_0000002674472052.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=6182988DFF3382CCC63C020176FD0D1898D5227DBBCA4D2BC04E340D65B1F55E)
 
 
   
@@ -457,7 +457,7 @@ struct Child {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/C0FTf4SVRSmgcItFzMjUAg/zh-cn_image_0000002686085415.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=B6FE8160FA60E6B540F6A6F354ED1DCE6446C97F30A98A60FC4577EB9F718B35)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/ssqa7Z6lR22KNRwA4-6aqA/zh-cn_image_0000002704392021.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=0FD44C6360008966BA796D6B71672E3F41B34BF193D99BB36CB68A663D90CF48)
 
 
   
@@ -575,7 +575,7 @@ struct Child {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/BF0FjFMeQFiLRk7QP4wtXg/zh-cn_image_0000002685925587.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=354FD5BEDBA6D33B78D4C782DEA3A94E75F1C348B25B7DE69BED1E014E47D8D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/uI4Q1HzZSCe8hKdsnkzklA/zh-cn_image_0000002674631898.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=3290B752240D36A3570664BDB089225F144D0BE08886176B3492E822759E8D78)
 
 
   
@@ -679,7 +679,7 @@ struct Child {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/GDJ1aGPkRZqvUcclLUNV6w/zh-cn_image_0000002656005908.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=A68C544E55F0EBDB16208EF9D7B532ECAD1F45EF1DD85F5D4A3BAC5475369FA7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/LEbwvYE4T0GQ5gJ5r0twMw/zh-cn_image_0000002704271853.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=DF4C3C055641085D70F92FB61ED48482292DA2D1858B36E8F861A7FA519A1DD0)
 
 
   
@@ -731,7 +731,7 @@ struct Child {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/bnZVJGnkRUWfriw5D-jvig/zh-cn_image_0000002655845988.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=916D53312AD2ED6F3C61C45FF20B7EBD669F5F12B86FD3D46E467A5638ADD409)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/sQ51UOiiQtitDcgGUrq3uA/zh-cn_image_0000002674472054.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=07B88E6BC8EEEE07831371DE6ACB9615C6B6A9F177F208578B32E692CCBDFE2B)
 
 
   
@@ -811,7 +811,7 @@ struct Child {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/7Pfyz0wdSeK_wF6NQzSQVg/zh-cn_image_0000002686085417.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=6E538FCD27C7C332CB16BFBC34715EDFBBE8431CE331262AEF9A5F0FFE4DD3AB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/HT0M0wh9QC6r8ZGkFXFdWA/zh-cn_image_0000002704392023.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=8A52C5C123C9A030A5978BE3FC54015536A66B80F9A0840B81521CEC02B51320)
 
 
   
@@ -866,7 +866,7 @@ struct Child {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/o9PbkpejRx-YMwCUCBkhtA/zh-cn_image_0000002685925589.png?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=8794199AF15EF183FB153156C9EE529D558F7725F4BB9510C9E15BC32033B531)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/hErYm8fiQxCY-8DAQubsew/zh-cn_image_0000002674631900.png?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=00C07216B64F4E1746F208FCEDCA6CC69CD62896D8C273102D7F48F90678177B)
 
 
   上面的例子中：
@@ -945,7 +945,7 @@ struct Child {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/94dbH13ZTYicrodoC3X3AQ/zh-cn_image_0000002656005910.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=A85CC5EF3D93A19831F08CDE4CE50BFC3735A489C2C66A1D6F59EB87B891BFBD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/AZBY61YhRYiWpJCf8LWZ4w/zh-cn_image_0000002704271855.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=B1AC17AD42C2ACDDB4772454CFF62FE7C87D275AFF26FADFEA13977E984A6345)
 
 
 上面的例子中：
@@ -1105,7 +1105,7 @@ struct TestRemove {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/CiKwww2lT923uYHQhMeh1g/zh-cn_image_0000002655845990.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071841Z&HW-CC-Expire=86400&HW-CC-Sign=54D9FB1D55B267E42B7ABDF0E0B546876F803A0F1D87965716CD891D6FFC32C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/c6bXbFb7QOmNYyawKQYBcQ/zh-cn_image_0000002674472056.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=89113A45EC47412C270C44A36BCFEE9DB4309C25A4898766B868C42826B544C9)
 
 
 上面的例子中：

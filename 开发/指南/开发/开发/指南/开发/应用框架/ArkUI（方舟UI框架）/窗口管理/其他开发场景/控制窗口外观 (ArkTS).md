@@ -1,6 +1,6 @@
 # 控制窗口外观 (ArkTS)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-appearance
 
@@ -200,7 +200,7 @@ struct SliderDemo {
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/HJKKAMG_RlOuPtTyJ7O84g/zh-cn_image_0000002656006712.gif?HW-CC-KV=V1&HW-CC-Date=20260730T072028Z&HW-CC-Expire=86400&HW-CC-Sign=08F771DD102DE7EE21ADA991821DE8A28CB5C942006F56749587C6FD0AC7CFD7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/G_VjR3f7Rp2gjzPeiPj10w/zh-cn_image_0000002704392831.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095902Z&HW-CC-Expire=86400&HW-CC-Sign=6A426C81F0677E0201423E3DC8A11BB4AC4D82F98078157FD8C05D0AF609657D)
 
 
 示例代码如下：

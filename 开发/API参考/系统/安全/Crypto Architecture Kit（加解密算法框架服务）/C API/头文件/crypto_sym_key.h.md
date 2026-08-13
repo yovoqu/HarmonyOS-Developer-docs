@@ -1,6 +1,6 @@
 # crypto_sym_key.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-key-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -130,7 +130,7 @@ OH_Crypto_ErrCode OH_CryptoSymKeyGenerator_Generate(OH_CryptoSymKeyGenerator *ct
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_INVALID_PARAMS：ctx或keyCtx为NULL。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存操作失败。 CRYPTO_INVALID_CALL：无效的函数调用。可能的原因：算法不支持随机生成密钥 （如RC2、RC4、Blowfish、CAST），请使用OH_CryptoSymKeyGenerator_Convert接口。[since 26.0.0] CRYPTO_OPERTION_ERROR：密码操作失败。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_INVALID_PARAMS：ctx或keyCtx为NULL。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存操作失败。 CRYPTO_INVALID_CALL：无效的函数调用。可能的原因：算法不支持随机生成密钥（如RC2、RC4、Blowfish、CAST），请使用OH_CryptoSymKeyGenerator_Convert接口。适用版本：26.0.0+ CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
  
   

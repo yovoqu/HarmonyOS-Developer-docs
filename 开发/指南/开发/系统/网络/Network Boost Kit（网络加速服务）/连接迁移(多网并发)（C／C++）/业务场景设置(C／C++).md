@@ -1,6 +1,6 @@
 # 业务场景设置(C/C++)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/networkboost-netmultipath-setscenedesc-c
 
@@ -9,7 +9,7 @@
 
 #### 场景介绍
 
-应用在请求多网并发之前，通过设置业务场景，可以帮助系统进行多网并发管控和业务时长分析。
+本节介绍如何在请求多网并发之前，通过设置业务场景来帮助系统进行多网并发管控和业务时长分析。
 
 
 

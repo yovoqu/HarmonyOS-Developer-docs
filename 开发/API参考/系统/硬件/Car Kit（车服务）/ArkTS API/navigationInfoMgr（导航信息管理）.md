@@ -1,6 +1,6 @@
 # navigationInfoMgr（导航信息管理）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-navigationinfomgr
 **支持设备：** Phone | Tablet
@@ -390,7 +390,7 @@ getNavigationController(): NavigationController
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。对于26.0.0及之后的版本，该接口在Phone、Tablet、Car中均可正常调用，在其它设备中无效果。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。
  
 **需要权限：** ohos.permission.ACCESS_SERVICE_NAVIGATION_INFO
  
@@ -449,7 +449,7 @@ updateNavigationStatus(navigationStatus: NavigationStatus): void
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。对于26.0.0及之后的版本，该接口在Phone、Tablet、Car中均可正常调用，在其它设备中无效果。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。
  
 **需要权限：** ohos.permission.ACCESS_SERVICE_NAVIGATION_INFO
  
@@ -542,7 +542,7 @@ updateNavigationMetadata(navigationMetadata: NavigationMetadata): void
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。对于26.0.0及之后的版本，该接口在Phone、Tablet、Car中均可正常调用，在其它设备中无效果。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。
  
 **需要权限：** ohos.permission.ACCESS_SERVICE_NAVIGATION_INFO
  
@@ -618,7 +618,7 @@ registerSystemNavigationListener(listener: SystemNavigationListener): void
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。对于26.0.0及之后的版本，该接口在Phone、Tablet、Car中均可正常调用，在其它设备中无效果。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。
  
 **需要权限：** ohos.permission.ACCESS_SERVICE_NAVIGATION_INFO
  
@@ -701,7 +701,7 @@ unregisterSystemNavigationListener(): void
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。对于26.0.0及之后的版本，该接口在Phone、Tablet、Car中均可正常调用，在其它设备中无效果。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。
  
 **需要权限：** ohos.permission.ACCESS_SERVICE_NAVIGATION_INFO
  

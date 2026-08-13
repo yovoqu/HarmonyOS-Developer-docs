@@ -1,6 +1,6 @@
 # 如何实现应用外预览pdf文件功能
 
-更新时间：2026-07-30 01:03:01
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-7
 
@@ -30,7 +30,7 @@
 let <span style="color: rgb(0,0,255);">srcFileDescriptor </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRawFdSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'test.pdf'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">需要在</span><span style="color: rgb(128,128,128);">rawfile</span><span style="color: rgb(128,128,128);">目录下手动添加名为</span><span style="color: rgb(128,128,128);">test.pdf</span><span style="color: rgb(128,128,128);">的文件</span></em>
 ```
 
-2. 通过[fs.statSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsstatsync)获取文件或目录详细属性信息，调用[isFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#isfile)判断文件是否是普通文件。
+2. 通过[fs.statSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiostatsync)获取文件或目录详细属性信息，调用[isFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#isfile)判断文件是否是普通文件。
 ```text
 if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">statSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">srcFileDescriptor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isFile</span><span style="color: rgb(0,0,255);">()) </span><span style="color: rgb(255,0,170);">{</span>
   <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Not a regular file'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
@@ -38,7 +38,7 @@ if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1)
 <span style="color: rgb(255,0,170);">}</span>
 ```
 
-3. 通过[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)获取沙箱地址filesDir，调用[fs.openSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsopensync)打开文件，调用[fs.readSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsreadsync)/[fs.writeSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fswritesync)执行数据读写，操作完成后调用[fs.closeSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsclosesync)释放资源。
+3. 通过[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)获取沙箱地址filesDir，调用[fs.openSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioopensync)打开文件，调用[fs.readSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioreadsync)/[fs.writeSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiowritesync)执行数据读写，操作完成后调用[fs.closeSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioclosesync)释放资源。
 ```text
 let <span style="color: rgb(0,0,255);">pathDir </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filesDir</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过</span><span style="color: rgb(128,128,128);">UIAbilityContext</span><span style="color: rgb(128,128,128);">获取沙箱地址</span><span style="color: rgb(128,128,128);">filesDir</span></em>
 let <span style="color: rgb(0,0,255);">filePath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">pathDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/test.pdf'</span><span style="color: rgb(181,106,1);">;</span>
@@ -60,7 +60,7 @@ while <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255
 <span style="color: rgb(255,0,170);">}</span>
 ```
 
-4. 通过filePreview.[openPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#section144826162913)传入文件预览信息，打开预览窗口。
+4. 通过filePreview.[openPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#openpreview)传入文件预览信息，打开预览窗口。
 > [!NOTE]
 > 文件预览信息mimeType参数必须和文件一致，否则无法打开。例如pdf文件类型对应application/pdf。详细见 文件预览支持的文件类型 。 文件预览信息uri参数file://com.example.myapplication中com.example.myapplication为应用包名，实际使用时需要替换为当前工程项目中的应用包名。  CODE3 
 

@@ -1,6 +1,6 @@
 # 如何实现Excel文件预览功能
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-4
 
@@ -13,7 +13,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/SrPtxUS9R_Sjw8Vu5M9nkg/zh-cn_image_0000002658913745.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005631Z&HW-CC-Expire=86400&HW-CC-Sign=D28F06F2C23CCE2E98FAF90FBC9F289BB13A97BD48DFC02824B019E79544F530)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/4TuI6m5IS1Cob5VGX7NUDA/zh-cn_image_0000002658913745.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095559Z&HW-CC-Expire=86400&HW-CC-Sign=218E0341900692E049BA001080E67F39094520B1B19DB177E491B3395955E434)
 
  
  

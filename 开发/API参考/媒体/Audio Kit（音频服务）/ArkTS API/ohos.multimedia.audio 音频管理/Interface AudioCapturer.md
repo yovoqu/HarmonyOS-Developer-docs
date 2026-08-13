@@ -1,6 +1,6 @@
 # Interface (AudioCapturer)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiocapturer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1649,7 +1649,7 @@ setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| muteWhenInterrupted | boolean | 是 | 设置当前录制音频流是否启用静音打断模式, true表示启用，false表示不启用，保持为默认打断模式。 |
+| muteWhenInterrupted | boolean | 是 | 设置当前录制音频流是否启用静音打断模式，true表示启用，false表示不启用，保持为默认打断模式。 |
 
 
 **返回值：**

@@ -1,6 +1,6 @@
 # 使用AudioRenderer开发音频播放功能(ArkTS)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-audiorenderer-for-playback
 

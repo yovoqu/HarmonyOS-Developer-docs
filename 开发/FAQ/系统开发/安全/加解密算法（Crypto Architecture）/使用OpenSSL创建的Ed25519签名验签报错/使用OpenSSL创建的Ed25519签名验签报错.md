@@ -1,6 +1,6 @@
 # 使用OpenSSL创建的Ed25519签名验签报错
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-34
 
@@ -65,7 +65,7 @@ ECDSA Error: convert key fail., error code: 17630001
  
 
 #### 问题定位
-1. 根据[错误码17630001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework#section17630001-算法相关的操作错误调用三方算法库api出错)查询相关错误信息。
+1. 根据[错误码17630001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework#section17630001-密码操作错误)查询相关错误信息。
 2. 由于方法并未使用第三方算法库，所以根据错误码信息可以得知是输入参数错误。
 3. 根据OpenSSL创建的Ed25519密钥结果可以看出提供的公私钥数据为Base64格式。
 4. 检查代码，可以发现在将公私钥数据转换为方法需要的Uint8Array类型数据时，使用的是new Uint8Array(buffer.from(pubKey, 'utf-8').buffer)，而此方法是将utf-8类型字符串转换为Uint8Array类型。

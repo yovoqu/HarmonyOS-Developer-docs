@@ -1,6 +1,6 @@
 # 使用XComponent实现画中画功能开发（ArkTS）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pipwindow-xcomponent
 
@@ -25,7 +25,7 @@
 - 通过在[PiPConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pipwindow#pipconfiguration)中新增[PiPControlGroup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pipwindow#pipcontrolgroup12)类型的数组配置当前画中画控制层控件。
 
   
-```text
+```ArkTS
 function getControlGroups(templateType: PiPWindow.PiPTemplateType): PiPControlGroups {
   switch (templateType) {
     case PiPWindow.PiPTemplateType.VIDEO_PLAY:
@@ -89,7 +89,7 @@ export struct Page1 {
 
   
 创建自定义NodeController，实现makeNode方法，在该方法中创建自定义UI布局。  
-```text
+```ArkTS
 // 开发者可通过继承NodeController实现自定义UI控制器
 class TextNodeController extends NodeController {
   private message: string;
@@ -127,7 +127,7 @@ class TextNodeController extends NodeController {
 
 
 3. 通过BuilderNode加载自定义布局。  
-```text
+```ArkTS
 class Params {
   public text: string = '';
 
@@ -151,7 +151,7 @@ function buildText(params: Params) {
 
 
 4. 在创建画中画控制器时，将customUIController参数传入PiPConfiguration。  
-```text
+```ArkTS
 @Component
 export struct Page1 {
   // ...
@@ -201,7 +201,7 @@ export struct Page1 {
 通过画中画控制器实例的on('stateChange')接口注册生命周期事件回调。
 
   
-```text
+```ArkTS
 this.pipController.on('stateChange', (state: PiPWindow.PiPState, reason: string) => {
   this.onStateChange(state, reason);
 });
@@ -210,7 +210,7 @@ this.pipController.on('stateChange', (state: PiPWindow.PiPState, reason: string)
 - 通过画中画控制器实例的on('controlPanelActionEvent')接口注册控制事件回调。
 
   
-```text
+```ArkTS
 this.pipController.on('controlPanelActionEvent', (event: PiPWindow.PiPActionEventType, status?: number) => {
   this.onActionEvent(event, status);
 });
@@ -223,7 +223,7 @@ this.pipController.on('controlPanelActionEvent', (event: PiPWindow.PiPActionEven
 创建画中画控制器实例后，通过startPiP接口启动画中画。
 
   
-```text
+```ArkTS
 startPip() {
   if (!PiPWindow.isPiPEnabled()) {
     Logger.error(`picture in picture disabled for current OS`);
@@ -268,7 +268,7 @@ startPip() {
 - 通过画中画控制器实例的setAutoStartEnabled接口设置是否需要在应用返回桌面时自动启动画中画。
 
   
-```text
+```ArkTS
 this.pipController.setAutoStartEnabled(false /* or true if necessary */); // 默认为false
 ```
 
@@ -278,7 +278,7 @@ this.pipController.setAutoStartEnabled(false /* or true if necessary */); // 默
   画中画提供的[交互方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pipwindow-overview#交互方式)中支持通过双击或者拖拽画中画窗口四边以及四个对角缩放画中画窗口大小。除此之外，画中画媒体源更新后（如切换视频），通过画中画控制器实例的[updateContentSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pipwindow#updatecontentsize)接口更新媒体源尺寸信息，以调整画中画窗口比例。
 
   
-```text
+```ArkTS
 Button('updateSize') // 更新视频尺寸
   .onClick(() => {
     // 此处设置的宽高应为媒体内容宽高，需要通过媒体相关接口或回调获取
@@ -300,7 +300,7 @@ Button('updateSize') // 更新视频尺寸
   当不再需要显示画中画时，可根据业务需要，通过画中画控制器实例的stopPiP接口关闭画中画。
 
   
-```text
+```ArkTS
 // 步骤4：当不再需要显示画中画时，通过stopPiP接口关闭画中画
 stopPip() {
   if (this.pipController) {

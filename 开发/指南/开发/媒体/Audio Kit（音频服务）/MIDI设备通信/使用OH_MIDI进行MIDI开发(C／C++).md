@@ -1,6 +1,6 @@
 # 使用OH_MIDI进行MIDI开发(C/C++)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohmidi
 
@@ -109,7 +109,7 @@ MIDI功能的权限需求根据使用场景不同而有所区别。
 系统已定义[OH_MIDICallbacks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohmidi-oh-midicallbacks)结构体，开发者需要实现其中的回调函数：
 
  - onDeviceChange：当MIDI设备连接或断开时由系统自动调用。开发者在此回调中处理设备的接入和移除逻辑。
- - onError：当MIDI服务发生错误时调用。开发者在此回调中处理错误日志记录和异常恢复逻辑,如重新创建客户端。
+ - onError：当MIDI服务发生错误时调用。开发者在此回调中处理错误日志记录和异常恢复逻辑，如重新创建客户端。
 
 
 通过调用[OH_MIDIClient_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-h#oh_midiclient_create)接口创建MIDI客户端实例，传入回调结构体和用户数据。

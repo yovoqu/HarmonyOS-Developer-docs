@@ -1,18 +1,18 @@
 # 使用POI关键字搜索结果跟花瓣地图搜索不一致
 
-更新时间：2026-07-30 01:03:01
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-10
 
 #### 问题现象
 
-调用[searchByText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-site#section1117619561413)进行地点搜索的时候，返回的数据跟用花瓣地图返回的结果差异较大。如何能返回跟花瓣地图相同的结果。
+调用[searchByText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-site#searchbytext)进行地点搜索的时候，返回的数据跟用花瓣地图返回的结果差异较大。如何能返回跟花瓣地图相同的结果。
  
  
 
 #### 解决方案
 
-本解决方案需要开通[地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#section16133115441516)，并在项目中进行相应配置。
+本解决方案需要开通[地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#开通地图服务)，并在项目中进行相应配置。
  
 [SearchByTextParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-site#searchbytextparams)：SearchByTextParams定义了搜索关键字的参数。
  

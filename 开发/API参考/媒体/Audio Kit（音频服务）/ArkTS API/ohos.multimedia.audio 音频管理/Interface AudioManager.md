@@ -1,6 +1,6 @@
 # Interface (AudioManager)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiomanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -813,7 +813,7 @@ getMinVolume(volumeType: AudioVolumeType): Promise&lt;number&gt;
  
 ```text
 audioManager.getMinVolume(audio.AudioVolumeType.MEDIA).then((value: number) => {
-  console.info(`Promised returned to indicate that the minimum volume is obtained. ${value}`);
+  console.info(`Promise returned to indicate that the minimum volume is obtained. ${value}`);
 });
 ```
  
@@ -889,7 +889,7 @@ getMaxVolume(volumeType: AudioVolumeType): Promise&lt;number&gt;
  
 ```text
 audioManager.getMaxVolume(audio.AudioVolumeType.MEDIA).then((data: number) => {
-  console.info('Promised returned to indicate that the maximum volume is obtained.');
+  console.info('Promise returned to indicate that the maximum volume is obtained.');
 });
 ```
  

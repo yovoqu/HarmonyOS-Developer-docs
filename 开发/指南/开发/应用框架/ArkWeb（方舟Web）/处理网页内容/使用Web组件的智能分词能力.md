@@ -1,6 +1,6 @@
 # 使用Web组件的智能分词能力
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-data-detector
 
@@ -73,7 +73,7 @@ struct Index {
     <p>网址：https://www.example.com/</p>
     <p>日期：2025.06.01</p>
     <p>地址：北京市海淀区中关村</p>
-    <p>不会高亮的星期六与会高亮的星期六</p>
+    <p>不会高亮的星<span>期六</span>与会高亮的星期六</p>
 </body>
 </html>
 ```

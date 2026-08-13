@@ -1,6 +1,6 @@
 # native_audio_suite_base.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -36,7 +36,7 @@
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | OH_AudioFormat | OH_AudioFormat | 定义音频编创的音频流信息，用于描述基本音频格式。 |
-| OH_AudioDataArray | OH_AudioDataArray | 定义多路输出渲染接口的输入数据描述。当管线中存在多输出效果节点时，通过多输出渲染接口获取处理过后的音频数据。 |
+| OH_AudioDataArray | OH_AudioDataArray | 定义多路输出渲染接口的输出数据描述。当管线中存在多输出效果节点时，通过多输出渲染接口获取处理过后的音频数据。 |
 | OH_EqualizerFrequencyBandGains | OH_EqualizerFrequencyBandGains | 定义音频编创均衡器效果节点配置参数。 |
 | OH_AudioSuite_SpaceRenderPositionParams | OH_AudioSuite_SpaceRenderPositionParams | 定义3D空间渲染效果节点固定摆位模式的配置参数。左手坐标系：伸出左手，用拇指和食指形成一个“L”形。 拇指指向右侧，食指向上，其余手指指向前。 此时形成了一个3D的左手坐标系。在这个坐标系中，拇指、食指 和其他手指分别代表x轴、y轴和z轴的正方向。 |
 | OH_AudioSuite_SpaceRenderRotationParams | OH_AudioSuite_SpaceRenderRotationParams | 定义空间渲染效果节点旋转模式配置参数。 |
@@ -45,7 +45,7 @@
 | OH_AudioSuiteEngineStruct | OH_AudioSuiteEngine | 声明音频编创引擎，用来管理音频编创管线。 |
 | OH_AudioSuitePipelineStruct | OH_AudioSuitePipeline | 声明音频编创管线，用来管理音频编创节点。 |
 | OH_AudioNodeStruct | OH_AudioNode | 声明音频编创节点，用于描述音频编创节点实例。 |
-| OH_AudioNodeBuilderStruct | OH_AudioNodeBuilder | 声明音频编创节点的构造器。用于构建OH_AudioNode，配置输入输出节点数据格式，配置输入节点回调接口。 |
+| OH_AudioNodeBuilderStruct | OH_AudioNodeBuilder | 声明音频编创节点的构造器。用于构建OH_AudioNode，配置输入/输出节点数据格式，配置输入节点回调接口。 |
  
  
   

@@ -1,6 +1,6 @@
 # Canvas绘制矩形无法覆盖文字
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1141
 
@@ -40,7 +40,7 @@ struct <span style="color: rgb(0,0,255);">CanvasTestPage </span><span style="col
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/NlPzk4jZSa2MO7vKdyIQvg/zh-cn_image_0000002658808969.png?HW-CC-KV=V1&HW-CC-Date=20260811T005742Z&HW-CC-Expire=86400&HW-CC-Sign=B5076FCEE26ED0234A5323C0DB475DAE42D912D06030073E6CCCB398D24BC8EA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/TAh1sALVQoym6QzcW6qrJw/zh-cn_image_0000002658808969.png?HW-CC-KV=V1&HW-CC-Date=20260813T095603Z&HW-CC-Expire=86400&HW-CC-Sign=9E32BC0D4133A3AA463D226AF81F7BD68A7A5F8B0171AC94967EAD364635EBF1)
 
  
  
@@ -48,15 +48,15 @@ struct <span style="color: rgb(0,0,255);">CanvasTestPage </span><span style="col
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/-pj3Yw94SOm11GbDuHgVNw/zh-cn_image_0000002628569606.png?HW-CC-KV=V1&HW-CC-Date=20260811T005742Z&HW-CC-Expire=86400&HW-CC-Sign=EB5CE1A15631B0CE094C892C28287FB52481CA2E76A9AA101036EBCDA2067F02)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/ktq9CvNARiSta-L1hcrFOw/zh-cn_image_0000002628569606.png?HW-CC-KV=V1&HW-CC-Date=20260813T095603Z&HW-CC-Expire=86400&HW-CC-Sign=893A57A7D2AC44E2D5BE51F74EAB0B47E6B031874BA1E6C6023E553EE5547E57)
 
  
  
 
 #### 背景知识
 
-- [fillRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#fillrect)：填充一个矩形，四个必填参数依次为矩形左上角点的x坐标、矩形左上角点的y坐标、指定矩形的宽度、指定矩形的高度，根据四个参数即可完成一个矩形的绘制。
-- [fillText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#filltext)：填充文本，三个必填参数依次为文本内容、文本绘制起点的x轴坐标、文本绘制起点的y轴坐标，根据三个参数即可确定填充文本的坐标。
+- [fillRect](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-canvas-rendering-context-2d#canvasrenderingcontext2dfillrect)：填充一个矩形，四个必填参数依次为矩形左上角点的x坐标、矩形左上角点的y坐标、指定矩形的宽度、指定矩形的高度，根据四个参数即可完成一个矩形的绘制。
+- [fillText](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-canvas-rendering-context-2d#canvasrenderingcontext2dfilltext)：填充文本，三个必填参数依次为文本内容、文本绘制起点的x轴坐标、文本绘制起点的y轴坐标，根据三个参数即可确定填充文本的坐标。
 
  
  
@@ -81,7 +81,7 @@ this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255
 
 #### 修改建议
 1. 修改fillText的文本起点y轴坐标。
-2. [textBaseline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#textbaseline)可以设置文本绘制中的水平对齐方式，将其设置成top对齐，实现文本基线在文本块的顶部。若不设置，则默认为alphabetic对齐（按字母对齐）。
+2. [textBaseline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#textbaseline)可以设置文本绘制中的水平对齐方式，将其设置成top对齐，实现文本基线在文本块的顶部。若不设置，则默认为alphabetic对齐（按字母对齐）。
  
 ```text
 <span style="color: rgb(181,106,1);">@Entry</span>

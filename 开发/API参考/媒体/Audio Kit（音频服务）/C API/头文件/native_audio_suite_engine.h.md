@@ -1,6 +1,6 @@
 # native_audio_suite_engine.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-声明与音频编创相关的接口。（包括引擎、管线、节点）。
+声明与音频编创相关接口。（包括引擎、管线、节点）。
  
 **引用文件：** <ohaudiosuite/native_audio_suite_engine.h>
  

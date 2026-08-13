@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -464,7 +464,7 @@
 | actionType | InterruptActionType | 否 | 否 | 事件返回类型。TYPE_ACTIVATED为焦点触发事件，TYPE_INTERRUPT为音频打断事件。 |
 | type | InterruptType | 否 | 是 | 打断事件类型。 |
 | hint | InterruptHint | 否 | 是 | 打断事件提示。 |
-| activated | boolean | 否 | 是 | 焦点获取/释放是否成功。true表示焦点获取/释放成功，false表示焦点获得/释放失败。 |
+| activated | boolean | 否 | 是 | 焦点获取/释放是否成功。true表示焦点获取/释放成功，false表示焦点获取/释放失败。 |
  
  
   

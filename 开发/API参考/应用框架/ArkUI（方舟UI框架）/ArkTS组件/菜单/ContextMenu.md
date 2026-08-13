@@ -1,6 +1,6 @@
 # ContextMenu
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-menu
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -16,7 +16,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-static close(): void
+static close()
  
 在页面范围内关闭通过[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu12)绑定的菜单。常用于页面跳转、拖拽开始等需要主动关闭已显示菜单的交互场景。
  
@@ -80,4 +80,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/lsEeeKaBS7OCGtx0QumhVA/zh-cn_image_0000002656008826.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071513Z&HW-CC-Expire=86400&HW-CC-Sign=0E6AB72729773F5A0C7E526D3B1F974C51BE383D1A213CC60D5E221150EB7169)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/oFD0-QvZRaGtbUQp2KnmDw/zh-cn_image_0000002704274791.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095449Z&HW-CC-Expire=86400&HW-CC-Sign=B4E4734ECDBE0492A8925A3CFA850D65C8684CD57E08745D367618D9920700E6)

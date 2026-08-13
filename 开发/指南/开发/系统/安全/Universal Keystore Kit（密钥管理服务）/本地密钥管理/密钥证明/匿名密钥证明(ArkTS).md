@@ -1,6 +1,6 @@
 # 匿名密钥证明(ArkTS)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-anon-attestation-arkts
 

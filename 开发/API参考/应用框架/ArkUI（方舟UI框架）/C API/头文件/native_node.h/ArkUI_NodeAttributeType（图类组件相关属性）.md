@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（图类组件相关属性）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-image
 
@@ -380,6 +380,8 @@ NODE_IMAGE_SYNC_LOAD = 4012
 ```
 
 图源同步加载属性，支持属性设置，属性重置，属性获取接口。
+
+[NODE_IMAGE_ALT](#node_image_alt)占位图始终为异步加载，syncLoad对其不生效。
 
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
 

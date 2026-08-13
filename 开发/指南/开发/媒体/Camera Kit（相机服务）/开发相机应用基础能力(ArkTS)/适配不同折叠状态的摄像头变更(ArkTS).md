@@ -1,6 +1,6 @@
 # 适配不同折叠状态的摄像头变更(ArkTS)
 
-更新时间：2026-03-23 08:10:50
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-foldable-display
 
@@ -556,3 +556,15 @@ struct Index {
   }
 }
 ```
+
+
+
+#### 常见问题
+
+
+
+#### 折叠状态改变时，如何处理相机画面可能出现的拉伸变形问题
+
+折叠状态发生变化导致镜头切换后，可能出现图像分辨率与XComponent的宽高比不匹配的情况。应用可通过[Window.on('windowSizeChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onwindowsizechange7)监听窗口的变化，根据屏幕旋转角度（[Display](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#display).rotation）与相机镜头角度（[CameraDevice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#cameradevice).cameraOrientation）之间的关系来确定布局的宽高比，以确保XComponent的宽高比能跟随窗口实时调整。
+
+详细代码可参考：[指定XComponent的大小，防止旋转后图像拉伸变形](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-angle-adaptation#指定xcomponent的大小防止旋转后图像拉伸变形)。

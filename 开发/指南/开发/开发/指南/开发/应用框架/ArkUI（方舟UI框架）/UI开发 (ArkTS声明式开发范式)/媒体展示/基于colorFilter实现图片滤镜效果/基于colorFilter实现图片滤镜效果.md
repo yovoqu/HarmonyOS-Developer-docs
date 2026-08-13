@@ -1,6 +1,6 @@
 # 基于colorFilter实现图片滤镜效果
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-implementing-image-filters
 
@@ -33,7 +33,7 @@ ArkUI框架在[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-ref
 在图形学中，像素由RGBA（红色、绿色、蓝色以及透明度）四个通道组成。颜色转换矩阵的定义公式如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/NA35OLIAQvecJWJ0o_iwtA/zh-cn_image_0000002668460552.png?HW-CC-KV=V1&HW-CC-Date=20260811T005945Z&HW-CC-Expire=86400&HW-CC-Sign=512817D3BF41CE77DA914AC7C3F3094FD9502BB72105C3051D34D1AD5AC78D0A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/uZNR-2TyRmOigGyX1eIX8g/zh-cn_image_0000002704272233.png?HW-CC-KV=V1&HW-CC-Date=20260813T095907Z&HW-CC-Expire=86400&HW-CC-Sign=E63A4D54CA71970134C86F7390CDF1CA6E8436800F50D76442635F01A5CD5E32)
 
  
 其中：
@@ -138,7 +138,7 @@ BlendMode.SRC_IN：常用于改变图标颜色（保留透明度）。
  
 **颜色矩阵定义：**
  
-```text
+```ArkTS
 export const ORIGINAL_MATRIX: number[] = [
   1, 0, 0, 0, 0,
   0, 1, 0, 0, 0,
@@ -154,7 +154,7 @@ export const ORIGINAL_MATRIX: number[] = [
 **效果图：**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/m1vh1yNLSvGyRzbgDCg3kw/zh-cn_image_0000002668300684.png?HW-CC-KV=V1&HW-CC-Date=20260811T005945Z&HW-CC-Expire=86400&HW-CC-Sign=945BD8A0E8758BA68974EBC8DB78C48378D70AB42041CB914B8786D71A6857E0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/Lx9ENWFiT_KYqP3EtosY0g/zh-cn_image_0000002674632286.png?HW-CC-KV=V1&HW-CC-Date=20260813T095907Z&HW-CC-Expire=86400&HW-CC-Sign=09A6002FB9FB7103B09E30AB6862F021F24060259BCFA069E061DB656ADC1B32)
 
  
   
@@ -163,7 +163,7 @@ export const ORIGINAL_MATRIX: number[] = [
 
 **颜色矩阵定义：**
  
-```text
+```ArkTS
 const RETRO_COLOR_MATRIX: number[] = [
   0.213, 0.715, 0.072, 0, 0,
   0.213, 0.715, 0.072, 0, 0,
@@ -177,7 +177,7 @@ const RETRO_COLOR_MATRIX: number[] = [
 - RGB三通道使用相同的权重系数（0.213, 0.715, 0.072），这是标准的灰度转换系数，源自ITU-R BT.709国际标准（高清视频色彩空间标准）中的亮度计算公式，具体公式如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/HIUvG7WCREeUmKEEK9l08Q/zh-cn_image_0000002668460560.png?HW-CC-KV=V1&HW-CC-Date=20260811T005945Z&HW-CC-Expire=86400&HW-CC-Sign=CD39E4EDDF4AAEC050CE29AE28202DC87721B2282D2F2F5D93854A20099D6572)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/Ey-Yw-oYRmus0UvSmKU0Wg/zh-cn_image_0000002704272241.png?HW-CC-KV=V1&HW-CC-Date=20260813T095907Z&HW-CC-Expire=86400&HW-CC-Sign=1F7B010A0FFD73DD776BE382D87F39F3F7AEEDC12DA3BAD52837E1D7CE6EDF53)
 
 
   灰度图的特点是每个像素的R、G、B值相等，因此通过转换矩阵使R' = G' = B'时，图片颜色将失去色相，仅保留亮度。基于此原理，使用上述灰度值转换公式，将R'、G'、B'均设置为L即可实现复古灰度滤镜效果。
@@ -192,7 +192,7 @@ const RETRO_COLOR_MATRIX: number[] = [
 **效果图：**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/vATLNtqvQK2RbXB-2CEV4A/zh-cn_image_0000002698140349.png?HW-CC-KV=V1&HW-CC-Date=20260811T005945Z&HW-CC-Expire=86400&HW-CC-Sign=0AA4A5E633CD5BCBD435DD5340CEEBC88FB56727C04F9DB022069856AD1597A7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/5hiV8JxzSa-LdCNOueYFzg/zh-cn_image_0000002704392409.png?HW-CC-KV=V1&HW-CC-Date=20260813T095907Z&HW-CC-Expire=86400&HW-CC-Sign=C900CA89F6636B8BC9853A3BEFF6D7CA14DEB044C53FD58974413A116BF24FB7)
 
  
   
@@ -201,7 +201,7 @@ const RETRO_COLOR_MATRIX: number[] = [
 
 **颜色矩阵定义：**
  
-```text
+```ArkTS
 const REVERSE_COLOR_MATRIX: number[] = [
   -1, 0, 0, 0, 1,
   0, -1, 0, 0, 1,
@@ -220,7 +220,7 @@ const REVERSE_COLOR_MATRIX: number[] = [
 **效果图：**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/Ljf9LeSrSq2jTOoj65Zedw/zh-cn_image_0000002668300686.png?HW-CC-KV=V1&HW-CC-Date=20260811T005945Z&HW-CC-Expire=86400&HW-CC-Sign=2A6F4EAA803589DC9C893735DBA4C0B4C536F6765BDD0166CD4749C939C87C25)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/E3GoKmrnTXCEK9OVPKPKJQ/zh-cn_image_0000002674632288.png?HW-CC-KV=V1&HW-CC-Date=20260813T095907Z&HW-CC-Expire=86400&HW-CC-Sign=C096362961600FF4725790AA2ACB7F61B03BFF25E5200410A276CD5529F338BC)
 
  
   
@@ -229,7 +229,7 @@ const REVERSE_COLOR_MATRIX: number[] = [
 
 **颜色矩阵定义：**
  
-```text
+```ArkTS
 const ENHANCE_COLOR_MATRIX: number[] = [
   1.63, -0.5723, -0.0577, 0, 0,
   -0.17, 1.2277, -0.0577, 0, 0,
@@ -252,7 +252,7 @@ const ENHANCE_COLOR_MATRIX: number[] = [
 **效果图：**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/NjxHZnEgTWSV2XxoB-mPSA/zh-cn_image_0000002668300688.png?HW-CC-KV=V1&HW-CC-Date=20260811T005945Z&HW-CC-Expire=86400&HW-CC-Sign=CEAFCB21E9097D18E7E45CF1EF3AE91D4B6D342DC5279D7E6D66C43F78D1E413)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/AXdhXIC5SSSizGczyUhaMA/zh-cn_image_0000002674632290.png?HW-CC-KV=V1&HW-CC-Date=20260813T095907Z&HW-CC-Expire=86400&HW-CC-Sign=D35B3A11D2B8C241810FDF27F543891ECC1010690A8EA9B860933415927A2B8D)
 
  
   
@@ -261,7 +261,7 @@ const ENHANCE_COLOR_MATRIX: number[] = [
 
 **颜色滤波器定义：**
  
-```text
+```ArkTS
 const WHITENING_COLOR_CONFIG: common2D.Color = {
   alpha: 30,
   red: 255,
@@ -284,7 +284,7 @@ const WHITENING_COLOR_FILTER =
 **效果图：**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/JOBWVuPlQzasyi7EyaFt3w/zh-cn_image_0000002668460564.png?HW-CC-KV=V1&HW-CC-Date=20260811T005945Z&HW-CC-Expire=86400&HW-CC-Sign=3E456F56841D09CC2402F1F05F3D366A8DD896AF33CD162A4079BCDBA2370006)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/Ps6_dbyhQMaca3IKA0bc8g/zh-cn_image_0000002704272245.png?HW-CC-KV=V1&HW-CC-Date=20260813T095907Z&HW-CC-Expire=86400&HW-CC-Sign=B51D2AEDDE9D0E108F5CC621A6CFDBB814552E10A76B2B10C8FB31C826BD32CA)
 
  
   
@@ -295,7 +295,7 @@ const WHITENING_COLOR_FILTER =
   首先定义图片滤镜选项的接口，便于管理和扩展：
 
   
-```text
+```ArkTS
 export interface FilterOption {
   label: string;
   value: string;
@@ -313,7 +313,7 @@ export interface FilterOption {
 3. 滤镜选项列表定义如下：
 
   
-```text
+```ArkTS
 export const FILTER_OPTIONS: FilterOption[] = [
   { label: 'Original', value: 'original', filter: ORIGINAL_MATRIX },
   { label: 'Retro', value: 'retro', filter: RETRO_COLOR_MATRIX },
@@ -329,7 +329,7 @@ export const FILTER_OPTIONS: FilterOption[] = [
   在组件生命周期中初始化每张图片的滤镜状态：
 
   
-```text
+```ArkTS
 aboutToAppear(): void {
   this.imageFilterTags = new Array<string>(CAROUSEL_DATA_SOURCE.length).fill('original');
 }
@@ -341,7 +341,7 @@ aboutToAppear(): void {
   在Image组件上使用[colorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#colorfilter9)应用滤镜，该步骤是核心实现：
 
   
-```text
+```ArkTS
 Image(imgRes)
   .width('100%')
   .height('100%')
@@ -352,7 +352,7 @@ Image(imgRes)
   由于轮播图需切换不同的图片并对每张图片添加滤镜效果，故需根据每张图片记录的滤镜标签获取对应的滤镜对象，关键辅助方法如下：
 
   
-```text
+```ArkTS
 private getFilterByTag(tag: string): ColorFilter | number[] {
   const option = FILTER_OPTIONS.find(opt => opt.value === tag);
   return option ? option.filter : ORIGINAL_MATRIX;

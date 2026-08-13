@@ -1,6 +1,6 @@
 # Canvas实现镂空效果
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:42:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-23
 
@@ -13,7 +13,7 @@
 #### 背景知识
 
 - [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)：提供画布的组件，用于自定义绘制图形，其基于[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)进行绘制，绘制对象可以是矩形、文本、图片等。
-- [clearRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#clearrect)：删除指定区域内的绘制内容。
+- [clearRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#clearrect)：删除指定区域内的绘制内容。
 - [blendMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#blendmode11)：将当前控件的内容（包含子节点内容）与下方画布（可能为离屏画布）已有内容进行混合。
 
  
@@ -21,7 +21,7 @@
 
 #### 解决方案
 
-- **方案一**：在Canvas组件中，通过CanvasRenderingContext2D的[rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#rect)方法绘制一个矩形，并将[globalCompositeOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#globalcompositeoperation)属性设置为xor，以实现图层的异或合成效果。由于xor模式会使重叠区域的颜色值为透明，因此可以通过该方式使绘制区域与背景产生透明重叠，从而达到镂空的视觉效果。
+- **方案一**：在Canvas组件中，通过CanvasRenderingContext2D的[rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#rect)方法绘制一个矩形，并将[globalCompositeOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#globalcompositeoperation)属性设置为xor，以实现图层的异或合成效果。由于xor模式会使重叠区域的颜色值为透明，因此可以通过该方式使绘制区域与背景产生透明重叠，从而达到镂空的视觉效果。
 ```text
 import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">display </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
 

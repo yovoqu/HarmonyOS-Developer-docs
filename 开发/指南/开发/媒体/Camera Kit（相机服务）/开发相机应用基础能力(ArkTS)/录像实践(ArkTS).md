@@ -1,6 +1,6 @@
 # 录像实践(ArkTS)
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-recording-case
 
@@ -211,7 +211,7 @@ async function videoRecording(context: common.Context, surfaceId: string): Promi
   }
 
   // 获取视频输入surface。
-  let videoSurfaceId: string | undefined = undefined; // 该surfaceID用于传递给相机接口创造videoOutput。
+  let videoSurfaceId: string | undefined = undefined; // 该surfaceID用于传递给相机接口创建videoOutput。
   try {
     videoSurfaceId = await resources.avRecorder.getInputSurface();
   } catch (error) {

@@ -1,6 +1,6 @@
 # CalcTotalSize
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-calctotalsize
 
@@ -48,5 +48,5 @@ static ge::graphStatus CalcTotalSize(const size_t cap_size, size_t &total_size);
 auto td_buf = TilingData::CreateCap(100U);
 auto td = reinterpret_cast<TilingData *>(td_buf.get());
 size_t total_size = 0U;
-auto ret = td->CalcTotalSize(td->GetCapacity, total_size); // total_size = 100 + sizeof(TilingData)
+auto ret = td->CalcTotalSize(td->GetCapacity(), total_size); // total_size = 100 + sizeof(TilingData)
 ```

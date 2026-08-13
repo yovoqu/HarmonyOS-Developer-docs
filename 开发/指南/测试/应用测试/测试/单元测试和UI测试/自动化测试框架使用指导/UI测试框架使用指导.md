@@ -1,6 +1,6 @@
 # UI测试框架使用指导
 
-更新时间：2026-06-12 06:58:30
+更新时间：2026-08-04 01:38:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uitest-guidelines
 
@@ -55,7 +55,7 @@ UI测试是在[单元测试](https://developer.huawei.com/consumer/cn/doc/harmon
 2. 调用UI测试框架能力，页面中执行点击操作。
 3. 通过[添加断言](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/unittest-guidelines#断言能力)，验证操作后当前页面的实际变化是否与预期结果一致。
  
-开发步骤如下:
+开发步骤如下：
  1. 在main > ets > pages文件夹下编写clickToAfter.ets页面代码，作为被测示例demo。
 
   
@@ -670,7 +670,7 @@ hdc shell uitest screenCap -p /data/local/tmp/1.png
 | -i | - | 不过滤不可见控件，也不做窗口合并。 |
 | -a | - | 保存控件的BackgroundColor、Content、FontColor、FontSize、extraAttrs属性数据。 说明 ：默认不保存上述属性数据， -a和-i不可同时使用。 |
 | -b | &lt;bundleName&gt; | 获取指定包名对应目标窗口的控件树信息。 |
-| -w | &lt;windowId&gt; | 获取指定ID目标窗口的控件树信息。 说明: 可通过hidumper工具获取应用窗口信息, 包含应用对应窗口的id。 |
+| -w | &lt;windowId&gt; | 获取指定ID目标窗口的控件树信息。 说明： 可通过hidumper工具获取应用窗口信息, 包含应用对应窗口的id。 |
 | -m | <true\|false> | 指定在获取控件树信息时是否合并窗口信息。true表示合并窗口信息，false表示不合并窗口信息，不设置时默认为true。 |
 | -d | &lt;displayId&gt; | 多屏场景下，获取指定ID屏幕下的控件树。 说明： 1. 从API version 20开始支持该命令。 2. 可通过hidumper工具获取应用窗口信息，包含应用对应窗口的DisplayId。 |
  
@@ -694,7 +694,7 @@ hdc shell uitest dumpLayout -p /data/local/tmp/1.json
 | --- | --- | --- |
 | -W | <true/false> | 录制过程中是否保存操作坐标对应的控件信息到/data/local/tmp/record.csv文件中。true表示保存控件信息，false表示仅记录坐标信息，不设置时默认为true。 说明： 从API version 20开始支持该命令。 |
 | -l | - | 在每次操作后保存当前布局信息，文件保存路径：/data/local/tmp/layout_录制启动时间戳_操作序号.json。 说明： 从API version 20开始支持该命令。 |
-| -c | <true/false> | 是否将录制到的操作事件信息打印到控制台，true表示打印，false表示打印，不设置时默认为true。 说明： 从API version 20开始支持该命令。 |
+| -c | <true/false> | 是否将录制到的操作事件信息打印到控制台，true表示打印，false表示不打印，不设置时默认为true。 说明： 从API version 20开始支持该命令。 |
  
  
 ```json
@@ -912,7 +912,7 @@ hdc shell uitest --version
 #### 拉起UITest测试进程
 
 > [!NOTE]
-> 仅元能力aa test拉起的测试HAP才能调用Uitest的能力，且测试HAP的 APL等级级别 需为normal。
+> 仅元能力aa test拉起的测试HAP才能调用UITest的能力，且测试HAP的 APL等级级别 需为normal。
 
  
 ```bash

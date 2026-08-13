@@ -1,6 +1,6 @@
 # Interface (PhotoSession)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photosession
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -442,7 +442,7 @@ on(type: 'systemPressureLevelChange', callback: AsyncCallback&lt;SystemPressureL
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'systemPressureLevelChange'，session创建成功可监听。 |
-| callback | AsyncCallback&lt;SystemPressureLevel&gt; | 是 | 回调函数，用于获取当前系统压力状态. |
+| callback | AsyncCallback&lt;SystemPressureLevel&gt; | 是 | 回调函数，用于获取当前系统压力状态。 |
 
 
 **示例：**

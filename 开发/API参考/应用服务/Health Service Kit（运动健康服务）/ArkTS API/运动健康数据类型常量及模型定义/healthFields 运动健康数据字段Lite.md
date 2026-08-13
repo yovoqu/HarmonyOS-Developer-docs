@@ -1,6 +1,6 @@
 # healthFields (运动健康数据字段)(Lite)
 
-更新时间：2026-07-17 09:35:24
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthfields-lite
 **支持设备：** lite_wearable
@@ -172,7 +172,7 @@ import healthStore from '@hms.health.store';
 | anaerobicTrainingStress | number | 否 | 无氧训练压力值，量化无氧运动负荷程度，取值范围：[0.0, 5.0]，默认值：0。 |
 | recoveryTime | number | 否 | 预估恢复时间，单位：h，默认值：0。 |
 | totalCalories | number | 是 | 运动消耗总卡路里，包含基础代谢与活动消耗，单位：cal，取值范围：(0, ∞)。 |
-| activeCalorie | number | 否 | 运动主动消耗的卡路里，不含基础代谢，单位：cal，取值范围：(0, ∞)，默认值：0。 |
+| activeCalorie | number | 是 | 运动主动消耗的卡路里，不含基础代谢，单位：cal，取值范围：(0, ∞)。 |
 | avgShotSpeed | number | 否 | 平均击球速度，单位：km/h，取值范围：[0,500]，默认值：0。 |
 | maxShotSpeed | number | 否 | 最高击球速度，单位：km/h，取值范围：[0,500]，默认值：0。 |
 | shots | number | 否 | 总击球次数，取值范围：[0,20000]，默认值：0。 |
@@ -326,8 +326,8 @@ import healthStore from '@hms.health.store';
 | activeCalorie | number | 是 | 运动主动消耗的卡路里，不含基础代谢，单位：cal，取值范围：(0, ∞)。 |
 | forehand | number | 否 | 所有正手方向的击球次数，默认值：0。 |
 | backhand | number | 否 | 所有反手方向的击球次数，默认值：0。 |
-| swingTimes | number | 否 | 总挥拍次数(包含所有正手发球，正手击球，反手击球次数)，默认值：0。 |
-| maxContinuousRally | number | 否 | 最长连续击球次数，默认值：0。 |
+| swingTimes | number | 是 | 总挥拍次数(包含所有正手发球，正手击球，反手击球次数)。 |
+| maxContinuousRally | number | 是 | 最长连续击球次数。 |
  
  
   

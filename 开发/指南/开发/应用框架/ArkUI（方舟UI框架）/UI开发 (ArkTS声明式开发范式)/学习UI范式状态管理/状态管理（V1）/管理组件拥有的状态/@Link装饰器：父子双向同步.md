@@ -1,6 +1,6 @@
 # @Link装饰器：父子双向同步
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link
 
@@ -499,7 +499,7 @@ struct MapSample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/KT43TBYTTPeWMfUI6XaUSA/zh-cn_image_0000002686085359.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=BA5569B0D24A202203209477933DBDC3719734FD85C5D0D151F7C25575BE1CC4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/E7fzSIhnQUKm_02qbCl_LA/zh-cn_image_0000002704391965.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095704Z&HW-CC-Expire=86400&HW-CC-Sign=BC20AB118A0C89B94B006EBC001D32C646B054E0D9424716813FC0FA3ACFEC1F)
 
 
 
@@ -574,7 +574,7 @@ struct SetSample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/7TBS7Vn2RwKN5NofhhoxGQ/zh-cn_image_0000002685925531.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=6ABA8A165DDAC2D24E3935562AB2643FCE8E8C6E55BAA9EF91666BD95CDAFFFE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/rSoZhv5mSwaWDLKE1UOtiw/zh-cn_image_0000002674631842.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095704Z&HW-CC-Expire=86400&HW-CC-Sign=1180A1B47A892D10C7C48BDA846E4A8B8E809CFB73745AB61C7A1DC975AEE50D)
 
 
 
@@ -646,7 +646,7 @@ struct ParentComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/uMtLOWD-SHWv5q63QQEcaQ/zh-cn_image_0000002656005852.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=E3E8DF6B102CC6E26511931E0F63F675B9CCC79F02C7E64F2B9FEBB2524BA35A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/WE5kcTzyQw2cl7AvNVEuEA/zh-cn_image_0000002704271797.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095704Z&HW-CC-Expire=86400&HW-CC-Sign=578B26F10E2670CEADBB36307BBA3D4A383E2CB3FDB3F0D60750FF05F32BA8ED)
 
 
 
@@ -712,7 +712,7 @@ struct ChangeVariablesChild {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/p1UlOjqaRbSnH2bjgz5gQg/zh-cn_image_0000002655845932.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=9E7EB4F12B88A55202FF74DF1F6FA126A31F780ABB050D69EEA240BB02787C70)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/ghRZDzCpQdWzoBlij8YQ5A/zh-cn_image_0000002674471998.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095704Z&HW-CC-Expire=86400&HW-CC-Sign=1DB5FF03B14E3B88041ABA75DDCEED1B014B06EA2074620982CFB477310134DF)
 
 
 
@@ -781,4 +781,4 @@ struct UnionTypes {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/YtUUku2DTUGBcxq0e456Tw/zh-cn_image_0000002686085361.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=D874E2BED0A3C28058C4557CE592D0783B4CAD65FE3E8C70AC7872B09185BD70)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/kQAQdbsiRlOjUQIlbbzcjw/zh-cn_image_0000002704391967.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095704Z&HW-CC-Expire=86400&HW-CC-Sign=2548B8922E2E6825482F49CC35E04E4FBA957399ECBB9216323720FED42D0F8F)

@@ -1,6 +1,6 @@
 # 如何获取WiFi的唯一标识
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-20
 
@@ -12,7 +12,7 @@
 
 #### 背景知识
 
-- AP（Access Point）是无线局域网（WLAN）中的核心设备，用于提供Wi-Fi信号覆盖，允许无线设备（如手机、笔记本电脑等）连接到有线网络或互联网。简单来说，AP就是Wi-Fi信号的发射源，相当于无线网络的“中转站”。
+- AP（Access Point）是无线局域网（WLAN）中的核心设备，用于提供Wi-Fi信号覆盖，允许无线设备（如手机、笔记本电脑等）连接到有线网络或互联网。简单来说，AP就是Wi-Fi信号的发射源，相当于无线网络的"中转站"。
 - bssid是Wi-Fi网络中接入点（AP）或无线路由器的标识符，本质上是AP（Access Point）的MAC地址（或虚拟MAC地址）。
 - [wifiManager.getScanInfoList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifimanagergetscaninfolist10)获取扫描结果。该方法返回[WifiScanInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifiscaninfo)数组列表，包含WiFi的bssid。返回扫描到的热点列表。如果应用申请了ohos.permission.GET_WIFI_PEERS_MAC权限（仅系统应用可申请），则返回结果中的bssid为真实设备地址，否则为随机设备地址。
 - [wifiManager.getLinkedInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifimanagergetlinkedinfo)获取WLAN连接信息。该方法返回一个[WifiLinkedInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifilinkedinfo)对象，包含macAddress（设备的MAC地址）、bssid等。当macType是1-设备MAC地址时，获取macAddress还需申请ohos.permission.GET_WIFI_LOCAL_MAC权限（该权限仅系统应用可申请），则返回的设备MAC地址为真实设备MAC地址。无该权限时，macAddress返回随机MAC地址。
@@ -28,83 +28,6 @@
 权限检查，代码如下：
 ```json
 <em>/**</em>
-<em> * 判断是否已获取相关权限的授权</em>
-<em> */</em>
-private isPermissionGranted(): boolean {
-  try {
-    let bundleInfo: bundleManager.BundleInfo =
-      bundleManager.getBundleInfoForSelfSync(bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION);
-    let tokenId: number = bundleInfo.appInfo.accessTokenId;
-    return this.atManager.checkAccessTokenSync(tokenId, 'ohos.permission.APPROXIMATELY_LOCATION') ===
-    abilityAccessCtrl.GrantStatus.PERMISSION_GRANTED &&
-      this.atManager.checkAccessTokenSync(tokenId, 'ohos.permission.LOCATION') ===
-      abilityAccessCtrl.GrantStatus.PERMISSION_GRANTED;
-  } catch (error) {
-    console.error(`check permission err: ${JSON.stringify(error)}`);
-  }
-  return false;
-}
-```
-
-- 获取bssid，代码如下：
-```text
-<em>/**</em>
-<em> * 获取BSSID</em>
-<em> */</em>
-private getConnectedWiFiBssid() {
-  try {
-   <em> // 获取连接的Wi-Fi AP（Access Point）的Bssid（Basic Service Set Identifier）信息</em>
-    this.bssid = geoLocationManager.getCurrentWifiBssidForLocating();
-    console.info(`get wifi bssid:${this.bssid}`);
-  } catch (error) {
-    console.error(`getCurrentWifiBssidForLocating: errCode:${error.code}, errMessage:${error.message}`);
-  }
-}
-```
-
-
- - 完整示例参考如下：
-```json
-import { geoLocationManager } from '@kit.LocationKit';
-import { abilityAccessCtrl, bundleManager, common } from '@kit.AbilityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { JSON } from '@kit.ArkTS';
-
-@Entry
-@Component
-struct Index {
-  @State bssid: string = '';
-  private context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  private atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
-
-  build() {
-    Column({ space: 40 }) {
-      Button('点击获取连接WiFi的BSSID')
-        .width('60%')
-        .onClick(() => {
-          if (this.isPermissionGranted()) {
-            this.getConnectedWiFiBssid();
-          } else {
-            this.requestPermissions();
-          }
-        });
-
-      Text(`BSSID：${this.bssid}`)
-        .width('100%')
-        .textAlign(TextAlign.Center);
-
-      Button('点击清空数据')
-        .width('60%')
-        .onClick(() => {
-          this.bssid = '';
-        });
-    }
-    .justifyContent(FlexAlign.Center)
-    .height('100%')
-    .width('100%');
-  }
-
-<em>  /**</em>
 <em>   * 判断是否已获取相关权限的授权</em>
 <em>   */</em>
   private isPermissionGranted(): boolean {
@@ -115,87 +38,170 @@ struct Index {
       return this.atManager.checkAccessTokenSync(tokenId, 'ohos.permission.APPROXIMATELY_LOCATION') ===
       abilityAccessCtrl.GrantStatus.PERMISSION_GRANTED &&
         this.atManager.checkAccessTokenSync(tokenId, 'ohos.permission.LOCATION') ===
-        abilityAccessCtrl.GrantStatus.PERMISSION_GRANTED;
+      abilityAccessCtrl.GrantStatus.PERMISSION_GRANTED;
     } catch (error) {
       console.error(`check permission err: ${JSON.stringify(error)}`);
     }
     return false;
   }
+```
 
-<em>  /**</em>
+- 获取bssid，代码如下：
+```text
+<em>/**</em>
 <em>   * 获取BSSID</em>
 <em>   */</em>
   private getConnectedWiFiBssid() {
     try {
-   <em>   // 获取连接的Wi-Fi AP（Access Point）的Bssid（Basic Service Set Identifier）信息</em>
+      <em>// 获取连接的Wi-Fi AP（Access Point）的Bssid（Basic Service Set Identifier）信息</em>
       this.bssid = geoLocationManager.getCurrentWifiBssidForLocating();
       console.info(`get wifi bssid:${this.bssid}`);
     } catch (error) {
       console.error(`getCurrentWifiBssidForLocating: errCode:${error.code}, errMessage:${error.message}`);
     }
   }
+```
 
-<em>  /**</em>
-<em>   * 请求权限</em>
-<em>   */</em>
-  private requestPermissions(): void {
-    try {
-      this.atManager.requestPermissionsFromUser(this.context, ['ohos.permission.APPROXIMATELY_LOCATION',
-        'ohos.permission.LOCATION']).then((data) => {
-     <em>   // 值0：有权限，则尝试获取BSSID</em>
-        if (data.authResults[0] === 0 && data.authResults[1] === 0) {
-          this.getConnectedWiFiBssid();
-          return;
-        }
 
-     <em>   // 值非0且非-1：未知值，可能业务逻辑存在问题：如权限名非法等</em>
-        if (data.authResults[0] !== -1 && data.authResults[1] !== -1) {
-          this.showMyToast(`获取权限失败，检查业务逻辑，错误码：${data.authResults[0]}, ${data.authResults[1]}`);
-          return;
-        }
+ - 完整示例代码如下：
+```json
+import { geoLocationManager } from '@kit.LocationKit';
+import { abilityAccessCtrl, bundleManager, common } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { JSON } from '@kit.ArkTS';
 
-      <em>  // 值-1：缺少任一权限且已存在弹窗，直接返回，并toast提示</em>
-        if (data.dialogShownResults && (data.dialogShownResults[0] || data.dialogShownResults[1])) {
-          this.showMyToast(`缺少必要权限，请重试`);
-          return;
-        }
+@Entry
+@Component
+struct Index {
+ @State bssid: string = '';
+ private context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
+ private atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
 
-     <em>   // 值-1：缺少任一权限且未弹窗，弹出半模态授权申请</em>
-        this.openPermissionsSetting();
-      }).catch((err: Error) => {
-        console.error('requestPermissionsFromUser err:' + JSON.stringify(err));
-      });
-    } catch (err) {
-      console.error('requestPermissionsFromUser err:' + JSON.stringify(err));
-    }
-  }
+ build() {
+   Column({ space: 40 }) {
+     Button('点击获取连接WiFi的BSSID')
+       .width('60%')
+       .onClick(() => {
+         if (this.isPermissionGranted()) {
+           this.getConnectedWiFiBssid();
+         } else {
+           this.requestPermissions();
+         }
+       });
 
-<em>  /**</em>
-<em>   * 半模态弹窗请求权限</em>
-<em>   */</em>
-  private openPermissionsSetting(): void {
-    this.atManager.requestPermissionOnSetting(this.context, ['ohos.permission.APPROXIMATELY_LOCATION',
-      'ohos.permission.LOCATION']).then((grantResult) => {
-      if (grantResult[0] === 0 && grantResult[1] === 0) {
-        this.getConnectedWiFiBssid();
-        return;
-      }
-      this.showMyToast('缺少必要权限，请重试');
-    }).catch((err: BusinessError) => {
-      console.error('data:' + JSON.stringify(err));
-    });
-  }
+     Text(`BSSID：${this.bssid}`)
+       .width('100%')
+       .textAlign(TextAlign.Center);
 
-<em>  /**</em>
-<em>   * 展示toast</em>
-<em>   */</em>
-  private showMyToast(message: string) {
-    try {
-      this.getUIContext().getPromptAction().showToast({ duration: 3000, message: message });
-    } catch (error) {
-      console.error('show toast occur err: ' + JSON.stringify(error));
-    }
-  }
+     Button('点击清空数据')
+       .width('60%')
+       .onClick(() => {
+         this.bssid = '';
+       });
+   }
+   .justifyContent(FlexAlign.Center)
+   .height('100%')
+   .width('100%');
+ }
+
+<em> // start solution1</em>
+<em> /**</em>
+<em>  * 判断是否已获取相关权限的授权</em>
+<em>  */</em>
+ private isPermissionGranted(): boolean {
+   try {
+     let bundleInfo: bundleManager.BundleInfo =
+       bundleManager.getBundleInfoForSelfSync(bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION);
+     let tokenId: number = bundleInfo.appInfo.accessTokenId;
+     return this.atManager.checkAccessTokenSync(tokenId, 'ohos.permission.APPROXIMATELY_LOCATION') ===
+     abilityAccessCtrl.GrantStatus.PERMISSION_GRANTED &&
+       this.atManager.checkAccessTokenSync(tokenId, 'ohos.permission.LOCATION') ===
+     abilityAccessCtrl.GrantStatus.PERMISSION_GRANTED;
+   } catch (error) {
+     console.error(`check permission err: ${JSON.stringify(error)}`);
+   }
+   return false;
+ }
+
+ <em>// end solution1</em>
+
+ <em>// start solution2</em>
+ <em>/**</em>
+<em>  * 获取BSSID</em>
+<em>  */</em>
+ private getConnectedWiFiBssid() {
+   try {
+     <em>// 获取连接的Wi-Fi AP（Access Point）的Bssid（Basic Service Set Identifier）信息</em>
+     this.bssid = geoLocationManager.getCurrentWifiBssidForLocating();
+     console.info(`get wifi bssid:${this.bssid}`);
+   } catch (error) {
+     console.error(`getCurrentWifiBssidForLocating: errCode:${error.code}, errMessage:${error.message}`);
+   }
+ }
+
+ <em>// end solution2</em>
+
+<em> /**</em>
+<em>  * 请求权限</em>
+<em>  */</em>
+ private requestPermissions(): void {
+   try {
+     this.atManager.requestPermissionsFromUser(this.context, ['ohos.permission.APPROXIMATELY_LOCATION',
+       'ohos.permission.LOCATION']).then((data) => {
+       <em>// 值0：有权限，则尝试获取BSSID</em>
+       if (data.authResults[0] === 0 && data.authResults[1] === 0) {
+         this.getConnectedWiFiBssid();
+         return;
+       }
+
+       <em>// 值非0且非-1：未知值，可能业务逻辑存在问题：如权限名非法等</em>
+       if (data.authResults[0] !== -1 && data.authResults[1] !== -1) {
+         this.showMyToast(`获取权限失败，检查业务逻辑，错误码：${data.authResults[0]}, ${data.authResults[1]}`);
+         return;
+       }
+
+      <em> // 值-1：缺少任一权限且已存在弹窗，直接返回，并toast提示</em>
+       if (data.dialogShownResults && (data.dialogShownResults[0] || data.dialogShownResults[1])) {
+         this.showMyToast(`缺少必要权限，请重试`);
+         return;
+       }
+
+       <em>// 值-1：缺少任一权限且未弹窗，弹出半模态授权申请</em>
+       this.openPermissionsSetting();
+     }).catch((err: Error) => {
+       console.error('requestPermissionsFromUser err:' + JSON.stringify(err));
+     });
+   } catch (err) {
+     console.error('requestPermissionsFromUser err:' + JSON.stringify(err));
+   }
+ }
+
+<em> /**</em>
+<em>  * 半模态弹窗请求权限</em>
+<em>  */</em>
+ private openPermissionsSetting(): void {
+   this.atManager.requestPermissionOnSetting(this.context, ['ohos.permission.APPROXIMATELY_LOCATION',
+     'ohos.permission.LOCATION']).then((grantResult) => {
+     if (grantResult[0] === 0 && grantResult[1] === 0) {
+       this.getConnectedWiFiBssid();
+       return;
+     }
+     this.showMyToast('缺少必要权限，请重试');
+   }).catch((err: BusinessError) => {
+     console.error('data:' + JSON.stringify(err));
+   });
+ }
+
+ <em>/**</em>
+<em>  * 展示toast</em>
+<em>  */</em>
+ private showMyToast(message: string) {
+   try {
+     this.getUIContext().getPromptAction().showToast({ duration: 3000, message: message });
+   } catch (error) {
+     console.error('show toast occur err: ' + JSON.stringify(error));
+   }
+ }
 }
 ```
 
@@ -218,3 +224,7 @@ A：wifiManager.getScanInfoList和wifiManager.getLinkedInfo方法分别用于获
 Q：wifiManager.getScanInfoList()接口是否有扫描次数限制？
  
 A：wifiManager.getScanInfoList()接口存在扫描频次限制：前台应用2分钟内最多发起4次扫描。参考[扫描管控](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scan-development-guide#扫描管控)。
+ 
+Q：调用[wifiManager.startScan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifimanagerstartscan21)接口频繁发起扫描时返回BusinessError 2501000，是什么原因？
+ 
+A：wifiManager.startScan接口存在扫描频次限制，应用程序在前台运行时，两分钟内最多可扫描四次。当短时间内频繁调用超过限制时，会返回BusinessError 2501000错误，等待一段时间后再次调用即可正常扫描。错误码详情参考[WIFI错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wifi#section2501000-sta内部异常)。

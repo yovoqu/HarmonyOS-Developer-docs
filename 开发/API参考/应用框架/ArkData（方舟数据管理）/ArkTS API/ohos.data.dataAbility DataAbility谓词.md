@@ -1,6 +1,6 @@
 # @ohos.data.dataAbility (DataAbility谓词)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-ability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -928,7 +928,7 @@ export default class EntryAbility extends UIAbility {
         name: 'RdbTest.db', // 数据库文件名
         securityLevel: relationalStore.SecurityLevel.S3,
       };
-      // 表结构：EMPLOYEE (NAME, AGE, SALARY, CODES)
+      // 表结构：EMPLOYEE (ID, NAME, AGE, SALARY, CODES)
       const SQL_CREATE_TABLE =
         'CREATE TABLE IF NOT EXISTS EMPLOYEE (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT NOT NULL, AGE INTEGER, SALARY REAL, CODES BLOB)'; // 建表Sql语句
       store = await relationalStore.getRdbStore(context, STORE_CONFIG);

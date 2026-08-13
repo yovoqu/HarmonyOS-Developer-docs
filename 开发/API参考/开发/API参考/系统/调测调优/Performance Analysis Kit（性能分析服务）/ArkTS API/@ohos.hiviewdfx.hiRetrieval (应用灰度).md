@@ -1,6 +1,6 @@
 # @ohos.hiviewdfx.hiRetrieval (应用灰度)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiretrieval
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -109,7 +109,7 @@ participate(config: HiRetrievalConfig): void
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 36000001 | Initialization error. Possibly caused by invoking this function before invoking init function |
+| 36000001 | Initialization error. Possibly caused by invoking this function before invoking init function. |
  
  
 **示例：**
@@ -156,7 +156,7 @@ quit(): void
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 36000001 | Initialization error. Possibly caused by invoking this function before invoking init function |
+| 36000001 | Initialization error. Possibly caused by invoking this function before invoking init function. |
  
  
 **示例：**
@@ -261,7 +261,7 @@ run(): void
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 36000001 | Initialization error. Possibly caused by invoking this function before invoking init function |
+| 36000001 | Initialization error. Possibly caused by invoking this function before invoking init function. |
  
  
 **示例：**

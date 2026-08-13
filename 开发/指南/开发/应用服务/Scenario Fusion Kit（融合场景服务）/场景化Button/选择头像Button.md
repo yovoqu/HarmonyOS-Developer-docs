@@ -1,6 +1,6 @@
 # 选择头像Button
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-chooseavatar
 
@@ -14,7 +14,9 @@
 
 #### 前提条件
 
-参见[开发前提](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-avatar-nickname#开发前提)。
+应用开发前提条件，参见[开发前提](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-avatar-nickname#开发前提)。
+
+元服务应用开发前提条件，参见[开发前提](https://developer.huawei.com/consumer/cn/doc/atomic-guides/account-guide-atomic-get-avatar-nickname-button#开发前提)。
 
 
 

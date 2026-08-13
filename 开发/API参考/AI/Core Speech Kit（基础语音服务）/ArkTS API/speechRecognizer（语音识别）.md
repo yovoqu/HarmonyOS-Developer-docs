@@ -1,6 +1,6 @@
 # speechRecognizer（语音识别）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -53,7 +53,7 @@ createEngine(createEngineParams: CreateEngineParams, callback: AsyncCallback&lt;
 | 1002200001 | Create engine failed. |
 | 1002200006 | The engine of SpeechRecognition is busy. |
 | 1002200008 | The engine of SpeechRecognition is being destroyed. |
-| 1002200009 | Internal Service Error. 适用版本：5.1.0(10)+ |
+| 1002200009 | Internal Service Error. 适用版本：5.1.0(18)+ |
 
 
 **示例：**
@@ -135,7 +135,7 @@ createEngine(createEngineParams: CreateEngineParams): Promise&lt;SpeechRecogniti
 | 1002200001 | Create engine failed. |
 | 1002200006 | The engine of SpeechRecognition is busy. |
 | 1002200008 | The engine of SpeechRecognition is being destroyed. |
-| 1002200009 | Internal Service Error. 适用版本：5.1.0(10)+ |
+| 1002200009 | Internal Service Error. 适用版本：5.1.0(18)+ |
 
 
 **示例：**
@@ -219,7 +219,7 @@ listLanguages(params: LanguageQuery, callback: AsyncCallback<Array&lt;string&gt;
 | --- | --- |
 | 401 | The parameter check failed. |
 | 1002200007 | The engine is not initialized. |
-| 1002200009 | Internal Service Error. 适用版本：5.1.0(10)+ |
+| 1002200009 | Internal Service Error. 适用版本：5.1.0(18)+ |
 
 
 **示例：**
@@ -294,7 +294,7 @@ listLanguages(params: LanguageQuery): Promise<Array&lt;string&gt;>
 | --- | --- |
 | 401 | The parameter check failed. |
 | 1002200007 | The engine is not initialized. |
-| 1002200009 | Internal Service Error. 适用版本：5.1.0(10)+ |
+| 1002200009 | Internal Service Error. 适用版本：5.1.0(18)+ |
 
 
 **示例：**

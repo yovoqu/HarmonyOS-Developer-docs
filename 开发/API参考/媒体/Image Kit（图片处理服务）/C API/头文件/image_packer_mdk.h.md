@@ -1,6 +1,6 @@
 # image_packer_mdk.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-packer-mdk-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -59,7 +59,7 @@
 | --- | --- |
 | int32_t OH_ImagePacker_Create(napi_env env, napi_value *res) | 获取JavaScript native层ImagePacker对象。 |
 | ImagePacker_Native* OH_ImagePacker_InitNative(napi_env env, napi_value packer) | 从输入JavaScript native层ImagePacker对象中，转换成ImagePacker_Native值。 |
-| int32_t OH_ImagePacker_PackToData(ImagePacker_Native* native, napi_value source,ImagePacker_Opts* opts, uint8_t* outData, size_t* size) | 通过一个给定的选项ImagePacker_Opts结构体，将输入JavaScript native层PixelMap对象或者ImageSource对象编码并输出到指定的缓存区outData中。 |
+| int32_t OH_ImagePacker_PackToData(ImagePacker_Native* native, napi_value source,ImagePacker_Opts* opts, uint8_t* outData, size_t* size) | 通过一个给定的选项ImagePacker_Opts结构体，将输入JavaScript native层PixelMap对象或者ImageSource对象编码并输出到指定的缓冲区outData中。 |
 | int32_t OH_ImagePacker_PackToFile(ImagePacker_Native* native, napi_value source, ImagePacker_Opts* opts, int fd) | 通过一个给定的选项ImagePacker_Opts结构体，将输入JavaScript native层PixelMap对象或者ImageSource对象编码并输出到指定的文件中。 |
 | int32_t OH_ImagePacker_Release(ImagePacker_Native* native) | 释放native层编码器对象ImagePacker_Native。 此API不用于释放JavaScript原生API ImagePacker对象，它用于释放native层对象ImagePacker_Native。 |
  
@@ -148,7 +148,7 @@ int32_t OH_ImagePacker_PackToData(ImagePacker_Native* native, napi_value source,
  
 **描述**
  
-通过一个给定的选项ImagePacker_Opts结构体，将输入JavaScript native层PixelMap对象或者ImageSource对象编码并输出到指定的缓存区outData中。
+通过一个给定的选项ImagePacker_Opts结构体，将输入JavaScript native层PixelMap对象或者ImageSource对象编码并输出到指定的缓冲区outData中。
  
 **起始版本：** 11
  
@@ -159,8 +159,8 @@ int32_t OH_ImagePacker_PackToData(ImagePacker_Native* native, napi_value source,
 | ImagePacker_Native* native | 表明指向native层ImagePacker的指针。 |
 | napi_value source | 表明待编码JavaScript native层PixelMap对象或者ImageSource对象。 |
 | ImagePacker_Opts* opts | 表明位图编码的选项。 |
-| uint8_t* outData | 输出的指定缓存区。 |
-| size_t* size | 输出的指定缓存区大小。 |
+| uint8_t* outData | 输出的指定缓冲区。 |
+| size_t* size | 输出的指定缓冲区大小。 |
  
  
 **返回：**

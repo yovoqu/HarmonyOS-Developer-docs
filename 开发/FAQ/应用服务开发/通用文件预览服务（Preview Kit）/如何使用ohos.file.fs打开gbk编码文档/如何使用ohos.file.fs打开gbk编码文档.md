@@ -1,6 +1,6 @@
 # 如何使用ohos.file.fs打开gbk编码文档
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-9
 
@@ -13,9 +13,9 @@
 #### 背景知识
 
 - [Core File Kit简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-file-kit-intro#core-file-kit概述)：Core File Kit（文件基础服务）为开发者提供一套访问和管理应用文件和用户文件的能力。帮助用户更高效地管理、查找和备份各类文件，使用户能够轻松应对各种文件管理的需求。
-- [fs.readTextSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsreadtextsync)：以同步方法基于文本方式读取文件（即直接读取文件的文本内容）。
-- [fs.openSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsopensync)：以同步方法打开文件或目录。支持使用URI打开文件。
-- [fs.readSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsreadsync)：以同步方法从文件读取数据。
+- [fs.readTextSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioreadtextsync)：以同步方法基于文本方式读取文件（即直接读取文件的文本内容）。
+- [fs.openSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioopensync)：以同步方法打开文件或目录。支持使用URI打开文件。
+- [fs.readSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioreadsync)：以同步方法从文件读取数据。
 - [TextDecoder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#textdecoder)：TextDecoder用于将字节数组解码为字符串。
 
  

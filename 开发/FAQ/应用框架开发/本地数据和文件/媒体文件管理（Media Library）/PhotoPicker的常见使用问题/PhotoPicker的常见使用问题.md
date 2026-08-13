@@ -1,6 +1,6 @@
 # PhotoPicker的常见使用问题
 
-更新时间：2026-07-30 01:55:38
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-library-27
 
@@ -43,7 +43,7 @@ HarmonyOS为开发者提供了PhotoViewPicker接口和PhotoPickerComponent组件
 不支持嵌套使用，用户使用PhotoPickerComponent选中媒体文件后，系统会将媒体文件的uri授权给应用，如果此时在Picker上方存在可点击事件，可能会对用户安全造成影响，因此PhotoPickerComponent上方覆盖设置了overlay属性的组件，将导致PhotoPickerComponent无法接受手势事件。
 2. PhotoPickerComponent不支持[同层渲染](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-same-layer)。
 3. PhotoPickerComponent不支持在[@ohos.inputMethod (输入法框架)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod)中使用。
-1. 使用Picker完成图片选择后，会直接返回该图片资源，系统出于安全考虑不允许直接对其进行上传，必须先存到沙箱，所以需要使用[copyFileSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fscopyfilesync)接口把文件资源读取到自己的沙箱目录中再进行操作。图库拷贝到沙箱参考代码：
+1. 使用Picker完成图片选择后，会直接返回该图片资源，系统出于安全考虑不允许直接对其进行上传，必须先存到沙箱，所以需要使用[copyFileSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiocopyfilesync)接口把文件资源读取到自己的沙箱目录中再进行操作。图库拷贝到沙箱参考代码：
 ```json
 async copyFile2Sandbox(filePathString: string): Promise<boolean> {
   let context = this.getUIContext().getHostContext() as common.UIAbilityContext;

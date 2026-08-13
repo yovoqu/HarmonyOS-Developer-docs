@@ -1,6 +1,6 @@
 # 未开启NFC情况下跳转NFC功能页面，应用闪退重启
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-13 01:42:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-41
 
@@ -19,7 +19,7 @@ NFC关闭情况下，点击跳转到应用NFC功能页面，随后立刻闪退�
  
 
 #### 问题定位
-1. 从faultlogger目录下获取到应用的JsCrash故障日志，故障原因是自定义错误类Error，故障信息为Tag running state is abnormal in service，NFC服务执行Tag业务逻辑遇到错误。堆栈中有具体到应用代码，栈顶函数为tagOn，由此可知，应用在调用[tag.on()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagon11)接口时NFC未开启，导致该异常产生。
+1. 从faultlogger目录下获取到应用的JsCrash故障日志，故障原因是自定义错误类Error，故障信息为Tag running state is abnormal in service，NFC服务执行Tag业务逻辑遇到错误。堆栈中有具体到应用代码，栈顶函数为tagOn，由此可知，应用在调用[tag.on()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagonreadermode11)接口时NFC未开启，导致该异常产生。
 ```bash
 Reason:Error
 Error name:Error
@@ -33,13 +33,13 @@ Cannot get SourceMap info, dump raw stack:
     at anonymous (entry|entry|1.0.0|src/main/ets/pages/recharge/RechargeCenterPage.ts:0:1)
 ```
 
-2. 排查[tag.on()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagon11)接口调用前，是否判断NFC可用，或者发生异常时，是否及时捕获处理。
+2. 排查[tag.on()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagonreadermode11)接口调用前，是否判断NFC可用，或者发生异常时，是否及时捕获处理。
  
  
 
 #### 分析结论
 
-应用在NFC未开启的情况下调用[tag.on()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagon11)接口，导致异常闪退。
+应用在NFC未开启的情况下调用[tag.on()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagonreadermode11)接口，导致异常闪退。
  
  
 

@@ -1,6 +1,6 @@
 # @Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink
 
@@ -1685,7 +1685,7 @@ struct UserChild {
 上面的示例关系如图所示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/PoJXtg37SXSXeh1qYsItJg/zh-cn_image_0000002685925549.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=6189548222C9676047856B8DD10E8BE3B4F674790C2A956464A8FE945729EBE4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/tvIibB6oRV2c973J-tgCSQ/zh-cn_image_0000002674631860.jpg?HW-CC-KV=V1&HW-CC-Date=20260813T095704Z&HW-CC-Expire=86400&HW-CC-Sign=730441BE3AD863393EE8D1FBF72D104A45D23A44F7D0F5B549E1A9C466AF3BD2)
 
 
 
@@ -1787,7 +1787,7 @@ struct DelayedChangeIndex {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/snoXwlVXSIKWacvlUjkuiQ/zh-cn_image_0000002656005870.png?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=F5BB0AC5C4EAB2F01C5F3D83624A603054DF01F130E0A08BAD1FFDF88A20FB55)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/UY9IQ0slQw6gwy73_uyHvw/zh-cn_image_0000002704271815.png?HW-CC-KV=V1&HW-CC-Date=20260813T095704Z&HW-CC-Expire=86400&HW-CC-Sign=61045F17C581D9F6135676A4337F91C4B7BE4F261EC58E23DA7C65E686703AA4)
 
 
 上文的示例代码将定时器修改移入到组件内，此时界面显示时会先显示“The value of renderClass is: false”。待定时器触发时，renderClass的值改变，触发[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)回调，此时界面刷新显示“The value of renderClass is: true”，日志输出“The value of renderClass is changed to: true”。
@@ -1886,7 +1886,7 @@ struct Child {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/fjfgskNdSnODxH7U7YzuXQ/zh-cn_image_0000002655845950.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=65EB48BB1D729EE2961773899A944918DB9D2C8AB1D451E80EEF27ECD8A30826)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/QwDF537WQm28U_Sp3Njt6Q/zh-cn_image_0000002674472016.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095704Z&HW-CC-Expire=86400&HW-CC-Sign=268CCC6A0DD2F0AA864AFAFCD8ABD2E45BDD8028C7A9336B541B8F8DF8C32EE5)
 
 
 @ObjectLink的数据源更新依赖其父组件，当父组件中数据源改变引起父组件刷新时，会重新设置子组件@ObjectLink的数据源。这个过程不是在父组件数据源变化后立刻发生的，而是在父组件实际刷新时才会进行。上述示例中，Parent包含Child，Parent传递箭头函数给Child，在点击时，日志打印顺序是1-2-3-4-5，打印到日志4时，点击事件流程结束，此时仅仅是将子组件Child标记为需要父组件更新的节点，因此日志4打印的this.per.name的值仍为Bob，等到父组件真正更新时，才会更新Child的数据源。
@@ -1992,7 +1992,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/8m5QfcMMRhqj615YLuFY6A/zh-cn_image_0000002686085379.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=083EF7376C18ECD12D30E58AA2E847636A92E432E59C3ADD1CB93FBF48554029)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/C8RvZnx7SWSuZ5b2CBSwow/zh-cn_image_0000002704391985.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095704Z&HW-CC-Expire=86400&HW-CC-Sign=FB22C4F1065756F5441E38D9CD408564BA1BD936462FD00F22847EAE0D71D94E)
 
 
 
@@ -2281,4 +2281,4 @@ struct ChildComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/2wdBOUVjT0e0I4vfby6Q6w/zh-cn_image_0000002685925551.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=6F44F71B100A55FBA1A48FD5E427D8778CBDC52D6288F983819E1648B4174439)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/3iKOgwZfR46xUTAt5MtRsA/zh-cn_image_0000002674631862.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095704Z&HW-CC-Expire=86400&HW-CC-Sign=BA52644CB67CA57FC9D3EB6A79060614EF67774B0A996F4094A9508DA325DD13)

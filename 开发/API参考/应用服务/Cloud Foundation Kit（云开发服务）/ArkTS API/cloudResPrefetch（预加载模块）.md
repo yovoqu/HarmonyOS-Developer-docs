@@ -1,6 +1,6 @@
 # cloudResPrefetch（预加载模块）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cloudfoundation-cloudresprefetch
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -61,8 +61,8 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 try {
   cloudResPrefetch.registerPrefetchTask({
-    token: "testToken",
-    params: "testParams"
+    token: 'testToken',
+    params: 'testParams'
   });
   hilog.info(0x0000, 'testTag', `Succeeded in registering prefetch task`);
 } catch (err) {

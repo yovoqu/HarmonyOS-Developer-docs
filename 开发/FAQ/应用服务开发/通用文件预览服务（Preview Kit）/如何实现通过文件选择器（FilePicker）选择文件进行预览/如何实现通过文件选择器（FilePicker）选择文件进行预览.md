@@ -1,6 +1,6 @@
 # 如何实现通过文件选择器（FilePicker）选择文件进行预览
 
-更新时间：2026-07-30 01:03:01
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-8
 
@@ -31,7 +31,7 @@ private fileInfo: filePreview.PreviewInfo = {
 };
 ```
 
-2. 通过[DocumentViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker#documentviewpicker)拉起文件选择器选择文件，通过[fs.copyFileSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fscopyfilesync)复制文件到沙箱，通过[fileUri.getUriFromPath](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri#fileurigeturifrompath)将沙箱路径转换为Preview Kit使用的uri。
+2. 通过[DocumentViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker#documentviewpicker)拉起文件选择器选择文件，通过[fs.copyFileSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiocopyfilesync)复制文件到沙箱，通过[fileUri.getUriFromPath](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri#fileurigeturifrompath)将沙箱路径转换为Preview Kit使用的uri。
 ```json
 <em>// 1. 拉起Picker选择1个文件；2. 复制文件到沙箱；3. 将沙箱路径转uri传递给Preview Kit的uri字段</em>
 docPickerSelectThenCopy2Sandbox() {

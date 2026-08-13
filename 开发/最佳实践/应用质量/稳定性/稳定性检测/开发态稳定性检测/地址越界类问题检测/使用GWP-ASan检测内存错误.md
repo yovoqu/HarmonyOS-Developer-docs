@@ -1,6 +1,6 @@
 # 使用GWP-ASan检测内存错误
 
-更新时间：2026-06-12 07:22:00
+更新时间：2026-08-10 06:55:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-gwpasan-detection
 
@@ -34,7 +34,7 @@ ASan、TSan、UBSan、HWASan、GWP-ASan不能同时开启，五个只能开启�
 #### 方式二 调用hidebug接口
 
  
-从API 20开始，GWP-ASan可通过hidebug接口配置参数。从API 24开始，新增isRecover参数，用于控制应用在100%开启GWP-ASan时，是否以可恢复模式运行。可配置参数如下：
+从API version 20开始，GWP-ASan可通过hidebug接口配置参数。从API version 24开始，新增isRecover参数，用于控制应用在100%开启GWP-ASan时，是否以可恢复模式运行。可配置参数如下：
   
 | 名称 | 默认值 | 是否必填 | 说明 |
 | --- | --- | --- | --- |

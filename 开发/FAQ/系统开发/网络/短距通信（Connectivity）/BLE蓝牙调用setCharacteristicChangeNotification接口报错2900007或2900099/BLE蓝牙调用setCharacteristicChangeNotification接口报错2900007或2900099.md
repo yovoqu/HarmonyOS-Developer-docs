@@ -1,6 +1,6 @@
 # BLE蓝牙调用setCharacteristicChangeNotification接口报错2900007或2900099
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-11
 
@@ -12,8 +12,8 @@
 
 #### 背景知识
 
-- [2900007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager#section2900007)表示接口调用超时。当client端向server端发起了请求，在一定时间内（约10s）client端没有收到server端的应答，client端就会返回此错误码。
-- [2900099](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager#section2900099)表示接口调用操作失败。一般接口调用阻塞，会返回此错误码。
+- [2900007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager#section2900007-异步接口调用超时)表示接口调用超时。当client端向server端发起了请求，在一定时间内（约10s）client端没有收到server端的应答，client端就会返回此错误码。
+- [2900099](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager#section2900099-操作失败)表示接口调用操作失败。一般接口调用阻塞，会返回此错误码。
 - [setCharacteristicChangeNotification](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#setcharacteristicchangenotification)接口提供了client端启用或者禁用接收server端特征值内容变更通知的能力，使用前需仔细阅读接口下方说明。
 - 调用setCharacteristicChangeNotification接口后，底层会默认通过描述符的形式向server端写入一次数据请求，server端可通过[descriptorWrite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#ondescriptorwrite)接收请求，然后调用[sendResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#sendresponse)接口向client返回数据，client成功接收到数据后，即一个完整的setCharacteristicChangeNotification接口请求流程才算完毕。
 
@@ -24,11 +24,11 @@
 
 - 排查server端（server端以HarmonyOS NEXT设备为例）是否创建了[on('descriptorWrite')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#ondescriptorwrite)监听。若server端没有创建此监听，将无法接收到client端发来的描述符请求，client端setCharacteristicChangeNotification接口将会处于持续请求的阻塞状态。
 - 排查server端接收到client端发来的描述符请求后，是否及时应答（检查日志是否返回OnSetNotifyCharacteristic关键字）。若server端在接收到client端发来的描述符请求后没有及时调用sendResponse接口应答，client端setCharacteristicChangeNotification接口同样会处于持续请求的阻塞状态。参考错误日志如下：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/K3Y3QJHiSUqQI5AuIYLq1w/zh-cn_image_0000002628772390.png?HW-CC-KV=V1&HW-CC-Date=20260811T005931Z&HW-CC-Expire=86400&HW-CC-Sign=C14BCAE82336EF9024A6AE31EA26F2AFFF783600381862E7029C3BFDDCA55E2A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/iNrPk0dCTO6zjXpGymxLtA/zh-cn_image_0000002628772390.png?HW-CC-KV=V1&HW-CC-Date=20260813T095609Z&HW-CC-Expire=86400&HW-CC-Sign=2B91BD5A2C59753752A3274ED8D465FB4D6AD2B0138E237D01332E7D809AAC9D)
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/vIQh6MQQR-O7Zb2D4QkzaQ/zh-cn_image_0000002658971711.png?HW-CC-KV=V1&HW-CC-Date=20260811T005931Z&HW-CC-Expire=86400&HW-CC-Sign=583B737D71F8CAF8E424728DC441DABBBA10DCD2DC27E580772C678F0D14BB46)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/mn8OQM3dR9-lJ5YQzCOTUg/zh-cn_image_0000002658971711.png?HW-CC-KV=V1&HW-CC-Date=20260813T095609Z&HW-CC-Expire=86400&HW-CC-Sign=D84EE534FDD3B37F9F3E7A2BBEA3E6AB619A4220D58BD2714E5C74E95C733FB7)
 
 - 检查client端调用setCharacteristicChangeNotification接口时，是否有其它异步接口调用未完成，导致setCharacteristicChangeNotification接口调用被阻塞。排查方式如下：
 通过在接口回调中设置日志打印，查看接口调用的完整顺序流程。从创建对象实例到数据传输，BLE蓝牙client端接口调用顺序参考如下：1. 调用[createGattClientDevice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#blecreategattclientdevice)接口创建client实例。
@@ -47,7 +47,7 @@
 - 排查系统日志输出。可在问题复现后[生成hilog日志](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hilog#hilog日志生成)，查看日志中各接口调用开始/完成时，系统日志输出的时间点，从而判断是否出现了接口调用阻塞情况。如：setCharacteristicChangeNotification接口调用开始时，系统日志中会打印出关键字setCharacteristicChangeNotification。接口调用完成时，可通过setCharacteristicChangeNotification接口Callback回调中自定义的日志进行判断。参考问题日志如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/EUkUgx6mQc6-u9WSH-OMUQ/zh-cn_image_0000002628612500.png?HW-CC-KV=V1&HW-CC-Date=20260811T005931Z&HW-CC-Expire=86400&HW-CC-Sign=E362111953A112DD5FDB3FFA50A07789A2499804739DFAD1A342BFBBFE204986)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/VtNh2PY6SjqQmdUO9aGXwQ/zh-cn_image_0000002628612500.png?HW-CC-KV=V1&HW-CC-Date=20260813T095609Z&HW-CC-Expire=86400&HW-CC-Sign=222B101217ABF3BEA1D766D3D20CCD7B7BD6B5F36B0E87C6CDF920576FA35143)
 
 
  

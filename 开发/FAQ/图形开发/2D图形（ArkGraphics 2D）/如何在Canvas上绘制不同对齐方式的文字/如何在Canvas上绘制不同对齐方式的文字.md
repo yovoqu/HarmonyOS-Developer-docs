@@ -1,6 +1,6 @@
 # 如何在Canvas上绘制不同对齐方式的文字
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:42:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-22
 
@@ -13,7 +13,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/S0UnXecyTuaW20As2470yA/zh-cn_image_0000002628393354.png?HW-CC-KV=V1&HW-CC-Date=20260811T005532Z&HW-CC-Expire=86400&HW-CC-Sign=48253C1BDD2D7C24CEEB507348DEA1DF89021B0DEBB4EF530F57BADF3BB7CE97)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/sLGvBTamQu2e74zt6QPEQw/zh-cn_image_0000002628393354.png?HW-CC-KV=V1&HW-CC-Date=20260813T095548Z&HW-CC-Expire=86400&HW-CC-Sign=234883E77152FB2A434D6F5329BB3742A91E9EC98ED2D448291A027C387316E1)
 
  
  
@@ -21,7 +21,7 @@
 #### 背景知识
 
 - [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)提供画布组件，[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)接口能够使用RenderingContext在Canvas组件上进行绘制，绘制对象可以是矩形、文本、图片等。
-- [fillText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#filltext)方法能够绘制填充类文本，但一次只能绘制指定区域内的文本，无法一次性绘制具有不同对齐方式的文本。
+- [fillText](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-canvas-rendering-context-2d#canvasrenderingcontext2dfilltext)方法能够绘制填充类文本，但一次只能绘制指定区域内的文本，无法一次性绘制具有不同对齐方式的文本。
 
  
  
@@ -194,7 +194,7 @@ struct Index {
 
 Q：将UI组件绘制到Canvas上后，如何截取Canvas获取图片？
  
-A：使用[getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#getpixelmap)方法即可。
+A：使用[getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#getpixelmap)方法即可。
  
 Q：解决方案里的方法能够实现多行文字的对齐效果吗？
  

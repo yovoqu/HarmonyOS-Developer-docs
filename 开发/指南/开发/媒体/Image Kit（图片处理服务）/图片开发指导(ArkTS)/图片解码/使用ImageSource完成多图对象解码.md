@@ -1,6 +1,6 @@
 # 使用ImageSource完成多图对象解码
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-picture-decoding
 

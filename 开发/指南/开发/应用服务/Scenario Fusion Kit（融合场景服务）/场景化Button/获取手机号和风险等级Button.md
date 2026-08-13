@@ -1,6 +1,6 @@
 # 获取手机号和风险等级Button
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-get-risklevel
 
@@ -20,7 +20,9 @@
 
 #### 前提条件
 
-需要完成手机号的scope权限申请和【获取风险等级】权限申请，请见[申请账号权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-config-permissions)和[开发前提](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-risklevel-on-demand-acquisition#开发前提)章节。
+应用开发前提条件，需要完成手机号的scope权限申请和【获取风险等级】权限申请，请见[申请账号权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-config-permissions)和[开发前提](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-risklevel-on-demand-acquisition#开发前提)章节。
+
+元服务应用开发前提条件，需要完成手机号的scope权限申请和【获取风险等级】权限申请，请见[申请账号权限](https://developer.huawei.com/consumer/cn/doc/atomic-guides/account-guide-atomic-permissions)和[开发前提](https://developer.huawei.com/consumer/cn/doc/atomic-guides/account-guide-atomic-get-risklevel#开发前提)章节。
 
 
 

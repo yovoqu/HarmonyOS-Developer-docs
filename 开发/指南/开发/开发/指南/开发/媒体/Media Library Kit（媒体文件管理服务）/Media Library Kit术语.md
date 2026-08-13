@@ -1,6 +1,6 @@
 # Media Library Kit术语
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/medialibrary-glossary
 
@@ -36,7 +36,7 @@
 
 #### Media Library Kit；媒体文件管理服务
 
- 提供了管理相册和媒体文件的能力，包括照片和视频，帮助应用快速构建图片视频展示和播放能力。
+ 提供了管理相册和媒体文件的能力，包括图片和视频，帮助应用快速构建图片视频展示和播放能力。
  
   
 

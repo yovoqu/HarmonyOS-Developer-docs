@@ -1,6 +1,6 @@
 # pushCommon（推送服务公共信息）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushcommon
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -34,6 +34,8 @@ import { pushCommon } from '@kit.PushKit';
  
 **系统能力：** SystemCapability.Push.PushService
  
+**设备行为差异：** 对于5.1.0(18)以前版本，该枚举值在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该枚举值在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该枚举值在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
+ 
 **起始版本：** 4.0.0(10)
   
 | 名称 | 值 | 说明 |
@@ -53,6 +55,8 @@ PushPayload是推送服务向应用传递数据的核心接口，开发者可以
 **模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Push.PushService
+ 
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
  
 **起始版本：** 4.0.0(10)
   
@@ -147,6 +151,8 @@ PushPayload是推送服务向应用传递数据的核心接口，开发者可以
  
 **系统能力：** SystemCapability.Push.PushService
  
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)~6.0.2(22)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
+ 
 **起始版本：** 4.1.0(11)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -168,6 +174,8 @@ PushPayload是推送服务向应用传递数据的核心接口，开发者可以
  
 **系统能力：** SystemCapability.Push.PushService
  
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)~6.0.2(22)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
+ 
 **起始版本：** 4.1.0(11)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -175,8 +183,8 @@ PushPayload是推送服务向应用传递数据的核心接口，开发者可以
 | title | string | 否 | 是 | 扩展通知标题，将作为发布通知时NotificationRequest对象的title。 说明： title从5.0.0(12)起变更为非必填字段。 |
 | text | string | 否 | 是 | 扩展通知内容，将作为发布通知时NotificationRequest对象的text。 说明： text从5.0.0(12)起变更为非必填字段。 |
 | overlayIcon | image.PixelMap | 否 | 是 | 扩展通知的叠加图标，将作为发布通知时NotificationRequest对象的overlayIcon。 说明： 图片长*宽建议小于128*128像素，若超过49152像素，则图片不展示。 |
-| badgeNumber | number | 否 | 是 | 增加的角标数量，取值范围(0, 100)，在应用的桌面图标上呈现。该参数将作为发布通知时NotificationRequest对象的badgeNumber。 |
-| setBadgeNumber | number | 否 | 是 | 设置的角标数量，取值范围[0, 100)，在应用的桌面图标上呈现。与badgeNumber同时返回时，优先于badgeNumber，将作为发布通知时NotificationRequest对象的setBadgeNumber。 说明： 起始版本：5.0.0(12)。 |
+| badgeNumber | number | 否 | 是 | 增加的角标数量，取值范围为全体整数，当badgeNumber取值小于或等于0时，将忽略本次角标设定。在应用的桌面图标上呈现。该参数将作为发布通知时NotificationRequest对象的badgeNumber。 |
+| setBadgeNumber | number | 否 | 是 | 设置的角标数量，取值范围为全体整数，当设置的角标数量小于或等于0时，清除角标。与badgeNumber同时返回时，优先于badgeNumber，将作为发布通知时NotificationRequest对象的setBadgeNumber。 说明： 起始版本：5.0.0(12)。 |
 | wantAgent | RemoteWantAgent | 否 | 是 | 点击事件时可以替换的数据，将作为发布通知时NotificationRequest对象的wantAgent。 |
  
  
@@ -191,6 +199,8 @@ PushPayload是推送服务向应用传递数据的核心接口，开发者可以
 **模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Push.PushService
+ 
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)~6.0.2(22)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
  
 **起始版本：** 4.1.0(11)
   
@@ -211,6 +221,8 @@ PushPayload是推送服务向应用传递数据的核心接口，开发者可以
 **模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Push.PushService
+ 
+**设备行为差异：** 对于6.1.0(23)以前版本，该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中无效果。
  
 **起始版本：** 4.1.0(11)
   

@@ -1,6 +1,6 @@
 # crypto_mac.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-mac-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -166,7 +166,7 @@ OH_Crypto_ErrCode OH_CryptoMac_SetParam(OH_CryptoMac *ctx, CryptoMac_ParamType t
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：ctx、value或value->data为NULL， type对当前MAC算法无效，或摘要/加密算法名称不支持。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：参数拷贝内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：ctx、value或value->data为NULL，type对当前MAC算法无效，或摘要/加密算法名称不支持。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：参数拷贝内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
  
 **参考：**
@@ -201,7 +201,7 @@ OH_Crypto_ErrCode OH_CryptoMac_Init(OH_CryptoMac *ctx, const OH_CryptoSymKey *ke
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：ctx或key为NULL。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存操作失败。 CRYPTO_OPERTION_ERROR：MAC初始化失败。可能的原因：密钥长度与算法不匹配 （例如CMAC使用AES-128需要16字节密钥）。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：ctx或key为NULL。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存操作失败。 CRYPTO_OPERTION_ERROR：MAC初始化失败。可能的原因：密钥长度与算法不匹配（例如CMAC使用AES-128需要16字节密钥）。 |
  
  
 **参考：**

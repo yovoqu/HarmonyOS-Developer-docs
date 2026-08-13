@@ -1,6 +1,6 @@
 # Interface (AVCastController)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avcastcontroller
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -1623,7 +1623,7 @@ avCastController.off('validCommandChange');
 
 on(type: 'videoSizeChange', callback: (width: number, height: number) => void): void
 
-媒体控制器监听视频尺寸变化变化的事件。
+媒体控制器监听视频尺寸变化的事件。
 
 每个指令支持注册多个回调，如果需要只执行最新监听，需要先注销旧的监听，否则新旧监听都会触发回调。
 

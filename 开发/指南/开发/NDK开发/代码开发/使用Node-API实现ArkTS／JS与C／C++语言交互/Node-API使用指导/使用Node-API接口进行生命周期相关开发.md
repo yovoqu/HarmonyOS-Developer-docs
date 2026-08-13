@@ -1,6 +1,6 @@
 # 使用Node-API接口进行生命周期相关开发
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-life-cycle
 

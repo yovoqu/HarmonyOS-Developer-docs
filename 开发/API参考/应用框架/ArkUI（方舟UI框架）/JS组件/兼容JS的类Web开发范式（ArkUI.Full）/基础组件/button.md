@@ -1,6 +1,6 @@
 # button
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-button
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,7 +28,7 @@
   
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
-| type | string | - | 否 | 不支持动态修改。默认展示为胶囊型按钮，不同于胶囊类型，四边圆角可以通过border-radius分别指定。该属性可选值包括： - capsule：胶囊型按钮，带圆角按钮，有背景色和文本。 - circle：圆形按钮，支持放置图标。 - text：文本按钮，仅包含文本显示。 - arc：弧形按钮，仅支持智能穿戴。 - download：下载按钮，额外增加下载进度条功能。 |
+| type | string | - | 否 | 不支持动态修改。默认展示为胶囊型按钮，与标准胶囊按钮不同的是，四边圆角可以通过border-radius分别指定。该属性可选值包括： - capsule：胶囊型按钮，带圆角按钮，有背景色和文本。 - circle：圆形按钮，支持放置图标。 - text：文本按钮，仅包含文本显示。 - arc：弧形按钮，仅支持智能穿戴。 - download：下载按钮，额外增加下载进度条功能。 |
 | value | string | - | 否 | button的文本值。 |
 | icon | string | - | 否 | button的图标路径，图标格式为jpg，png和svg。 |
 | placement5+ | string | end | 否 | 仅在type属性为缺省时生效，设置图标位于文本的位置，可选值为： - start：图标位于文本起始处。 - end：图标位于文本结束处。 - top：图标位于文本上方。 - bottom：图标位于文本下方。 |
@@ -183,4 +183,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/Yee9IIynQGiWRaOJ8IfLkg/zh-cn_image_0000002686088525.png?HW-CC-KV=V1&HW-CC-Date=20260730T071524Z&HW-CC-Expire=86400&HW-CC-Sign=B1B6724C21CAFC02F8EBA1EF77675CF94C1589E7070CD5D9FEB69CD5325AEA1E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/vnmfk6Y1QAS7bunl6dqbmg/zh-cn_image_0000002704395151.png?HW-CC-KV=V1&HW-CC-Date=20260813T095451Z&HW-CC-Expire=86400&HW-CC-Sign=FEAA5F893845CA39C83EBFACD90B03873FE8FC2A0EFF9CF159A78C68DDED8BFC)

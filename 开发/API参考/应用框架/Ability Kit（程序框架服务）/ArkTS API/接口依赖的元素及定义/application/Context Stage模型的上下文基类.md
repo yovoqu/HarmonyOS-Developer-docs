@@ -1,6 +1,6 @@
 # Context (Stage模型的上下文基类)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -24,7 +24,7 @@ Context是Stage模型的上下文基类，主要用于访问特定应用程序�
  - 不同类型Context的持有关系如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/CZTFMLR-SXSyI6PQInWIGQ/zh-cn_image_0000002655848242.png?HW-CC-KV=V1&HW-CC-Date=20260730T071425Z&HW-CC-Expire=86400&HW-CC-Sign=6372F0FE3F33446CBA8D47F454AB8C3A3DD9CB4BBB8E6EE9A59332BAF6E6F32B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/MFabnXcQQfulVOe1X-Py2Q/zh-cn_image_0000002704274127.png?HW-CC-KV=V1&HW-CC-Date=20260813T095436Z&HW-CC-Expire=86400&HW-CC-Sign=48C5D58623EBC6BCC53C5420D745608D6B136CCAB5B872D101D338F189E052CA)
 
 
 
@@ -64,7 +64,7 @@ Context提供了ability或application的上下文的能力，包括访问特定�
 | applicationInfo | ApplicationInfo | 否 | 否 | 当前应用程序的信息。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | cacheDir | string | 否 | 否 | 缓存目录，详情参考应用沙箱目录。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | tempDir | string | 否 | 否 | 临时目录，详情参考应用沙箱目录。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| resourceDir11+ | string | 否 | 否 | 资源目录。 说明：需要开发者手动在\<module-name>\resource路径下创建resfile目录。创建的resfile目录仅支持以只读方式访问。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| resourceDir11+ | string | 否 | 否 | 资源目录。 说明：需要开发者手动在\<module-name>\resources路径下创建resfile目录。创建的resfile目录仅支持以只读方式访问。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | filesDir | string | 否 | 否 | 文件目录，详情参考应用沙箱目录。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | databaseDir | string | 否 | 否 | 数据库目录，详情参考应用沙箱目录。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | preferencesDir | string | 否 | 否 | preferences目录，详情参考应用沙箱目录。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |

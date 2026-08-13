@@ -1,6 +1,6 @@
 # XEngine Kit简介
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/xengine-kit-introduction
 
@@ -68,8 +68,23 @@ XEngine Kit（GPU加速引擎服务）提供基于马良GPU的性能提升方案
 
 #### 约束与限制
 
+
+
+#### 支持的设备
+
+Phone、Tablet、PC/2in1、TV。
+
+
+
+#### 支持的国家/地区
+
+本Kit仅支持中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）。
+
+
+
+#### 硬件限制
+
  - 在调用XEngine Kit能力前，需要先通过[Syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#什么是systemcapabilitysyscap)查询您的目标设备是否支持SystemCapability.Graphic.XEngine系统能力。
- - 支持的设备类型：Phone、Tablet、PC/2in1、TV。
  - XEngine Kit特性仅在使用马良GPU芯片的设备上受支持。不同设备支持的特性范围有所差异，可以通过以下方式查询设备支持的特性列表：
 
   

@@ -1,6 +1,6 @@
 # Asset_Attr
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-assettype-asset-attr
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct {...} Asset_Attr
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-关键资产属性。
+关键资产属性，属性由标签和值组成，以键值对的形式存在。
  
 **起始版本：** 11
  
@@ -36,5 +36,5 @@ typedef struct {...} Asset_Attr
  
 | 名称 | 描述 |
 | --- | --- |
-| uint32_t tag | 关键资产属性名称。 |
-| Asset_Value value | 关键资产属性内容。 |
+| uint32_t tag | 关键资产属性的标签。 |
+| Asset_Value value | 关键资产属性的值（内容）。 |

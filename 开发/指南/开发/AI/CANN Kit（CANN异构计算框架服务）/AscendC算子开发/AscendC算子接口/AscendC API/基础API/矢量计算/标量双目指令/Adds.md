@@ -1,6 +1,6 @@
 # Adds
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-scalar-binocular-adds
 
@@ -32,7 +32,7 @@ __aicore__ inline void Adds(const LocalTensor<T>& dstLocal, const LocalTensor<T>
 | 参数名 | 描述 |
 | --- | --- |
 | T | 操作数数据类型。 |
-| U | scalarValue数据类型。 |
+| scalarValue | scalarValue数据类型。 |
 | isSetMask | 是否在接口内部设置mask模式和mask值。 - true，表示在接口内部设置。 - false，表示在接口外部设置。 |
  
  

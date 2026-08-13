@@ -1,6 +1,6 @@
 # 通过预建连接提升HTTP传输性能
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-pre-connect
 
@@ -21,7 +21,7 @@
 
 #### 约束与限制
 
-通过预建连接提升HTTP传输性能，支持Phone、PC/2in1、Tablet、Wearable、TV、Car设备。
+通过预建连接提升HTTP传输性能，支持Phone、PC/2in1、Tablet、Wearable、TV设备。
 
 
 

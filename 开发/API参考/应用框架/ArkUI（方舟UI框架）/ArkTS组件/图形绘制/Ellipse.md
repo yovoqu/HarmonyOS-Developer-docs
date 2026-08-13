@@ -1,6 +1,6 @@
 # Ellipse
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-ellipse
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,8 +36,6 @@ new Ellipse(options?: EllipseOptions)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
-**模型约束：** 从API version 18开始，使用EllipseOptions参数时需在Stage模型下使用。
- 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -46,7 +44,7 @@ new Ellipse(options?: EllipseOptions)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | EllipseOptions | 否 | 椭圆绘制配置选项，包含宽度和高度设置。不传入时使用默认尺寸（宽度和高度均为0）。 异常值undefined和null按照无效值处理，本次设置不生效。 |
+| options | EllipseOptions | 否 | 椭圆绘制配置选项，包含宽度和高度设置。不传入时使用默认尺寸（宽度和高度均为0）。 异常值undefined和null按照无效值处理，本次设置不生效。 **说明：**从API version 18开始，使用EllipseOptions参数时需在Stage模型下使用。 |
  
  
   
@@ -61,8 +59,6 @@ Ellipse(options?: EllipseOptions)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
-**模型约束：** 从API version 18开始，使用EllipseOptions参数时需在Stage模型下使用。
- 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -71,7 +67,7 @@ Ellipse(options?: EllipseOptions)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | EllipseOptions | 否 | 椭圆绘制配置选项，包含宽度和高度设置。不传入时使用默认尺寸（宽度和高度均为0）。 异常值undefined和null按照无效值处理，本次设置不生效。 |
+| options | EllipseOptions | 否 | 椭圆绘制配置选项，包含宽度和高度设置。不传入时使用默认尺寸（宽度和高度均为0）。 异常值undefined和null按照无效值处理，本次设置不生效。 **说明：**从API version 18开始，使用EllipseOptions参数时需在Stage模型下使用。 |
  
  
   
@@ -170,7 +166,7 @@ struct EllipseTypeExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/CWxNZCqSSDuKqVQ8LmhHLA/zh-cn_image_0000002656008810.png?HW-CC-KV=V1&HW-CC-Date=20260730T071511Z&HW-CC-Expire=86400&HW-CC-Sign=3B077F17BFF6B076B2DACFD9A572E3D69BFDCF842B520B1D8A46512247F24007)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/_LzbfKiWTmGW2ZRBT1z3iA/zh-cn_image_0000002704274775.png?HW-CC-KV=V1&HW-CC-Date=20260813T095449Z&HW-CC-Expire=86400&HW-CC-Sign=7DDA252200B088EDC62DAFA49F084E6A3F25BEE11F96442C4755835B496EF4CE)
 
  
   
@@ -212,4 +208,4 @@ struct EllipseModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/BMRBtzRQQcOrE5hRsTP1rQ/zh-cn_image_0000002655848890.png?HW-CC-KV=V1&HW-CC-Date=20260730T071511Z&HW-CC-Expire=86400&HW-CC-Sign=DB0A14F0B02108AF3DD71B0709F961A3A63114AC403E199EC52148F19074F84B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/NWw5zwxcSNiQ9GdwQoUPiQ/zh-cn_image_0000002674474984.png?HW-CC-KV=V1&HW-CC-Date=20260813T095449Z&HW-CC-Expire=86400&HW-CC-Sign=D4481CAFD5169976E4A24E0F15A17F8276B7D14144640EE23E15BC917E5E09FE)

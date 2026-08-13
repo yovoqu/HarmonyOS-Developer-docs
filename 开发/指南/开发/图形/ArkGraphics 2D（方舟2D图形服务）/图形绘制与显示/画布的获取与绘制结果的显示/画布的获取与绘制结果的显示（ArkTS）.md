@@ -1,6 +1,6 @@
 # 画布的获取与绘制结果的显示（ArkTS）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-arkts
 
@@ -207,7 +207,7 @@ export class MyNodeControllerIndirectDisplay extends NodeController {
   private rootNode: FrameNode | null = null;
   private myRenderNode = new MyRenderNodeIndirectDisplay();
 
-  // 4. 在MyNodeController的aboutToAppear中创建PixeMap
+  // 4. 在MyNodeController的aboutToAppear中创建PixelMap
   aboutToAppear(): void {
     let task = new taskpool.Task(createPixelMapAsync);
     taskpool.execute(task).then((pixel:Object)=>{

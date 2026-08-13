@@ -1,6 +1,6 @@
 # HDR Vivid视频播放与录制开发实践
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdr-vivid-video-play-recording
 
@@ -32,7 +32,7 @@ HDR Vivid是高动态范围视频技术标准，中文名为“菁彩影像”�
 [AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)提供功能完善的一体化播放能力，应用只需提供流媒体来源，无需数据解析和解码，即可实现播放效果。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/dGbzlsxcRV6tZujNfKkPCQ/zh-cn_image_0000002698141245.png?HW-CC-KV=V1&HW-CC-Date=20260811T005949Z&HW-CC-Expire=86400&HW-CC-Sign=82F2EA8A4AE4021EB708D0040383C25C6F639460D35A28035453CFB505F1E9E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/cQ-XMLuRQnGTlQWXFu6JOQ/zh-cn_image_0000002704393293.png?HW-CC-KV=V1&HW-CC-Date=20260813T095908Z&HW-CC-Expire=86400&HW-CC-Sign=2C731144CFD91EACD1777B4EE4097C4A46D5106AEC4B40BC38912A0F44D748F3)
 
  
   
@@ -52,7 +52,7 @@ HDR Vivid是高动态范围视频技术标准，中文名为“菁彩影像”�
 AVCodec模块中[视频解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding)的Native API接口，可以完成视频解码功能。解码后的YUV图像数据通过回调接口返回给应用，由应用侧自行控制送显。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/ufd3vuiPSOae8Zp4U6BhRw/zh-cn_image_0000002668301580.png?HW-CC-KV=V1&HW-CC-Date=20260811T005949Z&HW-CC-Expire=86400&HW-CC-Sign=E4A9E74DDE9755524721E5242D3A5D08083F061D2620472481BE5F33CB236DF1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/GPXL5VlOReiWiXx1D5xtkw/zh-cn_image_0000002674633172.png?HW-CC-KV=V1&HW-CC-Date=20260813T095908Z&HW-CC-Expire=86400&HW-CC-Sign=DFA2C4193509DFD28C4794F0BAA83D924E8E3DBB7704904778EDD9163D5C0813)
 
  
   
@@ -63,7 +63,7 @@ AVCodec模块中[视频解码](https://developer.huawei.com/consumer/cn/doc/harm
  1. 调用[OH_VideoDecoder_CreateByMime()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_createbymime)通过HEVC格式创建解码器实例对象。如果需要对HDR Vivid视频进行解码，需要配置MimeType为H265 (即OH_AVCODEC_MIMETYPE_VIDEO_HEVC)。
 
   
-```text
+```cpp
 int32_t VideoDecoder::Create(const std::string &videoCodecMime) {
     decoder_ = OH_VideoDecoder_CreateByMime(videoCodecMime.c_str());
     CHECK_AND_RETURN_RET_LOG(decoder_ != nullptr, AVCODEC_SAMPLE_ERR_ERROR, "Create failed");
@@ -74,7 +74,7 @@ int32_t VideoDecoder::Create(const std::string &videoCodecMime) {
 2. 调用[OH_VideoDecoder_RegisterCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_registercallback)设置回调函数。
 
   
-```text
+```cpp
 int32_t VideoDecoder::SetCallback(CodecUserData *codecUserData) {
     int32_t ret = AV_ERR_OK;
     ret = OH_VideoDecoder_RegisterCallback(decoder_,
@@ -90,7 +90,7 @@ int32_t VideoDecoder::SetCallback(CodecUserData *codecUserData) {
 3. 调用[OH_VideoDecoder_Configure()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_configure)配置解码器。
 
   
-```text
+```cpp
 int32_t VideoDecoder::Configure(const SampleInfo &sampleInfo) {
     // ...
     int ret = OH_VideoDecoder_Configure(decoder_, format);
@@ -101,7 +101,7 @@ int32_t VideoDecoder::Configure(const SampleInfo &sampleInfo) {
 4. 从[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件获取window参数，设置Surface，并调用[OH_VideoDecoder_Prepare()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_prepare)使解码器就绪。
 
   
-```text
+```cpp
 int32_t VideoDecoder::Config(const SampleInfo &sampleInfo, CodecUserData *codecUserData) {
     // ...
     if (sampleInfo.window != nullptr) {
@@ -124,7 +124,7 @@ int32_t VideoDecoder::Config(const SampleInfo &sampleInfo, CodecUserData *codecU
 5. 调用[OH_VideoDecoder_Start()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_start)启动解码器。
 
   
-```text
+```cpp
 int32_t VideoDecoder::Start() {
     CHECK_AND_RETURN_RET_LOG(decoder_ != nullptr, AVCODEC_SAMPLE_ERR_ERROR, "Decoder is null");
 
@@ -137,7 +137,7 @@ int32_t VideoDecoder::Start() {
 6. 调用[OH_VideoDecoder_PushInputBuffer()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_pushinputbuffer)写入解码流。
 
   
-```text
+```cpp
 int32_t VideoDecoder::PushInputBuffer(CodecBufferInfo &info) {
     CHECK_AND_RETURN_RET_LOG(decoder_ != nullptr, AVCODEC_SAMPLE_ERR_ERROR, "Decoder is null");
     int32_t ret = OH_VideoDecoder_PushInputBuffer(decoder_, info.bufferIndex);
@@ -149,7 +149,7 @@ int32_t VideoDecoder::PushInputBuffer(CodecBufferInfo &info) {
 7. 调用[OH_VideoDecoder_RenderOutputBuffer()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_renderoutputbuffer)渲染并释放解码帧。
 
   
-```text
+```cpp
 int32_t VideoDecoder::FreeOutputBuffer(uint32_t bufferIndex, bool render) {
     CHECK_AND_RETURN_RET_LOG(decoder_ != nullptr, AVCODEC_SAMPLE_ERR_ERROR, "Decoder is null");
 
@@ -167,7 +167,7 @@ int32_t VideoDecoder::FreeOutputBuffer(uint32_t bufferIndex, bool render) {
 8. 最后调用[OH_VideoDecoder_Destroy()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_destroy)销毁解码器实例，释放资源。
 
   
-```text
+```cpp
 int32_t VideoDecoder::Release() {
     if (decoder_ != nullptr) {
         OH_VideoDecoder_Flush(decoder_);
@@ -191,7 +191,7 @@ int32_t VideoDecoder::Release() {
 应用通过调用[AVRecorder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro#avrecorder)实现视频录制时，先通过Camera Kit接口调用相机服务，通过视频HDI捕获图像数据送显至应用，同时送至AVRecorder的录制服务，录制服务将图像数据编码后封装至文件中，实现视频录制功能。流程图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/bviwBoJ9SlOzmlMb7My-lg/zh-cn_image_0000002668461460.png?HW-CC-KV=V1&HW-CC-Date=20260811T005949Z&HW-CC-Expire=86400&HW-CC-Sign=BE3C94168029C74DB4F6162E04F5A375F4D6C23367585D5CD29FD098CB2815A9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/KwhkNsUrQjG5uVPGLo-sGQ/zh-cn_image_0000002704273125.png?HW-CC-KV=V1&HW-CC-Date=20260813T095908Z&HW-CC-Expire=86400&HW-CC-Sign=0BF734A36E7E996D31C9A0246944203660016C3CA8341B3E010AEC19D2069D1B)
 
  
 > [!NOTE]
@@ -220,7 +220,7 @@ int32_t VideoDecoder::Release() {
  1. 调用[media.createAVRecorder()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateavrecorder9)创建AVRecorder实例。
 
   
-```text
+```ArkTS
 try {
   this.avRecorder = await media.createAVRecorder();
 } catch (error) {
@@ -232,7 +232,7 @@ try {
 2. 配置预览流与录像输出流的分辨率为16:9，[AVRecorderProfile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avrecorderprofile9)参数中的变量isHdr为True，videoCodec为VIDEO_HEVC格式，以录制HDR Vivid视频。
 
   
-```text
+```ArkTS
 let videoSize: camera.Size = {
   width: 1920,
   height: 1080
@@ -256,7 +256,7 @@ let aVRecorderProfile: media.AVRecorderProfile = {
 3. 调用[createVideoOutput()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createvideooutput)创建VideoOutput实例，选择yuv 10bit profile。
 
   
-```json
+```ArkTS
 let videoProfile: undefined | camera.VideoProfile = videoProfilesArray.find((profile: camera.VideoProfile) => {
   return profile.size.width === videoSize.width && profile.size.height === videoSize.height &&
     profile.format === camera.CameraFormat.CAMERA_FORMAT_YCRCB_P010;
@@ -300,7 +300,7 @@ try {
 4. 创建并配置普通录像模式（[Interface (VideoSession)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videosession)）的相机会话。
 
   
-```json
+```ArkTS
 try {
   this.captureSession = this.cameraManager.createSession(camera.SceneMode.NORMAL_VIDEO) as camera.VideoSession;
 } catch (error) {
@@ -434,7 +434,7 @@ async startRecord() {
 应用通过调用AVCodec实现视频录制时，先通过Camera Kit接口调用相机服务，通过视频HDI捕获图像数据送显至应用，同时送至AVCodec的编码模块将图像数据编码后封装至文件中，实现视频录制功能。流程图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/S6Lv78KHQpKhvfB8hQnYpA/zh-cn_image_0000002698221337.png?HW-CC-KV=V1&HW-CC-Date=20260811T005949Z&HW-CC-Expire=86400&HW-CC-Sign=9D0ED57BD432681763494724CE375A5E5F9D7C7848ABEED97F60477B8514EEE3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/MwPLEspERB-IbMYrKqLLHg/zh-cn_image_0000002674473328.png?HW-CC-KV=V1&HW-CC-Date=20260813T095908Z&HW-CC-Expire=86400&HW-CC-Sign=29768AF39016D7B06AF346C73A880D5FB5061CF4581C5438F73D918817B81FA3)
 
  
 使用[Interface (CameraManager)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager)+AVCodec录制HDR Vivid视频，与录制普通视频两者在组件配置上存在如下差异：
@@ -470,7 +470,7 @@ int32_t VideoEncoder::Create(const std::string &videoCodecMime) {
 2. 配置HDR Vivid相关参数，包括可选配置视频帧宽度、视频帧高度、视频颜色格式，以及必须配置为HEVC_PROFILE_MAIN_10的[OH_HEVCProfile()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-base-h#oh_hevcprofile)，表示HEVC编码档次为10bit主档次。
 
   
-```text
+```cpp
 int32_t VideoEncoder::Configure(const SampleInfo &sampleInfo) {
     // ...
     if (sampleInfo.isHDRVivid) {
@@ -494,7 +494,7 @@ int ret = OH_VideoEncoder_Configure(encoder_, format);
 4. ArkTS侧调用[createVideoOutput()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createvideooutput)创建VideoOutput实例，选择yuv 10bit profile。
 
   
-```text
+```ArkTS
 export function videoProfileCheck(cameraManager: camera.CameraManager,
   cameraData: CameraDataModel): undefined | camera.VideoProfile {
   let cameraDevices = cameraManager.getSupportedCameras();
@@ -612,7 +612,7 @@ function setColorSpaceBeforeCommitConfig(session: camera.VideoSession, isHdr: nu
 6. 创建并配置相机会话。
 
   
-```json
+```ArkTS
 let XComponentPreviewProfile: camera.Profile | undefined = previewProfileCameraCheck(cameraManager, params);
 if (XComponentPreviewProfile === undefined) {
   Logger.error(TAG, 'XComponentPreviewProfile is not found');
@@ -670,7 +670,7 @@ encoderVideoOutput.start((err: BusinessError) => {
 7. 调用[OH_AVMuxer_Create()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avmuxer-h#oh_avmuxer_create)创建AVMuxer封装器实例对象，设置封装格式及封装路径，配置HDR Vivid相关参数。
 
   
-```text
+```cpp
 int32_t Muxer::Create(int32_t fd) {
     muxer_ = OH_AVMuxer_Create(fd, AV_OUTPUT_FORMAT_MPEG_4);
     CHECK_AND_RETURN_RET_LOG(muxer_ != nullptr, AVCODEC_SAMPLE_ERR_ERROR, "Muxer create failed, fd: %{public}d", fd);
@@ -715,7 +715,7 @@ int32_t Muxer::Config(SampleInfo &sampleInfo) {
 8. 调用[OH_VideoEncoder_Start()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videoencoder-h#oh_videoencoder_start)启动编码器。
 
   
-```text
+```cpp
 int32_t VideoEncoder::Start() {
     CHECK_AND_RETURN_RET_LOG(encoder_ != nullptr, AVCODEC_SAMPLE_ERR_ERROR, "Encoder is null");
 

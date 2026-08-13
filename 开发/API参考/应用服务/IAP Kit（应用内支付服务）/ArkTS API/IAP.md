@@ -1,6 +1,6 @@
 # IAP
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-iap
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1772,7 +1772,7 @@ showManagedSubscriptions(context: common.Context, uiParameter: UIWindowParameter
 
 **系统能力：** SystemCapability.Payment.IAP
 
-**设备行为差异：** 该接口在Phone、Tablet、2in1、TV、Car设备中可正常调用，在其他设备中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、2in1、TV设备中可正常调用，在其他设备中返回801错误码。
 
 **起始版本：** 5.0.0(12)
 

@@ -1,6 +1,6 @@
 # DeviceVerify（应用设备状态检测）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-deviceverify
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -38,7 +38,7 @@ has no permission.
 
 **错误信息**
 
-internal error.
+internal error. Possible causes: 1. IPC communication failed; 2. Memory operation error; 3. Access device certificate failed.
 
 **错误描述**
 

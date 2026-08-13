@@ -1,6 +1,6 @@
 # Web深色模式适配
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-set-dark-mode
 
@@ -181,7 +181,7 @@ darkModePage.html页面在深色模式关闭、深色模式开启及强制深色
 **图3** Web深色模式和强制深色模式效果图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/MZlUp-HVTdeRbgxKckNjpQ/zh-cn_image_0000002656348161.png?HW-CC-KV=V1&HW-CC-Date=20260624T020807Z&HW-CC-Expire=86400&HW-CC-Sign=EF2164DEA298B6C1296CD7BAFE205E650764962B5E334B33A030F9E6007BF52D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/vnYAOH2vRGazOKpy11KZvA/zh-cn_image_0000002674632712.png?HW-CC-KV=V1&HW-CC-Date=20260813T095734Z&HW-CC-Expire=86400&HW-CC-Sign=DD5833531444AD449E28ED763726EC5E2EC993EE59C5234CE15363F859B55D5E)
 
 
 

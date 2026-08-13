@@ -1,6 +1,6 @@
 # 选择收货地址Button
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-ship-to
 
@@ -20,7 +20,9 @@
 
 #### 前提条件
 
-参见[开发前提](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-choose-address-dev#开发前提)。
+应用开发前提条件，参见[开发前提](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-choose-address-dev#开发前提)。
+
+元服务应用开发前提条件，参见[开发前提](https://developer.huawei.com/consumer/cn/doc/atomic-guides/account-guide-atomic-choose-address#开发前提)。
 
 
 

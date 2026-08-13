@@ -1,6 +1,6 @@
 # 使用ImageSource完成图片解码
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-decoding
 
@@ -39,7 +39,7 @@
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/CR1Ywr3PSY6QXLftNJPC5g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071941Z&HW-CC-Expire=86400&HW-CC-Sign=EDF1D112B7C9E8396DB5C186A3EFC9F85F94655B83CB454739008A539E897582)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/O7PahTn7RnC5xkeDGHWLoQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095826Z&HW-CC-Expire=86400&HW-CC-Sign=6D8F9D9EA4F6E50509992685A26A8FDBCF34D175BB49F0BD5B878D0EF35D29B3)
 
 
  - 将desiredPixelFormat设置为UNKNOWN时，输出像素格式默认为RGBA_8888。

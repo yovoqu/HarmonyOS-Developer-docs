@@ -1,6 +1,6 @@
 # OH_Cursor
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-cursor
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -76,7 +76,7 @@ int (*getColumnCount)(OH_Cursor *cursor, int *count)
  
 **描述**
  
-函数指针，获取结果集中的行数。
+函数指针，获取结果集中的列数。
  
 **起始版本：** 10
  
@@ -85,7 +85,7 @@ int (*getColumnCount)(OH_Cursor *cursor, int *count)
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Cursor *cursor | 表示指向OH_Cursor实例的指针 |
-| int *count | 该参数是输出参数，结果集中的行数会写入该变量 |
+| int *count | 该参数是输出参数，结果集中的列数会写入该变量 |
  
  
 **返回：**

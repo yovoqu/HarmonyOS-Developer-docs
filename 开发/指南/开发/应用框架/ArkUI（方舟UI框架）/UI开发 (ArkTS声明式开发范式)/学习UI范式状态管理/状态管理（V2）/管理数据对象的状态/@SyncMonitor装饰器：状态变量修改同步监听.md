@@ -1,6 +1,6 @@
 # @SyncMonitor装饰器：状态变量修改同步监听
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-syncmonitor
 
@@ -675,7 +675,7 @@ count change from 0 to 1000
  - 如果@SyncMonitor观察的多个属性在不同的赋值操作中发生改变，则每次赋值操作后都会立即调用@SyncMonitor回调函数。这与@Monitor的行为相反，后者只调用一次并使用最后一次更改的值。调用Array的API可能会一次改变多个数组元素，但每次只会触发一次@SyncMonitor装饰的回调函数。
 
   
-```text
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 @Entry
 @ComponentV2
@@ -1202,7 +1202,7 @@ struct Index {
  - 当@SyncMonitor传入多个路径参数时，以参数的全拼接结果判断是否重复监听。全拼接时会在参数间加空格，以区分不同参数。例如，'ab', 'c'的全拼接结果为'ab c'，'a', 'bc'的全拼接结果为'a bc'，二者全拼接不相等。以下示例中，SyncMonitor 1、SyncMonitor 2与SyncMonitor 3都监听了name属性的变化。由于SyncMonitor 2与SyncMonitor 3的入参全拼接相等（都为'name position'），因此SyncMonitor 2不生效，仅SyncMonitor 3生效。当name属性变化时，将同时触发onNameAgeChange与onNamePositionChangeDuplicate方法。但请注意，SyncMonitor 2与SyncMonitor 3的写法仍然被视作在一个类中对同一个属性进行多次@SyncMonitor的监听，这是不建议的。
 
   
-```text
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -1342,7 +1342,7 @@ class Info {
 
 下面的示例中监听了属性value的变化，并根据变化的幅度改变Text组件显示的样式。
 
-```text
+```ArkTS
 @ObservedV2
 class Info {
   @Trace public value: number = 50;
@@ -1497,7 +1497,7 @@ struct Index {
 
 当@SyncMonitor定义在@ObservedV2装饰的类中时，@SyncMonitor会在类的实例创建完成后生效，在类的实例销毁时失效。
 
-```text
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -1544,7 +1544,7 @@ message change from Index aboutToAppear to Index click to change message
 
 类中定义的@SyncMonitor随着类的销毁失效。而由于类的实际销毁释放依赖于垃圾回收机制，因此会出现即使所在自定义组件已经销毁，类却还未及时销毁，导致类中定义的@SyncMonitor仍在监听变化的情况。
 
-```text
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -1632,7 +1632,7 @@ struct Index {
 
 将@SyncMonitor定义在自定义组件中。由于自定义组件在销毁时，状态管理框架会手动取消@SyncMonitor的监听，因此在自定义组件调用完aboutToDisappear，尽管自定义组件的数据不一定已经被释放，但@SyncMonitor回调已不会再被触发。与@Monitor不同的是，当自定义组件即将销毁时，主动置空@SyncMonitor监听的对象，@SyncMonitor依然能监听原监听目标的变化。
 
-```text
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -1722,7 +1722,7 @@ struct Index {
 
 【反例1】
 
-```text
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -1768,7 +1768,7 @@ property path:age change from 24 to 25
 
 【正例1】
 
-```text
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -1805,7 +1805,7 @@ struct Index {
 
 【反例2】
 
-```text
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -1888,7 +1888,7 @@ struct Index {
 
 或直接监听状态变量本身：
 
-```text
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2

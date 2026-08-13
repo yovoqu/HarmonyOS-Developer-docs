@@ -1,6 +1,6 @@
 # UI组件性能优化
 
-更新时间：2026-04-01 09:49:00
+更新时间：2026-08-10 06:55:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-ui-component-performance-optimization
 
@@ -465,7 +465,7 @@ struct Avatar {
 ![](assets/UI组件性能优化/file-20260515115017809-6.png)
  
 
-@Builder装饰器严格禁止在其内部定义状态变量[状态变量](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-glossary#状态变量state-variables)或使用[生命周期函数](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle)，必须通过参数传递或者访问所属组件的状态变量完成数据交互。
+@Builder装饰器严格禁止在其内部定义状态变量[状态变量](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-glossary#state-variables状态变量)或使用[生命周期函数](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle)，必须通过参数传递或者访问所属组件的状态变量完成数据交互。
  
 当组件仅作展示，无需使用@Component自定义组件的内部状态变量、生命周期函数时，可以创建一个@Builder函数代替创建@Component自定义组件。
  
@@ -626,7 +626,7 @@ export struct UserCardList {
 
 #### 合理使用布局容器组件
 
-对于需要展示大量组件的场景，通常会使用布局容器组件，以达到快速实现页面布局的需求。在使用布局容器组件时，由于一次需要展示多个组件，可能出现首帧耗时过长甚至掉帧问题。此时可以考虑对容器组件内的子组件进行按需加载或懒加载等处理，对于相同结构的组件也可以使用组件复用能力。针对每个布局容器组件的性能优化可以参考[布局优化指导](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-improve-layout-performance)。
+对于需要展示大量组件的场景，通常会使用布局容器组件，以达到快速实现页面布局的需求。在使用布局容器组件时，由于一次需要展示多个组件，可能出现首帧耗时过长甚至掉帧问题。此时可以考虑对容器组件内的子组件进行按需加载或懒加载等处理，对于相同结构的组件也可以使用组件复用能力。针对每个布局容器组件的性能优化可以参考[布局优化指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-optimization-guidance)。
  
  
 

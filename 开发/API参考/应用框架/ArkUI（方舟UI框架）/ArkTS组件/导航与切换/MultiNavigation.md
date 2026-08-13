@@ -1,6 +1,6 @@
 # MultiNavigation
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-multinavigation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -804,7 +804,7 @@ setPlaceholderPage(info: NavPathInfo): void
 
 
 
-#### SplitPolicy枚举说明
+#### SplitPolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1766,16 +1766,16 @@ export struct PagePlaceholder {
 分栏效果演示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/4bfJ0oQ8SyqCCGW500yOww/zh-cn_image_0000002656008474.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071502Z&HW-CC-Expire=86400&HW-CC-Sign=584593BA5466299C382D813EDE450987707AF758E21CE3504D871540C6829DFD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/PmZdyttETtS-S3I9_G5NTw/zh-cn_image_0000002704274441.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095448Z&HW-CC-Expire=86400&HW-CC-Sign=360DF4FF72A4779FCE53559F6C7A320E4C82D0B8B6B92FB8CDE9325C5337664B)
 
 
 主页跳转详情页效果演示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/QT8V_UrURT-ByH9-d2PZ2g/zh-cn_image_0000002655848552.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071502Z&HW-CC-Expire=86400&HW-CC-Sign=75DA53B0DF9C45DE09C942F52052615BCB0397FC20A720FEFC81605737F1DFD0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/k9x9xhR3RkmUSn3lHtYH7g/zh-cn_image_0000002674474650.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095448Z&HW-CC-Expire=86400&HW-CC-Sign=1F109096C8CD06DAE71E5FF259D6752BBAC157B00A3E6467745ED30467354E5F)
 
 
 全屏类型页面效果演示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/cZlLUNT9R2iSg6fD8JWKdw/zh-cn_image_0000002686087981.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071502Z&HW-CC-Expire=86400&HW-CC-Sign=A6AE84D18C755F1BE2A285A38D44DF365BFB1372AAD45DD4B9E9FACE9B55757B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/MgWpeCaKS5-l9h96via_ww/zh-cn_image_0000002704394607.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095448Z&HW-CC-Expire=86400&HW-CC-Sign=CCFD93ACB20F88983B6206D10245B45EB62E1D771E9A123D027E1790593DBF94)

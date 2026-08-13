@@ -1,6 +1,6 @@
 # 如何解决Canvas画板设置CanvasRenderingContext2D线条样式失败的问题
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:42:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-33
 
@@ -11,89 +11,89 @@
 问题代码示例参考如下：
  
 ```text
-<span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">画板</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-export struct <span style="color: rgb(0,0,255);">CanvasView </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@ObjectLink </span><span style="color: rgb(0,0,255);">dataModel</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CanvasDataModel</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">是否显示画板边框</span>
-  <span style="color: rgb(0,0,255);">showBorder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">画笔颜色</span>
-  <span style="color: rgb(0,0,255);">brushColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Red</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">画笔粗细</span>
-  <span style="color: rgb(181,106,1);">@Prop </span><span style="color: rgb(0,0,255);">brushSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">6</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">settings</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RenderingContextSettings </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RenderingContextSettings</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CanvasRenderingContext2D </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CanvasRenderingContext2D</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">settings</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">lastX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">lastY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">isDown</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">panOption</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PanGestureOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">PanGestureOptions</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">direction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PanDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">All</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">distance</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0.6</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">fingers</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">canvasLoaded</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">绘制</span>
-  private <span style="color: rgb(0,0,255);">draw</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">startX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">startY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">endX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">endY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">moveTo</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">startX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">startY</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineTo</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">endX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">endY</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+<em>// 画板</em>
+@Component
+export struct CanvasView {
+  @ObjectLink dataModel: CanvasDataModel;
+  <em>// 是否显示画板边框</em>
+  showBorder: boolean = true;
+ <em> // 画笔颜色</em>
+  brushColor: Color | string = Color.Red;
+ <em> // 画笔粗细</em>
+  @Prop brushSize: number = 6;
+  private settings: RenderingContextSettings = new RenderingContextSettings(true);
+  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
+  private lastX: number = 0;
+  private lastY: number = 0;
+  private isDown: boolean = false;
+  private panOption: PanGestureOptions = new PanGestureOptions({
+    direction: PanDirection.All,
+    distance: 0.6,
+    fingers: 1
+  });
+  private canvasLoaded: boolean = false
+ <em> // 绘制</em>
+  private draw(startX: number, startY: number, endX: number, endY: number) {
+    this.context.moveTo(startX, startY);
+    this.context.lineTo(endX, endY);
+    this.context.stroke();
+  };
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Flex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">direction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FlexDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Column </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">画板</span>
-        <span style="color: rgb(0,0,255);">Canvas</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Grey</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderWidth</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showBorder </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Gray</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">canvasLoaded</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">canvasLoaded </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">font </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'60px sans-serif'</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineWidth </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">brushSize</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeStyle </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">brushColor</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineCap </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">"round"</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineJoin </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">"round"</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">画板信息</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dataModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">signType</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">)onReady</span><span style="color: rgb(255,0,170);">：</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">" - " </span><span style="color: rgb(181,106,1);">+</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}          }</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gesture</span><span style="color: rgb(0,0,255);">(</span>
-            <span style="color: rgb(0,0,255);">PanGesture</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">panOption</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onActionStart</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">GestureEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">滑动手势识别回调</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isDown </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-                if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fingerList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lastX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fingerList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">localX</span><span style="color: rgb(181,106,1);">;</span>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lastY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fingerList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">localY</span><span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(255,0,170);">}</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">beginPath</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onActionUpdate</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">GestureEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">滑动手势更新回调</span>
-                if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isDown</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fingerList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                    let <span style="color: rgb(0,0,255);">_x </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fingerList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">localX</span><span style="color: rgb(181,106,1);">;</span>
-                    let <span style="color: rgb(0,0,255);">_y </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fingerList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">localY</span><span style="color: rgb(181,106,1);">;</span>
-                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">draw</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lastX</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lastY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">_x</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">_y</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lastX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">_x</span><span style="color: rgb(181,106,1);">;</span>
-                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lastY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">_y</span><span style="color: rgb(181,106,1);">;</span>
-                  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">                }</span>
-<span style="color: rgb(255,0,170);">              }</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onActionEnd</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">长按手势结束回调</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isDown </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closePath</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(0,0,255);">          )</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Flex({ direction: FlexDirection.Column }) {
+      Stack() {
+       <em> // 画板</em>
+        Canvas(this.context)
+          .height('100%')
+          .width('100%')
+          .padding(10)
+          .borderColor(Color.Grey)
+          .borderWidth(this.showBorder ? 1 : 0)
+          .backgroundColor(Color.Gray)
+          .onReady(() => {
+            if (!this.canvasLoaded) {
+              this.canvasLoaded = true;
+              this.context.font = '60px sans-serif'
+              this.context.lineWidth = this.brushSize
+              this.context.strokeStyle = this.brushColor
+              this.context.lineCap = "round"
+              this.context.lineJoin = "round"
+              console.info(`画板信息(${this.dataModel.signType})onReady：` + this.context.width + " - " +
+              this.context.height);
+            }          })
+          .gesture(
+            PanGesture(this.panOption)
+              .onActionStart((event: GestureEvent) => {<em> // 滑动手势识别回调</em>
+                this.isDown = true;
+                if (event.fingerList.length > 0) {
+                  this.lastX = event.fingerList[0].localX;
+                  this.lastY = event.fingerList[0].localY;
+                }
+                this.context.beginPath();
+              })
+              .onActionUpdate((event: GestureEvent) => {<em> // 滑动手势更新回调</em>
+                if (this.isDown) {
+                  if (event.fingerList.length > 0) {
+                    let _x = event.fingerList[0].localX;
+                    let _y = event.fingerList[0].localY;
+                    this.draw(this.lastX, this.lastY, _x, _y);
+                    this.lastX = _x;
+                    this.lastY = _y;
+                  }
+                }
+              })
+              .onActionEnd(() => {<em> // 长按手势结束回调</em>
+                this.isDown = false;
+                this.context.closePath();
+              })
+          )
+      }
+      .layoutWeight(1)
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
 ```
  
  
@@ -102,7 +102,7 @@ export struct <span style="color: rgb(0,0,255);">CanvasView </span><span style="
 
 - ArkUI组件生命周期与初始化时序：在ArkUI中，组件属性初始化（如[@Prop装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop)、[@State装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)）和生命周期回调（如onReady、aboutToAppear）的执行顺序可能不同步。
 - ArkUI属性传递机制：@Prop用于父组件向子组件传递单向绑定的属性。若父组件未显式传递值，子组件会使用自身定义的默认值。但默认值的同步可能受组件初始化顺序影响。
-- Canvas上下文配置：CanvasRenderingContext2D的配置（如[lineWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#linewidth)、[strokeStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#strokestyle)）需要在画布初始化（onReady）时完成。若依赖外部属性（如brushSize），需确保属性值在onReady触发前已正确赋值。
+- Canvas上下文配置：CanvasRenderingContext2D的配置（如[lineWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#linewidth)、[strokeStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-canvasrenderingcontext2d#strokestyle)）需要在画布初始化（onReady）时完成。若依赖外部属性（如brushSize），需确保属性值在onReady触发前已正确赋值。
 
  
  
@@ -118,13 +118,13 @@ export struct <span style="color: rgb(0,0,255);">CanvasView </span><span style="
 在onReady中打印的日志显示context.width和context.height并未初始化完成三个画板的样式，说明Canvas尺寸尚未确定时已进行绘制设置，所以是初始化时序的问题。前后日志如图：问题日志：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/_EpfQtynRWGZ7Wtgtn_Vog/zh-cn_image_0000002628553250.png?HW-CC-KV=V1&HW-CC-Date=20260811T005533Z&HW-CC-Expire=86400&HW-CC-Sign=D19C99ECE426205AD2274A30209FDEA0C093137D9319725B75CF0EB758983802)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/dWIP9XfjRPObPzL1D6cW1g/zh-cn_image_0000002628553250.png?HW-CC-KV=V1&HW-CC-Date=20260813T095549Z&HW-CC-Expire=86400&HW-CC-Sign=312AAF52EB16EC088B71CB5ACC712EFBEB7B1531203D1DFB93E987BC066941F4)
 
  
 修复日志：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/4cln3YFjStS6mxGIc2Dw3g/zh-cn_image_0000002658912561.png?HW-CC-KV=V1&HW-CC-Date=20260811T005533Z&HW-CC-Expire=86400&HW-CC-Sign=DA7626A6B938920AB541477522D50C3F0D514105B37483E9E024C34BFF03D03D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/COEJvwH2S_WKBZ-8OuzW-Q/zh-cn_image_0000002658912561.png?HW-CC-KV=V1&HW-CC-Date=20260813T095549Z&HW-CC-Expire=86400&HW-CC-Sign=A50ED97D66E838D850759274FDBCF43A0F8844B8034BCF1BA77E3ECE19A83B0E)
 
  
  
@@ -133,237 +133,237 @@ export struct <span style="color: rgb(0,0,255);">CanvasView </span><span style="
 
 @Prop传递数据时具有一个延迟效果，可以通过设置setTimeout等待数据传递完成后再开始绘图，确保Canvas尺寸就绪：
 ```text
-<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">添加尺寸判断</span>
-  if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">|| </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">setTimeout</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">initCanvas</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">延迟</span><span style="color: rgb(128,128,128);">16ms</span><span style="color: rgb(128,128,128);">等待布局完成</span>
-  <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">initCanvas</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+.onReady(() => {
+  <em>// 添加尺寸判断</em>
+  if (this.context.width === 0 || this.context.height === 0) {
+    setTimeout(() => {
+      this.initCanvas();
+    }, 16); <em>// </em><em>延迟16ms等待布局完成</em>
+  } else {
+    this.initCanvas();
+  }
+})
 ```
  
  
 完整示例参考如下：
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">window </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(0,0,255);">common </span>from <span style="color: rgb(255,0,170);">'@ohos.app.ability.common'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">image </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ImageKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">Size </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
+import { window } from '@kit.ArkUI';
+import common from '@ohos.app.ability.common';
+import { image } from '@kit.ImageKit';
+import { Size } from '@kit.ArkUI';
 
-<span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">画板</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-export struct <span style="color: rgb(0,0,255);">CanvasView </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@ObjectLink </span><span style="color: rgb(0,0,255);">dataModel</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CanvasDataModel</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">是否显示画板边框</span>
-  <span style="color: rgb(0,0,255);">showBorder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">画笔颜色</span>
-  <span style="color: rgb(0,0,255);">brushColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Red</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">画笔粗细</span>
-  <span style="color: rgb(181,106,1);">@Prop </span><span style="color: rgb(0,0,255);">brushSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">6</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">settings</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">RenderingContextSettings </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RenderingContextSettings</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CanvasRenderingContext2D </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CanvasRenderingContext2D</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">settings</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">lastX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">lastY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">isDown</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">panOption</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PanGestureOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">PanGestureOptions</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">direction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PanDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">All</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">distance</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0.6</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">fingers</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<em>// 画板</em>
+@Component
+export struct CanvasView {
+  @ObjectLink dataModel: CanvasDataModel;
+  <em>// 是否显示画板边框</em>
+  showBorder: boolean = true;
+ <em> // 画笔颜色</em>
+  brushColor: Color | string = Color.Red;
+ <em> // 画笔粗细</em>
+  @Prop brushSize: number = 6;
+  private settings: RenderingContextSettings = new RenderingContextSettings(true);
+  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
+  private lastX: number = 0;
+  private lastY: number = 0;
+  private isDown: boolean = false;
+  private panOption: PanGestureOptions = new PanGestureOptions({
+    direction: PanDirection.All,
+    distance: 0.6,
+    fingers: 1
+  });
 
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">绘制</span>
-  private <span style="color: rgb(0,0,255);">draw</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">startX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">startY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">endX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">endY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">moveTo</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">startX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">startY</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineTo</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">endX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">endY</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+ <em> // 绘制</em>
+  private draw(startX: number, startY: number, endX: number, endY: number) {
+    this.context.moveTo(startX, startY);
+    this.context.lineTo(endX, endY);
+    this.context.stroke();
+  };
 
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">新增初始化方法</span>
-  private <span style="color: rgb(0,0,255);">initCanvas</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">font </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'60px sans-serif'</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineWidth </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">brushSize</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeStyle </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">brushColor</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineCap </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'round'</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineJoin </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'round'</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">画板信息</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dataModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">signType</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">)onReady</span><span style="color: rgb(255,0,170);">：</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">' - ' </span><span style="color: rgb(181,106,1);">+</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+ <em> // 新增初始化方法</em>
+  private initCanvas() {
+    this.context.font = '60px sans-serif';
+    this.context.lineWidth = this.brushSize;
+    this.context.strokeStyle = this.brushColor;
+    this.context.lineCap = 'round';
+    this.context.lineJoin = 'round';
+    console.info(`画板信息(${this.dataModel.signType})onReady：` + this.context.width + ' - ' +
+    this.context.height);
+  };
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Flex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">direction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FlexDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Column </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">画板</span>
-        <span style="color: rgb(0,0,255);">Canvas</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Grey</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderWidth</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showBorder </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Gray</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">添加尺寸判断</span>
-            if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">|| </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">setTimeout</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">initCanvas</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">延迟</span><span style="color: rgb(128,128,128);">16ms</span><span style="color: rgb(128,128,128);">等待布局完成</span>
-            <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">initCanvas</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gesture</span><span style="color: rgb(0,0,255);">(</span>
-            <span style="color: rgb(0,0,255);">PanGesture</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">panOption</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onActionStart</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">GestureEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">滑动手势识别回调</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isDown </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-                if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fingerList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lastX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fingerList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">localX</span><span style="color: rgb(181,106,1);">;</span>
-                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lastY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fingerList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">localY</span><span style="color: rgb(181,106,1);">;</span>
-                <span style="color: rgb(255,0,170);">}</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">beginPath</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onActionUpdate</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">GestureEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">滑动手势更新回调</span>
-                if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isDown</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fingerList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                    let <span style="color: rgb(0,0,255);">_x </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fingerList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">localX</span><span style="color: rgb(181,106,1);">;</span>
-                    let <span style="color: rgb(0,0,255);">_y </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fingerList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">localY</span><span style="color: rgb(181,106,1);">;</span>
-                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">draw</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lastX</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lastY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">_x</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">_y</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lastX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">_x</span><span style="color: rgb(181,106,1);">;</span>
-                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lastY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">_y</span><span style="color: rgb(181,106,1);">;</span>
-                  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">                }</span>
-<span style="color: rgb(255,0,170);">              }</span><span style="color: rgb(0,0,255);">)</span>
-              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onActionEnd</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">长按手势结束回调</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isDown </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closePath</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(0,0,255);">          )</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Flex({ direction: FlexDirection.Column }) {
+      Stack() {
+       <em> // 画板</em>
+        Canvas(this.context)
+          .height('100%')
+          .width('100%')
+          .padding(10)
+          .borderColor(Color.Grey)
+          .borderWidth(this.showBorder ? 1 : 0)
+          .backgroundColor(Color.Gray)
+          .onReady(() => {
+          <em>  // 添加尺寸判断</em>
+            if (this.context.width === 0 || this.context.height === 0) {
+              setTimeout(() => {
+                this.initCanvas();
+              }, 16); <em>// 延迟16ms等待布局完成</em>
+            } else {
+              this.initCanvas();
+            }
+          })
+          .gesture(
+            PanGesture(this.panOption)
+              .onActionStart((event: GestureEvent) => {<em> // 滑动手势识别回调</em>
+                this.isDown = true;
+                if (event.fingerList.length > 0) {
+                  this.lastX = event.fingerList[0].localX;
+                  this.lastY = event.fingerList[0].localY;
+                }
+                this.context.beginPath();
+              })
+              .onActionUpdate((event: GestureEvent) => {<em> // 滑动手势更新回调</em>
+                if (this.isDown) {
+                  if (event.fingerList.length > 0) {
+                    let _x = event.fingerList[0].localX;
+                    let _y = event.fingerList[0].localY;
+                    this.draw(this.lastX, this.lastY, _x, _y);
+                    this.lastX = _x;
+                    this.lastY = _y;
+                  }
+                }
+              })
+              .onActionEnd(() => {<em> // 长按手势结束回调</em>
+                this.isDown = false;
+                this.context.closePath();
+              })
+          );
+      }
+      .layoutWeight(1);
+    }
+    .width('100%')
+    .height('100%');
+  }
+}
 
-export class <span style="color: rgb(0,0,255);">DrawingInfo </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">imageData</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PixelMap</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">imageSize</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Size</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(181,106,1);">;</span>
+export class DrawingInfo {
+  imageData?: image.PixelMap;
+  imageSize?: Size;
+}
+;
 
-<span style="color: rgb(181,106,1);">@Observed</span>
-export class <span style="color: rgb(0,0,255);">CanvasDataModel </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">关联的签字类型</span>
-  <span style="color: rgb(0,0,255);">signType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'1'</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图像</span>
-  <span style="color: rgb(0,0,255);">drawingInfo</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">DrawingInfo</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">签署姓名的时候需要签的字</span>
-  <span style="color: rgb(0,0,255);">signText</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(181,106,1);">;</span>
+@Observed
+export class CanvasDataModel {
+ <em> // 关联的签字类型</em>
+  signType: string = '1';
+ <em> // 图像</em>
+  drawingInfo?: DrawingInfo;
+ <em> // 签署姓名的时候需要签的字</em>
+  signText?: string;
+}
+;
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">DrawingCanvasPageView </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">currentIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">canvasDataModelList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CanvasDataModel</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">tabController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TabsController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TabsController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct DrawingCanvasPageView {
+  @State currentIndex: number = 0;
+  @State canvasDataModelList: CanvasDataModel[] = [];
+  private tabController: TabsController = new TabsController();
 
-  <span style="color: rgb(181,106,1);">@Builder</span>
-  <span style="color: rgb(0,0,255);">TabBuilder</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Green </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'#182431'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">14</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,0);">500 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">400</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineHeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">18</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Divider</span><span style="color: rgb(0,0,255);">()</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">strokeWidth</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">color</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Green</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">opacity</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  @Builder
+  TabBuilder(index: number, type: string) {
+    Column() {
+      Text(type)
+        .fontColor(this.currentIndex === index ? Color.Green : '#182431')
+        .fontSize(14)
+        .fontWeight(this.currentIndex === index ? 500 : 400)
+        .lineHeight(18);
+      Divider()
+        .strokeWidth(2)
+        .color(Color.Green)
+        .opacity(this.currentIndex === index ? 1 : 0);
+    };
+  };
 
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置为横屏展示</span>
-  <span style="color: rgb(0,0,255);">onPageShow</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getLastWindow</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">lastWindow</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">lastWindow</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setPreferredOrientation</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">window</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Orientation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">LANDSCAPE</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+ <em> // 设置为横屏展示</em>
+  onPageShow(): void {
+    let context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
+    window.getLastWindow(context).then((lastWindow) => {
+      lastWindow.setPreferredOrientation(window.Orientation.LANDSCAPE);
+    });
+  };
 
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取当前日期</span>
-  <span style="color: rgb(0,0,255);">getCurrentTime</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">dt </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">dt</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getFullYear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">/</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">dt</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getMonth</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">/</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">dt</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDate</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+<em>  // 获取当前日期</em>
+  getCurrentTime() {
+    let dt = new Date();
+    return `${dt.getFullYear()}/${dt.getMonth() + 1}/${dt.getDate()}`;
+  };
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">普通签字</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">canvasDataModelList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">signType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'1'</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">canvasDataModelList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">signType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'2'</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">canvasDataModelList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">signType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'3'</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  aboutToAppear(): void {
+   <em> // 普通签字</em>
+    this.canvasDataModelList.push({
+      signType: '1'
+    });
+    this.canvasDataModelList.push({
+      signType: '2'
+    });
+    this.canvasDataModelList.push({
+      signType: '3'
+    });
+  };
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Flex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">direction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FlexDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Column </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Flex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">direction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FlexDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SpaceBetween</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ItemAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">日期提示</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>
-          <span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">请在下方签字（当前日期：</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getCurrentTime</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">）</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Grey</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">完成签字</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">完成</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">44</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">44</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Flex({ direction: FlexDirection.Column }) {
+      Flex({
+        direction: FlexDirection.Row,
+        justifyContent: FlexAlign.SpaceBetween,
+        alignItems: ItemAlign.Center
+      }) {
+      <em>  // 日期提示</em>
+        Text(
+          `请在下方签字（当前日期：${this.getCurrentTime()}）`,
+        )
+          .fontColor(Color.Grey)
+          .fontSize(16)
+          .textAlign(TextAlign.Center);
+      <em>  // 完成签字</em>
+        Text('完成')
+          .fontWeight(FontWeight.Bold)
+          .width(44)
+          .height(44);
+      }
+      .width('100%')
+      .padding({ left: 16, right: 16 });
 
-      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">画板区域</span>
-      <span style="color: rgb(0,0,255);">Tabs</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">barPosition</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BarPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Start</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabController </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">canvasDataModelList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CanvasDataModel</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">TabContent</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">画板</span>
-            <span style="color: rgb(0,0,255);">CanvasView</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">dataModel</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">item</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBar</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TabBuilder</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">signType</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">vertical</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">barMode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">BarMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Fixed</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">barWidth</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">120</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">barHeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">45</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animationDuration</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+    <em>  // 画板区域</em>
+      Tabs({ barPosition: BarPosition.Start, controller: this.tabController }) {
+        ForEach(this.canvasDataModelList, (item: CanvasDataModel, index) => {
+          TabContent() {
+          <em>  // 画板</em>
+            CanvasView({
+              dataModel: item
+            });
+          }
+          .width('100%')
+          .height('100%')
+          .tabBar(this.TabBuilder(index, item.signType));
+        });
+      }
+      .vertical(false)
+      .barMode(BarMode.Fixed)
+      .barWidth(120)
+      .barHeight(45)
+      .animationDuration(100)
+      .onChange((index: number) => {
+        this.currentIndex = index;
+      })
+      .width('100%')
+      .height('100%');
+    }
+    .width('100%')
+    .height('100%');
+  }
+}
 ```

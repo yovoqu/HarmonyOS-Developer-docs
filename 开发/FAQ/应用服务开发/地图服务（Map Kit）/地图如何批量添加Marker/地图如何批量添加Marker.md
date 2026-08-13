@@ -1,6 +1,6 @@
 # 地图如何批量添加Marker
 
-更新时间：2026-07-30 01:03:01
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-21
 
@@ -21,4 +21,4 @@
 #### 解决方案
 
 - 方案一：如果添加的Marker图标相同，通过[addMassPointOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addmasspointoverlay)接口一次性添加海量点图层。
-- 方案二：如果添加的Marker图标不同，可以采用Promise.all并发执行[addMarker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#section0810361284)。但此种方法，在同步执行较多添加Marker操作时，可能导致性能压力较大。建议将待添加的Marker点分批，每批Marker点采用Promise.all并发执行添加操作。
+- 方案二：如果添加的Marker图标不同，可以采用Promise.all并发执行[addMarker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addmarker)。但此种方法，在同步执行较多添加Marker操作时，可能导致性能压力较大。建议将待添加的Marker点分批，每批Marker点采用Promise.all并发执行添加操作。

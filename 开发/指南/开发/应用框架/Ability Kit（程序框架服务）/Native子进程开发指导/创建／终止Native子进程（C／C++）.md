@@ -1,6 +1,6 @@
 # 创建/终止Native子进程（C/C++）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/capi-nativechildprocess-development-guideline
 
@@ -205,7 +205,7 @@ void CreateNativeChildProcess()
 
 5. 主进程-添加编译依赖项。
 
-  修改CMaklist.txt添加必要的依赖库，假设主进程所在的so名称为libmainprocesssample.so（主进程和子进程的实现也可以选择编译到同一个动态库文件）。
+  修改CMakeList.txt添加必要的依赖库，假设主进程所在的so名称为libmainprocesssample.so（主进程和子进程的实现也可以选择编译到同一个动态库文件）。
 
   
 ```text
@@ -363,7 +363,7 @@ void StartNativeChildProcess()
 
 4. 主进程-添加编译依赖项。
 
-  修改CMaklist.txt添加必要的依赖库，假设主进程所在的so名称为libmainprocesssample.so（主进程和子进程的实现也可以选择编译到同一个动态库文件）。
+  修改CMakeList.txt添加必要的依赖库，假设主进程所在的so名称为libmainprocesssample.so（主进程和子进程的实现也可以选择编译到同一个动态库文件）。
 
   
 ```text
@@ -429,7 +429,7 @@ void ThreadFunc()
     if (args == nullptr) {
         return;
     }
-    // 获取启动参数中的entryPrams
+    // 获取启动参数中的entryParams
     char *entryParams = args->entryParams;
     // 获取fd列表
     NativeChildProcess_Fd *current = args->fdList.head;

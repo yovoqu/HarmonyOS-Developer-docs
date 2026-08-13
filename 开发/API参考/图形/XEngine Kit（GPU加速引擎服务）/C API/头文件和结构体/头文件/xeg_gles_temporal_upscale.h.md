@@ -1,6 +1,6 @@
 # xeg_gles_temporal_upscale.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-gles-temporal-upscale-8h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -39,7 +39,7 @@ XEngine时域AI超分特性OpenGL ES接口。推荐超分倍率为[1.25, 2.0]，
 | XEG_TEMPORAL_UPSCALE_JITTER_NUM 0x2U | 用于通过HMS_XEG_TemporalUpscaleParameter接口设置相机抖动的周期数，取值范围为[4, 16]，推荐8。 |
 | XEG_TEMPORAL_UPSCALE_DEPTH_REVERSED 0x3U | 用于通过HMS_XEG_TemporalUpscaleParameter接口设置是否存在深度反转。true表示存在深度反转，false表示不存在深度反转。 |
 | XEG_TEMPORAL_UPSCALE_RESET_HISTORY 0x4U | 用于通过HMS_XEG_TemporalUpscaleParameter接口设置是否重置历史帧数据，true表示重置，false表示不重置。在历史帧未使用超分，并且当前帧开始使用超分的情况下建议设置为true。 |
-| XEG_TEMPORAL_UPSCALE_STEADY_LEVEL 0x5U | 用于通过HMS_XEG_TemporalUpscaleParameter接口设置画面偏向当前帧（鬼影少但可能存在闪烁）还是历史帧（鬼影多但是更稳定）的平衡程度。取值范围为[0.0, 1.0]，值越大越偏向历史帧。 |
+| XEG_TEMPORAL_UPSCALE_STEADY_LEVEL 0x5U | 用于通过HMS_XEG_TemporalUpscaleParameter接口设置画面偏向当前帧（鬼影少但可能存在闪烁）还是历史帧（鬼影多但是更稳定）的平衡程度。取值范围为[0.0, 1.0]，如果该值不在以上范围内，则会发生未定义行为，例如渲染效果不正确或程序崩溃，值越大越偏向历史帧。建议根据实际需求选择合适的值，例如在需要减少鬼影时可设置为较小值，需要减少闪烁可以设置为较大值，推荐值为0.5。 |
  
  
   

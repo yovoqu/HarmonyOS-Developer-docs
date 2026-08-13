@@ -1,6 +1,6 @@
 # ArkTS卡片使用画布组件绘制自定义图形
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-page-custom-drawing
 

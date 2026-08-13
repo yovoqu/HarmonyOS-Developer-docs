@@ -1,6 +1,6 @@
 # 基于Surface模式进行视频编码
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-encoding-surface
 
@@ -29,7 +29,7 @@ Surface分为生产者ProducerSurface和消费者ConsumerSurface。NativeWindow�
 Surface轮转流程如下所示，生产者先申请到一块Buffer，填充数据后将Buffer返回给BufferQueue。在触发回调函数后，通知消费者Buffer已经被生产者填充好数据。之后，消费者可以获取填充好数据的Buffer，直到不再需要该Buffer后，释放对应的Buffer。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/kDkNADe5TUiL2gh5a4eazg/zh-cn_image_0000002698221341.png?HW-CC-KV=V1&HW-CC-Date=20260811T005953Z&HW-CC-Expire=86400&HW-CC-Sign=6D649E8A06E88D89F2D03F677A4A9C95CBAAE46549C575299428C3F69A26A12C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/BVLMnmidSAqfQ_6KYdH9cw/zh-cn_image_0000002674473332.png?HW-CC-KV=V1&HW-CC-Date=20260813T095909Z&HW-CC-Expire=86400&HW-CC-Sign=B43A2B992938FC6FE418C4E15D755E5777804CFB6549535777D0097160E97D13)
 
  
 视频编码器提供了获取NativeWindow的接口，通过NativeWindow可以将相机产生的数据与视频编码器进行对接。视频编码器作为消费者，将Buffer数据进行消费编码，从而实现视频编码的操作。下面我们将通过相机录制和屏幕录制，介绍基于Surface模式进行视频编码。
@@ -58,7 +58,7 @@ Surface模式是通过NativeWindow包含的Surface传递录屏数据进行视频
 7. 将从编码器中获取的NativeWindow对象设置给AVScreenCapture，启动屏幕录制。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/mywHOVr2TfqFS_rWV2NZXg/zh-cn_image_0000002698141251.png?HW-CC-KV=V1&HW-CC-Date=20260811T005953Z&HW-CC-Expire=86400&HW-CC-Sign=C85AD5C1FE27A21DD6975BCE9D715F33DC5B87B3C4BAE004EABFA983D00FA182)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/5_bqt8OETFO0OEK04HM04g/zh-cn_image_0000002704393299.png?HW-CC-KV=V1&HW-CC-Date=20260813T095909Z&HW-CC-Expire=86400&HW-CC-Sign=4694BB28A85B5308152087F9DF52CEDC1E7EA6FEE3F42329BD1573F0ACA068CD)
 
  
   
@@ -148,7 +148,7 @@ int32_t VideoEncoder::Config(SampleInfo &sampleInfo, CodecUserData *codecUserDat
 3. 初始化AVScreenCapture，创建并配置AVScreenCapture。
 
   
-```text
+```cpp
 void CAVScreenCaptureToStream::InitAVScreenCapture(int32_t videoWidth,
                                                  int32_t videoHeight) {
     if (g_avCapture != nullptr) {
@@ -199,7 +199,7 @@ void CAVScreenCaptureToStream::InitAVScreenCapture(int32_t videoWidth,
 4. 启动视频封装器。
 
   
-```text
+```cpp
 int32_t Muxer::Start() {
     int ret = OH_AVMuxer_Start(muxer_);
     return ret;
@@ -209,7 +209,7 @@ int32_t Muxer::Start() {
 5. 启动视频编码器。
 
   
-```text
+```cpp
 int32_t VideoEncoder::Start() {
     int ret = OH_VideoEncoder_Start(encoder_);
     return ret;
@@ -219,7 +219,7 @@ int32_t VideoEncoder::Start() {
 6. 创建并启动编码输出子线程。
 
   
-```text
+```cpp
 void CAVScreenCaptureToStream::EncOutputThread() {
     while (true) {
         if (!isStarted_) {
@@ -278,7 +278,7 @@ void CAVScreenCaptureToStream::EncOutputThread() {
 7. 将从编码器中获取的NativeWindow对象设置给AVScreenCapture，启动屏幕录制。
 
   
-```text
+```cpp
 void CAVScreenCaptureToStream::StartScreenCapture(int32_t outputFd, int32_t videoWidth, int32_t videoHeight) {
     InitMuxerAndEncoder(outputFd, videoWidth, videoHeight);
 
@@ -321,7 +321,7 @@ void CAVScreenCaptureToStream::StartScreenCapture(int32_t outputFd, int32_t vide
 6. 创建并启动编码输出子线程。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/JASo5DPaR-WpsCq7iPRRtQ/zh-cn_image_0000002668301586.png?HW-CC-KV=V1&HW-CC-Date=20260811T005953Z&HW-CC-Expire=86400&HW-CC-Sign=C5D519D191B2ABAFA0FEFD760696938213354E080FE77EDD423F5CF18CACACBD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/DK3NabjnT6CV1KiDNVpeuQ/zh-cn_image_0000002674633178.png?HW-CC-KV=V1&HW-CC-Date=20260813T095909Z&HW-CC-Expire=86400&HW-CC-Sign=084B14EC815D9EF886177AEEEBDA48F960C366FF9FC0FF3FD4F2D939B29D1227)
 
  
   
@@ -331,7 +331,7 @@ void CAVScreenCaptureToStream::StartScreenCapture(int32_t outputFd, int32_t vide
 2. 初始化视频编码器，创建并配置视频编码器，从编码器中获取NativeWindow对象。
 
   
-```text
+```cpp
 int32_t VideoEncoder::GetSurface(SampleInfo &sampleInfo) {
     int32_t ret = OH_VideoEncoder_GetSurface(encoder_, &sampleInfo.window);
     CHECK_AND_RETURN_RET_LOG(ret == AV_ERR_OK && sampleInfo.window, AVCODEC_SAMPLE_ERR_ERROR,
@@ -342,7 +342,7 @@ int32_t VideoEncoder::GetSurface(SampleInfo &sampleInfo) {
   从NativeWindow对象获取对应的surfaceId。
 
   
-```text
+```cpp
 void NativeInit(napi_env env, void *data) {
     AsyncCallbackInfo *asyncCallbackInfo = static_cast<AsyncCallbackInfo *>(data);
     int32_t ret = Recorder::GetInstance().Init(asyncCallbackInfo->sampleInfo);
@@ -363,7 +363,7 @@ void NativeInit(napi_env env, void *data) {
 3. 初始化相机配置，并通过createVideoOutput接口创建相机输出流。
 
   
-```json
+```ArkTS
 try {
   videoSession.addOutput(encoderVideoOutput);
 } catch (error) {
@@ -374,7 +374,7 @@ try {
   点击相机录制时，启动相机输出流。
 
   
-```json
+```ArkTS
 encoderVideoOutput.start((err: BusinessError) => {
   if (err) {
     Logger.error(TAG, `Failed to start the encoder video output. error: ${JSON.stringify(err)}`);
@@ -387,7 +387,7 @@ encoderVideoOutput.start((err: BusinessError) => {
 4. 在开启相机时，启动视频封装器。
 
   
-```text
+```cpp
 int32_t Muxer::Start() {
     CHECK_AND_RETURN_RET_LOG(muxer_ != nullptr, AVCODEC_SAMPLE_ERR_ERROR, "Muxer is null");
 
@@ -400,7 +400,7 @@ int32_t Muxer::Start() {
 5. 启动视频编码器。
 
   
-```text
+```cpp
 int32_t VideoEncoder::Start() {
     CHECK_AND_RETURN_RET_LOG(encoder_ != nullptr, AVCODEC_SAMPLE_ERR_ERROR, "Encoder is null");
 
@@ -413,7 +413,7 @@ int32_t VideoEncoder::Start() {
 6. 创建并启动编码输出子线程。
 
   
-```text
+```cpp
 void Recorder::EncOutputThread() {
     while (true) {
         CHECK_AND_BREAK_LOG(isStarted_, "Work done, thread out");

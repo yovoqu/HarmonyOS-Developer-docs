@@ -1,12 +1,12 @@
 # 如何解决AES加解密报错问题
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-60
 
 #### 问题现象
 
-加解密常用于数据存储或传输场景，在使用对称密钥加解密算法AES进行数据加解密操作时产生错误，常见执行加解密时抛出错误码[17630001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework#section17630001-算法相关的操作错误调用三方算法库api出错)、密钥转换失败、执行加解密时闪退等现象。
+加解密常用于数据存储或传输场景，在使用对称密钥加解密算法AES进行数据加解密操作时产生错误，常见执行加解密时抛出错误码[17630001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework#section17630001-密码操作错误)、密钥转换失败、执行加解密时闪退等现象。
  
  
 

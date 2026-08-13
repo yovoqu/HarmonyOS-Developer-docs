@@ -1,6 +1,6 @@
 # 基于Buffer模式进行视频转码
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-transcoding-buffer
 
@@ -21,13 +21,13 @@
 视频文件格式是视频保存的格式，常见的格式有MP4、AVI等。在视频文件（以MP4文件解码为例）解码时，首先需要将视频进行解封装，解封装会将一个封装好的音视频文件（如MP4、FLV等）中的音频和视频数据流分离出来。然后，从数据流中取出视频的媒体样本sample，通过视频解码器将媒体数据解码成YUV数据，流程如下所示。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/Ng1nPhAXQBm41_sCo0h6fg/zh-cn_image_0000002668301582.png?HW-CC-KV=V1&HW-CC-Date=20260811T005953Z&HW-CC-Expire=86400&HW-CC-Sign=DF4C551B8FAA69E97967D3043A80A3C207D2760389F62A9AE43A4278A5E98B11)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/I60p1l6ASzG8O2XHapmTyg/zh-cn_image_0000002674633174.png?HW-CC-KV=V1&HW-CC-Date=20260813T095909Z&HW-CC-Expire=86400&HW-CC-Sign=45C04E1702FA6D3BB255505D745F3C76388E047A8E82B92E24FC3513B87A9CF8)
 
  
 在视频文件编码（以MP4文件编码为例）时，首先会通过视频编码器对YUV数据进行编码，将未压缩的视频数据YUV压缩成视频码流H.264，然后，将编码后的媒体数据按一定的格式封装存储到MP4文件里，流程如下所示。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/_JzPbPD5QjSQHhlzLq_6Zg/zh-cn_image_0000002668461462.png?HW-CC-KV=V1&HW-CC-Date=20260811T005953Z&HW-CC-Expire=86400&HW-CC-Sign=FA294194CB02B6BCC4215468C86883BE65B00893992F3A4A03DCC590777060D8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/HcmmtX-iRb-jYSlH5Agyxg/zh-cn_image_0000002704273127.png?HW-CC-KV=V1&HW-CC-Date=20260813T095909Z&HW-CC-Expire=86400&HW-CC-Sign=F00CC8D7FD9D64C090E38F2BB2B3E658124007A8AEEA58DB8B9545694C22B2EB)
 
  
 关于视频文件编解码支持的格式，详情请参考[AVCodec支持的格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avcodec-support-formats)。
@@ -43,7 +43,7 @@ YUV是一类真彩色（true-color）颜色空间（color space），Y'UV、YUV�
 以I420格式为例，其跨距对齐后的格式如下所示。其中，w_stride是数据填充后的宽跨距，h_stride是数据填充后的高跨距，height是实际的高度，width是实际的宽度。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/TSR9uVJOS8SYj7RI5d7qVw/zh-cn_image_0000002698221339.png?HW-CC-KV=V1&HW-CC-Date=20260811T005953Z&HW-CC-Expire=86400&HW-CC-Sign=B03148BC8BFDE0B9EB47C742760DA8EDA55FFCE5AC6F578234447479D429B2C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/QakhruFCTD-7PjST8FFULg/zh-cn_image_0000002674473330.png?HW-CC-KV=V1&HW-CC-Date=20260813T095909Z&HW-CC-Expire=86400&HW-CC-Sign=8AC9FA8FB4F79D3044FCC9A398872BB77949630F1F0810813665B21B6160D336)
 
  
   
@@ -55,7 +55,7 @@ YUV是一类真彩色（true-color）颜色空间（color space），Y'UV、YUV�
 在视频解码的过程中，主要包含两个部分，分别为输入数据流转和输出数据流转。开发者需要通过输入数据流转将需要解码的数据填充给解码器，解码器再进行解码处理。在输出数据流转中，解码器会将解码完成的数据返回给开发者使用，在开发者使用完毕后，需要通知解码器释放视频数据，从而实现整体的Buffer循环，详细原理流程如下图所示。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/Y9tAeCBITFes08U7TPbNoA/zh-cn_image_0000002698141249.png?HW-CC-KV=V1&HW-CC-Date=20260811T005953Z&HW-CC-Expire=86400&HW-CC-Sign=CF8CEE3A84E106871B13D7FFD221E3AD90107DE9AAACD3C97AFB30F91CFE38EA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/EP-LClW_STeMEAxLYN040w/zh-cn_image_0000002704393297.png?HW-CC-KV=V1&HW-CC-Date=20260813T095909Z&HW-CC-Expire=86400&HW-CC-Sign=21EA02CFF12827F28835E542F8174A2ECF202DF84178E67AB86F4587B3FCC30C)
 
  
 输入数据流转的步骤如下所示。
@@ -89,7 +89,7 @@ YUV是一类真彩色（true-color）颜色空间（color space），Y'UV、YUV�
 在视频转码的场景中，视频文件会经历解封装、视频解码、视频编码和视频封装的步骤，如下图所示。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/sBF0DAdDSY2IxMSdrtsMEw/zh-cn_image_0000002668301584.png?HW-CC-KV=V1&HW-CC-Date=20260811T005953Z&HW-CC-Expire=86400&HW-CC-Sign=36B0D187334F05A025BAE91E27447393D0B8CA3C37F021C25E8A97259E59BC09)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/Mv7SaNgIROmzJmnBwCjiXg/zh-cn_image_0000002674633176.png?HW-CC-KV=V1&HW-CC-Date=20260813T095909Z&HW-CC-Expire=86400&HW-CC-Sign=978C048D79DAF10C20014A14456A2BCFF4D1DC396AC08676599BA492563F845E)
 
  
 其主要包含三个大步骤。
@@ -109,7 +109,7 @@ YUV是一类真彩色（true-color）颜色空间（color space），Y'UV、YUV�
 在视频文件解码中，主要包含两个步骤，输入缓存处理、输出缓存处理。在OnNeedInputBuffer()回调函数中，维护了一个空Buffer的缓存队列，在实现输入缓存处理时，需要解封装、填充视频数据。在OnNewOutputBuffer()回调函数中，维护了一个已解码视频数据的缓存队列，在实现输出缓存处理时，需要处理视频数据，其调用顺序如下所示。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/8kNOUfASQyu0yk-Qx2GC0w/zh-cn_image_0000002668461464.png?HW-CC-KV=V1&HW-CC-Date=20260811T005953Z&HW-CC-Expire=86400&HW-CC-Sign=3A8C95CC4F613970D1E00E2DB88FFA8EED74732DEC4DE8E57177FE8823D47656)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/2fH9G11QQEu0NEOhbWnuLQ/zh-cn_image_0000002704273129.png?HW-CC-KV=V1&HW-CC-Date=20260813T095909Z&HW-CC-Expire=86400&HW-CC-Sign=39F00A5657652166C1D8F83B4F263401FCDE1CA8BBDE08507ED803E50918678B)
 
  
 **视频文件解码**开发步骤如下所示。
@@ -135,7 +135,7 @@ YUV是一类真彩色（true-color）颜色空间（color space），Y'UV、YUV�
 - 初始化视频解码环境。
 
   
-```text
+```cpp
 int32_t Transcoding::InitDecoder() {
     CHECK_AND_RETURN_RET_LOG(!isStarted_, AVCODEC_SAMPLE_ERR_ERROR, "Already started.");
     CHECK_AND_RETURN_RET_LOG(demuxer_ == nullptr && videoDecoder_ == nullptr,
@@ -160,7 +160,7 @@ int32_t Transcoding::InitDecoder() {
 2. 创建解封装器。在创建解封装器时，需要根据需要解码的视频文件fd创建对应的OH_AVSource对象，再根据该对象创建对应的解码器。
 
   
-```text
+```cpp
 int32_t Demuxer::Create(SampleInfo &info) {
     source_ = OH_AVSource_CreateWithFD(info.inputFd, info.inputFileOffset, info.inputFileSize);
     CHECK_AND_RETURN_RET_LOG(source_ != nullptr, AVCODEC_SAMPLE_ERR_ERROR,
@@ -253,7 +253,7 @@ int32_t Demuxer::GetTrackInfo(std::shared_ptr<OH_AVFormat> sourceFormat, SampleI
 4. 创建视频解码器。
 
   
-```text
+```cpp
 int32_t Transcoding::CreateVideoDecoder() {
     AVCODEC_SAMPLE_LOGW("video mime:%{public}s", sampleInfo_.videoCodecMime.c_str());
     int32_t ret = videoDecoder_->Create(sampleInfo_.videoCodecMime);
@@ -360,7 +360,7 @@ int32_t Transcoding::InitEncoder() {
 7. 创建视频编码器。
 
   
-```text
+```cpp
 int32_t VideoEncoder::Create(const std::string &videoCodecMime) {
     encoder_ = OH_VideoEncoder_CreateByMime(videoCodecMime.c_str());
     CHECK_AND_RETURN_RET_LOG(encoder_ != nullptr, AVCODEC_SAMPLE_ERR_ERROR, "Create failed");
@@ -372,7 +372,7 @@ int32_t VideoEncoder::Create(const std::string &videoCodecMime) {
 8. 配置视频编码器。
 
   
-```text
+```cpp
 int32_t VideoEncoder::Config(SampleInfo &sampleInfo, CodecUserData *codecUserData) {
     CHECK_AND_RETURN_RET_LOG(encoder_ != nullptr, AVCODEC_SAMPLE_ERR_ERROR, "Encoder is null");
     CHECK_AND_RETURN_RET_LOG(codecUserData != nullptr, AVCODEC_SAMPLE_ERR_ERROR, "Invalid param: codecUserData");
@@ -429,7 +429,7 @@ int32_t VideoEncoder::Configure(const SampleInfo &sampleInfo) {
 9. 配置视频封装器。在配置视频封装器时，需要设置视频封装的格式，包括视频宽高、帧率、编码格式等。
 
   
-```text
+```cpp
 int32_t Muxer::Config(SampleInfo &sampleInfo) {
     CHECK_AND_RETURN_RET_LOG(muxer_ != nullptr, AVCODEC_SAMPLE_ERR_ERROR, "Muxer is null");
     OH_AVFormat *formatAudio = OH_AVFormat_CreateAudioFormat(sampleInfo.audioCodecMime.data(),
@@ -471,7 +471,7 @@ int32_t Muxer::Config(SampleInfo &sampleInfo) {
 启动视频转码，包括视频解码输入缓存处理线程、输出缓存处理线程、编码输出缓存处理线程。
 
   
-```text
+```cpp
 int32_t Transcoding::Start() {
     std::unique_lock<std::mutex> lock(mutex_);
     int32_t ret;
@@ -523,7 +523,7 @@ int32_t Transcoding::Start() {
 11. 视频解码输入缓存处理。
 
   
-```text
+```cpp
 void Transcoding::VideoDecInputThread() {
     while (true) {
         CHECK_AND_BREAK_LOG(isStarted_, "Decoder input thread out");
@@ -555,7 +555,7 @@ void Transcoding::VideoDecInputThread() {
 12. 视频解码输出缓存处理。
 
   
-```text
+```cpp
 void Transcoding::VideoDecOutputThread() {
     sampleInfo_.frameInterval = MICROSECOND / sampleInfo_.frameRate;
     while (true) {
@@ -618,7 +618,7 @@ void Transcoding::VideoDecOutputThread() {
 在解码输出缓存子线程中，将解码输出缓存同步拷贝AVBuffer。同时，需要注意的是解码的数据中会进行YUV跨距对齐，需要专门处理对应的跨距，偏移填充的数据，才能正确的进行视频编码。若解码过程中发生分辨率、帧率变更，需开发者自行适配处理。系统提供了超分、下采样及丢帧能力，详情可参考[视频缩放](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/generate-super-resolution-video)、[编码支持前处理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-encoding-preproc)。当前系统未提供自动插帧功能，插帧逻辑需由开发者自主实现。
 
   
-```text
+```cpp
 void Transcoding::CopyStrideYUV420SP(CodecBufferInfo &encBufferInfo, CodecBufferInfo &bufferInfo) {
     int32_t videoWidth = videoDecContext_->width;
     int32_t &stride = videoDecContext_->widthStride;
@@ -657,7 +657,7 @@ void Transcoding::CopyStrideYUV420SP(CodecBufferInfo &encBufferInfo, CodecBuffer
 14. 同时，拷贝的AVBuffer内存需要通过OH_AVBuffer_SetBufferAttr()设置对应的属性，其中，size属性为当前数据的大小，是实际AVBuffer的数据大小。最后，通过OH_VideoEncoder_PushInputBuffer()将填充的输入缓存数据提交给编码器。
 
   
-```text
+```cpp
 int32_t VideoEncoder::PushInputBuffer(CodecBufferInfo &info) {
     CHECK_AND_RETURN_RET_LOG(encoder_ != nullptr, AVCODEC_SAMPLE_ERR_ERROR, "Decoder is null");
     int32_t ret = OH_VideoEncoder_PushInputBuffer(encoder_, info.bufferIndex);
@@ -670,7 +670,7 @@ int32_t VideoEncoder::PushInputBuffer(CodecBufferInfo &info) {
 15. 在编码输出处理中，获取已编码的视频数据。
 
   
-```text
+```cpp
 void Transcoding::VideoEncOutputThread() {
     while (true) {
         std::unique_lock<std::mutex> lock(videoEncContext_->outputMutex);
@@ -710,7 +710,7 @@ void Transcoding::VideoEncOutputThread() {
 16. 通过OH_AVMuxer_WriteSampleBuffer方法，将编码完成的数据写入到视频文件中，从而完成视频转码。
 
   
-```text
+```cpp
 int32_t Muxer::WriteSample(int32_t trackId, OH_AVBuffer *buffer, OH_AVCodecBufferAttr &attr){
     std::lock_guard<std::mutex> lock(writeMutex_);
 
@@ -738,7 +738,7 @@ int32_t Muxer::WriteSample(int32_t trackId, OH_AVBuffer *buffer, OH_AVCodecBuffe
   可能的原因是在视频编解码的过程中没有考虑YUV跨距的问题，需要注意宽高对齐，处理对应的跨距，关于跨距的原理，请参考[YUV跨距对齐](#yuv跨距对齐)。在视频编码时，跨距可以在编码的回调函数EncOnNeedInputBuffer()中进行获取，其中，OH_MD_KEY_VIDEO_PIC_WIDTH和OH_MD_KEY_VIDEO_PIC_HEIGHT分别是视频图片的宽和高，OH_MD_KEY_VIDEO_STRIDE和OH_MD_KEY_VIDEO_SLICE_HEIGHT分别是字节填充后的宽和高。在视频解码时，跨距可以在解码的回调函数OnNewOutputBuffer()中进行获取，参考代码如下。
 
   
-```text
+```cpp
 void SampleCallback::OnNewOutputBuffer(OH_AVCodec *codec, uint32_t index, OH_AVBuffer *buffer, void *userData) {
     if (userData == nullptr) {
         return;

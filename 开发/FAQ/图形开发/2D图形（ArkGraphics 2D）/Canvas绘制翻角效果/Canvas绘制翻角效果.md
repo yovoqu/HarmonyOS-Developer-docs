@@ -1,6 +1,6 @@
 # Canvas绘制翻角效果
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:42:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-19
 
@@ -13,7 +13,7 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0b/v3/o7UTOr17TL26s-xhPLgSZg/zh-cn_image_0000002628393352.png?HW-CC-KV=V1&HW-CC-Date=20260811T005531Z&HW-CC-Expire=86400&HW-CC-Sign=91EFC009D9C8030B08B7424FE8E475EC1BC14B14AE3B8F4E61743478EA6E39DA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/A8Dtk8D2RF2Ok_Dn9o6ntw/zh-cn_image_0000002628393352.png?HW-CC-KV=V1&HW-CC-Date=20260813T095548Z&HW-CC-Expire=86400&HW-CC-Sign=D77DD64FCD329EA625283AF72C454736CBC0914645D5274712A79D62F9A1F6B7)
 
  
  
@@ -23,8 +23,8 @@
 - [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)：提供画布组件，用于自定义绘制图形。
 - [RenderingContextSettings](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#renderingcontextsettings)：用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿。
 - [CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#renderingcontextsettings)：使用RenderingContext在Canvas组件上进行绘制，绘制对象可以是矩形、文本、图片等。
-- [quadraticCurveTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#quadraticcurveto)：创建二次贝赛尔曲线的路径。
-- [arc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#arc)：绘制弧线路径。
+- [quadraticCurveTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#quadraticcurveto)：创建二次贝赛尔曲线的路径。
+- [arc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#arc)：绘制弧线路径。
 
  
  

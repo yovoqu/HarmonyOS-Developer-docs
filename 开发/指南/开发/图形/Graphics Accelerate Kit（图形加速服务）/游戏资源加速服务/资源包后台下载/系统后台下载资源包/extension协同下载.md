@@ -1,6 +1,6 @@
 # extension协同下载
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-assetdownload-back-self
 
@@ -60,6 +60,11 @@
 2. 导入模块信息。
 
   在ets目录下新建extensionability文件夹及AssetAccelExtAbility.ets文件，导入assetDownloadManager模块、AssetAccelerationExtensionAbility模块及相关模块，同时新增AssetAccelExtAbility类继承AssetAccelerationExtensionAbility。
+
+  
+> [!NOTE]
+> 针对AssetAccelerationExtensionAbility接口调用限制，详细请参考API中的 约束限制 。
+
 
   
 ```text

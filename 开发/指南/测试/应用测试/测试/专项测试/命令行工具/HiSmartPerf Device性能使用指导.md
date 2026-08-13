@@ -1,6 +1,6 @@
 # HiSmartPerf Device性能使用指导
 
-更新时间：2026-06-12 06:58:30
+更新时间：2026-08-04 01:38:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/smartperf-guidelines
 
@@ -8,7 +8,7 @@
 
 HiSmartPerf Device是一款性能功耗测试工具，支持监测性能、功耗相关指标，包括FPS、CPU、GPU、RAM、Temp等，并提供Device hap端和Device daemon端。Device hap适用于有屏设备，支持可视化操作，测试过程中可通过悬浮窗的开始和暂停来实时展示性能指标数据，保存后可生成数据报告，在报告中可分析各指标数据详情。Device daemon端支持shell命令行方式，同时适用于有屏和无屏设备。
  
-  
+ 
 
 #### 指标说明
 
@@ -20,7 +20,7 @@ HiSmartPerf Device是一款性能功耗测试工具，支持监测性能、功�
 - snapshot：每2秒截取一张应用界面截图。
 
  
-  
+ 
 
 #### 实现原理
 
@@ -30,7 +30,7 @@ HiSmartPerf Device是一款性能功耗测试工具，支持监测性能、功�
 ![](assets/HiSmartPerf%20Device性能使用指导/file-20260514134439629-0.png)
 
  
-  
+ 
 
 #### 约束与限制
 1. Device daemon端从API version 9开始预置使用。
@@ -156,7 +156,7 @@ $ SP_daemon --help
 
 
  
-  
+ 
 
 #### 基础采集
 
@@ -197,7 +197,7 @@ order:2 tids=18847:43411 43409 43350 43236 25783 25622 25384 25381 19423 19170 1
 command exec finished!
 $
 ```
-  
+ 
 > [!NOTE]
 > 使用该命令采集时需进入被测应用内。
 
@@ -268,7 +268,7 @@ order:24 cpu0irqUsage=0.000000
 command exec finished!
 $
 ```
-  
+ 
 > [!NOTE]
 > 使用该命令采集时需进入被测应用内。
 
@@ -308,7 +308,7 @@ order:24 cpu0irqUsage=0.000000
 command exec finished!
 $
 ```
-  
+ 
 > [!NOTE]
 > 使用该命令采集时需进入被测应用内。
 
@@ -434,7 +434,7 @@ order:33 swapPss=25356
 command exec finished!
 $
 ```
-  
+ 
 > [!NOTE]
 > 使用该命令采集时需要拉起被测应用的进程。
 
@@ -482,7 +482,7 @@ order:33 swapPss=25356
 command exec finished!
 $
 ```
-  
+ 
 > [!NOTE]
 > 使用该命令采集时需要拉起被测应用的进程。
 
@@ -514,7 +514,7 @@ order:3 timestamp=1501838024624
 command exec finished!
 $
 ```
-  
+ 
 > [!NOTE]
 > 使用该命令采集时需进入被测应用内。
 
@@ -533,7 +533,7 @@ order:1 capture=NA
 command exec finished!
 $
 ```
-  
+ 
 > [!NOTE]
 > 截图采集是2秒截取一次。 截图报告存放路径为：data/local/tmp/capture。 采集结束后：进入 data/local/tmp/capture 查看生成的截图。 导出截图示例：hdc file recv data/local/tmp/capture/screenCap_1700725192774.png D:\。
 
@@ -575,7 +575,7 @@ order:3 timestamp=1773042669243
 command exec finished!
 $
 ```
-  
+ 
 > [!NOTE]
 > 使用该命令采集时需要进入被测应用内滑动或切换应用。
 
@@ -594,7 +594,7 @@ order:3 refreshrate=60
 command exec finished!
 $
 ```
-  
+ 
 > [!NOTE]
 > 使用该命令采集时需要进入被测应用内滑动或切换应用。
 
@@ -618,7 +618,7 @@ order:3 refreshrate=120
 command exec finished!
 $
 ```
-  
+ 
 > [!NOTE]
 > DisplayNode 是指定的图层名。 使用该命令采集时，需在传入的图层上操作页面。 该命令不能与指定应用帧率一起采集（SP_daemon -N 20 -PKG ohos.samples.ecg -f 或 SP_daemon -N 20 -VIEW DisplayNode -f）。
 
@@ -772,7 +772,7 @@ order:185 voltageNow=3768445
 command exec finished!
 $
 ```
-  
+ 
 > [!NOTE]
 > 使用该命令采集时需要进入被测应用内。
 
@@ -872,7 +872,7 @@ order:185 voltageNow=3719892
 command exec finished!
 $
 ```
-  
+ 
 > [!NOTE]
 > 使用该命令采集时需要进入被测应用内。
 
@@ -965,7 +965,7 @@ Output Path: data/local/tmp/smartperf/1/t_index_info.csv
 command exec finished!
 $
 ```
-  
+ 
 > [!NOTE]
 > 开始采集示例1（采整机cpu、gpu、温度、功耗、fps、内存信息、DDR信息、网络速率、屏幕截图）：SP_daemon -start -c -g -t -p -r -d -net -snapshot。 开始采集示例2（采整机和进程cpu负载、gpu、温度、功耗、fps、内存信息、DDR信息、网络速率、屏幕截图、线程数、文件描述符）：SP_daemon -start -PKG ohos.samples.ecg -c -g -t -p -f -r -d -net -snapshot -threads。 开始采集示例3（采整机和进程cpu负载、gpu、温度、功耗、fps、内存信息、DDR信息、网络速率、屏幕截图、线程数、文件描述符）：SP_daemon -start -PID 18847 -c -g -t -p -f -r -d -net -snapshot -threads。 开始采集示例4（采整机cpu、gpu、温度、功耗、fps、内存信息、DDR信息、网络速率、屏幕截图、线程数、文件描述符并且打印采集信息）：SP_daemon -start -c -g -t -p -r -d -net -snapshot -threads -print。 开始采集示例5（采整机和进程cpu负载、gpu、温度、功耗、fps、内存信息、DDR信息、网络速率、屏幕截图、线程数、文件描述符并且打印采集信息）：SP_daemon -start -PID 18847 -c -g -t -p -f -r -d -net -snapshot -threads -print。 开始采集需和结束采集结合使用，先执行开始采集命令，执行完后操作设备中的应用，最后执行结束采集命令。 在执行启停打印采集时，执行停止命令需重新打开命令框执行停止命令。 结束采集，文件输出路径为：data/local/tmp/smartperf/1/t_index_info.csv。 导出示例：hdc file recv data/local/tmp/smartperf/1/t_index_info.csv D:\。
 
@@ -1159,7 +1159,7 @@ C:\Users\issusser>
 | timeStamp | 当前时间戳。 | 对应采集时间 |
 
  
-  
+ 
 
 #### 场景化采集
 
@@ -1229,7 +1229,7 @@ $
 > 时延计算受系统打点上报限制，开始时间为点击事件上报时间点，响应时延结束时间点为滑动后系统响应首帧的上屏时间点，与端到端用户感知时延存在差异，需要注意的是，滑动场景时延计算不支持Web组件。 页面滑动帧率：指的是在页面滑动时，屏幕能够刷新的频率。需要注意的是，该场景目前只支持滑动一次页面。 页面滑动卡顿率：目前只支持ArKUI子系统的List、grid、scroll、waterflow滚动组件。计算公式：页面滑动卡顿率=页面滑动动效时间内每一帧的累计丢帧时间（ms）/ 动效时长（s）。 最大连续丢帧受系统打点上报限制，与端到端用户感知时延存在差异。 页面滑动同时会抓取trace，文件路径：data/local/tmp/sp_trace_fps.ftrace，通过hdc file recv的方式导出查看trace。
 
  
-  
+ 
 
 #### 其他采集
 
@@ -1255,7 +1255,7 @@ activeMode: 1260x2720, refreshrate=60
 command exec finished!
 $
 ```
-  
+ 
 > [!NOTE]
 > activeMode表示当前屏幕分辨率，refreshrate表示屏幕刷新率。
 
@@ -1302,7 +1302,7 @@ $ pidof SP_daemon
 7024
 $
 ```
-  
+ 
 > [!NOTE]
 > 可执行pidof SP_daemon查看进程id。
 
@@ -1317,7 +1317,7 @@ $
 $ pidof SP_daemon
 $
 ```
-  
+ 
 > [!NOTE]
 > 可执行pidof SP_daemon查看进程id。
 
@@ -1340,7 +1340,7 @@ fps:19|1739353740123
 SP_daemon exec finished!
 $
 ```
-  
+ 
 > [!NOTE]
 > 该条命令里的10表示采集的次数（一秒采集一次），可以设置为其他正整数。
 
@@ -1378,7 +1378,7 @@ sectionsFps:60|1739353799123
 
 SP_daemon exec finished!
 ```
-  
+ 
 > [!NOTE]
 > 该条命令里的100表示采集的次数（一秒采集一次），可以设置为其他正整数，10表示分段：目前支持设置 1-10（正整数）段采集。
 
@@ -1391,6 +1391,6 @@ recordTime: 1726903063
 recordPower: 5502
 $
 ```
-  
+ 
 > [!NOTE]
 > recordTime表示时间戳，recordPower表示当前时刻的电量。 该命令需单独采集，采集结果写入/data/local/tmp/powerLeftRecord.csv，可以使用hdc file recv导出到本地。具体请参考查看csv采集结果。

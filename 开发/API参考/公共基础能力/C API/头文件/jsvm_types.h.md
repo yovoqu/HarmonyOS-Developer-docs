@@ -1,6 +1,6 @@
 # jsvm_types.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm-types-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -26,6 +26,17 @@
 #### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+
+
+#### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+| 名称 | 描述 |
+| --- | --- |
+| JSVM_CDECL | 用于指定函数的C调用约定，主要应用于回调函数指针的声明，以确保跨平台下回调函数使用统一的C调用约定。 当预处理指令_WIN32检查到为Windows平台时：JSVM_CDECL被赋值为"__cdecl"，表示使用C调用约定。当预处理指令_WIN32检查到不是Windows平台时：无须标记，JSVM_CDECL为空。 |
+
 
 
 
@@ -771,7 +782,7 @@ typedef void(JSVM_CDECL* JSVM_FinalizeArrayBuffer)(JSVM_Env env,void* finalizeDa
 **描述**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/_2LFGCK2Tsqe0jSfCBJ0-w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071748Z&HW-CC-Expire=86400&HW-CC-Sign=E48BB23AC26C770F2F957E9C45DB0FE0302321E06C436E5F0C9F70F515419A53)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/CiAonUGaRyiMPbAT4n7GBw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095544Z&HW-CC-Expire=86400&HW-CC-Sign=0D41767325D31A6056A59C7C384B21949F24D76D3D1FD5B0C1B37D39AE947F31)
 
 
 此接口是实验性接口，需定义JSVM_EXPERIMENTAL宏后方可使用。

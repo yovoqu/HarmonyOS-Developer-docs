@@ -1,6 +1,6 @@
 # AppStorageV2: 应用全局UI状态存储
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-appstoragev2
 
@@ -177,7 +177,7 @@ struct Child {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/hG_QYLeORWa7gytHeCv6nA/zh-cn_image_0000002686085445.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=DD69FD2C4C54CD6E6BE1A008880C4AA728524C5CD8A8E7C22B10EF01B2B53ACC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/-31ygyDnS1Ojc0uHHkVZCg/zh-cn_image_0000002704392051.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=F77A823120BB37ADDDB3BCCE556D0B9ACC7FC7CF3C1A56C5CAB40FC059D7ABFC)
 
 
 
@@ -334,4 +334,4 @@ struct PageTwo {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/bpSVBOAVSL-u5A0kG_QqJQ/zh-cn_image_0000002685925617.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=89B99FAF3B43D31C9E7277B8A9324080F9825E69F1D4ACA01F7A006B97E5175D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/t0xLxvwiQ2mODdyOps74mw/zh-cn_image_0000002674631928.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=0D988D66085940B57B088B0C8457C97FFF98EE2247AF0739E9A56ABA7FE91D17)

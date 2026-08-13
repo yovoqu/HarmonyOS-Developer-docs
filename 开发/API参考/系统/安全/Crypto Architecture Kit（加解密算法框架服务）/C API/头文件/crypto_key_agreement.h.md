@@ -1,6 +1,6 @@
 # crypto_key_agreement.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-key-agreement-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -87,7 +87,7 @@ OH_Crypto_ErrCode OH_CryptoKeyAgreement_Create(const char *algoName, OH_CryptoKe
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | #CRYPTO_SUCCESS：操作成功。 #CRYPTO_PARAMETER_CHECK_FAILED：algoName或ctx为NULL。 #CRYPTO_NOT_SUPPORTED：不支持的算法。 #CRYPTO_MEMORY_ERROR：内存分配失败。 #CRYPTO_OPERTION_ERROR：密钥协商操作失败。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：algoName或ctx为NULL。 CRYPTO_NOT_SUPPORTED：不支持的算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：密钥协商操作失败。 |
  
  
 **参考：**
@@ -126,7 +126,7 @@ OH_Crypto_ErrCode OH_CryptoKeyAgreement_GenerateSecret(OH_CryptoKeyAgreement *ct
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | #CRYPTO_SUCCESS：操作成功。 #CRYPTO_PARAMETER_CHECK_FAILED：ctx、privkey、pubkey或secret为NULL。 #CRYPTO_NOT_SUPPORTED：不支持的算法。 #CRYPTO_MEMORY_ERROR：内存分配失败。 #CRYPTO_OPERTION_ERROR：密钥协商操作失败。可能的原因：公钥和私钥不属于同一曲线或算法，或公钥数据无效。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：ctx、privkey、pubkey或secret为NULL。 CRYPTO_NOT_SUPPORTED：不支持的算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：密钥协商操作失败。可能的原因：公钥和私钥不属于同一曲线或算法，或公钥数据无效。 |
  
  
   

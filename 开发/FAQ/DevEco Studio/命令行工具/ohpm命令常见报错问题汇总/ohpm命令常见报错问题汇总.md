@@ -1,6 +1,6 @@
 # ohpm命令常见报错问题汇总
 
-更新时间：2026-07-30 01:18:30
+更新时间：2026-08-13 01:22:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-34
 
@@ -8,7 +8,7 @@
 
 安装依赖报错（构建-同步-Ohpm Install或者终端执行ohpm install）：
  
-- 问题一：获取包信息失败，错误码：[00617101](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-errorcode-universal#section151721740193619)。
+- 问题一：获取包信息失败，错误码：[00617101](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-errorcode-universal#section2334102195413)。
 ```text
 ohpm INFO: MetaDataFetcher fetching meta info of package '@ohos/hap' from https://ohpm.openharmony.cn/ohpm/
 ohpm INFO: MetaDataFetcher fetching meta info of package '@ohos/system' from https://ohpm.openharmony.cn/ohpm/

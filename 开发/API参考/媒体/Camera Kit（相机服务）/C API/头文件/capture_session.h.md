@@ -1,6 +1,6 @@
 # capture_session.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -3181,7 +3181,7 @@ Camera_ErrorCode OH_CaptureSession_GetColorTintRange(const Camera_CaptureSession
 
 获取支持配置的白平衡色调调节范围。
 
-**起始版本：** 26
+**起始版本：** 26.0.0
 
 **参数：**
 
@@ -3213,7 +3213,7 @@ Camera_ErrorCode OH_CaptureSession_GetColorTint(const Camera_CaptureSession* ses
 
 获取当前白平衡的色调调节值。
 
-**起始版本：** 26
+**起始版本：** 26.0.0
 
 **参数：**
 
@@ -3244,7 +3244,7 @@ Camera_ErrorCode OH_CaptureSession_SetColorTint(Camera_CaptureSession* session, 
 
 设置白平衡的色调调节值。设置前，建议通过[OH_CaptureSession_GetColorTintRange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_getcolortintrange)获取支持配置的白平衡色调调节范围。
 
-**起始版本：** 26
+**起始版本：** 26.0.0
 
 **参数：**
 

@@ -1,6 +1,6 @@
 # ringtone（铃声服务）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ringtone-ringtone
 **支持设备：** Phone | Tablet
@@ -474,6 +474,8 @@ startRingtoneSetting(context: common.UIAbilityContext, path: string, name: strin
 | 1011600004 | Failed to call the system API. |
 | 1011699999 | System exception. |
  
+ 
+**示例：**
  
 ```json
 import { common } from '@kit.AbilityKit';

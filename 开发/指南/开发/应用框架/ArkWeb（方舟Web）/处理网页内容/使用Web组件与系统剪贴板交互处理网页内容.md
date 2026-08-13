@@ -1,6 +1,6 @@
 # 使用Web组件与系统剪贴板交互处理网页内容
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-clipboard
 
@@ -200,7 +200,7 @@ module.json5权限配置：
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/QfALNXhkQJSLjvjHTJdAsg/zh-cn_image_0000002677825977.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012141Z&HW-CC-Expire=86400&HW-CC-Sign=67DAE6787F4E92D4FBBF5514284B3A40131B5E7BBDB6AF06843863C467802005)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/G-uf1kAxTQO9bmGYYr_scA/zh-cn_image_0000002674632750.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095738Z&HW-CC-Expire=86400&HW-CC-Sign=538D69DECE111860213A60FD2A3712CDC6FBC7BB0F35F1F22E586A960AFB546F)
 
 
 
@@ -287,7 +287,7 @@ struct WebComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/dD3h4wScTYiksXVTdArqwQ/zh-cn_image_0000002677666129.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012141Z&HW-CC-Expire=86400&HW-CC-Sign=C9CAD818656153140D0EA7C1F8851E7A6B4F5E1CD0DCBCB94F82565A63AB9678)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/2rsHlhZzRn-LDInYYw5djg/zh-cn_image_0000002704272703.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095738Z&HW-CC-Expire=86400&HW-CC-Sign=93662F06D9450CE7F6D29CD45A8B53F9B636DE42D04885C24F9A3637DDFB9DFA)
 
 
 

@@ -1,6 +1,6 @@
 # 使用Web组件上传文件
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-file-upload
 
@@ -499,7 +499,7 @@ struct WebComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/3OndBC-vTSSa8OnopRkJAg/zh-cn_image_0000002686086251.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071900Z&HW-CC-Expire=86400&HW-CC-Sign=525EDCE746B2AE594D654DCE99EB9C17FACF602AD6FEE3F2C6DE740867F92D24)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/h6TQroXdSnSE0ZMHp4XwpA/zh-cn_image_0000002704272693.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095736Z&HW-CC-Expire=86400&HW-CC-Sign=AE092B53D38B81A9833E490D806359003E6B04ED8FA91A1048C75E8C0068C557)
 
 
 样例以HTML中的showSaveFilePicker()配合ArkTS中documentViewPicker.save()方法为例。

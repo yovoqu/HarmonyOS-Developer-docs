@@ -1,6 +1,6 @@
 # 显式Want与隐式Want匹配规则
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/explicit-implicit-want-mappings
 
@@ -168,7 +168,7 @@
 
 
 > [!NOTE]
-> 待匹配应用组件的skills配置的uris中scheme、host、port、path、pathStartWith和pathRegex属性拼接，如果依次声明了path、pathStartWith和pathRegex属性时，uris将分别拼接为如下四种表达式： 前缀uri表达式 ：当配置文件只配置scheme，或者只配置scheme和host，或者只配置scheme，host和port时，参数传入以配置文件为前缀的Uri scheme:// scheme://host scheme://host:port 全路径表达式 ：scheme://host:port/path 前缀表达式 ：scheme://host:port/pathStartWith 正则表达式 ：scheme://host:port/pathRegex 以ohos为前缀的scheme为系统预留，如ohosclock://。建议第三方应用组件在配置scheme时避免以ohos开头，否则可能导致无法通过该uri拉起目标组件。 此外，store、filemanager、hww等scheme已被系统应用占用，系统会优先匹配系统应用导致三方应用的scheme无效，请避免使用。datashare为系统后台数据服务专用，不建议使用。
+> 待匹配应用组件的skills配置的uris中scheme、host、port、path、pathStartWith和pathRegex属性拼接，如果依次声明了path、pathStartWith和pathRegex属性时，uris将分别拼接为如下四种表达式： 前缀uri表达式 ：当配置文件只配置scheme，或者只配置scheme和host，或者只配置scheme，host和port时，参数传入以配置文件为前缀的Uri scheme:// scheme://host scheme://host:port 全路径表达式 ：scheme://host:port/path 前缀表达式 ：scheme://host:port/pathStartWith 正则表达式 ：scheme://host:port/pathRegex 以ohos为前缀的scheme为系统预留，如ohosclock://。建议第三方应用组件在配置scheme时避免以ohos开头，否则可能导致无法通过该uri拉起目标组件。 此外，store、filemanager、hww等scheme已被系统应用占用，系统会优先匹配系统应用导致三方应用的scheme无效，请避免使用。datashare为系统后台数据服务专用，亦请避免使用。
 
 
 **图5** want参数中uri的匹配规则示例
@@ -210,8 +210,8 @@
 **图6** want参数中linkFeature具体匹配规则
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/dGybCEtLRGCYhbQq_upLBg/zh-cn_image_0000002686085193.png?HW-CC-KV=V1&HW-CC-Date=20260730T071825Z&HW-CC-Expire=86400&HW-CC-Sign=F76FFE4ED9B5F2E6377E4F781F4720AFBBDAB5934394EA3686EA835772AB851D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/asObCu5aQaiHt0J8ntVdwA/zh-cn_image_0000002674631674.png?HW-CC-KV=V1&HW-CC-Date=20260813T095621Z&HW-CC-Expire=86400&HW-CC-Sign=B16E7322D606D944A4882AE4455ED660E58B20DDFF8AAE4AB044755C5A199814)
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/WN-VgMYHTS-dTFKiFsJsMA/zh-cn_image_0000002685925365.png?HW-CC-KV=V1&HW-CC-Date=20260730T071825Z&HW-CC-Expire=86400&HW-CC-Sign=8500B3538C5CFF6D6252A0CFEEE2CE2B97112F9C801A16069D2075DA27C1FD5D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/wYquKdrbQ1OR1AJPDZNKQg/zh-cn_image_0000002704271629.png?HW-CC-KV=V1&HW-CC-Date=20260813T095621Z&HW-CC-Expire=86400&HW-CC-Sign=C7576988B83384577C7C4BC96EB29F64F500880451A8EE5594316AFF6C6CBB9B)

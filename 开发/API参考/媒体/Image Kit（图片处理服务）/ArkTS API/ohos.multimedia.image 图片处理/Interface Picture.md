@@ -1,6 +1,6 @@
 # Interface (Picture)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-picture
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -259,7 +259,7 @@ getGainmapPixelmap(): PixelMap | null
 
 | 类型 | 说明 |
 | --- | --- |
-| PixelMap \| null | 返回Pixelmap对象，如果没有则返回null。 |
+| PixelMap \| null | 返回PixelMap对象，如果没有则返回null。 |
 
 
 **示例：**

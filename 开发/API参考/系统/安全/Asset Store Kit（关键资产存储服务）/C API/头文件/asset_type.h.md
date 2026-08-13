@@ -1,6 +1,6 @@
 # asset_type.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-asset-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -98,9 +98,9 @@ enum Asset_TagType
 
 | 枚举项 | 描述 |
 | --- | --- |
-| ASSET_TYPE_BOOL = 0x1 << 28 | 标识关键资产属性的类型是bool。 |
-| ASSET_TYPE_NUMBER = 0x2 << 28 | 标识关键资产属性的类型是uint32_t。 |
-| ASSET_TYPE_BYTES = 0x3 << 28 | 标识关键资产属性的类型是byte数组。 |
+| ASSET_TYPE_BOOL = 0x1 << 28 | 表示关键资产属性的类型是bool。 |
+| ASSET_TYPE_NUMBER = 0x2 << 28 | 表示关键资产属性的类型是uint32_t。 |
+| ASSET_TYPE_BYTES = 0x3 << 28 | 表示关键资产属性的类型是byte数组。 |
 
 
 

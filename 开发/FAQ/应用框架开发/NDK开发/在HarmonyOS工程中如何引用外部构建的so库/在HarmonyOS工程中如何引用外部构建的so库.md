@@ -1,6 +1,6 @@
 # 在HarmonyOS工程中如何引用外部构建的so库
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-development-20
 
@@ -12,7 +12,7 @@
 
 #### 背景知识
 
-参考官网[ArkTS侧引用三方so库](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-dynamic-link-library#section166546365376)的文档，通过配置模块动态依赖即可在工程中引用已经适配HarmonyOS的so库。
+参考官网[ArkTS侧引用三方so库](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/integrate-third-party-dlls#在arkts侧引用三方so库)的文档，通过配置模块动态依赖即可在工程中引用已经适配HarmonyOS的so库。
  
  
 
@@ -55,7 +55,7 @@ function test() {
 
 
 5. 工程关键部分结构。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/j6-t-5FdTlqKvrOgj5Cv_Q/zh-cn_image_0000002659138349.png?HW-CC-KV=V1&HW-CC-Date=20260811T005638Z&HW-CC-Expire=86400&HW-CC-Sign=9B336C215AE7C3239F20D36BB560B42ECA9394D9628607BB667FF29597BC1D0B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/9lVosYoCQQCALxOeqoTu6Q/zh-cn_image_0000002659138349.png?HW-CC-KV=V1&HW-CC-Date=20260813T095602Z&HW-CC-Expire=86400&HW-CC-Sign=BB79461AC569F9CDE5FCC45202F5B75A5F60514B1321E778E6C8FF89B46575A3)
 
 - 注意事项：在引用过程中除了将已经适配HarmonyOS的libxxx.so库文件置于entry/libs对应的架构目录下外，还需要将编译三方so库时配套产生的libc++_shared.so库文件置于该目录下。
 
@@ -87,7 +87,7 @@ target_include_directories(entry PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/
 4. 工程关键部分结构。假设xxx代表的是三方库名称，xxx文件夹下包含了arm64架构生成的二进制文件，架构目录下包含了该库的头文件(include)以及二进制文件(lib)。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/_H9zIgPsQlmVMgiwXrr8nw/zh-cn_image_0000002629058998.png?HW-CC-KV=V1&HW-CC-Date=20260811T005638Z&HW-CC-Expire=86400&HW-CC-Sign=53F73A7E2F907642CDBE399E6E2E8800A1E171DE46722CA304AB7F0CF8E177D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/D7zxBHjSQEWOVvckNurIIA/zh-cn_image_0000002629058998.png?HW-CC-KV=V1&HW-CC-Date=20260813T095602Z&HW-CC-Expire=86400&HW-CC-Sign=796A7B8C4F7C58AB003AC10202A0BF9EB8DD11644BFA0D752B705F0142B2C35D)
 
 - 注意事项。1. 应用在引用动态库的时候是通过soname来查找的，所以我们需要将名字为soname的库文件拷贝到entry/libs/${OHOS_ARCH}/目录下。soname查看方法：llvm-readelf -d libxxx.so。
 
@@ -136,4 +136,4 @@ A：为保障用户隐私安全，dlopen具有命名空间隔离能力，应用�
  
 若加载自定义路径动态库会报错：MUSL-LDSO bundlename E Open absolute_path library: check ns accessible failed, pathname libxxx.so namespace moduleNs_default。
  
-参考：[通过调用dlopen的方式引用](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-dynamic-link-library#section20854112911591)。
+参考：[通过调用dlopen的方式引用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/integrate-third-party-dlls#通过调用dlopen的方式引用)。

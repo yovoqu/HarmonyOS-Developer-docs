@@ -1,6 +1,6 @@
 # Disassembler反汇编工具
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/tool-disassembler
 
@@ -49,8 +49,13 @@ options选项说明：
 假设已存在方舟字节码文件：test.abc，其源代码如下：
  
 ```text
+// Disassembler.ts
 let i = 99;
-function show(){return i;}
+
+function show() {
+  return i;
+}
+
 show();
 ```
  
@@ -98,7 +103,7 @@ cat test.txt
 
 L_ESSlotNumberAnnotation:
     u32 slotNumberIdx { 0x0 }
-.function any test.#*#show(any a0, any a1, any a2) <static> {                // 此方法源码中的show方法，同时这里也说明了，它属于test模块
+.function any test.#*#show(any a0, any a1, any a2) <static> {                // 此方法是源码中的show方法，同时这里也说明了，它属于test模块
     ldlexvar 0x0, 0x0
     ......
 }

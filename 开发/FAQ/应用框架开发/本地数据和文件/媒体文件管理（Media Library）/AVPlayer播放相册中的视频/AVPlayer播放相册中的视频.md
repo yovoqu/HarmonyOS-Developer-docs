@@ -1,6 +1,6 @@
 # AVPlayer播放相册中的视频
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-library-24
 
@@ -20,7 +20,7 @@
 
 #### 解决方案
 1. 创建PhotoViewPicker实例，调用[PhotoViewPicker.select](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoviewpicker#select)接口拉起系统图库界面供用户选择需要播放的视频文件，用户选择完成后，返回图库视频文件的uri。
-2. 使用[fileIo.openSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsopensync)接口，通过返回的uri以只读方式打开视频文件，得到文件描述符fd。拼接得到字符串fd://${fd}，用于设置AVPlayer的uri，播放系统图库中的视频。参考代码如下：
+2. 使用[fileIo.openSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioopensync)接口，通过返回的uri以只读方式打开视频文件，得到文件描述符fd。拼接得到字符串fd://${fd}，用于设置AVPlayer的uri，播放系统图库中的视频。参考代码如下：
 
   
 ```json

@@ -1,6 +1,6 @@
 # TaskPool指定任务并发度场景
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-async-task-guide
 

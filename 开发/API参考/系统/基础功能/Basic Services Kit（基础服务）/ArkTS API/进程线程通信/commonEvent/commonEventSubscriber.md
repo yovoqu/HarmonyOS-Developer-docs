@@ -1,6 +1,6 @@
-# commonEventSubscriber
+# CommonEventSubscriber
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventsubscriber
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -58,7 +58,7 @@ getCode(callback: AsyncCallback&lt;number&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当获取有序公共事件传递的数据（number类型）成功时，err为undefined，data为获取到的数据；否则err为错误对象。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当获取有序公共事件传递的数据成功时，err为undefined，data为获取到的数据；否则err为错误对象。 |
 
 
 **错误码：**
@@ -100,7 +100,7 @@ getCode(): Promise&lt;number&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | Promise对象。返回有序公共事件传递的数据（number类型）。 |
+| Promise&lt;number&gt; | Promise对象。返回有序公共事件传递的数据。 |
 
 
 **示例：**
@@ -160,7 +160,7 @@ setCode(code: number, callback: AsyncCallback&lt;void&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | code | number | 是 | 有序公共事件传递的数据。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当设置有序公共事件传递的数据（number类型）成功时，err为undefined，否则为错误对象。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当设置有序公共事件传递的数据成功时，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -290,7 +290,7 @@ getData(callback: AsyncCallback&lt;string&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。当获取有序公共事件传递的数据（string类型）成功时，err为undefined，data为获取到的数据；否则err为错误对象。 |
+| callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。当获取有序公共事件传递的数据成功时，err为undefined，data为获取到的数据；否则err为错误对象。 |
 
 
 **错误码：**
@@ -305,7 +305,7 @@ getData(callback: AsyncCallback&lt;string&gt;): void
 **示例：**
 
 ```json
-// 获取有序公共事件传递的数据（string类型）回调
+// 获取有序公共事件传递的数据回调
 subscriber.getData((err: BusinessError, data: string) => {
   if (err) {
     console.error(`Failed to get data. Code is ${err.code}, message is ${err.message}`);
@@ -333,7 +333,7 @@ getData(): Promise&lt;string&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象。返回有序公共事件传递的数据（string类型）。 |
+| Promise&lt;string&gt; | Promise对象。返回有序公共事件传递的数据。 |
 
 
 **示例：**
@@ -392,8 +392,8 @@ setData(data: string, callback: AsyncCallback&lt;void&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| data | string | 是 | 有序公共事件传递的数据（string类型），长度不超过65536字符，若超过限制，接口设置失效。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当设置有序公共事件传递的数据（string类型）成功时，err为undefined，否则为错误对象。 |
+| data | string | 是 | 有序公共事件传递的数据，长度不超过65536字符，若超过限制，接口设置失效。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当设置有序公共事件传递的数据成功时，err为undefined，否则为错误对象。 |
 
 
 **错误码：**

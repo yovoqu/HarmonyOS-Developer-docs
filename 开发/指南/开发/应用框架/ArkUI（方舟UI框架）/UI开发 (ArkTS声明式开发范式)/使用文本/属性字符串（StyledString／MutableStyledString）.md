@@ -1,6 +1,6 @@
 # 属性字符串（StyledString/MutableStyledString）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-styled-string
 
@@ -1195,7 +1195,7 @@ struct StyledStringHtml {
 @Component
 struct HtmlSpanStringDemo {
   @State html: string =
-    "<p>This is <b>b</b> <strong>strong</strong> <em>em</em> <i>i</i> <u>u</u> <del>del</del> <s>s</s>  <a href='https://www.example.com'>www.example</a>  red span <sup>superscript</sup> and <sub>subscript</sub></p>";
+    "<p>This is <b>b</b> <strong>strong</strong> <em>em</em> <i>i</i> <u>u</u> <del>del</del> <s>s</s> <span style =   \"foreground-color:blue\"> <a href='https://www.example.com'>www.example</a> </span> <span   style=\"background-color: red;\">red span</span> <sup>superscript</sup> and <sub>subscript</sub></p>";
   @State spanString: StyledString | undefined = undefined;
   @State resultText: string = ''; // 保存结果文本的状态
   controller: TextController = new TextController;
@@ -1248,7 +1248,7 @@ struct HtmlSpanStringDemo {
       // 请将$r('app.string.Reset')替换为实际资源文件，在本示例中该资源文件的value值为"Reset"
       Button($r('app.string.Reset')).onClick(() => {
         this.html =
-          "<p>This is <b>b</b> <strong>strong</strong> <em>em</em> <i>i</i> <u>u</u> <del>del</del> <s>s</s>  <a href='https://www.example.com'>www.example</a>  red span <sup>superscript</sup> and <sub>subscript</sub></p>";
+          "<p>This is <b>b</b> <strong>strong</strong> <em>em</em> <i>i</i> <u>u</u> <del>del</del> <s>s</s> <span   style = \"foreground-color:blue\"> <a href='https://www.example.com'>www.example</a> </span> <span   style=\"background-color: red;\">red span</span> <sup>superscript</sup> and <sub>subscript</sub></p>";
         this.spanString = undefined;
         this.controller.setStyledString(new StyledString('')); // 使用空的StyledString实例
         this.resultText = 'Reset HTML and SpanString successfully.';
@@ -1258,7 +1258,7 @@ struct HtmlSpanStringDemo {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/bi81YEYhSQ2ZvobhFe64tA/zh-cn_image_0000002685925929.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071846Z&HW-CC-Expire=86400&HW-CC-Sign=50167891EB9294202C2C9A358143F62D9E1191B2AF1728BA00480219D25615CD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/pld2AIcMSRSNVp9yvo5cbg/zh-cn_image_0000002674632242.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095712Z&HW-CC-Expire=86400&HW-CC-Sign=BD6DE4CF9F209739862E5AD8BED65DA2ABC6CE0039D6603E44F451823D161F4E)
 
 
 
@@ -1432,4 +1432,4 @@ struct StyledStringSceneExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/jl2aA2aaSk-3lxpccWJM_g/zh-cn_image_0000002656006250.png?HW-CC-KV=V1&HW-CC-Date=20260730T071846Z&HW-CC-Expire=86400&HW-CC-Sign=08EAFE909B71F8CF8747FBE18C3BCA4F2CAE8FB1C691A52333D23398C999F268)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/4ymGaxOaTmStSJWCJk3jIw/zh-cn_image_0000002704272197.png?HW-CC-KV=V1&HW-CC-Date=20260813T095712Z&HW-CC-Expire=86400&HW-CC-Sign=360689B8738B1A790082150B63B0B69C9541B3F0F6DD14FD659041D8D9AD0047)

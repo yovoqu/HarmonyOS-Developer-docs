@@ -1,6 +1,6 @@
 # ArrayBuffer对象
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arraybuffer-object
 
@@ -93,9 +93,10 @@ struct Index {
           taskpool.execute(taskPoolGroup).then((data) => {
             // 将各Task返回的ArrayBuffer数据（即data，此处data为包含4组arrayBufferSlice的长度为4的数组）进行拼接等后续处理，此处不再列举具体操作
             // ...
+            this.message = 'success';
           }).catch((e: BusinessError) => {
             this.message = 'fail';
-               console.error(`taskpool: execute task: code: ${e.code}, message: ${e.message}`);
+            console.error(`taskpool: execute task: code: ${e.code}, message: ${e.message}`);
           })
         })
     }

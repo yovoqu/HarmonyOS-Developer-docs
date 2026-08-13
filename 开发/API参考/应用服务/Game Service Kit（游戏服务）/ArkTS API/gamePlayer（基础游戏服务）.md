@@ -1,6 +1,6 @@
 # gamePlayer（基础游戏服务）
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameplayer
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -585,10 +585,10 @@ getLocalPlayer(context: common.UIAbilityContext): Promise&lt;GSKLocalPlayer&gt;
 | 1002000003 | The HUAWEI ID is not signed in or not authorized. |
 | 1002000004 | User cancels real name authentication or not real name. |
 | 1002000005 | The country or region of the signed-in Huawei ID does not support. |
-| 1002000006 | User is underage and has no playable time. |
-| 1002000011 | Agreement not agreed. |
-| 1002000014 | This interface is not available for this game. |
-| 1002000017 | Illegal application identity. |
+| 1002000006 | User is underage and has no playable time. 适用版本：5.0.0(12)+ |
+| 1002000011 | Agreement not agreed. 适用版本：5.0.0(12)+ |
+| 1002000014 | This interface is not available for this game. 适用版本：5.0.0(12)+ |
+| 1002000017 | Illegal application identity. 适用版本：5.0.0(12)+ |
 
 
 **示例：**
@@ -667,10 +667,10 @@ getLocalPlayer(context: common.UIAbilityContext, callback: AsyncCallback&lt;GSKL
 | 1002000003 | The HUAWEI ID is not signed in or not authorized. |
 | 1002000004 | User cancels real name authentication or not real name. |
 | 1002000005 | The country or region of the signed-in Huawei ID does not support. |
-| 1002000006 | User is underage and has no playable time. |
-| 1002000011 | Agreement not agreed. |
-| 1002000014 | This interface is not available for this game. |
-| 1002000017 | Illegal application identity. |
+| 1002000006 | User is underage and has no playable time. 适用版本：5.0.0(12)+ |
+| 1002000011 | Agreement not agreed. 适用版本：5.0.0(12)+ |
+| 1002000014 | This interface is not available for this game. 适用版本：5.0.0(12)+ |
+| 1002000017 | Illegal application identity. 适用版本：5.0.0(12)+ |
 
 
 **示例：**

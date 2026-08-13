@@ -1,6 +1,6 @@
 # healthFields (运动健康数据字段)
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthfields
 **支持设备：** Phone | Tablet | Wearable
@@ -2224,7 +2224,7 @@ type SkiingDetail = MountainHikeDetail
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| skinStatus | number | 否 | 否 | 皮肤状态。 取值参考如下： 0：未选中 1：好 2：出油 4：干燥 8：粉刺 16：冒痘 |
+| skinStatus | string | 否 | 否 | 皮肤状态。 取值参考如下： 0：未选中 1：好 2：出油 4：干燥 8：粉刺 16：冒痘 |
  
  
   

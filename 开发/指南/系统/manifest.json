@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "bluetooth-hci-log-capture",
+    "name": "如何抓取蓝牙HCI日志",
+    "file": "网络/Connectivity Kit（短距通信服务）/蓝牙/蓝牙常见问题/如何抓取蓝牙HCI日志/如何抓取蓝牙HCI日志.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bluetooth-hci-log-capture"
+  },
+  {
+    "slug": "faqs-useriam-fingerprint-change",
+    "name": "指纹登录怎么检测设备指纹是否发生变化",
+    "file": "安全/User Authentication Kit（用户认证服务）/User Authentication Kit常见问题/指纹登录怎么检测设备指纹是否发生变化/指纹登录怎么检测设备指纹是否发生变化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/faqs-useriam-fingerprint-change"
+  },
+  {
+    "slug": "faqs-useriam-get-auth-result",
+    "name": "如何感知指纹登录中间认证失败结果",
+    "file": "安全/User Authentication Kit（用户认证服务）/User Authentication Kit常见问题/如何感知指纹登录中间认证失败结果/如何感知指纹登录中间认证失败结果.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/faqs-useriam-get-auth-result"
+  },
+  {
+    "slug": "mechanic-glossary",
+    "name": "术语",
+    "file": "硬件/Mechanic Kit（机械设备管理服务）/术语/术语.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mechanic-glossary"
+  },
+  {
+    "slug": "sensor-glossary",
+    "name": "Sensor Service Kit术语",
+    "file": "硬件/Sensor Service Kit（传感器服务）/Sensor Service Kit术语/Sensor Service Kit术语.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sensor-glossary"
+  }
+]

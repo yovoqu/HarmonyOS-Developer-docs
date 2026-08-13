@@ -1,6 +1,6 @@
 # Class (BitVector)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-bitvector
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -154,7 +154,7 @@ bitVector.push(0);
 bitVector.push(1);
 bitVector.push(0); // bitVector: [0, 1, 0, 1, 0]
 let res = bitVector.pop(); // bitVector: [0, 1, 0, 1]
-console.info("bitVector pop:", res); // 0
+console.info(`bitVector pop: ${res}`); // 0
 ```
  
   
@@ -177,7 +177,7 @@ has(element: number, fromIndex: number, toIndex: number): boolean
 | --- | --- | --- | --- |
 | element | number | 是 | 待判断的bit值，0表示0，其余值表示1。 |
 | fromIndex | number | 是 | 范围起始索引，包含本索引值。fromIndex < 0或者fromIndex >= toIndex时，则会抛出错误。 |
-| toIndex | number | 是 | 范围终止索引，包含本索引值。toIndex < 0或者toIndex > length时，则会抛出错误。 |
+| toIndex | number | 是 | 范围终止索引，不包含本索引值。toIndex < 0或者toIndex >= length时，则会抛出错误。 |
  
  
 **返回值：**
@@ -208,7 +208,7 @@ bitVector.push(0);
 bitVector.push(1);
 bitVector.push(0); // bitVector: [0, 1, 0, 1, 0]
 let res0: boolean = bitVector.has(0, 1, 4);
-console.info("bitVector has 0:", res0); // true
+console.info(`bitVector has 0: ${res0}`); // true
 ```
  
   
@@ -350,7 +350,7 @@ bitVector.push(0);
 bitVector.push(1);
 bitVector.push(0); // bitVector: [0, 1, 0, 1, 0]
 let bitVector2 = bitVector.getBitsByRange(1, 3); // bitVector2: [1, 0]
-console.info("bitVector2 length:", bitVector2.length); // 2
+console.info(`bitVector2 length: ${bitVector2.length}`); // 2
 ```
  
   
@@ -398,9 +398,9 @@ bitVector.push(0);
 bitVector.push(1);
 bitVector.push(0); // bitVector: [0, 1, 0, 1, 0]
 bitVector.resize(10); // bitVector: [0, 1, 0, 1, 0, 0, 0, 0, 0, 0]
-console.info("bitVector get bit vector's length:", bitVector.length); // 10
+console.info(`bitVector get bit vector's length: ${bitVector.length}`); // 10
 bitVector.resize(3); // bitVector: [0, 1, 0]
-console.info("bitVector get bit vector's length:", bitVector.length); // 3
+console.info(`bitVector get bit vector's length: ${bitVector.length}`); // 3
 ```
  
   
@@ -411,7 +411,7 @@ console.info("bitVector get bit vector's length:", bitVector.length); // 3
 
 getBitCountByRange(element: number, fromIndex: number, toIndex: number): number
  
-统计指定范围内获取指定bit值的数量。
+统计指定范围内指定bit值的数量。
  
 **元服务API**：从API version 12 开始，该接口支持在元服务中使用。
  
@@ -454,7 +454,7 @@ bitVector.push(0);
 bitVector.push(1);
 bitVector.push(0); // bitVector: [0, 1, 0, 1, 0]
 let res: number = bitVector.getBitCountByRange(1, 1, 4);
-console.info("bitVector getBitCountByRange:", res); // 2
+console.info(`bitVector getBitCountByRange: ${res}`); // 2
 ```
  
   
@@ -475,7 +475,7 @@ getIndexOf(element: number, fromIndex: number, toIndex: number): number
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| element | number | 是 | 待统计的bit值，0表示0，其余值表示1。 |
+| element | number | 是 | 待查找的bit值，0表示0，其余值表示1。 |
 | fromIndex | number | 是 | 范围起始索引，包含本索引值。fromIndex < 0或者fromIndex >= toIndex时，则会抛出错误。 |
 | toIndex | number | 是 | 范围终止索引，不包含本索引值。toIndex < 0或者toIndex > length时，则会抛出错误。 |
  
@@ -484,7 +484,7 @@ getIndexOf(element: number, fromIndex: number, toIndex: number): number
   
 | 类型 | 说明 |
 | --- | --- |
-| number | 返回指定bit值首次出现时的下标值，查找失败返回-1。 |
+| number | 返回指定bit值首次出现时的索引值，查找失败返回-1。 |
  
  
 **错误码：**
@@ -508,7 +508,7 @@ bitVector.push(0);
 bitVector.push(1);
 bitVector.push(0); // bitVector: [0, 1, 0, 1, 0]
 let res: number = bitVector.getIndexOf(0, 1, 4);
-console.info("bitVector getIndexOf:", res); // 2
+console.info(`bitVector getIndexOf: ${res}`); // 2
 ```
  
   
@@ -519,7 +519,7 @@ console.info("bitVector getIndexOf:", res); // 2
 
 getLastIndexOf(element: number, fromIndex: number, toIndex: number): number
  
-返回指定bit值最后一次出现时的下标值，查找失败返回-1。
+返回指定bit值最后一次出现时的索引值，查找失败返回-1。
  
 **元服务API**：从API version 12 开始，该接口支持在元服务中使用。
  
@@ -529,16 +529,16 @@ getLastIndexOf(element: number, fromIndex: number, toIndex: number): number
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| element | number | 是 | 待统计的bit值，0表示0，其余值表示1。 |
+| element | number | 是 | 待查找的bit值，0表示0，其余值表示1。 |
 | fromIndex | number | 是 | 范围起始索引，包含本索引值。fromIndex < 0或者fromIndex >= toIndex时，则会抛出错误。 |
-| toIndex | number | 是 | 范围终止索引，不包含本索引值。toIndex < 0或者toIndex > length时，则会抛出错误。 |
+| toIndex | number | 是 | 范围终止索引，不包含本索引值。toIndex < 0或者toIndex >= length时，则会抛出错误。 |
  
  
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| number | 返回指定bit值最后一次出现时的下标值，查找失败返回-1。 |
+| number | 返回指定bit值最后一次出现时的索引值，查找失败返回-1。 |
  
  
 **错误码：**
@@ -562,7 +562,7 @@ bitVector.push(0);
 bitVector.push(1);
 bitVector.push(0); // bitVector: [0, 1, 0, 1, 0]
 let res: number = bitVector.getLastIndexOf(0, 1, 4);
-console.info("bitVector getLastIndexOf:", res); // 2
+console.info(`bitVector getLastIndexOf: ${res}`); // 2
 ```
  
   
@@ -628,7 +628,7 @@ flipBitsByRange(fromIndex: number, toIndex: number): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | fromIndex | number | 是 | 范围起始索引，包含本索引值。fromIndex < 0或者fromIndex >= toIndex时，则会抛出错误。 |
-| toIndex | number | 是 | 范围终止索引，不包含本索引值。toIndex < 0或者toIndex > length时，则会抛出错误。 |
+| toIndex | number | 是 | 范围终止索引，不包含本索引值。toIndex < 0或者toIndex >= length时，则会抛出错误。 |
  
  
 **错误码：**
@@ -716,7 +716,7 @@ while (!temp.done) {
 > 本接口不支持在.ets文件中使用。
 
  
-**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+**元服务API**： 从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Utils.Lang
  
@@ -747,7 +747,7 @@ bitVector.push(1);
 bitVector.push(0);
 
 for (let item of bitVector) {
-  console.info("value: " + item);
+  console.info(`value: ${item}`);
 }
 ```
  
@@ -761,7 +761,7 @@ for (let item of bitVector) {
  
 返回BitVector指定索引位置的元素。
  
-**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+**元服务API**： 从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Utils.Lang
  
@@ -769,7 +769,7 @@ for (let item of bitVector) {
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 所需代码单元的从零开始的索引。 |
+| index | number | 是 | 所需代码单元的从零开始的索引。当index < 0或者index >= length，则会抛出错误 |
  
  
 **返回值：**
@@ -788,5 +788,5 @@ bitVector.push(1);
 bitVector.push(0);
 bitVector.push(1);
 bitVector.push(0); // bitVector: [0, 1, 0, 1, 0]
-console.info("BitVector Element Index at 1: " + bitVector[1]); // bitVector 1
+console.info(`BitVector Element Index at 1: ${bitVector[1]}`); // bitVector 1
 ```

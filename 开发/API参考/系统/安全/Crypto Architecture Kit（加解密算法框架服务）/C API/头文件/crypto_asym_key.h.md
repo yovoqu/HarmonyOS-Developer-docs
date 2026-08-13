@@ -1,6 +1,6 @@
 # crypto_asym_key.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -335,7 +335,7 @@ OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_Convert(OH_CryptoAsymKeyGenerator *c
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_INVALID_PARAMS：ctx为NULL，pubKeyData和priKeyData同时为NULL，keyCtx为NULL 或type不是有效的Crypto_EncodingType。 CRYPTO_NOT_SUPPORTED：不支持的密钥格式。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：密钥转换失败。可能的原因： 密钥数据损坏或不是有效的PEM/DER格式，密钥数据与算法不匹配，或加密私钥的密码不正确。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_INVALID_PARAMS：ctx为NULL，pubKeyData和priKeyData同时为NULL，keyCtx为NULL或type不是有效的Crypto_EncodingType。 CRYPTO_NOT_SUPPORTED：不支持的密钥格式。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：密钥转换失败。可能的原因： 密钥数据损坏或不是有效的PEM/DER格式，密钥数据与算法不匹配，或加密私钥的密码不正确。 |
  
  
   
@@ -640,7 +640,7 @@ OH_Crypto_ErrCode OH_CryptoPrivKeyEncodingParams_SetParam(OH_CryptoPrivKeyEncodi
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：ctx或value为NULL， value->data为NULL，value->len为0，或type无法识别。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：深拷贝内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：ctx或value为NULL，value->data为NULL，value->len为0，或type无法识别。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：深拷贝内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
  
   
@@ -699,7 +699,7 @@ OH_Crypto_ErrCode OH_CryptoPrivKey_Encode(OH_CryptoPrivKey *key, Crypto_Encoding
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：key、out或encodingStandard为NULL， type不是有效的Crypto_EncodingType，或编码标准与密钥类型不兼容。 CRYPTO_NOT_SUPPORTED：不支持的编码格式。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：编码失败。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：key、out或encodingStandard为NULL，type不是有效的Crypto_EncodingType，或编码标准与密钥类型不兼容。 CRYPTO_NOT_SUPPORTED：不支持的编码格式。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：编码失败。 |
  
  
   
@@ -800,7 +800,7 @@ OH_Crypto_ErrCode OH_CryptoAsymKeySpec_GenDhCommonParamsSpec(int pLen, int skLen
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：spec为NULL， pLen为负数，skLen为负数，或skLen大于pLen。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：spec为NULL，pLen为负数，skLen为负数，或skLen大于pLen。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
  
   
@@ -834,7 +834,7 @@ OH_Crypto_ErrCode OH_CryptoAsymKeySpec_Create(const char *algoName, CryptoAsymKe
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：algoName或spec为NULL， algoName不是支持的算法名称。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：algoName或spec为NULL，algoName不是支持的算法名称。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
  
   
@@ -866,7 +866,7 @@ OH_Crypto_ErrCode OH_CryptoAsymKeySpec_SetParam(OH_CryptoAsymKeySpec *spec, Cryp
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：spec或value为NULL， value->data为NULL，value->len为0，或该参数类型不支持该算法。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：深拷贝内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：spec或value为NULL，value->data为NULL，value->len为0，或该参数类型不支持该算法。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：深拷贝内存分配失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
  
   
@@ -987,7 +987,7 @@ OH_Crypto_ErrCode OH_CryptoAsymKeyGeneratorWithSpec_Create(OH_CryptoAsymKeySpec 
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：keySpec或generator为NULL， 或密钥规格参数不完整或无效。 CRYPTO_NOT_SUPPORTED：不支持的算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：创建生成器失败。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：keySpec或generator为NULL，或密钥规格参数不完整或无效。 CRYPTO_NOT_SUPPORTED：不支持的算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：创建生成器失败。 |
  
  
 **参考：**
@@ -1191,7 +1191,7 @@ OH_Crypto_ErrCode OH_CryptoEcPoint_Encode(OH_CryptoEcPoint *point, const char *f
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：point、format或out为NULL， 或格式字符串不是有效的点格式。 CRYPTO_NOT_SUPPORTED：不支持的格式。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：编码失败。可能的原因：该点不是有效的曲线点。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：point、format或out为NULL，或格式字符串不是有效的点格式。 CRYPTO_NOT_SUPPORTED：不支持的格式。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：编码失败。可能的原因：该点不是有效的曲线点。 |
  
  
   

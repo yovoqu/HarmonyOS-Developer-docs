@@ -1,6 +1,6 @@
 # 页面间转场 (pageTransition)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-page-transition-animation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,6 +9,14 @@
 
 > [!NOTE]
 > 从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 为了实现更好的转场效果，推荐使用 Navigation组件 和 模态转场 。
+
+
+
+#### PageTransitionEnter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+定义PageTransitionEnter组件。
 
 
 
@@ -63,6 +71,14 @@ pageTransition() {
       })
   }
 ```
+
+
+
+#### PageTransitionExit
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+定义PageTransitionExit组件。
 
 
 
@@ -650,4 +666,4 @@ struct Page1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/QZjKCUt3RZmEdIQVc0StSg/zh-cn_image_0000002656008830.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071513Z&HW-CC-Expire=86400&HW-CC-Sign=0211B82DC23E11F939F1E25F04B71A1A638AB031AF3FB6D9C82A12F0C313C5CE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/Tq-OBz-LTnyEmRaF0JWrjA/zh-cn_image_0000002704274795.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095449Z&HW-CC-Expire=86400&HW-CC-Sign=AD5FAEADF8D682191739F26FBE3190BC91593594F39D0CE153D294D3286D95AB)

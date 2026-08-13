@@ -1,6 +1,6 @@
 # 如何在Petal Maps Studio编辑器中修改水的颜色
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-47
 
@@ -20,4 +20,4 @@
 
 登录Petal Maps Studio平台，以Standard为例，鼠标点击水域部分，在弹窗中点击Water，左侧会显示设置元素和样式的菜单，点击Color下方的调色盘选个颜色，松开鼠标，点击任意位置，颜色值有变化，Color右侧的开关按钮会自动开启，同时右侧水域颜色变化。
  
-导入JSON的方式，参考示例代码[设置样式内容](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-style#section1679973155918)，精细程度可根据[样式参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-style#section156991344101012)自行配置。
+导入JSON的方式，参考示例代码[设置样式内容](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-style#设置样式内容)，精细程度可根据[样式参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-style#样式参考)自行配置。

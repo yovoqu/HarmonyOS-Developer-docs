@@ -1,6 +1,6 @@
 # Media Kit术语
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-glossary
 
@@ -138,7 +138,7 @@
 
 #### Media Presentation Description(MPD)；媒体描述文件
 
- MPD是DASH协议中使用的媒体描述文件，采用XML格式，描述了媒体内容的各个片段、不同码率的媒体流以及他们之间的关系。播放器通过解析MPD文件来获取可用的媒体轨道信息并根据网络状况动态选择合适的码率进行播放。
+ MPD是DASH协议中使用的媒体描述文件，采用XML格式，描述了媒体内容的各个片段、不同码率的媒体流以及它们之间的关系。播放器通过解析MPD文件来获取可用的媒体轨道信息并根据网络状况动态选择合适的码率进行播放。
  
   
 

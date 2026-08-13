@@ -1,6 +1,6 @@
 # NetworkBoost_SceneDesc
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-struct-scene_desc
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -83,7 +83,7 @@ uint32_t NetworkBoost_SceneDesc::startTime
  
 **描述**
  
-表示要经过多长时间进入到sceneEvent事件，单位为s。
+表示要经过多长时间进入到sceneEvent事件，单位为ms。
  
   
 
@@ -97,4 +97,4 @@ uint32_t NetworkBoost_SceneDesc::duration
  
 **描述**
  
-预计本次设置的业务场景会持续的时长，单位为s。
+预计本次设置的业务场景会持续的时长，单位为ms。

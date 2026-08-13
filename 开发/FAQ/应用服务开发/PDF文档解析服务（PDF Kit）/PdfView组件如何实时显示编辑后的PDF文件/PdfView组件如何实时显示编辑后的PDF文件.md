@@ -1,6 +1,6 @@
 # PdfView组件如何实时显示编辑后的PDF文件
 
-更新时间：2026-07-30 01:03:01
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-10
 
@@ -13,7 +13,7 @@ PdfView组件加载一个PDF文件，对这个文件做编辑操作，如何使�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/AAyxDq4CT4iXEpCbHQGI8w/zh-cn_image_0000002658793615.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005600Z&HW-CC-Expire=86400&HW-CC-Sign=8F71A054D0173FE2940767AE46C01F065E067A12EA03C102762F8463E0673F4E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/IqmnRyLnTBujSBBFKH8K1A/zh-cn_image_0000002658793615.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095552Z&HW-CC-Expire=86400&HW-CC-Sign=C781E7D7176069EE4885A971B137C4DDF6F76782364F111B74202E3A44336AB3)
 
  
  
@@ -141,4 +141,4 @@ A：编辑PDF文件后要及时保存，需要调用PdfView组件绑定的contro
  
 Q：编辑PDF文档的页面时，需要用到包括拆页、合页、旋转、缩放、创建等能力。
  
-A：参考[pdfService与PdfView能力比较](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-introduction#section104232284718)；编辑能力可参考[pdfService](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice)。
+A：参考[pdfService与PdfView能力比较](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-introduction#pdfservice与pdfview能力比较)；编辑能力可参考[pdfService](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice)。

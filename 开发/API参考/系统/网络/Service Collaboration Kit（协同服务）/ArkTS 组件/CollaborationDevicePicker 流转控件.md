@@ -1,6 +1,6 @@
 # CollaborationDevicePicker (流转控件)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-collaborationdevicepicker
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -26,6 +26,8 @@ import { CollaborationDevicePicker } from '@kit.ServiceCollaborationKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
+流转控件对象，用于创建控件对象实例。
+ 
 **模型约束：** 此模块的接口仅可在Stage模型下使用。
  
 **装饰器类型：** @Component

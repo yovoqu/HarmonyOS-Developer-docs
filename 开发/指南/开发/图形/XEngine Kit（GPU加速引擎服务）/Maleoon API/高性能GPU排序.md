@@ -1,6 +1,6 @@
 # 高性能GPU排序
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/xengine-kit-high-performance-gpu-sorting
 
@@ -35,7 +35,7 @@ XEngine Kit高性能着色器(High Performance Shaders，HPS)特性提供GPU排�
  - 下面是以Vulkan应用程序渲染为例，说明使用高性能GPU排序的主要业务流程
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/K_R9_Qj_TZG3RCgEikBh4A/zh-cn_image_0000002656007410.jpg?HW-CC-KV=V1&HW-CC-Date=20260730T071953Z&HW-CC-Expire=86400&HW-CC-Sign=7CB395D16AF8D3AAC566F5C3AA938FB6BD8A236E0AD29B71A6A7033D7DBBBBD2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/K2po79VIQPG4nHKavmiupw/zh-cn_image_0000002674473572.jpg?HW-CC-KV=V1&HW-CC-Date=20260813T095837Z&HW-CC-Expire=86400&HW-CC-Sign=617246787B56B78D5DF4B8102EE83FEAB1911B3EAFA86B68B4995D8DE016888A)
 
 
 1. 应用调用[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)接口获取XEngine Kit支持的扩展属性列表。检查返回列表中是否包含[XEG_HPS_RADIX_SORT_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_hps_radix_sort_extension_name)。若不包含，则当前设备不支持此特性，流程终止。
@@ -155,7 +155,11 @@ XEG_HPSCreateInfo info {
     &sortInfo
 };
 // 实例化句柄
-HMS_XEG_CreateHPS(device, &info, &xegHPS);
+VkResult res = HMS_XEG_CreateHPS(device, &info, &xegHPS);
+if (res != VK_SUCCESS) {
+    // 错误处理
+    // ...
+}
 ```
 
 5. 构造排序描述符，调用[HMS_XEG_CmdRadixSortHPS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_cmdradixsorthps)接口录制排序命令。
@@ -174,7 +178,11 @@ XEG_HPSRadixSortDescription sortDescription{
     keyBuffer,
     indexBuffer
 };
-HMS_XEG_CmdRadixSortHPS(cmdBuffer, xegHPS, &sortDescription);
+VkResult res = HMS_XEG_CmdRadixSortHPS(cmdBuffer, xegHPS, &sortDescription);
+if (res != VK_SUCCESS) {
+    // 错误处理
+    // ...
+}
 vkEndCommandBuffer(cmdBuffer);
 ```
 

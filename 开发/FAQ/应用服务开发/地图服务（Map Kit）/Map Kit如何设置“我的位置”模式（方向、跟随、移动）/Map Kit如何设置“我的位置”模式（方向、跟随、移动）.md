@@ -1,6 +1,6 @@
 # Map Kit如何设置“我的位置”模式（方向、跟随、移动）
 
-更新时间：2026-07-30 01:03:01
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-49
 
@@ -16,7 +16,7 @@ Map Kit地图服务提供自带的“我的位置”图标显示，但应用有�
 - [MyLocationStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#mylocationstyle)：自定义“我的位置”样式。
 - [MyLocationDisplayType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#mylocationdisplaytype)：定位图标的展示模式。可以设置是否连续定位、是否跟随设备移动、是否跟随设备方向旋转、相机是否跟随移动到“我的位置”为屏幕中心。默认为连续定位，相机不移动到“我的位置”，定位蓝点跟踪设备移动。
 - 前提条件：
-使用地图服务，需要先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#section16133115441516)。
+使用地图服务，需要先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#开通地图服务)。
 - 使用“我的位置”能力需声明和向用户授权ohos.permission.LOCATION、ohos.permission.APPROXIMATELY_LOCATION权限。
 
  
@@ -41,7 +41,7 @@ this.mapController?.setMyLocationStyle(style);
  实现效果：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/7TTlbNm7T0ajD1rfGjCAbQ/zh-cn_image_0000002658913611.png?HW-CC-KV=V1&HW-CC-Date=20260811T005610Z&HW-CC-Expire=86400&HW-CC-Sign=BC9FB7942109916DDFA6C4FDDF29F7EF43D95AC455BC8D310C1476E7CDD12887)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/rm5HG_PgShCKFny9uhxszQ/zh-cn_image_0000002658913611.png?HW-CC-KV=V1&HW-CC-Date=20260813T095554Z&HW-CC-Expire=86400&HW-CC-Sign=4690F8E83BA3FB6563263E2884F86429CFDD49AA2695165A6052445AAF97E4D5)
 
 
   完整代码：

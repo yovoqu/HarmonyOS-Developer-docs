@@ -1,6 +1,6 @@
 # Interface (ConcatArray)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-concatarray
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -135,8 +135,8 @@ slice(start?: number, end?: number): ConcatArray&lt;T&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| start | number | 否 | 开始索引。如果start < 0，则会从start + array.length位置开始。默认值为0。 |
-| end | number | 否 | 结束索引（不包括该元素）。如果end < 0，则会到end + array.length位置结束。默认为ArkTS Array的长度。 |
+| start | number | 否 | 开始索引。如果start < 0，则会从start + ConcatArray.length位置开始。默认值为0。 |
+| end | number | 否 | 结束索引（不包括该元素）。如果end < 0，则会到end + ConcatArray.length位置结束。默认为ArkTS ConcatArray的长度。 |
 
 
 **返回值：**

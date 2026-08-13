@@ -1,6 +1,6 @@
 # scan（星闪扫描能力）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-scan
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -26,7 +26,7 @@ import { scan } from '@kit.NearLinkKit';
 
 startScan(filters: Array&lt;ScanFilters&gt;, options?: ScanOptions): Promise&lt;void&gt;
  
-发起星闪扫描。使用Promise异步回调。
+发起指定过滤器的星闪扫描。使用Promise异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -96,7 +96,7 @@ try {
 
 startScan(filters: Array&lt;ScanFilters&gt; | null, options?: ScanOptions): Promise&lt;void&gt;
  
-发起星闪扫描。使用Promise异步回调。
+启动星闪扫描并允许过滤器参数设为null，使用Promise异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -368,7 +368,7 @@ try {
 | manufacturerId | number | 否 | 是 | 表示厂商ID，取值范围[1, 65535]，若未配置则默认不过滤该字段。 |
 | manufacturerData | ArrayBuffer | 否 | 是 | 表示厂商数据，若未配置则默认不过滤该字段。配置该字段需同时配置manufacturerId。 |
 | manufacturerDataMask | ArrayBuffer | 否 | 是 | 表示厂商数据掩码，若未配置则默认不过滤该字段。配置该字段需同时配置manufacturerData，且二者长度必须一致。 |
-| rssi | number | 否 | 是 | 过滤信号强度大于或等于该信号强度门限值的广播报文，取值范围[-128, 127]，单位：dBm。建议设置[-90, 20]范围内的门限值。 |
+| rssi | number | 否 | 是 | 过滤信号强度大于或等于该信号强度门限值的广播报文，取值范围[-128, 127]，单位：dBm。建议设置[-90, 20]范围内的门限值。 起始版本： 26.0.0 |
  
  
   

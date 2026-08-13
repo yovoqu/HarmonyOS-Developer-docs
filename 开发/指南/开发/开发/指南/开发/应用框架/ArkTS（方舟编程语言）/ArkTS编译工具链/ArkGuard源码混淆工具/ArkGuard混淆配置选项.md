@@ -1,6 +1,6 @@
 # ArkGuard混淆配置选项
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options
 
@@ -300,7 +300,7 @@ class TestA { static prop1: number = 0; } TestA.prop1;
 ```
  
 > [!NOTE]
-> release模式构建的应用堆栈信息仅包含代码行号，不包含列号，因此-compact功能开启后无法依据报错堆栈中的行号定位到源码具体位置。 若希望对部分源码路径仍保留换行（便于对照报错栈行号阅读混淆中间产物），可在开启-compact的同时，使用 -keep-uncompact 指定不参与压缩的源码路径。
+> release模式构建的应用堆栈信息仅包含代码行号，不包含列号，因此-compact功能开启后无法依据报错堆栈中的行号精确定位到源码中的具体语句位置。 若希望对部分源码路径仍保留换行（便于对照报错栈行号阅读混淆中间产物），可在开启-compact的同时，使用 -keep-uncompact 指定不参与压缩的源码路径。
 
  
   
@@ -313,7 +313,7 @@ class TestA { static prop1: number = 0; } TestA.prop1;
  
  
  
-```text
+```ts
 /**
  * @todo
  */
@@ -492,7 +492,7 @@ enum Test2 {
 
 #### -extra-options strip-language-default
 
-混淆的预置语言白名单中**默认包含了typescript的系统接口中关于dom、webworker、scripthost等API的名称以及Web API的名称**。如果开发者源码中的属性与这部分名称重名，混淆工具会对这些属性进行保留。
+混淆的预置语言白名单中**默认包含了TypeScript的系统接口中关于DOM、WebWorker、ScriptHost等API的名称以及Web API的名称**。如果开发者源码中的属性与这部分名称重名，混淆工具会对这些属性进行保留。
  
 如果开发者需要混淆这部分代码，需要配置-extra-options strip-language-default选项。
  
@@ -772,7 +772,7 @@ enum MyEnum {
 - 同时开启属性混淆（-enable-property-obfuscation）和字符串属性混淆（-enable-string-property-obfuscation）时，配置保留对象字面量（-keep-object-props）选项后，对象字面量中的属性名称和字符串属性名称会被收集到白名单中，不会被混淆。
 
  
-> [!TIP]
+> [!NOTE]
 > 在开启属性混淆或者同时开启属性混淆和字符串属性混淆的情况下，-keep-object-props选项才会生效，否则该选项无效。
 
  

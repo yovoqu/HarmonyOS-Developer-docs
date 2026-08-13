@@ -1,6 +1,6 @@
 # 基础自定义弹出框 (CustomDialog)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-custom-dialog
 
@@ -739,7 +739,7 @@ export struct DialogAvoidSoftKeyboard {
 
 在业务模块中，页面上可能会同时出现多个弹出框。为避免重复打开相同的弹出框，建议在显示弹出框前，先通过控制器检查其当前状态。如果弹出框已处于显示状态，则不应再次打开。
 
-从API version 20开始，新增了getState接口，用于获取弹出框的当前状态。具体的弹出框状态信息，请参见[CommonState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#commonstate20枚举说明)枚举的详细说明。
+从API version 20开始，新增了getState接口，用于获取弹出框的当前状态。具体的弹出框状态信息，请参见[CommonState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#commonstate20)枚举的详细说明。
 
 以下示例通过[getDialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-api#getdialogcontroller18)和[CustomDialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontroller)两种方法，实现了获取弹出框当前状态的功能。
 
@@ -802,4 +802,4 @@ export struct GetDialogStatus {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/ouaE6oQuQx2gTO0u_jutLA/zh-cn_image_0000002686085839.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071847Z&HW-CC-Expire=86400&HW-CC-Sign=1FF396D91692737346E012502C7F15CCCB6070663D21CE8FF4B899EDED0AFD55)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/631QFLm5ReWwkjyDUWMydg/zh-cn_image_0000002704392445.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095713Z&HW-CC-Expire=86400&HW-CC-Sign=8AABA6AD9FD5708D46EE3C4E5CACB39376016B2D46491EC12BADED2B00A6178A)

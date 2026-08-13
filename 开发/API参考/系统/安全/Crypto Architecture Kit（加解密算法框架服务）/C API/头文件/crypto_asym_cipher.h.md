@@ -1,6 +1,6 @@
 # crypto_asym_cipher.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-cipher-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -209,7 +209,7 @@ OH_Crypto_ErrCode OH_CryptoAsymCipher_Final(OH_CryptoAsymCipher *ctx, const Cryp
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：ctx、in或out为NULL。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：加解密完成失败。可能的原因：RSA加密时明文超过密钥长度和填充模式允许 的最大长度；RSA解密时密钥错误或密文损坏；SM2解密时密钥错误或密文损坏；SM2密文的ASN.1结构无效。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：ctx、in或out为NULL。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存分配失败。 CRYPTO_OPERTION_ERROR：加解密完成失败。可能的原因： RSA加密时明文超过密钥长度和填充模式允许的最大长度； RSA解密时密钥错误或密文损坏； SM2解密时密钥错误或密文损坏； SM2密文的ASN.1结构无效。 |
  
  
   
@@ -374,7 +374,7 @@ OH_Crypto_ErrCode OH_CryptoSm2CiphertextSpec_Encode(OH_CryptoSm2CiphertextSpec *
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：spec或out为NULL， 或SM2密文字段（C1X、C1Y、C2、C3）未设置，或C3（hashData）长度不为32字节。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存操作失败。 CRYPTO_OPERTION_ERROR：编码失败。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：spec或out为NULL，或SM2密文字段（C1X、C1Y、C2、C3）未设置，或C3（hashData）长度不为32字节。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存操作失败。 CRYPTO_OPERTION_ERROR：编码失败。 |
  
  
   

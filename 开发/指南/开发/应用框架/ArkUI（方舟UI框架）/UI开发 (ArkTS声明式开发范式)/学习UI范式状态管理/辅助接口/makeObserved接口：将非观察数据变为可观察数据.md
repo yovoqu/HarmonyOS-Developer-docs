@@ -1,6 +1,6 @@
 # makeObserved接口：将非观察数据变为可观察数据
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved
 
@@ -555,7 +555,7 @@ struct Page5 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/PQHkXT7ySr2rkqpogy0bug/zh-cn_image_0000002685925629.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=2BE6EC9236CE3B2C7942BB63B1816831C0EC97B7C71457A6F49D8A0F7A9B9CE7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/vNJmYUZ_Q5G1GPRlyzakZg/zh-cn_image_0000002674631940.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095707Z&HW-CC-Expire=86400&HW-CC-Sign=73642737F57A9A8A23EB382D2B8CDC02CAF6B79B2F537B26A42823259D316228)
 
 
 **collections.Set**
@@ -625,7 +625,7 @@ struct Page6 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/qMPPcOsKSmKiqlD7S94SKw/zh-cn_image_0000002656005950.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=EB5A76127AE09B62FA0C5D3DA1BEDAF55B2EB8F8DBE74C08C79D9FC568C1F2C3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/3QnR7ZAhRROX3jRO_DPetw/zh-cn_image_0000002704271895.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095707Z&HW-CC-Expire=86400&HW-CC-Sign=F36858B9872E7F299CFF313056F241F8D4B20EC5546E1BCDBEA6BACC6F2B63C1)
 
 
 
@@ -682,7 +682,7 @@ struct Page7 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/5FZUjRwwTTqI7MszQIGFJQ/zh-cn_image_0000002655846030.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=96BFAD21A1E6BD7467F844C08B658BB3A0D92E30887C0BF896CF45C973EFE390)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/iaPgjR3UT6yqc16nh9Qj_A/zh-cn_image_0000002674472096.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095707Z&HW-CC-Expire=86400&HW-CC-Sign=08DAECF80BD18A392DD952A308601FD7B77B85427B56B11470A97C282254AB32)
 
 
 
@@ -774,7 +774,7 @@ struct Child {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/NhExzh-HTYif1-s30e23-g/zh-cn_image_0000002686085459.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=924517CD0852E6BFA3482C2D10FDC7B60A8C1DCA1354E9B40D08E891E3DBA466)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/AZUqJ89cQnC3pDAF4zOHoQ/zh-cn_image_0000002704392065.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095707Z&HW-CC-Expire=86400&HW-CC-Sign=A5FA328126C84FF9FD805DA403F4E686C599B983B6CF0A758B96F8223B587977)
 
 
 
@@ -817,7 +817,7 @@ struct Page9 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/TK2ZoAPaScOh3Zs81wX3aw/zh-cn_image_0000002685925631.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=9162CF107A99E85C7D895C446D7F62FE49057C9A95D78B5A60F19329FD9C3E00)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/rTaXx49OSlqlo1Eead2Cbg/zh-cn_image_0000002674631942.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095707Z&HW-CC-Expire=86400&HW-CC-Sign=E4C52EA9523957C29767BA14C2435F6632A79D967AEE561FC9DFB808A940A81A)
 
 
 
@@ -874,4 +874,4 @@ struct Page10 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/TdkQMYmNQx-MtPUrDC0QtQ/zh-cn_image_0000002656005952.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=E6F87DCDBFC85EE2116BDDBDB5B29CA93F7DE78BDF633474E713DF7F1027BA86)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/Y0tQ9PttTx-plG6qcP8fnA/zh-cn_image_0000002704271897.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095707Z&HW-CC-Expire=86400&HW-CC-Sign=54B35BF7DA0C2A44BE67382C163C08D7C328960A9AD308759E53C7CD814E6A08)

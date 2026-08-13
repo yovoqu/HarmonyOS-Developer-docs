@@ -1,6 +1,6 @@
 # 监听设备上下线（C/C++）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/game-controller-monitor-device
 
@@ -16,13 +16,13 @@ Game Controller Kit提供设备上下线事件监听和查询在线设备信息�
 ![](assets/监听设备上下线（C／C++）/file-20260514131901601-0.png)
 
 1. 玩家启动游戏。
-2. 游戏调用OH_GameDevice_RegisterDeviceMonitor接口注册设备状态变化事件监听。
+2. 游戏调用[OH_GameDevice_RegisterDeviceMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-game-device-h#oh_gamedevice_registerdevicemonitor)接口注册设备状态变化事件监听。
 3. 玩家插拔设备。
 4. 终端系统将设备状态变化通知Game Controller Kit。
 5. Game Controller Kit向游戏反馈设备状态变化。
-6. 游戏调用OH_GameDevice_GetAllDeviceInfos接口向Game Controller Kit查询所有在线的游戏设备信息。
+6. 游戏调用[OH_GameDevice_GetAllDeviceInfos](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-game-device-h#oh_gamedevice_getalldeviceinfos)接口向Game Controller Kit查询所有在线的游戏设备信息。
 7. Game Controller Kit从终端系统获取所有在线的游戏设备信息。
-8. 如果不再需要订阅，游戏可以调用OH_GameDevice_UnregisterDeviceMonitor接口取消设备状态变化事件监听。
+8. 如果不再需要订阅，游戏可以调用[OH_GameDevice_UnregisterDeviceMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-game-device-h#oh_gamedevice_unregisterdevicemonitor)接口取消设备状态变化事件监听。
 
 
 
@@ -61,7 +61,7 @@ target_link_libraries(entry PUBLIC libohgame_controller.z.so)
 
 #### 注册设备上下线监听
 
-调用OH_GameDevice_RegisterDeviceMonitor接口注册设备状态变化监听，获取设备上下线的回调通知。
+调用[OH_GameDevice_RegisterDeviceMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-game-device-h#oh_gamedevice_registerdevicemonitor)接口注册设备状态变化监听，获取设备上下线的回调通知。
 
 ```text
 napi_value DeviceApi::RegisterDeviceMonitor(napi_env env, napi_callback_info info) {
@@ -93,7 +93,7 @@ void DeviceApi::OnDeviceChanged(const struct GameDevice_DeviceEvent *deviceEvent
 
 #### 取消注册设备上下线监听
 
-如果不再需要订阅，可以调用OH_GameDevice_UnregisterDeviceMonitor接口取消设备状态变化事件的监听。
+如果不再需要订阅，可以调用[OH_GameDevice_UnregisterDeviceMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-game-device-h#oh_gamedevice_unregisterdevicemonitor)接口取消设备状态变化事件的监听。
 
 ```text
 napi_value DeviceApi::UnregisterDeviceMonitor(napi_env env, napi_callback_info info) {
@@ -114,7 +114,7 @@ napi_value DeviceApi::UnregisterDeviceMonitor(napi_env env, napi_callback_info i
 
 #### 查询所有在线设备
 
-调用OH_GameDevice_GetAllDeviceInfos接口，查询所有在线游戏设备的信息。
+调用[OH_GameDevice_GetAllDeviceInfos](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-game-device-h#oh_gamedevice_getalldeviceinfos)接口，查询所有在线游戏设备的信息。
 
 ```text
 GameController_ErrorCode DeviceApi::DoQueryAllDeviceInfos() {

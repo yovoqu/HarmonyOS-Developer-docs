@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -672,13 +672,11 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
+Callback<T, V = void> {
 
+(data: T): V;
 
-#### (data: T)15+
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-(data: T): V
+}
 
 通用回调函数。
 

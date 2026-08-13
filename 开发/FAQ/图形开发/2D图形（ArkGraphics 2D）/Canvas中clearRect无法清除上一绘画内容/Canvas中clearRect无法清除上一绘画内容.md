@@ -1,17 +1,17 @@
 # Canvas中clearRect无法清除上一绘画内容
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:42:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-25
 
 #### 问题现象
 
-使用[clearRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#clearrect)清除之前的绘画，但是清除效果和预期有差异。一共有两个场景：
+使用[clearRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#clearrect)清除之前的绘画，但是清除效果和预期有差异。一共有两个场景：
  
 - 场景一：绘制时对画布进行矩阵变换，使用clearRect清除时未达预期，出现问题现象如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/I0v5twPbTuujrvpkn9ck5A/zh-cn_image_0000002658912555.png?HW-CC-KV=V1&HW-CC-Date=20260811T005530Z&HW-CC-Expire=86400&HW-CC-Sign=E6C6177455370A0C4660E91EAF1430EBED4507288FF6ED577CB4F2864F2F161A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/BhgP01wrSUSuElJkdSnRNQ/zh-cn_image_0000002658912555.png?HW-CC-KV=V1&HW-CC-Date=20260813T095548Z&HW-CC-Expire=86400&HW-CC-Sign=C0CBFA5C7AD6F7DF3AF992BE99240F12A1F4CDD0ADD3E9693023D59AB47D7136)
 
 
   问题相关代码如下：
@@ -42,7 +42,7 @@ Button('清除图形')
 - 场景二：绘制时对画布进行缩放，使用clearRect清除时未达预期，出现问题现象如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/RjtoVRlzTu6icxOtUlCZzw/zh-cn_image_0000002658792615.png?HW-CC-KV=V1&HW-CC-Date=20260811T005530Z&HW-CC-Expire=86400&HW-CC-Sign=0507C909FAFC90B38D6014F9E298CB2B8E9B8467A464A09C69338FDCCC89EBED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/y5tsnZj3TNKzcvQyCZCePA/zh-cn_image_0000002658792615.png?HW-CC-KV=V1&HW-CC-Date=20260813T095548Z&HW-CC-Expire=86400&HW-CC-Sign=7DFD92AFED959071CC14E53B1ECA1B11EA8FA3E2F879EE4A2C82EF5B89105FDA)
 
 
   问题相关代码：

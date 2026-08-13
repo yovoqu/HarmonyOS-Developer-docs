@@ -1,6 +1,6 @@
 # 使用DOWNLOAD模式保存的文件如何访问
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-67
 
@@ -15,7 +15,7 @@
 - [DOWNLOAD模式保存文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/save-user-file#download模式保存文件)：自动创建在Download/包名/目录。跳过文件选择界面直接保存。返回的URI已具备持久化权限，用户可在该URI下创建文件。
 - DOWNLOAD模式保存的文件URI示例：'file://docs/storage/Users/currentUser/Download/&lt;bundleName&gt;/***.mp3'。
 - [bundleManager.getBundleInfoForSelfSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagergetbundleinfoforselfsync10)：以同步方法根据给定的bundleFlags获取当前应用的BundleInfo。
-- [fs.listFileSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fslistfilesync)：默认以同步方式列出当前目录下所有文件名和目录名。支持过滤。可通过配置options中recursion参数实现递归列出所有文件的相对路径，相对路径以“/”开头。
+- [fs.listFileSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiolistfilesync)：默认以同步方式列出当前目录下所有文件名和目录名。支持过滤。可通过配置options中recursion参数实现递归列出所有文件的相对路径，相对路径以“/”开头。
 
  
  

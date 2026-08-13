@@ -1,6 +1,6 @@
 # HiAppEvent
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiappevent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -10,6 +10,8 @@
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 HiAppEvent模块提供应用事件打点功能。记录应用运行过程中上报的故障事件、统计事件、安全事件和用户行为事件。基于事件信息，开发者可以分析应用的运行状态。
+ 
+**系统能力：** SystemCapability.HiviewDFX.HiAppEvent
  
 **起始版本：** 8
  

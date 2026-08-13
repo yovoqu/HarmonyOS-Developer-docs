@@ -158,7 +158,7 @@ objcopy --add-section .permission=module.json EXAMPLE EXAMPLE_OUT
 例如，需要将HAP部署在abi类型为arm64-v8a的PC/2in1设备上时，bin文件EXAMPLE应放置在如下目录：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/KbRly8azR1izdpvAbbcK2w/zh-cn_image_0000002668300042.png?HW-CC-KV=V1&HW-CC-Date=20260811T010210Z&HW-CC-Expire=86400&HW-CC-Sign=E7DA79C755BEB39E2299B21468C1DC8AE3FBD1FB0EAA59FD6546BFD9F8E82011)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/aQfZnPstSMa7rMDzbCt1Hw/zh-cn_image_0000002674471808.png?HW-CC-KV=V1&HW-CC-Date=20260813T100027Z&HW-CC-Expire=86400&HW-CC-Sign=E1800428ECCC6585301A59308327D9AF6E7F3BB4AB1F52813303FC12C678E026)
 
 
 在[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中配置[executablebinarypaths标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#executablebinarypaths标签)，用于声明HAP中包含的可执行bin文件。该标签配置bin文件的路径，为相对路径，必须以libs/{abi}/为前缀，其中{abi}为设备CPU架构类型（如arm64-v8a、x86_64、armeabi-v7a）：

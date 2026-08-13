@@ -1,6 +1,6 @@
 # rcp怎么在请求和拦截器中增加query参数
 
-更新时间：2026-07-30 01:55:38
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-9
 
@@ -12,7 +12,7 @@ rcp请求过程中，如何增加query参数，以及在请求拦截场景，如
 
 #### 背景知识
 
-- [拦截器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-interceptconfig)：使用拦截器可以便捷地对HTTP的请求与响应进行修改，您可以创建拦截器链，按需定制一组拦截器对网络请求/响应进行修改。[Remote Communication Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-api)模块提供了拦截器能力，在[SessionConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section18613443123412)中添加[Interceptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#interceptor)参数，传入自定义的拦截器，即可在HTTP请求和响应的过程中添加拦截器功能。
+- [拦截器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-interceptconfig)：使用拦截器可以便捷地对HTTP的请求与响应进行修改，您可以创建拦截器链，按需定制一组拦截器对网络请求/响应进行修改。[Remote Communication Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-api)模块提供了拦截器能力，在[SessionConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#sessionconfiguration)中添加[Interceptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#interceptor)参数，传入自定义的拦截器，即可在HTTP请求和响应的过程中添加拦截器功能。
 - [addQueryValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-uri#addqueryvalue12)在当前URI对象上添加查询参数后返回新的URI对象，保持原有URI对象不变。
 
  

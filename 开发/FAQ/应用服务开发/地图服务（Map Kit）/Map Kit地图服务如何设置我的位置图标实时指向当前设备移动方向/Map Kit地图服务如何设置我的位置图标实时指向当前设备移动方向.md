@@ -1,6 +1,6 @@
 # Map Kit地图服务如何设置我的位置图标实时指向当前设备移动方向
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-20
 
@@ -14,9 +14,9 @@ Map Kit地图中，我的位置当前可以通过设置mapCommon.MyLocationDispl
 
 #### 背景知识
 
-- [MyLocationDisplayType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#section78428244375)：定位图标的展示模式。类型设置为FOLLOW时，表示连续定位，且将相机移动到地图中心点，定位蓝点跟随设备移动。
-- [setMyLocationStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#section126791641317)：设置用户的位置样式。设置icon参数可以自定义我的位置图标样式。displayType参数设置可以设置定位图标的展示样式，可以设置相机是否跟随移动、我的位置图标是否跟随设备旋转等。
-- [setMyLocation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#section1165002535516)：Map Kit默认使用系统的连续定位能力显示用户位置，如果希望定制显示频率或者精准度等，可以调用此接口设置“我的位置”坐标。
+- [MyLocationDisplayType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#mylocationdisplaytype)：定位图标的展示模式。类型设置为FOLLOW时，表示连续定位，且将相机移动到地图中心点，定位蓝点跟随设备移动。
+- [setMyLocationStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#setmylocationstyle)：设置用户的位置样式。设置icon参数可以自定义我的位置图标样式。displayType参数设置可以设置定位图标的展示样式，可以设置相机是否跟随移动、我的位置图标是否跟随设备旋转等。
+- [setMyLocation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#setmylocation)：Map Kit默认使用系统的连续定位能力显示用户位置，如果希望定制显示频率或者精准度等，可以调用此接口设置“我的位置”坐标。
 - [geoLocationManager.on('locationChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager#geolocationmanageronlocationchange)：开启位置变化订阅，并发起定位请求。可实时监听当前设备的位置信息，其中包括设备的移动方向信息。
 
  
@@ -27,7 +27,7 @@ Map Kit地图中，我的位置当前可以通过设置mapCommon.MyLocationDispl
 前提条件：
  
 - 需要申请"ohos.permission.LOCATION"和"ohos.permission.APPROXIMATELY_LOCATION"位置权限。
-- 需要[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#section16133115441516)。
+- 需要[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#开通地图服务)。
 
 1. 设置我的位置图标自定义样式和移动效果，此方案场景，需设置displayType参数为mapCommon.MyLocationDisplayType.FOLLOW（我的位置图标不跟随或设备方向旋转）。
 ```text

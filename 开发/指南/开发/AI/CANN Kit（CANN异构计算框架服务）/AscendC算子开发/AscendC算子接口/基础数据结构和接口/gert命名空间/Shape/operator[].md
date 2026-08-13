@@ -1,6 +1,6 @@
 # operator[]
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-operatorc
 
@@ -46,7 +46,8 @@ int64_t &operator[](size_t idx)
 
 ```text
 Shape shape0({3, 256, 256});
-auto dim0 = shape0[0]; // 3
-auto dim5 = shape0[5]; // 5
+auto dim0 = shape0[0]; // 0轴的维度大小为3
+auto dim1 = shape0[1]; // 1轴的维度大小为256
+auto dim2 = shape0[2]; // 2轴的维度大小为256
 auto invalid_dim = shape0[kMaxDimNum]; // 行为未定义
 ```

@@ -1,6 +1,6 @@
 # 模拟器运行应用报错提示设备和应用的API版本不匹配
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-13 01:22:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-3
 
@@ -24,7 +24,7 @@
 
 #### 解决方案
 
-DevEco Studio提供了基础的工程模板资源，不同模板支持的设备类型、API Version不同。OpenHarmony项目不可运行在模拟器上，需在开源设备上运行。[创建和配置新工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project)文档中提供了[创建HarmonyOS工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project#section11644183711342)和[创建OpenHarmony工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project#section1826317225311)两种工程模板的创建方式，直接创建HarmonyOS工程即可。
+DevEco Studio提供了基础的工程模板资源，不同模板支持的设备类型、API Version不同。OpenHarmony项目不可运行在模拟器上，需在开源设备上运行。[创建和配置新工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project)文档中提供了[创建HarmonyOS工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project#section181328285169)和[创建OpenHarmony工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project#section181328285169)两种工程模板的创建方式，直接创建HarmonyOS工程即可。
  
  
 

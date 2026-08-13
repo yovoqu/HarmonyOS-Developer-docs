@@ -1,6 +1,6 @@
 # Function Flow Runtime串行队列(C)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ffrt-concurrency-serial-queue-c
 
@@ -156,7 +156,7 @@ int SerialQueueCExec()
 
 #### 接口说明
 
-上述样例中涉及到主要的FFRT的接口包括：
+上述样例中涉及到主要的FFRT的接口如下，详情请参考[ffrt_queue_t](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ffrt-api-guideline-c#ffrt_queue_t)下的方法：
   
 | 名称 | 描述 |
 | --- | --- |

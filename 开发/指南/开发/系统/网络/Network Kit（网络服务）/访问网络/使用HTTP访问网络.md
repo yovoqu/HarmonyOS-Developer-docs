@@ -1,6 +1,6 @@
 # 使用HTTP访问网络
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/http-request
 
@@ -716,7 +716,7 @@ openssl s_client -servername www.example.com -connect www.example.com:443 \
 直接把证书原文件预置在APP中。目前支持crt和pem格式的证书文件。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/jplFZ6HXT1aw_0Em62imig/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014619Z&HW-CC-Expire=86400&HW-CC-Sign=E14E35B61E7399FBCCA26AFBD26248C47AFFFFE84330C2525758B17CAAB7F404)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/x4lQ4kZjRlWLZalKb2Wvxw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095805Z&HW-CC-Expire=86400&HW-CC-Sign=C4F84CC863805C5FC18020496FA058F14D8F32DE54375EF63F80D45ECF652CCF)
 
 
 当前ohos.net.http和Image组件的证书锁定，会匹配证书链上所有证书的哈希值，如果服务器更新了任意一本证书，都会导致校验失败。如果服务器出现了更新证书的情况，APP版本应当随之更新并推荐消费者尽快升级APP版本，否则可能导致联网失败。

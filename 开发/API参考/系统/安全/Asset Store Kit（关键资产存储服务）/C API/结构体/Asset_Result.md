@@ -1,6 +1,6 @@
 # Asset_Result
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-assettype-asset-result
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct {...} Asset_Result
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-关键资产查询结果，用于定义一条关键资产。
+单条关键资产的查询结果。
  
 **起始版本：** 11
  

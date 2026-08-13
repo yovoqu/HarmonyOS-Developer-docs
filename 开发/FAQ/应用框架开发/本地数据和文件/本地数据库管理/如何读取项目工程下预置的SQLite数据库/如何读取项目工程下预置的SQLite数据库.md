@@ -1,6 +1,6 @@
 # 如何读取项目工程下预置的SQLite数据库
 
-更新时间：2026-07-30 01:55:38
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-database-management-68
 
@@ -23,8 +23,8 @@
 #### 解决方案
 
 [关系型数据库](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-relationalstore)（Relational Database，RDB）不支持直接打开rawfile或resfile目录下预置的SQLite数据库，需要先将对应的SQLite数据库文件拷贝到应用沙箱目录，再使用@ohos.data.relationalStore进行相关数据库操作。具体步骤如下：
- 1. 若数据库预置在rawfile目录下，可使用[resourceManager.getRawFdSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getrawfdsync10)接口获取对应资源的文件描述符（fd），再使用[fs.readSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioreadsync)接口读取文件内容，结合[fs.writeSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fswritesync)接口将读取的内容写入到沙箱指定文件中。（可参考下述示例的saveRawFileToSandbox代码）
-2. 若数据库预置在resfile目录下，可使用[fs.openSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsopensync)接口获取对应资源的文件描述符（fd），再使用[fs.readSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioreadsync)接口读取文件内容，结合[fs.writeSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fswritesync)接口将读取的内容写入到沙箱指定文件中。（可参考下述示例的saveResFileToSandbox代码）
+ 1. 若数据库预置在rawfile目录下，可使用[resourceManager.getRawFdSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getrawfdsync10)接口获取对应资源的文件描述符（fd），再使用[fs.readSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioreadsync)接口读取文件内容，结合[fs.writeSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiowritesync)接口将读取的内容写入到沙箱指定文件中。（可参考下述示例的saveRawFileToSandbox代码）
+2. 若数据库预置在resfile目录下，可使用[fs.openSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioopensync)接口获取对应资源的文件描述符（fd），再使用[fs.readSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioreadsync)接口读取文件内容，结合[fs.writeSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiowritesync)接口将读取的内容写入到沙箱指定文件中。（可参考下述示例的saveResFileToSandbox代码）
 3. 将在项目rawfile或resfile目录下预置的SQLite数据库文件通过上述方案拷贝到应用沙箱[databaseDir目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory#:~:text=database-,databaseDir,-数据库路径)下后，即可在应用中使用[relationalStore.getRdbStore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-f#relationalstoregetrdbstore)接口获取数据库实例进行数据库相关操作。（可参考下述示例的initDataBaseDir代码）
 > [!WARNING]
 > 需要注意以下几点： 在创建或打开数据库时若不指定 StoreConfig 的rootDir时，则会默认在${context.databaseDir}/rdb/${customDir}目录下创建或打开。若指定rootDir，则会在${rootDir}/${customDir}目录下创建或打开数据库，通过设置此参数打开的数据库为 只读模式 。rootDir配置从 API18 版本开始提供。 rawfile目录下文件需使用 resourceManager.getRawFdSync 获取文件描述符或使用 resourceManager.getRawFileContentSync 获取其文件数据。 resfile目录路径可使用${this.context.resourceDir}获取，其目录下的文件可直接使用 @ohos.file.fs (文件管理) 的能力打开读取。
@@ -252,4 +252,4 @@ struct Index {
 代码运行效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/HAKbmOpRT66ygkqMZaNBYg/zh-cn_image_0000002629059004.png?HW-CC-KV=V1&HW-CC-Date=20260811T005848Z&HW-CC-Expire=86400&HW-CC-Sign=16EF592E1261442E9FCFD0F80DE7AD9D237D756BDDDF720CCBFF2FCF2A573644)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/LTZPccR2TYuWQOhT88GPGg/zh-cn_image_0000002629059004.png?HW-CC-KV=V1&HW-CC-Date=20260813T095605Z&HW-CC-Expire=86400&HW-CC-Sign=2023518E5F061DD32934CA47FF364CDEB98C5D07CE69FCADF88FD6A42AD0A607)

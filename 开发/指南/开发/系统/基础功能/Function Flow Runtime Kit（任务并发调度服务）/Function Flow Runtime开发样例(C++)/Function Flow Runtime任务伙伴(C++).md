@@ -1,6 +1,6 @@
 # Function Flow Runtime任务伙伴(C++)
 
-更新时间：2026-03-12 09:39:20
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ffrt-concurrency-job-partner-cpp
 

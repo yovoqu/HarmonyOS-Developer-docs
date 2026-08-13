@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -46,8 +46,8 @@
 | --- | --- | --- | --- | --- |
 | size | Size | 否 | 否 | 图像尺寸。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 |
 | density9+ | number | 否 | 否 | 像素密度。单位：ppi（像素/英寸）。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 |
-| stride11+ | number | 否 | 否 | 跨距（行跨距），内存中每行像素所占的空间。单位：字节（Byte）。跨距 >= 图像宽度 * 每像素字节数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 |
-| pixelFormat12+ | PixelMapFormat | 否 | 否 | 像素格式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 |
+| stride11+ | number | 否 | 否 | 跨距（行跨距），表示内存中每行像素所占的空间。单位：字节（Byte）。跨距 >= 图像宽度 * 每像素字节数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 |
+| pixelFormat12+ | PixelMapFormat | 否 | 否 | 像素格式，表示像素数据的颜色通道排列和位深信息。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 |
 | alphaType12+ | AlphaType | 否 | 否 | 透明度类型。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 |
 | mimeType12+ | string | 否 | 否 | 图片真实格式（MIME type）。 图片解码和图片编码支持格式的范围不同，请避免直接将解码得到的图片真实格式作为图片编码时PackingOption的format。 可以使用ImageSource属性中的supportedFormats和ImagePacker属性中的supportedFormats查看解码和编码支持的格式范围。 |
 | isHdr12+ | boolean | 否 | 否 | true表示图像为高动态范围（HDR），false表示图像非高动态范围（SDR）。对于ImageSource，代表源图片是否为HDR；对于PixelMap，代表解码后的PixelMap是否为HDR。 |
@@ -292,7 +292,7 @@ PixelMap的初始化选项。
 | frameCount | number | 否 | 否 | GIF编码中指定的帧数。 |
 | delayTimeList | Array&lt;number&gt; | 否 | 否 | GIF编码中设定每帧输出图像的延迟时间，取值需大于0。 - 单位：10毫秒（ms）。例如，取值为10时，实际单帧延迟是100毫秒。 - 如果长度小于frameCount，不足的部分将使用delayTimeList中的最后一个值进行填充。 |
 | disposalTypes | Array&lt;number&gt; | 否 | 是 | GIF编码中设定每帧输出图像的帧过渡模式，如果长度小于frameCount，不足的部分将使用disposalTypes中的最后一个值进行填充，可取值如下： - 0：不需要任何操作。 - 1：保持图形不变。 - 2：恢复背景色。 - 3：恢复到之前的状态。 |
-| loopCount | number | 否 | 是 | 表示在GIF编码中输出图片循环播放次数，取值范围为[0，65535]。 0表示无限循环；若无此字段，则表示不循环播放。 |
+| loopCount | number | 否 | 是 | 表示在GIF编码中输出图片循环播放次数，取值范围为[0, 65535]。 0表示无限循环；若无此字段，则表示不循环播放。 |
 
 
 

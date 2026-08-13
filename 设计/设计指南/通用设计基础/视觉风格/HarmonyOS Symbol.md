@@ -1,6 +1,6 @@
 # HarmonyOS Symbol
 
-更新时间：2026-04-13 09:40:30
+更新时间：2026-07-15 01:32:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/design-guides/system-icons-0000001929854962
 
@@ -58,10 +58,26 @@ HarmonyOS Symbol 的设计采用了灵活的分层结构，确保图标在不同
 
 HarmonyOS Symbol 超越了传统的静态图标功能，集成了 7 种动态效果。开发者可以将这些动画效果与用户操作紧密结合，例如点击、长按、输入和数据传输等，使 HarmonyOS Symbol 成为互动性强的组件。动画的响应性为用户提供了直观的反馈，有效增强了交互体验。
 
-HarmonyOS Symbol 支持 7 种动效策略，分别为出现 (AppearSymbolEffect)、消失 (DisappearSymbolEffect)、弹跳 (BounceSymbolEffect)、缩放 (ScaleSymbolEffect)、替换 (ReplaceSymbolEffect)、脉冲 (PulseSymbolEffect)、可变颜色 (HierarchicalSymbolEffect)，其中默认为无动效策略。
+HarmonyOS Symbol 支持 9 种动效策略，分别为出现、消失、弹跳 、缩放 、替换、快速替换、脉冲、可变颜色、禁用，其中默认为无动效策略。
 
-| 出现动效 | 消失动效 | 弹跳动效 | 缩放动效 |
-| 替换动效 | 脉冲动效 | 可变颜色 |    |
+| 消失 |
+|  |
+| 出现 |
+|  |
+| 替换 |
+|  |
+| 快速替换 |
+|  |
+| 禁用 |
+|  |
+| 可变颜色 |
+|  |
+| 弹跳 |
+|  |
+| 缩小 |
+|  |
+| 脉冲 |
+|  |
 
 
 
@@ -212,3 +228,11 @@ HarmonyOS系统图标追求精致简约、独特考究的设计原则，主要�
 
 
 1.切断效果：两边留白 ； 2. 端口宽度：1.3vp ； 3. 切断面应保持平直的被切效果 ；4. 斜线从左上至右下，角度为45度 ； 5. 根据图标视觉效果，等量切段。
+
+
+
+附资源样例：
+
+（1）[HMSymbol truetype 字体资源样例文件](https://gitcode.com/openharmony/global_system_resources/blob/master/fonts/HMSymbolVF.ttf)
+
+（2）[HMSymbol json 图形分层资源样例文件](https://gitcode.com/openharmony/global_system_resources/blob/master/fonts/hm_symbol_config_next.json)

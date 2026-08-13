@@ -1,6 +1,6 @@
 # HiCollie
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hicollie
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -20,6 +20,8 @@
  使用场景：应用卡顿问题定位、线程健康状态监控、开发调试阶段的卡死问题诊断、卡顿数据采集与分析。
  
 **起始版本：** 12
+ 
+**系统能力：** SystemCapability.HiviewDFX.HiCollie
  
   
 

@@ -1,6 +1,6 @@
 # HarmonyOS按需加载实现方法和常见问题
 
-更新时间：2026-07-24 01:16:00
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-79
 
@@ -38,15 +38,15 @@
 当动态模块为HSP时，基础功能Entry包的oh-package.json5中需要[添加依赖项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-dependencies)。添加HSP模块的动态依赖方式可参考[如何配置oh-package.json5动态依赖](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-48)。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/Uj8X8m1LSkGlaxNCMcj4Qg/zh-cn_image_0000002648285864.png?HW-CC-KV=V1&HW-CC-Date=20260811T005618Z&HW-CC-Expire=86400&HW-CC-Sign=6BBACB248D1C0A67EA89EDF257EBF0E24BDCD5D055BD0BD9024F28FD51B18FA2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/yyycaZz8TUGAdRDZ53Oh6w/zh-cn_image_0000002648285864.png?HW-CC-KV=V1&HW-CC-Date=20260813T095557Z&HW-CC-Expire=86400&HW-CC-Sign=541F7E069D2FBCE8BA1CE8387091FAACAE7FC4E2B6530AF4DE408BB96678C0C4)
 
  
 **步骤二：按需加载下载安装扩展功能包。**
  
 调用[moduleInstallManager (产品特性按需分发)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-moduleinstallmanager)实现动态模块的按需加载，可分为以下几步：
- 1. 使用[getInstalledModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-moduleinstallmanager#section9621184365412)查询module是否安装。
-2. 通过[createModuleInstallRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-moduleinstallmanager#section0529646101115)创建按需加载请求对象。
-3. [fetchModules](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-moduleinstallmanager#section1375123411137)按需加载请求下载module功能包。
+ 1. 使用[getInstalledModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-moduleinstallmanager#moduleinstallmanagergetinstalledmodule)查询module是否安装。
+2. 通过[createModuleInstallRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-moduleinstallmanager#moduleinstallprovidercreatemoduleinstallrequest)创建按需加载请求对象。
+3. [fetchModules](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-moduleinstallmanager#moduleinstallmanagerfetchmodules)按需加载请求下载module功能包。
  
 **步骤三：运行扩展功能包。**
  
@@ -61,14 +61,14 @@
 
 #### 常见FAQ
 
-Q：按需加载[接入调试功能](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-moduleinstall_arkts#section68545351873)，如何在沙箱中导入动态模块。
+Q：按需加载[接入调试功能](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-moduleinstall_arkts#接入调试功能)，如何在沙箱中导入动态模块。
  
 A：Device File Browser可访问的文件夹有五种类型：[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)、一般暂存区目录、日志目录、设备公共目录、媒体库目录。
  1. 按下图点击切换Device File Browser沙箱视图。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/BkImVmZ1QCyt2X4JfEnj8g/zh-cn_image_0000002648286216.png?HW-CC-KV=V1&HW-CC-Date=20260811T005618Z&HW-CC-Expire=86400&HW-CC-Sign=A69E2A3CD2944C87C96F0A897FA2BD43B4BFD671E145D2C02B67A50D0485B8B0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/egLRsLs-ReqJha5La9QuqA/zh-cn_image_0000002648286216.png?HW-CC-KV=V1&HW-CC-Date=20260813T095557Z&HW-CC-Expire=86400&HW-CC-Sign=B208088D372DEE9B93B09A9B7E1EFBD863FB546E64545CD1A8E664C51B8412E2)
 
 2. 在//data/app/el2/base/cache/moduleinstall/下添加对应的动态模块。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/i30uGTa9SiC80OOFgmc9yA/zh-cn_image_0000002648126326.png?HW-CC-KV=V1&HW-CC-Date=20260811T005618Z&HW-CC-Expire=86400&HW-CC-Sign=FA4C23827E9E795F99707F17BAF52C4D0143BC62C4AB5CAF16436E55035709C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/KEEm5R56SMejvYlaPi3ODw/zh-cn_image_0000002648126326.png?HW-CC-KV=V1&HW-CC-Date=20260813T095557Z&HW-CC-Expire=86400&HW-CC-Sign=5C49638E4CEF0F46E31D454ECEEDE9F89F02FD414B97A29F0BB138EC86552D8E)
 
  
 Q：应用未上架如何测试按需加载功能？

@@ -1,6 +1,6 @@
 # NetworkBoost_NetHandle
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-struct-net_handle
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -31,7 +31,7 @@ NetHandle信息。
  
 | 名称 | 描述 |
 | --- | --- |
-| int32_t netId | 网络ID |
+| int32_t netId | 网络ID，为网络唯一标识，该参数通常由系统自动分配。 |
  
  
   

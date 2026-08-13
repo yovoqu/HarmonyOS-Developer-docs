@@ -1,6 +1,6 @@
 # Push Kit消息缓存时间
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-7
 
@@ -13,5 +13,5 @@ Push Kit在接收方因各种原因无法收到应用消息时，应用消息可
 #### 解决方案
 
 Push Kit接收方无法收到消息分两种情况：
- 1. 如果接收端的设备离线，导致消息重新发送到接收端设备，则应用消息最多可以在Push Kit服务器侧缓存15天，该缓存时间可以在[pushOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-request-param#section418321011212)中由ttl参数定义。
+ 1. 如果接收端的设备离线，导致消息重新发送到接收端设备，则应用消息最多可以在Push Kit服务器侧缓存15天，该缓存时间可以在[pushOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-request-param#pushoptions)中由ttl参数定义。
 2. 如果接收端设备在线，但是应用不在前台，导致[推送后台消息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-background)时无法推送至应用，则该消息会缓存至端侧，最多可缓存7天。

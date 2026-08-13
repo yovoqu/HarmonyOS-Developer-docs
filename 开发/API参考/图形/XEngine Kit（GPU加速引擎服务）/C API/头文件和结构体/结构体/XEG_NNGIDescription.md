@@ -1,6 +1,6 @@
 # XEG_NNGIDescription
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-nngidescription
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -46,8 +46,8 @@
 | VkImageView trainingInputBaseColorMetallicImage | 训练输入基础颜色图像，不能为空，格式必须是至少3通道数据，RGB通道分别存储红绿蓝分量，忽略alpha通道信息。其分辨率和XEG_NNGICreateInfo中trainingSize的分辨率保持一致。 |
 | VkImageView trainingInputGIImage | 训练输入GI图像，不能为空，格式必须是至少3通道数据，RGB通道分别存储红绿蓝分量的辐射度值，忽略alpha通道信息。该训练图像的GI结果的质量越高，推理输出的GI结果的质量就越高。其分辨率和XEG_NNGICreateInfo中trainingSize的分辨率保持一致。 |
 | VkAabbPositionsKHR sceneAabb | 渲染包围盒范围。 |
-| bool isSceneUnbounded = false | 渲染场景是否无界，true表示场景无边界，false表示场景有边界，当前只支持false。 |
-| float spatialScaleFactor = 0 | 场景缩放因子，对于有界场景，无需设置，XEngine根据sceneAabb计算该值，对于无界场景，建议设置为平均深度。 |
+| bool isSceneUnbounded | 渲染场景是否无界，true表示场景无边界，false表示场景有边界，当前只支持false。 |
+| float spatialScaleFactor | 场景缩放因子，对于有界场景，无需设置，XEngine根据sceneAabb计算该值，对于无界场景，建议设置为平均深度。 |
  
  
   
@@ -147,7 +147,7 @@ VkImageView XEG_NNGIDescription::inferenceOutputGIImage
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
-bool XEG_NNGIDescription::isSceneUnbounded = false
+bool XEG_NNGIDescription::isSceneUnbounded
 ```
  
 **描述**
@@ -189,7 +189,7 @@ VkAabbPositionsKHR XEG_NNGIDescription::sceneAabb
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
-float XEG_NNGIDescription::spatialScaleFactor = 0
+float XEG_NNGIDescription::spatialScaleFactor
 ```
  
 **描述**

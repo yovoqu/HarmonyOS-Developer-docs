@@ -1,6 +1,6 @@
 # @ohos.app.form.LiveFormExtensionAbility (LiveFormExtensionAbility)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-liveformextensionability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,15 @@
 LiveFormExtensionAbility模块提供互动卡片功能，包括创建、销毁互动卡片等，继承自[ExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-extensionability)。
 
 > [!NOTE]
-> 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块设置了不允许调用的API名单，调用名单中的API将导致功能异常，详情请参见 附录 。
+> 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
+
+
+
+#### 约束限制
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+为保障系统安全性和稳定性，防止LiveFormExtensionAbility滥用系统资源，系统对其能力进行管控，不支持部分模块的引用，详情请参考[附录](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-liveformextensionability#附录)。
 
 
 
@@ -148,11 +156,11 @@ export default class LiveFormExtAbility extends LiveFormExtensionAbility {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块不允许调用的API名单如下。
+LiveFormExtensionAbility不支持以下模块的引用。
 
 | Kit名称 | 模块名称 |
 | --- | --- |
-| AbilityKit | @ohos.ability.featureAbility (FeatureAbility模块) @ohos.ability.particleAbility (ParticleAbility模块) @ohos.bundle.launcherBundleManager (launcherBundleManager模块) @ohos.continuation.continuationManager (流转/协同管理) |
+| AbilityKit | Context (Stage模型的上下文基类) UIAbilityContext @ohos.ability.featureAbility (FeatureAbility模块) @ohos.ability.particleAbility (ParticleAbility模块) @ohos.bundle.launcherBundleManager (launcherBundleManager模块) @ohos.continuation.continuationManager (流转/协同管理) |
 | BasicServicesKit | @ohos.account.appAccount (应用账号管理) @ohos.account.distributedAccount (分布式账号管理) @ohos.account.osAccount (系统账号管理) @ohos.pasteboard (剪贴板) @ohos.request (上传下载) @ohos.wallpaper (壁纸) |
 | BackgroundTasksKit | @ohos.backgroundTaskManager (后台任务管理) @ohos.resourceschedule.backgroundTaskManager (后台任务管理) @ohos.reminderAgent (后台代理提醒) @ohos.reminderAgentManager (后台代理提醒) |
 | CalendarKit | @ohos.calendarManager (日程管理能力) |

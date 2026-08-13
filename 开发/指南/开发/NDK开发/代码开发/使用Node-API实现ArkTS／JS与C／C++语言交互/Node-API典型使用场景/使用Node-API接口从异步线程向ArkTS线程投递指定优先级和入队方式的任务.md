@@ -1,6 +1,6 @@
 # 使用Node-API接口从异步线程向ArkTS线程投递指定优先级和入队方式的任务
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-call-threadsafe-function-with-priority
 

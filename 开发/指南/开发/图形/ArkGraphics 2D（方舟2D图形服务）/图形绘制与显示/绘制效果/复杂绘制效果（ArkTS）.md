@@ -1,6 +1,6 @@
 # 复杂绘制效果（ArkTS）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/complex-drawing-effect-arkts
 
@@ -193,7 +193,7 @@ canvas.detachBrush();
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/3rltnob3RUyG4Pf8U3EU3w/zh-cn_image_0000002656348665.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020913Z&HW-CC-Expire=86400&HW-CC-Sign=B56C4D542A7F51A27E96F5626094DD0A28AC317FD1882B56C5F0BB4A9BF756D8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/xWEFGHrDTmi5P5cjTsOcYQ/zh-cn_image_0000002704273259.jpg?HW-CC-KV=V1&HW-CC-Date=20260813T095834Z&HW-CC-Expire=86400&HW-CC-Sign=56FCF31A797816776A7CBD48AD31943650183048DE88A4E97D3DFA8FEFB12626)
 
 
 
@@ -230,7 +230,7 @@ canvas.detachBrush();
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/ps_UAUFzS1GvfgTA469L-A/zh-cn_image_0000002626229252.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020913Z&HW-CC-Expire=86400&HW-CC-Sign=A048FB04A729160B2187A07B08A2682D3F4A6A9354F23322002259BC1E36A1C2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/U006eFXuTUy0J9pZMZ00oA/zh-cn_image_0000002674473460.jpg?HW-CC-KV=V1&HW-CC-Date=20260813T095834Z&HW-CC-Expire=86400&HW-CC-Sign=F08656EE2D002D8A6B533A88C055323B6E969E5183450B56D82CA7A673AF09F8)
 
 
 

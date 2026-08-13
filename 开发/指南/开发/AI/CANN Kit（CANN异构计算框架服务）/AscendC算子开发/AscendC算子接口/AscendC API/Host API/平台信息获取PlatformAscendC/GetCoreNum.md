@@ -1,6 +1,6 @@
 # GetCoreNum
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getcorenum
 
@@ -26,7 +26,7 @@ uint32_t GetCoreNum(void) const;
 
 #### 返回值
 
-针对Kirin9020系列处理器，Cube、Vector分离架构，返回AI Core上的Vector核数。
+针对Kirin9020系列处理器，若AI Core的架构为Cube、Vector分离架构，返回AI Core上的Vector核数；非分离架构返回AI Core的核数。
  
   
 

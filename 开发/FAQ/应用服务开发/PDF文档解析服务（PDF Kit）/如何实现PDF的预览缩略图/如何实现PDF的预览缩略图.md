@@ -1,6 +1,6 @@
 # 如何实现PDF的预览缩略图
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-2
 
@@ -12,7 +12,7 @@
 
 #### 背景知识
 
-- [pdfViewManager（PDF预览）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage)中[getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage#section858145014542)：获取对应PDF页面的缩略图，使用Promise异步回调。**参数：**
+- [pdfViewManager（PDF预览）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage)中[getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getpagepixelmap)：获取对应PDF页面的缩略图，使用Promise异步回调。**参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 
@@ -31,7 +31,7 @@
 | Promise<image.PixelMap> | Promise对象，返回image.PixelMap类型。 |
 
  
-- [pdfService（PDF服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice)中[getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section894811388610)：获取当前页的图片。**返回值：**
+- [pdfService（PDF服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice)中[getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getpagepixelmap)：获取当前页的图片。**返回值：**
 
 | 类型 | 说明 |
 
@@ -44,5 +44,5 @@
 
 #### 解决方案
 
-- 当需要把预览PDF文档的一些页面转化为图片时，调用[pdfViewManager（PDF预览）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage)中[getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage#section858145014542)方法实现此功能，参考[PDF缩略图转换为图片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-page2img)。
-- 当需要PDF文档页面转换为图片，或将页面的指定区域转换为图片时，调用[pdfService（PDF服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice)中[getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section894811388610)，[getAreaPixelMapWithOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section5838210143810)或[getCustomPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section146346515368)方法获取当前页面或者页面区域，这时获取的是[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)图像类型，参考[转换指定页面或指定区域为图片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-get-img)。
+- 当需要把预览PDF文档的一些页面转化为图片时，调用[pdfViewManager（PDF预览）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage)中[getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getpagepixelmap)方法实现此功能，参考[PDF缩略图转换为图片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-page2img)。
+- 当需要PDF文档页面转换为图片，或将页面的指定区域转换为图片时，调用[pdfService（PDF服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice)中[getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getpagepixelmap)，[getAreaPixelMapWithOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getareapixelmapwithoptions)或[getCustomPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getcustompagepixelmap)方法获取当前页面或者页面区域，这时获取的是[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)图像类型，参考[转换指定页面或指定区域为图片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-get-img)。

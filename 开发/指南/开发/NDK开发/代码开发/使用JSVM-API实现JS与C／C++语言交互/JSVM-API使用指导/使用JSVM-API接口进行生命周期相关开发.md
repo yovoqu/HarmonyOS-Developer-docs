@@ -1,6 +1,6 @@
 # 使用JSVM-API接口进行生命周期相关开发
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-life-cycle
 
@@ -313,7 +313,7 @@ static JSVM_Value RunDemo(JSVM_Env env, JSVM_CallbackInfo info)
     JSVM_VM vm;
     OH_JSVM_GetVM(env, &vm);
     if (AddFinalizer(vm, env) != 0) {
-        OH_LOG_INFO(LOG_APP, "Run PromiseRegisterHandler failed");
+        OH_LOG_INFO(LOG_APP, "Run AddFinalizer failed");
     }
 
     return nullptr;

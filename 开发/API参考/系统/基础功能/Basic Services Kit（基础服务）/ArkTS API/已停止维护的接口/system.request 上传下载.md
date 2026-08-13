@@ -1,6 +1,6 @@
 # @system.request (上传下载)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-request
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -33,7 +33,7 @@ upload(options: UploadRequestOptions): void
 **系统能力**：SystemCapability.MiscServices.Upload
  
 > [!NOTE]
-> 从API version 3 开始支持，从API version 9 开始废弃，建议使用 request.uploadFile 替代。
+> 从API version 3开始支持，从API version 9开始废弃。建议使用 request.uploadFile 替代。
 
  
 **参数：**
@@ -89,7 +89,7 @@ try {
 **系统能力**：SystemCapability.MiscServices.Upload
  
 > [!NOTE]
-> 从API version 3 开始支持，从API version 9 开始废弃，建议使用 UploadConfig 替代。
+> 从API version 3开始支持，从API version 9开始废弃。建议使用 UploadConfig 替代。
 
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -192,7 +192,7 @@ let downloadRequestOptions: DownloadRequestOptions = {
 try {
   Request.download(downloadRequestOptions);
   console.info('Start download');
-} catch(err) {
+} catch (err) {
   console.error('Failed to download, err:' + err);
 }
 ```
@@ -206,7 +206,7 @@ try {
 **系统能力**：SystemCapability.MiscServices.Download
  
 > [!NOTE]
-> 从API version 3 开始支持，从API version 9 开始废弃，建议使用 UploadConfig 替代。
+> 从API version 3开始支持，从API version 9开始废弃。建议使用 UploadConfig 替代。
 
  
 **参数：**

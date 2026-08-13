@@ -1,6 +1,6 @@
 # 获取目标应用的URL信息
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/obtaining-target-app-url-info
 
@@ -209,4 +209,4 @@ struct SpecifiedPage {
   **图1** 拉起目标应用演示
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/jMCpJAXLSvKSulBQB3GABQ/zh-cn_image_0000002628859960.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014608Z&HW-CC-Expire=86400&HW-CC-Sign=22E4FE93DA3B050522A020EE01BD7CDFEA057C2F9DAF7E5D5DA50D4F0E6BE338)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/4YekCnH_TUaYHfQhbtPVuA/zh-cn_image_0000002704271639.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095622Z&HW-CC-Expire=86400&HW-CC-Sign=4F3E88DB420CCD7330D780680757C5AB62CF7258B61EC739111BE377A166847D)

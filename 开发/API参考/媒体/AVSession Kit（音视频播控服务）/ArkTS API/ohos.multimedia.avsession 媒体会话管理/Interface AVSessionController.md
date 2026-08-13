@@ -1,6 +1,6 @@
 # Interface (AVSessionController)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsessioncontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -134,7 +134,7 @@ getAVPlaybackState(): Promise&lt;AVPlaybackState&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;AVPlaybackState&gt; | Promise对象,返回远端播放状态。 |
+| Promise&lt;AVPlaybackState&gt; | Promise对象，返回远端播放状态。 |
 
 
 **错误码：**
@@ -2211,7 +2211,7 @@ off(type: 'callMetadataChange', callback?: Callback&lt;CallMetadata&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消对应的监听事件，支持事件'callMetadataChange'。 |
-| callback | Callback&lt;CallMetadata&gt; | 否 | 回调函数，参数calldata是变化后的通话原数据。 该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。 |
+| callback | Callback&lt;CallMetadata&gt; | 否 | 回调函数，参数calldata是变化后的通话元数据。 该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。 |
 
 
 **错误码：**
@@ -2585,7 +2585,7 @@ on(type: 'outputDeviceChange', callback: (state: ConnectionState, device: Output
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 事件回调类型，支持事件为'outputDeviceChange'：当播放设备变化时，触发该事件）。 |
+| type | string | 是 | 事件回调类型，支持事件为'outputDeviceChange'：当播放设备变化时，触发该事件。 |
 | callback | (state: ConnectionState, device: OutputDeviceInfo) => void | 是 | 回调函数，参数device是设备相关信息。 |
 
 

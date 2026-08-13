@@ -1,6 +1,6 @@
 # pushService（推送服务基础能力）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushservice
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -13,7 +13,7 @@
 Push Token是Push Kit为应用分配的推送令牌，每台设备上每个应用的Push Token具有唯一性。开发者获取Push Token后需上报到应用服务器，用于向终端设备推送消息，Push Cloud将根据消息体中携带的Push Token，将消息下发至目标设备的目标应用。推送消息流程图如下。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/feZ0vU1yTvyshBMu7fbqsg/zh-cn_image_0000002628703792.png?HW-CC-KV=V1&HW-CC-Date=20260701T014448Z&HW-CC-Expire=86400&HW-CC-Sign=5FB56A8C89F03DBD2C7E823FF3DA93AE9FB073FACFCAF81C26CFE3D6BE83C083)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/V8FdgZgzQhif8t2xkRvmwg/zh-cn_image_0000002704395881.png?HW-CC-KV=V1&HW-CC-Date=20260813T095539Z&HW-CC-Expire=86400&HW-CC-Sign=B6B572525E5F5F9B60952328E94238AEC8DE89928B3E1FDA6684D9DFA7086F82)
 
 
 若应用服务器未及时更新Push Token，将影响消息的正常推送。
@@ -54,7 +54,7 @@ Push Token是设备与应用实例的唯一标识，与应用内账号无关。�
 接收消息流程图如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/ev3FTes5QMuQUbj4oNtgCQ/zh-cn_image_0000002659103021.png?HW-CC-KV=V1&HW-CC-Date=20260701T014448Z&HW-CC-Expire=86400&HW-CC-Sign=AAA2AE42B4D4C5FB6A8ABB287881956BE903E806625FA908EFCB6920CA299E31)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/C1XIZdR3RoG6XJCFGh50aw/zh-cn_image_0000002674635754.png?HW-CC-KV=V1&HW-CC-Date=20260813T095539Z&HW-CC-Expire=86400&HW-CC-Sign=7EC013121C0FC18440EF50434F8580E41D8AF876F3E56920341AB740A1A80E43)
 
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -87,6 +87,8 @@ getToken(callback: AsyncCallback&lt;string&gt;): void
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
 
 **系统能力：** SystemCapability.Push.PushService
 
@@ -211,6 +213,8 @@ getToken(): Promise&lt;string&gt;
 
 **系统能力：** SystemCapability.Push.PushService
 
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
+
 **起始版本：** 4.0.0(10)
 
 **返回值：**
@@ -329,6 +333,8 @@ deleteToken(callback: AsyncCallback&lt;void&gt;): void
 
 **系统能力：** SystemCapability.Push.PushService
 
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
+
 **起始版本：** 4.0.0(10)
 
 **参数：**
@@ -404,6 +410,8 @@ deleteToken(): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.Push.PushService
 
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
+
 **起始版本：** 4.0.0(10)
 
 **返回值：**
@@ -475,6 +483,8 @@ bindAppProfileId(appProfileType: pushCommon.AppProfileType, appProfileId: string
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Push.PushService
+
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
 
 **起始版本：** 4.0.0(10)
 
@@ -565,6 +575,8 @@ bindAppProfileId(appProfileType: pushCommon.AppProfileType, appProfileId: string
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Push.PushService
+
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该接口在Phone、PC/2in1、Tablet、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
 
 **起始版本：** 4.0.0(10)
 
@@ -660,6 +672,8 @@ unbindAppProfileId(appProfileId: string, callback: AsyncCallback&lt;void&gt;): v
 
 **系统能力：** SystemCapability.Push.PushService
 
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
+
 **起始版本：** 4.0.0(10)
 
 **参数：**
@@ -736,6 +750,8 @@ unbindAppProfileId(appProfileId: string): Promise&lt;void&gt;
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Push.PushService
+
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
 
 **起始版本：** 4.0.0(10)
 
@@ -816,6 +832,8 @@ type PushType = 'DEFAULT' | 'IM' | 'VoIP' | 'BACKGROUND' | 'EMERGENCY'
 
 **系统能力：** SystemCapability.Push.PushService
 
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
+
 **起始版本：** 5.0.2(14)
 
 | 类型 | 说明 |
@@ -840,6 +858,8 @@ receiveMessage(pushType: PushType, ability: Ability, onMessage: Callback<pushCom
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Push.PushService
+
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
 
 **起始版本：** 4.0.0(10)
 
@@ -985,6 +1005,8 @@ on(type: 'tokenUpdate', ability: Ability, callback: Callback&lt;string&gt;): voi
 
 **系统能力：** SystemCapability.Push.PushService
 
+**设备行为差异：** 对于6.1.0(23)以前版本，该接口在Wearable中可正常调用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常调用，在其他设备类型中无效果。
+
 **起始版本：** 5.1.0(18)
 
 **参数：**
@@ -1072,6 +1094,8 @@ off(type: 'tokenUpdate', callback?: Callback&lt;string&gt;): void
 
 **系统能力：** SystemCapability.Push.PushService
 
+**设备行为差异：** 对于6.1.0(23)以前版本，该接口在Wearable中可正常调用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常调用，在其他设备类型中无效果。
+
 **起始版本：** 5.1.0(18)
 
 **参数：**
@@ -1137,6 +1161,8 @@ on(type: 'distributedMessageReceive', callee: Callee, callback: DistributedMessa
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Push.PushService
+
+**设备行为差异：** 对于6.1.0(23)以前版本，该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中无效果。
 
 **起始版本：** 6.0.0(20)
 
@@ -1211,6 +1237,8 @@ off(type: 'distributedMessageReceive', callback?: DistributedMessageCallback): v
 
 **系统能力：** SystemCapability.Push.PushService
 
+**设备行为差异：** 对于6.1.0(23)以前版本，该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中无效果。
+
 **起始版本：** 6.0.0(20)
 
 **参数：**
@@ -1272,6 +1300,8 @@ type DistributedMessageCallback = (PushPayload: pushCommon.PushPayload) => Promi
 
 **系统能力：** SystemCapability.Push.PushService
 
+**设备行为差异：** 对于6.1.0(23)以前版本，该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中无效果。
+
 **起始版本：** 6.0.0(20)
 
 **参数：**
@@ -1300,6 +1330,8 @@ distributedMessageReceive事件中使用的回调类型。
 
 **系统能力：** SystemCapability.Push.PushService
 
+**设备行为差异：** 对于6.1.0(23)以前版本，该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中无效果。
+
 **起始版本：** 6.0.0(20)
 
 **参数：**
@@ -1320,6 +1352,8 @@ distributedMessageReceive事件中使用的回调类型。
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Push.PushService
+
+**设备行为差异：** 对于6.1.0(23)以前版本，该枚举值在Phone、Tablet中可正常使用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该枚举值在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。
 
 **起始版本：** 6.0.0(20)
 

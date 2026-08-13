@@ -1,6 +1,6 @@
 # IAP Kit简介
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-introduction
 
@@ -31,10 +31,10 @@ IAP Kit（应用内支付服务）为开发者提供便捷的应用内支付体�
 
 | 商品类型 | 支持设备 |
 | --- | --- |
-| 消耗型商品 | Phone、PC/2in1、Tablet、Wearable、TV、Car |
-| 非消耗型商品 | Phone、PC/2in1、Tablet、Wearable、TV、Car |
-| 自动续期订阅商品 | Phone、PC/2in1、Tablet、TV、Car |
-| 非续期订阅商品 | Phone、PC/2in1、Tablet、TV、Car |
+| 消耗型商品 | Phone、PC/2in1、Tablet、Wearable、TV |
+| 非消耗型商品 | Phone、PC/2in1、Tablet、Wearable、TV |
+| 自动续期订阅商品 | Phone、PC/2in1、Tablet、TV |
+| 非续期订阅商品 | Phone、PC/2in1、Tablet、TV |
 
 
 从6.1.0(23)版本开始，提供了IAP嵌入式收银台组件。

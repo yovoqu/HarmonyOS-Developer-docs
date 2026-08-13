@@ -1,6 +1,6 @@
 # 创建列表 (List)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-list
 
@@ -396,7 +396,7 @@ List({ space: 10 }) {
 
 #### 添加分隔线
 
-分隔线用来将界面元素隔开，使单个元素更加容易识别。以系统设置场景为例（如下图所示），列表项左侧为图标（如蓝牙图标），右侧为文字描述且分割线在文字下方。
+分隔线用来将界面元素隔开，使单个元素更加容易识别。以系统设置场景为例（如下图所示），列表项左侧为图标（如蓝牙图标），右侧为文字描述且分隔线在文字下方。
 
 **图13** 设置列表分隔线样式
 
@@ -443,10 +443,10 @@ export struct CustomListStyle {
 }
 ```
 
-此示例表示从距离列表侧边起始端60vp开始到距离结束端10vp的位置，画一条粗细为1vp的分割线，可以实现图9设置列表分隔线的样式。
+此示例表示从距离列表侧边起始端60vp开始到距离结束端10vp的位置，画一条粗细为1vp的分隔线，可以实现图13设置列表分隔线的样式。
 
 > [!NOTE]
-> 分隔线的宽度会使ListItem之间存在一定间隔，当List设置的内容间距小于分隔线宽度时，ListItem之间的间隔会使用分隔线的宽度。 当List存在多列时，分割线的startMargin和endMargin作用于每一列上。 List组件的分隔线画在两个ListItem之间，第一个ListItem上方和最后一个ListItem下方不会绘制分隔线。
+> 分隔线的宽度会使ListItem之间存在一定间隔，当List设置的内容间距小于分隔线宽度时，ListItem之间的间隔会使用分隔线的宽度。 当List存在多列时，分隔线的startMargin和endMargin作用于每一列上。 List组件的分隔线画在两个ListItem之间，第一个ListItem上方和最后一个ListItem下方不会绘制分隔线。
 
 
 
@@ -1165,8 +1165,8 @@ if (this.isEditMode) {
       if (isSelected) {
         this.selectedItems.push(new ToDo(this.toDoItem.name)); // this.selectedItems为勾选时，记录选中的列表项，可根据实际场景构造
       } else {
-        let index = this.selectedItems.indexOf(new ToDo(this.toDoItem.name));
-        if (index !== -1) {
+         let index = this.selectedItems.findIndex(selectedItem => selectedItem.name === this.toDoItem.name);
+         if (index !== -1) {
           this.selectedItems.splice(index, 1); // 取消勾选时，则将此项从selectedItems中删除
         }
       }
@@ -1684,7 +1684,7 @@ if (velocity < -30) {
   通过[editModeOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#editmodeoptions23)配置编辑模式下的多选行为。editModeOptions中有两个滑动多选相关参数，分别是useDefaultMultiSelectStyle和enableTwoFingerMultiSelect，默认值均为true。前者控制是否显示ListItem右侧的系统复选框，后者控制是否允许用户通过双指滑动自动进入编辑模式并进行多选。开发者需要自定义样式时，可将useDefaultMultiSelectStyle设置为false。开发者需要关闭双指滑动自动进入编辑模式时，可将enableTwoFingerMultiSelect设置为false。
 
   
-```text
+```ArkTS
 List({ space: 10 }) {
   // ...
 }
@@ -1731,7 +1731,7 @@ List({ space: 10 }) {
   在ListItem上配置[selectable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem#selectable8)、[selected](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem#selected10)和[onSelect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem#onselect8)。selectable用于设置列表项是否允许被选择，selected用于设置列表项当前是否被选中。滑动多选过程中，组件会触发onSelect回调，应用可以在回调中记录每个列表项的最新选择结果。
 
   
-```text
+```ArkTS
 ListItem() {
   this.ItemContent(item, index)
 }

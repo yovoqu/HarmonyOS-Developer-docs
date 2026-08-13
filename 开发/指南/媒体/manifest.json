@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "audio-playback-no-sound-troubleshooting",
+    "name": "播放无声定位指导",
+    "file": "Audio Kit（音频服务）/Audio Kit常见问题/播放无声定位指导/播放无声定位指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-playback-no-sound-troubleshooting"
+  },
+  {
+    "slug": "audio-playback-performance-troubleshooting",
+    "name": "播放卡顿、杂音定位指导",
+    "file": "Audio Kit（音频服务）/Audio Kit常见问题/播放卡顿、杂音定位指导/播放卡顿、杂音定位指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-playback-performance-troubleshooting"
+  },
+  {
+    "slug": "using-avsession-controller",
+    "name": "媒体会话控制方",
+    "file": "AVSession Kit（音视频播控服务）/本地媒体会话/媒体会话控制方/媒体会话控制方.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avsession-controller"
+  }
+]

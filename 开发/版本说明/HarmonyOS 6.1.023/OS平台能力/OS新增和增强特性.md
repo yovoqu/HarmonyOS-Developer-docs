@@ -1,6 +1,6 @@
 # OS新增和增强特性
 
-更新时间：2026-06-27 01:41:31
+更新时间：2026-08-06 08:31:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/os-new-feature-610
 
@@ -24,7 +24,7 @@ BundleInfo新增buildVersion。（[API参考](https://developer.huawei.com/consu
 
 - 新增支持设置自定义键盘在输入框之间切换时是否接续（即不收回）。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#setcustomkeyboardcontinuefeature23)）
 - 跑马灯ArkTS API的初始化参数新增两轮跑马灯之间的间距“spacing”和每次滚动的时间间隔“delay”。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-marquee#marqueeoptions18对象说明)）
-- 跑马灯C API新增[设置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#oh_arkui_textmarqueeoptions_setspacing)和[获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#oh_arkui_textmarqueeoptions_getspacing)间距、[设置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#oh_arkui_textmarqueeoptions_setloop)和[获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#oh_arkui_textmarqueeoptions_getloop)重复滚动次数、[设置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#oh_arkui_textmarqueeoptions_setfromstart)和[获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#oh_arkui_textmarqueeoptions_getfromstart)运行方向、[设置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#oh_arkui_textmarqueeoptions_setdelay)和[获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#oh_arkui_textmarqueeoptions_getdelay)滚动时间间隔的能力。
+- 跑马灯C API新增[设置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-h#oh_arkui_textmarqueeoptions_setspacing)和[获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-h#oh_arkui_textmarqueeoptions_getspacing)间距、[设置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-h#oh_arkui_textmarqueeoptions_setloop)和[获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-h#oh_arkui_textmarqueeoptions_getloop)重复滚动次数、[设置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-h#oh_arkui_textmarqueeoptions_setfromstart)和[获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-h#oh_arkui_textmarqueeoptions_getfromstart)运行方向、[设置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-h#oh_arkui_textmarqueeoptions_setdelay)和[获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-text-h#oh_arkui_textmarqueeoptions_getdelay)滚动时间间隔的能力。
 - 组件布局位置设置新增定义在相对容器中子组件在[水平方向](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#horizontalalignparam23对象说明)和[垂直方向](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#verticalalignparam23对象说明)上的对齐规则。
 - 滚动组件新增模拟拖拽功能，支持开启/关闭模拟拖拽功能、设置模拟拖拽距离以及获取是否处于模拟拖拽状态的能力。（[ArkTS API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#startfakedrag23)、[C API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_swiper_startfakedrag)）
 
@@ -144,7 +144,7 @@ util模块新增接口ArkTSVM.setMultithreadingDetectionEnabled，支持开启�
 
 #### AVCodec Kit
 
-AVCodec新增支持AV1/VP9/VP8/RV30/RV40/WVC1/DVVIDEO/RAWVIDEO/MPEG1格式的视频软解码能力。（[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avcodec-support-formats#媒体编解码)）
+AVCodec新增支持AV1/VP9/VP8/RV30/RV40/WVC1/DVVIDEO/RAWVIDEO/MPEG1格式的视频软解码能力。（[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avcodec-support-formats#视频解码)）
  
  
 
@@ -374,7 +374,7 @@ AppFreeze日志中调用栈的堆栈信息增加线程状态信息。（[指南]
 - 底部页签和导航组件新增支持沉浸式材质效果。（[API参考-底部页签材质参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdstabs#systemmaterialparams)、[API参考-导航组件材质参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation#systemmaterialparams)）
 - 列表卡片新增支持无障碍相关能力，包括无障碍分组、聚合播报等。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdslistitemcard#accessibilitygroupoptions)）
 - 新增支持设置列表的预览菜单样式、横滑删除触发类型以及拦截无障碍事件等能力。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdslistitem#menustyle)）
-- 侧边栏新增支持通过横滑手势打开/关闭侧边栏。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdssidebar#接口)）
+- 侧边栏新增支持通过横滑手势打开/关闭侧边栏。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdssidebar#hdssidebar-1)）
 - 操作栏新增支持设置操作栏上下边距。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsactionbar#actionbarstyle)）
 - 即时消息栏新增支持高度随组件文本内容自适应变化。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdssnackbar#snackbarstyleoptions)）
 - 新增材质模块，支持设置材质类型和等级，实现组件的沉浸式材质效果。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsmaterial)）

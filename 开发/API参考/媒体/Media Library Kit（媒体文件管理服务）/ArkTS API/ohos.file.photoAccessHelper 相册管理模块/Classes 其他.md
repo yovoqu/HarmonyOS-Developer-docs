@@ -1,6 +1,6 @@
 # Classes (其他)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-class
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-图片推荐选项(基于图片数据分析结果，依赖设备适配)。
+图片推荐选项（基于图片数据分析结果，依赖设备适配）。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
 
@@ -42,7 +42,7 @@
 | isSearchSupported11+ | boolean | 否 | 是 | 是否支持搜索，true表示支持，false表示不支持，默认为true。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | recommendationOptions11+ | RecommendationOptions | 否 | 是 | 图片推荐相关配置参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | preselectedUris11+ | Array&lt;string&gt; | 否 | 是 | 预选择图片的uri数据。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| isPreviewForSingleSelectionSupported12+ | boolean | 否 | 是 | 单选模式下是否需要进大图预览，true表示需要，false表示不需要，默认为true。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| isPreviewForSingleSelectionSupported12+ | boolean | 否 | 是 | 单选模式下是否需要进入大图预览，true表示需要，false表示不需要，默认为true。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | singleSelectionMode18+ | SingleSelectionMode | 否 | 是 | 单选模式类型。默认为大图预览模式（SingleSelectionMode.BROWSER_MODE）。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 | mimeTypeFilter19+ | MimeTypeFilter | 否 | 是 | 文件类型的过滤配置，支持指定多个类型过滤。 当配置mimeTypeFilter参数时，MIMEType的配置自动失效。 配置该参数时，仅显示配置过滤类型对应的媒体文件，建议提示用户仅支持选择指定类型的图片/视频。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
 | fileSizeFilter19+ | FileSizeFilter | 否 | 是 | 可选择媒体文件大小的过滤配置。 配置该参数时，仅显示配置文件大小范围的媒体文件，建议提示用户仅支持选择指定大小的图片/视频。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |

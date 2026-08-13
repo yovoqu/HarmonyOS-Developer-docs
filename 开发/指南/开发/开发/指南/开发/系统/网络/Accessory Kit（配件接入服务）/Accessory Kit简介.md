@@ -1,6 +1,6 @@
 # Accessory Kit简介
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/accessorykit-introduction
 
@@ -25,7 +25,7 @@ Accessory Kit助力华为生态合作设备实现更高级的体验。例如：�
 
 #### 支持的设备
 
-Accessory Kit支持Phone、Tablet、PC/2in1、Car。
+Accessory Kit支持Phone、Tablet、PC/2in1。
  
   
 

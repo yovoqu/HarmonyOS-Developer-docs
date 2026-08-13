@@ -1,6 +1,6 @@
 # PDF添加SquareAnnotationInfo标注，设置fillColor无效如何解决
 
-更新时间：2026-07-30 01:03:01
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-16
 
@@ -74,7 +74,7 @@ private controller: pdfViewManager.PdfController = new pdfViewManager.PdfControl
 效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/qfNvUrEzS7u9lyNNHbXfwg/zh-cn_image_0000002628554252.png?HW-CC-KV=V1&HW-CC-Date=20260811T005600Z&HW-CC-Expire=86400&HW-CC-Sign=E8BDDB26CA64B149B85FB06AE758F636EB3A7C37FE5A8A118DD11638F10BCEEE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/smUEYyuGQ5icdJEY2DP31Q/zh-cn_image_0000002628554252.png?HW-CC-KV=V1&HW-CC-Date=20260813T095552Z&HW-CC-Expire=86400&HW-CC-Sign=67E037B9971B3FDFD53F480E2AA7A26D0072FBD55921FCA1DD7F9EA5A82843B2)
 
  
  
@@ -90,7 +90,7 @@ private controller: pdfViewManager.PdfController = new pdfViewManager.PdfControl
 
 #### 解决方案
 
-首先点击**保存到沙箱**按钮(通过[fs.writeSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fswritesync)写入)，保存的沙箱地址为'/data/storage/el2/base/haps/entry/temp/test.pdf'，保存成功**Hello World**信息变更为**添加沙箱成功**；点击**加载pdf**按钮（案例中pdf原文件123.pdf存放在resources/rawfile目录下），展示pdf文件信息。
+首先点击**保存到沙箱**按钮(通过[fs.writeSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiowritesync)写入)，保存的沙箱地址为'/data/storage/el2/base/haps/entry/temp/test.pdf'，保存成功**Hello World**信息变更为**添加沙箱成功**；点击**加载pdf**按钮（案例中pdf原文件123.pdf存放在resources/rawfile目录下），展示pdf文件信息。
  
 解决方案一：设置[pdfService.PdfBorder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#pdfborder)属性值来设置填充区域颜色。（点击**解决方案一**按钮实现）
  
@@ -319,10 +319,10 @@ struct PDFPage {
 方案一效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/aZaM-mBzRsSNsz7Ip7zMxw/zh-cn_image_0000002658913571.png?HW-CC-KV=V1&HW-CC-Date=20260811T005600Z&HW-CC-Expire=86400&HW-CC-Sign=88ED3EF36550FDAF37CA4CCB5A4981FB0B02F580938F6C6A8744CC5443C85F82)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/GdrG2wk8R52_heV2xrLDyQ/zh-cn_image_0000002658913571.png?HW-CC-KV=V1&HW-CC-Date=20260813T095552Z&HW-CC-Expire=86400&HW-CC-Sign=B21B71BE40EE5E4D9BFE2E0D23F93A76A4F4EB0530193197F8925A6A37857B44)
 
  
 方案二效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/dcNJu3XkRWqd1P_R7H1EOQ/zh-cn_image_0000002628394360.png?HW-CC-KV=V1&HW-CC-Date=20260811T005600Z&HW-CC-Expire=86400&HW-CC-Sign=D46F8884A5A2D404F0ED259AEF4F9F3F2A5F21660F6ACD156E865B2BFD6FE3A2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/DLNDQvZoRf2qOk_NxYnupw/zh-cn_image_0000002628394360.png?HW-CC-KV=V1&HW-CC-Date=20260813T095552Z&HW-CC-Expire=86400&HW-CC-Sign=FF6ABB7652A63752BC6AA23366C647964C6B79A2354997EFB96D8C5955140788)

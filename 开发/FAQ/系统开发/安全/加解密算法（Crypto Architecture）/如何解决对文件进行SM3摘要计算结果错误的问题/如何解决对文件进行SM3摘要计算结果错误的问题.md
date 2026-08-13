@@ -1,6 +1,6 @@
 # 如何解决对文件进行SM3摘要计算结果错误的问题
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-52
 
@@ -80,8 +80,8 @@ b7e3771fdae3feb2c70d47edd2093cbe533382109ab223d41678d0eb525f731d
  
 [@ohos.file.fs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)模块为基础文件操作API，提供基础文件操作能力，包括文件基本管理、文件目录管理、文件信息统计、文件流式读写等常用功能。
  
-- 以同步方法打开文件或目录：[fs.openSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsopensync)。
-- 以同步方法从文件读取数据：[fs.readSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsreadsync)。
+- 以同步方法打开文件或目录：[fs.openSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioopensync)。
+- 以同步方法从文件读取数据：[fs.readSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioreadsync)。
 
  
  

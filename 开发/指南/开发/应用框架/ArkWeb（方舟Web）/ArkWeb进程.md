@@ -1,6 +1,6 @@
 # ArkWeb进程
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web_component_process
 
@@ -13,7 +13,7 @@ ArkWeb是多进程模型，分为应用进程、Web渲染进程、Web GPU进程�
 **图1** ArkWeb进程模型图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/Z2ucnmXVR_q2nrvs9BI-Ig/zh-cn_image_0000002656348159.png?HW-CC-KV=V1&HW-CC-Date=20260624T020806Z&HW-CC-Expire=86400&HW-CC-Sign=234C0B8D77D21DBDE23B51480CFF6D4602696350CCB5DCEBF4488D64131802C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/Y-DIDLrjQvae37qiTtFZGA/zh-cn_image_0000002674632710.png?HW-CC-KV=V1&HW-CC-Date=20260813T095733Z&HW-CC-Expire=86400&HW-CC-Sign=F87B95676F23A649A7DBF538999DD6736F9D21D7A964F02994B14CD9DEE1EF09)
 
 
  - 应用进程中Web相关线程（应用唯一）

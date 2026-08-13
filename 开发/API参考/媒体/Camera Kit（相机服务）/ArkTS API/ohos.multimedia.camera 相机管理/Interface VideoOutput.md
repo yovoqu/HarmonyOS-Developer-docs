@@ -1,6 +1,6 @@
 # Interface (VideoOutput)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videooutput
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -592,7 +592,7 @@ enableMirror(enabled: boolean): void
 
 启用/关闭镜像录像。
 
- - 调用该接口前，需要通过[isMirrorSupported](#ismirrorsupported15)查询是否支录像镜像功能。
+ - 调用该接口前，需要通过[isMirrorSupported](#ismirrorsupported15)查询是否支持录像镜像功能。
  - 启用/关闭录像镜像后，需要通过[getVideoRotation](#getvideorotation12)获取录像旋转角度以及[updateRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#updaterotation12)更新旋转角度。
 
 

@@ -1,6 +1,6 @@
 # 如何将图片转换为Base64格式
 
-更新时间：2026-06-26 07:48:29
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-29
 
@@ -57,7 +57,7 @@ function <span style="color: rgb(0,0,255);">readResource2Uint8Array</span><span 
 <span style="color: rgb(181,106,1);">}</span>
 ```
 
-- **场景二**：应用沙箱文件通过[fs.readSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsreadsync)获取ArrayBuffer：
+- **场景二**：应用沙箱文件通过[fs.readSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioreadsync)获取ArrayBuffer：
 ```text
 <em>// </em><em><span style="color: rgb(128,128,128);">传入应用沙箱路径，需要保证路径存在，路径不存在会使应用崩溃</span></em>
 function <span style="color: rgb(0,0,255);">readSandFile2ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sandFilePath</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ArrayBuffer </span><span style="color: rgb(181,106,1);">{</span>
@@ -344,4 +344,4 @@ Q：对于不同路径获取到的ArrayBuffer数据，如何判断是否为空�
 A：可以将文件存入沙箱中，将文件拖进notepad中，查看其二进制数据，除去头尾之外，如果大部分均为0数据，说明该ArrayBuffer为一个空Buffer。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/jO93CfQ3RL6BT35ERtruIw/zh-cn_image_0000002628552488.png?HW-CC-KV=V1&HW-CC-Date=20260811T005542Z&HW-CC-Expire=86400&HW-CC-Sign=7D2B74AB97AC60D8CE0CA63FC5BD0F5B91B3BBCE018C6953DCB0CC53A47CFE45)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/SH-7IHwKTIy4mTx_j6sdYQ/zh-cn_image_0000002628552488.png?HW-CC-KV=V1&HW-CC-Date=20260813T095549Z&HW-CC-Expire=86400&HW-CC-Sign=120CBEF2AAECD129E3376B05A3C0C2F073FFFFDC46FC0E794E325FCF1E43B0EE)

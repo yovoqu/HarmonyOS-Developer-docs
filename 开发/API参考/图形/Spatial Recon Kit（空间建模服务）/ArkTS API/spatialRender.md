@@ -1,6 +1,6 @@
 # spatialRender
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/spatial-recon-spatialrender
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -24,7 +24,7 @@ import { spatialRender } from '@kit.SpatialReconKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-表示一个[3DGS（3D Gaussian Splatting）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/spatial-recon-glossary#section3dgs)渲染对象，帮助开发者操作3DGS模型。GSNode类继承自[Node](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-nodes#node)，使用方法请参考Node。
+表示一个3DGS（3D Gaussian Splatting）渲染对象，帮助开发者操作3DGS模型。GSNode类继承自[Node](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-nodes#node)，使用方法请参考Node。
  
 **系统能力**：SystemCapability.Graphics.SpatialRender
  
@@ -321,7 +321,7 @@ GSPlugin类封装了与3DGS相关的内容，包括3DGS插件ID和3DGS模型加�
 **起始版本：** 6.0.1(21)
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/71c_8-jEQkmaIMubFLAoqQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071725Z&HW-CC-Expire=86400&HW-CC-Sign=79FABA0BA43E466E1398D266789D4E0E74E06B94CF34A233C1A1D0A54991D31C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/IRtf2-MuQouCH1ewFA1z5g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095529Z&HW-CC-Expire=86400&HW-CC-Sign=414CE2AAD027C4882F34413AFD22E9F5378496921B43D586F806F0B38D77B963)
  
  
 调用GSPlugin接口前，必须先加载对应的插件ID，否则会出现未定义的行为。

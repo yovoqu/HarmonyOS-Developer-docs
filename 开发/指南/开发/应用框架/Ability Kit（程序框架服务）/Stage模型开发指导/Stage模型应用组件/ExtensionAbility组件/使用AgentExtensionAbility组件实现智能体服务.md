@@ -1,6 +1,6 @@
 # 使用AgentExtensionAbility组件实现智能体服务
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agent-extension-ability
 

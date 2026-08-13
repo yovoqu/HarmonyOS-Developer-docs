@@ -1,6 +1,6 @@
 # healthStore (运动健康数据服务)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore
 **支持设备：** Phone | Tablet | Wearable
@@ -628,8 +628,6 @@ type HealthValueType = number | string | boolean | undefined
 
 运动健康数据值类型。
 
-**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
@@ -638,10 +636,10 @@ type HealthValueType = number | string | boolean | undefined
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 表示值类型为数字，可取任意值。 |
-| string | 表示值类型为字符串，可取任意值。 |
-| boolean | 表示值类型为布尔类型，可取true或false，具体含义以实际使用场景为准。 |
-| undefined | 表示值类型为undefined，取值为空。 起始版本： 6.0.1(21) |
+| number | 表示值类型为数字，可取任意值。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| string | 表示值类型为字符串，可取任意值。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| boolean | 表示值类型为布尔类型，可取true或false，具体含义以实际使用场景为准。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| undefined | 表示值类型为undefined，取值为空。 起始版本： 6.0.1(21) 元服务API： 从版本6.0.1(21)开始，该接口支持在元服务中使用。 |
 
 
 

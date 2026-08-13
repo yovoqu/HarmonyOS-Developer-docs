@@ -1,6 +1,6 @@
 # 自定义绘制修改器 (DrawModifier)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-extension-drawmodifier
 
@@ -444,4 +444,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/bd9kzLP0RPmcZI9GdOOyWQ/zh-cn_image_0000002626068640.png?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=B872C4F933C3ED30827AC61EC7584C859145BFA0AA8C09C46AD02ADB5F4ED9B9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/48Y-lrWsSzGVU6Hpwkoi2w/zh-cn_image_0000002704272465.png?HW-CC-KV=V1&HW-CC-Date=20260813T095723Z&HW-CC-Expire=86400&HW-CC-Sign=7FEF86EADF8821D94B03516E4D6964B52AD197DD309BEB5904CE8BD3485193FF)

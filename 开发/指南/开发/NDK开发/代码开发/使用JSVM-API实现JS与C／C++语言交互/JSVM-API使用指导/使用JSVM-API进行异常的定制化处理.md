@@ -1,6 +1,6 @@
 # 使用JSVM-API进行异常的定制化处理
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-trigger-exceptions
 
@@ -232,7 +232,7 @@ static JSVM_Value TriggerPromiseReject(JSVM_Env env, JSVM_CallbackInfo info)
     // 设置Promise Reject处理函数
     JSVM_CALL(OH_JSVM_SetHandlerForPromiseReject(vm, OnPromiseReject));
     JSVM_Value strVal;
-    char *str = "new Promise((resolve, reject) => { reject(42); })";
+    const char *str = "new Promise((resolve, reject) => { reject(42); })";
     OH_JSVM_CreateStringUtf8(env, str, JSVM_AUTO_LENGTH, &strVal);
     JSVM_Script script;
     OH_JSVM_CompileScript(env, strVal, nullptr, 0, false, nullptr, &script);

@@ -1,6 +1,6 @@
 # 关系型数据库跨设备数据同步 (ArkTS)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-rdb-store
 
@@ -394,16 +394,24 @@ schema文件为json格式，文件主要为在dbSchema字段下进行多项配�
 version：当前schema版本，int类型，必填字段。
  - bundleName：应用包名，string类型，必填字段。
  - dbName：数据库名称，string类型，必填字段。如示例中数据库名为"RdbTest.db"，则此处配置为："RdbTest"。
- - tables：数据库中表信息，array[table]。         
+ - backwardCompatiblePolicies：非同步字段后向兼容策略列表。允许两端约束不一致的情况存在而不导致数据同步失败的问题。业务方可根据实际需求主动配置各端的约束策略。array[backwardCompatiblePolicy]，从API版本26.0.0开始，新增支持此字段，可选字段，默认为空。         
+tableName：表名，指定当前策略生效的表，string类型，可选字段，默认为空。
+ - fieldsPolicy：字段级别的后向兼容策略列表，array[fieldPolicy]，可选字段，默认为空。           
+columnName：字段名，指定当前策略生效的字段，string类型，可选字段，默认为空。
+ - compatibleConstraints：约束兼容性配置列表，array[compatibleConstraint]，可选字段，默认为空。当前仅支持同步表中，两个设备之间，非同步字段NOT NULL约束不同，DEFAULT约束一致且值相同的场景。一端配置即可放行。             
+notNull：是否非空，bool类型，可选字段。true表示非空字段，false表示可以为空字段，默认为false。
+ - hasDefault：是否有默认值，bool类型，可选字段。true表示有默认值，false表示可以为无默认值，默认为false。
+
+
+
+        - tables：数据库中表信息，array[table]。         
 tableName：表名，string，必填字段。
  - deviceSyncFields：指定端端同步对应的列，array[string]，其中字段必须在fields中，且必须在数据库表中，否则不会同步；该字段为必填字段，否则设置分布式表失败。
  - cloudType: 表类型，为enum类型，取值范围为[ "Local", "Cloud DB", "Device DB" ]。
 
   "Local"表示本端表。"Cloud_DB"表示端云表。"Device DB"表示设备表。
 
-  针对搭载HarmonyOS 6.1.0、HarmonyOS 6.1.1版本的设备，此字段为必填字段。
-
-  针对搭载HarmonyOS 7.0.0及以上版本的设备，此字段为可选字段。
+  从API版本12开始，新增支持此字段，且此字段必填。从API版本26.0.0开始，此字段变为可选字段，不填时默认为"Local"。
  - fields：数据库表字段详细信息，array[field]。
 
   
@@ -428,6 +436,44 @@ columnName：字段名，string类型，必填字段。
       "version": 0,
       "bundleName": "com.example.rdbDataSync",
       "dbName": "RdbTest",
+      "backwardCompatiblePolicies": [
+        {
+          "tableName": "EMPLOYEE",
+          "fieldsPolicy": [
+            {
+              "columnName": "HIGH",
+              "compatibleConstraints": [
+                {
+                  "notNull": false,
+                  "hasDefault": true
+                },
+                {
+                  "notNull": true,
+                  "hasDefault": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tableName": "EMPLOYEE2",
+          "fieldsPolicy": [
+            {
+              "columnName": "HIGH",
+              "compatibleConstraints": [
+                {
+                  "notNull": false,
+                  "hasDefault": true
+                },
+                {
+                  "notNull": true,
+                  "hasDefault": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
       "tables": [
         {
           "tableName": "EMPLOYEE",

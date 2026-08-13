@@ -1,6 +1,6 @@
 # insightIntent
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/intents-arkts-api-insightintent
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -126,6 +126,8 @@ shareIntent(context: common.BaseContext, intents: InsightIntent[], callback: Asy
 | --- | --- |
 | 401 | The parameter check failed. |
 | 1000101101 | The application has not been registered with the InsightIntent. |
+| 1000101102 | HUAWEI Assistant has stopped providing services. 适用版本：4.0.0(10)-5.1.0(18) |
+| 1000101103 | The switch of the app in the Data source has been turned off. 适用版本：4.0.0(10)-5.1.0(18) |
 | 1000101104 | The number of sharing times exceeds the limit. |
 | 1000101105 | The size of a single shared data exceeds the limit. |
 | 1000101106 | Exceeded the maximum number of sharing times of all applications. |
@@ -245,6 +247,8 @@ shareIntent(context: common.BaseContext, intents: InsightIntent[]): Promise&lt;v
 | --- | --- |
 | 401 | The parameter check failed. |
 | 1000101101 | The application has not been registered with the InsightIntent. |
+| 1000101102 | HUAWEI Assistant has stopped providing services. 适用版本：4.0.0(10)-5.1.0(18) |
+| 1000101103 | The switch of the app in the Data source has been turned off. 适用版本：4.0.0(10)-5.1.0(18) |
 | 1000101104 | The number of sharing times exceeds the limit. |
 | 1000101105 | The size of a single shared data exceeds the limit. |
 | 1000101106 | Exceeded the maximum number of sharing times of all applications. |
@@ -732,6 +736,7 @@ getSid(context: common.BaseContext, renew: boolean): Promise&lt;string&gt;
 | 401 | The parameter check failed. |
 | 1000101101 | The application has not been registered with the InsightIntent. |
 | 1000101102 | HUAWEI Assistant has stopped providing services. |
+| 1000101103 | The switch of the app in the Data source has been turned off. 适用版本：5.0.0(12)-5.1.0(18) |
 | 1000101107 | Too many Service Open ID renew requests. |
 | 1000101201 | The service is abnormal. |
  

@@ -1,6 +1,6 @@
 # image_source_native.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-source-native-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -205,7 +205,7 @@ enum Image_CropAndScaleStrategy
 
 对于jpeg、webp图片（部分dng图片解码时会优先解码图片中的jpeg预览图，在此场景下也会被视为jpeg图片格式）会先进行下采样，例如按照7/8下采样，再基于175x175的图片大小进行区域裁剪，因此最终的区域内容稍大于原图的左上角1/4区域。
 
-对于svg图片，由于是矢量图，可以任意缩放不损失清晰度，在解码时会根据desiredSize与原图Size的比例选择缩放比例，在基于缩放后的图片大小进行区域裁剪，因此最终返回的解码区域会有所差异。
+对于svg图片，由于是矢量图，可以任意缩放不损失清晰度，在解码时会根据desiredSize与原图Size的比例选择缩放比例，再基于缩放后的图片大小进行区域裁剪，因此最终返回的解码区域会有所差异。
 
 针对该场景，建议在解码选项同时设置了desiredRegion与desiredSize时，参数Image_CropAndScaleStrategy应传入CROP_FIRST参数保证效果一致。
 
@@ -1657,7 +1657,7 @@ Image_ErrorCode OH_ImageSourceNative_GetImagePropertyString(OH_ImageSourceNative
 | --- | --- |
 | OH_ImageSourceNative *source | 被查询属性的ImageSource。 |
 | Image_String *key | 被查询的属性。 |
-| char *value | 被查询属性的查询结果。输出参数。调用者需要管理内存应用程序并释放。 |
+| char *value | 被查询属性的查询结果。输出参数。调用者需要管理内存并释放。 |
 | size_t size | 字符串长度。 |
 
 
@@ -1694,7 +1694,7 @@ Image_ErrorCode OH_ImageSourceNative_GetImagePropertyIntArray(OH_ImageSourceNati
 | --- | --- |
 | OH_ImageSourceNative *source | 被查询属性的ImageSource。 |
 | Image_String *key | 被查询的属性。 |
-| int32_t *value | 被查询属性的查询结果。输出参数。调用者需要管理内存应用程序并释放。 |
+| int32_t *value | 被查询属性的查询结果。输出参数。调用者需要管理内存并释放。 |
 | size_t size | 字符串长度。 |
 
 
@@ -1731,7 +1731,7 @@ Image_ErrorCode OH_ImageSourceNative_GetImagePropertyDoubleArray(OH_ImageSourceN
 | --- | --- |
 | OH_ImageSourceNative *source | 被查询属性的ImageSource。 |
 | Image_String *key | 被查询的属性。 |
-| double *value | 被查询属性的查询结果。输出参数。调用者需要管理内存应用程序并释放。 |
+| double *value | 被查询属性的查询结果。输出参数。调用者需要管理内存并释放。 |
 | size_t size | 数组长度。 |
 
 
@@ -1768,7 +1768,7 @@ Image_ErrorCode OH_ImageSourceNative_GetImagePropertyBlob(OH_ImageSourceNative *
 | --- | --- |
 | OH_ImageSourceNative *source | 被查询属性的ImageSource。 |
 | Image_String *key | 被查询的属性。 |
-| void *value | 被查询属性的查询结果。输出参数。调用者需要管理内存应用程序并释放。 |
+| void *value | 被查询属性的查询结果。输出参数。调用者需要管理内存并释放。 |
 | size_t size | 数组长度。 |
 
 

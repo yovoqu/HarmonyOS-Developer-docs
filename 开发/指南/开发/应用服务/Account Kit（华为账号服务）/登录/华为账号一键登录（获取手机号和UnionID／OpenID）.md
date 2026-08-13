@@ -1,6 +1,6 @@
 # 华为账号一键登录（获取手机号和UnionID/OpenID）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-phone-unionid-login
 
@@ -224,7 +224,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 | 1001500002 | 重复请求 | 重复请求，应用无需处理 |
 
-| 1001500003 | 不支持该scopes或permissions | 1、华为账号用户注册地可能为中国境外、香港特别行政区、澳门特别行政区或中国台湾，应用展示其他登录方式 2、仅在5.1.1(19)支持TV设备，其他版本应用可以通过华为账号登录进行登录 |
+| 1001500003 | 不支持该scopes或permissions | 1. 华为账号用户注册地可能为中国境外、香港特别行政区、澳门特别行政区或中国台湾，应用展示其他登录方式 2. 5.1.1(19)起支持TV设备，其他版本应用可以通过华为账号登录进行登录 |
 
 | 12300001 | 系统服务异常 | 应用展示其他登录方式 |
 
@@ -1063,7 +1063,7 @@ struct WebPage {
  - 在应用客户端调用应用服务端提供的接口，将Authorization Code传输给应用的服务端。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/7uqSGdtySbCIRwrGLoOiLw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071953Z&HW-CC-Expire=86400&HW-CC-Sign=BE80FFB1294ED968D061AAEC2D377F6A81F846785EFFFD335A1C5FF18764634E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/wxXxGrvESwGTMr8ua39_Zg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095838Z&HW-CC-Expire=86400&HW-CC-Sign=B2188102C59F08D4D781C2489EFA3E1F80F3FE9FFC498BEC08624DB7294FD6B1)
  
 
   应用客户端与应用服务端的交互安全需要应用自行保证。
@@ -1138,13 +1138,13 @@ export function rcpRequest(authCode: string) {
 1. 在客户端获取到Authorization Code之后，传送给服务端接口；在服务端使用Authorization Code获取华为账号绑定的手机号、UnionID、OpenID。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/WjAoiqdCQSWTbEyAA-W6LA/zh-cn_image_0000002686086927.png?HW-CC-KV=V1&HW-CC-Date=20260730T071953Z&HW-CC-Expire=86400&HW-CC-Sign=C5FA26D718A9C421BE6A69EA632D4C94DB3B067D2FD2B3D2C52A628BE93CC750)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/ByNCvexWR1S9PXym0mA_aA/zh-cn_image_0000002674633426.png?HW-CC-KV=V1&HW-CC-Date=20260813T095838Z&HW-CC-Expire=86400&HW-CC-Sign=B9E7D39E7AA80EDB88ECADBA0E08BC9BEE759635BA32F00E8ECAA0D4CB1612AF)
 
 2. 根据应用登录方案使用华为账号绑定的手机号、UnionID、OpenID登录成功后，应用服务端返回用户信息给应用客户端，应用客户端可根据需要进行本地持久化存储，例如：登录状态、用户账号名、手机号、用户身份标识等。
 3. 在应用客户端首页或个人信息页等位置，对当前登录用户信息进行展示，举例如下图：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/Q3LSFr2OQribDrVtNi_NHA/zh-cn_image_0000002685927099.png?HW-CC-KV=V1&HW-CC-Date=20260730T071953Z&HW-CC-Expire=86400&HW-CC-Sign=1FD96B556E09C6DD66145CCF6CCE7BDE96FA81D20D7960F6ED7471479D1D6EC3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/VXTyglIjR3ysCIHKtR26TA/zh-cn_image_0000002704273379.png?HW-CC-KV=V1&HW-CC-Date=20260813T095838Z&HW-CC-Expire=86400&HW-CC-Sign=480D3D0663B8C1DBEA1D833805D0CE7F49B16151796B5D06F86BDC01DF7ACB49)
 
 
 

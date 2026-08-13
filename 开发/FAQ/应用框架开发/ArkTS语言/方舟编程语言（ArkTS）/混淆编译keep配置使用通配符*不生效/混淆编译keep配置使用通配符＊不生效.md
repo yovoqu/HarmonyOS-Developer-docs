@@ -1,6 +1,6 @@
 # 混淆编译keep配置使用通配符*不生效
 
-更新时间：2026-07-30 01:55:38
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-163
 
@@ -25,7 +25,7 @@
 
 #### 背景知识
 
-- [-keep-file-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-keep-file-name)指定要保留的文件/文件夹的名称（不需要写文件后缀），支持使用名称类通配符。[-keep](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep)保留指定相对路径filepath中的所有名称（例如变量名、类名、属性名等）不被混淆，./与../为相对于混淆配置文件所在目录，支持使用路径类通配符。
+- [-keep-file-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep-file-name)指定要保留的文件/文件夹的名称（不需要写文件后缀），支持使用名称类通配符。[-keep](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep)保留指定相对路径filepath中的所有名称（例如变量名、类名、属性名等）不被混淆，./与../为相对于混淆配置文件所在目录，支持使用路径类通配符。
 - [名称类通配符和路径类通配符](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#保留选项支持的通配符)：
 
   
@@ -43,17 +43,17 @@
 1. [开启源码混淆](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide#开启源码混淆)后，分别不使用保留选项（-keep-file-name和-keep）和使用保留选项，使用release模式构建hap包后，[查看混淆效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide#查看混淆效果)得到以下结果：不使用保留选项：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/JdY1L5_tTfqNRJUlDH8mYw/zh-cn_image_0000002659138341.png?HW-CC-KV=V1&HW-CC-Date=20260811T005636Z&HW-CC-Expire=86400&HW-CC-Sign=D03E79F6E5DB7F5491C3340762EA7408E91F651B65B00BE3A3527EAC4AE8A39F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/nbK7oczwQAuS1EQrXJWevg/zh-cn_image_0000002659138341.png?HW-CC-KV=V1&HW-CC-Date=20260813T095602Z&HW-CC-Expire=86400&HW-CC-Sign=00665846D7D9D34FC5070B17486443122551838006382FFA3899A629E78D84B5)
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/sVTOA-RITHGyhjqbxy1F7Q/zh-cn_image_0000002629058990.png?HW-CC-KV=V1&HW-CC-Date=20260811T005636Z&HW-CC-Expire=86400&HW-CC-Sign=B8F45858C369E0D4449CD12A43206407D4E8172752A0860ACA668DA353C61016)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/5tvDzKq2QXStGqmCRUEZWA/zh-cn_image_0000002629058990.png?HW-CC-KV=V1&HW-CC-Date=20260813T095602Z&HW-CC-Expire=86400&HW-CC-Sign=01FD95E5CA74ED5C7D865181E50F85FE99297F7D360A57FEECAFF48DC02FFB6C)
 
 
   使用保留选项：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/-_OW7-DzT1Ozfhsi1JsIVg/zh-cn_image_0000002628899072.png?HW-CC-KV=V1&HW-CC-Date=20260811T005636Z&HW-CC-Expire=86400&HW-CC-Sign=5BA5D3B898F891D5D0EB19411848C654FDCF0A474806266E2C379A6178AF4216)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/90mAQEKhRUeIMetRdJr1Nw/zh-cn_image_0000002628899072.png?HW-CC-KV=V1&HW-CC-Date=20260813T095602Z&HW-CC-Expire=86400&HW-CC-Sign=FD1DC4F2BABCEC073A1C6CA56AA540C9A214B1D9EB0203DAA5B9C39A3EE8D359)
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/gYB2XRUQTDuEDOlrFzxFGg/zh-cn_image_0000002659258283.png?HW-CC-KV=V1&HW-CC-Date=20260811T005636Z&HW-CC-Expire=86400&HW-CC-Sign=7B325614B7B07850B6946D3E62819C10DBECA23CB6D906B9C8E888B38898A116)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/ud9Uw_-CQUiGnwSBvmyS9A/zh-cn_image_0000002659258283.png?HW-CC-KV=V1&HW-CC-Date=20260813T095602Z&HW-CC-Expire=86400&HW-CC-Sign=D393FA2524433459180C6A6AB92223AEB75BBF413DDA5EF142F03AFB8AFE2A2E)
 
 
   对比两者，使用保留选项后，文件夹及文件名被混淆，而变量名、类名、属性名未被混淆，即-keep生效，而-keep-file-name未生效。
@@ -104,7 +104,7 @@ model
 
 #### 总结
 
-[保留选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#保留选项)写法总结：
+[保留选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options)写法总结：
   
 | 保留选项 | 功能 | 写法 | 通配符 |
 | --- | --- | --- | --- |

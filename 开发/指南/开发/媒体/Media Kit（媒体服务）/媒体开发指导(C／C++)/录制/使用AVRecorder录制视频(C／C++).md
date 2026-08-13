@@ -1,6 +1,6 @@
 # 使用AVRecorder录制视频(C/C++)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ndk-avrecorder-for-video-recording
 
@@ -30,7 +30,7 @@ AVRecorder支持开发音视频录制，集成了音频捕获、音频编码、�
 
 
 > [!NOTE]
-> 仅应用需要克隆、备份或同步用户公共目录的图片、视频类文件时，可申请ohos.permission.READ_IMAGEVIDEO、ohos.permission.WRITE_IMAGEVIDEO权限来读写音视频文件，申请方式请参考 申请受控权限 ，通过AGC审核后才能使用。为避免应用的上架申请被驳回，开发者应优先使用Picker/控件等替代方案，仅少量符合 特殊场景 的应用被允许申请受限权限。
+> 仅应用需要克隆、备份或同步用户公共目录的图片、视频类文件时，可申请ohos.permission.READ_IMAGEVIDEO、ohos.permission.WRITE_IMAGEVIDEO权限来读写图片、视频文件，申请方式请参考 申请受控权限 ，通过AGC审核后才能使用。为避免应用的上架申请被驳回，开发者应优先使用Picker/控件等替代方案，仅少量符合 特殊场景 的应用被允许申请受限权限。
 
 
 
@@ -38,7 +38,7 @@ AVRecorder支持开发音视频录制，集成了音频捕获、音频编码、�
 #### 开发步骤及注意事项
 
 > [!NOTE]
-> AVRecorder只负责视频数据的处理，需要与视频数据采集模块配合才能完成视频录制。视频数据采集模块需要通过Surface将视频数据传递给AVRecorder进行数据处理。当前常用的数据采集模块为相机模块，具体请参考 相机-录像 。 文件的创建与存储，请参考 应用文件访问与管理 ，默认存储在应用的沙箱路径之下，如需存储至图库，请使用 安全控件保存媒体资源 对沙箱内文件进行存储。
+> AVRecorder只负责视频数据的处理，需要与视频数据采集模块配合才能完成视频录制。视频数据采集模块需要通过Surface将视频数据传递给AVRecorder进行数据处理。当前常用的视频数据采集模块为相机模块，具体请参考 相机-录像 。 文件的创建与存储，请参考 应用文件访问与管理 ，默认存储在应用的沙箱路径之下，如需存储至图库，请使用 安全控件保存媒体资源 对沙箱内文件进行存储。
 
 
 开发者通过引入[avrecorder.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-h)、[avrecorder_base.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-base-h)和[native_averrors.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-averrors-h)头文件，使用视频录制相关API。
@@ -89,16 +89,16 @@ target_link_libraries(entry PUBLIC libhilog_ndk.z.so)
 1. 创建AVRecorder实例，实例创建完成进入idle状态。
 
   
-```text
+```cpp
 #include "multimedia/player_framework/avrecorder.h"
 #include "multimedia/player_framework/avrecorder_base.h"
 ```
 
-```text
+```cpp
 static OH_AVRecorder *g_recorder = nullptr;
 ```
 
-```text
+```cpp
 g_recorder = OH_AVRecorder_Create();
 ```
 
@@ -115,22 +115,19 @@ g_recorder = OH_AVRecorder_Create();
 | OnUri | 监听AVRecorder生成媒体文件。 |
 
   
-```text
-// 设置状态回调。
+```cpp
 OH_AVRecorder_SetStateCallback(g_recorder, OnStateChange, nullptr);
 ```
 
-```text
-// 设置错误回调。
+```cpp
 OH_AVRecorder_SetErrorCallback(g_recorder, OnError, nullptr);
 ```
 
-```text
-// 设置生成媒体文件回调（fileGenerationMode选择AUTO_CREATE时设置）。
+```cpp
 OH_AVRecorder_SetUriCallback(g_recorder, OnUri, nullptr);
 ```
 
-```text
+```cpp
 static void OnStateChange(OH_AVRecorder *recorder, OH_AVRecorder_State state,
     OH_AVRecorder_StateChangeReason reason, void *userData)
 {
@@ -139,19 +136,17 @@ static void OnStateChange(OH_AVRecorder *recorder, OH_AVRecorder_State state,
     (void)recorder;
     (void)userData;
 
-    // 将reason转换为字符串表示。
     const char *reasonStr =
         (reason == OH_AVRecorder_StateChangeReason::AVRECORDER_USER) ? "USER" :
         (reason == OH_AVRecorder_StateChangeReason::AVRECORDER_BACKGROUND) ? "BACKGROUND" : "UNKNOWN";
 
     if (state == OH_AVRecorder_State::AVRECORDER_IDLE) {
         OH_LOG_INFO(LOG_APP, "==NDKDemo== Recorder OnStateChange IDLE, reason: %{public}s", reasonStr);
-        // 处理状态变更。
     }
 }
 ```
 
-```text
+```cpp
 static void OnError(OH_AVRecorder *recorder, int32_t errorCode, const char *errorMsg, void *userData)
 {
     // ...
@@ -163,7 +158,7 @@ static void OnError(OH_AVRecorder *recorder, int32_t errorCode, const char *erro
 }
 ```
 
-```text
+```cpp
 void OnUri(OH_AVRecorder *recorder, OH_MediaAsset *asset, void *userData)
 {
     (void)recorder;
@@ -173,13 +168,14 @@ void OnUri(OH_AVRecorder *recorder, OH_MediaAsset *asset, void *userData)
         auto changeRequest = OH_MediaAssetChangeRequest_Create(asset);
         if (changeRequest == nullptr) {
             OH_LOG_ERROR(LOG_APP, "==NDKDemo== changeRequest is null!");
+            OH_MediaAsset_Release(asset);
             return;
         }
         MediaLibrary_ImageFileType imageFileType = MEDIA_LIBRARY_FILE_VIDEO;
-        uint32_t result = OH_MediaAssetChangeRequest_SaveCameraPhoto(changeRequest, imageFileType);
+        int32_t result = OH_MediaAssetChangeRequest_SaveCameraPhoto(changeRequest, imageFileType);
         OH_LOG_INFO(LOG_APP, "result of OH_MediaAssetChangeRequest_SaveCameraPhoto: %d", result);
 
-        uint32_t resultChange = OH_MediaAccessHelper_ApplyChanges(changeRequest);
+        int32_t resultChange = OH_MediaAccessHelper_ApplyChanges(changeRequest);
         OH_LOG_INFO(LOG_APP, "result of OH_MediaAccessHelper_ApplyChanges: %d", resultChange);
 
         OH_MediaAsset_Release(asset);
@@ -195,11 +191,11 @@ void OnUri(OH_AVRecorder *recorder, OH_MediaAsset *asset, void *userData)
 
   
 > [!WARNING]
-> 配置参数需要注意： 配置参数之前需要确保完成对应权限的申请，请参考 申请权限 。 prepare接口的入参OH_AVRecorder_Config中设置的音视频相关的配置参数，如示例代码所示。 需要使用支持的 录制规格 ，视频比特率、分辨率、帧率以实际硬件设备支持的范围为准。 录制输出的url地址（即示例里avConfig中的url），形式为fd://xx (fd number)。需要调用基础文件操作接口实现应用文件访问能力，获取方式参考 应用文件访问与管理 。
+> 配置参数需要注意： 配置参数之前需要确保完成对应权限的申请，请参考 申请权限 。 prepare接口的入参OH_AVRecorder_Config中设置的音视频相关的配置参数，如示例代码所示。 需要使用支持的 录制规格 ，视频比特率、分辨率、帧率以实际硬件设备支持的范围为准。 录制输出的URL地址（即示例里config中的url），形式为fd://xx (fd number)。需要调用基础文件操作接口实现应用文件访问能力，获取方式参考 应用文件访问与管理 。
 
 
   
-```text
+```cpp
 static napi_value PrepareVideoRecorder(napi_env env, napi_callback_info info)
 {
     OH_LOG_INFO(LOG_APP, "PrepareVideoRecorder called");
@@ -207,11 +203,6 @@ static napi_value PrepareVideoRecorder(napi_env env, napi_callback_info info)
     OH_AVRecorder_Config config;
     memset(&config, 0, sizeof(config));
 
-    config.audioSourceType = AVRECORDER_MIC;
-    config.profile.audioBitrate = AUDIO_BITRATE; // 112000
-    config.profile.audioChannels = AUDIO_CHANNELS; // 2
-    config.profile.audioCodec = AVRECORDER_AUDIO_AAC;
-    config.profile.audioSampleRate = AUDIO_SAMPLE_RATE; // 48000
     config.videoSourceType = AVRECORDER_SURFACE_YUV;
     config.profile.videoBitrate = VIDEO_BITRATE; // 3000000
     config.profile.videoCodec = AVRECORDER_VIDEO_AVC;
@@ -222,9 +213,8 @@ static napi_value PrepareVideoRecorder(napi_env env, napi_callback_info info)
     config.profile.enableTemporalScale = false;
     config.profile.fileFormat = AVRECORDER_CFT_MPEG_4;
     config.fileGenerationMode = AVRECORDER_APP_CREATE;
-    config.metadata.videoOrientation = const_cast<char *>("90");
+    config.metadata.videoOrientation = strdup("90");
 
-    // 获取沙箱路径
     char fileDirPath[1000] = {0};
     int32_t bufferSize = 1000;
     int32_t writeLength = 0;
@@ -239,10 +229,12 @@ static napi_value PrepareVideoRecorder(napi_env env, napi_callback_info info)
     const std::string avrecorderRoot = fileDirPath;
     g_outputFd = open((avrecorderRoot + "/video_example.mp4").c_str(), O_RDWR | O_CREAT, FILE_PERMISSIONS);
     std::string fileUrl = "fd://" + std::to_string(g_outputFd);
-    config.url = const_cast<char *>(fileUrl.c_str());
+    config.url = strdup(fileUrl.c_str());
     OH_LOG_INFO(LOG_APP, "config.url is: %s", config.url);
 
     OH_AVErrCode err = OH_AVRecorder_Prepare(g_recorder, &config);
+    free(config.url);
+    free(config.metadata.videoOrientation);
     if (err != AV_ERR_OK) {
         OH_LOG_ERROR(LOG_APP, "Failed to prepare video recorder, error: %{public}d", err);
     }
@@ -252,14 +244,14 @@ static napi_value PrepareVideoRecorder(napi_env env, napi_callback_info info)
 }
 ```
 
-4. 获取视频录制需要的SurfaceID，初始化视频数据输入源。该步骤需要在输入源模块完成，以相机为例，需要创建录像输出流，包括创建Camera对象、获取相机列表、创建相机输入流等，相机详细步骤请参考[相机-录像方案](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-recording)。
+4. 获取视频录制需要的SurfaceID。
 
-  调用getInputSurface()接口，接口的返回值SurfaceID用于传递给视频数据输入源模块。常用的输入源模块为相机，以下示例代码中，仅展示获取SurfaceID的步骤。
+  调用OH_AVRecorder_GetInputSurface()接口获取OHNativeWindow，再通过OH_NativeWindow_GetSurfaceId()接口获取SurfaceID，SurfaceID用于传递给视频数据输入源模块。常用的视频数据输入源模块为相机，以下示例代码中，仅展示获取SurfaceID的步骤。
 
   输入源模块通过SurfaceID可以获取到Surface，通过Surface可以将视频数据流传递给AVRecorder，由AVRecorder再进行视频数据的处理。
 
   
-```text
+```cpp
 static std::string GetSurfaceIdString()
 {
     OHNativeWindow *window = nullptr;
@@ -274,13 +266,8 @@ static std::string GetSurfaceIdString()
         OH_LOG_ERROR(LOG_APP, "Failed to get surface ID from native window, error: %{public}d", nErr);
         return "";
     }
-    char surfaceIdStr[32] = {0};
-    int32_t snprintfRet = snprintf(surfaceIdStr, sizeof(surfaceIdStr), "%lu", surfaceId);
-    if (snprintfRet < 0) {
-        OH_LOG_ERROR(LOG_APP, "snprintf failed");
-        return "";
-    }
-    OH_LOG_INFO(LOG_APP, "Input surface ID: %{public}s", surfaceIdStr);
+    std::string surfaceIdStr = std::to_string(surfaceId);
+    OH_LOG_INFO(LOG_APP, "Input surface ID: %{public}s", surfaceIdStr.c_str());
     return surfaceIdStr;
 }
 ```
@@ -289,42 +276,42 @@ static std::string GetSurfaceIdString()
 6. 开始录制，启动输入源输入视频数据，例如相机模块调用OH_VideoOutput_Start()接口启动相机录制。然后调用OH_AVRecorder_Start()接口，此时AVRecorder进入started状态。
 
   
-```text
+```cpp
 OH_AVErrCode err = OH_AVRecorder_Start(g_recorder);
 ```
 
 7. 暂停录制，调用OH_AVRecorder_Pause()接口，此时AVRecorder进入paused状态，同时暂停输入源输入数据。例如相机模块调用OH_VideoOutput_Stop()停止相机视频数据输入。
 
   
-```text
+```cpp
 OH_AVErrCode err = OH_AVRecorder_Pause(g_recorder);
 ```
 
 8. 恢复录制，调用OH_AVRecorder_Resume()接口，此时再次进入started状态。
 
   
-```text
+```cpp
 OH_AVErrCode err = OH_AVRecorder_Resume(g_recorder);
 ```
 
 9. 停止录制，调用OH_AVRecorder_Stop()接口，此时进入stopped状态，同时停止相机录制。
 
   
-```text
+```cpp
 OH_AVErrCode err = OH_AVRecorder_Stop(g_recorder);
 ```
 
 10. 重置资源，调用OH_AVRecorder_Reset()重新进入idle状态，允许重新配置录制参数。
 
   
-```text
+```cpp
 OH_AVErrCode err = OH_AVRecorder_Reset(g_recorder);
 ```
 
 11. 销毁实例，调用OH_AVRecorder_Release()进入released状态，退出录制，释放视频数据输入源相关资源，例如相机资源。
 
   
-```text
+```cpp
 OH_AVRecorder_Release(g_recorder);
 ```
 
@@ -335,10 +322,11 @@ OH_AVRecorder_Release(g_recorder);
 
 参考以下示例，包括“创建录制实例-准备录制-开始录制-暂停录制-恢复录制-停止录制-重置录制状态-释放录制资源”的完整流程。
 
-```text
+```cpp
 #include <cstdio>
 #include <cstring>
 #include <string>
+#include <cinttypes>
 #include <fcntl.h>
 #include <unistd.h>
 
@@ -353,9 +341,7 @@ OH_AVRecorder_Release(g_recorder);
 #include "hilog/log.h"
 #include <AbilityKit/ability_runtime/application_context.h>
 
-static constexpr int32_t AUDIO_BITRATE = 112000;
-static constexpr int32_t AUDIO_CHANNELS = 2;
-static constexpr int32_t AUDIO_SAMPLE_RATE = 48000;
+// ...
 static constexpr int32_t VIDEO_BITRATE = 3000000;
 static constexpr int32_t VIDEO_FRAME_WIDTH = 1920;
 static constexpr int32_t VIDEO_FRAME_HEIGHT = 1080;
@@ -376,14 +362,12 @@ static void OnStateChange(OH_AVRecorder *recorder, OH_AVRecorder_State state,
     (void)recorder;
     (void)userData;
 
-    // 将reason转换为字符串表示。
     const char *reasonStr =
         (reason == OH_AVRecorder_StateChangeReason::AVRECORDER_USER) ? "USER" :
         (reason == OH_AVRecorder_StateChangeReason::AVRECORDER_BACKGROUND) ? "BACKGROUND" : "UNKNOWN";
 
     if (state == OH_AVRecorder_State::AVRECORDER_IDLE) {
         OH_LOG_INFO(LOG_APP, "==NDKDemo== Recorder OnStateChange IDLE, reason: %{public}s", reasonStr);
-        // 处理状态变更。
     }
 }
 
@@ -406,13 +390,14 @@ void OnUri(OH_AVRecorder *recorder, OH_MediaAsset *asset, void *userData)
         auto changeRequest = OH_MediaAssetChangeRequest_Create(asset);
         if (changeRequest == nullptr) {
             OH_LOG_ERROR(LOG_APP, "==NDKDemo== changeRequest is null!");
+            OH_MediaAsset_Release(asset);
             return;
         }
         MediaLibrary_ImageFileType imageFileType = MEDIA_LIBRARY_FILE_VIDEO;
-        uint32_t result = OH_MediaAssetChangeRequest_SaveCameraPhoto(changeRequest, imageFileType);
+        int32_t result = OH_MediaAssetChangeRequest_SaveCameraPhoto(changeRequest, imageFileType);
         OH_LOG_INFO(LOG_APP, "result of OH_MediaAssetChangeRequest_SaveCameraPhoto: %d", result);
 
-        uint32_t resultChange = OH_MediaAccessHelper_ApplyChanges(changeRequest);
+        int32_t resultChange = OH_MediaAccessHelper_ApplyChanges(changeRequest);
         OH_LOG_INFO(LOG_APP, "result of OH_MediaAccessHelper_ApplyChanges: %d", resultChange);
 
         OH_MediaAsset_Release(asset);
@@ -448,7 +433,6 @@ static napi_value SetRecorderStateCallback(napi_env env, napi_callback_info info
     OH_LOG_INFO(LOG_APP, "SetRecorderStateCallback called");
     // ...
 
-    // 设置状态回调。
     OH_AVRecorder_SetStateCallback(g_recorder, OnStateChange, nullptr);
 
     napi_value result;
@@ -461,7 +445,6 @@ static napi_value SetRecorderErrorCallback(napi_env env, napi_callback_info info
     OH_LOG_INFO(LOG_APP, "SetRecorderErrorCallback called");
     // ...
 
-    // 设置错误回调。
     OH_AVRecorder_SetErrorCallback(g_recorder, OnError, nullptr);
 
     napi_value result;
@@ -472,7 +455,6 @@ static napi_value SetRecorderErrorCallback(napi_env env, napi_callback_info info
 static napi_value SetRecorderUriCallback(napi_env env, napi_callback_info info)
 {
     OH_LOG_INFO(LOG_APP, "SetRecorderUriCallback called");
-    // 设置生成媒体文件回调（fileGenerationMode选择AUTO_CREATE时设置）。
     OH_AVRecorder_SetUriCallback(g_recorder, OnUri, nullptr);
     napi_value result;
     napi_create_int32(env, 0, &result);
@@ -488,11 +470,6 @@ static napi_value PrepareVideoRecorder(napi_env env, napi_callback_info info)
     OH_AVRecorder_Config config;
     memset(&config, 0, sizeof(config));
 
-    config.audioSourceType = AVRECORDER_MIC;
-    config.profile.audioBitrate = AUDIO_BITRATE; // 112000
-    config.profile.audioChannels = AUDIO_CHANNELS; // 2
-    config.profile.audioCodec = AVRECORDER_AUDIO_AAC;
-    config.profile.audioSampleRate = AUDIO_SAMPLE_RATE; // 48000
     config.videoSourceType = AVRECORDER_SURFACE_YUV;
     config.profile.videoBitrate = VIDEO_BITRATE; // 3000000
     config.profile.videoCodec = AVRECORDER_VIDEO_AVC;
@@ -503,9 +480,8 @@ static napi_value PrepareVideoRecorder(napi_env env, napi_callback_info info)
     config.profile.enableTemporalScale = false;
     config.profile.fileFormat = AVRECORDER_CFT_MPEG_4;
     config.fileGenerationMode = AVRECORDER_APP_CREATE;
-    config.metadata.videoOrientation = const_cast<char *>("90");
+    config.metadata.videoOrientation = strdup("90");
 
-    // 获取沙箱路径
     char fileDirPath[1000] = {0};
     int32_t bufferSize = 1000;
     int32_t writeLength = 0;
@@ -520,10 +496,12 @@ static napi_value PrepareVideoRecorder(napi_env env, napi_callback_info info)
     const std::string avrecorderRoot = fileDirPath;
     g_outputFd = open((avrecorderRoot + "/video_example.mp4").c_str(), O_RDWR | O_CREAT, FILE_PERMISSIONS);
     std::string fileUrl = "fd://" + std::to_string(g_outputFd);
-    config.url = const_cast<char *>(fileUrl.c_str());
+    config.url = strdup(fileUrl.c_str());
     OH_LOG_INFO(LOG_APP, "config.url is: %s", config.url);
 
     OH_AVErrCode err = OH_AVRecorder_Prepare(g_recorder, &config);
+    free(config.url);
+    free(config.metadata.videoOrientation);
     if (err != AV_ERR_OK) {
         OH_LOG_ERROR(LOG_APP, "Failed to prepare video recorder, error: %{public}d", err);
     }
@@ -546,13 +524,8 @@ static std::string GetSurfaceIdString()
         OH_LOG_ERROR(LOG_APP, "Failed to get surface ID from native window, error: %{public}d", nErr);
         return "";
     }
-    char surfaceIdStr[32] = {0};
-    int32_t snprintfRet = snprintf(surfaceIdStr, sizeof(surfaceIdStr), "%lu", surfaceId);
-    if (snprintfRet < 0) {
-        OH_LOG_ERROR(LOG_APP, "snprintf failed");
-        return "";
-    }
-    OH_LOG_INFO(LOG_APP, "Input surface ID: %{public}s", surfaceIdStr);
+    std::string surfaceIdStr = std::to_string(surfaceId);
+    OH_LOG_INFO(LOG_APP, "Input surface ID: %{public}s", surfaceIdStr.c_str());
     return surfaceIdStr;
 }
 

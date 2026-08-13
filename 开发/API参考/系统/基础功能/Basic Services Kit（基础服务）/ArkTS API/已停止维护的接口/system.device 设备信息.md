@@ -1,6 +1,6 @@
 # @system.device (设备信息)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-device
 **支持设备：** Wearable | lite_wearable
@@ -202,3 +202,5 @@ export default {
 | screenShape4+ | string | 屏幕形状。可取值： - rect：方形屏； - circle：圆形屏。 |
 | apiVersion4+ | number | 系统API版本号。 |
 | deviceType4+ | string | 设备类型。 |
+| sdkMinorApiVersion | number | 系统软件Minor API版本。从API 26.0.0 版本开始，系统API版本格式：apiVersion.sdkMinorApiVersion.sdkPatchApiVersion。该值获取失败时填充 -1，且不影响 getInfo 接口的整体返回状态。 模型约束： 此接口仅可在FA模型下使用。 起始版本： 26.0.0 示例：0 |
+| sdkPatchApiVersion | number | 系统软件Patch API版本。从API 26.0.0 版本开始，系统API版本格式：apiVersion.sdkMinorApiVersion.sdkPatchApiVersion。该值获取失败时填充 -1，且不影响 getInfo 接口的整体返回状态。 模型约束： 此接口仅可在FA模型下使用。 起始版本： 26.0.0 示例：0 |

@@ -1,6 +1,6 @@
 # ArkGuard字节码混淆开启指南
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bytecode-obfuscation-guide
 
@@ -173,7 +173,7 @@ console.info(obj002.dynamicName + ''); // 使用点语法静态访问属性
 3. 若代码中使用点语法访问未在ArkTS/TS/JS代码中定义的字段，比如访问native实现的so库，字段固定的json文件与数据库等场景：
 
   
-若在代码中引用so库的api，如import testNapi from 'library.so'; testNapi.foo();需要使用-keep-property-name，foo保留属性名称。
+若在代码中引用so库的API，如import testNapi from 'library.so'; testNapi.foo()；需要使用-keep-property-name foo来保留属性名称foo。
 
 4. 若在代码中使用json文件中的字段，需要使用-keep-property-name保留json文件中的字段名称。
 
@@ -187,7 +187,7 @@ console.info(obj002.dynamicName + ''); // 使用点语法静态访问属性
 
 2. 若构建HAR模块并发布给其他模块使用的场景，要在HAR模块中的obfuscation-rules.txt文件中将对外接口使用-keep-global-name来保留、将对外暴露的class/interface等语法中的属性使用-keep-property-name保留。
 
-3. 若在代码中引用so库的api，如import { napiA } from 'library.so'；需要使用-keep-global-name napiA保留so接口名称。
+3. 若在代码中引用so库的API，如import { napiA } from 'library.so'；需要使用-keep-global-name napiA来保留so接口名称napiA。
 
 4. 验证应用功能以及模块被依赖时的接口调用功能，排查遗漏的场景。若应用出现功能异常，可依据混淆后的报错栈，在模块的 **build/default/[...]/release/obfuscation/** 目录下查阅 **nameCache.json**（名称映射表）、**config.json**（混淆项与白名单）等产物，按[查看混淆效果](#查看混淆效果)对照定位源码行；并按需使用-keep-global-name、-keep-property-name等进行保留。
 - 待上述选项应用适配成功后，开启-enable-filename-obfuscation选项。此选项开启后以下场景需要适配：
@@ -223,7 +223,7 @@ console.info(obj002.dynamicName + ''); // 使用点语法静态访问属性
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/8Ljl2d4jT_qhEnasBtiQHA/zh-cn_image_0000002656347409.png?HW-CC-KV=V1&HW-CC-Date=20260624T020740Z&HW-CC-Expire=86400&HW-CC-Sign=2B6880277B7C9EC03A18CE566E0AC4EFE658EA886A7206E1BF504D78A5C29E40)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/rik7SHv-TXGkLVzMQbVrxw/zh-cn_image_0000002704271707.png?HW-CC-KV=V1&HW-CC-Date=20260813T095655Z&HW-CC-Expire=86400&HW-CC-Sign=5FD4A3324C4AA934A55088684C06D08DC106B6B1BC60E70F3DF9C931868E0931)
 
  
   
@@ -235,4 +235,4 @@ console.info(obj002.dynamicName + ''); // 使用点语法静态访问属性
 反混淆工具需要使用应用编译过程中生成的sourceMaps.json文件以及混淆名称映射文件nameCache.json文件，因此请本地备份它们；为方便问题定位，建议备份release目录。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/D6_w5Q7TTxOCbYYzCrlsQw/zh-cn_image_0000002626227994.png?HW-CC-KV=V1&HW-CC-Date=20260624T020740Z&HW-CC-Expire=86400&HW-CC-Sign=EBCD00901450E01B26F2895C21FC666DB073BCA78A20626124B66843E9C3F7EF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/50ye68TsQ-KVcDnQ5l9jWw/zh-cn_image_0000002674471906.png?HW-CC-KV=V1&HW-CC-Date=20260813T095655Z&HW-CC-Expire=86400&HW-CC-Sign=6F31B611F88B1474811B5D4B342B96CF77BDBF7E025F4BFBA35C13C502D9A118)

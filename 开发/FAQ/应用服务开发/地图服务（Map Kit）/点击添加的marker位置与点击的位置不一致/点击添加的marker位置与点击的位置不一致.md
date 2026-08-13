@@ -1,6 +1,6 @@
 # 点击添加的marker位置与点击的位置不一致
 
-更新时间：2026-07-30 01:03:01
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-41
 
@@ -106,7 +106,7 @@ struct IncorrectCode {
 #### 背景知识
 
 - [fromScreenLocation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-projection#fromscreenlocation)：将屏幕像素点坐标转换成经纬度。添加的像素点坐标，单位为px。
-- 开通地图服务：需先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#section16133115441516)，再进行后续地图开发活动。
+- 开通地图服务：需先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#开通地图服务)，再进行后续地图开发活动。
 
  
  

@@ -1,6 +1,6 @@
 # 画布操作及状态处理（C/C++）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-operation-state-c
 
@@ -189,7 +189,7 @@ OH_Drawing_Brush* brush = OH_Drawing_BrushCreate();
 OH_Drawing_BrushSetColor(brush, OH_Drawing_ColorSetArgb(RGBA_MAX, RGBA_MAX, RGBA_MIN, RGBA_MIN));
 // 设置画布中的画刷
 OH_Drawing_CanvasAttachBrush(canvas, brush);
-// 创建缩放的矩阵对象，4个参数分别是旋转中心坐标和水平垂直方向的缩放因子
+// 创建缩放的矩阵对象，4个参数分别是水平垂直方向的缩放因子和缩放中心坐标
 OH_Drawing_Matrix* matrix = OH_Drawing_MatrixCreateScale(2, 2, value200_, value300_);
 // 对Canvas进行矩阵变换
 OH_Drawing_CanvasConcatMatrix(canvas, matrix);
@@ -259,7 +259,7 @@ OH_Drawing_MatrixDestroy(matrix);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/6XSNMCgoT7qqTnXk61t8KA/zh-cn_image_0000002656007294.png?HW-CC-KV=V1&HW-CC-Date=20260730T071949Z&HW-CC-Expire=86400&HW-CC-Sign=4212121B2D03F1A8E5E289A68A3C674533C71C723CA6720E38F048224F1D2154)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/HUqGpR02SrSpGJCW50HvlQ/zh-cn_image_0000002674473454.png?HW-CC-KV=V1&HW-CC-Date=20260813T095834Z&HW-CC-Expire=86400&HW-CC-Sign=53EE2257DBD99E7E2E447D7D497625EADC6FFD600460EE2DD61C7E9791F699C5)
 
 
 

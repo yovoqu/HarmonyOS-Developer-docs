@@ -1,6 +1,6 @@
 # LiveViewLockScreenExtensionAbility
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/liveview-lock-screen-ability
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -51,8 +51,12 @@ import { LiveViewLockScreenExtensionAbility } from '@kit.LiveViewKit';
 | context | LiveViewLockScreenExtensionContext | 否 | 否 | LiveViewLockScreenExtensionAbility的上下文环境，继承自ExtensionContext。 |
  
  
-**示例：**
- 
+  
+
+#### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { LiveViewLockScreenExtensionAbility } from '@kit.LiveViewKit';
 import { UIExtensionContentSession, Want } from '@kit.AbilityKit';

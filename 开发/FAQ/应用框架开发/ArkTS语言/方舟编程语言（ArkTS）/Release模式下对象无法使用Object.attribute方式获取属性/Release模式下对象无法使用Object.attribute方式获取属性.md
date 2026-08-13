@@ -1,6 +1,6 @@
 # Release模式下对象无法使用Object.attribute方式获取属性
 
-更新时间：2026-06-26 07:47:42
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-166
 
@@ -12,8 +12,8 @@
 
 #### 背景知识
 
-- 从DevEco Studio NEXT Developer Beta3（5.0.3.600）版本开始，新建工程及模块默认关闭代码混淆功能，如果在模块级build-profile.json5配置文件中开启代码混淆，则混淆规则配置文件obfuscation-rules.txt中默认开启推荐的混淆规则，包含-enable-property-obfuscation、-enable-toplevel-obfuscation、-enable-filename-obfuscation、-enable-export-obfuscation四项混淆项，开发者可进一步在obfuscation-rules.txt文件中选择开启的混淆项，关于混淆项的介绍请查看[混淆规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#保留选项)。
-- 开启混淆后，代码中的方法、属性或路径被混淆，但运行的时候访问的是未混淆的方法、属性或路径，可能导致功能不可用，因此需要将对应的字段配置保留选项。关于保留选项的排查场景及配置方式请参考[混淆规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#保留选项)。所以如果不想对属性进行混淆，可以打开模块目录内的obfuscation-rules.txt文件配置混淆规则，配置保留选项，避免混淆后属性访问不到的问题，保留选项请参考[保留选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#保留选项)。
+- 从DevEco Studio NEXT Developer Beta3（5.0.3.600）版本开始，新建工程及模块默认关闭代码混淆功能，如果在模块级build-profile.json5配置文件中开启代码混淆，则混淆规则配置文件obfuscation-rules.txt中默认开启推荐的混淆规则，包含-enable-property-obfuscation、-enable-toplevel-obfuscation、-enable-filename-obfuscation、-enable-export-obfuscation四项混淆项，开发者可进一步在obfuscation-rules.txt文件中选择开启的混淆项，关于混淆项的介绍请查看[混淆规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options)。
+- 开启混淆后，代码中的方法、属性或路径被混淆，但运行的时候访问的是未混淆的方法、属性或路径，可能导致功能不可用，因此需要将对应的字段配置保留选项。关于保留选项的排查场景及配置方式请参考[混淆规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options)。所以如果不想对属性进行混淆，可以打开模块目录内的obfuscation-rules.txt文件配置混淆规则，配置保留选项，避免混淆后属性访问不到的问题，保留选项请参考[保留选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options)。
 - 如果需要排查的场景和配置的字段有很多的话，DevEco Studio还提供了混淆助手工具，可以根据模块和场景对源码进行扫描，快速识别需要配置的保留选项和白名单字段，开发者可以一键生成白名单混淆规则文件。不过需要注意由于某些场景是动态访问名称、属性，需要在运行的时候才能确定的字段，ObfuscationHelper会识别该类场景，开发者需要根据业务进一步排查识别白名单后进行配置。参考文档[通过混淆助手配置保留选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-build-obfuscation#section19439175917123)。
 
  

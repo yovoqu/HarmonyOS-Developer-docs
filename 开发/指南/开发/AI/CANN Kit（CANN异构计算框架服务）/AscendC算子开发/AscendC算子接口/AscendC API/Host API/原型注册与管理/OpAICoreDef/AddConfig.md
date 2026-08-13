@@ -1,6 +1,6 @@
 # AddConfig
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-addconfig
 
@@ -33,8 +33,14 @@ void AddConfig(const char *soc);
  
   
 
-#### 约束说明
+#### 支持的型号
 
-支持Kirin9020系列处理器
+Kirin9020系列处理器
  
 KirinX90系列处理器
+ 
+  
+
+#### 约束说明
+
+无

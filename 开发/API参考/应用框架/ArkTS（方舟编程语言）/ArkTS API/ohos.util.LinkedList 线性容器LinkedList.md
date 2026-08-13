@@ -1,6 +1,6 @@
 # @ohos.util.LinkedList (线性容器LinkedList)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-linkedlist
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -12,7 +12,7 @@ LinkedList和[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-refer
 LinkedList和[ArrayList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arraylist)相比，LinkedList插入数据效率高于ArrayList，而ArrayList查询效率高于LinkedList。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/2xBArVBoRIaRqbXwFFxFjQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260730T071440Z&HW-CC-Expire=86400&HW-CC-Sign=D1B724C713231507C53A394B92E4FA50B64CC8905860751AAE0AED008875DACB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/4jpFYRUkTpKT12KQggwLbw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095442Z&HW-CC-Expire=86400&HW-CC-Sign=05AD4A963521465653D2A85C50194DC1451D87ADEE8CAB0625EE04D1596AA028)
  
  
 在LinkedList中使用[index]的方式获取元素可能导致结果不可预测，推荐使用get()方法。
@@ -978,7 +978,7 @@ getFirst(): T
   
 | 类型 | 说明 |
 | --- | --- |
-| T | 返回对应元素，如果元素为undefined则返回undefined，为null则返回null。 |
+| T | 返回对应元素，若元素为空则返回undefined。 |
  
  
 **错误码：**

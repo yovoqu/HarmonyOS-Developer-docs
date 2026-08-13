@@ -1,12 +1,12 @@
 # 如何解决蓝牙/星闪协商MTU参数失败的问题
 
-更新时间：2026-07-02 07:18:00
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-24
 
 #### 问题现象
 
-在蓝牙/星闪功能开发过程中，协商MTU时，有时会出现[2900099](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager#section2900099)/[1009700099](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink#section1009700099)错误的问题，该如何解决？
+在蓝牙/星闪功能开发过程中，协商MTU时，有时会出现[2900099](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager#section2900099-操作失败)/[1009700099](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink#section1009700099)错误的问题，该如何解决？
  
  
 

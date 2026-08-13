@@ -1,6 +1,6 @@
 # 通过combinedSysTransOrderNo查询订单信息
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-partner-combined-sys-query-order
 
@@ -83,7 +83,7 @@ PayMercAuth:
 | combinedSysTransOrderNo | 否 | String | 华为支付合单支付交易订单号。 |
 | combinedMercOrderNo | 否 | String | 合单支付商户主订单号，由商户在创建合单支付订单时生成，商户需保证订单信息唯一性。最大长度46。 |
 | combinedAppId | 否 | String | 商户申请并关联的应用id。 |
-| orderStatus | 是 | String | 订单状态。 - TRX_SUCCESS：交易成功 - TRX_FAILED：交易失败 - TRX_APPLY：交易处理中 - TRX_PROC：交易处理中 |
+| orderStatus | 是 | String | 订单状态。 - TRX_SUCCESS：交易成功 - TRX_FAILED：交易失败 - TRX_APPLY：交易处理中 |
 | payload | 否 | String | 合单商户下单时传入的预留字段，原样返回。 |
 | subOrders | 否 | List&lt;SubOrderResult&gt; | 合单支付子订单信息。 |
 | payer | 否 | PayerOut | 用户支付时客户端信息。 |

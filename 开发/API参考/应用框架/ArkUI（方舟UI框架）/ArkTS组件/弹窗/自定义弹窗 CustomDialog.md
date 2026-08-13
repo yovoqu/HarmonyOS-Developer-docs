@@ -1,6 +1,6 @@
 # 自定义弹窗 (CustomDialog)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -152,7 +152,7 @@ type PromptActionCommonState = import('../api/@ohos.promptAction').promptAction.
 | autoCancel | boolean | 否 | 是 | 是否允许点击遮罩层退出，true表示关闭弹窗。false表示不关闭弹窗。 默认值：true 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | alignment | DialogAlignment | 否 | 是 | 弹窗在竖直方向上的对齐方式。 默认值：DialogAlignment.Default 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | offset | Offset | 否 | 是 | 弹窗相对alignment所在位置的偏移量。 默认值：{ dx: 0, dy: 0 } 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| customStyle | boolean | 否 | 是 | 弹窗容器样式是否自定义。值为true表示弹窗容器样式能自定义，值为false表示弹窗容器样式不能自定义。 默认值：false 设置为false时： 1. 默认圆角为32vp。 2. 未设置弹窗宽度高度：弹窗容器的宽度根据栅格系统自适应。高度自适应自定义的内容节点。 3. 设置弹窗宽度高度：弹窗容器的宽度不超过默认样式下的最大宽度（自定义节点设置100%的宽度），弹窗容器的高度不超过默认样式下的最大高度（自定义节点设置100%的高度）。 4. 受安全区域的影响，弹窗显示区域将排除安全区域。例如在PC/2in1设备上避让屏幕边缘以及窗口标题栏。 设置为true时： 1. 圆角为0，弹窗背景色为透明色。 2. 不支持设置弹窗宽度、高度、边框宽度、边框样式、边框颜色以及阴影宽度。 3. 弹窗显示区域为屏幕。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| customStyle | boolean | 否 | 是 | 弹窗容器样式是否自定义。值为true表示弹窗容器样式能自定义，值为false表示弹窗容器样式不能自定义。 默认值：false 设置为false时： 1. 默认圆角为32vp。 2. 未设置弹窗宽度高度：弹窗容器的宽度根据栅格系统自适应。高度自适应自定义的内容节点。 3. 设置弹窗宽度高度：弹窗容器的宽度不超过默认样式下的最大宽度（自定义节点设置100%的宽度），弹窗容器的高度不超过默认样式下的最大高度（自定义节点设置100%的高度）。 4. 受安全区域的影响，弹窗显示区域将排除安全区域。例如在PC/2in1设备上避让屏幕边缘以及窗口标题栏。 设置为true时： 1. 圆角为0，弹窗背景色为透明色，并且弹窗的系统材质不生效。 2. 不支持设置弹窗宽度、高度、边框宽度、边框样式、边框颜色以及阴影宽度。 3. 弹窗显示区域为屏幕。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | gridCount8+ | number | 否 | 是 | 弹窗宽度占栅格宽度的个数。 默认为按照窗口大小自适应，异常值按默认值处理，最大栅格数为系统最大栅格数。 取值范围：大于等于0的整数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | maskColor10+ | ResourceColor | 否 | 是 | 自定义遮罩层颜色。 默认值：0x33000000 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | maskRect10+ | Rectangle | 否 | 是 | 弹窗遮罩层区域，在遮罩层区域内的事件不透传，在遮罩层区域外的事件透传。 默认值：{ x: 0, y: 0, width: '100%', height: '100%' } 说明： showInSubWindow为true时，maskRect不生效。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
@@ -1190,7 +1190,7 @@ struct Example3 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/k4OpByRnTPSlUDxdCf_W8Q/zh-cn_image_0000002686088361.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071515Z&HW-CC-Expire=86400&HW-CC-Sign=66ADF33030270D1B4C23E0FABC6C1FDF94A3C11154921F35EE6FEB740EADE7FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/5KieslduSqqFOtrxh9nYRw/zh-cn_image_0000002704394985.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=9B24080A4D960CCF4A8615F84C4BC407B55DF5903E6703F4736830120A0324AD)
 
 
 
@@ -1280,7 +1280,7 @@ struct CustomDialogUser {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/JisoaJGUSPq3a30SCgRMqw/zh-cn_image_0000002685928529.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071515Z&HW-CC-Expire=86400&HW-CC-Sign=059D470D3C71ECE35218273E2F1E85BED421A851F24C017B24B1B097DA3643DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/Jz8py0axR6O-IrnJInTxWw/zh-cn_image_0000002674634864.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=151B4A7C904C71F757C24419340D1436E2A1411387C9C6E4FF712AE217271104)
 
 
 
@@ -1346,7 +1346,7 @@ struct CustomDialogUser {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/SbEjKXPaQ8O2Sl2nwV742w/zh-cn_image_0000002656008852.png?HW-CC-KV=V1&HW-CC-Date=20260730T071515Z&HW-CC-Expire=86400&HW-CC-Sign=50945C20E8D1A8AB9B54BA2DB3C3F080886C61A32379914CFFDC6E22240EA146)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/LC9M9yU3RLasAxKvTFriPw/zh-cn_image_0000002704274817.png?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=2B9545ADD021BBB34006AAAD4CB73313F3F75F59690EC7EB03DA3592C6189358)
 
 
 
@@ -1413,7 +1413,7 @@ struct CustomDialogUser {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/9sTFSJTsTzOSTejd0w4YcQ/zh-cn_image_0000002655848932.png?HW-CC-KV=V1&HW-CC-Date=20260730T071515Z&HW-CC-Expire=86400&HW-CC-Sign=6271161F2C73FADF3203335BA50E95C5D65D621BE54C37D0B4460D51D4F1816B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/D0yAPRXKRPKNoTpznocA9w/zh-cn_image_0000002674475026.png?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=5BCEF80EA8E92B9A2156CAD078C99AEDFB0E68FF20133C881FD270F61400F67B)
 
 
 
@@ -1484,7 +1484,7 @@ struct CustomDialogUser {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/YSuGMiKgTseX2i_PpMsyIQ/zh-cn_image_0000002686088363.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071515Z&HW-CC-Expire=86400&HW-CC-Sign=877AFDDF854DED9F3D03297A0BEBE5AE75D41B991F9E9456B4578D7589D2DA8E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/jZzzZjrhRc2mTJwUL5pQoQ/zh-cn_image_0000002704394987.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=B4D010882F6285EAD781B0F1ABABF5147B6BB008AD6B106ABBAAF77BD5C0446B)
 
 
 
@@ -1546,4 +1546,4 @@ struct CustomDialogUser {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/xcbtWao_SzC0FaTyiaqOXg/zh-cn_image_0000002685928531.png?HW-CC-KV=V1&HW-CC-Date=20260730T071515Z&HW-CC-Expire=86400&HW-CC-Sign=DAA4BC5AA518F8A43FCA29FBB33A54A95403FC58A90B61FEB7AE1E6EA3A882E1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/BC9GdtD8STWx1NSxTVJC6A/zh-cn_image_0000002674634866.png?HW-CC-KV=V1&HW-CC-Date=20260813T095450Z&HW-CC-Expire=86400&HW-CC-Sign=F38EB318C0703AF4180B8888563C8165E091BAD58C399979D9D1FCB9CE0E68E4)

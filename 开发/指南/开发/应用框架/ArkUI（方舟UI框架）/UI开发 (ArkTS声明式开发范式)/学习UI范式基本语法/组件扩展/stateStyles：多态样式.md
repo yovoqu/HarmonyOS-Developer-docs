@@ -1,6 +1,6 @@
 # stateStyles：多态样式
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-statestyles
 
@@ -13,7 +13,7 @@
 
 #### 概述
 
-stateStyles是属性方法，可以根据UI内部状态来设置样式，类似于css伪类，但语法不同。ArkUI提供以下六种状态：
+stateStyles是属性方法，可以根据UI内部状态来设置样式，类似于css伪类，但语法不同。ArkUI提供以下七种状态：
 
  - focused：获焦态。
  - normal：正常态。
@@ -21,6 +21,7 @@ stateStyles是属性方法，可以根据UI内部状态来设置样式，类似�
  - disabled：不可用态。
  - clicked：点击态。
  - selected10+：选中态。
+ - hovered：悬浮态。**起始版本：** 26.0.0
 
 
 > [!NOTE]
@@ -113,7 +114,7 @@ struct MyComponent {
 **图2** 正常态和按压态
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/fivS-hKhSwuiNd_pe7jlPw/zh-cn_image_0000002686085341.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071839Z&HW-CC-Expire=86400&HW-CC-Sign=0F2ACBC093F08A8F66EF8F2D3F3C751B09991512A22537050E42F12A65AC5A28)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/tBri__71TcShfEEEjcJBJQ/zh-cn_image_0000002704391947.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095702Z&HW-CC-Expire=86400&HW-CC-Sign=AAFF285F63CFD45F7194AABFD06A3246AC138474F74F5D268F70B5C28F2AC3AE)
 
 
 
@@ -156,4 +157,4 @@ Button默认normal态显示蓝色，第一次按下Tab键让Button获焦显示�
 **图3** 点击改变获焦态样式
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/z_in4tIXRb-t0cgkke_nlg/zh-cn_image_0000002685925513.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071839Z&HW-CC-Expire=86400&HW-CC-Sign=BF5856091CC0C06DC671C10B55F0D1A877958B453AB8AF39CC9B26F7E03C4C6C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/GqhuZ9TVR3GYIBxIeS4GwQ/zh-cn_image_0000002674631824.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095702Z&HW-CC-Expire=86400&HW-CC-Sign=6268AA0CC599E7B08E1E3448D03C579DAFF56798C911DD4C550A794E051EBF75)

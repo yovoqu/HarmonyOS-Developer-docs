@@ -1,6 +1,6 @@
 # HarmonyOS应用上架包签名信息获取
 
-更新时间：2026-07-30 01:03:01
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-97
 
@@ -13,7 +13,7 @@ HarmonyOS应用打包使用的证书有调试证书和发布证书区分，上�
 #### 背景知识
 
 HarmonyOS应用经常需要集成一些开放能力，不管是华为开放能力还是三方能力，都需要做鉴权，鉴权的方式根据不同产品提供，一般是通过软件包的签名信息做鉴权，签名信息依赖于证书，而HarmonyOS应用打包有调试证书和发布证书区分，上架应用市场的应用必须用发布证书打包，为了保证应用上架后用户的体验，因此必须配置在架应用的签名信息。签名信息一般可通过公钥指纹和appId来承载。应用相关如：
- 1. 华为开放能力使用[公钥指纹](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-overview#section1726913517284)鉴权，涉及的场景服务有华为账号，应用内支付，钱包服务等。具体的操作步骤可以参见[配置公钥指纹。](https://developer.huawei.com/consumer/cn/doc/app/agc-help-cert-fingerprint-0000002278002933)
+ 1. 华为开放能力使用[公钥指纹](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-overview#条件必选添加公钥指纹)鉴权，涉及的场景服务有华为账号，应用内支付，钱包服务等。具体的操作步骤可以参见[配置公钥指纹。](https://developer.huawei.com/consumer/cn/doc/app/agc-help-cert-fingerprint-0000002278002933)
 2. 部分三方服务使用appId鉴权，具体的获取方式参考[bundleInfo.signatureInfo.appId。](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-bundleinfo#signatureinfo)正确的appId形式为："包名_签名信息"。
  
  

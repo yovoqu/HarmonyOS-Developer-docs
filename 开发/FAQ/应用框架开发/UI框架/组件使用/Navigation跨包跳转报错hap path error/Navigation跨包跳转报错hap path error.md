@@ -1,6 +1,6 @@
 # Navigation跨包跳转报错hap path error
 
-更新时间：2026-07-30 01:55:38
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1449
 
@@ -46,6 +46,6 @@
  
 
 #### 修改建议
-1. 路由表配置时，可以根据[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation#系统路由表)步骤逐步进行来配置。
+1. 路由表配置时，可以根据[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package#系统路由表)步骤逐步进行来配置。
 2. 路由表中的页面，需要使用NavDestination组件才能展示页面。
 3. HAR/HSP模块才可以跳转，可以通过module.json5文件查看type类型是否为har或者shared。

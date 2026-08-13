@@ -1,6 +1,6 @@
 # @Computed装饰器：计算属性
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-computed
 
@@ -119,7 +119,7 @@ struct Page {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/e2NCHC38QhGsU1xtEr2zIA/zh-cn_image_0000002656005934.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=7EC41480894E8A41805D4DA2AF04A0A6DF83D47AEAC96F1264F84085331ECDBA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/ESHq6H8CTQuGmseQC4viBA/zh-cn_image_0000002704271879.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=28AEC63169B0443D22F464A117E75EA7AFE981DD672A52AC1ED4ECF00EFDC974)
 
  - 在@Computed装饰的getter方法中，不能改变参与计算的属性，以防止重复执行计算属性导致的appfreeze。
 
@@ -301,7 +301,7 @@ struct ObservedV2ClassUser {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/-s3WIFZEQ2GSFn9Naet7bw/zh-cn_image_0000002686085443.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=04D2609397B8749C24CAEB02BA4374F264C1385B21B142FAAEF771D9A131083D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/AQzs2PCDTG68-P_34s5VCg/zh-cn_image_0000002704392049.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=0BBB6ED5D4C702FC186B1B2213DCB42DC3C39E85CA9BCDF02DA0A54597D094B3)
 
 
   
@@ -370,7 +370,7 @@ struct ComputedPropertyResolution {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/J1PQ8147TP2KC27BGoQyDw/zh-cn_image_0000002685925615.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=266B8D08298490160973329E6B4BA40D51B952F5F760FDE96042BE8D43E51CC0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/-yExW6yrTuK_SU2NfiZuYw/zh-cn_image_0000002674631926.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=3AB695BCD97ECDF1883D418D95CD07D5C467D22600D382377FB537EED0BA52EA)
 
 
 
@@ -466,4 +466,4 @@ struct Child {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/3I52cpX4SaSb1RHjTRKdOw/zh-cn_image_0000002656005936.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071842Z&HW-CC-Expire=86400&HW-CC-Sign=731E44243AFCF9C0BA645D4DDF2825D9DED08C8F126625B03D6F2D2897F74366)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/cGuViLcTQHOWQHrjuhj2Pg/zh-cn_image_0000002704271881.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095706Z&HW-CC-Expire=86400&HW-CC-Sign=98140C435957963CF80DD06884632B760F88217A387C2F2720DDA74393AFDC42)

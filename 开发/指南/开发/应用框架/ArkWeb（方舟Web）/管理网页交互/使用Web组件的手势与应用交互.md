@@ -1,6 +1,6 @@
 # 使用Web组件的手势与应用交互
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-gesture
 
@@ -87,7 +87,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/WSXKqcsIRD6Nuv1etK9KCA/zh-cn_image_0000002677666109.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012140Z&HW-CC-Expire=86400&HW-CC-Sign=F2E2C2A1B1F620C8881539400E62AD867DB2DF0FF0FD24BB405A6D73B01E9AC2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/xlXHiLsvR-SnXOJlbAs9pQ/zh-cn_image_0000002674632726.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095735Z&HW-CC-Expire=86400&HW-CC-Sign=740737D0612512E0B3A69A7B885D385D496B6B7A6B85FC3D9E4247B21BD5069E)
 
 
 

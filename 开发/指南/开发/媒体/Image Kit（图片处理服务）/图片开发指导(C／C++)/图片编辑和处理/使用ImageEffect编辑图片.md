@@ -1,6 +1,6 @@
 # 使用ImageEffect编辑图片
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-effect-guidelines
 
@@ -417,7 +417,7 @@ if (customFilterInfo ==nullptr) {
     return;
 }
 
-// 设置自定义滤镜滤镜名。
+// 设置自定义滤镜名。
 OH_EffectFilterInfo_SetFilterName(customFilterInfo, "CustomBrightness");
 
 // 设置自定义滤镜所支持的内存类型。

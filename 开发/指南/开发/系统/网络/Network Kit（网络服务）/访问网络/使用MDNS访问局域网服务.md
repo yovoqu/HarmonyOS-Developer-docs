@@ -1,6 +1,6 @@
 # 使用MDNS访问局域网服务
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/net-mdns
 

@@ -1,6 +1,6 @@
 # 如何解决preferences中报错15501002问题
 
-更新时间：2026-07-30 01:55:38
+更新时间：2026-08-13 01:23:38
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-database-management-57
 
@@ -32,7 +32,7 @@ Error message:The data group id is not valid
 #### 背景知识
 
 - [用户首选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences)为应用提供Key-Value键值型的数据处理能力，支持应用持久化轻量级数据，并对其修改和查询。数据存储采用键值对形式，键为字符串类型，值可为数字、字符、布尔类型及其对应的数组。
-- [15501002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-preferences#section15501002-options中传入的datagroupid参数非法)代表Options中传入的[dataGroupId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences#options10)参数非法。dataGroupId代表应用组Id，需要向应用市场获取，详见dataGroupId[申请流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ime-kit-security#section4219152220459)。注意：dataGroupId为可选参数。指定在此dataGroupId对应的沙箱路径下创建preferences实例。当此参数不填时，默认在本应用沙箱目录下创建preferences实例。模型约束：此属性仅在Stage模型下可用。
+- [15501002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-preferences#section15501002-options中传入的datagroupid参数非法)代表Options中传入的[dataGroupId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences#options10)参数非法。dataGroupId代表应用组Id，需要向应用市场获取，详见dataGroupId[申请流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ime-kit-security#共享沙箱介绍)。注意：dataGroupId为可选参数。指定在此dataGroupId对应的沙箱路径下创建preferences实例。当此参数不填时，默认在本应用沙箱目录下创建preferences实例。模型约束：此属性仅在Stage模型下可用。
 
  
 - dataGroupId的数据共享支持两种场景：1.同一应用的不同进程间共享，只支持三方应用中输入法和输入法的扩展场景使用；

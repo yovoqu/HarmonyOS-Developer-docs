@@ -1,12 +1,12 @@
 # Trap
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-trap
 
 #### 函数功能
 
-当软件产生异常后，使用该指令使kernel中止运行。
+当软件产生异常后，使用该指令终止kernel运行。
  
   
 

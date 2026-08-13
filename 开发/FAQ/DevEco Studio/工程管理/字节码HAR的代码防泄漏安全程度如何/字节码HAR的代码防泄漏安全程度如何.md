@@ -1,6 +1,6 @@
 # 字节码HAR的代码防泄漏安全程度如何
 
-更新时间：2026-07-30 01:18:30
+更新时间：2026-08-13 01:22:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-38
 
@@ -51,12 +51,12 @@ HAR是静态共享包，当[工程级build-profile.json5](https://developer.huaw
 4. 提升代码安全性的建议：
 在构建时使用release模式，避免编译过程中暴露调试信息。
 5. 在[模块级build-profile.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile)文件中配置源码混淆规则，推荐启用以下混淆选项：
-开启属性名称混淆：[-enable-property-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-enable-property-obfuscation)。
-6. 开启顶层作用域名称混淆：[-enable-toplevel-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-enable-toplevel-obfuscation)。
-7. 开启文件名混淆：[-enable-filename-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-enable-filename-obfuscation)。
-8. 开启导入导出名称混淆：[-enable-export-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-enable-export-obfuscation)。
+开启属性名称混淆：[-enable-property-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-enable-property-obfuscation)。
+6. 开启顶层作用域名称混淆：[-enable-toplevel-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-enable-toplevel-obfuscation)。
+7. 开启文件名混淆：[-enable-filename-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-enable-filename-obfuscation)。
+8. 开启导入导出名称混淆：[-enable-export-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-enable-export-obfuscation)。
 9. 代码压缩：[-compact](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#混淆规则合并策略)。
-10. 删除console.*语句：[-remove-log](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-remove-log)。
+10. 删除console.*语句：[-remove-log](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-remove-log)。
 11. 声明文件注释删除：[-remove-comments](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation)。
 12. 敏感数据保护：
 避免在源码中直接明文存储敏感字符串，例如密钥、URL、账号密码等。

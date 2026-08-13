@@ -1,6 +1,6 @@
 # Sendable对象简介
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable
 
@@ -101,7 +101,7 @@ Sendable interface需同时满足以下两个规则：
 
 **Sendable支持const enum类型使用示例：**
 
-```ArkTS
+```text
 export const enum ModelState {
   ACTIVE,
   INACTIVE
@@ -172,7 +172,7 @@ struct enumusage {
 **SharedHeap与LocalHeap关系图**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/SWPxD5QkR6SQ5SJnfQTuVg/zh-cn_image_0000002655845822.png?HW-CC-KV=V1&HW-CC-Date=20260730T071832Z&HW-CC-Expire=86400&HW-CC-Sign=4D9927B69C5BA5685A39C60DD31C3F885274D9AB9BC266E82895C3AA38467367)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/5xtcuL5FQuqZPCH8mVRq8Q/zh-cn_image_0000002704391853.png?HW-CC-KV=V1&HW-CC-Date=20260813T095646Z&HW-CC-Expire=86400&HW-CC-Sign=30E86B7BA191C0E5817090218F523630E31B414C170CB01A79ABD634B2EEAAF0)
 
 
 各个并发实例的LocalHeap是隔离的。SharedHeap是进程级别的堆，可以被所有并发实例共享，但SharedHeap不能引用LocalHeap中的对象。
@@ -224,7 +224,7 @@ type SendableFuncType = () => void;
 class TopLevelSendableClass {
   num: number = 1;
 
-  PrintNum() {
+  printNum() {
     console.info('Top level sendable class');
   }
 }
@@ -237,7 +237,7 @@ function topLevelSendableFunction() {
 @Sendable
 function sendableTestFunction() {
   const topClass = new TopLevelSendableClass(); // 顶层sendable class
-  topClass.PrintNum();
+  topClass.printNum();
   topLevelSendableFunction(); // 顶层sendable function
   console.info('Sendable test function');
 }
@@ -250,7 +250,7 @@ class SendableTestClass {
 
   callback: SendableFuncType; // 顶层sendable function
 
-  CallSendableFunc() {
+  callSendableFunc() {
     sendableTestFunction(); // 顶层sendable function
   }
 }

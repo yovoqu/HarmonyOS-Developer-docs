@@ -1,6 +1,6 @@
 # 延迟加载 (lazy import)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-08-11 11:13:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-lazy-import
 
@@ -362,7 +362,7 @@ hdc shell param set persist.ark.properties 0x000105c
 子线程文件名：data/app/el2/100/base/com.example.myapplication/files/com.example.myapplication_18089_redundant_file.txt
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/4MJc-2NuSVK-XdL2eMeDcg/zh-cn_image_0000002659099359.png?HW-CC-KV=V1&HW-CC-Date=20260701T014614Z&HW-CC-Expire=86400&HW-CC-Sign=F7146B84598A6F8BF061E7B91E23FCC195FA434A1D6AAB3524465A6759F9A9C5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/9eY5XdHZTQiPGaS32yDIcg/zh-cn_image_0000002704271693.png?HW-CC-KV=V1&HW-CC-Date=20260813T095651Z&HW-CC-Expire=86400&HW-CC-Sign=D0457AA288AB0D1498E1E94DD4D4F56F189331B93439208A966C63C05EB1D876)
 
 
 
@@ -408,7 +408,7 @@ export function func() {
 <----Summary----> Total file number: 13, total time: 2ms, including used file:12, cost time: 1ms, and unused file: 1, cost time: 1ms
 ```
 
-上述信息表示应用当前线程在冷启动抓取时间段内加载了13个文件，共耗时2ms。其中，12个文件导出内容被其他文件加载使用，执行这12个文件共耗时1ms；1个文件执行完成，但是其导出内容没有被其他文件在冷启阶段用到，耗时1ms。
+上述信息表示应用当前线程在冷启动抓取时间段内加载了13个文件，共耗时2ms。其中，12个文件导出内容被其他文件加载使用，执行这12个文件共耗时1ms；1个文件执行完成，但是其导出内容没有被其他文件在冷启动阶段用到，耗时1ms。
 
 
 
@@ -591,7 +591,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/4ZisWtRdTXm4pBq4Izb8Xw/zh-cn_image_0000002628860010.png?HW-CC-KV=V1&HW-CC-Date=20260701T014614Z&HW-CC-Expire=86400&HW-CC-Sign=C31AED0BFAA2EB674B120D5CB2D51EFA9B2CA03596F9EDEDC2D28807045BB8B4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/PymdGnkeQ5WSRL3388tFOw/zh-cn_image_0000002674471892.png?HW-CC-KV=V1&HW-CC-Date=20260813T095651Z&HW-CC-Expire=86400&HW-CC-Sign=22F93A24C1042B8CEAEC0F2BD0B03607DA21185DDF6AF1B3092D86B158B30A83)
 
 
 通过抓取Trace图查看调用栈，可以发现应用在冷启动时加载了A文件。
@@ -615,7 +615,7 @@ hdc file recv data/app/el2/100/base/${bundleName}/files/${bundleName}_redundant_
 4. 对上述示例代码获取到的文件进行分析。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/UFlurGh-QSeH6DESh2HmxA/zh-cn_image_0000002659219325.png?HW-CC-KV=V1&HW-CC-Date=20260701T014614Z&HW-CC-Expire=86400&HW-CC-Sign=E4B75F66C984D66B623A5E9FA6FF4827836927C7E2C278B7B93A55609C6EB167)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/UiSm8HKORuSplyFjX5VVvg/zh-cn_image_0000002704391861.png?HW-CC-KV=V1&HW-CC-Date=20260813T095651Z&HW-CC-Expire=86400&HW-CC-Sign=781711EB8AD5D579CAA80EBE39FDE8ACBB25B316B86B06E16A25253D9E85135D)
 
 
 **修改方式**
@@ -646,7 +646,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/COSzDvN7ReK0DpVsuvT6OA/zh-cn_image_0000002628700126.png?HW-CC-KV=V1&HW-CC-Date=20260701T014614Z&HW-CC-Expire=86400&HW-CC-Sign=736797557A57227D3C8336BF1A6BDAE731780CDC3563B50789C965CDBA4E496E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/LbdffNQcT5GHy1D9gu8Iig/zh-cn_image_0000002674631740.png?HW-CC-KV=V1&HW-CC-Date=20260813T095651Z&HW-CC-Expire=86400&HW-CC-Sign=C9E3B871C7FA77F839A97928743E425CABC715616670F018FCA33DBE13479EEA)
 
 
 通过抓取Trace图查看调用栈可以发现，使用lazy-import标识后，应用在冷启动时不再加载A文件。

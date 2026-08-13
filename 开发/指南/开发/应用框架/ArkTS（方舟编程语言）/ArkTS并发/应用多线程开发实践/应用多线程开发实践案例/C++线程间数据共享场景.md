@@ -1,6 +1,6 @@
 # C++线程间数据共享场景
 
-更新时间：2026-07-24 10:38:53
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-interthread-shared
 

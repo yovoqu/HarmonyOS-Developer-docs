@@ -1,6 +1,6 @@
 # ArkTS运行时常见问题
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-runtime-faq
 
@@ -302,7 +302,7 @@ hilog -b D
 然后点击DevEco Studio下方HiLog选项卡，输入过滤条件“Throw error:”，即可查看到Async函数内产生的异常信息。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/UEemgug1S0-nN3iXWD9LuQ/zh-cn_image_0000002656347405.png?HW-CC-KV=V1&HW-CC-Date=20260624T020739Z&HW-CC-Expire=86400&HW-CC-Sign=926773598498019CC04F19CF892153E7D049A6A9FDD39F11986202E20BE1224D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/zxKbQlzDTbiL40kwzF_qJg/zh-cn_image_0000002674631746.png?HW-CC-KV=V1&HW-CC-Date=20260813T095652Z&HW-CC-Expire=86400&HW-CC-Sign=D3DF9DE4031580151A47447846E9A2CBA94317C3E7074D764FA0A8A4E0744079)
 
 
 

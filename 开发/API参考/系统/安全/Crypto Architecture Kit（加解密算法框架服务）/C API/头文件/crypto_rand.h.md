@@ -1,6 +1,6 @@
 # crypto_rand.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-rand-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -184,7 +184,7 @@ OH_Crypto_ErrCode OH_CryptoRand_SetSeed(OH_CryptoRand *ctx, Crypto_DataBlob *see
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：ctx为NULL， 或seed无效（seed为NULL、seed->data为NULL、seed->len为0、或seed->len超过INT_MAX）。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存操作失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_PARAMETER_CHECK_FAILED：ctx为NULL，或seed无效（seed为NULL、seed->data为NULL、seed->len为0、或seed->len超过INT_MAX）。 CRYPTO_NOT_SUPPORTED：不支持的操作或算法。 CRYPTO_MEMORY_ERROR：内存操作失败。 CRYPTO_OPERTION_ERROR：密码操作失败。 |
  
  
   

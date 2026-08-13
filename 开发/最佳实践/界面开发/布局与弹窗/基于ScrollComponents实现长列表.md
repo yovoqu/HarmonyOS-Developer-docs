@@ -1,6 +1,6 @@
 # 基于ScrollComponents实现长列表
 
-更新时间：2026-07-22 06:05:01
+更新时间：2026-08-10 06:55:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-list-based-on-scrollcomponents
 
@@ -1253,7 +1253,7 @@ function GroupItemActionEnd(args: [number, GoodsDataModel, ListItemGroupManager]
 
 #### 场景描述
 
-List组件作为整个首页长列表的容器，通过ListItem对不同模块进行视图界面的定制，常用于门户首页、商城首页等多类型视图展示的列表信息流场景。多类型列表项场景（List+ListHeaderView）参考：[常见列表流开发实践：多类型列表项场景](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-common-list-flows#section20614147618)。
+List组件作为整个首页长列表的容器，通过ListItem对不同模块进行视图界面的定制，常用于门户首页、商城首页等多类型视图展示的列表信息流场景。多类型列表项场景（List+ListHeaderView）参考：[常见列表流开发实践：多类型列表项场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-list-flow#多类型列表项场景)。
  
 图13 **ListHeaderView滑动效果图**
 ![](assets/基于ScrollComponents实现长列表/file-20260515114455306-9.gif)
@@ -1339,7 +1339,7 @@ export struct ListHeaderView {
 
 #### 场景描述
 
-Tabs嵌套List的吸顶效果，常用于新闻和资讯类应用的首页。长列表Tabs吸顶功能参考：[常见列表流开发实践：Tabs吸顶场景](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-common-list-flows#section103354617711)
+Tabs嵌套List的吸顶效果，常用于新闻和资讯类应用的首页。长列表Tabs吸顶功能参考：[常见列表流开发实践：Tabs吸顶场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-list-flow#tabs吸顶场景)
  
 图14 **Tabs的TabBar吸顶效果图**
 ![](assets/基于ScrollComponents实现长列表/file-20260525085829525-002.gif)
@@ -1458,7 +1458,7 @@ struct TabsCeilingListPage {
 
 #### 场景描述
 
-双列表同向联动，左侧分类列表用于快速索引，内容列表依据分类进行分组，常用于商品分类选择、通讯录、城市选择、分组选择等页面。长列表分组吸顶功能参考：[常见列表流开发实践：分组吸顶场景](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-common-list-flows#section16551551888)。
+双列表同向联动，左侧分类列表用于快速索引，内容列表依据分类进行分组，常用于商品分类选择、通讯录、城市选择、分组选择等页面。长列表分组吸顶功能参考：[常见列表流开发实践：分组吸顶场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-list-flow#分组吸顶场景)。
  
 本案例实现商品分类选择页面列表头部分类吸顶效果，如下图所示。
  
@@ -1538,7 +1538,7 @@ initView() {
 
 #### 场景描述
 
-通过选择左侧的一级列表，右侧的二级列表数据将相应更新，常用于商品分类选择、编辑风格等二级类别选择页面。长列表二级联动功能参考：[常见列表流开发实践：二级联动场景](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-common-list-flows#section323632114913)。
+通过选择左侧的一级列表，右侧的二级列表数据将相应更新，常用于商品分类选择、编辑风格等二级类别选择页面。长列表二级联动功能参考：[常见列表流开发实践：二级联动场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-list-flow#二级联动场景)。
  
 本场景以商品分类列表页面为例，分别使用List组件展示左侧分类导航和右侧导航内容。进入页面后，点击左侧分类导航，右侧将展示对应的分类详情列表数据；滑动右侧列表内容时，列表标题将吸顶显示，同时左侧对应的导航内容高亮显示。
  

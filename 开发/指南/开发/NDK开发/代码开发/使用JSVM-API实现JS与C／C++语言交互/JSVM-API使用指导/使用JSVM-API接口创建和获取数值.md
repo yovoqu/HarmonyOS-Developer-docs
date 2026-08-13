@@ -1,6 +1,6 @@
 # 使用JSVM-API接口创建和获取数值
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-basic-data-types
 

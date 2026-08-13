@@ -1,6 +1,6 @@
 # Push Kit推送服务接入常见错误码和解决方案
 
-更新时间：2026-07-30 01:03:01
+更新时间：2026-08-12 10:47:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-10
 
@@ -29,7 +29,7 @@
 - [80300002 当前应用无权限下发推送消息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-response#section80300002-当前应用无权限下发推送消息)。请确保当前应用所属的项目已开通了推送服务，并基于该项目重新生成鉴权令牌，并重新尝试推送消息。建议排查方向：1. 是否已开通推送服务。
 
 2. 推送请求URL中的projectId与当前应用所属的项目是否一致。
-- [80300007 所有Token都是无效的](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-response#section80300007-所有token都是无效的)，请根据响应消息中的提示，按关键词排查问题。例如，下面日志中的关键词为noPushTypeRight，表示没有发送对应push-type场景的权益，需要申请对应场景的权益。其他问题情况可参考[80300007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-response#section030511015314)相关详细解析。
+- [80300007 所有Token都是无效的](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-response#section80300007-所有token都是无效的)，请根据响应消息中的提示，按关键词排查问题。例如，下面日志中的关键词为noPushTypeRight，表示没有发送对应push-type场景的权益，需要申请对应场景的权益。其他问题情况可参考[80300007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-response#section80300007-所有token都是无效的)相关详细解析。
 ```text
 code=80300007,
 msg={"failure":<span style="color: rgb(0,0,255);">1</span>,"illegalTokens":{"noPushTypeRight":["MAM0Ku.........jixTSG"]}},

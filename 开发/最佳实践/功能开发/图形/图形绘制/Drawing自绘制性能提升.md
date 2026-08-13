@@ -1,6 +1,6 @@
 # Drawing自绘制性能提升
 
-更新时间：2026-04-13 06:22:00
+更新时间：2026-08-10 06:55:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-drawing-capability-improve-performance
 
@@ -36,7 +36,7 @@
 #### 使用Canvas CanvasRenderingContext2D绘制
 
  
-Canvas CanvasRenderingContext2D使用[globalCompositeOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#globalcompositeoperation)属性来实现各种图层混合模式，此处将该属性的值设置为destination-out来实现透明空心圆。具体实现步骤如下：
+Canvas CanvasRenderingContext2D使用[globalCompositeOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#globalcompositeoperation)属性来实现各种图层混合模式，此处将该属性的值设置为destination-out来实现透明空心圆。具体实现步骤如下：
  1. 使用自定义组件GlassCoverView来实现透明圆圈。在首页点击"Begin Draw"按钮，随机生成1000个0-1的位置列表。
 ```ArkTS
 import GlassCoverView from './GlassCoverView';
@@ -433,7 +433,7 @@ static void NativeOnDrawPixelMap(OH_Drawing_Canvas *canvas, NativePixelMap *nati
 | Native Drawing画透明圈 | 1000 | 2.4毫秒 |
  
  
-通过上述对比可以发现，在实现较大数量透明空心圆这样的复杂的绘制场景，相比于Canvas CanvasRenderingContext2D，使用Native [Drawing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-canvas-h)可以得到明显的性能提升。以上只是实现透明空心圆融合场景，针对实心圆及其他融合场景（如[globalCompositeOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#globalcompositeoperation)属性的其他值），由于实现机制的不同，绘制指令数量也存在差异，从而性能数据会存在一些差异。实际应用中，可以根据实际情况，在对性能要求不高的情况采用Canvas CanvasRenderingContext2D，如果对性能要求比较高，建议使用Native [Drawing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-canvas-h)进行绘制。
+通过上述对比可以发现，在实现较大数量透明空心圆这样的复杂的绘制场景，相比于Canvas CanvasRenderingContext2D，使用Native [Drawing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-canvas-h)可以得到明显的性能提升。以上只是实现透明空心圆融合场景，针对实心圆及其他融合场景（如[globalCompositeOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#globalcompositeoperation)属性的其他值），由于实现机制的不同，绘制指令数量也存在差异，从而性能数据会存在一些差异。实际应用中，可以根据实际情况，在对性能要求不高的情况采用Canvas CanvasRenderingContext2D，如果对性能要求比较高，建议使用Native [Drawing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-canvas-h)进行绘制。
  
  
 

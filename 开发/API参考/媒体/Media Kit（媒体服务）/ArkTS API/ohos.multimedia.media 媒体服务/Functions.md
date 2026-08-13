@@ -1,6 +1,6 @@
 # Functions
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -635,7 +635,7 @@ createMediaSourceWithUrl(url: string, headers?: Record<string, string>): MediaSo
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| url | string | 是 | - 流媒体预下载媒体来源url，支持的流媒体格式：HLS、HTTP-FLV、Dash、Https。 - 本地m3u8的fd路径。 |
+| url | string | 是 | - 流媒体预下载媒体来源url，支持的流媒体格式：HLS、HTTP-FLV、Dash、HTTPS。 - 本地m3u8的fd路径。 |
 | headers | Record<string, string> | 否 | 支持流媒体预下载HttpHeader自定义。不传时为网络请求默认的HttpHeader。 |
 
 

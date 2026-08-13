@@ -1,6 +1,6 @@
 # 命令行构建工具（hvigorw）
 
-更新时间：2026-07-28 12:07:32
+更新时间：2026-08-05 02:47:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-commandline
 
@@ -81,7 +81,7 @@ hvigorw [taskNames...] <options>
 
 | 参数 | 说明 |
 | --- | --- |
-| -e, --error | 设置hvigor的日志级别为error。 |
+| -e, --error | 设置Hvigor的日志级别为error。 |
 | -w, --warn | 设置Hvigor的日志级别为warn。 |
 | -i, --info | 设置Hvigor的日志级别为info。 |
 | -d, --debug | 设置Hvigor的日志级别为debug。 |

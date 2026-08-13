@@ -1,6 +1,6 @@
 # JSVM-API简介
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jsvm-introduction
 
@@ -20,7 +20,7 @@ HarmonyOS JSVM-API是并发不安全接口，开发者需保障JSVM-API的并发
 ![](assets/JSVM-API简介/file-20260514132717753-0.png)
  
  
-JSVM-API仅支持JS与C/C++的交互，如果需要实现ArkTS与C/C++的交互，请参考[Node-API简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-introduction)
+JSVM-API仅支持JS与C/C++的交互，如果需要实现ArkTS与C/C++的交互，请参考[Node-API简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-introduction)。
   
 
  

@@ -1,6 +1,6 @@
 # 文本输入 (TextInput/TextArea/Search)
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-text-input
 
@@ -684,7 +684,7 @@ struct CursorAvoid {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/vzrhn4cFQe6w74sVRPia4g/zh-cn_image_0000002647745780.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012133Z&HW-CC-Expire=86400&HW-CC-Sign=EB972E8662689788BDA1A9235DBB9638357FE57DDFC8DED98E981F7E0B3B6779)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/peJv1se4R--qrst7PZNxHA/zh-cn_image_0000002704392335.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095711Z&HW-CC-Expire=86400&HW-CC-Sign=2A6818210662F2747F2E274F2AB7FB1E03875DB47AB7737F91A72DBABB326FDE)
 
 
 
@@ -759,4 +759,4 @@ struct TextExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/-t4bWsjwRD-Jp1EGDOHj6Q/zh-cn_image_0000002647585870.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012133Z&HW-CC-Expire=86400&HW-CC-Sign=00BE9182E77B898B8EB747BE9C5F289A90A7403BE37C7CEB6A4B39607BC961B5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/6dJkG1_dTEueAZkBL3f5Rg/zh-cn_image_0000002674632214.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095711Z&HW-CC-Expire=86400&HW-CC-Sign=7CD85C14AD4EE73C911435F64B531E9059F445EEE7372AFA152C8329C8EA81B3)

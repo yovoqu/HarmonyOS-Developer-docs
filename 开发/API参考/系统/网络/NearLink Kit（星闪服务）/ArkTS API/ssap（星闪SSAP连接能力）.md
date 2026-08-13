@@ -1,6 +1,6 @@
 # ssap（星闪SSAP连接能力）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-04 06:06:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-ssap
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -838,7 +838,7 @@ try {
 
 on(type: 'connectionStateChange', callback: Callback&lt;ConnectionChangeState&gt;): void
 
-订阅连接状态变化事件。使用callback异步回调。
+客户端订阅连接状态变化事件。使用callback异步回调。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -894,7 +894,7 @@ try {
 
 off(type: 'connectionStateChange', callback?: Callback&lt;ConnectionChangeState&gt;): void
 
-取消订阅连接状态变化事件。使用callback异步回调。
+客户端取消订阅连接状态变化事件。使用callback异步回调。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -950,7 +950,7 @@ try {
 
 on(type: 'mtuChange', callback: Callback&lt;number&gt;): void
 
-订阅MTU变化事件。使用callback异步回调。
+客户端订阅MTU变化事件。使用callback异步回调。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1006,7 +1006,7 @@ try {
 
 off(type: 'mtuChange', callback?: Callback&lt;number&gt;): void
 
-取消订阅MTU变化事件。使用callback异步回调。
+客户端取消订阅MTU变化事件。使用callback异步回调。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1424,7 +1424,7 @@ try {
 
 on(type: 'connectionStateChange', callback: Callback&lt;ConnectionChangeState&gt;): void
 
-订阅连接状态变化事件。使用callback异步回调。
+服务端订阅连接状态变化事件。使用callback异步回调。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1479,7 +1479,7 @@ try {
 
 off(type: 'connectionStateChange', callback?: Callback&lt;ConnectionChangeState&gt;): void
 
-取消订阅连接状态变化事件。使用callback异步回调。
+服务端取消订阅连接状态变化事件。使用callback异步回调。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1754,7 +1754,7 @@ try {
 
 on(type: 'mtuChange', callback: Callback&lt;number&gt;): void
 
-订阅MTU（Maximum Transmission Unit）变化事件。使用callback异步回调。
+服务端订阅MTU（Maximum Transmission Unit）变化事件。使用callback异步回调。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1809,7 +1809,7 @@ try {
 
 off(type: 'mtuChange', callback?: Callback&lt;number&gt;): void
 
-取消订阅MTU变化事件。使用callback异步回调。
+服务端取消订阅MTU变化事件。使用callback异步回调。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 

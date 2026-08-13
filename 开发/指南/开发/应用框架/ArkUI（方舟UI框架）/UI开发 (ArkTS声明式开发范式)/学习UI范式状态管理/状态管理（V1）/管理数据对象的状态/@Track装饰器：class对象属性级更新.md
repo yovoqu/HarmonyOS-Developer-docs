@@ -1,6 +1,6 @@
 # @Track装饰器：class对象属性级更新
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-track
 
@@ -79,7 +79,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/jTJMjwoOQSKvg5VhMRC71Q/zh-cn_image_0000002656005874.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=8D9402539AF72CA67AB28D56C07096D1DA699BF562F86C8D685C20E673C5EA31)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/OfNEqmCyTgSFVYYe2ANU2g/zh-cn_image_0000002704271819.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=C846FA0B4B64B88A6ED0E0F4D649C056072ABB3E5B70329D3716A99AC0B1CA03)
 
 
 > [!NOTE]
@@ -208,7 +208,7 @@ struct AddLog {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/PZwjYyOWT5O2tpBpkTzhvw/zh-cn_image_0000002655845954.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=6372F01B6FEE68C6D6F113317D3821DF92FC944E4DE9CA431A165144AFF5273C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/8cEmXGEWQ6OSz0w1BNAzQA/zh-cn_image_0000002674472020.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=BA59DE8C22509C829966EE3F745C29B87F572C297A432F3299984411270C77FD)
 
 
 在上面的示例中：
@@ -300,7 +300,7 @@ struct AddLog {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/xncrZh_3QwGBmeMvWoz_mg/zh-cn_image_0000002686085383.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071840Z&HW-CC-Expire=86400&HW-CC-Sign=BAA484DF24C0CE4E61FEB9B5C587F9B666FEFA01908BB9C0A543232CD7E1F5C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/-X0LpB52SbqGdWq8vGILhA/zh-cn_image_0000002704391989.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095705Z&HW-CC-Expire=86400&HW-CC-Sign=362D14F1EA40548A35295B803758FB9006A3860B33CBF7EF518A32879AC9B8AC)
 
 
 处理步骤：

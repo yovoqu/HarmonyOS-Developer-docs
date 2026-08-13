@@ -1,6 +1,6 @@
 # Image错误码
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-07 10:00:25
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1735,7 +1735,7 @@ Unsupported metadata.
 
 **错误信息**
 
-Unsupported options, e.g, cannot convert image into desired pixel format.
+Unsupported options, e.g., cannot convert image into desired pixel format.
 
 **错误描述**
 

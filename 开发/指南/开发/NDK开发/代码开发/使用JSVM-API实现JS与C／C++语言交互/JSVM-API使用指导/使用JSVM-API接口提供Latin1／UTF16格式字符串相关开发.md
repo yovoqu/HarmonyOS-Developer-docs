@@ -1,6 +1,6 @@
 # 使用JSVM-API接口提供Latin1/UTF16格式字符串相关开发
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-external-string
 
@@ -32,7 +32,7 @@ JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开�
  
   
 
-#### 使用接口判断是否是Number Object
+#### 创建外部字符串
 
 cpp部分代码
  

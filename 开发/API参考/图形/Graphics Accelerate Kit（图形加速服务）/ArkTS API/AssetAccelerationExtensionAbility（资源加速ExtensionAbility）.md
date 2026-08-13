@@ -1,11 +1,20 @@
 # AssetAccelerationExtensionAbility（资源加速ExtensionAbility）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-03 11:34:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-extensionability
 **支持设备：** Phone | PC/2in1 | Tablet
 
-本模块为资源包后台下载框架，为资源包后台下载提供关键的生命周期函数。在后台下载任务成功/失败/结束后支持调用相应的回调函数。本模块存在如下约束：
+本模块为资源包后台下载框架，为资源包后台下载提供关键的生命周期函数。在后台下载任务成功、失败、结束后支持调用相应的回调函数。
+ 
+**起始版本：** 5.1.0(18)
+  
+
+#### 约束限制
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+本模块存在如下约束：
  
 - AssetAccelerationExtensionAbility为轻量、独立的子进程，不允许唤醒主进程。
 - assetDownloadManager提供的接口仅支持调用如下方法：
@@ -20,13 +29,17 @@
 - [assetDownloadManager.limitDownloadTaskSpeed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerlimitdownloadtaskspeed)
 - [assetDownloadManager.reportDownloadProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerreportdownloadprogress)
 
+  - 为保障系统安全性和稳定性，防止AssetAccelerationExtensionAbility滥用系统资源，系统对其能力进行管控，不支持以下模块的引用：
+
+  
+[@ohos.resourceschedule.backgroundTaskManager (后台任务管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-backgroundtaskmanager)
+- [@ohos.backgroundTaskManager (后台任务管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-backgroundtaskmanager)
+- [@ohos.multimedia.camera (相机管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)
+- [@ohos.multimedia.audio (音频管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio)
+- [@ohos.multimedia.media (媒体服务)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media)
+
   
  
-**模型约束：** 此接口仅可在Stage模型下使用。
- 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
- 
-**起始版本：** 5.1.0(18)
   
 
 #### 导入模块
