@@ -286,6 +286,17 @@ md = ''.join(parts)
 - 复制/收起/自动换行/深色代码主题按钮
 - 行号容器
 - 锚点图标
+- **`<span style="color:...">` 语法高亮标签及其闭合标签**（2026-08-14 教训：API 返回的代码块含颜色高亮 span，全量清理过 4,098 个文件、995,880 个标签。fetch_docs.py 恢复代码块时已加入清理逻辑，必须保留）
+
+```python
+# fetch_docs.py 恢复代码块时必须清理：
+code = re.sub(r'<span[^>]*>', '', code)
+code = re.sub(r'</span>', '', code)
+code = re.sub(r'<em[^>]*>', '', code)
+code = re.sub(r'</em>', '', code)
+```
+
+**注意**：正文中作为示例展示的 HTML 标签（如 `<div style='...'>`、`<a ping>`）也必须转义为 `&lt;div&gt;`，否则 Obsidian 会解析为真实 HTML 标签。
 
 ## 六、标题转换
 
