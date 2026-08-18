@@ -15,14 +15,14 @@
 参考代码如下：
  1. 系统编译SO库
 ```text
-<em>// sub.h </em>
+// sub.h 
 extern "C" {
 double sub(double a, double b); 
 }
 ```
  
 ```cpp
-<em>// sub.cpp </em>
+// sub.cpp 
 #include <iostream> 
 #include "sub.h" 
 double sub(double a, double b) 
@@ -105,8 +105,8 @@ struct Index {
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
           .onClick(() => {
-            let path = this.getUIContext().getHostContext()!.bundleCodeDir; <em>// Get project path</em>
-            hilog.info(0x0000, 'testTag', 'Test NAPI 2 + 3 = %{public}d', testNapi.subSobyDlOpenSo(2, 3, path + '/libs/arm64/libnativeSub.so'));<em> // Transfer parameter path information to the native side</em>
+            let path = this.getUIContext().getHostContext()!.bundleCodeDir; // Get project path
+            hilog.info(0x0000, 'testTag', 'Test NAPI 2 + 3 = %{public}d', testNapi.subSobyDlOpenSo(2, 3, path + '/libs/arm64/libnativeSub.so')); // Transfer parameter path information to the native side
           })
       }
       .width('100%')
@@ -130,12 +130,12 @@ static napi_value SubSobyDlOpenSo(napi_env env, napi_callback_info info) {
     napi_get_value_double(env, args[1], &value1);
     char* path = new char[1024];
     size_t size = 1024;
-    napi_get_value_string_utf8(env, args[2], path, 255, &size); <em>// Obtain dynamic library path information</em>
-    void *handle = dlopen(path, RTLD_LAZY);                     <em>// Open the dynamic link library with path as path</em>
+    napi_get_value_string_utf8(env, args[2], path, 255, &size); // Obtain dynamic library path information
+    void *handle = dlopen(path, RTLD_LAZY);                     // Open the dynamic link library with path as path
     napi_value result;
-    Sub sub_func = (Sub)dlsym(handle, "sub");                   <em>// Get the function named sub</em>
+    Sub sub_func = (Sub)dlsym(handle, "sub");                   // Get the function named sub
     napi_create_double(env, sub_func(value0, value1), &result);
-    dlclose(handle);                                           <em> // Finally, close the dynamic library</em>
+    dlclose(handle);                                            // Finally, close the dynamic library
     return result;
 }
 ```

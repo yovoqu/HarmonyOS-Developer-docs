@@ -30,7 +30,7 @@ struct BuilderSpanExample {
   @Builder
   imageTextBuilder() {
     Row({ space: 2 }) {
-     <em> // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。</em>
+      // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。
       Image($r('app.media.startIcon')).width(24).height(24).margin({ left: -5 });
       Text('\n').fontSize(10);
     }
@@ -88,7 +88,7 @@ struct Index {
   @Builder
   imageTextBuilder() {
     Row({ space: 2 }) {
-    <em>  // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。</em>
+      // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。
       Image($r('app.media.startIcon')).width(70).height(70).margin({ left: -5 });
     }
     .height(this.imageTextHeight)

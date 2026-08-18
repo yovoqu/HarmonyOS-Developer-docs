@@ -29,7 +29,7 @@
 const requestConfig: rcp.Configuration = {
   security: {
     remoteValidation: () => {
-    <em>  // 重写ValidationCallback，直接返回true表示验证通过</em>
+      // 重写ValidationCallback，直接返回true表示验证通过
       console.info('[index]证书验证');
       return true;
     }
@@ -108,23 +108,23 @@ struct RcpConnection {
       const requestConfig: rcp.Configuration = {
         security: {
           remoteValidation: () => {
-         <em>   // 重写ValidationCallback，直接返回true表示验证通过</em>
+            // 重写ValidationCallback，直接返回true表示验证通过
             console.info('[index]证书验证');
             return true;
           }
         }
       };
 
-   <em>   // 服务器地址</em>
+      // 服务器地址
       const kHttpServerAddress = 'xx.xx.xx';
-   <em>   // 创建一个get请求对象</em>
+      // 创建一个get请求对象
       const request = new rcp.Request(kHttpServerAddress, 'GET');
-    <em>  // 传入自定义的配置项，处理请求</em>
+      // 传入自定义的配置项，处理请求
       const session = rcp.createSession({ requestConfiguration: requestConfig });
       const resp = await session.fetch(request);
       let decoder: util.TextDecoder = util.TextDecoder.create('utf-8');
       let body: string = decoder.decodeToString(new Uint8Array(resp.body));
-   <em>   // 显示提示信息，包含响应成功的消息和响应体内容</em>
+      // 显示提示信息，包含响应成功的消息和响应体内容
       promptAction.openToast({ message: '连接成功' });
       console.info('连接成功: ' + body);
     } catch (error) {
@@ -141,16 +141,16 @@ struct RcpConnection {
         remoteValidation: 'skip'
       };
 
-   <em>   // 服务器地址</em>
+      // 服务器地址
       const kHttpServerAddress = 'xx.xx.xx';
-   <em>   // 创建一个get请求对象</em>
+      // 创建一个get请求对象
       const request = new rcp.Request(kHttpServerAddress, 'GET');
-      <em>// 传入自定义的配置项，处理请求</em>
+      // 传入自定义的配置项，处理请求
       const sessionWithSecurityConfig = rcp.createSession({ requestConfiguration: { security: securityConfig } });
       const resp = await sessionWithSecurityConfig.fetch(request);
       let decoder: util.TextDecoder = util.TextDecoder.create('utf-8');
       let body: string = decoder.decodeToString(new Uint8Array(resp.body));
-     <em> // 显示提示信息，包含响应成功的消息和响应体内容</em>
+      // 显示提示信息，包含响应成功的消息和响应体内容
       promptAction.openToast({ message: '连接成功' });
       console.info('连接成功: ' + body);
     } catch (error) {

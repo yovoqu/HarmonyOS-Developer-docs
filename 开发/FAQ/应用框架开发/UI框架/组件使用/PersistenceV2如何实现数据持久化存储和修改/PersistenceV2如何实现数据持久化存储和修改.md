@@ -32,9 +32,9 @@ import { PersistenceV2 } from '@kit.ArkUI';
 
 @ObservedV2
 export class PData {
-  <em>// 被PersistenceV2持久化的类属性必须要有初值，否则不支持持久化。</em>
+  // 被PersistenceV2持久化的类属性必须要有初值，否则不支持持久化。
   @Trace id: string = '';
- <em> // 只有@Trace的数据改变会触发自动持久化，普通数据的改变不会触发持久化。</em>
+  // 只有@Trace的数据改变会触发自动持久化，普通数据的改变不会触发持久化。
   data: string = '';
 }
 
@@ -42,7 +42,7 @@ export class MyUtils {
   static upDatePDataById(id: string) {
     let pData: PData = PersistenceV2.globalConnect({ type: PData, defaultCreator: () => new PData() })!;
     console.info(`upDatePDataById, before pData.id = ${pData.id}, pData.data = ${pData.data}`);
-  <em>  // id是@Trace装饰的，直接修改即可触发持久化</em>
+    // id是@Trace装饰的，直接修改即可触发持久化
     pData.id = id;
     console.info(`upDatePDataById, after pData.id = ${pData.id}, pData.data = ${pData.data}`);
   }
@@ -51,7 +51,7 @@ export class MyUtils {
     let pData: PData = PersistenceV2.globalConnect({ type: PData, defaultCreator: () => new PData() })!;
 
     console.info(`upDatePData, before pData.id = ${pData.id}, pData.data = ${pData.data}`);
-  <em>  // 普通数据的改变不会触发持久化，不能对整个对象进行赋值。所以属性值需要逐个赋值，可在赋值普通数据之后赋值@Trace装饰的数据，触发持久化</em>
+    // 普通数据的改变不会触发持久化，不能对整个对象进行赋值。所以属性值需要逐个赋值，可在赋值普通数据之后赋值@Trace装饰的数据，触发持久化
     pData.data = pDataTmp.data;
     pData.id = pDataTmp.id;
     console.info(`upDatePData, after pData.id = ${pData.id}, pData.data = ${pData.data}`);
@@ -69,7 +69,7 @@ struct Index {
         Text(this.pData.id)
           .fontSize(30)
           .fontWeight(FontWeight.Bold)
-        Text(this.pData.data) <em>// data非@Trace修饰，数据变化UI不会刷新</em>
+        Text(this.pData.data) // data非@Trace修饰，数据变化UI不会刷新
           .fontSize(30)
           .fontWeight(FontWeight.Bold)
         Button('更新PersistenceV2中的属性')
@@ -109,17 +109,17 @@ export default class EntryAbility extends UIAbility {
   }
 
   onDestroy(): void {
-   <em> // 可以正常读取</em>
+    // 可以正常读取
     let pData: PData = PersistenceV2.globalConnect({ type: PData, defaultCreator: () => new PData() })!;
     console.info(`onDestroy, pData.id = ${pData.id}, pData.data = ${pData.data}`);
 
-   <em> // PersistenceV2必须与UI实例关联，在销毁过程中进行数据持久化修改，修改不生效</em>
+    // PersistenceV2必须与UI实例关联，在销毁过程中进行数据持久化修改，修改不生效
     MyUtils.upDatePDataById(new Date().getTime().toString());
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onDestroy');
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-   <em> // Main window is created, set main page for this ability</em>
+    // Main window is created, set main page for this ability
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
     windowStage.loadContent('pages/Index', (err) => {
@@ -129,42 +129,42 @@ export default class EntryAbility extends UIAbility {
       }
       hilog.info(DOMAIN, 'testTag', 'Succeeded in loading the content.');
 
-     <em> // 可以正常读取</em>
+      // 可以正常读取
       let pData: PData = PersistenceV2.globalConnect({ type: PData, defaultCreator: () => new PData() })!;
       console.info(`onWindowStageCreate, pData.id = ${pData.id}, pData.data = ${pData.data}`);
 
-     <em> // PersistenceV2必须与UI实例关联，持久化操作需在UI实例初始化完成后调用（即loadContent回调触发后），修改生效</em>
+      // PersistenceV2必须与UI实例关联，持久化操作需在UI实例初始化完成后调用（即loadContent回调触发后），修改生效
       MyUtils.upDatePDataById(new Date().getTime().toString());
     });
   }
 
   onWindowStageDestroy(): void {
-   <em> // Main window is destroyed, release UI related resources</em>
+    // Main window is destroyed, release UI related resources
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
 
-    <em>// 可以正常读取</em>
+    // 可以正常读取
     let pData: PData = PersistenceV2.globalConnect({ type: PData, defaultCreator: () => new PData() })!;
     console.info(`onWindowStageDestroy, pData.id = ${pData.id}, pData.data = ${pData.data}`);
 
-   <em> // PersistenceV2必须与UI实例关联，在销毁过程中进行数据持久化修改，修改不生效</em>
+    // PersistenceV2必须与UI实例关联，在销毁过程中进行数据持久化修改，修改不生效
     MyUtils.upDatePDataById(new Date().getTime().toString());
   }
 
   onForeground(): void {
-   <em> // Ability has brought to foreground</em>
+    // Ability has brought to foreground
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground(): void {
-   <em> // 可以正常读取</em>
+    // 可以正常读取
     let pData: PData = PersistenceV2.globalConnect({ type: PData, defaultCreator: () => new PData() })!;
     console.info(`onBackground, pData.id = ${pData.id}, pData.data = ${pData.data}`);
 
-   <em> // PersistenceV2必须与UI实例关联，持久化操作需在UI实例初始化完成后调用（即loadContent回调触发后），修改生效</em>
+    // PersistenceV2必须与UI实例关联，持久化操作需在UI实例初始化完成后调用（即loadContent回调触发后），修改生效
     MyUtils.upDatePDataById(new Date().getTime().toString());
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onDestroy');
 
-   <em> // Ability has back to background</em>
+    // Ability has back to background
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 }

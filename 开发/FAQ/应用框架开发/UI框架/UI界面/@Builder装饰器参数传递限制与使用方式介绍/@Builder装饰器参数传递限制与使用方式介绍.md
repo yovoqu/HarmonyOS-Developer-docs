@@ -34,15 +34,15 @@ ArkUI提供@Builder装饰器来实现轻量UI元素复用，@Builder装饰器适
 @Entry
 @Component
 struct PrivateValueCopyConstructor {
-  <em>// 在自定义组件内部</em>
+  // 在自定义组件内部
 
-  <em>// 无参数</em>
+  // 无参数
   @Builder
   showTextBuilder() {
     Text('Hello World');
   }
 
-  <em>// 有参数</em>
+  // 有参数
   @Builder
   showTextValueBuilder(param: string) {
     Text(param);
@@ -50,9 +50,9 @@ struct PrivateValueCopyConstructor {
 
   build() {
     Column() {
-      <em>// 无参数</em>
+      // 无参数
       this.showTextBuilder();
-      <em>// 有参数</em>
+      // 有参数
       this.showTextValueBuilder('Hello @Builder');
     };
   }
@@ -68,7 +68,7 @@ class TmpPrivateReferenceCopyConstructor {
 @Entry
 @Component
 struct PrivateReferenceCopyConstructor {
-  <em>// 在自定义组件内部</em>
+  // 在自定义组件内部
   @Builder
   showTextBuilder(tmp: TmpPrivateReferenceCopyConstructor) {
     Row() {
@@ -78,7 +78,7 @@ struct PrivateReferenceCopyConstructor {
 
   build() {
     Column() {
-      <em>// 按引用传递</em>
+      // 按引用传递
       this.showTextBuilder({ param: 'hihi' });
     };
   }
@@ -102,7 +102,7 @@ struct PrivateCallBackConstructor {
         Text(`numberOne: ${numOne.value}, numberTwo: ${numTwo.value}`);
         Button(`only change numberTwo`)
           .onClick(() => {
-            <em>// 赋值MutableBinding类型传递该修改到父组件中。</em>
+            // 赋值MutableBinding类型传递该修改到父组件中。
             numTwo.value += 1;
           });
       };
@@ -117,9 +117,9 @@ struct PrivateCallBackConstructor {
           this.numberTwo++;
         });
       this.PrivateCallBackBuilder(
-        <em>// 使用makeBinding传入参数，需要传入读回调，返回Binding类型，支持@Builder内组件UI刷新。</em>
+        // 使用makeBinding传入参数，需要传入读回调，返回Binding类型，支持@Builder内组件UI刷新。
         UIUtils.makeBinding<number>(() => this.numberOne),
-        <em>// makeBinding额外传入写回调时返回MutableBinding类型，支持@Builder内组件UI刷新并且同步属性修改。</em>
+        // makeBinding额外传入写回调时返回MutableBinding类型，支持@Builder内组件UI刷新并且同步属性修改。
         UIUtils.makeBinding<number>(
           () => this.numberTwo,
           (val: number) => {
@@ -138,23 +138,23 @@ struct PrivateCallBackConstructor {
 struct PublicValueCopyConstructor {
   build() {
     Column() {
-      <em>// 无参数</em>
+      // 无参数
       showTextBuilderPublic();
-      <em>// 有参数</em>
+      // 有参数
       showTextValueBuilderPublic('Hello @Builder');
     };
   }
 }
 
-<em>// 全局定义</em>
+// 全局定义
 
-<em>// 无参数</em>
+// 无参数
 @Builder
 function showTextBuilderPublic() {
   Text('Hello World');
 }
 
-<em>// 有参数</em>
+// 有参数
 @Builder
 function showTextValueBuilderPublic(param: string) {
   Text(param);
@@ -172,13 +172,13 @@ class TmpPublicReferenceCopyConstructor {
 struct PublicReferenceCopyConstructor {
   build() {
     Column() {
-      <em>// 按引用传递</em>
+      // 按引用传递
       showTextBuilder({ param: 'hihi' });
     };
   }
 }
 
-<em>// 全局定义</em>
+// 全局定义
 @Builder
 function showTextBuilder(tmp: TmpPublicReferenceCopyConstructor) {
   Row() {
@@ -198,7 +198,7 @@ function PublicCallBackBuilder(numOne: Binding<number>, numTwo: MutableBinding<n
       Text(`numberOne: ${numOne.value}, numberTwo: ${numTwo.value}`);
       Button(`only change numberTwo`)
         .onClick(() => {
-          <em>// 赋值MutableBinding类型传递该修改到父组件中。</em>
+          // 赋值MutableBinding类型传递该修改到父组件中。
           numTwo.value += 1;
         });
     };
@@ -219,9 +219,9 @@ struct PublicCallBackConstructor {
           this.numberTwo++;
         });
       PublicCallBackBuilder(
-        <em>// 使用makeBinding传入参数，需要传入读回调，返回Binding类型，支持@Builder内组件UI刷新。</em>
+        // 使用makeBinding传入参数，需要传入读回调，返回Binding类型，支持@Builder内组件UI刷新。
         UIUtils.makeBinding<number>(() => this.numberOne),
-        <em>// makeBinding额外传入写回调时返回MutableBinding类型，支持@Builder内组件UI刷新并且同步属性修改。</em>
+        // makeBinding额外传入写回调时返回MutableBinding类型，支持@Builder内组件UI刷新并且同步属性修改。
         UIUtils.makeBinding<number>(
           () => this.numberTwo,
           (val: number) => {
@@ -251,7 +251,7 @@ struct ErrorChangeValue {
     Row() {
       Text(`UseStateVarByReference: ${tmp.param} `)
         .onClick(() => {
-          <em>// 修改对象属性值</em>
+          // 修改对象属性值
           tmp.param = 'dddddddd';
         });
     };
@@ -259,7 +259,7 @@ struct ErrorChangeValue {
 
   build() {
     Column() {
-      <em>// 引用传递</em>
+      // 引用传递
       this.showTextBuilder({ param: 'hello' });
     };
   }
@@ -274,7 +274,7 @@ struct ErrorChangeValue {
 struct ErrorInValuePassing {
   @State myParam: string = '我的自定义';
 
-  <em>// 在自定义组件内部</em>
+  // 在自定义组件内部
   @Builder
   showTextBuilder(tmp: string) {
     Row() {
@@ -305,7 +305,7 @@ class TmpErrorMultipleParameters {
 struct ErrorMultipleParameters {
   @State myParam: string = '我的自定义';
 
-  <em>// 在自定义组件内部,同时传入多个参数</em>
+  // 在自定义组件内部,同时传入多个参数
   @Builder
   showTextBuilder(tmp: TmpErrorMultipleParameters, size: number) {
     Row() {
@@ -316,7 +316,7 @@ struct ErrorMultipleParameters {
   build() {
     Column() {
       Text(`UseStateVarByReference: ${this.myParam} `);
-      <em>// 多个参数</em>
+      // 多个参数
       this.showTextBuilder({ param: this.myParam }, 12);
 
       Button('修改我的自定义').onClick(() => {
@@ -342,7 +342,7 @@ class TmpErrorObjectConstruction {
 struct ErrorObjectConstruction {
   @State myParam: string = '我的自定义';
 
-  <em>// 在自定义组件内部</em>
+  // 在自定义组件内部
   @Builder
   showTextBuilder(tmp: TmpErrorObjectConstruction) {
     Row() {
@@ -353,7 +353,7 @@ struct ErrorObjectConstruction {
   build() {
     Column() {
       Text(`UseStateVarByReference: ${this.myParam} `);
-      <em>// 使用构造方法，创建对象</em>
+      // 使用构造方法，创建对象
       this.showTextBuilder(new TmpErrorObjectConstruction(this.myParam));
 
       Button('修改我的自定义').onClick(() => {
@@ -370,7 +370,7 @@ struct ErrorObjectConstruction {
 ```text
 class Tmp {
   param: string = '默认值';
-  <em>// 多余的参数，封装到类中</em>
+  // 多余的参数，封装到类中
   size: number = 0;
 }
 
@@ -379,7 +379,7 @@ class Tmp {
 struct CorrectImplementationExample {
   @State myParam: string = '我的自定义';
 
-  <em>// 在自定义组件内部</em>
+  // 在自定义组件内部
   @Builder
   showTextBuilder(tmp: Tmp) {
     Row() {
@@ -391,7 +391,7 @@ struct CorrectImplementationExample {
   build() {
     Column({ space: 10 }) {
       Text(`UseStateVarByReference: ${this.myParam} `);
-      <em>// 对象字面量  状态变量封装至对象中</em>
+      // 对象字面量  状态变量封装至对象中
       this.showTextBuilder({ param: this.myParam, size: 18 });
 
       Button('修改我的自定义').onClick(() => {

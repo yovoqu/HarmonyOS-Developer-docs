@@ -30,7 +30,7 @@ Slider({
   max: this.durationTime
 })
   .onChange((value: number) => {
-    this.controller.setCurrentTime(value); <em>// 设置视频播放的进度跳转到value处</em>
+    this.controller.setCurrentTime(value); // 设置视频播放的进度跳转到value处
   })
   .width('65%');
 ```
@@ -43,19 +43,19 @@ Slider({
 .onPrepared((event) => {
   if (event) {
     this.durationTime = event.duration;
-    this.restTime = event.duration; <em>// 获取视频总长</em>
+    this.restTime = event.duration; // 获取视频总长
   }
 })
 .onUpdate((event) => {
   if (event) {
     this.currentTime = event.time;
-    this.restTime = this.durationTime - event.time; <em>// 剩余时长等于总长减去当前位置</em>
+    this.restTime = this.durationTime - event.time; // 剩余时长等于总长减去当前位置
   }
 });
 ```
  
 ```text
-<em>// 展示剩余时长</em>
+// 展示剩余时长
 Text(`${this.restTime.toString()}s`)
   .width('10%')
   .fontColor(Color.White);
@@ -96,7 +96,7 @@ AVVolumePanel({
 **实现原理：** 通过[window.getLastWindow()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-f#windowgetlastwindow9)方法获取窗口信息，再通过[setPreferredOrientation()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setpreferredorientation9)方法设置窗口的显示方向。
 - **关键代码：**
 ```text
-<em>// 修改全屏控制方法，同时删除原问题代码中Video组件的onFullscreenChange判断条件</em>
+// 修改全屏控制方法，同时删除原问题代码中Video组件的onFullscreenChange判断条件
 Text(this.isFullScreen ? '退出全屏' : '全屏')
   .onClick(() => {
     this.isFullScreen = !this.isFullScreen;
@@ -107,7 +107,7 @@ Text(this.isFullScreen ? '退出全屏' : '全屏')
 ```
  
 ```text
-<em>// 更改屏幕方向landscape为true横屏，false竖屏</em>
+// 更改屏幕方向landscape为true横屏，false竖屏
 changeOrientation(landscape: boolean) {
   window.getLastWindow(this.getUIContext().getHostContext()).then((lastWindow) => {
     lastWindow.setPreferredOrientation(landscape ? window.Orientation.LANDSCAPE : window.Orientation.PORTRAIT);
@@ -128,8 +128,8 @@ import { AVVolumePanel } from '@kit.AudioKit';
 @Component
 struct VideoControlPage {
   @State private isFullScreen: boolean = false;
-  @State videoSrc: Resource = $rawfile('videoTest.mp4'); <em>// 视频文件资源需要替换为本地资源</em>
-  @State previewUri: Resource = $r('app.media.foreground'); <em>// 视频封面资源需要替换为本地资源</em>
+  @State videoSrc: Resource = $rawfile('videoTest.mp4'); // 视频文件资源需要替换为本地资源
+  @State previewUri: Resource = $r('app.media.foreground'); // 视频封面资源需要替换为本地资源
   private controller = new VideoController();
   @State currentTime: number = 0;
   @State voiceValue: number = 5;
@@ -163,16 +163,16 @@ struct VideoControlPage {
         .onPrepared((event) => {
           if (event) {
             this.durationTime = event.duration;
-            this.restTime = event.duration; <em>// 获取视频总长</em>
+            this.restTime = event.duration; // 获取视频总长
           }
         })
         .onUpdate((event) => {
           if (event) {
             this.currentTime = event.time;
-            this.restTime = this.durationTime - event.time; <em>// 剩余时长等于总长减去当前位置</em>
+            this.restTime = this.durationTime - event.time; // 剩余时长等于总长减去当前位置
           }
         });
-      <em>// 音量控制器</em>
+      // 音量控制器
       Row() {
         Slider({
           value: $$this.voiceValue,
@@ -192,14 +192,14 @@ struct VideoControlPage {
       .justifyContent(FlexAlign.Start)
       .zIndex(1);
 
-      <em>// 自定义的控制器</em>
+      // 自定义的控制器
       Row() {
         Text(this.play ? '暂停' : '播放').onClick(() => {
           this.play = !this.play;
           if (this.play) {
-            this.controller.start(); <em>// 开始播放</em>
+            this.controller.start(); // 开始播放
           } else {
-            this.controller.pause(); <em>// 暂停播放</em>
+            this.controller.pause(); // 暂停播放
           }
         }).margin(5).fontColor(Color.White)
           .width('10%');
@@ -209,14 +209,14 @@ struct VideoControlPage {
           max: this.durationTime
         })
           .onChange((value: number) => {
-            this.controller.setCurrentTime(value); <em>// 设置视频播放的进度跳转到value处</em>
+            this.controller.setCurrentTime(value); // 设置视频播放的进度跳转到value处
           })
           .width('65%');
-        <em>// 展示剩余时长</em>
+        // 展示剩余时长
         Text(`${this.restTime.toString()}s`)
           .width('10%')
           .fontColor(Color.White);
-        <em>// 修改全屏控制方法，同时删除原问题代码中Video组件的onFullscreenChange判断条件</em>
+        // 修改全屏控制方法，同时删除原问题代码中Video组件的onFullscreenChange判断条件
         Text(this.isFullScreen ? '退出全屏' : '全屏')
           .onClick(() => {
             this.isFullScreen = !this.isFullScreen;
@@ -241,7 +241,7 @@ struct VideoControlPage {
     .width('100%');
   }
 
-  <em>// 更改屏幕方向landscape为true横屏，false竖屏</em>
+  // 更改屏幕方向landscape为true横屏，false竖屏
   changeOrientation(landscape: boolean) {
     window.getLastWindow(this.getUIContext().getHostContext()).then((lastWindow) => {
       lastWindow.setPreferredOrientation(landscape ? window.Orientation.LANDSCAPE : window.Orientation.PORTRAIT);

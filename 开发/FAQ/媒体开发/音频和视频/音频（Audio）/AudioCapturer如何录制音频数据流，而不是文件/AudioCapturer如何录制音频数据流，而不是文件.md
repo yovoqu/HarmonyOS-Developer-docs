@@ -31,16 +31,16 @@ import { Queue } from '@kit.ArkTS';
 
 
 let audioStreamInfo: audio.AudioStreamInfo = {
-  samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_48000, <em>// 采样率。</em>
-  channels: audio.AudioChannel.CHANNEL_2, <em>// 通道。</em>
-  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE, <em>// 采样格式。</em>
-  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW <em>// 编码格式。</em>
+  samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_48000, // 采样率。
+  channels: audio.AudioChannel.CHANNEL_2, // 通道。
+  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE, // 采样格式。
+  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW // 编码格式。
 };
 
 
 let audioCapturerInfo: audio.AudioCapturerInfo = {
-  source: audio.SourceType.SOURCE_TYPE_MIC, <em>// 音源类型：Mic音频源。根据业务场景配置，参考SourceType。</em>
-  capturerFlags: 0 <em>// 音频采集器标志。</em>
+  source: audio.SourceType.SOURCE_TYPE_MIC, // 音源类型：Mic音频源。根据业务场景配置，参考SourceType。
+  capturerFlags: 0 // 音频采集器标志。
 };
 
 
@@ -53,7 +53,7 @@ export struct AudioCapturerDataDemo {
 
 
   async aboutToAppear(): Promise<void> {
-    await this.atManager.requestPermissionsFromUser(this.context, ['ohos.permission.MICROPHONE']); <em>//权限申请</em>
+    await this.atManager.requestPermissionsFromUser(this.context, ['ohos.permission.MICROPHONE']); //权限申请
   }
 
 
@@ -102,17 +102,17 @@ class CapturerDemo {
   }
 
 
-  /<em>/ 初始化</em>
+  // 初始化
   async init() {
     let audioCapturerOptions: audio.AudioCapturerOptions = {
       streamInfo: this.audioStreamInfo,
       capturerInfo: this.audioCapturerInfo
     };
     try {
-      this.audioCapturer = await audio.createAudioCapturer(audioCapturerOptions); <em>// 创建AudioCapturer实例。</em>
+      this.audioCapturer = await audio.createAudioCapturer(audioCapturerOptions); // 创建AudioCapturer实例。
       console.info(`createAudioCapturer success`);
       this.audioCapturer.on('readData', (buffer: ArrayBuffer) => {
-        this.bufferQueue.add(buffer.slice(0)); <em>//录音数据入队列</em>
+        this.bufferQueue.add(buffer.slice(0)); //录音数据入队列
       });
     } catch (err) {
       console.error(`createAudioCapturer failed, code is ${err.code}, message is ${err.message}`);
@@ -120,7 +120,7 @@ class CapturerDemo {
   }
 
 
-  <em>// 开始一次音频采集</em>。
+  // 开始一次音频采集。
   async start() {
     try {
       this.bufferQueue = new Queue<ArrayBuffer>();
@@ -132,11 +132,11 @@ class CapturerDemo {
   }
 
 
- <em> // 停止采集。</em>
+  // 停止采集。
   async stop() {
     try {
       await this.audioCapturer?.stop();
-      this.handleAudioData();<em> //根据业务，处理音频数据</em>
+      this.handleAudioData(); //根据业务，处理音频数据
       console.info(`stop success`);
     } catch (err) {
       console.error(`Capturer stop failed. ${JSON.stringify(err)}`);
@@ -144,7 +144,7 @@ class CapturerDemo {
   }
 
 
-<em>  // 销毁实例，释放资源。</em>
+  // 销毁实例，释放资源。
   async release() {
     try {
       await this.audioCapturer?.release();
@@ -156,7 +156,7 @@ class CapturerDemo {
 
 
   handleAudioData() {
-  <em>  // 以下示例将bufferQueue数据保存到文件，根据业务需要调整</em>
+    // 以下示例将bufferQueue数据保存到文件，根据业务需要调整
     let filePath = this.context.cacheDir + '/StarWars10s-2C-48000-4SW.pcm';
     let file = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
     let offset = 0;

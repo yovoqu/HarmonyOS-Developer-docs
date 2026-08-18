@@ -28,7 +28,7 @@ receiver.on('imageArrival', () => {
         let path: string = context.filesDir + "/image.yuv";
         let file = fileIo.openSync(path, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);
         let opt: WriteOptions = {
-         <em> // 2048 extra bytes of data</em>
+          // 2048 extra bytes of data
           length: imgComponent.byteBuffer.byteLength - 2048
         }
         fileIo.write(file.fd, imgComponent.byteBuffer, opt).then((writeLen) => {

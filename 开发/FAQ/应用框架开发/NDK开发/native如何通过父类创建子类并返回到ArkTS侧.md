@@ -130,7 +130,7 @@ static napi_value ParentCreateChild(napi_env env, napi_callback_info info)
 
   status = napi_wrap(env, result, reinterpret_cast<void *>(instanceChild), DerefChild, NULL, NULL);
   if (status != napi_ok) {
-   <em> // 主动释放内存</em>
+    // 主动释放内存
     OH_LOG_INFO(LOG_APP, "ParentcreateChild ChildConstructor napi_wrap fail status:%{public}d", status);
     delete instanceChild;
   }
@@ -264,7 +264,7 @@ static napi_value Add(napi_env env, napi_callback_info info)
 
 static void DerefParent(napi_env env, void *data, void *hint)
 {
-    <em>// </em><em>可选的原生回调，用于在ArkTS对象被垃圾回收时释放原生实例</em>
+    // 可选的原生回调，用于在ArkTS对象被垃圾回收时释放原生实例
     OH_LOG_INFO(LOG_APP, "Node-API DerefItem");
     Parent *obj = reinterpret_cast<Parent *>(data);
     if (obj != nullptr) {
@@ -274,7 +274,7 @@ static void DerefParent(napi_env env, void *data, void *hint)
 
 static void DerefChild(napi_env env, void *data, void *hint)
 {
-   <em> // 可选的原生回调，用于在ArkTS对象被垃圾回收时释放原生实例</em>
+    // 可选的原生回调，用于在ArkTS对象被垃圾回收时释放原生实例
     OH_LOG_INFO(LOG_APP, "Node-API DerefItem");
     Child *obj = reinterpret_cast<Child *>(data);
     if (obj != nullptr) {
@@ -296,7 +296,7 @@ static napi_value ParentConstructor(napi_env env, napi_callback_info info)
 
     napi_status status = napi_wrap(env, jsInstance, reinterpret_cast<void *>(instance), DerefParent, NULL, NULL);
     if (status != napi_ok) {
-      <em>  // 主动释放内存</em>
+        // 主动释放内存
         OH_LOG_INFO(LOG_APP, "ParentConstructor napi_wrap fail");
         delete instance;
     }
@@ -304,7 +304,7 @@ static napi_value ParentConstructor(napi_env env, napi_callback_info info)
     return jsInstance;
 }
 
-<em>// </em><em>定义类Parent的方法</em>
+// 定义类Parent的方法
 static napi_value ParentDoSomething(napi_env env, napi_callback_info info)
 {
     napi_value jsthis;
@@ -353,7 +353,7 @@ static napi_value ParentCreateChild(napi_env env, napi_callback_info info)
 
     status = napi_wrap(env, result, reinterpret_cast<void *>(instanceChild), DerefChild, NULL, NULL);
     if (status != napi_ok) {
-       <em> // 主动释放内存</em>
+        // 主动释放内存
         OH_LOG_INFO(LOG_APP, "ParentcreateChild ChildConstructor napi_wrap fail status:%{public}d", status);
         delete instanceChild;
     }
@@ -362,7 +362,7 @@ static napi_value ParentCreateChild(napi_env env, napi_callback_info info)
 }
 
 
-<em>// </em><em>定义类Child的构造函数</em>
+// 定义类Child的构造函数
 static napi_value ChildConstructor(napi_env env, napi_callback_info info)
 {
     napi_value undefineVar = nullptr;
@@ -375,7 +375,7 @@ static napi_value ChildConstructor(napi_env env, napi_callback_info info)
     Child *instance = new Child();
     napi_status status = napi_wrap(env, jsInstance, reinterpret_cast<void *>(instance), DerefChild, NULL, NULL);
     if (status != napi_ok) {
-      <em>  // 主动释放内存</em>
+        // 主动释放内存
         OH_LOG_INFO(LOG_APP, "ChildConstructor napi_wrap fail");
         delete instance;
     }
@@ -383,7 +383,7 @@ static napi_value ChildConstructor(napi_env env, napi_callback_info info)
     return jsInstance;
 }
 
-<em>// </em><em>定义类Child的方法</em>
+// 定义类Child的方法
 static napi_value ChildDoSomething(napi_env env, napi_callback_info info)
 {
     napi_value jsthis;

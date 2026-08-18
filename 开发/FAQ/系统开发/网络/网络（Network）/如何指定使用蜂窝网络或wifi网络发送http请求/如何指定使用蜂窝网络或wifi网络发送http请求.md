@@ -94,11 +94,11 @@ struct Index {
 class WifiManager {
   private static instance?: WifiManager;
 
-  <em>/**</em>
-<em>   * Get singleton</em>
-<em>   *</em>
-<em>   * @returns Singleton object</em>
-<em>   */</em>
+  /**
+   * Get singleton
+   *
+   * @returns Singleton object
+   */
   public static getInstance(): WifiManager {
     if (!WifiManager.instance) {
       WifiManager.instance = new WifiManager();

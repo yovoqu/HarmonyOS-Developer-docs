@@ -104,7 +104,7 @@ export struct WebPage {
         .onClick(() => {
           this.controller.runJavaScript(`document.documentElement.outerHTML`).then((res) => {
             hilog.info(0x0000, 'WebPage', res);
-          <em>  // 替换转义序列</em>
+            // 替换转义序列
             this.htmlContext = res.replace(/\\u003C/g, '<').replace(/\\u003E/g, '>');
             hilog.info(0x0000, 'WebPage', this.htmlContext);
           }).catch((err: BusinessError) => {

@@ -43,7 +43,7 @@ struct Index {
   aboutToAppear(): void {
     let displayClass = display.getDefaultDisplaySync();
     this.mapHeight = this.getUIContext().px2vp(displayClass.height);
-    <em>// 地图初始化参数</em>
+    // 地图初始化参数
     this.mapOptions = {
       position: {
         target: {
@@ -56,7 +56,7 @@ struct Index {
     this.callback = async (err, mapController) => {
       if (!err) {
         this.mapController = mapController;
-        <em>// 自定义样式参数</em>
+        // 自定义样式参数
         let param: mapCommon.CustomMapStyleOptions = {
           styleContent: `[
                             {
@@ -66,7 +66,7 @@ struct Index {
                             }
                         ]`
         };
-        <em>// 设置自定义样式</em>
+        // 设置自定义样式
         await this.mapController.setCustomMapStyle(param);
       }
     };

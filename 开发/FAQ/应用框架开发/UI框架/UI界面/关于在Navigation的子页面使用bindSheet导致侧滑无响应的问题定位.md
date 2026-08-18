@@ -26,7 +26,7 @@ build() {
   .width('100%')
   .hideTitleBar(true)
   .onBackPressed(() => {
-  <em>  // 自己需要做出的动作，比如弹窗拦截等，以function举例。</em>
+    // 自己需要做出的动作，比如弹窗拦截等，以function举例。
     this.function();
     console.info('onBackPressed')
     return true;
@@ -131,7 +131,7 @@ struct NavDestination1 {
             enableOutsideInteractive: true,
             onWillDismiss: ((dismissSheetAction: DismissSheetAction) => {
               if (dismissSheetAction.reason === DismissReason.PRESS_BACK) {
-                <em>// 自己需要做出的动作，比如弹窗拦截等</em>
+                // 自己需要做出的动作，比如弹窗拦截等
                 this.function();
               }
               dismissSheetAction.dismiss();

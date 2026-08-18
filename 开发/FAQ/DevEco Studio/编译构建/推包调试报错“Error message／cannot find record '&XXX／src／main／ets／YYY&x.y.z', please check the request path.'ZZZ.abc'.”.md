@@ -201,7 +201,7 @@ export function updateAbcVersionPlugin(): HvigorPlugin {
 }
 
 
-<em>// The generator of bytecode har uses this plugin to incrementally build ohmurl with the correct bytecode har after modifying the version number</em>
+// The generator of bytecode har uses this plugin to incrementally build ohmurl with the correct bytecode har after modifying the version number
 export function updateHarAbcVersionPlugin(): HvigorPlugin {
   return {
     pluginId: 'updateHarAbcVersionPlugin',
@@ -236,8 +236,8 @@ import { updateAbcVersionPlugin, updateHarAbcVersionPlugin } from './plugin.ts';
 
 
 export default {
-    system: appTasks,  <em>/* Built-in plugin of Hvigor. It cannot be modified. */</em>
-    plugins:[updateAbcVersionPlugin(), updateHarAbcVersionPlugin()]         <em>/* Custom plugin to extend the functionality of Hvigor. */</em>
+    system: appTasks,  /* Built-in plugin of Hvigor. It cannot be modified. */
+    plugins:[updateAbcVersionPlugin(), updateHarAbcVersionPlugin()]         /* Custom plugin to extend the functionality of Hvigor. */
 }
 ```
  

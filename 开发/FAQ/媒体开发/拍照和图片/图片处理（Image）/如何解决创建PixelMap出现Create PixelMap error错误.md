@@ -82,7 +82,7 @@ struct PixelBufferToAnotherPixel {
           pixelFormat: format,
           size: { height: height, width: width },
         };
-     <em>   // 直接调用</em>
+        // 直接调用
         image.createPixelMap(readBuffer, opts).then((value) => {
           return this.targetPixel = value;
         });

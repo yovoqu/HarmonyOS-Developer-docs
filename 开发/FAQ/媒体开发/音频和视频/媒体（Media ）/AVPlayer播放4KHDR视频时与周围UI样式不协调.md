@@ -32,7 +32,7 @@ Column() {
     controller: this.xComponentController
   })
     .onLoad(() => {
-   <em>   // 设置Surface宽高（1920*1080）</em>
+      // 设置Surface宽高（1920*1080）
       let surfaceRect: SurfaceRect = {
         surfaceWidth: 1920,
         surfaceHeight: 1080
@@ -84,7 +84,7 @@ struct Index {
   private readonly OPERATE_STATE: Array<string> = ['prepared', 'playing', 'paused', 'completed'];
 
   aboutToAppear(): void {
-   <em> // 初始化AVPlayer</em>
+    // 初始化AVPlayer
     this.createAVPlayer();
     this.reset(true);
   }
@@ -193,7 +193,7 @@ struct Index {
             controller: this.xComponentController
           })
             .onLoad(() => {
-          <em>    // 设置Surface宽高（1920*1080）</em>
+              // 设置Surface宽高（1920*1080）
               let surfaceRect: SurfaceRect = {
                 surfaceWidth: 1920,
                 surfaceHeight: 1080
@@ -258,7 +258,7 @@ struct Index {
     .backgroundBlurStyle(BlurStyle.Thin, { colorMode: ThemeColorMode.DARK })
   }
 
- <em> // 注册avplayer回调函数</em>
+  // 注册avplayer回调函数
   setAVPlayerCallback(avPlayer: media.AVPlayer) {
     avPlayer.on('timeUpdate', (time: number) => {
       console.info(`AVPlayerDemo AVPlayer timeUpdate. time is ${time}`);
@@ -267,31 +267,31 @@ struct Index {
       this.currentStringTime = this.secondToTime(Math.floor(time / 1000));
     });
 
- <em>   // seek操作结果回调函数</em>
+    // seek操作结果回调函数
     avPlayer.on('seekDone', (seekDoneTime: number) => {
       console.info(`AVPlayerDemo AVPlayer seekDone succeeded, seek time is ${seekDoneTime}`);
     });
 
-   <em> // 监听setSpeed生效的事件</em>
+    // 监听setSpeed生效的事件
     avPlayer.on('speedDone', (speed: number) => {
       console.info(`AVPlayerDemo AVPlayer speedDone succeeded, speed is ${speed}`);
     });
 
-  <em>  // error回调监听函数,当avPlayer在操作过程中出现错误时调用 reset接口触发重置流程</em>
+    // error回调监听函数,当avPlayer在操作过程中出现错误时调用 reset接口触发重置流程
     avPlayer.on('error', (err: BusinessError) => {
       console.error(`AVPlayerDemo Invoke avPlayer failed, code is ${err.code}, message is ${err.message}`);
-      avPlayer.reset(); <em>// 调用reset重置资源，触发idle状态</em>
+      avPlayer.reset(); // 调用reset重置资源，触发idle状态
     });
 
-  <em>  // 状态机变化回调函数</em>
+    // 状态机变化回调函数
     avPlayer.on('stateChange', async (state: string) => {
       switch (state) {
-        case 'idle':<em> </em><em>// 成功调用reset接口后触发该状态机上报</em>
+        case 'idle': // 成功调用reset接口后触发该状态机上报
           console.info('AVPlayerDemo AVPlayer state idle called.');
           if (avPlayer && this.sourceFiles.length > this.currentIndex) {
           }
           break;
-        case 'initialized':<em> </em><em>// avplayer 设置播放源后触发该状态上报</em>
+        case 'initialized': // avplayer 设置播放源后触发该状态上报
           console.info('AVPlayerDemo AVPlayer state initialized called.');
           this.reset();
           if (this.isVideo) {
@@ -299,7 +299,7 @@ struct Index {
           }
           avPlayer.prepare();
           break;
-        case 'prepared':<em> </em><em>// prepare调用成功后上报该状态机</em>
+        case 'prepared': // prepare调用成功后上报该状态机
           console.info('AVPlayerDemo AVPlayer state prepared called.');
           this.flag = true;
           avPlayer.getTrackDescription((error: BusinessError, arrList: Array<media.MediaDescription>) => {
@@ -314,17 +314,17 @@ struct Index {
           avPlayer.setSpeed(media.PlaybackSpeed.SPEED_FORWARD_1_00_X);
           avPlayer.seek(1, media.SeekMode.SEEK_PREV_SYNC);
           break;
-        case 'completed':<em> </em><em>// prepare调用成功后上报该状态机</em>
+        case 'completed': // prepare调用成功后上报该状态机
           console.info('AVPlayerDemo AVPlayer state completed called.');
           this.isPlay = false;
           break;
-        case 'playing':<em> </em><em>// play成功调用后触发该状态机上报</em>
+        case 'playing': // play成功调用后触发该状态机上报
           console.info('AVPlayerDemo AVPlayer state playing called.');
           break;
-        case 'paused':<em> </em><em>// pause成功调用后触发该状态机上报</em>
+        case 'paused': // pause成功调用后触发该状态机上报
           console.info('AVPlayerDemo AVPlayer state paused called.');
           break;
-        case 'stopped':<strong style="color: rgb(181,106,1);"> </strong><em>// stop接口成功调用后触发该状态机上报</em>
+        case 'stopped':<strong style="color: rgb(181,106,1);"> </strong>// stop接口成功调用后触发该状态机上报
           console.info('AVPlayerDemo AVPlayer state stopped called.');
           break;
         case 'released':
@@ -392,9 +392,9 @@ struct Index {
     }
   }
 
-  <em>/**</em>
-<em>   *时间转换</em>
-<em>   */</em>
+  /**
+   *时间转换
+   */
   secondToTime(seconds: number): string {
     let hourUnit = 60 * 60;
     let hour: number = Math.floor(seconds / hourUnit);
@@ -430,7 +430,7 @@ struct Index {
         this.avPlayer = video;
         this.setAVPlayerCallback(this.avPlayer);
         if (this.avPlayer) {
-      <em>    // 网络链接根据实际情况替换成用户自己的链接，否则无法正常运行</em>
+          // 网络链接根据实际情况替换成用户自己的链接，否则无法正常运行
           this.avPlayer.url = '';
         }
         console.info('AVPlayerDemo createAVPlayer success');

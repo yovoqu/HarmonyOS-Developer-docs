@@ -18,7 +18,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Component
 struct Index {
   private webviewController: webview.WebviewController = new webview.WebviewController();
-  <em>// 此处地址实际使用过程中替换为真实地址</em>
+  // 此处地址实际使用过程中替换为真实地址
   private url = 'xx.xx.xx';
   private customUserAgent: string = ' DemoApp';
 
@@ -75,7 +75,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Component
 struct Index {
   private webviewController: webview.WebviewController = new webview.WebviewController();
- <em> // 此处地址实际使用过程中替换为真实地址</em>
+  // 此处地址实际使用过程中替换为真实地址
   private url = 'xx.xx.xx';
   private customUserAgent: string = ' DemoApp';
 

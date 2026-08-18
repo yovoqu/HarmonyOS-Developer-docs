@@ -9,10 +9,10 @@
 使用密钥管理服务开发，参考[加解密(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-encryption-decryption-ndk)中的样例，发现如下情况加密会失败：
  
 ```text
-<em>// 待加密内容，如下，能够加密成功</em>
+// 待加密内容，如下，能够加密成功
 char tmpInData[] = "AES_ECB_INDATA_1";
 
-<em>// 修改为其他值，比如下面，加密就会失败</em>
+// 修改为其他值，比如下面，加密就会失败
 char tmpInData[] = "Hello World!";
 char tmpInData[] = "abc";
 ```
@@ -74,7 +74,7 @@ static const uint32_t IV_SIZE = 16;
 static uint8_t IV[IV_SIZE] = { 0 };
 
 static struct OH_Huks_Param g_genEncDecParams[] = {
- <em> // ...</em>
+  // ...
   {
         .tag = OH_HUKS_TAG_PADDING,
         .uint32Param = OH_HUKS_PADDING_NONE
@@ -94,7 +94,7 @@ OH_HUKS_TAG_PADDING补位标签设置的参数为OH_HUKS_PADDING_NONE，表明�
  
 ```text
 static const uint32_t IV_SIZE = 16;
-static uint8_t IV[IV_SIZE] = {0}; <em>// this is a test value, for real use the iv should be different every time.</em>
+static uint8_t IV[IV_SIZE] = {0}; // this is a test value, for real use the iv should be different every time.
 static struct OH_Huks_Param g_genEncDecParams[] = {
     {.tag = OH_HUKS_TAG_ALGORITHM, .uint32Param = OH_HUKS_ALG_AES},
     {.tag = OH_HUKS_TAG_PURPOSE, .uint32Param = OH_HUKS_KEY_PURPOSE_ENCRYPT | OH_HUKS_KEY_PURPOSE_DECRYPT},
@@ -110,7 +110,7 @@ static struct OH_Huks_Param g_encryptParams[] = {
     {.tag = OH_HUKS_TAG_IV,
      .blob = {
          .size = IV_SIZE,
-         .data = (uint8_t *)IV <em>// this is a test value, for real use the iv should be different every time.</em>
+         .data = (uint8_t *)IV // this is a test value, for real use the iv should be different every time.
      }}};
 static struct OH_Huks_Param g_decryptParams[] = {
     {.tag = OH_HUKS_TAG_ALGORITHM, .uint32Param = OH_HUKS_ALG_AES},
@@ -121,6 +121,6 @@ static struct OH_Huks_Param g_decryptParams[] = {
     {.tag = OH_HUKS_TAG_IV,
      .blob = {
          .size = IV_SIZE,
-         .data = (uint8_t *)IV<em> // this is a test value, for real use the iv should be different every time.</em>
+         .data = (uint8_t *)IV // this is a test value, for real use the iv should be different every time.
      }}};
 ```

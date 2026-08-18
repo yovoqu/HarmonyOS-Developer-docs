@@ -47,7 +47,7 @@ struct HorizontalGrid {
   @State currentIndex: number = 0;
   private swiperController: SwiperController = new SwiperController();
 
- <em> // getGridData方法将mainArray数组分割成每页20个元素的子数组</em>
+  // getGridData方法将mainArray数组分割成每页20个元素的子数组
   getGridData(arr: string[]): string[][] {
     let result: string[][] = [];
     for (let i = 0; i < arr.length; i += 20) {
@@ -73,9 +73,9 @@ struct HorizontalGrid {
               };
             }, (service: string) => service);
           }
-        <em>  // 此处增加距离也有效果</em>
+          // 此处增加距离也有效果
           .margin({ bottom: 10 })
-          .columnsTemplate('1fr 1fr 1fr 1fr')<em> </em><em>// 设置为四列五行</em>
+          .columnsTemplate('1fr 1fr 1fr 1fr') // 设置为四列五行
           .rowsTemplate('1fr 1fr 1fr 1fr 1fr')
           .columnsGap(0)
           .rowsGap(0)
@@ -86,7 +86,7 @@ struct HorizontalGrid {
       }
       .indicator(
         new DotIndicator()
-          .bottom(0) <em>// </em><em>此处可以设置指示器属性，如果需要往上调可以通过这个</em>
+          .bottom(0) // 此处可以设置指示器属性，如果需要往上调可以通过这个
       )
       .height('65%')
       .cachedCount(2)

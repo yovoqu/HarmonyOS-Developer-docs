@@ -16,7 +16,7 @@
 @Entry
 @Component
 export struct Index {
-  @State remainingTime: number = 0; <em>// </em><em>剩余时间（默认10秒）</em>
+  @State remainingTime: number = 0; // 剩余时间（默认10秒）
 
   aboutToAppear(): void {
     let timer: number
@@ -30,12 +30,12 @@ export struct Index {
 
   build() {
     Column() {
-      Stack() {<em> </em><em>// 创建垂直布局容器</em>
+      Stack() { // 创建垂直布局容器
         Column() {
           Progress({
-            value: this.remainingTime,<em> </em><em>// 设置进度</em>
-            total: 100,<em> </em><em>// 最大进度为100</em>
-            type: ProgressType.Ring,<em> </em><em>// 使用环形进度条</em>
+            value: this.remainingTime, // 设置进度
+            total: 100, // 最大进度为100
+            type: ProgressType.Ring, // 使用环形进度条
           })
             .style({ strokeWidth: 20 })
             .rotate({ angle: 90 })
@@ -108,21 +108,21 @@ struct ProgressIndex {
 
   build() {
     Column() {
-      Stack() {<em> </em><em>// 创建垂直布局容器</em>
+      Stack() { // 创建垂直布局容器
         Column() {
           Progress({
-            value: this.remainingTime, <em>// 设置进度</em>
-            total: 100, <em>// 最大进度为100</em>
-            type: ProgressType.Ring,<em> </em><em>// 使用环形进度条</em>
+            value: this.remainingTime, // 设置进度
+            total: 100, // 最大进度为100
+            type: ProgressType.Ring, // 使用环形进度条
           })
             .style({ strokeWidth: 20 })
             .rotate({ angle: 90 })
-           <em> // 设置进度条前景色为白色</em>
+            // 设置进度条前景色为白色
             .color('#fff')
-          <em>  // 1、问题一，将外层容器backgroundColor和Progress组件底色设置成相同且不透明的颜色</em>
-<em>            // 2、Progress组件底色设置与外层容器相同</em>
+            // 1、问题一，将外层容器backgroundColor和Progress组件底色设置成相同且不透明的颜色
+            // 2、Progress组件底色设置与外层容器相同
             .backgroundColor('#0a59f7')
-           <em> // 设置翻转</em>
+            // 设置翻转
             .direction(Direction.Rtl)
             .width(300)
             .aspectRatio(1)
@@ -134,7 +134,7 @@ struct ProgressIndex {
       .width(350)
       .aspectRatio(1)
       .borderRadius(200)
-    <em>  // 问题一与问题二都需将外层容器backgroundColor修改为不透明相同颜色</em>
+      // 问题一与问题二都需将外层容器backgroundColor修改为不透明相同颜色
       .backgroundColor('#0a59f7')
       .alignContent(Alignment.Center);
     }

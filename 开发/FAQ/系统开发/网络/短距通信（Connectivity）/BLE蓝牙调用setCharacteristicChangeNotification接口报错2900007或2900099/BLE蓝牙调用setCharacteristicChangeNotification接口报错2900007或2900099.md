@@ -69,119 +69,119 @@
 
  
 ```json
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">ble</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">constant </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ConnectivityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">abilityAccessCtrl</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">common</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">PermissionRequestResult </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BusinessError </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { ble, constant } from '@kit.ConnectivityKit';
+import { abilityAccessCtrl, common, PermissionRequestResult } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">setCharacteristicChangeNotification </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">gattClient</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">GattClientDevice </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct setCharacteristicChangeNotification {
+  @State gattClient: ble.GattClientDevice | undefined = undefined;
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">atManager</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">abilityAccessCtrl</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AtManager </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">abilityAccessCtrl</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createAtManager</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">atManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">requestPermissionsFromUser</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">'ohos.permission.ACCESS_BLUETOOTH'</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">PermissionRequestResult</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`requestPermissionsFromUser fail, err-</span><span style="color: rgb(132,63,161);">></span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`data:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  aboutToAppear(): void {
+    let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
+    atManager.requestPermissionsFromUser(this.getUIContext()?.getHostContext() as common.UIAbilityContext,
+      ['ohos.permission.ACCESS_BLUETOOTH'], (err: BusinessError, data: PermissionRequestResult) => {
+        if (err) {
+          console.error(`requestPermissionsFromUser fail, err->${JSON.stringify(err)}`);
+        } else {
+          console.info(`data:${JSON.stringify(data)}`);
+        }
+      });
+  }
 
-  <span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建</span><span style="color: rgb(128,128,128);">client</span><span style="color: rgb(128,128,128);">端实例，</span><span style="color: rgb(128,128,128);">server</span><span style="color: rgb(128,128,128);">端虚拟</span><span style="color: rgb(128,128,128);">mac</span><span style="color: rgb(128,128,128);">地址</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">使用时</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">需要根据实际进行修改</span></em>
-    try <span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">gattClient </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createGattClientDevice</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'deviceMAC'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`createGattClientDevice error:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">订阅</span><span style="color: rgb(128,128,128);">ble</span><span style="color: rgb(128,128,128);">蓝牙连接状态监听事件</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onBLEConnectionStateChange</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">订阅</span><span style="color: rgb(128,128,128);">MTU</span><span style="color: rgb(128,128,128);">监听事件</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BLEMtuChange</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
- <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">连接</span><span style="color: rgb(128,128,128);">server</span><span style="color: rgb(128,128,128);">端</span><span style="color: rgb(128,128,128);">ble</span><span style="color: rgb(128,128,128);">蓝牙</span></em>
-    try <span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">gattClient</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`connect error:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  connect() {
+    // 创建client端实例，server端虚拟mac地址,使用时,需要根据实际进行修改
+    try {
+      this.gattClient = ble.createGattClientDevice('deviceMAC');
+    } catch (error) {
+      console.error(`createGattClientDevice error:${error}`);
+    }
+    // 订阅ble蓝牙连接状态监听事件
+    this.onBLEConnectionStateChange();
+    // 订阅MTU监听事件
+    this.BLEMtuChange();
+    // 连接server端ble蓝牙
+    try {
+      this.gattClient?.connect();
+    } catch (error) {
+      console.error(`connect error:${error}`);
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">onBLEConnectionStateChange</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    try <span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">gattClient</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'BLEConnectionStateChange'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">state</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">BLEConnectionChangeState</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">state</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">state </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">constant</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ProfileConnectionState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">STATE_CONNECTED</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-       <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">连接成功，先与</span><span style="color: rgb(128,128,128);">server</span><span style="color: rgb(128,128,128);">协商</span><span style="color: rgb(128,128,128);">MTU</span><span style="color: rgb(128,128,128);">，参数范围</span><span style="color: rgb(128,128,128);">23~517</span></em>
-          try <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">gattClient</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">setBLEMtuSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">128</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`error:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">        }</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`on BLEConnectionStateChange error:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  onBLEConnectionStateChange() {
+    try {
+      this.gattClient?.on('BLEConnectionStateChange', (state: ble.BLEConnectionChangeState) => {
+        if (state.state === constant.ProfileConnectionState.STATE_CONNECTED) {
+          // 连接成功，先与server协商MTU，参数范围23~517
+          try {
+            this.gattClient?.setBLEMtuSize(128);
+          } catch (error) {
+            console.error(`error:${JSON.stringify(error)}`);
+          }
+        }
+      });
+    } catch (error) {
+      console.error(`on BLEConnectionStateChange error:${error}`);
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">BLEMtuChange</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    try <span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">gattClient</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'BLEMtuChange'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">mtu</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-     <em>   <span style="color: rgb(128,128,128);">// MTU</span><span style="color: rgb(128,128,128);">协商成功</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">调用</span><span style="color: rgb(128,128,128);">getServices</span><span style="color: rgb(128,128,128);">接口获取</span><span style="color: rgb(128,128,128);">server</span><span style="color: rgb(128,128,128);">服务。</span></em>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(132,63,161);">协商成功</span><span style="color: rgb(132,63,161);">,mtu</span><span style="color: rgb(132,63,161);">参数为</span><span style="color: rgb(132,63,161);">:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">mtu</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getServices</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`on BLEMtuChange error:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  BLEMtuChange() {
+    try {
+      this.gattClient?.on('BLEMtuChange', (mtu: number) => {
+        // MTU协商成功,调用getServices接口获取server服务。
+        console.info(`协商成功,mtu参数为:${mtu}`);
+        this.getServices();
+      });
+    } catch (error) {
+      console.error(`on BLEMtuChange error:${error}`);
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">getServices</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">gattClient</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getServices</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">result</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">GattService</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">result</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filter</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">筛选出指定特征值服务，并设置通知变更能力。</span></em>
-<em>        <span style="color: rgb(128,128,128);">// server</span><span style="color: rgb(128,128,128);">端指定服务</span><span style="color: rgb(128,128,128);">uuid,</span><span style="color: rgb(128,128,128);">使用时</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">需要根据实际进行修改</span></em>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">serviceUuid </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">'uuid'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          let <span style="color: rgb(255,255,255);">descriptors</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">BLEDescriptor</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(255,255,255);">arrayBuffer </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">8</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(255,255,255);">descV </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">arrayBuffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,255,255);">descV</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">11</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(255,255,255);">arrayBufferC </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">8</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-     <em>     <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过一一赋值的方式创建</span><span style="color: rgb(128,128,128);">characteristic</span><span style="color: rgb(128,128,128);">对象</span></em>
-          let <span style="color: rgb(255,255,255);">characteristic</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">BLECharacteristic </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">serviceUuid</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">serviceUuid</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">characteristicUuid</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">characteristics</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">characteristicUuid</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">characteristicValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">arrayBufferC</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">descriptors</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">descriptors</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">gattClient</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">setCharacteristicChangeNotification</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">characteristic</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'notifyCharacteristicChanged callback failed'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'notifyCharacteristicChanged callback successful'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`getServices error:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  getServices() {
+    this.gattClient?.getServices().then((result: Array<ble.GattService>) => {
+      result.filter(item => {
+        // 筛选出指定特征值服务，并设置通知变更能力。
+        // server端指定服务uuid,使用时,需要根据实际进行修改
+        if (item.serviceUuid === 'uuid') {
+          let descriptors: Array<ble.BLEDescriptor> = [];
+          let arrayBuffer = new ArrayBuffer(8);
+          let descV = new Uint8Array(arrayBuffer);
+          descV[0] = 11;
+          let arrayBufferC = new ArrayBuffer(8);
+          // 通过一一赋值的方式创建characteristic对象
+          let characteristic: ble.BLECharacteristic = {
+            serviceUuid: item.serviceUuid,
+            characteristicUuid: item.characteristics[0].characteristicUuid,
+            characteristicValue: arrayBufferC,
+            descriptors: descriptors
+          };
+          this.gattClient?.setCharacteristicChangeNotification(characteristic, true, (err: BusinessError) => {
+            if (err) {
+              console.error('notifyCharacteristicChanged callback failed');
+            } else {
+              console.info('notifyCharacteristicChanged callback successful');
+            }
+          });
+        }
+      });
+    }).catch((error: BusinessError) => {
+      console.error(`getServices error:${error}`);
+    });
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">连接</span><span style="color: rgb(132,63,161);">BLE</span><span style="color: rgb(132,63,161);">蓝牙，并发起请求</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-         <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">连接</span><span style="color: rgb(128,128,128);">BLE</span><span style="color: rgb(128,128,128);">蓝牙，并发起</span><span style="color: rgb(128,128,128);">setCharacteristicChangeNotification</span></em><em>请求</em>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SpaceAround</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column() {
+      Button('连接BLE蓝牙，并发起请求')
+        .onClick(() => {
+          // 连接BLE蓝牙，并发起setCharacteristicChangeNotification请求
+          this.connect();
+        });
+    }.height('100%')
+    .width('100%')
+    .justifyContent(FlexAlign.SpaceAround);
+  }
+}
 ```
  
 > [!NOTE]

@@ -26,7 +26,7 @@
 onWindowStageCreate(windowStage: window.WindowStage): void {
   let context = this.context;
   AppStorage.setOrCreate('context', context);
-  <em>// Main window is created, set main page for this ability</em>
+  // Main window is created, set main page for this ability
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
   windowStage.loadContent('pages/Index', (err) => {

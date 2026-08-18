@@ -59,7 +59,7 @@ struct CheckNFCAbilityPage {
     this.checkNfcCapability();
   }
 
-  <em>// 检查设备硬件能力</em>
+  // 检查设备硬件能力
   checkNfcCapability() {
     if (canIUse('SystemCapability.Communication.NFC.Core')) {
       this.nfcSupport = true;
@@ -73,7 +73,7 @@ struct CheckNFCAbilityPage {
   build() {
     Column() {
       if (!this.nfcSupport) {
-        <em>// 设备不支持NFC的情况</em>
+        // 设备不支持NFC的情况
         Text('当前设备不支持NFC功能')
           .fontSize(20)
           .fontColor(Color.Red)

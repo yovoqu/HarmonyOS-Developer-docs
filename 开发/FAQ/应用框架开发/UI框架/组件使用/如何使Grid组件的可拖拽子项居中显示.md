@@ -45,7 +45,7 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-   <em> // Main window is created, set main page for this ability</em>
+    // Main window is created, set main page for this ability
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
     windowStage.loadContent('pages/Index', (err) => {
@@ -60,17 +60,17 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageDestroy(): void {
-   <em> // Main window is destroyed, release UI related resources</em>
+    // Main window is destroyed, release UI related resources
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
-   <em> // Ability has brought to foreground</em>
+    // Ability has brought to foreground
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground(): void {
-   <em> // Ability has back to background</em>
+    // Ability has back to background
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 };
@@ -112,7 +112,7 @@ struct gridDemo {
 
   build() {
     Grid() {
-      GridItem() { <em>// 在最前单独添加一个GridItem，设置其中组件高度为100%</em>
+      GridItem() { // 在最前单独添加一个GridItem，设置其中组件高度为100%
         Column()
           .height('100%');
       };
@@ -126,13 +126,13 @@ struct gridDemo {
     .height('100%')
     .layoutWeight(1)
     .align(Alignment.Center)
-    .columnsTemplate('0fr 1fr 1fr 1fr 1fr 1fr')<em> // 设置第一个GridItem的宽值为0fr，该项不显示</em>
+    .columnsTemplate('0fr 1fr 1fr 1fr 1fr 1fr') // 设置第一个GridItem的宽值为0fr，该项不显示
     .onItemDragStart((_, selectItemIndex: number) => {
       console.info('itemIndex:' + selectItemIndex);
-      return this.BottomNavItem(this.bottomNavList[selectItemIndex - 1]); <em>// 为保证拖拽时显示正确，需要将索引值-1</em>
+      return this.BottomNavItem(this.bottomNavList[selectItemIndex - 1]); // 为保证拖拽时显示正确，需要将索引值-1
     })
     .onItemDrop((_, itemIndex: number, insertIndex: number) => {
-      this.swapBottomNavItemPosition(itemIndex - 1, insertIndex - 1); <em>// 为保证拖拽时显示正确，需要将索引值-1</em>
+      this.swapBottomNavItemPosition(itemIndex - 1, insertIndex - 1); // 为保证拖拽时显示正确，需要将索引值-1
     })
     .editMode(true)
     .backgroundColor('#F1F3F5')
@@ -141,15 +141,15 @@ struct gridDemo {
     .padding({
       left: 10,
       right: 10,
-      bottom: 10<em> // 保留阴影不被截断</em>
+      bottom: 10 // 保留阴影不被截断
     })
   }
 
- <em> // 底部Tab子项</em>
+  // 底部Tab子项
   @Builder
   BottomNavItem(bottomNav: TabItem) {
     Column() {
-    <em>  // 作用：设置padding来解决拖拽时阴影被截断的问题</em>
+      // 作用：设置padding来解决拖拽时阴影被截断的问题
       Stack({ alignContent: Alignment.TopEnd }) {
         Column({ space: 3 }) {
           Text(bottomNav.appletName)

@@ -57,11 +57,11 @@ struct ScrollSolution {
             });
           }, (item: number) => item.toString());
         }
-       <em> // 上下滚动，不能设置List的高度，否则Scroll的enablePaging会失效</em>
+        // 上下滚动，不能设置List的高度，否则Scroll的enablePaging会失效
         .width('100%');
       }
-      .enablePaging(true) <em>// 滑动翻页</em>
-      .friction(0.8)<em> // 设置摩擦系数</em>
+      .enablePaging(true) // 滑动翻页
+      .friction(0.8) // 设置摩擦系数
       .width('100%')
       .height('100%');
     }.margin('20vp');
@@ -83,7 +83,7 @@ struct ListSolution {
   @State centerIndex: number = 0;
   @State listHeight: number = 0;
   @State listWidth: number = 0;
-  @State listOffset: number = 0; <em>// List偏移量</em>
+  @State listOffset: number = 0; // List偏移量
 
   build() {
     Column() {
@@ -100,7 +100,7 @@ struct ListSolution {
           }
           .onClick(() => {
             this.centerIndex = index;
-          <em>  // 点击某一项，此项移动至屏幕中间</em>
+            // 点击某一项，此项移动至屏幕中间
             this.scroller.scrollToIndex(this.centerIndex, true, ScrollAlign.CENTER);
           });
         }, (item: number) => item.toString());
@@ -113,12 +113,12 @@ struct ListSolution {
       })
       .onTouch((event: TouchEvent) => {
         if (event.type === TouchType.Down) {
-        <em>  // 记录手指按下时的偏移量</em>
+          // 记录手指按下时的偏移量
           this.listOffset = this.scroller.currentOffset().yOffset;
           console.info(`this.currentOffset ${this.listOffset}`);
         }
         if (event.type === TouchType.Up || event.type === TouchType.Cancel) {
-        <em>  // 滑动距离超过页面三分之一则整页滚动</em>
+          // 滑动距离超过页面三分之一则整页滚动
           let curOffset: number = this.scroller.currentOffset().yOffset - this.listOffset;
           let targetOffset = this.listOffset;
           if (Math.abs(curOffset) < this.listHeight / 3) {

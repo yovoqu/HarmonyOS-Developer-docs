@@ -11,10 +11,10 @@
 class FrameWorkAnimation implements AttributeModifier<CommonAttribute> {
   @Track scaleDialog: number = 1
 
-  <em>// </em><em>弹窗退出时的动画</em>
+  // 弹窗退出时的动画
   exitShowDialog(context: UIContext, onFinish: () => void) {
     this.scaleDialog = 1.0
-    <em>// 弹窗展示时的帧动画</em>
+    // 弹窗展示时的帧动画
     context.keyframeAnimateTo({
       iterations: 1, onFinish: () => {
         onFinish()
@@ -27,11 +27,11 @@ class FrameWorkAnimation implements AttributeModifier<CommonAttribute> {
     }]);
   }
 
- <em> // 开始展示弹窗</em>
+  // 开始展示弹窗
   startShowDialog(context: UIContext) {
     this.scaleDialog = 0
     setTimeout(() => {
-      <em>// </em><em>弹窗展示时的帧动画</em>
+      // 弹窗展示时的帧动画
       context.keyframeAnimateTo({ iterations: 1 }, [
         {
           duration: 500,
@@ -114,7 +114,7 @@ export class FrameWorkAnimation extends CommonModifier {
 不用AttributeModifier封装，直接使用class封装startShowDialog、exitShowDialog方法，在组件尾部直接调用scale方法，在startShowDialog中修改scaleDialog后，变化同步至scale，实现动画效果。通过export关键字可将封装的class导出，即可在别的文件中调用。
  
 ```text
-<em>// </em><em>动画封装类</em>
+// 动画封装类
 export class AnimateTest {
   @Track scaleDialog: number;
 
@@ -122,7 +122,7 @@ export class AnimateTest {
     this.scaleDialog = num;
   }
 
- <em> // 缩小按钮的帧动画</em>
+  // 缩小按钮的帧动画
   startAnimate(context: UIContext) {
     context.keyframeAnimateTo({ iterations: 1 }, [
       {
@@ -148,7 +148,7 @@ struct AttributeModifierAnimateDemo {
         .width(70)
         .height(100)
         .scale({
-         <em> // 监听动画类中scaleDialog变化来缩放</em>
+          // 监听动画类中scaleDialog变化来缩放
           x: this.animate.scaleDialog,
           y: this.animate.scaleDialog,
           centerX: '50%',
@@ -157,7 +157,7 @@ struct AttributeModifierAnimateDemo {
         .onClick(() => {
           this.message = 'Button2';
           let context = this.getUIContext();
-        <em>  // 开始动画</em>
+          // 开始动画
           this.animate.startAnimate(context);
         });
     }.height('100%').width('100%').justifyContent(FlexAlign.Center);

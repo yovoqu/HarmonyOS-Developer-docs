@@ -22,7 +22,7 @@ ImageBitmap对象仅接受实际文件路径（如“ets/common/test.jpg”）�
  
 - 对于本地路径图片，可直接将图片路径地址传入ImageBitmap中。
 ```text
-let img: ImageBitmap = new ImageBitmap('common/image/testImage.jpg'); <em>// testImage.jpg仅供参考使用，开发者可替换为实际使用图片</em>
+let img: ImageBitmap = new ImageBitmap('common/image/testImage.jpg'); // testImage.jpg仅供参考使用，开发者可替换为实际使用图片
 ```
 
 - 对于资源目录（/resource）下的图片，需要通过图片解码将其转化为新的PixelMap实例再加载到ImageBitmap中。
@@ -60,14 +60,14 @@ import { resourceManager } from '@kit.LocalizationKit';
 @Entry
 @Component
 struct Index {
-<em>  // 用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿，true表明开启抗锯齿。</em>
+  // 用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿，true表明开启抗锯齿。
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
-<em>  // 用来创建CanvasRenderingContext2D对象，通过在canvas中调用CanvasRenderingContext2D对象来绘制。</em>
+  // 用来创建CanvasRenderingContext2D对象，通过在canvas中调用CanvasRenderingContext2D对象来绘制。
   private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
-<em>  // testImage.jpg需要替换为本地资源文件</em>
+  // testImage.jpg需要替换为本地资源文件
   private imageFileName: string = 'testImage.jpg';
 
-<em>  // 将media目录下的图片文件复制到沙箱目录</em>
+  // 将media目录下的图片文件复制到沙箱目录
   mediaImageFileToLocalFile(fileName: Resource) {
     let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
     const resourceMgr: resourceManager.ResourceManager = context.resourceManager;
@@ -87,7 +87,7 @@ struct Index {
     }
   }
 
- <em> // 将media目录下面的图片转化为ImageBitmap</em>
+  // 将media目录下面的图片转化为ImageBitmap
   getImageBitmapByMediaResource(context: Context, resource: Resource) {
     let fileData: Uint8Array = context.resourceManager.getMediaContentSync(resource.id);
     let imageSource: image.ImageSource = image.createImageSource(fileData.buffer);
@@ -97,7 +97,7 @@ struct Index {
   }
 
 
- <em> // 将沙箱目录下的图片转化为ImageBitmap</em>
+  // 将沙箱目录下的图片转化为ImageBitmap
   getImageBitmapByLocalFile(filePath: string) {
     const imageSource: image.ImageSource = image.createImageSource(filePath);
     const pixelMap: image.PixelMap = imageSource.createPixelMapSync();
@@ -105,7 +105,7 @@ struct Index {
   }
 
   aboutToAppear(): void {
-    this.mediaImageFileToLocalFile($r('app.media.testImage')); <em>// testImage</em><em>仅供参考使用，开发者可替换为实际使用图片</em>
+    this.mediaImageFileToLocalFile($r('app.media.testImage')); // testImage仅供参考使用，开发者可替换为实际使用图片
   }
 
   build() {
@@ -117,18 +117,18 @@ struct Index {
         .width('80%')
         .height('100%')
         .onReady(async () => {
-       <em>   // 加载工程目录ets/common/image下面的图片</em>
-          let img: ImageBitmap = new ImageBitmap('common/image/testImage.jpg'); <em>// testImage.jpg仅供参考使用，开发者可替换为实际使用图片</em>
+          // 加载工程目录ets/common/image下面的图片
+          let img: ImageBitmap = new ImageBitmap('common/image/testImage.jpg'); // testImage.jpg仅供参考使用，开发者可替换为实际使用图片
           this.context.font = 'normal normal 60px sans-serif';
           this.context.fillText('common', 120, 15);
           this.context.drawImage(img, 0, 25);
-        <em>  // 资源目录（/resource）下的图片</em>
+          // 资源目录（/resource）下的图片
           let imageBitmap1 =
             this.getImageBitmapByMediaResource(this.getUIContext().getHostContext() as common.UIAbilityContext,
-              $r('app.media.testImage')); <em>// testImage仅供参考使用，开发者可替换为实际使用图片</em>
+              $r('app.media.testImage')); // testImage仅供参考使用，开发者可替换为实际使用图片
           this.context.fillText('resource', 120, 130);
           this.context.drawImage(imageBitmap1, 0, 140);
-        <em>  // 沙箱路径的图片</em>
+          // 沙箱路径的图片
           let uiContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
           let filePath = uiContext.filesDir + '/' + this.imageFileName;
           let imageBitmap2 = this.getImageBitmapByLocalFile(filePath);

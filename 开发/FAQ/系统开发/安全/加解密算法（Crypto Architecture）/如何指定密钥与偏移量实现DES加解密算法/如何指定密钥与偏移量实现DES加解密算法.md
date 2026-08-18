@@ -21,13 +21,13 @@ ArkTS语言可以实现DES加解密算法，如果想要实现指定编码格式
 #### 解决方案
 1. 定义编码函数方法。
 ```text
-<em>// GB2312转Uint8Array函数</em>
+// GB2312转Uint8Array函数
 function gB2312Encode(gb2312Str: string): Uint8Array {
   let gbEncoder = new util.TextEncoder('gb2312');
   return gbEncoder.encodeInto(gb2312Str);
 }
 
-<em>// Uint8Array转GB2312函数</em>
+// Uint8Array转GB2312函数
 function gB2312Decode(gb2312Str: Uint8Array): string {
   let textDecoderOptions: util.TextDecoderOptions = {
     fatal: false,
@@ -40,10 +40,10 @@ function gB2312Decode(gb2312Str: Uint8Array): string {
 
 2. 定义一个生成iv值参数函数方法。
 ```text
-<em>// 生成偏移量</em>
+// 生成偏移量
 function genIvParamsSpec(ivData: Uint8Array) {
   let ivParamsSpec: cryptoFramework.IvParamsSpec = {
-    algName: 'IvParamsSpec', <em>// CBC|CTR|OFB|CFB模式</em>
+    algName: 'IvParamsSpec', // CBC|CTR|OFB|CFB模式
     iv: { data: ivData }
   };
   return ivParamsSpec;
@@ -52,7 +52,7 @@ function genIvParamsSpec(ivData: Uint8Array) {
 
 3. 定义一个DES算法密钥生成函数方法。
 ```text
-<em>// 生成密钥</em>
+// 生成密钥
 function genSymKeyByData(symKeyData: Uint8Array) {
   let symKeyBlob: cryptoFramework.DataBlob = { data: symKeyData };
   let symGenerator = cryptoFramework.createSymKeyGenerator('DES64');
@@ -64,7 +64,7 @@ function genSymKeyByData(symKeyData: Uint8Array) {
 
 4. 定义一个DES加密消息函数方法。
 ```text
-<em>// 加密消息。</em>
+// 加密消息。
 function encryptMessage(symKey: cryptoFramework.SymKey, param: cryptoFramework.ParamsSpec,
   plainText: cryptoFramework.DataBlob) {
   let cipher = cryptoFramework.createCipher('DES64|CBC|PKCS5');
@@ -76,7 +76,7 @@ function encryptMessage(symKey: cryptoFramework.SymKey, param: cryptoFramework.P
 
 5. 定义一个DES解密消息函数方法。
 ```text
-<em>// 解密消息。</em>
+// 解密消息。
 function decryptMessage(symKey: cryptoFramework.SymKey, param: cryptoFramework.ParamsSpec,
   cipherText: cryptoFramework.DataBlob) {
   let decoder = cryptoFramework.createCipher('DES64|CBC|PKCS5');
@@ -94,7 +94,7 @@ import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { util } from '@kit.ArkTS';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-<em>// 生成密钥</em>
+// 生成密钥
 function genSymKeyByData(symKeyData: Uint8Array) {
   let symKeyBlob: cryptoFramework.DataBlob = { data: symKeyData };
   let symGenerator = cryptoFramework.createSymKeyGenerator('DES64');
@@ -103,16 +103,16 @@ function genSymKeyByData(symKeyData: Uint8Array) {
   return symKey;
 }
 
-<em>// 生成偏移量</em>
+// 生成偏移量
 function genIvParamsSpec(ivData: Uint8Array) {
   let ivParamsSpec: cryptoFramework.IvParamsSpec = {
-    algName: 'IvParamsSpec',<em> // CBC|CTR|OFB|CFB模式</em>
+    algName: 'IvParamsSpec', // CBC|CTR|OFB|CFB模式
     iv: { data: ivData }
   };
   return ivParamsSpec;
 }
 
-<em>// 加密消息。</em>
+// 加密消息。
 function encryptMessage(symKey: cryptoFramework.SymKey, param: cryptoFramework.ParamsSpec,
   plainText: cryptoFramework.DataBlob) {
   let cipher = cryptoFramework.createCipher('DES64|CBC|PKCS5');
@@ -121,7 +121,7 @@ function encryptMessage(symKey: cryptoFramework.SymKey, param: cryptoFramework.P
   return encryptData;
 }
 
-<em>// 解密消息。</em>
+// 解密消息。
 function decryptMessage(symKey: cryptoFramework.SymKey, param: cryptoFramework.ParamsSpec,
   cipherText: cryptoFramework.DataBlob) {
   let decoder = cryptoFramework.createCipher('DES64|CBC|PKCS5');
@@ -130,13 +130,13 @@ function decryptMessage(symKey: cryptoFramework.SymKey, param: cryptoFramework.P
   return decryptData;
 }
 
-<em>// GB2312转Uint8Array函数</em>
+// GB2312转Uint8Array函数
 function gB2312Encode(gb2312Str: string): Uint8Array {
   let gbEncoder = new util.TextEncoder('gb2312');
   return gbEncoder.encodeInto(gb2312Str);
 }
 
-<em>// Uint8Array转GB2312函数</em>
+// Uint8Array转GB2312函数
 function gB2312Decode(gb2312Str: Uint8Array): string {
   let textDecoderOptions: util.TextDecoderOptions = {
     fatal: false,
@@ -150,15 +150,15 @@ function byteToHexString(byteArray: Uint8Array) {
   let hexString = '';
   for (let i = 0; i < byteArray.length; i++) {
     let byte = byteArray[i];
-  <em>  // 将字节转换为十六进制字符串</em>
+    // 将字节转换为十六进制字符串
     let hexByte = byte.toString(16);
-    <em>// 如果不足两位，则前面补零</em>
+    // 如果不足两位，则前面补零
     if (hexByte.length === 1) {
       hexByte = '0' + hexByte;
     }
     hexString += hexByte;
   }
-  return hexString; <em>// 通常十六进制字符串以大写形式表示</em>
+  return hexString; // 通常十六进制字符串以大写形式表示
 }
 
 export function main() {

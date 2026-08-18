@@ -25,7 +25,7 @@ import { socket } from '@kit.NetworkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { util } from '@kit.ArkTS';
 
-<em>// 全局变量</em>
+// 全局变量
 let tcpServer: socket.TCPSocketServer = socket.constructTCPSocketServerInstance();
 
 @Entry
@@ -34,7 +34,7 @@ struct Index {
   @State port: number = 8080;
   @State running: boolean = false;
   @State msgHistory: string = '';
- <em> // 监听的ip地址，此处地址实际使用过程中替换为真实地址</em>
+  // 监听的ip地址，此处地址实际使用过程中替换为真实地址
   @State webUrl: string = 'xx.xx.xx';
   scroller: Scroller = new Scroller();
 
@@ -98,7 +98,7 @@ struct Index {
     .padding(10);
   }
 
-  <em>// 开启服务</em>
+  // 开启服务
   startServer() {
     let listenAddr: socket.NetAddress = {
       address: '0.0.0.0',
@@ -114,7 +114,7 @@ struct Index {
       this.msgHistory += 'listen success \r\n';
     });
 
-   <em> // 连接后得到了clientSocket对象，然后继续订阅clientSocket对象的收到客户端消息事件</em>
+    // 连接后得到了clientSocket对象，然后继续订阅clientSocket对象的收到客户端消息事件
     tcpServer.on('connect', (clientSocket: socket.TCPSocketConnection) => {
       clientSocket.on('message', (msgInfo: socket.SocketMessageInfo) => {
         let requestMsg = buf2String(msgInfo.message);
@@ -130,7 +130,7 @@ struct Index {
   }
 }
 
-<em>// 构造给客户端的应答内容</em>
+// 构造给客户端的应答内容
 function buildRespString(content: string) {
   let result: string = '';
   let bodyContent = '<html>';
@@ -161,7 +161,7 @@ function buildRespString(content: string) {
   return result;
 }
 
-<em>// ArrayBuffer转字符串</em>
+// ArrayBuffer转字符串
 function buf2String(buf: ArrayBuffer): string {
   const msgArray = new Uint8Array(buf);
   const textDecoder = util.TextDecoder.create('utf-8');

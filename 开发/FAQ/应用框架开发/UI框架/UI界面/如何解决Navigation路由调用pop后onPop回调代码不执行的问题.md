@@ -42,7 +42,7 @@ struct PageOne {
           .height(40)
           .margin(10)
           .onClick(() => {
-         <em>   // 将name指定的NavDestination页面信息入栈，传递的数据为param，添加接收处理结果的onPop回调。</em>
+            // 将name指定的NavDestination页面信息入栈，传递的数据为param，添加接收处理结果的onPop回调。
             this.pageInfo.pushPath({
               name: 'pageTwo', param: new ParamWithOp(), onPop: (popInfo: PopInfo) => {
                 this.message = `[pushPath]last page is: ${popInfo.info.name} result: ${JSON.stringify(popInfo.result)}`
@@ -67,7 +67,7 @@ struct PageTwo {
           .height(40)
           .margin(20)
           .onClick(() => {
-        <em>    // 回退到上一个页面，此处代码，在pop回pageOne页面时，未传参数</em>
+            // 回退到上一个页面，此处代码，在pop回pageOne页面时，未传参数
             this.pathStack.pop();
           })
       }.width('100%').height('100%')
@@ -120,7 +120,7 @@ onPop回调函数需要使用pop、popToName、popToIndex方法返回时设置re
 按上节所述，只需在pageTwo中调用pop方法时，传入result参数，即可在pageOne中成功收到onPop的回调。修改问题代码如下：
  
 ```text
-<em>// 回退到上一个页面，随便传个result即可触发onPop回调</em>
+// 回退到上一个页面，随便传个result即可触发onPop回调
 this.pathStack.pop(1);
 ```
  

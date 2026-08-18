@@ -118,14 +118,14 @@ struct Page2 {
           .fontSize(15)
           .maxLines(1)
           .textOverflow({ overflow: TextOverflow.Ellipsis })
-          .layoutWeight(5); <em>// 占5/7剩余空间</em>
+          .layoutWeight(5); // 占5/7剩余空间
         Text('Hello world')
           .fontColor('#999999')
           .borderWidth(1)
           .borderColor('#ff3880ff')
           .borderRadius(2)
           .maxLines(1)
-          .layoutWeight(2); <em>// 占2/7剩余空间</em>
+          .layoutWeight(2); // 占2/7剩余空间
       }
       .height(30)
       .width('100%')
@@ -190,7 +190,7 @@ struct Page4 {
           .fontSize(15)
           .fontColor(Color.Black)
           .maxLines(1)
-          .width('calc(100% - 100vp - 20vp)') <em>// 父组件宽度减去另外两个子组件宽度</em>
+          .width('calc(100% - 100vp - 20vp)') // 父组件宽度减去另外两个子组件宽度
           .textOverflow({ overflow: TextOverflow.Ellipsis });
         Text('Hello world')
           .fontColor('#999999')

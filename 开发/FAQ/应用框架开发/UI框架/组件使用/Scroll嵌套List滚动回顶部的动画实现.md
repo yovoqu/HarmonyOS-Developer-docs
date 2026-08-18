@@ -59,7 +59,7 @@ struct ListWithinScrollAnimation {
   private scrollerForScroll: Scroller = new Scroller();
   private scrollerForList: Scroller = new Scroller();
   private tabController: TabsController = new TabsController();
-  @State listInfoItem: Array<ResourceStr> = new Array(10).fill($r('app.media.img1'));<em> </em><em>// 图片资源需自行替换</em>
+  @State listInfoItem: Array<ResourceStr> = new Array(10).fill($r('app.media.img1')); // 图片资源需自行替换
   @State tabBarContent: Array<string> = ['第一页', '第二页', '第三页'];
 
   @Builder
@@ -113,7 +113,7 @@ struct ListWithinScrollAnimation {
         Column() {
           Swiper() {
             ForEach(this.listInfoItem, () => {
-              Image($r('app.media.img2')); <em>// 图片资源需自行替换</em>
+              Image($r('app.media.img2')); // 图片资源需自行替换
             });
           }
           .height(250)

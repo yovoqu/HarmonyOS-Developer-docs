@@ -27,7 +27,7 @@ HarmonyOS提供了CryptoArchitectureKit（加密架构套件），支持SM2非�
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';
 
-<em>// 完整的明文被拆分为input1和input2</em>
+// 完整的明文被拆分为input1和input2
 let input1: cryptoFramework.DataBlob = { data: new Uint8Array(buffer.from('This is Sign test plan1', 'utf-8').buffer) };
 let input2: cryptoFramework.DataBlob = { data: new Uint8Array(buffer.from('This is Sign test plan2', 'utf-8').buffer) };
 
@@ -35,7 +35,7 @@ async function signMessagePromise(priKey: cryptoFramework.PriKey) {
   let signAlg = 'SM2_256|SM3';
   let signer = cryptoFramework.createSign(signAlg);
   await signer.init(priKey);
-  await signer.update(input1); <em>// 如果明文较短，可以直接调用sign接口一次性传入</em>
+  await signer.update(input1); // 如果明文较短，可以直接调用sign接口一次性传入
   let signData = await signer.sign(input2);
   return signData;
 }
@@ -44,7 +44,7 @@ async function verifyMessagePromise(signMessageBlob: cryptoFramework.DataBlob, p
   let verifyAlg = 'SM2_256|SM3';
   let verifier = cryptoFramework.createVerify(verifyAlg);
   await verifier.init(pubKey);
-  await verifier.update(input1); <em>// 如果明文较短，可以直接调用verify接口一次性传入</em>
+  await verifier.update(input1); // 如果明文较短，可以直接调用verify接口一次性传入
   let res = await verifier.verify(input2, signMessageBlob);
   console.info(`verify result = ${res}`);
   return res;

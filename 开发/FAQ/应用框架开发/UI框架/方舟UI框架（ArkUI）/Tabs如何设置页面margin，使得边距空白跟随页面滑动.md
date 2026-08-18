@@ -49,7 +49,7 @@ struct SetTabsMarginDemo {
             .width('100%')
             .backgroundColor(Color.Yellow)
           }
-   <em>       // The place where the margins are correctly set.</em>
+          // The place where the margins are correctly set.
           .margin({left : 10, right :10})
 
           TabContent() {
@@ -60,7 +60,7 @@ struct SetTabsMarginDemo {
             .width('100%')
             .backgroundColor(Color.Green)
           }
-        <em>  // The place where the margins are correctly set.</em>
+          // The place where the margins are correctly set.
           .margin({left : 10, right :10})
 
           TabContent() {
@@ -71,11 +71,11 @@ struct SetTabsMarginDemo {
             .width('100%')
             .backgroundColor(Color.Pink)
           }
-         <em> // The place where the margins are correctly set.</em>
+          // The place where the margins are correctly set.
           .margin({left : 10, right :10})
         }
-    <em>    // The parameter for adjusting the margins should not be added here, as it may affect the user experience.</em>
-<em>        // .margin({left : 10, right :10})</em>
+        // The parameter for adjusting the margins should not be added here, as it may affect the user experience.
+        // .margin({left : 10, right :10})
         .onChange((index: number) => {
           this.currentIndex = index;
         })

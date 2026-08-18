@@ -45,10 +45,10 @@ interface AnimateCallback {
 
 2. 使用Map结构存储每个页面注册的动画回调。创建单例类CustomTransition管理每个页面动画回调函数的注册和移除。可参考[设置可交互转场动画](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#示例3设置可交互转场动画)中CustomTransition类的实现。
 ```text
-<em>// </em><em>存储每个页面的动画回调函数</em>
+// 存储每个页面的动画回调函数
 const customTransitionMap: Map<number, AnimateCallback> = new Map();
 
-<em>// CustomTransition</em><em>类管理函数的注册和移除</em>
+// CustomTransition类管理函数的注册和移除
 export class CustomTransition {
   static delegate = new CustomTransition();
 
@@ -56,7 +56,7 @@ export class CustomTransition {
     return CustomTransition.delegate;
   }
 
- <em> // 注册某个页面的动画回调</em>
+  // 注册某个页面的动画回调
   registerNavParam(name: number, startCallback: (operation: boolean, isExit: boolean) => void,
     endCallback: (operation: boolean, isExit: boolean) => void,
     onFinish: (operation: boolean, isExit: boolean) => void, timeout: number): void {
@@ -79,12 +79,12 @@ export class CustomTransition {
     customTransitionMap.set(name, params);
   }
 
- <em> // 移除某个页面的动画回调</em>
+  // 移除某个页面的动画回调
   unRegisterNavParam(name: number): void {
     customTransitionMap.delete(name);
   }
 
-<em>  // 获取某个页面的动画回调</em>
+  // 获取某个页面的动画回调
   getAnimateParam(name: number): AnimateCallback {
     let result: AnimateCallback = {
       start: customTransitionMap.get(name)?.start,
@@ -103,7 +103,7 @@ export class CustomTransition {
 struct pageOneTmp {
   @Consume('pageInfos') pageInfos: NavPathStack;
   @State x: number = 0;
-  @State opacitys: number = 1; <em>// 添加透明度状态</em>
+  @State opacitys: number = 1; // 添加透明度状态
   pageId: number = 0;
 
   aboutToAppear() {
@@ -111,15 +111,15 @@ struct pageOneTmp {
     CustomTransition.getInstance().registerNavParam(this.pageId, (isPush: boolean, isExit: boolean) => {
       console.info(`${isPush} ${isExit}`);
       this.x = isExit ? 0 : 300;
-      this.opacitys = isExit ? 1 : 0; <em>// 设置初始透明度</em>
+      this.opacitys = isExit ? 1 : 0; // 设置初始透明度
     }, (isPush: boolean, isExit: boolean) => {
       console.info(`${isPush} ${isExit}`);
       this.x = isExit ? -300 : 0;
-      this.opacitys = isExit ? 0 : 1;<em> </em><em>// 设置结束透明度</em>
+      this.opacitys = isExit ? 0 : 1; // 设置结束透明度
     }, (isPush: boolean, isExit: boolean) => {
       console.info(`${isPush} ${isExit}`);
       this.x = 0;
-      this.opacitys = 1;<em> </em><em>// 重置透明度</em>
+      this.opacitys = 1; // 重置透明度
     }, 200);
   }
 
@@ -131,7 +131,7 @@ struct pageOneTmp {
           .height(40)
           .margin(20)
           .onClick(() => {
-            this.pageInfos.pushPathByName('pageTwo', null); <em>//将name指定的NavDestination页面信息入栈，传递的数据为param</em>
+            this.pageInfos.pushPathByName('pageTwo', null); //将name指定的NavDestination页面信息入栈，传递的数据为param
           });
 
       }.width('100%').height('100%');
@@ -139,7 +139,7 @@ struct pageOneTmp {
     .title('pageOne')
     .mode(NavDestinationMode.STANDARD)
     .onBackPressed(() => {
-      const popDestinationInfo = this.pageInfos.pop(); <em>// 弹出路由栈栈顶元素</em>
+      const popDestinationInfo = this.pageInfos.pop(); // 弹出路由栈栈顶元素
       console.log('pop' + '返回值' + JSON.stringify(popDestinationInfo));
       return true;
     })
@@ -147,7 +147,7 @@ struct pageOneTmp {
       CustomTransition.getInstance().unRegisterNavParam(this.pageId);
     })
     .translate({ x: 0, y: this.x, z: 0 })
-    .opacity(this.opacitys) <em>// 设置透明度属性</em>
+    .opacity(this.opacitys) // 设置透明度属性
     .backgroundColor(Color.White);
   }
 }
@@ -158,7 +158,7 @@ struct pageOneTmp {
 struct PageTwoTemp {
   @Consume('pageInfos') pageInfos: NavPathStack;
   @State x: number = 300;
-  @State opacitys: number = 1; <em>// 添加透明度状态</em>
+  @State opacitys: number = 1; // 添加透明度状态
   pageId: number = 0;
 
   aboutToAppear() {
@@ -166,15 +166,15 @@ struct PageTwoTemp {
     CustomTransition.getInstance().registerNavParam(this.pageId, (isPush: boolean, isExit: boolean) => {
       console.info(`${isPush} ${isExit}`);
       this.x = isExit ? 0 : isPush ? 300 : -300;
-      this.opacitys = isExit ? 1 : 0; <em>// 设置初始透明度</em>
+      this.opacitys = isExit ? 1 : 0; // 设置初始透明度
     }, (isPush: boolean, isExit: boolean) => {
       console.info(`${isPush} ${isExit}`);
       this.x = isExit ? isPush ? -300 : 300 : 0;
-      this.opacitys = isExit ? 0 : 1;<em> </em><em>// 设置结束透明度</em>
+      this.opacitys = isExit ? 0 : 1; // 设置结束透明度
     }, (isPush: boolean, isExit: boolean) => {
       console.info(`${isPush} ${isExit}`);
       this.x = 0;
-      this.opacitys = 1;<em> </em><em>// 重置透明度</em>
+      this.opacitys = 1; // 重置透明度
     }, 2000);
   }
 
@@ -189,7 +189,7 @@ struct PageTwoTemp {
       CustomTransition.getInstance().unRegisterNavParam(this.pageId);
     })
     .translate({ x: 0, y: 0, z: this.x })
-    .opacity(this.opacitys) <em>// 设置透明度属性</em>
+    .opacity(this.opacitys) // 设置透明度属性
     .backgroundColor(Color.White);
   }
 }
@@ -213,11 +213,11 @@ struct NavigationPage {
 
   aboutToAppear() {
     this.pageInfos.pushPath({ name: 'pageOne' }, false);
-  <em>  // 使用路由拦截功能</em>
+    // 使用路由拦截功能
     this.pageInfos.setInterception({
       willShow: (from: NavDestinationContext | NavBar, to: NavDestinationContext | NavBar,
         operation: NavigationOperation, isAnimated: boolean) => {
-      <em>  // 如果要返回到主页面，就push名为pageOne的子页面</em>
+        // 如果要返回到主页面，就push名为pageOne的子页面
         if (to == 'navBar') {
           console.info(`${from} ${operation} ${isAnimated}`);
           this.pageInfos.pushPathByName('pageOne', undefined, false);
@@ -240,9 +240,9 @@ struct NavigationPage {
       let customAnimation: NavigationAnimatedTransition = {
         timeout: 700,
         transition: (transitionProxy: NavigationTransitionProxy) => {
-     <em>     // 获取退场页面的动画回调函数</em>
+          // 获取退场页面的动画回调函数
           let fromParam: AnimateCallback = CustomTransition.getInstance()?.getAnimateParam(from.index);
-        <em>  // 获取进场页面的动画回调函数</em>
+          // 获取进场页面的动画回调函数
           let toParam: AnimateCallback = CustomTransition.getInstance()?.getAnimateParam(to.index);
           if (fromParam.start !== undefined) {
             fromParam.start(operation === NavigationOperation.PUSH, true);

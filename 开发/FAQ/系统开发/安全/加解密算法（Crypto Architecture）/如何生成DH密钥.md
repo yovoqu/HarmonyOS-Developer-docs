@@ -39,10 +39,10 @@
 ```text
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
-<em>// </em><em>使用字符串参数生成DH</em><em>密钥</em>对
+// 使用字符串参数生成DH密钥对
 export function getDHKeyFromStringParams() {
   try {
-   <em> // 1、生成密钥对</em>
+    // 1、生成密钥对
     let spec = cryptoFramework.createAsyKeyGenerator('DH_modp2048');
     let pubKey = spec.generateKeyPairSync().pubKey.getEncoded().data;
     let priKey = spec.generateKeyPairSync().priKey.getEncoded().data;
@@ -60,28 +60,28 @@ export function getDHKeyFromStringParams() {
 
 3. 调用createAsyKeyGeneratorBySpec接口通过DH密钥参数生成DH密钥对。
 ```text
-<em>// </em><em>使用密钥参数生成DH密钥对</em>
+// 使用密钥参数生成DH密钥对
 export function getDHKeyFromParams() {
   try {
-   <em> // 1、生成公共参数</em>
+    // 1、生成公共参数
     let dHCommonParamsSpec: cryptoFramework.DHCommonParamsSpec = {
-     <em> // 参数仅用于示例，按照实际填写</em>
+      // 参数仅用于示例，按照实际填写
       p: BigInt('0xb70e0cbd6bb4bf7f321390b94a03c1d356c21122343280d6115c1d21'),
       g: BigInt('0xbd376388b5f723fb4c22dfe6cd4375a05a07476444d5819985007e34'),
       l: 192,
       algName: 'DH',
       specType: cryptoFramework.AsyKeySpecType.COMMON_PARAMS_SPEC
     };
-   <em> // 2、生成密钥对参数</em>
+    // 2、生成密钥对参数
     let dHKeyPairSpec: cryptoFramework.DHKeyPairSpec = {
-     <em> // 参数仅用于示例，按照实际填写</em>
+      // 参数仅用于示例，按照实际填写
       sk: BigInt('0xfffffffffffffffffffffffffffffffefffffffffffffffffffffffe'),
       pk: BigInt('0xb4050a850c04b3abf54132565044b0b7d7bfd8ba270b39432355ffb4'),
       params: dHCommonParamsSpec,
       algName: 'DH',
       specType: cryptoFramework.AsyKeySpecType.KEY_PAIR_SPEC
     };
-  <em>  // 3、生成密钥对</em>
+    // 3、生成密钥对
     let spec = cryptoFramework.createAsyKeyGeneratorBySpec(dHKeyPairSpec);
     let pubKey = spec.generateKeyPairSync().pubKey.getEncoded().data;
     let priKey = spec.generateKeyPairSync().priKey.getEncoded().data;
@@ -100,10 +100,10 @@ export function getDHKeyFromParams() {
 ```text
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
-<em>// </em><em>使用字符串参数生成DH密钥对</em>
+// 使用字符串参数生成DH密钥对
 export function getDHKeyFromStringParams() {
   try {
-   <em> // 1、生成密钥对</em>
+    // 1、生成密钥对
     let spec = cryptoFramework.createAsyKeyGenerator('DH_modp2048');
     let pubKey = spec.generateKeyPairSync().pubKey.getEncoded().data;
     let priKey = spec.generateKeyPairSync().priKey.getEncoded().data;
@@ -114,28 +114,28 @@ export function getDHKeyFromStringParams() {
   }
 }
 
-<em>// </em><em>使用密钥参数生成DH密钥对</em>
+// 使用密钥参数生成DH密钥对
 export function getDHKeyFromParams() {
   try {
-   <em> // 1、生成公共参数</em>
+    // 1、生成公共参数
     let dHCommonParamsSpec: cryptoFramework.DHCommonParamsSpec = {
-      <em>// 参数仅用于示例，按照实际填写</em>
+      // 参数仅用于示例，按照实际填写
       p: BigInt('0xb70e0cbd6bb4bf7f321390b94a03c1d356c21122343280d6115c1d21'),
       g: BigInt('0xbd376388b5f723fb4c22dfe6cd4375a05a07476444d5819985007e34'),
       l: 192,
       algName: 'DH',
       specType: cryptoFramework.AsyKeySpecType.COMMON_PARAMS_SPEC
     };
-    <em>// 2</em><em>、生成密钥对参数</em>
+    // 2、生成密钥对参数
     let dHKeyPairSpec: cryptoFramework.DHKeyPairSpec = {
-      <em>// 参数仅用于示例，按照实际填写</em>
+      // 参数仅用于示例，按照实际填写
       sk: BigInt('0xfffffffffffffffffffffffffffffffefffffffffffffffffffffffe'),
       pk: BigInt('0xb4050a850c04b3abf54132565044b0b7d7bfd8ba270b39432355ffb4'),
       params: dHCommonParamsSpec,
       algName: 'DH',
       specType: cryptoFramework.AsyKeySpecType.KEY_PAIR_SPEC
     };
-   <em> // 3、生成密钥对</em>
+    // 3、生成密钥对
     let spec = cryptoFramework.createAsyKeyGeneratorBySpec(dHKeyPairSpec);
     let pubKey = spec.generateKeyPairSync().pubKey.getEncoded().data;
     let priKey = spec.generateKeyPairSync().priKey.getEncoded().data;

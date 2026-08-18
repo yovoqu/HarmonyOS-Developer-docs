@@ -132,7 +132,7 @@ export struct TabBarAlignLeftAndRight {
       this.selectedIndex = index;
     })
     .padding(10)
-  <em>  // 设置TabItem的相对位置</em>
+    // 设置TabItem的相对位置
     .position(
       index === 1 ? { left: 80 } :
         index === 2 ? { right: 90 } :
@@ -183,7 +183,7 @@ export struct TabBarAlignLeftAndRight {
       });
 
       Stack() {
-      <em>  // 用Row组件实现TabBar效果</em>
+        // 用Row组件实现TabBar效果
         Row() {
           ForEach(this.tabName, (item: string, index: number) => {
             this.tabBuilder(index, item);
@@ -194,8 +194,8 @@ export struct TabBarAlignLeftAndRight {
         .width('100%')
         .backgroundColor(Color.White);
 
-      <em>  // 开发者按需设计中间宫格展示内容，该示例展示图标</em>
-        Image($r('app.media.startIcon'))<em> // 资源地址请自行替换</em>
+        // 开发者按需设计中间宫格展示内容，该示例展示图标
+        Image($r('app.media.startIcon')) // 资源地址请自行替换
           .width(25)
           .height(25)
           .align(Alignment.Bottom);

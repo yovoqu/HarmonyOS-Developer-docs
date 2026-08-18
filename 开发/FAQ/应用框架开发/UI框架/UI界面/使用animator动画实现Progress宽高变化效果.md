@@ -16,7 +16,7 @@
 struct Index {
   @State cameraTranslateY: number = 0
   @State cameraBtnSize: number = 65
-  @State isTranslate: boolean = false <em>// </em><em>是否已经向下平移</em>
+  @State isTranslate: boolean = false // 是否已经向下平移
 
   aboutToAppear(): void {
   }
@@ -113,9 +113,9 @@ import { AnimatorResult } from '@kit.ArkUI';
 struct ProgressDemo {
   @State cameraTranslateY: number = 0;
   @State cameraBtnSize: number = 65;
-  @State isTranslate: boolean = false; <em>// </em><em>是否已经向下平移</em>
+  @State isTranslate: boolean = false; // 是否已经向下平移
   private backAnimator: AnimatorResult | undefined = undefined;
-  <em>// 创建动画</em>
+  // 创建动画
   create() {
     this.backAnimator = this.getUIContext().createAnimator({
       duration: 6000,
@@ -140,7 +140,7 @@ struct ProgressDemo {
       this.cameraBtnSize = value;
     };
   };
- <em> // 页面即将出现时调用</em>
+  // 页面即将出现时调用
   aboutToAppear(): void {
     this.create();
   };
@@ -156,12 +156,12 @@ struct ProgressDemo {
       Row() {
         Progress({ value: 50, total: 100, type: ProgressType.Ring })
           .width(this.cameraBtnSize + 30)
-          .aspectRatio(1) <em>// 设置宽高比</em>
+          .aspectRatio(1) // 设置宽高比
           .color('#FFA04F')
           .backgroundColor('#F3F3F3')
           .style({ strokeWidth: 3 })
           .padding(15)
-          .onClick(() => { <em>// </em><em>点击事件处理</em>
+          .onClick(() => { // 点击事件处理
             this.isTranslate = !this.isTranslate;
             if (this.isTranslate) {
               this.getUIContext().animateTo({ duration: 6000, iterations: 1, playMode: PlayMode.Alternate }, () => {

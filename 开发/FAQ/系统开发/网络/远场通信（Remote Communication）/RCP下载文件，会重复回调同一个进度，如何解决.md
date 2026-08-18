@@ -39,7 +39,7 @@ struct Index {
   @State totalData: number = 0;
   @State progress: number = 0;
   @State enableDownload: boolean = true;
- <em> // 需要替换成实际的url</em>
+  // 需要替换成实际的url
   downloadUrl: string = '';
 
   build() {
@@ -54,7 +54,7 @@ struct Index {
           this.enableDownload = false;
           this.curValue = 0;
           this.progress = 0;
-     <em>     // 下载文件数据</em>
+          // 下载文件数据
           this.startDownload(this.downloadUrl);
         })
         .enabled(this.enableDownload);
@@ -64,9 +64,9 @@ struct Index {
     .width('100%');
   }
 
- <em> // 下载文件</em>
+  // 下载文件
   startDownload(url: string) {
-   <em> // 响应数据处理</em>
+    // 响应数据处理
     const eventsHandler: rcp.HttpEventsHandler = {
       onHeaderReceive: (headers: rcp.ResponseHeaders) => {
         this.totalData = Number(headers['content-length']);
@@ -76,17 +76,17 @@ struct Index {
         this.progress = (this.curValue / this.totalData) * 100;
         console.info('Download progress:', this.curValue, 'of', this.totalData);
       },
-    <em>  // 数据完成接收监听</em>
+      // 数据完成接收监听
       onDataEnd: () => {
         console.info('Data transfer complete');
         this.enableDownload = true;
       },
-    <em>  // 取消数据接收监听</em>
+      // 取消数据接收监听
       onCanceled: () => {
         console.info('Request/response canceled');
       },
     };
-   <em> // 建立session对象</em>
+    // 建立session对象
     let session = rcp.createSession({
       requestConfiguration: {
         tracing: {

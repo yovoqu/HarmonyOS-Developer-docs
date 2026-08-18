@@ -49,36 +49,36 @@ genLocalAddress(socketFileName: string) {
 
 2. LocalSocket使用需要先启动LocalSocketServer：
 ```json
-<em>// 创建并绑定本地套接字文件，进行监听。</em>
+// 创建并绑定本地套接字文件，进行监听。
 this.server.listen(this.localAddress).then(() => {
   console.info('LocalSocket Server listen success');
 }).catch((err: BusinessError) => {
   console.error('LocalSocket Server listen fail: ' + JSON.stringify(err));
 });
 
-<em>// 订阅LocalSocketServer的connect事件。</em>
+// 订阅LocalSocketServer的connect事件。
 this.server.on('connect', (connection: socket.LocalSocketConnection) => {
   console.info('LocalSocket Server 监听到客户端连接: ' + JSON.stringify(connection.clientId));
-<em>  // 订阅LocalSocketConnection相关的事件。</em>
+  // 订阅LocalSocketConnection相关的事件。
   connection.on('message', (value: socket.LocalSocketMessageInfo) => {
     console.info('LocalSocket Server total: ' + JSON.stringify(value));
     console.info('LocalSocket Server message information: ' + this.decodeMessage(value));
-  <em>  // ...</em>
+    // ...
   });
 
   connection.on('error', (err: BusinessError) => {
     console.error('LocalSocket Server err:' + JSON.stringify(err));
   });
 
- <em> // 向客户端发送数据。</em>
+  // 向客户端发送数据。
   this.sendMessage(connection, 'Hello Client!');
- <em> // ...</em>
+  // ...
 });
 ```
 
 3. 再启动LocalSocket客户端发送消息：
 ```json
-<em>// 启动客户端端前，需要先启动LocalSocketServer，否则报错：2301111 Connection refused</em>
+// 启动客户端端前，需要先启动LocalSocketServer，否则报错：2301111 Connection refused
 let connectOpt: socket.LocalConnectOptions = {
   address: this.localAddress,
   timeout: 6000
@@ -116,7 +116,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 struct LocalSocketPage {
   private server: socket.LocalSocketServer = socket.constructLocalSocketServerInstance();
   private client: socket.LocalSocket = socket.constructLocalSocketInstance();
-  private localAddress: socket.LocalAddress = this.genLocalAddress('socket_1'); <em>// 创建本地文件，server和client均需对此路径具备访问权限</em>
+  private localAddress: socket.LocalAddress = this.genLocalAddress('socket_1'); // 创建本地文件，server和client均需对此路径具备访问权限
 
   genLocalAddress(socketFileName: string) {
     let context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
@@ -151,34 +151,34 @@ struct LocalSocketPage {
     Column({ space: 24 }) {
       Button('启动LocalSocket服务端')
         .onClick(() => {
-          <em>// 创建并绑定本地套接字文件，进行监听。</em>
+          // 创建并绑定本地套接字文件，进行监听。
           this.server.listen(this.localAddress).then(() => {
             console.info('LocalSocket Server listen success');
           }).catch((err: BusinessError) => {
             console.error('LocalSocket Server listen fail: ' + JSON.stringify(err));
           });
 
-         <em> // 订阅LocalSocketServer的connect事件。</em>
+          // 订阅LocalSocketServer的connect事件。
           this.server.on('connect', (connection: socket.LocalSocketConnection) => {
             console.info('LocalSocket Server 监听到客户端连接: ' + JSON.stringify(connection.clientId));
-            <em>// 订阅LocalSocketConnection相关的事件。</em>
+            // 订阅LocalSocketConnection相关的事件。
             connection.on('message', (value: socket.LocalSocketMessageInfo) => {
               console.info('LocalSocket Server total: ' + JSON.stringify(value));
               console.info('LocalSocket Server message information: ' + this.decodeMessage(value));
-            <em>  // ...</em>
+              // ...
             });
 
             connection.on('error', (err: BusinessError) => {
               console.error('LocalSocket Server err:' + JSON.stringify(err));
             });
 
-           <em> // 向客户端发送数据。</em>
+            // 向客户端发送数据。
             this.sendMessage(connection, 'Hello Client!');
-       <em>     // ...</em>
+            // ...
           });
         });
       Button('启动LocalSocket客户端').onClick(() => {
-       <em> // 启动客户端端前，需要先启动LocalSocketServer，否则报错：2301111 Connection refused</em>
+        // 启动客户端端前，需要先启动LocalSocketServer，否则报错：2301111 Connection refused
         let connectOpt: socket.LocalConnectOptions = {
           address: this.localAddress,
           timeout: 6000
@@ -202,7 +202,7 @@ struct LocalSocketPage {
         });
       });
       Button('客户端发送数据').onClick(() => {
-     <em>   // 需要服务端先使用on('connect')、on('message')监听到客户端连接，否则无法监听到消息</em>
+        // 需要服务端先使用on('connect')、on('message')监听到客户端连接，否则无法监听到消息
         this.sendMessage(this.client, 'Hello Server!');
       });
     }

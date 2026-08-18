@@ -45,19 +45,19 @@
 @Entry
 @Component
 struct HideNavBarPage {
-  pathStack: NavPathStack = new NavPathStack(); <em>// </em><em>导航控制器对象</em>
+  pathStack: NavPathStack = new NavPathStack(); // 导航控制器对象
 
   aboutToAppear(): void {
-    <em>// 进入主页面时直接 push 一个子页面，这个子页面就作为 APP 的主页面</em>
-    this.pathStack.pushPathByName('NavDesOne', undefined, false); <em>// 注意关闭转场动画效果</em>
-    <em>// 使用路由拦截功能</em>
+    // 进入主页面时直接 push 一个子页面，这个子页面就作为 APP 的主页面
+    this.pathStack.pushPathByName('NavDesOne', undefined, false); // 注意关闭转场动画效果
+    // 使用路由拦截功能
     this.pathStack.setInterception({
       willShow: (from: NavDestinationContext | NavBar, to: NavDestinationContext | NavBar,
         operation: NavigationOperation, isAnimated: boolean) => {
         console.info(`${from} ${to} ${operation} ${isAnimated}`);
-     <em>   // 如果要返回到主页面，就 push 名为 NavDesOne 的子页面</em>
+        // 如果要返回到主页面，就 push 名为 NavDesOne 的子页面
         if (to == 'navBar') {
-        <em>  // 注意关闭转场动画效果，NavDesOne需自行创建并配置</em>
+          // 注意关闭转场动画效果，NavDesOne需自行创建并配置
           this.pathStack.pushPathByName('NavDesOne', undefined, false);
         }
       }
@@ -67,7 +67,7 @@ struct HideNavBarPage {
   build() {
     Navigation(this.pathStack) {
     }
-    .hideNavBar(true) <em>// NavBar页面不显示</em>
+    .hideNavBar(true) // NavBar页面不显示
     .height('100%').width('100%');
   }
 }
@@ -104,21 +104,21 @@ struct HideNavBarPage {
 @Entry
 @Component
 struct RouterMapDemo {
-  pathStack: NavPathStack = new NavPathStack(); <em>// 导航控制器对象</em>
+  pathStack: NavPathStack = new NavPathStack(); // 导航控制器对象
 
   build() {
-    <em>// 根节点使用Navigation组件</em>
-    Navigation(this.pathStack) { <em>// 将导航控制器对象和Navigation绑定</em>
+    // 根节点使用Navigation组件
+    Navigation(this.pathStack) { // 将导航控制器对象和Navigation绑定
       Column({ space: 24 }) {
         Text('这是Navigation根页面');
         Button('跳转NavDestination子页')
           .onClick(() => {
-            <em>// 通过name（需要和路由表route_map设置的name保持一致）指定子页</em>
+            // 通过name（需要和路由表route_map设置的name保持一致）指定子页
             this.pathStack.pushPath({ name: 'NavDesOne' }, true);
           });
       }.width('100%').height('100%');
     }
-    .hideToolBar(true) <em>// 隐藏工具栏</em>
+    .hideToolBar(true) // 隐藏工具栏
     .height('100%').width('100%');
   }
 }
@@ -134,7 +134,7 @@ export function NavDesBuilder() {
 
 @Component
 struct NavDesOne {
-  pathStack: NavPathStack = new NavPathStack(); <em>// 导航控制器对象</em>
+  pathStack: NavPathStack = new NavPathStack(); // 导航控制器对象
 
   build() {
     NavDestination() {
@@ -143,8 +143,8 @@ struct NavDesOne {
       }.width('100%').height('100%').justifyContent(FlexAlign.Center);
     }
     .onReady((ctx: NavDestinationContext) => {
-     <em> // 通过NavDestination上下文信息获取到导航控制器对象</em>
-<em>      // Navigation及其所有子页的pathStack需保证为同一个</em>
+      // 通过NavDestination上下文信息获取到导航控制器对象
+      // Navigation及其所有子页的pathStack需保证为同一个
       this.pathStack = ctx.pathStack;
     });
   }
@@ -161,31 +161,31 @@ struct NavDesOne {
 
   
 ```text
-import { NavDesBuilder } from './NavDesOne'; <em>// 静态import导入页面</em>
+import { NavDesBuilder } from './NavDesOne'; // 静态import导入页面
 
 @Entry
 @Component
 struct NavDesMapDemo {
-  pathStack: NavPathStack = new NavPathStack();<em> </em><em>// 导航控制器对象</em>
+  pathStack: NavPathStack = new NavPathStack(); // 导航控制器对象
 
   build() {
-  <em>  // 根节点使用Navigation组件</em>
-    Navigation(this.pathStack) { <em>// 将导航控制器对象和Navigation绑定</em>
+    // 根节点使用Navigation组件
+    Navigation(this.pathStack) { // 将导航控制器对象和Navigation绑定
       Column({ space: 24 }) {
         Text('这是Navigation根页面');
         Button('跳转NavDestination子页')
           .onClick(() => {
-           <em> // 通过name（需要和自定义路由表设置的name保持一致）指定子页</em>
+            // 通过name（需要和自定义路由表设置的name保持一致）指定子页
             this.pathStack.pushPath({ name: 'NavDesOne' }, true);
           });
       };
     }
-    .navDestination(this.pageMap)<em> </em><em>// 注册路由表</em>
-    .hideToolBar(true) <em>// 隐藏工具栏</em>
+    .navDestination(this.pageMap) // 注册路由表
+    .hideToolBar(true) // 隐藏工具栏
     .height('100%').width('100%');
   }
 
- <em> // 自定义路由表：根据子页名称寻址</em>
+  // 自定义路由表：根据子页名称寻址
   @Builder
   pageMap(name: string) {
     if (name === 'NavDesOne') {

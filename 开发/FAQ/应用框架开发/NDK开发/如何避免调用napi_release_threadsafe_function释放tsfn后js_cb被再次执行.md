@@ -33,35 +33,35 @@ napi_threadsafe_function的引用计数未归零时，应使用napi_tsfn_abort�
 
 #undef LOG_DOMAIN
 #undef LOG_TAG
-#define LOG_DOMAIN 0x3200 <em> // 全局domain宏，标识业务领域</em>
-#define LOG_TAG "MY_TAG"   <em>// 全局tag宏，标识模块日志tag</em>
+#define LOG_DOMAIN 0x3200  // 全局domain宏，标识业务领域
+#define LOG_TAG "MY_TAG"   // 全局tag宏，标识模块日志tag
 
-<em>// 全局变量定义</em>
+// 全局变量定义
 static napi_threadsafe_function g_tsfn = nullptr;
 static std::mutex g_releaseMutex;
 static std::atomic<bool> g_isReleased(false);
 
-<em>// JS回调函数</em>
+// JS回调函数
 static void CallJs(napi_env env, napi_value js_cb, void* context, void* data) 
 {
-    <em>// 第一重检查：原子标志位（无锁）</em>
+    // 第一重检查：原子标志位（无锁）
     if (g_isReleased.load()) {
         OH_LOG_INFO(LOG_APP, "已释放后执行! Data: %{public}d", *(int*)data);
         return;
     }
 
-   <em> // 第二重检查：互斥锁保护</em>
+    // 第二重检查：互斥锁保护
     std::lock_guard<std::mutex> lock(g_releaseMutex);
     if (g_isReleased.load()) {
         OH_LOG_INFO(LOG_APP, "互斥锁保护下检测到已释放! Data: %{public}d", *(int*)data);
         return;
     }
 
-    <em>// 正常回调逻辑</em>
+    // 正常回调逻辑
     OH_LOG_INFO(LOG_APP, "正常回调执行: %{public}d", *(int*)data);
 }
 
-<em>// 工作线程函数</em>
+// 工作线程函数
 static void WorkerThread() 
 {
     int data = 0;
@@ -78,7 +78,7 @@ static void WorkerThread()
     }
 }
 
-<em>// 安全释放函数</em>
+// 安全释放函数
 static void ReleaseTSFN() 
 {
     std::lock_guard<std::mutex> lock(g_releaseMutex);
@@ -91,32 +91,32 @@ static void ReleaseTSFN()
     }
 }
 
-<em>// 主入口函数</em>
+// 主入口函数
 static napi_value StartTest(napi_env env, napi_callback_info info) 
 {
-   <em> // 获取JS回调函数</em>
+    // 获取JS回调函数
     size_t argc = 1;
     napi_value argv;
     napi_get_cb_info(env, info, &argc, &argv, nullptr, nullptr);
 
-   <em> // 重置释放状态</em>
+    // 重置释放状态
     g_isReleased = false;
 
-   <em> // 创建线程安全函数</em>
+    // 创建线程安全函数
     napi_value work_name;
     napi_create_string_utf8(env, "TSFN_Work", NAPI_AUTO_LENGTH, &work_name);
     napi_status status = napi_create_threadsafe_function(
         env,
-        argv,      <em> // JS回调函数</em>
-        nullptr,      <em> // 异步资源</em>
-        work_name,     <em>// 资源名称</em>
-        0,             <em>// 最大队列长度 (0=无限制)</em>
-        1,           <em>  // 初始线程数</em>
-        nullptr,       <em>// 上下文</em>
-        nullptr,      <em> // 最终回调</em>
-        nullptr,      <em> // 最终数据</em>
-        CallJs,       <em> // 回调函数</em>
-        &g_tsfn       <em> // 输出TSFN</em>
+        argv,       // JS回调函数
+        nullptr,       // 异步资源
+        work_name,     // 资源名称
+        0,             // 最大队列长度 (0=无限制)
+        1,             // 初始线程数
+        nullptr,       // 上下文
+        nullptr,       // 最终回调
+        nullptr,       // 最终数据
+        CallJs,        // 回调函数
+        &g_tsfn        // 输出TSFN
     );
 
     if (status != napi_ok) {
@@ -124,11 +124,11 @@ static napi_value StartTest(napi_env env, napi_callback_info info)
         return nullptr;
     }
 
-  <em>  // 启动工作线程</em>
+    // 启动工作线程
     std::thread worker(WorkerThread);
     worker.detach();
 
-   <em> // 延迟释放线程（模拟竞态条件）</em>
+    // 延迟释放线程（模拟竞态条件）
     std::thread([] {
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
         OH_LOG_INFO(LOG_APP, "开始释放线程安全函数...");
@@ -138,7 +138,7 @@ static napi_value StartTest(napi_env env, napi_callback_info info)
     return nullptr;
 }
 
-<em>// 模块注册</em>
+// 模块注册
 EXTERN_C_START
 static napi_value Init(napi_env env, napi_value exports) 
 {

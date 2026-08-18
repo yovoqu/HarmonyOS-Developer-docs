@@ -16,7 +16,7 @@ closeDialog() {
     let uiContext: UIContext | undefined = AppStorage.get<UIContext>('uiContext')
     if (uiContext) {
       uiContext.getPromptAction().closeCustomDialog(DialogUtils.contentNode)
-     <em> // 关闭一个弹窗就清空了，后面调用就都是null，所以关不掉</em>
+      // 关闭一个弹窗就清空了，后面调用就都是null，所以关不掉
       DialogUtils.contentNode = null
     }
   }
@@ -74,7 +74,7 @@ export class Params {
 export function buildText(params: Params) {
   Column() {
     Column() {
-    <em>  // 内容</em>
+      // 内容
       Text(params.content)
         .width('100%')
         .textAlign(TextAlign.Start)
@@ -87,9 +87,9 @@ export function buildText(params: Params) {
         .height(0.5)
         .backgroundColor('#E6E6E6')
 
-    <em>  // 取消、确定按钮</em>
+      // 取消、确定按钮
       Row() {
-     <em>   // 取消按钮</em>
+        // 取消按钮
         Text('取消按钮')
           .width(0)
           .layoutWeight(1)

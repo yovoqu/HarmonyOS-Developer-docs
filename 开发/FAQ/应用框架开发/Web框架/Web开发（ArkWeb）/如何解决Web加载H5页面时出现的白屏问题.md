@@ -145,9 +145,9 @@ onSslErrorEvent
 ```text
 .onInterceptRequest((event) => {
     if (event.request.url.startsWith('tel:')) {
-     <em>   // 调用系统拨号能力</em>
+        // 调用系统拨号能力
         call.makeCall({ phoneNumber: '123456' });
-        return { responseCode: 404 }; <em>// 阻止默认行为</em>
+        return { responseCode: 404 }; // 阻止默认行为
     }
     return null;
 })
@@ -162,19 +162,19 @@ Web({ src: $rawfile('local.html'), controller: this.controller })
     const url = event.data.getRequestUrl();
     console.info('拦截到 URL:', url);
 
-  <em>  // 判断是否是加载local.html的请求</em>
+    // 判断是否是加载local.html的请求
     if (url.includes('local.html')) {
       console.info('正在拦截 local.html，将替换为 local1.html');
 
-    <em>  // 替换为加载local1.html</em>
+      // 替换为加载local1.html
       try {
         this.controller.loadUrl($rawfile('local1.html'));
       } catch (error) {
         console.error('加载 local1.html 失败:', error);
       }
-      return true; <em>// 拦截成功，阻止默认加载</em>
+      return true; // 拦截成功，阻止默认加载
     }
-   <em> // 其他URL不拦截，允许正常加载</em>
+    // 其他URL不拦截，允许正常加载
     return false;
   })
 ```
@@ -264,10 +264,10 @@ struct Common {
   build() {
     Column() {
       Web({ src: 'www.example.com', controller: this.controller })
-        .javaScriptAccess(true) <em>// 允许执行JavaScript脚本</em>
-        .onlineImageAccess(true) <em>// 允许加载网络图片</em>
-        .domStorageAccess(true) <em>// 开启文档对象模型存储接口</em>
-        .fileAccess(true) <em>// 设置是否开启应用中文件系统的访问</em>
+        .javaScriptAccess(true) // 允许执行JavaScript脚本
+        .onlineImageAccess(true) // 允许加载网络图片
+        .domStorageAccess(true) // 开启文档对象模型存储接口
+        .fileAccess(true) // 设置是否开启应用中文件系统的访问
         .geolocationAccess(false);
     };
   }
@@ -289,7 +289,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Component
 struct SolutionOne {
   controller: webview.WebviewController = new webview.WebviewController();
- <em> // 自定义UA标识，可更改为兼容原来H5中的UA设置</em>
+  // 自定义UA标识，可更改为兼容原来H5中的UA设置
   customUserAgent: string = 'customUADemo';
 
   build() {

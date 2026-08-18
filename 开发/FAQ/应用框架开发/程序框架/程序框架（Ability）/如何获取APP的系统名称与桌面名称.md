@@ -42,7 +42,7 @@ struct Index1 {
 
   aboutToAppear(): void {
     const context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  <em>  // 获取系统APP的名称</em>
+    // 获取系统APP的名称
     let bundleFlags = bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION;
     let bundleInfo = bundleManager.getBundleInfoForSelfSync(bundleFlags);
     let appLabel: string = bundleInfo.appInfo.label;
@@ -51,7 +51,7 @@ struct Index1 {
     console.info('方案一：获取系统APP的名称：', this.systemAPPNameOne);
     this.systemAPPNameTwo = context.resourceManager.getStringSync($r('app.string.app_name').id);
     console.info('方案二：获取系统APP的名称：', this.systemAPPNameTwo);
-    <em>// 获取桌面APP的名称</em>
+    // 获取桌面APP的名称
     let windowAppLabel = context.abilityInfo.label;
     let windowAppRes = windowAppLabel.split(':')[1];
     this.desktopAppNameOne = context.resourceManager.getStringByNameSync(windowAppRes);

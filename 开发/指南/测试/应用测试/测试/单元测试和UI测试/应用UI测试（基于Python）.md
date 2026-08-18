@@ -729,11 +729,11 @@ class DemoCase(TestCase):
         pass
 
     def process(self):
-        <em># </em><em>创建driver对象（self.device1</em><em>对象在测试用例类中提供）</em>
+        # 创建driver对象（self.device1对象在测试用例类中提供）
         driver = UiDriver(self.device1)
-        <em># </em><em>查找控件</em>
+        # 查找控件
         component = driver.find_component(BY.text("蓝牙"))
-        <em># </em><em>查找窗口</em>
+        # 查找窗口
         window = driver.find_window(WindowFilter().bundle_name("com.huawei.hmos.settings"))
     def teardown(self):
         pass
@@ -750,9 +750,9 @@ class DemoCase(TestCase):
 ```bash
 <strong>from</strong> hypium <strong>import</strong> host, CV
 
-<em># 执行PC端命令</em>
+# 执行PC端命令
 echo = host.shell("a.bat")
-<em># 调用图像接口</em>
+# 调用图像接口
 brightness = CV.calculate_brightness("/path/to/image.jpeg")
 ```
  
@@ -763,9 +763,9 @@ brightness = CV.calculate_brightness("/path/to/image.jpeg")
 ```text
 <strong>from</strong> hypium.model <strong>import</strong> KeyCode, UiParam, MatchPattern
 
-<em># 按下电源键（使用常量KeyCode.POWER）</em>
+# 按下电源键（使用常量KeyCode.POWER）
 driver.press_key(KeyCode.POWER)
-<em># 向左滑动屏幕（使用常量UiParam.LEFT）</em>
+# 向左滑动屏幕（使用常量UiParam.LEFT）
 driver.swipe(UiParam.LEFT)
 ```
  
@@ -812,11 +812,11 @@ Hypium 支持三种主要的控件定位方式：控件属性定位、图片匹�
 通过BY对象描述需要查找或者操作的控件对象的属性，例如查找text属性为“蓝牙”的控件。
  
 ```text
-<em># 查找text属性为"控件文本"的控件。</em>
+# 查找text属性为"控件文本"的控件。
 component = driver.find_component(BY.text("蓝牙"))
-<em># 读取控件的的边框位置</em>。
+# 读取控件的的边框位置。
 bounds = component.getBounds()
-<em># 直接点击控件</em>。
+# 直接点击控件。
 component = driver.touch(BY.text("蓝牙"))
 ```
  
@@ -840,7 +840,7 @@ component = driver.touch(BY.text("蓝牙"))
  
  
 ```text
-<em># 点击text属性值前缀为“今天星期”的控件</em>。
+# 点击text属性值前缀为“今天星期”的控件。
 driver.touch(BY.text("今天星期", MatchPattern.STARTS_WITH))
 ```
  
@@ -867,10 +867,10 @@ BY选择器支持的所有属性如下表所示：
 BY选择器支持链式调用，允许用户指定多个控件属性进行联合定位。当界面上存在多个控件的部分属性相同而其他属性不同时，可通过组合条件精确匹配目标控件。
  
 ```text
-<em># 点击文本为"蓝牙", 类型为"Button", 并且key为"bluetooth_switch"的按钮</em>。
+# 点击文本为"蓝牙", 类型为"Button", 并且key为"bluetooth_switch"的按钮。
 driver.touch(BY.text("蓝牙").type("Button").key("bluetooth_switch"))
 
-<em># </em><em>查找</em><em>文本为"蓝牙", 类型为"Button", 并且key为"bluetooth_switch"的按钮</em>。
+# 查找文本为"蓝牙", 类型为"Button", 并且key为"bluetooth_switch"的按钮。
 component = driver.find_component(BY.text("蓝牙").type("Button").key("bluetooth_switch"))
 ```
  
@@ -904,22 +904,22 @@ component = driver.find_component(BY.text("蓝牙").type("Button").key("bluetoot
 **示例代码**
  
 ```text
-<em># 查找在text属性为"显示通知图标"的控件之后的type属性为"Button"的控件</em>。
+# 查找在text属性为"显示通知图标"的控件之后的type属性为"Button"的控件。
 component = driver.find_component(BY.type("Button").isAfter(BY.text("显示通知图标")))
 ```
  
 ```text
-<em># 查找在text属性为"账号"的控件之前的type属性为"Image"的控件</em>。
+# 查找在text属性为"账号"的控件之前的type属性为"Image"的控件。
 component = driver.find_component(BY.type("Image").isBefore(BY.text("账号")))
 ```
  
 ```text
-<em># 查找在key为"nav_container"内部的类型为"Image"的控件</em>。
+# 查找在key为"nav_container"内部的类型为"Image"的控件。
 component = driver.find_component(BY.type("Image").within(BY.key("nav_container")))
 ```
  
 ```text
-<em># 查找包名为"com.huawei.hmos.settings"的应用内部的text属性为"蓝牙"的控件</em>。
+# 查找包名为"com.huawei.hmos.settings"的应用内部的text属性为"蓝牙"的控件。
 component = driver.find_component(BY.text("蓝牙").inWindow("com.huawei.hmos.settings"))
 ```
  
@@ -956,7 +956,7 @@ XPath不能和其他属性匹配一起使用，通过XPath查找控件相比单�
 **示例代码**
  
 ```text
-<em># 查找上图中红框所示的图标，并点击</em>。
+# 查找上图中红框所示的图标，并点击。
 comp = driver.find_component(BY.xpath("//*[@text='可用 WLAN']/ancestor::List/ListItemGroup/ListItem[1]//Text/following::Image"))
 comp.click()
 ```
@@ -964,11 +964,11 @@ comp.click()
 在支持传入BY选择器的接口均可以使用XPath来定位控件。
  
 ```text
-<em># 查找text属性为WLAN的控件</em>。
+# 查找text属性为WLAN的控件。
 driver.find_component(BY.xpath("//*[@text='WLAN']"))
 driver.find_all_components(BY.xpath("//*[@text='WLAN']"))
 driver.wait_for_component(BY.xpath("//*[@text='WLAN']"))
-<em># 点击text属性为WLAN的控件</em>。
+# 点击text属性为WLAN的控件。
 driver.touch(BY.xpath("//*[@text='WLAN']"))
 ```
  
@@ -987,12 +987,12 @@ driver.touch(BY.xpath("//*[@text='WLAN']"))
 **示例代码**
  
 ```text
-<em># 查找所有type属性为"Button"的控件, 如果有匹配的结果，components为列表，包含多个满足条件的IUiComponent对象</em>。
+# 查找所有type属性为"Button"的控件, 如果有匹配的结果，components为列表，包含多个满足条件的IUiComponent对象。
 components = driver.find_all_components(BY.type("Button"))
-<em># 点击所有的控件</em>。
+# 点击所有的控件。
 for component in components:
     driver.touch(component)
-<em># 点击第2个控件</em>。
+# 点击第2个控件。
 driver.touch(component[1])
 ```
  
@@ -1023,10 +1023,10 @@ python -m pip install opencv-python
 **示例代码**
  
 ```text
-<em># 点击屏幕上和模板图片template.jpeg匹配的位置</em>。
+# 点击屏幕上和模板图片template.jpeg匹配的位置。
 driver.touch_image("/path/to/template.jpeg")
 
-<em># 查找屏幕上和模板图片template.jpeg匹配的位置, bounds为Rect类型，记录了控件上下左右边框的位置</em>。
+# 查找屏幕上和模板图片template.jpeg匹配的位置, bounds为Rect类型，记录了控件上下左右边框的位置。
 bounds = driver.find_image("template.jpeg")
 print(bounds.top, bounds.left, bounds.bottom, bounds.right)
 ```
@@ -1064,7 +1064,7 @@ print(bounds.top, bounds.left, bounds.bottom, bounds.right)
 
  
 ```text
-<em># 点击屏幕上(0.52 * 屏幕宽度, 0.98 * 屏幕高度)的位置</em>。
+# 点击屏幕上(0.52 * 屏幕宽度, 0.98 * 屏幕高度)的位置。
 driver.touch((0.52, 0.98))
 ```
  
@@ -1099,13 +1099,13 @@ def find_window(filter: WindowFilter) -> UiWindow
 **使用示例**
  
 ```text
-<em># 查找标题为日历的窗口</em>。
+# 查找标题为日历的窗口。
 window = driver.find_window(WindowFilter().title("日历"))
-<em># 查找包名为com.huawei.hmos.calendar，并且处于活动状态的窗口</em>。
+# 查找包名为com.huawei.hmos.calendar，并且处于活动状态的窗口。
 window = driver.find_window(WindowFilter().bundle_name("com.huawei.hmos.calendar").actived(True))
-<em># 查找处于活动状态的窗口</em>。
+# 查找处于活动状态的窗口。
 window = driver.find_window(WindowFilter().actived(True))
-<em># 查找聚焦状态的窗口</em>。
+# 查找聚焦状态的窗口。
 window = driver.find_window(WindowFilter().focused(True))
 ```
  
@@ -1137,17 +1137,17 @@ window = driver.find_window(WindowFilter().focused(True))
 **使用示例**
  
 ```text
-<em># 点击文本为"hello"的控件</em>。
+# 点击文本为"hello"的控件。
 driver.touch(BY.text("hello"))
-<em># 点击(100, 200)的位置</em>。
+# 点击(100, 200)的位置。
 driver.touch((100, 200))
-<em># 点击比例坐标为(0.8, 0.9)的位置</em>。
+# 点击比例坐标为(0.8, 0.9)的位置。
 driver.touch((0.8, 0.9))
-<em># 双击确认按钮(控件文本为"确认", 类型为"Button")</em>。
+# 双击确认按钮(控件文本为"确认", 类型为"Button")。
 driver.touch(BY.text("确认").type("Button"), mode=UiParam.DOUBLE)
-<em># 在类型为Scroll的控件上滑动查找文本为"退出"的控件并点击</em>。
+# 在类型为Scroll的控件上滑动查找文本为"退出"的控件并点击。
 driver.touch(BY.text("退出"), scroll_target=BY.type("Scroll"))
-<em># 长按比例坐标为(0.8, 0.9)的位置</em>。
+# 长按比例坐标为(0.8, 0.9)的位置。
 driver.touch((0.8, 0.9), mode="long")
 ```
  
@@ -1177,11 +1177,11 @@ def long_click(self, target: Union[ISelector, IUiComponent, tuple], press_time: 
 **使用示例**
  
 ```text
-<em># </em><em>长按文本为"按钮"的控件5秒</em>
+# 长按文本为"按钮"的控件5秒
 driver.long_click(BY.text("按钮"), press_time=5)
-<em># </em><em>长按(100, 200)的位置5秒</em>
+# 长按(100, 200)的位置5秒
 driver.long_click((100, 200), press_time=5)
-<em># </em><em>长按文本为"设置"的控件左上角(偏移0, 0)</em>
+# 长按文本为"设置"的控件左上角(偏移0, 0)
 driver.long_click(BY.text("设置"), offset=(0, 0))
 ```
  
@@ -1209,13 +1209,13 @@ def <strong style="color: rgb(192,0,0);">multi_finger_touch</strong>(points: <st
 **使用示例**
  
 ```text
-<em># 执行多指点击操作, 同时点击屏幕(0.1, 0.2), (0.3, 0.4)的位置。</em>
+# 执行多指点击操作, 同时点击屏幕(0.1, 0.2), (0.3, 0.4)的位置。
 driver.multi_finger_touch([(0.1, 0.2), (0.3, 0.4)])
-<em># 执行多指点击操作, 设置点击按下时间为1秒。</em>
+# 执行多指点击操作, 设置点击按下时间为1秒。
 driver.multi_finger_touch([(0.1, 0.2), (0.3, 0.4)], duration=2)
-<em># 查找Image类型控件。</em>
+# 查找Image类型控件。
 comp = driver.find_component(BY.type("Image"))
-<em># 在指定的控件区域内执行多指点击(点击坐标为控件区域内的比例坐标)。</em>
+# 在指定的控件区域内执行多指点击(点击坐标为控件区域内的比例坐标)。
 driver.multi_finger_touch([(0.5, 0.5), (0.6, 0.6)], area=comp.getBounds())
 ```
  
@@ -1248,17 +1248,17 @@ driver.multi_finger_touch([(0.5, 0.5), (0.6, 0.6)], area=comp.getBounds())
 **使用示例**
  
 ```text
-<em># 在屏幕上向上滑动, 距离40</em>。
+# 在屏幕上向上滑动, 距离40。
 driver.swipe(UiParam.UP, distance=40)
-<em># 在屏幕上向右滑动, 滑动时间为0.1秒</em>。
+# 在屏幕上向右滑动, 滑动时间为0.1秒。
 driver.swipe(UiParam.RIGHT, swipe_time=0.1)
-<em># 在屏幕起始点为比例坐标为(0.8, 0.8)的位置向上滑动，距离30</em>。
+# 在屏幕起始点为比例坐标为(0.8, 0.8)的位置向上滑动，距离30。
 driver.swipe(UiParam.UP, 30, start_point=(0.8, 0.8))
-<em># 在屏幕左边区域向下滑动， 距离3</em>0。
+# 在屏幕左边区域向下滑动， 距离30。
 driver.swipe(UiParam.DOWN, 30, side=UiParam.LEFT)
-<em># 在屏幕右侧区域向上滑动，距离30</em>。
+# 在屏幕右侧区域向上滑动，距离30。
 driver.swipe(UiParam.UP, side=UiParam.RIGHT)
-<em># 在类型为Scroll的控件中向上滑动</em>。
+# 在类型为Scroll的控件中向上滑动。
 driver.swipe(UiParam.UP, area=BY.type("Scroll"))
 ```
  
@@ -1287,13 +1287,13 @@ driver.swipe(UiParam.UP, area=BY.type("Scroll"))
 **使用示例**
  
 ```text
-<em># 从类型为Slider的控件滑动到文本为最大的控件</em>
+# 从类型为Slider的控件滑动到文本为最大的控件
 driver.slide(BY.type("Slider"), BY.text("最大"))
-<em># 从坐标100, 200滑动到300，400</em>
+# 从坐标100, 200滑动到300，400
 driver.slide((100, 200), (300, 400))
-<em># 从坐标100, 200滑动到300，400, 滑动时间为3秒</em>
+# 从坐标100, 200滑动到300，400, 滑动时间为3秒
 driver.slide((100, 200), (300, 400), slide_time=3)
-#<em> 在类型为Slider的控件上从(0, 0)滑动到(100, 0)</em>
+# 在类型为Slider的控件上从(0, 0)滑动到(100, 0)
 driver.slide((0, 0), (100, 0), area = BY.type("Slider"))
 ```
  
@@ -1323,16 +1323,16 @@ driver.slide((0, 0), (100, 0), area = BY.type("Slider"))
 **使用示例**
  
 ```text
-<em># </em><em>拖拽文本为"文件.txt"的控件到文本为"上传文件"的控件</em>。
+# 拖拽文本为"文件.txt"的控件到文本为"上传文件"的控件。
 driver.drag(BY.text("文件.txt"), BY.text("上传文件"))
-<em># </em><em>拖拽id为"start_bar"的控件到坐标(100, 200)的位置, 拖拽时间为2秒</em>。
+# 拖拽id为"start_bar"的控件到坐标(100, 200)的位置, 拖拽时间为2秒。
 driver.drag(BY.key("start_bar"), (100, 200), drag_time=2)
-<em># </em><em>在id为"Canvas"的控件上执行拖拽操作，从"Canvas"控件中(0.1, 0.5)的位置拖拽到(0.9, 0.5)位置。</em>
-<em># 假如"Canvas"控件左上角坐标(100, 100), 宽度为200，高度为50，此操作等价于</em>
-<em># driver.drag((100 + 0.1 * 200, 100 + 0.5 * 50), (100 + 0.9 * 200, 100 + 0.5 * 50))</em>。
+# 在id为"Canvas"的控件上执行拖拽操作，从"Canvas"控件中(0.1, 0.5)的位置拖拽到(0.9, 0.5)位置。
+# 假如"Canvas"控件左上角坐标(100, 100), 宽度为200，高度为50，此操作等价于
+# driver.drag((100 + 0.1 * 200, 100 + 0.5 * 50), (100 + 0.9 * 200, 100 + 0.5 * 50))。
 driver.drag((0.1, 0.5), (0.9, 0.5), area=BY.id("Canvas"))
-<em># </em><em>在滑动条上执行拖拽操作, 以滑动条组件左上角为原点, 从滑动条区域中的(10, 10)拖拽到(10, 200)。</em>
-<em># 假设滑动条左上角坐标为(500, 500), 此操作等价于driver.drag((500 + 10, 500 + 10), (500 + 10, 500 + 200))。</em>
+# 在滑动条上执行拖拽操作, 以滑动条组件左上角为原点, 从滑动条区域中的(10, 10)拖拽到(10, 200)。
+# 假设滑动条左上角坐标为(500, 500), 此操作等价于driver.drag((500 + 10, 500 + 10), (500 + 10, 500 + 200))。
 driver.drag((10, 10), (10, 200), area=BY.type("Slider"))
 ```
  
@@ -1361,9 +1361,9 @@ driver.drag((10, 10), (10, 200), area=BY.type("Slider"))
 **使用示例**
  
 ```text
-<em># 在类型为Image的控件上进行双指捏合缩小操作</em>。
+# 在类型为Image的控件上进行双指捏合缩小操作。
 driver.pinch_in(BY.type("Image"))
-<em># 在类型为Image的控件上进行双指捏合缩小操作, 设置水平方向捏合</em>。
+# 在类型为Image的控件上进行双指捏合缩小操作, 设置水平方向捏合。
 driver.pinch_in(BY.type("Image"), direction="horizontal")
 ```
  
@@ -1392,9 +1392,9 @@ driver.pinch_in(BY.type("Image"), direction="horizontal")
 **使用示例**
  
 ```text
-<em># 在类型为Image的控件上进行双指放大操作</em>。
+# 在类型为Image的控件上进行双指放大操作。
 driver.pinch_out(BY.type("Image"))
-<em># 在类型为Image的控件上进行双指捏合缩小操作, 设置水平方向捏合</em>。
+# 在类型为Image的控件上进行双指捏合缩小操作, 设置水平方向捏合。
 driver.pinch_out(BY.type("Image"), direction="horizontal")
 ```
  
@@ -1425,13 +1425,13 @@ def two_finger_swipe(start1: tuple, end1: tuple, start2: tuple, end2: tuple, dur
 **使用示例**
  
 ```text
-<em># 执行双指滑动操作, 手指1从(0.4, 0.4)滑动到(0.2, 0.2), 手指2从(0.6, 0.6)滑动到(0.8, 0.8)。</em>
+# 执行双指滑动操作, 手指1从(0.4, 0.4)滑动到(0.2, 0.2), 手指2从(0.6, 0.6)滑动到(0.8, 0.8)。
 driver.two_finger_swipe((0.4, 0.4), (0.2, 0.2), (0.6, 0.6), (0.8, 0.8))
-<em># 执行双指滑动操作, 手指1从(0.4, 0.4)滑动到(0.2, 0.2), 手指2从(0.6, 0.6)滑动到(0.8, 0.8), 持续时间3秒。</em>
+# 执行双指滑动操作, 手指1从(0.4, 0.4)滑动到(0.2, 0.2), 手指2从(0.6, 0.6)滑动到(0.8, 0.8), 持续时间3秒。
 driver.two_finger_swipe((0.4, 0.4), (0.2, 0.2), (0.6, 0.6), (0.8, 0.8), duration=3)
-<em># 查找Image类型控件。</em>
+# 查找Image类型控件。
 comp = driver.find_component(BY.type("Image"))
-<em># 在指定的控件区域内执行双指滑动(滑动起始/停止坐标为控件区域内的比例坐标)。</em>
+# 在指定的控件区域内执行双指滑动(滑动起始/停止坐标为控件区域内的比例坐标)。
 driver.two_finger_swipe((0.4, 0.4), (0.1, 0.1), (0.6, 0.6), (0.9, 0.9), area=comp.getBounds())
 ```
  
@@ -1460,23 +1460,23 @@ driver.two_finger_swipe((0.4, 0.4), (0.1, 0.1), (0.6, 0.6), (0.9, 0.9), area=com
 ```text
 from hypium.uidriver import Gesture
 
-<em># 创建一个gesture对象</em>。
+# 创建一个gesture对象。
 gesture = Gesture()
-<em># 获取控件计算器的位置</em>。
+# 获取控件计算器的位置。
 pos = driver.findComponent(BY.text("计算器")).getBoundsCenter()
 # 获取屏幕尺寸。
 size = driver.getDisplaySize()
-<em># 起始位置, 长按2秒</em>。
+# 起始位置, 长按2秒。
 gesture.start(pos.to_tuple(), 2)
-<em># 移动到屏幕边缘</em>。
+# 移动到屏幕边缘。
 gesture.move_to(Point(size.X - 20, int(size.Y / 2)).to_tuple())
-<em># 停留2秒</em>。
+# 停留2秒。
 gesture.pause(2)
-<em># 移动到(360, 500)的位置</em>。
+# 移动到(360, 500)的位置。
 gesture.move_to(Point(360, 500).to_tuple())
-<em># 停留2秒结束</em>。
+# 停留2秒结束。
 gesture.pause(2)
-<em># 执行gesture对象描述的操作</em>。
+# 执行gesture对象描述的操作。
 driver.inject_gesture(gesture)
 ```
  
@@ -1504,11 +1504,11 @@ def inject_multi_finger_gesture(gestures: List[Gesture], speed: int = 6000)
  
 ```text
 from hypium.uidriver import Gesture
-<em># 创建手指1的手势, 从(0.4, 0.4)的位置移动到(0.2, 0.2)的位置。</em>
+# 创建手指1的手势, 从(0.4, 0.4)的位置移动到(0.2, 0.2)的位置。
 gesture1 = Gesture().start((0.4, 0.4)).move_to((0.2, 0.2), interval=1)
-<em># 创建手指2的手势, 从(0.6, 0.6)的位置移动到(0.8, 0.8)的位置。</em>
+# 创建手指2的手势, 从(0.6, 0.6)的位置移动到(0.8, 0.8)的位置。
 gesture2 = Gesture().start((0.6, 0.6)).move_to((0.8, 0.8), interval=1)
-<em># 注入多指操作。</em>
+# 注入多指操作。
 driver.inject_multi_finger_gesture((gesture1, gesture2))
 ```
  
@@ -1539,11 +1539,11 @@ driver.inject_multi_finger_gesture((gesture1, gesture2))
 **使用示例**
  
 ```text
-<em># 使用鼠标左键点击(100, 200)的位置</em>。
+# 使用鼠标左键点击(100, 200)的位置。
 driver.mouse_click((100, 200), MouseButton.MOUSE_BUTTON_LEFT)
-<em># 使用鼠标右键点击文本为"确认"的控件</em>。
+# 使用鼠标右键点击文本为"确认"的控件。
 driver.mouse_click(BY.text("确认"), MouseButton.MOUSE_BUTTON_RIGHT)
-<em># 使用鼠标右键点击比例坐标(0.8, 0.5)的位置</em>。
+# 使用鼠标右键点击比例坐标(0.8, 0.5)的位置。
 driver.mouse_click((0.8, 0.5), MouseButton.MOUSE_BUTTON_RIGHT)
 ```
  
@@ -1571,7 +1571,7 @@ driver.mouse_click((0.8, 0.5), MouseButton.MOUSE_BUTTON_RIGHT)
 **使用示例**
  
 ```text
-<em># 鼠标从控件1拖拽到控件2</em>。
+# 鼠标从控件1拖拽到控件2。
 driver.mouse_drag(BY.text("控件1"), BY.text("控件2"))
 ```
  
@@ -1599,7 +1599,7 @@ driver.mouse_drag(BY.text("控件1"), BY.text("控件2"))
 **使用示例**
  
 ```text
-<em># 鼠标从控件1移动到控件2</em>。
+# 鼠标从控件1移动到控件2。
 driver.mouse_move(BY.text("控件1"), BY.text("控件2"))
 ```
  
@@ -1627,11 +1627,11 @@ driver.mouse_move(BY.text("控件1"), BY.text("控件2"))
 **使用示例**
  
 ```text
-<em># 按下电源键</em>。
+# 按下电源键。
 driver.press_key(KeyCode.POWER)
-<em># 长按电源键</em>。
+# 长按电源键。
 driver.press_key(KeyCode.POWER, mode=UiParam.LONG)
-<em># 按下音量下键</em>。
+# 按下音量下键。
 driver.press_key(KeyCode.VOLUME_DOWN)
 ```
  
@@ -1659,9 +1659,9 @@ driver.press_key(KeyCode.VOLUME_DOWN)
 **使用示例**
  
 ```text
-<em># 按下音量下键和电源键的组合键</em>
+# 按下音量下键和电源键的组合键
 driver.press_combination_key(KeyCode.VOLUME_DOWN, KeyCode.POWER)
-#<em> 同时按下ctrl, shift和F键</em>
+# 同时按下ctrl, shift和F键
 driver.press_combination_key(KeyCode.CTRL_LEFT, KeyCode.SHIFT_LEFT, KeyCode.F)
 ```
  
@@ -1695,9 +1695,9 @@ driver.press_combination_key(KeyCode.CTRL_LEFT, KeyCode.SHIFT_LEFT, KeyCode.F)
 **使用示例**
  
 ```text
-<em># 执行hdc命令list targets</em>。
+# 执行hdc命令list targets。
 echo = driver.hdc("list targets")
-<em># 执行hdc命令hilog, 设置30秒超时</em>。
+# 执行hdc命令hilog, 设置30秒超时。
 echo = driver.hdc("hilog", timeout = 30)
 ```
  
@@ -1728,9 +1728,9 @@ echo = driver.hdc("hilog", timeout = 30)
 **使用示例**
  
 ```bash
-<em># 在设备shell中执行命令ls -l。</em>
+# 在设备shell中执行命令ls -l。
 echo = driver.shell("ls -l")
-<em># 在设备shell中执行命令top, 设置10秒超时时间。</em>
+# 在设备shell中执行命令top, 设置10秒超时时间。
 echo = driver.shell("top", timeout=10)
 ```
  
@@ -1757,9 +1757,9 @@ echo = driver.shell("top", timeout=10)
 **使用示例**
  
 ```bash
-<em># 在PC端执行dir命令</em>。
+# 在PC端执行dir命令。
 echo = host.shell("dir")
-<em># 在PC端执行netstat命令读取回显结果, 设置超时时间为10秒</em>。
+# 在PC端执行netstat命令读取回显结果, 设置超时时间为10秒。
 echo = host.shell("netstat", timeout=10)
 ```
  
@@ -1789,9 +1789,9 @@ echo = host.shell("netstat", timeout=10)
 **使用示例**
  
 ```text
-<em># 安装路径为test.hap的安装包到手机</em>。
+# 安装路径为test.hap的安装包到手机。
 driver.install_app(r"test.hap")
-<em># 替换安装路径为test.hap的安装包到手机(增加-r参数指定替换安装)</em>。
+# 替换安装路径为test.hap的安装包到手机(增加-r参数指定替换安装)。
 driver.install_app(r"test.hap", "-r")
 ```
  
@@ -1817,7 +1817,7 @@ driver.install_app(r"test.hap", "-r")
 **使用示例**
  
 ```text
-<em># 卸载包名为com.test.myapp的应用</em>。
+# 卸载包名为com.test.myapp的应用。
 <strong>driver.uninstall_app</strong>("com.test.myapp")
 ```
  
@@ -1843,7 +1843,7 @@ driver.install_app(r"test.hap", "-r")
 **使用示例**
  
 ```text
-<em># 清除包名为com.test.myapp的应用的缓存数据</em>。
+# 清除包名为com.test.myapp的应用的缓存数据。
 driver.clear_app_data("com.test.myapp")
 ```
  
@@ -1872,7 +1872,7 @@ def <strong>start_app</strong>(package_name: str, page_name: str = None, params:
 **使用示例**
  
 ```text
-<em># 启动浏览器</em>。
+# 启动浏览器。
 driver.start_app("com.huawei.hmos.browser", "MainAbility")
 ```
  
@@ -1899,7 +1899,7 @@ driver.start_app("com.huawei.hmos.browser", "MainAbility")
 **使用示例**
  
 ```text
-<em># 停止包名为com.huawei.hmos.settings</em>的应用。
+# 停止包名为com.huawei.hmos.settings的应用。
 driver.stop_app("com.huawei.hmos.settings")
 ```
  
@@ -1930,7 +1930,7 @@ driver.stop_app("com.huawei.hmos.settings")
 **使用示例**
  
 ```text
-<em># 从设备中拉取文件"/data/local/tmp/test.log"保存到PC端的test.log</em>。
+# 从设备中拉取文件"/data/local/tmp/test.log"保存到PC端的test.log。
 driver.pull_file("/data/local/tmp/test.log", "test.log")
 ```
  
@@ -1958,7 +1958,7 @@ driver.pull_file("/data/local/tmp/test.log", "test.log")
 **使用示例**
  
 ```text
-<em># 从PC端推送文件test.hap保存到设备端的"/data/local/tmp/test.hap"</em>。
+# 从PC端推送文件test.hap保存到设备端的"/data/local/tmp/test.hap"。
 driver.push_file("test.hap", "/data/local/tmp/test.hap")
 ```
  
@@ -1984,7 +1984,7 @@ driver.push_file("test.hap", "/data/local/tmp/test.hap")
 **使用示例**
  
 ```text
-<em># 查询设备端是否存在文件/data/local/tmp/test_file.txt</em>。
+# 查询设备端是否存在文件/data/local/tmp/test_file.txt。
 driver.has_file("/data/local/tmp/test_file.txt")
 ```
  
@@ -2017,11 +2017,11 @@ def input_text(component: Union[ISelector, IUiComponent, tuple], text: str, mode
 ```text
 from hypium import BY
 from hypium.model import InputTextMode
-<em># </em><em>在类型为"TextInput"的控件中输入文本"hello world"。</em>
+# 在类型为"TextInput"的控件中输入文本"hello world"。
 driver.input_text(BY.type("TextInput"), "hello world")
-<em># </em><em>在类型为"TextInput"的控件中使用剪切板一次性输入文本"hello world"。</em>
+# 在类型为"TextInput"的控件中使用剪切板一次性输入文本"hello world"。
 driver.input_text(BY.type("TextInput"), "hello world", mode=InputTextMode().paste(True))
-<em># </em><em>在类型为"TextInput"的控件中使用剪切板一次性并追加输入文本"hello world"。</em>
+# 在类型为"TextInput"的控件中使用剪切板一次性并追加输入文本"hello world"。
 driver.input_text(BY.type("TextInput"), "hello world", mode=InputTextMode().paste(True).addition(True))
 ```
  
@@ -2047,7 +2047,7 @@ driver.input_text(BY.type("TextInput"), "hello world", mode=InputTextMode().past
 使用示例
  
 ```text
-<em># 清除类型为"InputText"的控件中的内容</em>。
+# 清除类型为"InputText"的控件中的内容。
 driver.clear_text(BY.type("InputText"))
 ```
  
@@ -2080,7 +2080,7 @@ driver.clear_text(BY.type("InputText"))
 **使用示例**
  
 ```text
-<em># 检查a等于b</em>。
+# 检查a等于b。
 host.check_equal(a, b, "a != b")
 ```
  
@@ -2108,7 +2108,7 @@ host.check_equal(a, b, "a != b")
 **使用示例**
  
 ```text
-<em># 检查a大于b</em>
+# 检查a大于b
 host.check_greater(a, b)
 ```
  
@@ -2139,13 +2139,13 @@ host.check_greater(a, b)
 **使用示例**
  
 ```text
-<em># 检查类型为Button的控件存在</em>。
+# 检查类型为Button的控件存在。
 driver.check_component_exist(BY.type("Button"))
-<em># 检查类型为Button的控件存在，如果不存在等待最多5秒</em>。
+# 检查类型为Button的控件存在，如果不存在等待最多5秒。
 driver.check_component_exist(BY.type("Button"), wait_time=5)
-<em># 在类型为Scroll的控件上滚动检查文本为"hello"的控件存在</em>。
+# 在类型为Scroll的控件上滚动检查文本为"hello"的控件存在。
 driver.check_component_exist(BY.text("hello"), scroll_target=BY.type("Scroll"))
-<em># 检查文本为确认的控件不存在</em>。
+# 检查文本为确认的控件不存在。
 driver.check_component_exist(BY.text("确认"), expect_exist=False)
 ```
  
@@ -2173,13 +2173,13 @@ driver.check_component_exist(BY.text("确认"), expect_exist=False)
 **使用示例**
  
 ```text
-<em># 检查id为xxx的控件的checked属性为True</em>。
+# 检查id为xxx的控件的checked属性为True。
 driver.check_component(BY.key("xxx"), checked=True)
-<em># 检查id为check_button的按钮enabled属性为True</em>。
+# 检查id为check_button的按钮enabled属性为True。
 driver.check_component(BY.key("checked_button"), enabled=True)
-<em># 检查id为container的控件文本内容为“正在检查</em>”。
+# 检查id为container的控件文本内容为“正在检查”。
 driver.check_component(BY.key("container"), text="正在检查")
-<em># 检查id为container的控件文本内容不为空</em>。
+# 检查id为container的控件文本内容不为空。
 driver.check_component(BY.key("container"), text="", expect_equal=False)
 ```
  
@@ -2210,15 +2210,15 @@ def check_image_exist(image_path_pc: str, expect_exist: bool = True, similarity:
 **使用示例**
  
 ```text
-<em># 检查图片存在。</em>
+# 检查图片存在。
 driver.check_image_exist("test.jpeg")
-<em># 检查图片不存在。</em>
+# 检查图片不存在。
 driver.check_image_exist("test.jpeg", expect_exist=False)
-<em># 检查图片存在, 图片相似度要求95%, 重复检查时间5秒。</em>
+# 检查图片存在, 图片相似度要求95%, 重复检查时间5秒。
 driver.check_image_exist("test.jpeg", timeout=5, similarity=0.95)
-<em># 检查图片不存在, 重复检查时间5秒。</em>
+# 检查图片不存在, 重复检查时间5秒。
 driver.check_image_exist("test.jpeg", timeout=5, expect_exist=False)
-<em># 使用sift算法检查图片存在, 设置最少匹配特征点数量为16。</em>
+# 使用sift算法检查图片存在, 设置最少匹配特征点数量为16。
 driver.check_image_exist("test.jpeg", mode="sift", min_match_point=16)
 ```
  
@@ -2247,7 +2247,7 @@ driver.check_image_exist("test.jpeg", mode="sift", min_match_point=16)
 **使用示例**
  
 ```text
-<em># 检查当前焦点窗口的包名为com.huawei.hmos.settings</em>。
+# 检查当前焦点窗口的包名为com.huawei.hmos.settings。
 driver.check_window(WindowFilter().focused(True), bundle_name="com.huawei.hmos.settings")
 ```
  

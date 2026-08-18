@@ -36,7 +36,7 @@
 环境变量必须在import numpy之前设置，否则OpenBLAS已完成初始化并可能已调用mbind。可在Python环境的site-packages目录下创建sitecustomize.py文件，该文件会在Python解释器启动时自动执行，无需修改业务代码：
  
 ```text
-<em># site-packages/sitecustomize.py</em>
+# site-packages/sitecustomize.py
 import os
 os.environ.setdefault('OPENBLAS_NUMA_AFFINITY', '0')
 os.environ.setdefault('OPENBLAS_NUM_THREADS', '1')

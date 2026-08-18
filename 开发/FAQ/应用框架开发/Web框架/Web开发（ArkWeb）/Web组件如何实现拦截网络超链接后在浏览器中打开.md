@@ -47,7 +47,7 @@ struct WebJumpBrowser {
   build() {
     Column() {
       Web({
-      <em>  // 此处地址实际使用过程中替换为真实地址</em>
+        // 此处地址实际使用过程中替换为真实地址
         src: 'www.example.com',
         controller: this.controller
       })
@@ -55,12 +55,12 @@ struct WebJumpBrowser {
         .geolocationAccess(false)
         .domStorageAccess(true)
         .onLoadIntercept((event) => {
-       <em>   // 拦截所有请求</em>
+          // 拦截所有请求
           let url = event.data.getRequestUrl();
           console.info('Intercepting URL: ' + url);
-        <em>  // 判断是否需要外部打开（这里示例所有https链接都外部打开）</em>
+          // 判断是否需要外部打开（这里示例所有https链接都外部打开）
           if (url.startsWith('https://')) {
-        <em>    // 调用方法在外部浏览器打开</em>
+            // 调用方法在外部浏览器打开
             this.openInExternalBrowser(url);
             return true;
           }
@@ -71,7 +71,7 @@ struct WebJumpBrowser {
     .height('100%');
   }
 
- <em> // 在外部浏览器打开链接的方法</em>
+  // 在外部浏览器打开链接的方法
   openInExternalBrowser(url: string) {
     try {
       let want: Want = {

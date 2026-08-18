@@ -29,8 +29,8 @@
 try {
   const session = rcp.createSession(sessionConfig);
   console.info(`Post start.`);
- <em> // 发起请求，相关数据在写入队列 networkInputQueue 的同时会同步进行上传</em>
-  session.post('xx.xx.xx.xx', inputQueue).then((response) => {<em> // 开发者自行根据业务设置</em>
+  // 发起请求，相关数据在写入队列 networkInputQueue 的同时会同步进行上传
+  session.post('xx.xx.xx.xx', inputQueue).then((response) => { // 开发者自行根据业务设置
     console.info(`Response status code is: ${response.statusCode}`);
     if (response && response.statusCode === 200) {
       console.info(`Post succeeded! response: ${response.toString()}`);
@@ -52,12 +52,12 @@ try {
 ```text
 let counter = 0;
 const interval = setInterval(() => {
-<em>  // 添加数据到同步写队列</em>
+  // 添加数据到同步写队列
   this.networkInputQueue.write('a counter ' + counter++);
   console.info(`networkInputQueue write`);
   if (counter === 10) {
     clearInterval(interval);
-    <em>// 关闭同步写队列</em>
+    // 关闭同步写队列
     this.networkInputQueue.close();
   }
 }, 1000);
@@ -72,7 +72,7 @@ const interval = setInterval(() => {
 1. 设置OnDataReceive类型回调函数，处理实时数据流数据。
 ```json
 onDataReceive: (incomingData: ArrayBuffer) => {
- <em> // Custom logic for handling incoming data</em>
+  // Custom logic for handling incoming data
   console.info('Received data:', incomingData);
   const decoder = util.TextDecoder.create('utf-8');
   const jsonStr = decoder.decodeToString(new Uint8Array(incomingData));
@@ -105,15 +105,15 @@ const tracingConfig: rcp.TracingConfiguration = {
 ```json
 try {
   const session = rcp.createSession(sessionConfig);
- <em> // 服务端大模型API请求接口，需开发者根据实际业务自行设置</em>
+  // 服务端大模型API请求接口，需开发者根据实际业务自行设置
   const jsonBody: JsonBody = {
     model: 'xxx',
     messages: [{ role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'make a plan for spring' }],
     stream: true
   };
-  <em>// 请求数据地址需开发者根据实际业务设置</em>
-  session.post('xx.xx.xx.xx', jsonBody).then((response) => {<em> // 开发者自行根据业务设置</em>
+  // 请求数据地址需开发者根据实际业务设置
+  session.post('xx.xx.xx.xx', jsonBody).then((response) => { // 开发者自行根据业务设置
     if (response && response.statusCode === 200) {
       console.info(`get byts succeeded.`);
     } else {
@@ -154,10 +154,10 @@ interface JsonBody {
 }
 
 function streamOutput() {
- <em> // Define a custom response handler</em>
+  // Define a custom response handler
   const customHttpEventsHandler: rcp.HttpEventsHandler = {
     onDataReceive: (incomingData: ArrayBuffer) => {
-     <em> // Custom logic for handling incoming data</em>
+      // Custom logic for handling incoming data
       console.info('Received data:', incomingData);
       const decoder = util.TextDecoder.create('utf-8');
       const jsonStr = decoder.decodeToString(new Uint8Array(incomingData));
@@ -165,15 +165,15 @@ function streamOutput() {
       return incomingData.byteLength;
     },
     onHeaderReceive: (headers: rcp.ResponseHeaders) => {
- <em>     // Custom logic for handling response headers</em>
+      // Custom logic for handling response headers
       console.info('Received headers:', headers);
     },
     onDataEnd: () => {
-     <em> // Custom logic for handling data transfer completion</em>
+      // Custom logic for handling data transfer completion
       console.info('Data transfer complete');
     },
     onCanceled: () => {
-   <em>   // Custom logic for handling cancellation</em>
+      // Custom logic for handling cancellation
       console.info('Request/response canceled');
     },
   };
@@ -205,7 +205,7 @@ function streamOutput() {
       tracing: tracingConfig
     },
     headers: {
-      'Authorization': 'Bearer xxxx',<em> // 开发者自行根据业务设置</em>
+      'Authorization': 'Bearer xxxx', // 开发者自行根据业务设置
       'Content-Type': 'application/json'
     },
     sessionListener: {
@@ -215,15 +215,15 @@ function streamOutput() {
   };
   try {
     const session = rcp.createSession(sessionConfig);
-   <em> // 服务端大模型API请求接口，需开发者根据实际业务自行设置</em>
+    // 服务端大模型API请求接口，需开发者根据实际业务自行设置
     const jsonBody: JsonBody = {
       model: 'xxx',
       messages: [{ role: 'system', content: 'You are a helpful assistant.' },
         { role: 'user', content: 'make a plan for spring' }],
       stream: true
     };
-  <em>  // 请求数据地址需开发者根据实际业务设置</em>
-    session.post('xx.xx.xx.xx', jsonBody).then((response) => { <em>// 开发者自行根据业务设置</em>
+    // 请求数据地址需开发者根据实际业务设置
+    session.post('xx.xx.xx.xx', jsonBody).then((response) => { // 开发者自行根据业务设置
       if (response && response.statusCode === 200) {
         console.info(`get byts succeeded.`);
       } else {
@@ -250,20 +250,20 @@ function uploadDatasync(inputQueue: rcp.INetworkInputQueue) {
     },
 
     onHeaderReceive: (headers: rcp.ResponseHeaders) => {
-    <em>  // Custom logic for handling response headers</em>
+      // Custom logic for handling response headers
       console.info('Received headers:', headers);
     },
     onDataEnd: () => {
-     <em> // Custom logic for handling data transfer completion</em>
+      // Custom logic for handling data transfer completion
       console.info('Data transfer complete');
     },
     onCanceled: () => {
- <em>     // Custom logic for handling cancellation</em>
+      // Custom logic for handling cancellation
       console.info('Request/response canceled');
     },
   };
 
-  <em>// Configure tracing settings</em>
+  // Configure tracing settings
   const tracingConfig: rcp.TracingConfiguration = {
     verbose: true,
     infoToCollect: {
@@ -298,8 +298,8 @@ function uploadDatasync(inputQueue: rcp.INetworkInputQueue) {
   try {
     const session = rcp.createSession(sessionConfig);
     console.info(`Post start.`);
-    <em>// 发起请求，相关数据在写入队列 networkInputQueue 的同时会同步进行上传</em>
-    session.post('xx.xx.xx.xx', inputQueue).then((response) => { <em>// 开发者自行根据业务设置</em>
+    // 发起请求，相关数据在写入队列 networkInputQueue 的同时会同步进行上传
+    session.post('xx.xx.xx.xx', inputQueue).then((response) => { // 开发者自行根据业务设置
       console.info(`Response status code is: ${response.statusCode}`);
       if (response && response.statusCode === 200) {
         console.info(`Post succeeded! response: ${response.toString()}`);
@@ -332,12 +332,12 @@ struct streamUploadData {
         .onClick(() => {
           let counter = 0;
           const interval = setInterval(() => {
-           <em> // 添加数据到同步写队列</em>
+            // 添加数据到同步写队列
             this.networkInputQueue.write('a counter ' + counter++);
             console.info(`networkInputQueue write`);
             if (counter === 10) {
               clearInterval(interval);
-            <em>  // 关闭同步写队列</em>
+              // 关闭同步写队列
               this.networkInputQueue.close();
             }
           }, 1000);
@@ -373,7 +373,7 @@ struct StreamDataTransfer {
   selectedFontColor: string = '#0A59F7';
   @State currentIndex: number = 0;
   @State selectedIndex: number = 0;
-  @State tabSelectedIndexes: number[] = [0]; <em>// SegmentButton默认选项</em>
+  @State tabSelectedIndexes: number[] = [0]; // SegmentButton默认选项
   @State tabOptions: SegmentButtonOptions = SegmentButtonOptions.tab({
     buttons: [{ text: '流式上传数据' }, { text: '流式接收数据' },] as ItemRestriction<SegmentButtonTextItem>,
     backgroundColor: '#0d000000',
@@ -434,7 +434,7 @@ struct StreamDataTransfer {
       .barWidth(360)
       .barHeight(0)
       .onChange((index: number) => {
-      <em>  // currentIndex控制TabContent显示页签</em>
+        // currentIndex控制TabContent显示页签
         this.currentIndex = index;
         this.selectedIndex = index;
       })
@@ -443,7 +443,7 @@ struct StreamDataTransfer {
           return;
         }
         console.info(`event currentOffset ${event.currentOffset}`);
-      <em>  // selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
+        // selectedIndex控制自定义TabBar内Image和Text颜色切换
         this.selectedIndex = targetIndex;
       })
       .width('100%')

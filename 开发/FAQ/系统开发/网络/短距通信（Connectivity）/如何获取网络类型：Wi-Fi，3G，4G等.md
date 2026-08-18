@@ -34,11 +34,11 @@ struct Index {
         .onClick(() => {
           connection.getDefaultNet().then((netHandle: connection.NetHandle) => {
             if (netHandle.netId == 0) {
-              <em>// When there is currently no connected network, the obtained netHandler's netid is 0, which belongs to an abnormal scenario.</em>
-              <em>// Here, some processing mechanisms can be added according to the actual situation.</em>
+              // When there is currently no connected network, the obtained netHandler's netid is 0, which belongs to an abnormal scenario.
+              // Here, some processing mechanisms can be added according to the actual situation.
               return;
             }
-            <em>// Obtain the capability information of the network corresponding to netHandle</em>
+            // Obtain the capability information of the network corresponding to netHandle
             connection.getNetCapabilities(netHandle, (error: BusinessError, data: connection.NetCapabilities) => {
               if (error) {
                 console.error(`Failed to get net capabilities. Code:${error.code}, message:${error.message}`);
@@ -46,17 +46,17 @@ struct Index {
               }
               console.info("Succeeded to get data: " + JSON.stringify(data));
               if (data.bearerTypes[0] == 1) {
-                <em>// console.info("Wi Fi network");</em>
+                // console.info("Wi Fi network");
               } else if (data.bearerTypes[0] == 0) {
-                <em>// console.info("Cellular Network");</em>
-                let slotId: number = 0; <em>// Slot ID, -0: Slot 1, -1: Slot 2</em>
+                // console.info("Cellular Network");
+                let slotId: number = 0; // Slot ID, -0: Slot 1, -1: Slot 2
                 radio.getSignalInformation(slotId, (err: BusinessError, data: Array<radio.SignalInformation>) => {
                   if (err) {
                     console.error(`getSignalInformation failed, callback: err->${JSON.stringify(err)}`);
                     return;
                   }
                   console.info(`getSignalInformation success, callback: data->${JSON.stringify(data)}`);
-                  <em>// Return an array of SignalInformation objects, where the returned signalType represents the network type NetworkType</em>
+                  // Return an array of SignalInformation objects, where the returned signalType represents the network type NetworkType
                 });
               }
             })

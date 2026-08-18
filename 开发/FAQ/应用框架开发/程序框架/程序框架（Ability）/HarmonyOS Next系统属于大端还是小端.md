@@ -16,11 +16,11 @@ struct IndexTest {
     const buffer = new ArrayBuffer(2);
     const uint8Array = new Uint8Array(buffer);
     const uint16Array = new Uint16Array(buffer);
-    <em>// Write 0xAA and 0xBB into the buffer</em>
+    // Write 0xAA and 0xBB into the buffer
     uint8Array[0] = 0xAA;
     uint8Array[1] = 0xBB;
-    <em>// If read in small order, 0xBBAA will be interpreted as 48042</em>
-    <em>// If read in big endian order, 0xAABB will be interpreted as 43707</em>
+    // If read in small order, 0xBBAA will be interpreted as 48042
+    // If read in big endian order, 0xAABB will be interpreted as 43707
     return uint16Array[0] === 0xBBAA;
   }
 

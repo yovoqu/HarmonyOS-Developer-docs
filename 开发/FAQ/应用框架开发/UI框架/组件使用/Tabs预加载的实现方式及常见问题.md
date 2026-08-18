@@ -20,7 +20,7 @@ struct PreloadOnAppear {
   contentList: string[] = ['飞机', '铁路', '自驾', '地铁'];
 
   aboutToAppear(): void {
-  <em>  // 预加载第0、2、3个子节点，提高滑动或点击切换至这些节点时的性能</em>
+    // 预加载第0、2、3个子节点，提高滑动或点击切换至这些节点时的性能
     this.tabsController.preloadItems([0, 2, 3]);
   }
 
@@ -96,7 +96,7 @@ struct PreloadOnAppear {
         });
       }
       .onAppear(() => {
-      <em>  // 预加载第0、2、3个子节点，提高滑动或点击切换至这些节点时的性能</em>
+        // 预加载第0、2、3个子节点，提高滑动或点击切换至这些节点时的性能
         this.tabsController.preloadItems([0, 2, 3])
           .then(() => {
             console.info('preloadItems success.');
@@ -145,7 +145,7 @@ struct PreloadOnAppear {
         if (index < this.contentList.length - 1) {
           arr.push(index + 1);
         }
-      <em>  // 预加载当前页签的前一项和后一项，边界页签除外</em>
+        // 预加载当前页签的前一项和后一项，边界页签除外
         this.tabsController.preloadItems(arr)
           .then(() => {
             console.info('preloadItems success.');
@@ -170,7 +170,7 @@ struct PreloadOnAppear {
 export struct MyComponent {
   private info: string = '';
 
-  <em>// 预加载组件的aboutToAppear函数会被调用</em>
+  // 预加载组件的aboutToAppear函数会被调用
   aboutToAppear(): void {
     console.info(`aboutToAppear: ${this.info}`);
   }

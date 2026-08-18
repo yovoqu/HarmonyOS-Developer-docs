@@ -31,14 +31,14 @@
  
 ```text
 import {
-  JArrayList, <em>// 工具类：数据集合</em>
-  EntryOhos,<em>/</em><em>/ 图表数据结构基础类</em>
-  LineDataSet, <em>//线形图数据集合</em>
-  ILineDataSet,<em> // 线形图数据集合的操作类</em>
-  LineData, <em>//线形图数据包</em>
-  LineChart, <em>// 线形图图表类</em>
-  LineChartModel,<em>// 线形图配置构建类</em>
-  MarkerView, <em>//图例形状</em>
+  JArrayList, // 工具类：数据集合
+  EntryOhos,// 图表数据结构基础类
+  LineDataSet, //线形图数据集合
+  ILineDataSet, // 线形图数据集合的操作类
+  LineData, //线形图数据包
+  LineChart, // 线形图图表类
+  LineChartModel,// 线形图配置构建类
+  MarkerView, //图例形状
 } from '@ohos/mpchart';
 
 
@@ -54,7 +54,7 @@ struct Index {
 
 
   private model: LineChartModel = new LineChartModel();
- <em> // 构造数据选择监听器</em>
+  // 构造数据选择监听器
 
 
   @Builder tabBuilder(index: number, name: string) {
@@ -120,23 +120,23 @@ struct Star {
   @Event $isAllowScroll: (val: boolean) => void = () => {};
 
 
-<em>  // 图表数据初始化</em>
+  // 图表数据初始化
   aboutToAppear() {
 
 
-  <em>  // 初始化图表配置构建类</em>
+    // 初始化图表配置构建类
     this.model = new LineChartModel();
     this.model.setDragEnabled(true);
     this.model.setScaleEnabled(true);
-   <em> // 为图表设置markerView</em>
+    // 为图表设置markerView
     let normalMarker = new MarkerView();
     this.model.setMarker(normalMarker);
-    <em>// 也可设置定义图表MarkerView</em>
-<em>    // 生成图表数据</em>
+    // 也可设置定义图表MarkerView
+    // 生成图表数据
     let lineData: LineData = this.getLineData();
-    <em>// 将数据与图表配置类绑定</em>
+    // 将数据与图表配置类绑定
     this.model.setData(lineData);
-   <em> // 设置图表最大的X轴显示范围，如不设置，则默认显示全部数据</em>
+    // 设置图表最大的X轴显示范围，如不设置，则默认显示全部数据
     this.model.setVisibleXRangeMaximum(20);
   }
 

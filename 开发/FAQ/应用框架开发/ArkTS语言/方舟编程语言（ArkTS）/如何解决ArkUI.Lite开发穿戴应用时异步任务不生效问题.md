@@ -11,7 +11,7 @@
 问题代码示例参考如下：
  
 ```text
-<em>// app.js</em>
+// app.js
 export default {
   data: {
     mockData: {},
@@ -31,7 +31,7 @@ export default {
   fetchDataAsync() {
     return new Promise((resolve, reject) => {
       console.info('app.js -> 开始同步数据');
-   <em>   // 用setTimeout模拟网络延迟（1.5秒后完成）</em>
+      // 用setTimeout模拟网络延迟（1.5秒后完成）
       setTimeout(() => {
         const mockData = {
           value: '123'
@@ -75,7 +75,7 @@ I     app.js -> 开始同步数据
 使用callback的方式实现异步操作。
  
 ```json
-<em>// app.js</em>
+// app.js
 export default {
   data: {
     mockData: {},
@@ -96,7 +96,7 @@ export default {
   },
   fetchData(callback) {
     console.info('app.js -> 开始同步数据');
-  <em>  // 用setTimeout模拟网络延迟（1.5秒后完成）</em>
+    // 用setTimeout模拟网络延迟（1.5秒后完成）
     setTimeout(() => {
       const mockData = {
         value: '123'

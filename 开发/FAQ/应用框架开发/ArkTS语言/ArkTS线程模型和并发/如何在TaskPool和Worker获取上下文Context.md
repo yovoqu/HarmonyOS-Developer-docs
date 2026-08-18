@@ -10,7 +10,7 @@ Worker线程和TaskPool线程中无法直接获取到组件级的Context 。可�
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { taskpool } from '@kit.ArkTS';
 
-<em>// Support for ordinary functions and passing of reference parameters as input.</em>
+// Support for ordinary functions and passing of reference parameters as input.
 @Concurrent
 function printArgs(args: string, uiContext: Context | undefined): string {
   hilog.info(0x0000, 'printArgs', `func: ${args}`);
@@ -34,7 +34,7 @@ async function taskpoolExecute(uiContext: Context | undefined): Promise<void> {
 @Component
 struct TaskPoolGetContext {
   @State message: string = 'Hello World';
- <em> // Obtain the context.</em>
+  // Obtain the context.
   uiContext = this.getUIContext().getHostContext();
 
   build() {

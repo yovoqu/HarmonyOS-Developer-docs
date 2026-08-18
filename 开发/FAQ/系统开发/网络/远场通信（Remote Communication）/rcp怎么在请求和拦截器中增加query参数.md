@@ -29,7 +29,7 @@ import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { url } from '@kit.ArkTS';
 
-<em>// </em><em>模拟拦截器开关</em>
+// 模拟拦截器开关
 export class InterceptorSwitch {
   isNeedInterceptor: boolean = true;
 
@@ -38,7 +38,7 @@ export class InterceptorSwitch {
   }
 }
 
-<em>// </em><em>定义RequestUrlChangeInterceptor拦截器</em>
+// 定义RequestUrlChangeInterceptor拦截器
 export class RequestUrlChangeInterceptor implements rcp.Interceptor {
   private readonly interceptorSwitch: InterceptorSwitch;
 
@@ -46,7 +46,7 @@ export class RequestUrlChangeInterceptor implements rcp.Interceptor {
     this.interceptorSwitch = interceptorSwitch;
   }
 
- <em> // 自定义请求处理逻辑</em>
+  // 自定义请求处理逻辑
   async intercept(context: rcp.RequestContext, next: rcp.RequestHandler): Promise<rcp.Response> {
     if (this.interceptorSwitch.isNeedInterceptor) {
       console.info('[RequestUrlChangeInterceptor]: Network need Interceptor');
@@ -80,7 +80,7 @@ struct Index {
         .onClick(() => {
           let downloadUrl: string = '';
           try {
-          <em>  // 下载链接需根据自身业务自行配置</em>
+            // 下载链接需根据自身业务自行配置
             downloadUrl = this.context.resourceManager.getStringSync($r('app.string.download_url').id);
           } catch (error) {
             console.error(`getStringSync failed, error code: ${error.code}, message: ${error.message}.`);
@@ -95,7 +95,7 @@ struct Index {
           console.log('Hello World: ' + finalUrlStr);
           let downloadToFile: rcp.DownloadToFile = {
             kind: 'folder',
-            path: this.savePath <em>// </em><em>请根据自身业务选择合适的路径</em>
+            path: this.savePath // 请根据自身业务选择合适的路径
           } as rcp.DownloadToFile;
 
           const sessionConfig: rcp.SessionConfiguration = {

@@ -38,18 +38,18 @@ export class Tmp {
 
 2. 将NavPathStack缓存起来。
 ```ArkTS
-<em>// Index.ets</em>
+// Index.ets
 import { Tmp } from './PublicUtils';
 
 @Entry
 @Component
 struct Index {
-<em>  // 创建一个页面栈对象并传入Navigation</em>
+  // 创建一个页面栈对象并传入Navigation
   private pathStack: NavPathStack = new NavPathStack();
   private InfoTmp: Tmp = new Tmp();
 
   aboutToAppear(): void {
-   <em> // 存储pathStack</em>
+    // 存储pathStack
     AppStorage.setOrCreate('pathStack', this.pathStack);
   }
 
@@ -57,7 +57,7 @@ struct Index {
     Navigation(this.pathStack) {
       Button('click')
         .onClick(() => {
-         <em> // 调用pushPath方法并跳转到对应页面</em>
+          // 调用pushPath方法并跳转到对应页面
           this.InfoTmp.pushPath('PageOne');
         });
     }

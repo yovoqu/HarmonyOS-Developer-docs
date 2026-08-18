@@ -25,8 +25,8 @@ PC上的应用，不能通过鼠标控制图片滑动。
 Column() {
   Text('PanGesture offset:\nX: ' + this.offsetX + '\n' + 'Y: ' + this.offsetY)
 }
-.translate({ x: this.offsetX, y: this.offsetY, z: 0 }) <em>// 以组件左上角为坐标原点进行移动</em>
-<em>// 左右滑动触发该手势事件</em>
+.translate({ x: this.offsetX, y: this.offsetY, z: 0 }) // 以组件左上角为坐标原点进行移动
+// 左右滑动触发该手势事件
 .gesture(
   PanGesture(this.panOption)
     .onActionStart((event: GestureEvent) => {

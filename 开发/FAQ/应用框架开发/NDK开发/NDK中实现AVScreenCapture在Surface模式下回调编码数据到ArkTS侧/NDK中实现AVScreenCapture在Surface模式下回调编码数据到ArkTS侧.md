@@ -21,307 +21,307 @@
 #### 解决方案
 1. 实现录屏和回调函数。
 ```text
-<em>/*</em>
-<em><span style="color: rgb(128,128,128);"> * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.</span></em>
-<em><span style="color: rgb(128,128,128);"> */</span></em>
-<span style="color: rgb(181,106,1);">#</span><span style="color: rgb(0,0,255);">include </span><span style="color: rgb(255,0,170);">"napi/native_api.h"</span>
-<span style="color: rgb(181,106,1);">#</span><span style="color: rgb(0,0,255);">include </span><span style="color: rgb(255,0,170);">"sample_info.h"</span>
-<span style="color: rgb(181,106,1);">#</span><span style="color: rgb(0,0,255);">include </span><span style="color: rgb(255,0,170);">"Recorder.h"</span>
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
+ */
+#include "napi/native_api.h"
+#include "sample_info.h"
+#include "Recorder.h"
 
-<span style="color: rgb(181,106,1);">#</span><span style="color: rgb(0,0,255);">include </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">multimedia</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">player_framework</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">native_avcodec_base</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">h</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);">#</span><span style="color: rgb(0,0,255);">include </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">multimedia</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">player_framework</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">native_avscreen_capture</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">h</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);">#</span><span style="color: rgb(0,0,255);">include </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">multimedia</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">player_framework</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">native_avscreen_capture_base</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">h</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);">#</span><span style="color: rgb(0,0,255);">include </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">multimedia</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">player_framework</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">native_avbuffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">h</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);">#</span><span style="color: rgb(0,0,255);">include </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">multimedia</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">player_framework</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">native_avcodec_videoencoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">h</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);">#</span><span style="color: rgb(0,0,255);">include </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">multimedia</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">player_framework</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">native_avcapability</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">h</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);">#</span><span style="color: rgb(0,0,255);">include </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">multimedia</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">player_framework</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">native_avcodec_videoencoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">h</span><span style="color: rgb(181,106,1);">></span>
+#include <multimedia/player_framework/native_avcodec_base.h>
+#include <multimedia/player_framework/native_avscreen_capture.h>
+#include <multimedia/player_framework/native_avscreen_capture_base.h>
+#include <multimedia/player_framework/native_avbuffer.h>
+#include <multimedia/player_framework/native_avcodec_videoencoder.h>
+#include <multimedia/player_framework/native_avcapability.h>
+#include <multimedia/player_framework/native_avcodec_videoencoder.h>
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">错误事件发生回调函数</span><span style="color: rgb(128,128,128);">OnError()</span><span style="color: rgb(128,128,128);">。</span></em>
-  void <span style="color: rgb(0,0,255);">OnError</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">OH_AVScreenCapture </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">capture</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">int32_t errorCode</span><span style="color: rgb(181,106,1);">, </span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">capture</span><span style="color: rgb(181,106,1);">;</span>
-  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">应用根据错误码进行事件处理。</span></em>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">errorCode</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+  // 错误事件发生回调函数OnError()。
+  void OnError(OH_AVScreenCapture *capture, int32_t errorCode, void *userData) {
+  (void)capture;
+  // 应用根据错误码进行事件处理。
+  (void)errorCode;
+  (void)userData;
+}
 
-<em>// </em><em><span style="color: rgb(128,128,128);">状态变更事件处理函数</span><span style="color: rgb(128,128,128);">OnStateChange()</span><span style="color: rgb(128,128,128);">。</span></em>
-void <span style="color: rgb(0,0,255);">OnStateChange</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">struct OH_AVScreenCapture </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">capture</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">OH_AVScreenCaptureStateCode stateCode</span><span style="color: rgb(181,106,1);">, </span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">capture</span><span style="color: rgb(181,106,1);">;</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">stateCode </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(0,0,255);">OH_AVScreenCaptureStateCode</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">OH_SCREEN_CAPTURE_STATE_CANCELED</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{ </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">按照所需状态自行修改填写。</span></em>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">处理录屏状态变更。</span></em>
-  <span style="color: rgb(255,0,170);">}</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+// 状态变更事件处理函数OnStateChange()。
+void OnStateChange(struct OH_AVScreenCapture *capture, OH_AVScreenCaptureStateCode stateCode, void *userData) {
+  (void)capture;
+  if (stateCode == OH_AVScreenCaptureStateCode::OH_SCREEN_CAPTURE_STATE_CANCELED) { // 按照所需状态自行修改填写。
+    // 处理录屏状态变更。
+  }
+  (void)userData;
+}
 
-<em>// </em><em><span style="color: rgb(128,128,128);">获取并处理音视频原始码流数据回调函数</span><span style="color: rgb(128,128,128);">OnBufferAvailable()</span><span style="color: rgb(128,128,128);">。</span></em>
-void <span style="color: rgb(0,0,255);">OnBufferAvailable</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">OH_AVScreenCapture </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">capture</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">OH_AVBuffer </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">OH_AVScreenCaptureBufferType bufferType</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(0,0,255);">int64_t timestamp</span><span style="color: rgb(181,106,1);">, </span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">处于录屏取码流状态。</span></em>
-<span style="color: rgb(255,0,170);">}</span>
+// 获取并处理音视频原始码流数据回调函数OnBufferAvailable()。
+void OnBufferAvailable(OH_AVScreenCapture *capture, OH_AVBuffer *buffer, OH_AVScreenCaptureBufferType bufferType,
+int64_t timestamp, void *userData) {
+  // 处于录屏取码流状态。
+}
 
-<em>// </em><em><span style="color: rgb(128,128,128);">执行回调</span><span style="color: rgb(128,128,128);">ArkTS</span><span style="color: rgb(128,128,128);">函数，将编码后视频帧回调</span><span style="color: rgb(128,128,128);">ArkTS</span></em>
-<span style="color: rgb(0,0,255);">static </span>void <span style="color: rgb(0,0,255);">callJS</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">napi_env env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_value js_cb</span><span style="color: rgb(181,106,1);">, </span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">SampleInfo </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">sampleInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">reinterpret_cast</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">SampleInfo </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">napi_value buffer</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">napi_create_buffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">sizeof</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">buf</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">reinterpret_cast</span><span style="color: rgb(181,106,1);"><</span>void <span style="color: rgb(181,106,1);">**</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">buf</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">napi_value callFunc </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">napi_get_reference_value</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">tsRef</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">callFunc</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">napi_call_function</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">callFunc</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+// 执行回调ArkTS函数，将编码后视频帧回调ArkTS
+static void callJS(napi_env env, napi_value js_cb, void *context, void *data) {
+  SampleInfo *sampleInfo = reinterpret_cast<SampleInfo *>(data);
+  napi_value buffer;
+  napi_create_buffer(env, sizeof(sampleInfo->buf), reinterpret_cast<void **>(&sampleInfo->buf), &buffer);
+  napi_value callFunc = nullptr;
+  napi_get_reference_value(env, sampleInfo->tsRef, &callFunc);
+  napi_call_function(env, nullptr, callFunc, 1, &buffer, nullptr);
+}
 
-<em>// </em><em><span style="color: rgb(128,128,128);">开始录屏</span></em>
-<span style="color: rgb(0,0,255);">static napi_value </span><span style="color: rgb(0,0,255);">ScreenCapture</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">napi_env env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_callback_info info</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取</span><span style="color: rgb(128,128,128);">ArkTS</span><span style="color: rgb(128,128,128);">侧传递的回调函数</span></em>
-  <span style="color: rgb(0,0,255);">size_t argc </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">napi_value args</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">napi_get_cb_info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">argc</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">args</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+// 开始录屏
+static napi_value ScreenCapture(napi_env env, napi_callback_info info) {
+  // 获取ArkTS侧传递的回调函数
+  size_t argc = 1;
+  napi_value args[1] = {nullptr};
+  napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">录屏相关配置</span></em>
-  <span style="color: rgb(0,0,255);">OH_AVScreenCapture </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">capture </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">OH_AVScreenCapture_Create</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置回调。</span></em>
-  <span style="color: rgb(0,0,255);">OH_AVScreenCapture_SetErrorCallback</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">capture</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">OnError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">OH_AVScreenCapture_SetStateCallback</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">capture</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">OnStateChange</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">回调音视频原始码流</span></em>
-  <span style="color: rgb(0,0,255);">OH_AVScreenCapture_SetDataCallback</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">capture</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">OnBufferAvailable</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em>// OH_AVScreenRecorderConfig</em><em><span style="color: rgb(128,128,128);">配置录屏视频宽高，音频通道数等</span></em>
-  <span style="color: rgb(0,0,255);">OH_AudioCaptureInfo micCapInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">audioSampleRate </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">16000</span><span style="color: rgb(181,106,1);">, .</span><span style="color: rgb(0,0,255);">audioChannels </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, .</span><span style="color: rgb(0,0,255);">audioSource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">OH_MIC</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">OH_VideoCaptureInfo videoCapInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">videoFrameWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">768</span><span style="color: rgb(181,106,1);">, .</span><span style="color: rgb(0,0,255);">videoFrameHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1280</span><span style="color: rgb(181,106,1);">, .</span><span style="color: rgb(0,0,255);">videoSource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">OH_VIDEO_SOURCE_SURFACE_RGBA</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">OH_AudioInfo audioInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">micCapInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">micCapInfo</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">OH_VideoInfo videoInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">videoCapInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">videoCapInfo</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">OH_AVScreenCaptureConfig config </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">dataType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">OH_ORIGINAL_STREAM</span><span style="color: rgb(181,106,1);">, .</span><span style="color: rgb(0,0,255);">audioInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">audioInfo</span><span style="color: rgb(181,106,1);">, .</span><span style="color: rgb(0,0,255);">videoInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">videoInfo</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">OH_AVScreenCapture_Init</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">capture</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">config</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  // 录屏相关配置
+  OH_AVScreenCapture *capture = OH_AVScreenCapture_Create();
+  // 设置回调。
+  OH_AVScreenCapture_SetErrorCallback(capture, OnError, nullptr);
+  OH_AVScreenCapture_SetStateCallback(capture, OnStateChange, nullptr);
+  // 回调音视频原始码流
+  OH_AVScreenCapture_SetDataCallback(capture, OnBufferAvailable, nullptr);
+  // OH_AVScreenRecorderConfig配置录屏视频宽高，音频通道数等
+  OH_AudioCaptureInfo micCapInfo = {.audioSampleRate = 16000, .audioChannels = 2, .audioSource = OH_MIC};
+  OH_VideoCaptureInfo videoCapInfo = {
+    .videoFrameWidth = 768, .videoFrameHeight = 1280, .videoSource = OH_VIDEO_SOURCE_SURFACE_RGBA};
+  OH_AudioInfo audioInfo = {
+    .micCapInfo = micCapInfo,
+  };
+  OH_VideoInfo videoInfo = {.videoCapInfo = videoCapInfo};
+  OH_AVScreenCaptureConfig config = {.dataType = OH_ORIGINAL_STREAM, .audioInfo = audioInfo, .videoInfo = videoInfo};
+  OH_AVScreenCapture_Init(capture, config);
 
-  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">编码器相关配置</span></em>
-  <span style="color: rgb(0,0,255);">SampleInfo sampleInfo</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">videoCodecMime </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">"video/avc"</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">videoWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">768</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">videoHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1280</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">frameRate </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">bitrate </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">10000000</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">audioCodecMime </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">OH_AVCODEC_MIMETYPE_AUDIO_AAC</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">audioSampleForamt </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">OH_BitsPerSample</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">SAMPLE_S16LE</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">audioSampleRate </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">48000</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">audioChannelCount </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">audioBitRate </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">96000</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">audioChannelLayout </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">OH_AudioChannelLayout</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">CH_LAYOUT_STEREO</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">audioMaxInputSize </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">audioSampleRate </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">0.02 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">audioChannelCount </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">sizeof</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">short</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pixelFormat </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">AV_PIXEL_FORMAT_RGBA</span><span style="color: rgb(181,106,1);">;</span>
+  // 编码器相关配置
+  SampleInfo sampleInfo;
+  sampleInfo.videoCodecMime = "video/avc";
+  sampleInfo.videoWidth = 768;
+  sampleInfo.videoHeight = 1280;
+  sampleInfo.frameRate = 30;
+  sampleInfo.bitrate = 10000000;
+  sampleInfo.audioCodecMime = OH_AVCODEC_MIMETYPE_AUDIO_AAC;
+  sampleInfo.audioSampleForamt = OH_BitsPerSample::SAMPLE_S16LE;
+  sampleInfo.audioSampleRate = 48000;
+  sampleInfo.audioChannelCount = 2;
+  sampleInfo.audioBitRate = 96000;
+  sampleInfo.audioChannelLayout = OH_AudioChannelLayout::CH_LAYOUT_STEREO;
+  sampleInfo.audioMaxInputSize = sampleInfo.audioSampleRate * 0.02 * sampleInfo.audioChannelCount * sizeof(short);
+  sampleInfo.pixelFormat = AV_PIXEL_FORMAT_RGBA;
 
-  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">保存</span><span style="color: rgb(128,128,128);">ArkTS</span><span style="color: rgb(128,128,128);">传递的回调函数，在合适时机调用</span></em>
-  <span style="color: rgb(0,0,255);">napi_create_reference</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">args</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tsRef</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建线程安全函数</span></em>
-  <span style="color: rgb(0,0,255);">napi_value workName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">napi_create_string_utf8</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"ScreenCaptureThreadSafeFunc"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">NAPI_AUTO_LENGTH</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">workName</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">napi_threadsafe_function tsfn</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">napi_create_threadsafe_function</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">args</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">workName</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">callJS</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">tsfn</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tsfn </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">tsfn</span><span style="color: rgb(181,106,1);">;</span>
+  // 保存ArkTS传递的回调函数，在合适时机调用
+  napi_create_reference(env, args[0], 1, &sampleInfo.tsRef);
+  // 创建线程安全函数
+  napi_value workName = nullptr;
+  napi_create_string_utf8(env, "ScreenCaptureThreadSafeFunc", NAPI_AUTO_LENGTH, &workName);
+  napi_threadsafe_function tsfn;
+  napi_create_threadsafe_function(env, args[0], nullptr, workName, 0, 1, nullptr, nullptr, nullptr, callJS, &tsfn);
+  sampleInfo.tsfn = tsfn;
 
- <em> <span style="color: rgb(128,128,128);">// init</span><span style="color: rgb(128,128,128);">编码器相关配置</span></em>
-  <span style="color: rgb(181,106,1);">Recorder</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">GetInstance</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Init</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">指定</span><span style="color: rgb(128,128,128);">surface</span><span style="color: rgb(128,128,128);">开始录屏。</span></em>
-  <span style="color: rgb(0,0,255);">int32_t retStart </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">OH_AVScreenCapture_StartScreenCaptureWithSurface</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">capture</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">window</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  // init编码器相关配置
+  Recorder::GetInstance().Init(sampleInfo);
+  // 指定surface开始录屏。
+  int32_t retStart = OH_AVScreenCapture_StartScreenCaptureWithSurface(capture, sampleInfo.window);
 
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">retStart </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">AV_ERR_OK</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    return <span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  <span style="color: rgb(181,106,1);">Recorder</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">GetInstance</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Start</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">开始录屏。</span></em>
-  <span style="color: rgb(0,0,255);">OH_AVScreenCapture_SetMicrophoneEnabled</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">capture</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  return <span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+  if (retStart != AV_ERR_OK) {
+    return nullptr;
+  }
+  Recorder::GetInstance().Start();
+  // 开始录屏。
+  OH_AVScreenCapture_SetMicrophoneEnabled(capture, true);
+  return nullptr;
+}
 
-<span style="color: rgb(0,0,255);">EXTERN_C_START</span>
-<span style="color: rgb(0,0,255);">static napi_value </span><span style="color: rgb(0,0,255);">Init</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">napi_env env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_value exports</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">napi_property_descriptor desc</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{{</span><span style="color: rgb(255,0,170);">"screenCapture"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ScreenCapture</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_default</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(255,0,170);">}}</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(0,0,255);">napi_define_properties</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">env</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">exports</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">sizeof</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">desc</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(0,0,255);">sizeof</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">desc</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">desc</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-return <span style="color: rgb(0,0,255);">exports</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(0,0,255);">EXTERN_C_END</span>
+EXTERN_C_START
+static napi_value Init(napi_env env, napi_value exports) {
+  napi_property_descriptor desc[] = {{"screenCapture", nullptr, ScreenCapture, nullptr, nullptr, nullptr, napi_default, nullptr}};
+napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[0]), desc);
+return exports;
+}
+EXTERN_C_END
 
-<span style="color: rgb(0,0,255);">static napi_module demoModule </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">nm_version </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(181,106,1);">  .</span><span style="color: rgb(0,0,255);">nm_flags </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(181,106,1);">  .</span><span style="color: rgb(0,0,255);">nm_filename </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(181,106,1);">  .</span><span style="color: rgb(0,0,255);">nm_register_func </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Init</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(181,106,1);">  .</span><span style="color: rgb(0,0,255);">nm_modname </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">"entry"</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(181,106,1);">  .</span><span style="color: rgb(0,0,255);">nm_priv </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">((</span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(181,106,1);">  .</span><span style="color: rgb(0,0,255);">reserved </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+static napi_module demoModule = {
+  .nm_version = 1,
+  .nm_flags = 0,
+  .nm_filename = nullptr,
+  .nm_register_func = Init,
+  .nm_modname = "entry",
+  .nm_priv = ((void *)0),
+  .reserved = {0},
+};
 
-<span style="color: rgb(0,0,255);">extern </span><span style="color: rgb(255,0,170);">"C" </span><span style="color: rgb(0,0,255);">__attribute__</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">constructor</span><span style="color: rgb(0,0,255);">)) </span>void <span style="color: rgb(0,0,255);">RegisterEntryModule</span><span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">napi_module_register</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">demoModule</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,0,170);">}</span>
+extern "C" __attribute__((constructor)) void RegisterEntryModule(void) { napi_module_register(&demoModule); }
 ```
 
 2. OnNewOutputBuffer调用线程安全函数，避免死锁。
 ```text
-<em>/*</em>
-<em><span style="color: rgb(128,128,128);"> * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.</span></em>
-<em><span style="color: rgb(128,128,128);"> */</span></em>
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
+ */
 
-<span style="color: rgb(181,106,1);">#</span><span style="color: rgb(0,0,255);">include </span><span style="color: rgb(255,0,170);">"sample_callback.h"</span>
-<span style="color: rgb(181,106,1);">#</span><span style="color: rgb(0,0,255);">include </span><span style="color: rgb(255,0,170);">"av_codec_sample_log.h"</span>
+#include "sample_callback.h"
+#include "av_codec_sample_log.h"
 
-<span style="color: rgb(0,0,255);">namespace </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">constexpr int LIMIT_LOGD_FREQUENCY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">constexpr int32_t BYTES_PER_SAMPLE_2 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span><em> </em><em><span style="color: rgb(128,128,128);">// namespace</span></em>
+namespace {
+  constexpr int LIMIT_LOGD_FREQUENCY = 50;
+  constexpr int32_t BYTES_PER_SAMPLE_2 = 2;
+} // namespace
 
-<em>// </em><em><span style="color: rgb(128,128,128);">自定义写入数据函数</span></em>
-<span style="color: rgb(0,0,255);">int32_t </span><span style="color: rgb(181,106,1);">SampleCallback</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">OnRenderWriteData</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">OH_AudioRenderer </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">renderer</span><span style="color: rgb(181,106,1);">, </span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(181,106,1);">, </span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">int32_t length</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">renderer</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">CodecUserData </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">codecUserData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">static_cast</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">CodecUserData </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+// 自定义写入数据函数
+int32_t SampleCallback::OnRenderWriteData(OH_AudioRenderer *renderer, void *userData, void *buffer, int32_t length)
+{
+  (void)renderer;
+  (void)length;
+  CodecUserData *codecUserData = static_cast<CodecUserData *>(userData);
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将待播放的数据，按</span><span style="color: rgb(128,128,128);">length</span><span style="color: rgb(128,128,128);">长度写入</span><span style="color: rgb(128,128,128);">buffer</span></em>
-  <span style="color: rgb(0,0,255);">uint8_t </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">dest </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uint8_t </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">size_t index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">std</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">unique_lock</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">std</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">mutex</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">lock</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">outputMutex</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">从队列中取出需要播放的长度为</span><span style="color: rgb(128,128,128);">length</span><span style="color: rgb(128,128,128);">的数据</span></em>
-  while <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">renderQueue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">empty</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">length</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">dest</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">renderQueue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">front</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">renderQueue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pop</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  <span style="color: rgb(0,0,255);">AVCODEC_SAMPLE_LOGD</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"render BufferLength:%{public}d Out buffer count: %{public}u, renderQueue.size: %{public}u "</span>
-<span style="color: rgb(255,0,170);">  "renderReadSize: %{public}u"</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">outputFrameCount</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">renderQueue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  // 将待播放的数据，按length长度写入buffer
+  uint8_t *dest = (uint8_t *)buffer;
+  size_t index = 0;
+  std::unique_lock<std::mutex> lock(codecUserData->outputMutex);
+  // 从队列中取出需要播放的长度为length的数据
+  while (!codecUserData->renderQueue.empty() && index < length) {
+    dest[index++] = codecUserData->renderQueue.front();
+    codecUserData->renderQueue.pop();
+  }
+  AVCODEC_SAMPLE_LOGD("render BufferLength:%{public}d Out buffer count: %{public}u, renderQueue.size: %{public}u "
+  "renderReadSize: %{public}u",
+  length, codecUserData->outputFrameCount, codecUserData->renderQueue.size(), index);
 
-  <span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">frameWrittenForSpeed </span><span style="color: rgb(181,106,1);">+=</span>
-  <span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">speed </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">audioChannelCount </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(0,0,255);">BYTES_PER_SAMPLE_2</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">currentPosAudioBufferPts </span><span style="color: rgb(181,106,1);">=</span>
-    <span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">endPosAudioBufferPts </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">renderQueue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">/</span>
-      <span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">audioSampleRate </span><span style="color: rgb(181,106,1);">/</span>
-      <span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">audioChannelCount </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(0,0,255);">BYTES_PER_SAMPLE_2</span><span style="color: rgb(181,106,1);">;</span>
+  codecUserData->frameWrittenForSpeed +=
+  length / codecUserData->speed / codecUserData->sampleInfo->audioChannelCount / BYTES_PER_SAMPLE_2;
+  codecUserData->currentPosAudioBufferPts =
+    codecUserData->endPosAudioBufferPts - codecUserData->renderQueue.size() /
+      codecUserData->sampleInfo->audioSampleRate /
+      codecUserData->sampleInfo->audioChannelCount / BYTES_PER_SAMPLE_2;
 
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">renderQueue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">length</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">renderCond</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">notify_all</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  return <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
-<em>// </em><em><span style="color: rgb(128,128,128);">自定义音频流事件函数</span></em>
-<span style="color: rgb(0,0,255);">int32_t </span><span style="color: rgb(181,106,1);">SampleCallback</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">OnRenderStreamEvent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">OH_AudioRenderer </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">renderer</span><span style="color: rgb(181,106,1);">, </span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">OH_AudioStream_Event event</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">renderer</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据</span><span style="color: rgb(128,128,128);">event</span><span style="color: rgb(128,128,128);">表示的音频流事件信息，更新播放器状态和界面</span></em>
-  return <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
-<em>// </em><em><span style="color: rgb(128,128,128);">自定义音频中断事件函数</span></em>
-<span style="color: rgb(0,0,255);">int32_t </span><span style="color: rgb(181,106,1);">SampleCallback</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">OnRenderInterruptEvent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">OH_AudioRenderer </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">renderer</span><span style="color: rgb(181,106,1);">, </span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">OH_AudioInterrupt_ForceType type</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">OH_AudioInterrupt_Hint hint</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">renderer</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">hint</span><span style="color: rgb(181,106,1);">;</span>
-  <em>// </em><em><span style="color: rgb(128,128,128);">根据</span><span style="color: rgb(128,128,128);">type</span><span style="color: rgb(128,128,128);">和</span><span style="color: rgb(128,128,128);">hint</span><span style="color: rgb(128,128,128);">表示的音频中断信息，更新播放器状态和界面</span></em>
-  return <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
-<em>// </em><em><span style="color: rgb(128,128,128);">自定义异常回调函数</span></em>
-<span style="color: rgb(0,0,255);">int32_t </span><span style="color: rgb(181,106,1);">SampleCallback</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">OnRenderError</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">OH_AudioRenderer </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">renderer</span><span style="color: rgb(181,106,1);">, </span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">OH_AudioStream_Result error</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">renderer</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">AVCODEC_SAMPLE_LOGE</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"OnRenderError"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据</span><span style="color: rgb(128,128,128);">error</span><span style="color: rgb(128,128,128);">表示的音频异常信息，做出相应的处理</span></em>
-  return <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+  if (codecUserData->renderQueue.size() < length) {
+    codecUserData->renderCond.notify_all();
+  }
+  return 0;
+}
+// 自定义音频流事件函数
+int32_t SampleCallback::OnRenderStreamEvent(OH_AudioRenderer *renderer, void *userData, OH_AudioStream_Event event)
+{
+  (void)renderer;
+  (void)userData;
+  (void)event;
+  // 根据event表示的音频流事件信息，更新播放器状态和界面
+  return 0;
+}
+// 自定义音频中断事件函数
+int32_t SampleCallback::OnRenderInterruptEvent(OH_AudioRenderer *renderer, void *userData,
+  OH_AudioInterrupt_ForceType type, OH_AudioInterrupt_Hint hint)
+{
+  (void)renderer;
+  (void)userData;
+  (void)type;
+  (void)hint;
+  // 根据type和hint表示的音频中断信息，更新播放器状态和界面
+  return 0;
+}
+// 自定义异常回调函数
+int32_t SampleCallback::OnRenderError(OH_AudioRenderer *renderer, void *userData, OH_AudioStream_Result error)
+{
+  (void)renderer;
+  (void)userData;
+  (void)error;
+  AVCODEC_SAMPLE_LOGE("OnRenderError");
+  // 根据error表示的音频异常信息，做出相应的处理
+  return 0;
+}
 
-void <span style="color: rgb(0,0,255);">SampleCallback</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">OnCodecError</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">OH_AVCodec </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">codec</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">int32_t errorCode</span><span style="color: rgb(181,106,1);">, </span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">codec</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">errorCode</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">AVCODEC_SAMPLE_LOGE</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"On codec error, error code: %{public}d"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">errorCode</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+void SampleCallback::OnCodecError(OH_AVCodec *codec, int32_t errorCode, void *userData)
+{
+  (void)codec;
+  (void)errorCode;
+  (void)userData;
+  AVCODEC_SAMPLE_LOGE("On codec error, error code: %{public}d", errorCode);
+}
 
-void <span style="color: rgb(0,0,255);">SampleCallback</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">OnCodecFormatChange</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">OH_AVCodec </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">codec</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">OH_AVFormat </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">format</span><span style="color: rgb(181,106,1);">, </span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">AVCODEC_SAMPLE_LOGI</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"On codec format change"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+void SampleCallback::OnCodecFormatChange(OH_AVCodec *codec, OH_AVFormat *format, void *userData)
+{
+  AVCODEC_SAMPLE_LOGI("On codec format change");
+}
 
-void <span style="color: rgb(0,0,255);">SampleCallback</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">OnNeedInputBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">OH_AVCodec </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">codec</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">uint32_t index</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">OH_AVBuffer </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">, </span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">userData </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    return<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">codec</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">CodecUserData </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">codecUserData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">static_cast</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">CodecUserData </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">std</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">unique_lock</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">std</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">mutex</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">lock</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">inputMutex</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">isEncFirstFrame</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">OH_AVFormat </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">format </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">OH_VideoEncoder_GetInputDescription</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codec</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">OH_AVFormat_GetIntValue</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">format</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">OH_MD_KEY_VIDEO_PIC_WIDTH</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">OH_AVFormat_GetIntValue</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">format</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">OH_MD_KEY_VIDEO_PIC_HEIGHT</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">OH_AVFormat_GetIntValue</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">format</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">OH_MD_KEY_VIDEO_STRIDE</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">widthStride</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">OH_AVFormat_GetIntValue</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">format</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">OH_MD_KEY_VIDEO_SLICE_HEIGHT</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">heightStride</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">OH_AVFormat_Destroy</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">format</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">isEncFirstFrame </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  <span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">inputBufferInfoQueue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">emplace</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">inputCond</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">notify_all</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+void SampleCallback::OnNeedInputBuffer(OH_AVCodec *codec, uint32_t index, OH_AVBuffer *buffer, void *userData)
+{
+  if (userData == nullptr) {
+    return;
+  }
+  (void)codec;
+  CodecUserData *codecUserData = static_cast<CodecUserData *>(userData);
+  std::unique_lock<std::mutex> lock(codecUserData->inputMutex);
+  if (codecUserData->isEncFirstFrame) {
+    OH_AVFormat *format = OH_VideoEncoder_GetInputDescription(codec);
+    OH_AVFormat_GetIntValue(format, OH_MD_KEY_VIDEO_PIC_WIDTH, &codecUserData->width);
+    OH_AVFormat_GetIntValue(format, OH_MD_KEY_VIDEO_PIC_HEIGHT, &codecUserData->height);
+    OH_AVFormat_GetIntValue(format, OH_MD_KEY_VIDEO_STRIDE, &codecUserData->widthStride);
+    OH_AVFormat_GetIntValue(format, OH_MD_KEY_VIDEO_SLICE_HEIGHT, &codecUserData->heightStride);
+    OH_AVFormat_Destroy(format);
+    codecUserData->isEncFirstFrame = false;
+  }
+  codecUserData->inputBufferInfoQueue.emplace(index, buffer);
+  codecUserData->inputCond.notify_all();
+}
 
-void <span style="color: rgb(0,0,255);">SampleCallback</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">OnNewOutputBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">OH_AVCodec </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">codec</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">uint32_t index</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">OH_AVBuffer </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">, </span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">{</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">userData </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(0,0,255);">nullptr</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    return<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  <span style="color: rgb(0,0,255);">(</span>void<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">codec</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">CodecUserData </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">codecUserData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">static_cast</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">CodecUserData </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">userData</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">std</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">unique_lock</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">std</span><span style="color: rgb(181,106,1);">::</span><span style="color: rgb(0,0,255);">mutex</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">lock</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">outputMutex</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">outputBufferInfoQueue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">emplace</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+void SampleCallback::OnNewOutputBuffer(OH_AVCodec *codec, uint32_t index, OH_AVBuffer *buffer, void *userData)
+{
+  if (userData == nullptr) {
+    return;
+  }
+  (void)codec;
+  CodecUserData *codecUserData = static_cast<CodecUserData *>(userData);
+  std::unique_lock<std::mutex> lock(codecUserData->outputMutex);
+  codecUserData->outputBufferInfoQueue.emplace(index, buffer);
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">回调</span><span style="color: rgb(128,128,128);">arkts</span></em>
-  <span style="color: rgb(0,0,255);">SampleInfo </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">sampleInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">;</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">uint8_t </span><span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">buf </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">OH_AVBuffer_GetAddr</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buf</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">buf </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">buf</span><span style="color: rgb(181,106,1);">;</span>
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">调用线程安全函数</span></em>
-      <span style="color: rgb(0,0,255);">napi_acquire_threadsafe_function</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">tsfn</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">napi_call_threadsafe_function</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">tsfn</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span>void <span style="color: rgb(181,106,1);">*</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(0,0,255);">sampleInfo</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">napi_tsfn_blocking</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
-  <span style="color: rgb(0,0,255);">codecUserData</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">outputCond</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">notify_all</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">AVCODEC_SAMPLE_LOGI</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"output buffer"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+  // 回调arkts
+  SampleInfo *sampleInfo = codecUserData->sampleInfo;
+  if (sampleInfo) {
+    uint8_t *buf = OH_AVBuffer_GetAddr(buffer);
+    if (buf) {
+      sampleInfo->buf = buf;
+      // 调用线程安全函数
+      napi_acquire_threadsafe_function(sampleInfo->tsfn);
+      napi_call_threadsafe_function(sampleInfo->tsfn, (void *)sampleInfo, napi_tsfn_blocking);
+    }
+  }
+  codecUserData->outputCond.notify_all();
+  AVCODEC_SAMPLE_LOGI("output buffer");
+}
 ```
 
 3. 导出Native方法提供ArkTS使用。
 ```text
-export const <span style="color: rgb(0,0,255);">screenCapture</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cb</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">void</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">;</span>
+export const screenCapture: (cb:(buffer: ArrayBuffer)=>void) => void;
 ```
 
 4. ArkTS侧调用录屏方法。
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">hilog </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.PerformanceAnalysisKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(0,0,255);">testNapi </span>from <span style="color: rgb(255,0,170);">'libentry.so'</span><span style="color: rgb(181,106,1);">;</span>
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import testNapi from 'libentry.so';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Hello World'</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  @State message: string = 'Hello World';
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.float.page_text_font_size'</span><span style="color: rgb(0,0,255);">))</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Welcome'</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">testNapi</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">screenCapture</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'capture buffer ==='</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">byteLength</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Row() {
+      Column() {
+        Text(this.message)
+          .fontSize($r('app.float.page_text_font_size'))
+          .fontWeight(FontWeight.Bold)
+          .onClick(() => {
+            this.message = 'Welcome';
+            testNapi.screenCapture((buffer: ArrayBuffer) => {
+              hilog.info(100, 'capture buffer ===', buffer.byteLength.toString());
+            });
+          })
+      }
+      .width('100%')
+    }
+    .height('100%')
+  }
+}
 ```

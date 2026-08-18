@@ -18,7 +18,7 @@ struct Index {
 
   convert() {
     try {
-      <em>// Byte array of media files</em>
+      // Byte array of media files
       this.getUIContext().getHostContext()!.resourceManager.getMediaContent($r('app.media.startIcon').id,
         (error: BusinessError, value: Uint8Array) => {
           if (error) {
@@ -30,12 +30,12 @@ struct Index {
             pixelFormat: 3,
             size: { height: 4, width: 6 }
           };
-          <em>// Create an imageSource instance</em>
+          // Create an imageSource instance
           let imageSource = image.createImageSource(value.buffer);
-          <em>// Decoding to generate PixelMap</em>
+          // Decoding to generate PixelMap
           imageSource.createPixelMap(pixelMapInitOptions).then((pixelMap) => {
             this.pixelMap = pixelMap;
-            <em>// Pixel operations or rendering can be performed here.</em>
+            // Pixel operations or rendering can be performed here.
           }).catch((decodeError: BusinessError) => {
             console.error(`Decode failed: ${decodeError.code}, ${decodeError.message}`);
           });

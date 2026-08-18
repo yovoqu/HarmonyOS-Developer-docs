@@ -21,7 +21,7 @@ struct FlexPage {
 
   aboutToAppear(): void {
     window.getLastWindow(this.getUIContext().getHostContext(), (err, data) => {
-      data?.setWindowLayoutFullScreen(true); <em>// 设置沉浸式布局</em>
+      data?.setWindowLayoutFullScreen(true); // 设置沉浸式布局
     });
   }
 
@@ -83,9 +83,9 @@ struct FlexPage {
               .height(32);
           });
         }
-        .padding(6) <em>// Flex</em><em>内边距</em>
+        .padding(6) // Flex内边距
         .backgroundColor('#ffffff')
-        .width('auto');<em> </em><em>// 宽度设置为自适应子组件宽度</em>
+        .width('auto'); // 宽度设置为自适应子组件宽度
       }
       .width('100%')
       .alignItems(HorizontalAlign.Start);
@@ -139,7 +139,7 @@ struct FlexPage1 {
 
   aboutToAppear(): void {
     window.getLastWindow(this.getUIContext().getHostContext(), (err, data) => {
-      data.setWindowLayoutFullScreen(true); <em>// 设置沉浸式布局</em>
+      data.setWindowLayoutFullScreen(true); // 设置沉浸式布局
     });
   }
 
@@ -149,7 +149,7 @@ struct FlexPage1 {
         Text(`根据初始行数决定是否关闭换行`);
         Flex({
           justifyContent: FlexAlign.Start,
-          wrap: this.isWarp ? FlexWrap.Wrap : FlexWrap.NoWrap,<em> </em><em>// 根据状态变量设置是否换行</em>
+          wrap: this.isWarp ? FlexWrap.Wrap : FlexWrap.NoWrap, // 根据状态变量设置是否换行
           direction: FlexDirection.Row
         }) {
           ForEach(this.textList, (item: string) => {
@@ -160,20 +160,20 @@ struct FlexPage1 {
               .borderRadius(4)
               .textOverflow({ overflow: TextOverflow.Ellipsis })
               .ellipsisMode(EllipsisMode.END)
-              .margin(3) <em>// 文本框间距</em>
+              .margin(3) // 文本框间距
               .padding({ left: 12, right: 12 })
-              .height(32); <em>// </em><em>文本框高度</em>
+              .height(32); // 文本框高度
           });
         }
-        .padding(6) <em>// Flex</em><em>内间距</em>
+        .padding(6) // Flex内间距
         .backgroundColor('#ffffff')
-        .width('auto') <em>// Flex方向为Row时设置</em>
+        .width('auto') // Flex方向为Row时设置
         .onSizeChange((oldValue, newValue) => {
-          <em>// </em><em>获取组件高度</em>
+          // 获取组件高度
           let height = newValue.height as number;
-         <em> // 组件高度是否不超过一行文本框时的高度（文本高度32+文本上下间距3*2+Flex组件内间距6*2）</em>
+          // 组件高度是否不超过一行文本框时的高度（文本高度32+文本上下间距3*2+Flex组件内间距6*2）
           if (height <= (32 + 3 * 2 + 6 * 2)) {
-            this.isWarp = false;<em> </em><em>// 文本不超过一行，不换行</em>
+            this.isWarp = false; // 文本不超过一行，不换行
           }
         });
       }.width('100%')
@@ -181,8 +181,8 @@ struct FlexPage1 {
 
       Button('更换数据1')
         .onClick(() => {
-          this.isWarp = true; <em>// </em><em>默认换行</em>
-          this.textList = ['文本XXXX', '文本X']; <em>// 修改Flex中的内容触发改变宽高触发onSizeChange，判断是否取消换行</em>
+          this.isWarp = true; // 默认换行
+          this.textList = ['文本XXXX', '文本X']; // 修改Flex中的内容触发改变宽高触发onSizeChange，判断是否取消换行
         });
       Button('更新数据2')
         .onClick(() => {
@@ -224,29 +224,29 @@ struct FlexPage2 {
 
   aboutToAppear(): void {
     window.getLastWindow(this.getUIContext().getHostContext(), (err, data) => {
-      data.setWindowLayoutFullScreen(true); <em>// 设置沉浸式布局</em>
-      let properties = data.getWindowProperties();<em> </em><em>// 获取当前窗口的属性</em>
-      let windowWidth = properties.windowRect.width; <em>// 获取当前窗口宽度</em>
-      this.flexWidth = windowWidth - this.uiContext.vp2px(20 * 2);<em> </em><em>// 计算Flex组件的最大宽度，单位px</em>
+      data.setWindowLayoutFullScreen(true); // 设置沉浸式布局
+      let properties = data.getWindowProperties(); // 获取当前窗口的属性
+      let windowWidth = properties.windowRect.width; // 获取当前窗口宽度
+      this.flexWidth = windowWidth - this.uiContext.vp2px(20 * 2); // 计算Flex组件的最大宽度，单位px
       this.setFlexWrap(this.textList);
     });
   }
 
- <em> // 设置是否换行</em>
+  // 设置是否换行
   setFlexWrap(textList: string[]) {
-    this.isWarp = false;<em> </em><em>// 默认不换行</em>
-    let lineWidth = this.flexWidth - this.uiContext.px2vp(6 * 2); <em>// Flex组件一行的最大宽度，单位px</em>
-    let countWidth = 0;<em> </em><em>// 文本框占用的的宽度</em>
+    this.isWarp = false; // 默认不换行
+    let lineWidth = this.flexWidth - this.uiContext.px2vp(6 * 2); // Flex组件一行的最大宽度，单位px
+    let countWidth = 0; // 文本框占用的的宽度
     textList.forEach((item) => {
       if (this.isWarp === false) {
-     <em>   // 计算文本的宽度</em>
+        // 计算文本的宽度
         let textWidth = this.measureUtils.measureText({
           textContent: item,
-          fontSize: 12 <em>// </em><em>文本字体大小</em>
+          fontSize: 12 // 文本字体大小
         });
-        <em>// 累计文本框占用宽度，文本宽度+2*文本框左右内边距+2*文本框左右外边距</em>
+        // 累计文本框占用宽度，文本宽度+2*文本框左右内边距+2*文本框左右外边距
         countWidth = countWidth + textWidth + this.uiContext.vp2px(2 * 12 + 2 * 3);
-       <em> // 超过每行最大宽度，设置为换行</em>
+        // 超过每行最大宽度，设置为换行
         if (countWidth >= lineWidth) {
           this.isWarp = true;
         }
@@ -260,7 +260,7 @@ struct FlexPage2 {
         Text(`计算首行能否放下全部文本，是否需要换行`);
         Flex({
           justifyContent: FlexAlign.Start,
-          wrap: this.isWarp ? FlexWrap.Wrap : FlexWrap.NoWrap, <em>// </em><em>根据状态变量设置是否换行</em>
+          wrap: this.isWarp ? FlexWrap.Wrap : FlexWrap.NoWrap, // 根据状态变量设置是否换行
           direction: FlexDirection.Row
         }) {
           ForEach(this.textList, (item: string) => {
@@ -271,12 +271,12 @@ struct FlexPage2 {
               .borderRadius(4)
               .textOverflow({ overflow: TextOverflow.Ellipsis })
               .ellipsisMode(EllipsisMode.END)
-              .margin(3)<em> </em><em>// 文本框外边距3</em>
-              .padding({ left: 12, right: 12 })<em> </em><em>// 文本框左右内边距12</em>
+              .margin(3) // 文本框外边距3
+              .padding({ left: 12, right: 12 }) // 文本框左右内边距12
               .height(32);
           });
         }
-        .padding(6) <em>// Flex组件内边距6</em>
+        .padding(6) // Flex组件内边距6
         .backgroundColor('#ffffff')
         .width('auto');
       }.width('100%')
@@ -298,7 +298,7 @@ struct FlexPage2 {
       left: 20,
       right: 20,
       bottom: 20
-    })<em> </em><em>// 左右内边距20</em>
+    }) // 左右内边距20
     .height('100%')
     .width('100%')
     .backgroundColor('#f1f3f5');

@@ -32,7 +32,7 @@ UIViewer面板功能脚本录制按钮，点击后页面左上角将出现红色
 
   
 ```text
-<em># 根据条件点击控件</em>
+# 根据条件点击控件
 self.driver.touch(BY.key(
     'AppIcon_Image_com.huawei.hmos.settingscom.huawei.hmos.settings.MainAbilityphone_settings0_undefined'))
 self.driver.wait(0.5)
@@ -48,7 +48,7 @@ self.driver.wait(0.5)
 
   
 ```text
-<em># 输入文本'Hello'</em>
+# 输入文本'Hello'
 self.driver.input_text(BY.key('__SearchField__searchComponent'), 'Hello')
 self.driver.wait(0.5)
 ```

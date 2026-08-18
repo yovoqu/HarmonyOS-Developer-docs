@@ -27,7 +27,7 @@ struct Index {
     Column() {
       Button('Map to JSON')
         .onClick(() => {
-          console.log('jsonInfo:', jsonInfo); <em>// jsonInfo: {"name":"name1","width":"100","height":"50"}</em>
+          console.log('jsonInfo:', jsonInfo); // jsonInfo: {"name":"name1","width":"100","height":"50"}
         })
     }
   }

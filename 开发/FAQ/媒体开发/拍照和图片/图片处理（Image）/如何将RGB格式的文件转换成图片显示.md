@@ -39,19 +39,19 @@ struct Index {
   context: Context = this.getUIContext().getHostContext() as common.UIAbilityContext;
   resourceMgr: resourceManager.ResourceManager = this.context.resourceManager;
   openRGB(file: string) {
-  <em>  // 1、读取RGB格式的文件</em>
+    // 1、读取RGB格式的文件
     this.resourceMgr.getRawFileContent(file).then((fileData: Uint8Array) => {
-     <em> // 2、获取到文件的数据，存储成ArrayBuffer</em>
+      // 2、获取到文件的数据，存储成ArrayBuffer
       const buffer = fileData.buffer.slice(0);
       console.info(`buffer.bytelength:${buffer.byteLength}`);
-   <em>   // 3、设置创建PixelMap的配置，srcPixelFormat是原数据的格式（即RGB文件的格式），pixelFormat是创建出来的PixelMap格式，size是分辨率</em>
+      // 3、设置创建PixelMap的配置，srcPixelFormat是原数据的格式（即RGB文件的格式），pixelFormat是创建出来的PixelMap格式，size是分辨率
       let opts: image.InitializationOptions = {
         editable: true,
         srcPixelFormat: 4,
         pixelFormat: 3,
         size: { height: 1080, width: 1920 }
       };
-    <em>  // 4、创建PixelMap</em>
+      // 4、创建PixelMap
       image.createPixelMap(buffer, opts).then((pixelMap: image.PixelMap) => {
         this.pixelMap = pixelMap;
         console.info('Succeeded in creating pixelmap.');
@@ -65,11 +65,11 @@ struct Index {
   build() {
     RelativeContainer() {
       Column() {
-       <em> // 示例文件仅作参考，实际开发请以本地文件为准</em>
+        // 示例文件仅作参考，实际开发请以本地文件为准
         Button('打开RGB').onClick(() => {
           this.openRGB('imageData.rgb');
         })
-  <em>      // 5、将PixelMap通过Image组件显示出来</em>
+        // 5、将PixelMap通过Image组件显示出来
         Image(this.pixelMap).objectFit(ImageFit.Contain);
       }
     }

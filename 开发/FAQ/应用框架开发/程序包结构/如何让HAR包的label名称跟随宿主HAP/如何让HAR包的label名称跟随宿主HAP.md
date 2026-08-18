@@ -47,18 +47,18 @@ HAP包集成HAR包，HAR包中的UIAbility进入后台任务列表界面时显�
   HAR string.json：
 ```json
 {
-  <span style="color: rgb(132,63,161);">"string"</span><span style="color: rgb(181,106,1);">: </span>[
+  "string": [
     {
-      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"page_show"</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"page from package"</span>
-    }<span style="color: rgb(181,106,1);">,</span>
+      "name": "page_show",
+      "value": "page from package"
+    },
     {
-      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"HarAbility_desc"</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"description"</span>
-    }<span style="color: rgb(181,106,1);">,</span>
+      "name": "HarAbility_desc",
+      "value": "description"
+    },
     {
-      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"Ability_label"</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"HAR"</span>
+      "name": "Ability_label",
+      "value": "HAR"
     }
   ]
 }
@@ -69,7 +69,7 @@ HAP包集成HAR包，HAR包中的UIAbility进入后台任务列表界面时显�
 
   
 ```json
-<span style="color: rgb(80,160,79);">"label"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"$string:Ability_label"</span><span style="color: rgb(181,106,1);">,</span>
+"label": "$string:Ability_label",
 ```
 
 2. 在HAP包的string.json中配置与HAR包中label相同字段名的“Ability_label”，并在HAP包的module.json5文件中abilities标签下的label字段中被引用。HAP string.json：
@@ -77,18 +77,18 @@ HAP包集成HAR包，HAR包中的UIAbility进入后台任务列表界面时显�
   
 ```json
 {
-  <span style="color: rgb(132,63,161);">"string"</span><span style="color: rgb(181,106,1);">: </span>[
+  "string": [
     {
-      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"module_desc"</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"module description"</span>
-    }<span style="color: rgb(181,106,1);">,</span>
+      "name": "module_desc",
+      "value": "module description"
+    },
     {
-      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"EntryAbility_desc"</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"description"</span>
-    }<span style="color: rgb(181,106,1);">,</span>
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
     {
-      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"Ability_label"</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"APP"</span>
+      "name": "Ability_label",
+      "value": "APP"
     }
   ]
 }
@@ -97,7 +97,7 @@ HAP包集成HAR包，HAR包中的UIAbility进入后台任务列表界面时显�
 
   
 ```json
-<span style="color: rgb(80,160,79);">"label"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"$string:Ability_label"</span><span style="color: rgb(181,106,1);">,</span>
+"label": "$string:Ability_label",
 ```
 
  

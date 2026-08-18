@@ -59,7 +59,7 @@ struct RichEditorExample {
         .margin({ bottom: 10 });
       RichEditor(this.options)
         .onReady(() => {
-        <em>  // 设定组件展示的属性字符串</em>
+          // 设定组件展示的属性字符串
           this.controller.setStyledString(this.mutableStyledString);
           this.controller.onContentChanged(this.contentChangedListener);
         })
@@ -70,15 +70,15 @@ struct RichEditorExample {
             console.info('=> ', this.lineCount);
           }, 100);
         })
-        .enableKeyboardOnFocus(false)  <em>// 首次进入页面获取焦点不弹出软键盘</em>
-        .defaultFocus(true) <em>// 首次进入页面获取焦点</em>
+        .enableKeyboardOnFocus(false)  // 首次进入页面获取焦点不弹出软键盘
+        .defaultFocus(true) // 首次进入页面获取焦点
         .height('20%')
         .width('100%');
       Button('插入文本').onClick(() => {
-        <em>// 获取组件展示的属性字符串</em>
+        // 获取组件展示的属性字符串
         this.richEditorStyledString = this.controller.getStyledString();
         this.richEditorStyledString.appendStyledString(this.styledString);
-      <em>  // 使插入文本后的属性字符串展示在组件上</em>
+        // 使插入文本后的属性字符串展示在组件上
         this.controller.setStyledString(this.richEditorStyledString);
         this.controller.setCaretOffset(this.richEditorStyledString.length);
       });

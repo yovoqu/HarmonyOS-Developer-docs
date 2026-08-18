@@ -43,7 +43,7 @@ export async function readUserPicFile(): Promise<Array<string>> {
 
 2. 通过[文件复制](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fscopyfilesync)能力，将相册文件数据复制到沙箱文件中。
 ```text
-<em>// </em><em>复制文件到沙箱</em>
+// 复制文件到沙箱
 let file = fileIo.openSync(uri, fileIo.OpenMode.READ_ONLY);
 let pathDir = context.filesDir;
 let filePath = pathDir + '/' + file.name;
@@ -53,9 +53,9 @@ fileIo.copyFileSync(file.fd, filePath);
 3. 通过cryptoFramework.createMd获取对应文件的MD消息摘要值。
 ```text
 function fileMD5(filePath: string): string {
- <em> // 定义摘要类型</em>
+  // 定义摘要类型
   let md = cryptoFramework.createMd('SHA256');
- <em> // 打开文件</em>
+  // 打开文件
   let file = fileIo.openSync(filePath, fileIo.OpenMode.READ_ONLY);
   let fileBufferSize = 4096;
   let readSize = 0;
@@ -66,13 +66,13 @@ function fileMD5(filePath: string): string {
   };
   let readLength = fileIo.readSync(file.fd, fileBuffer, readOptions);
   while (readLength > 0) {
-   <em> // 更新摘要数据</em>
+    // 更新摘要数据
     md.updateSync({ data: new Uint8Array(fileBuffer.slice(0, readLength)) });
     readSize += readLength;
     readOptions.offset = readSize;
     readLength = fileIo.readSync(file.fd, fileBuffer, readOptions);
   }
- <em> // 计算摘要</em>
+  // 计算摘要
   let mdResult = md.digestSync();
   return buffer.from(mdResult.data).toString('hex');
 }
@@ -89,9 +89,9 @@ import { common } from '@kit.AbilityKit';
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';
 
-<em>/**</em>
-<em> * 从媒体库选择图片资源</em>
-<em> */</em>
+/**
+ * 从媒体库选择图片资源
+ */
 export async function readUserPicFile(): Promise<Array<string>> {
   let uris: Array<string> = new Array<string>();
   try {
@@ -129,7 +129,7 @@ struct Index {
           readUserPicFile().then((uris: Array<string>) => {
             uris.forEach(async uri => {
               try {
-              <em>  // 复制文件到沙箱</em>
+                // 复制文件到沙箱
                 let file = fileIo.openSync(uri, fileIo.OpenMode.READ_ONLY);
                 let pathDir = context.filesDir;
                 let filePath = pathDir + '/' + file.name;
@@ -152,13 +152,13 @@ struct Index {
   }
 }
 
-<em>/**</em>
-<em> * 获取文件的MD5值</em>
-<em> */</em>
+/**
+ * 获取文件的MD5值
+ */
 function fileMD5(filePath: string): string {
- <em> // 定义摘要类型</em>
+  // 定义摘要类型
   let md = cryptoFramework.createMd('SHA256');
-<em>  // 打开文件</em>
+  // 打开文件
   let file = fileIo.openSync(filePath, fileIo.OpenMode.READ_ONLY);
   let fileBufferSize = 4096;
   let readSize = 0;
@@ -169,13 +169,13 @@ function fileMD5(filePath: string): string {
   };
   let readLength = fileIo.readSync(file.fd, fileBuffer, readOptions);
   while (readLength > 0) {
-    <em>// 更新摘要数据</em>
+    // 更新摘要数据
     md.updateSync({ data: new Uint8Array(fileBuffer.slice(0, readLength)) });
     readSize += readLength;
     readOptions.offset = readSize;
     readLength = fileIo.readSync(file.fd, fileBuffer, readOptions);
   }
-  <em>// </em><em>计算摘要</em>
+  // 计算摘要
   let mdResult = md.digestSync();
   return buffer.from(mdResult.data).toString('hex');
 }

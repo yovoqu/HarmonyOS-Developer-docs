@@ -19,7 +19,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct ClearCache {
- <em> // Create a file in the cache</em>
+  // Create a file in the cache
   writeFile() {
     let filePath = this.getUIContext().getHostContext()!.cacheDir + '/test.txt';
     let fileStream = fileIo.createStreamSync(filePath, 'w+');
@@ -27,7 +27,7 @@ struct ClearCache {
     fileStream.close();
   }
 
- <em> // Obtain the size of the application data space</em>
+  // Obtain the size of the application data space
   getCache() {
     storageStatistics.getCurrentBundleStats((error: BusinessError, bundleStats: storageStatistics.BundleStats) => {
       if (error) {
@@ -41,7 +41,7 @@ struct ClearCache {
     });
   }
 
- <em> // Clear cache</em>
+  // Clear cache
   clearCache() {
     let cacheDir = this.getUIContext().getHostContext()!.cacheDir;
     console.info(cacheDir);
@@ -50,7 +50,7 @@ struct ClearCache {
       for (let i = 0; i < filenames.length; i++) {
         let dirPath = cacheDir + '/' + filenames[i];
         console.log(dirPath);
-     <em>   // Determine whether it is a folder</em>
+        // Determine whether it is a folder
         let isDirectory: boolean = false;
         try {
           isDirectory = fileIo.statSync(dirPath).isDirectory();

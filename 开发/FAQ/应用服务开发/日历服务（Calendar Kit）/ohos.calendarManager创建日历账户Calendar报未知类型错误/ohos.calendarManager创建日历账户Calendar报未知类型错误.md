@@ -43,21 +43,21 @@ struct Index {
   calendarAccount: calendarManager.CalendarAccount = {
     name: 'TestCalendar',
     type: calendarManager.CalendarType.LOCAL,
-   <em> // 日历账户显示名称，该字段如果不填，创建的日历账户在界面显示为空字符串。</em>
+    // 日历账户显示名称，该字段如果不填，创建的日历账户在界面显示为空字符串。
     displayName: 'TestApp'
   };
   config: calendarManager.CalendarConfig = {
-   <em> // 打开日程提醒</em>
+    // 打开日程提醒
     enableReminder: true,
-   <em> // 设置日历账户颜色</em>
+    // 设置日历账户颜色
     color: '#000000'
   };
 
-  <em>// 首次弹窗向用户申请授权</em>
+  // 首次弹窗向用户申请授权
   async requestCalendarPermission(): Promise<void> {
-   <em> // 向用户授权授权</em>
+    // 向用户授权授权
     await this.requestPermission(['ohos.permission.READ_CALENDAR', 'ohos.permission.WRITE_CALENDAR']);
-   <em> // 初始化calendarMgr</em>
+    // 初始化calendarMgr
     this.initCalendarManager();
   }
 
@@ -79,7 +79,7 @@ struct Index {
     }
   }
 
- <em> // 二次拉起设置权限</em>
+  // 二次拉起设置权限
   async requestSettingPermission(context: Context, permissions: Array<Permissions>): Promise<boolean> {
     let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
     try {
@@ -104,7 +104,7 @@ struct Index {
     this.calendarMgr = calendarManager.getCalendarManager(this.context);
   }
 
- <em> // 创建日历账户</em>
+  // 创建日历账户
   async createAccount() {
     const current = await this.getAccount();
     if (current === undefined) {
@@ -136,9 +136,9 @@ struct Index {
     Column({ space: 20}) {
       Button('创建日历账户')
         .onClick(async () => {
-          <em>// 拉起日历读写权限授权弹窗</em>
+          // 拉起日历读写权限授权弹窗
           await this.requestCalendarPermission();
-        <em>  // 判断授权弹窗是否同意，否则二次拉起权限设置弹窗</em>
+          // 判断授权弹窗是否同意，否则二次拉起权限设置弹窗
           if (!this.allPermission.includes('ohos.permission.WRITE_CALENDAR') || !this.allPermission.includes('ohos.permission.READ_CALENDAR')) {
             const granted = await this.requestSettingPermission(this.context, ['ohos.permission.READ_CALENDAR', 'ohos.permission.WRITE_CALENDAR']);
             if (!granted) {
@@ -195,19 +195,19 @@ struct Index {
   calendarAccount: calendarManager.CalendarAccount = {
     name: 'TestCalendar',
     type: calendarManager.CalendarType.LOCAL,
-  <em>  // 日历账户显示名称，该字段如果不填，创建的日历账户在界面显示为空字符串。</em>
+    // 日历账户显示名称，该字段如果不填，创建的日历账户在界面显示为空字符串。
     displayName: 'TestApp'
   };
   config: calendarManager.CalendarConfig = {
-   <em> // 打开日程提醒</em>
+    // 打开日程提醒
     enableReminder: true,
-  <em>  // 设置日历账户颜色</em>
+    // 设置日历账户颜色
     color: '#000000'
   };
 
-<em>  // 首次弹窗向用户申请授权</em>
+  // 首次弹窗向用户申请授权
   async requestCalendarPermission(): Promise<void> {
-   <em> // 向用户授权授权</em>
+    // 向用户授权授权
     await this.requestPermission(['ohos.permission.READ_CALENDAR', 'ohos.permission.WRITE_CALENDAR']);
   }
 
@@ -229,7 +229,7 @@ struct Index {
     }
   }
 
-<em>  // 二次拉起设置权限</em>
+  // 二次拉起设置权限
   async requestSettingPermission(context: Context, permissions: Array<Permissions>): Promise<boolean> {
     let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
     try {
@@ -249,7 +249,7 @@ struct Index {
     }
   }
 
- <em> // 创建日历账户</em>
+  // 创建日历账户
   async createAccount() {
     const current = await this.getAccount();
     if (current === undefined) {
@@ -284,9 +284,9 @@ struct Index {
     Column({ space: 20 }) {
       Button('创建日历账户')
         .onClick(async () => {
-         <em> // 拉起日历读写权限授权弹窗</em>
+          // 拉起日历读写权限授权弹窗
           await this.requestCalendarPermission();
-        <em>  // 判断授权弹窗是否同意，否则二次拉起权限设置弹窗</em>
+          // 判断授权弹窗是否同意，否则二次拉起权限设置弹窗
           if (!this.allPermission.includes('ohos.permission.WRITE_CALENDAR') ||
             !this.allPermission.includes('ohos.permission.READ_CALENDAR')) {
             const granted = await this.requestSettingPermission(this.context,

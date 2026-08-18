@@ -28,7 +28,7 @@ startAutoRoll() {
   this.intervalNum = setInterval(() => {
     if (this.rollOffset > (this.itemWidth * 5)) {
       for (let i = 0; i < 5; i++) {
-      <em>  // data数组前减后加，实现循环</em>
+        // data数组前减后加，实现循环
         this.data.deleteData(0);
         this.data.pushData(this.nextNum.toString());
         if (this.nextNum === 9) {
@@ -37,12 +37,12 @@ startAutoRoll() {
           this.nextNum++;
         }
       }
-     <em> // 对应data变化，防止超出</em>
+      // 对应data变化，防止超出
       this.rollOffset -= this.itemWidth * 5;
     }
     let curr = new Date().getTime();
     this.rollOffset += 0.5 * (curr - this.last) / 10;
-   <em> // 改为x轴移动</em>
+    // 改为x轴移动
     this.scroller.scrollTo({ xOffset: this.rollOffset, yOffset: 0, animation: false });
     this.last = curr;
   }, 10);
@@ -53,13 +53,13 @@ startAutoRoll() {
 1. 在List的onScrollFrameBegin回调里计算实际需要的滚动量并作为事件处理函数的返回值返回，List将按照返回值的实际滚动量进行滚动。
 ```text
 .onScrollFrameBegin((offset: number) => {
-  let currOffset = this.scroller.currentOffset().xOffset;<em> // 改为x轴</em>
+  let currOffset = this.scroller.currentOffset().xOffset; // 改为x轴
   let newOffset = currOffset + offset;
   let totalWidth = this.itemWidth * 10;
-  <em>// 左滑</em>
+  // 左滑
   if (newOffset < totalWidth * 0.5) {
     newOffset += totalWidth;
-   <em> // 右滑</em>
+    // 右滑
   } else if (newOffset > totalWidth * 1.5) {
     newOffset -= totalWidth;
   }
@@ -95,7 +95,7 @@ struct VerticalCircularList {
     this.intervalNum = setInterval(() => {
       if (this.rollOffset > (this.itemHeight * 5)) {
         for (let i = 0; i < 5; i++) {
-        <em>  // data数组前减后加，实现循环</em>
+          // data数组前减后加，实现循环
           this.data.deleteData(0);
           this.data.pushData(this.nextNum.toString());
           if (this.nextNum === 9) {
@@ -104,7 +104,7 @@ struct VerticalCircularList {
             this.nextNum++;
           }
         }
-       <em> // 对应data变化，防止超出</em>
+        // 对应data变化，防止超出
         this.rollOffset -= this.itemHeight * 5;
       }
       let curr = new Date().getTime();
@@ -189,10 +189,10 @@ struct VerticalCircularList {
           let currOffset = this.scroller.currentOffset().yOffset;
           let newOffset = currOffset + offset;
           let totalHeight = this.itemHeight * 10;
-         <em> // 上滑</em>
+          // 上滑
           if (newOffset < totalHeight * 0.5) {
             newOffset += totalHeight;
-          <em>  // 下滑</em>
+            // 下滑
           } else if (newOffset > totalHeight * 1.5) {
             newOffset -= totalHeight;
           }
@@ -325,7 +325,7 @@ struct HorizontalCircularList {
   private rollOffset: number = 0;
   private intervalNum: number = 0;
   pathStack: NavPathStack = new NavPathStack();
-  private itemWidth: number = 350;<em> // 纵向中的itemHeight=50改为itemWidth=350</em>
+  private itemWidth: number = 350; // 纵向中的itemHeight=50改为itemWidth=350
   private last: number = 0;
 
   startAutoRoll() {
@@ -333,7 +333,7 @@ struct HorizontalCircularList {
     this.intervalNum = setInterval(() => {
       if (this.rollOffset > (this.itemWidth * 5)) {
         for (let i = 0; i < 5; i++) {
-      <em>    // data数组前减后加，实现循环</em>
+          // data数组前减后加，实现循环
           this.data.deleteData(0);
           this.data.pushData(this.nextNum.toString());
           if (this.nextNum === 9) {
@@ -342,12 +342,12 @@ struct HorizontalCircularList {
             this.nextNum++;
           }
         }
-     <em>   // 对应data变化，防止超出</em>
+        // 对应data变化，防止超出
         this.rollOffset -= this.itemWidth * 5;
       }
       let curr = new Date().getTime();
       this.rollOffset += 0.5 * (curr - this.last) / 10;
-     <em> // 改为x轴移动</em>
+      // 改为x轴移动
       this.scroller.scrollTo({ xOffset: this.rollOffset, yOffset: 0, animation: false });
       this.last = curr;
     }, 10);
@@ -415,7 +415,7 @@ struct HorizontalCircularList {
         .width('100%')
         .height(160)
         .backgroundColor('#FFDCDCDC')
-        .listDirection(Axis.Horizontal)<em> // 滑动方向改为横向</em>
+        .listDirection(Axis.Horizontal) // 滑动方向改为横向
         .scrollSnapAlign(ScrollSnapAlign.NONE)
         .friction(0.5)
         .onScrollStart(() => {
@@ -425,13 +425,13 @@ struct HorizontalCircularList {
           this.startAutoRoll();
         })
         .onScrollFrameBegin((offset: number) => {
-          let currOffset = this.scroller.currentOffset().xOffset;<em> // 改为x轴</em>
+          let currOffset = this.scroller.currentOffset().xOffset; // 改为x轴
           let newOffset = currOffset + offset;
           let totalWidth = this.itemWidth * 10;
-         <em> // 左滑</em>
+          // 左滑
           if (newOffset < totalWidth * 0.5) {
             newOffset += totalWidth;
-          <em>  // 右滑</em>
+            // 右滑
           } else if (newOffset > totalWidth * 1.5) {
             newOffset -= totalWidth;
           }

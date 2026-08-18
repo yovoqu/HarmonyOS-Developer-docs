@@ -1,11 +1,9 @@
-# HarmonyOS 6.1.0(23)的行为变更汇总
+# 6.1.0(23)的行为变更汇总
 
-更新时间：2026-04-23 06:07:00
+更新时间：2026-06-17 08:30:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-roadmap/all-changelogs-610
 
-HarmonyOS开发套件近期即将发布的版本中，将包含少量变更，这些变更可能会影响到已有应用。开发者可提前通过变更预告了解这些变更，以便在获取到新的开发套件版本时妥善应对。
-  
 | Kit | 变更描述 | 变更引入版本 | 影响设备类型 | 变更生效规则 |
 | --- | --- | --- | --- | --- |
 | ArkUI | Progress组件color属性设置渐变色规格变更 | 6.1.0(23) Beta1 | phone, tablet, 2in1 | 全部生效 |

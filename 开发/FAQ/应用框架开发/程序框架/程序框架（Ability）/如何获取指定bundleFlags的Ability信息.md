@@ -9,7 +9,7 @@ bundleManager.getBundleInfoForSelf :getBundleInfoForSelf(bundleFlags: number): P
 根据给定的bundleFlags，异步获取当前应用的BundleInfo，返回结果使用Promise形式。参考示例代码如下：
  
 ```json
-<em>// Get appInfo with metadataArray information</em>
+// Get appInfo with metadataArray information
 import { bundleManager } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';

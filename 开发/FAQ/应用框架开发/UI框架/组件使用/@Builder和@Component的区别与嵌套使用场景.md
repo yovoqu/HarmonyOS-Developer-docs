@@ -112,7 +112,7 @@ export function childCompTwo(name: string) {
 
 @Component
 struct ChildTwo {
-  @Prop name: string = ''; <em>// 使用@Prop装饰器接收，@Link接收不满足使用限制会报错</em>
+  @Prop name: string = ''; // 使用@Prop装饰器接收，@Link接收不满足使用限制会报错
 
   build() {
     Column() {

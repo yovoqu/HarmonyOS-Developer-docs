@@ -56,10 +56,10 @@
 #### 解决方案
 1. Native侧：服务端接口实现。
 ```cpp
-<em>/*</em>
-<em> * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.</em>
-<em> */</em>
-<em>// napi_init.cpp</em>
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
+ */
+// napi_init.cpp
 #include "napi/native_api.h"
 #include <arpa/inet.h>
 #include <cstring>
@@ -70,13 +70,13 @@
 #include "hilog/log.h"
 #undef LOG_DOMAIN
 #undef LOG_TAG
-#define LOG_DOMAIN 0x3200       <em> // 全局domain宏，标识业务领域</em>
-#define LOG_TAG "Native侧的日志" <em>// 全局tag宏，标识模块日志tag</em>
+#define LOG_DOMAIN 0x3200        // 全局domain宏，标识业务领域
+#define LOG_TAG "Native侧的日志" // 全局tag宏，标识模块日志tag
 
 #include <fcntl.h>
 #include <sys/select.h>
 
-<em>// 阻塞模式</em>
+// 阻塞模式
 static napi_value ConnectJoin(napi_env env, napi_callback_info info)
 {
     napi_value result;
@@ -94,27 +94,27 @@ static napi_value ConnectJoin(napi_env env, napi_callback_info info)
             OH_LOG_ERROR(LOG_APP, "无效地址");
             return;
         }
-       <em> // 连接到服务器</em>
+        // 连接到服务器
         int res = connect(clientSocket, (sockaddr *)&serverAddr, sizeof(serverAddr));
         if (res < 0) {
             OH_LOG_ERROR(LOG_APP, "连接失败:%{public}d", res);
             return;
         }
-       <em> // 发送消息</em>
+        // 发送消息
         const char *message = "I am blocking information from Client.";
         send(clientSocket, message, strlen(message), 0);
 
-      <em>  // 接收服务器响应</em>
+        // 接收服务器响应
         char buffer[1024] = {0};
         int bytesReceived = recv(clientSocket, buffer, sizeof(buffer) - 1, 0);
         if (bytesReceived > 0) {
-            buffer[bytesReceived] = '\0'; <em>// 确保字符串结束</em>
+            buffer[bytesReceived] = '\0'; // 确保字符串结束
             OH_LOG_INFO(LOG_APP, "客户端接收到信息: %{public}s", buffer);
         } else {
             OH_LOG_ERROR(LOG_APP, "接收失败");
         }
 
-      <em>  // 关闭socket</em>
+        // 关闭socket
         close(clientSocket);
     });
     th.detach();
@@ -122,7 +122,7 @@ static napi_value ConnectJoin(napi_env env, napi_callback_info info)
     return result;
 }
 
-<em>// 非阻塞模式</em>
+// 非阻塞模式
 static napi_value ConnectNotJoin(napi_env env, napi_callback_info info)
 {
     napi_value result;
@@ -133,7 +133,7 @@ static napi_value ConnectNotJoin(napi_env env, napi_callback_info info)
             return;
         }
 
-      <em>  // 设置为非阻塞模式</em>
+        // 设置为非阻塞模式
         int flags = fcntl(clientSocket, F_GETFL, 0);
         if (flags == -1) {
             OH_LOG_ERROR(LOG_APP, "获取文件描述符标志失败");
@@ -155,7 +155,7 @@ static napi_value ConnectNotJoin(napi_env env, napi_callback_info info)
             return;
         }
 
-       <em> // 连接到服务器</em>
+        // 连接到服务器
         int res = connect(clientSocket, (sockaddr *)&serverAddr, sizeof(serverAddr));
         if (res < 0) {
             if (errno != EINPROGRESS) {
@@ -164,13 +164,13 @@ static napi_value ConnectNotJoin(napi_env env, napi_callback_info info)
                 return;
             }
 
-          <em>  // 使用select等待连接完成</em>
+            // 使用select等待连接完成
             fd_set writefds;
             FD_ZERO(&writefds);
             FD_SET(clientSocket, &writefds);
 
             struct timeval timeout;
-            timeout.tv_sec = 5;<em> // 设置超时时间为5秒</em>
+            timeout.tv_sec = 5; // 设置超时时间为5秒
             timeout.tv_usec = 0;
 
             res = select(clientSocket + 1, NULL, &writefds, NULL, &timeout);
@@ -180,7 +180,7 @@ static napi_value ConnectNotJoin(napi_env env, napi_callback_info info)
                 return;
             }
 
-          <em>  // 检查连接是否成功</em>
+            // 检查连接是否成功
             int soError;
             socklen_t len = sizeof(soError);
             if (getsockopt(clientSocket, SOL_SOCKET, SO_ERROR, &soError, &len) < 0) {
@@ -195,21 +195,21 @@ static napi_value ConnectNotJoin(napi_env env, napi_callback_info info)
             }
         }
 
-      <em>  // 发送消息</em>
+        // 发送消息
         const char *message = "I am non-blocking information from Client. ";
         send(clientSocket, message, strlen(message), 0);
 
-       <em> // 接收服务器响应</em>
+        // 接收服务器响应
         char buffer[1024] = {0};
         int bytesReceived = 0;
 
-       <em> // 使用select等待数据可读</em>
+        // 使用select等待数据可读
         fd_set readfds;
         FD_ZERO(&readfds);
         FD_SET(clientSocket, &readfds);
 
         struct timeval timeout;
-        timeout.tv_sec = 5;<em> // 设置超时时间为5秒</em>
+        timeout.tv_sec = 5; // 设置超时时间为5秒
         timeout.tv_usec = 0;
 
         res = select(clientSocket + 1, &readfds, NULL, NULL, &timeout);
@@ -217,7 +217,7 @@ static napi_value ConnectNotJoin(napi_env env, napi_callback_info info)
             if (FD_ISSET(clientSocket, &readfds)) {
                 bytesReceived = recv(clientSocket, buffer, sizeof(buffer) - 1, 0);
                 if (bytesReceived > 0) {
-                    buffer[bytesReceived] = '\0';<em> // 确保字符串结束</em>
+                    buffer[bytesReceived] = '\0'; // 确保字符串结束
                     OH_LOG_INFO(LOG_APP, "客户端接收到信息: %{public}s", buffer);
                 } else if (bytesReceived == 0) {
                     OH_LOG_INFO(LOG_APP, "连接已关闭");
@@ -231,7 +231,7 @@ static napi_value ConnectNotJoin(napi_env env, napi_callback_info info)
             OH_LOG_ERROR(LOG_APP, "select 失败: %{public}d", errno);
         }
 
-       <em> // 关闭socket</em>
+        // 关闭socket
         close(clientSocket);
     });
     th.detach();
@@ -268,23 +268,23 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
 
 2. 桥接层：index.d.ts中声明接口。
 ```ts
-<em>// index.d.ts</em>
+// index.d.ts
 export const connectJoin: () => number;
 export const connectNotJoin: () => number;
 ```
 
 3. ArkTS侧：服务端实现。
 ```ArkTS
-<em>// src/main/ets/pages/SCLocalSocket.ets</em>
+// src/main/ets/pages/SCLocalSocket.ets
 import { socket } from '@kit.NetworkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let localSocketServer: socket.TCPSocketServer = socket.constructTCPSocketServerInstance();
 
-<em>/**</em>
-<em> * 创建本地socket服务端</em>
-<em> * @param listenCallBack 回调是否创建成功及失败原因</em>
-<em> */</em>
+/**
+ * 创建本地socket服务端
+ * @param listenCallBack 回调是否创建成功及失败原因
+ */
 function startListenSocket(listenCallBack: (isSuccess: boolean, error?: string) => void) {
 
   let listenAddr: socket.NetAddress = {
@@ -294,7 +294,7 @@ function startListenSocket(listenCallBack: (isSuccess: boolean, error?: string) 
   };
 
   localSocketServer.listen(listenAddr).then(() => {
-    let tcpExtraOptions: socket.TCPExtraOptions = { keepAlive: true }; <em>// 是否保持连接</em>
+    let tcpExtraOptions: socket.TCPExtraOptions = { keepAlive: true }; // 是否保持连接
     localSocketServer.setExtraOptions(tcpExtraOptions, (error: BusinessError) => {
       if (error != undefined || error != null) {
         console.error(`tcpExtraOptions error：${error.message}`);
@@ -309,9 +309,9 @@ function startListenSocket(listenCallBack: (isSuccess: boolean, error?: string) 
   });
 }
 
-<em>/**</em>
-<em> * 开始监听Socket事件</em>
-<em> */</em>
+/**
+ * 开始监听Socket事件
+ */
 function startListenSocketEvent() {
 
   localSocketServer.getState((err: BusinessError, data: socket.SocketStateBase) => {
@@ -332,16 +332,16 @@ function startListenSocketEvent() {
       }
       console.info(`Message total: ${JSON.stringify(value)}`);
       console.info(`Message message information: ${messageView}`);
-      sendSocketMessage("I am the information sent from the server. ", client);<em> // 立即回复一条消息</em>
+      sendSocketMessage("I am the information sent from the server. ", client); // 立即回复一条消息
     });
 
   });
 }
 
-<em>/**</em>
-<em> * socket发送消息</em>
-<em> * @param msg 消息</em>
-<em> */</em>
+/**
+ * socket发送消息
+ * @param msg 消息
+ */
 export function sendSocketMessage(msg: string, client: socket.TCPSocketConnection) {
   if (msg.trim().length <= 0) {
     return;
@@ -350,10 +350,10 @@ export function sendSocketMessage(msg: string, client: socket.TCPSocketConnectio
   client.send(msgObj);
 }
 
-<em>/**</em>
-<em> * 开始配置socket</em>
-<em> * @param socketCallBack</em>
-<em> */</em>
+/**
+ * 开始配置socket
+ * @param socketCallBack
+ */
 export function startLocalSocket(socketCallBack: (isSuccess: boolean, error?: string) => void) {
   startListenSocket((isSuccess, error) => {
     if (!isSuccess) {
@@ -364,9 +364,9 @@ export function startLocalSocket(socketCallBack: (isSuccess: boolean, error?: st
   });
 }
 
-<em>/**</em>
-<em> * 关闭所有本地socket订阅信息</em>
-<em> */</em>
+/**
+ * 关闭所有本地socket订阅信息
+ */
 export function stopLocalSocket() {
   localSocketServer.off("connect");
 }
@@ -374,7 +374,7 @@ export function stopLocalSocket() {
 
 4. ArkTS侧：接口调用。
 ```ArkTS
-<em>// src/main/ets/pages/Index.ets</em>
+// src/main/ets/pages/Index.ets
 import testNapi from 'libentry.so';
 import { startLocalSocket, stopLocalSocket } from './SCLocalSocket';
 

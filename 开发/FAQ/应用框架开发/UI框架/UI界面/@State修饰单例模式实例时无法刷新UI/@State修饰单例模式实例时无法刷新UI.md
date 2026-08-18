@@ -17,7 +17,7 @@
 问题代码如下：
  
 ```ArkTS
-<em>// Index.ets</em>
+// Index.ets
 import { VoiceReadHelper } from './VoiceReadHelper';
 
 @Entry
@@ -48,7 +48,7 @@ struct Index {
 ```
  
 ```ArkTS
-<em>// Page2.ets</em>
+// Page2.ets
 import { VoiceReadHelper } from './VoiceReadHelper';
 
 @Entry
@@ -154,7 +154,7 @@ export class VoiceReadHelper {
 
 2. 在页面中使用@StorageLink修饰VoiceReadHelper实例，建立数据的双向同步。
 ```ArkTS
-<em>// Index.ets</em>
+// Index.ets
 import { VoiceReadHelper } from './VoiceReadHelper';
 
 @Entry
@@ -185,7 +185,7 @@ struct Index {
 ```
  
 ```ArkTS
-<em>// Page2.ets</em>
+// Page2.ets
 import { VoiceReadHelper } from './VoiceReadHelper';
 
 @Entry

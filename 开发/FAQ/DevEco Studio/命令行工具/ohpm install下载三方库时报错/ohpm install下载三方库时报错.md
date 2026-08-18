@@ -9,7 +9,7 @@
 执行ohpm install XXX命令下载库失败。
  
 ```text
-<span style="color: rgb(0,0,255);">fetch meta info of package </span><span style="color: rgb(255,0,170);">'@mpaas/antui' </span><span style="color: rgb(0,0,255);">failed </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">GET </span><span style="color: rgb(181,106,1);">https</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(128,128,128);">//repo.harmonyos.com/ohpm/@mpaas/antui 404( Not Found )</span>
+fetch meta info of package '@mpaas/antui' failed - GET https://repo.harmonyos.com/ohpm/@mpaas/antui 404( Not Found )
 ```
  
  
@@ -35,17 +35,17 @@
 
   
 ```text
-<span style="color: rgb(0,0,255);">registry</span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(0,0,255);">https</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(128,128,128);">//ohpm.example.com/ohpm,https://repo.example.com/ohpm</span>
+registry=https://ohpm.example.com/ohpm,https://repo.example.com/ohpm
 ```
 
 2. 若无法访问中心仓，需要确认当前网络连接是否正常，保证可以访问公网。
 3. 排查网络代理问题，如网络环境需要使用代理，ohpm代理信息，在http_proxy和https_proxy中，将user、password、proxyserver和port按照实际代理服务器进行修改。
 ```text
-<span style="color: rgb(0,0,255);">http_proxy</span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(0,0,255);">http</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(128,128,128);">//</span><span style="color: rgb(128,128,128);">用户名</span><span style="color: rgb(128,128,128);">:</span><span style="color: rgb(128,128,128);">密码</span><span style="color: rgb(128,128,128);">@</span><span style="color: rgb(128,128,128);">域名或</span><span style="color: rgb(128,128,128);">IP:</span><span style="color: rgb(128,128,128);">端口</span>
+http_proxy=http://用户名:密码@域名或IP:端口
 ```
  
 ```text
-<span style="color: rgb(0,0,255);">https_proxy</span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(0,0,255);">http</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(128,128,128);">//</span><span style="color: rgb(128,128,128);">用户名</span><span style="color: rgb(128,128,128);">:</span><span style="color: rgb(128,128,128);">密码</span><span style="color: rgb(128,128,128);">@</span><span style="color: rgb(128,128,128);">域名或</span><span style="color: rgb(128,128,128);">IP:</span><span style="color: rgb(128,128,128);">端口</span>
+https_proxy=http://用户名:密码@域名或IP:端口
 ```
  
 > [!NOTE]

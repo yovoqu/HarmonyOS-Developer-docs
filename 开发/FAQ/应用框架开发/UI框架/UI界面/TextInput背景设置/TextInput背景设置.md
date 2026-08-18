@@ -48,7 +48,7 @@ struct Index {
           .backgroundColor('#5AADA0')
       }
       .width('86%')
-      .backgroundColor('#0A59F7') <em>// 设置Column的背景色来填充TextInput组件外部的背景色。</em>
+      .backgroundColor('#0A59F7') // 设置Column的背景色来填充TextInput组件外部的背景色。
     }
     .width('100%')
     .height('100%')
@@ -84,7 +84,7 @@ struct Scene2 {
         .backgroundColor(this.color)
         .onChange((value: string) => {
           this.text = value;
-          if (this.text.length > 0) { <em> // 判断是否有内容输入，大于零则有，否则没有</em>
+          if (this.text.length > 0) {  // 判断是否有内容输入，大于零则有，否则没有
             this.color = '#ff0fe7d5';
           } else {
             this.color = '#fdecc949';

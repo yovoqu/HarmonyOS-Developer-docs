@@ -43,14 +43,14 @@ PersistentStorage.persistProp('studentArr',
 @Component
 struct SceneOne {
   @State studentArr: Array<SceneOneStudent> = [];
-  @StorageLink('studentArr') @Watch('onStrChange') studentArrStr: string = ' '; <em>// 获取对象数组序列化字符串</em>
+  @StorageLink('studentArr') @Watch('onStrChange') studentArrStr: string = ' '; // 获取对象数组序列化字符串
 
   onStrChange() {
     this.studentArr = JSON.parse(this.studentArrStr);
   }
 
   aboutToAppear(): void {
-   <em> // 组件初始化时不会触发Watch事件，通过aboutToAppear事件来初始化数组</em>
+    // 组件初始化时不会触发Watch事件，通过aboutToAppear事件来初始化数组
     this.studentArr = JSON.parse(this.studentArrStr);
   }
 
@@ -102,17 +102,17 @@ PersistentStorage.persistProp('studentArr',
 @Component
 struct SceneTwo {
   @State studentArr: Array<SceneTwoStudent> = [];
-  @StorageLink('studentArr') @Watch('onStrChange') studentArrStr: string = ' '; <em>// 获取对象数组序列化的字符串</em>
+  @StorageLink('studentArr') @Watch('onStrChange') studentArrStr: string = ' '; // 获取对象数组序列化的字符串
 
   onStrChange() {
-    const dataArr: Array<SceneTwoStudent> = JSON.parse(this.studentArrStr);<em> // 转化为对象数组</em>
-    this.studentArr = dataArr.map((item: SceneTwoStudent) => new SceneTwoStudent(item.name, item.age));<em> // 重新构造对象数组</em>
+    const dataArr: Array<SceneTwoStudent> = JSON.parse(this.studentArrStr); // 转化为对象数组
+    this.studentArr = dataArr.map((item: SceneTwoStudent) => new SceneTwoStudent(item.name, item.age)); // 重新构造对象数组
   }
 
   aboutToAppear(): void {
-   <em> // 组件初始化时不会触发Watch事件，通过aboutToAppear事件来初始化数组</em>
-    const dataArr: Array<SceneTwoStudent> = JSON.parse(this.studentArrStr); <em>// 转化为对象数组</em>
-    this.studentArr = dataArr.map((item: SceneTwoStudent) => new SceneTwoStudent(item.name, item.age));<em> // 重新构造对象数组</em>
+    // 组件初始化时不会触发Watch事件，通过aboutToAppear事件来初始化数组
+    const dataArr: Array<SceneTwoStudent> = JSON.parse(this.studentArrStr); // 转化为对象数组
+    this.studentArr = dataArr.map((item: SceneTwoStudent) => new SceneTwoStudent(item.name, item.age)); // 重新构造对象数组
   }
 
   build() {

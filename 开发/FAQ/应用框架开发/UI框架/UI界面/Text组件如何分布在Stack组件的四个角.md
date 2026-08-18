@@ -39,16 +39,16 @@ struct StackDemo {
           Text('左上角')
           Text('右上角')
         }.width('100%')
-        .justifyContent(FlexAlign.SpaceBetween)<em> </em><em>// 设置子组件在水平方向上的对齐格式。</em>
+        .justifyContent(FlexAlign.SpaceBetween) // 设置子组件在水平方向上的对齐格式。
 
         Row() {
           Text('左下角')
           Text('右下角')
         }
         .width('100%')
-        .justifyContent(FlexAlign.SpaceBetween) <em>// 设置子组件在水平方向上的对齐格式。</em>
+        .justifyContent(FlexAlign.SpaceBetween) // 设置子组件在水平方向上的对齐格式。
       }
-      .justifyContent(FlexAlign.SpaceBetween)<em> </em><em>// 设置子组件在垂直方向上的对齐格式。</em>
+      .justifyContent(FlexAlign.SpaceBetween) // 设置子组件在垂直方向上的对齐格式。
       .width('100%')
       .height('100%')
     }

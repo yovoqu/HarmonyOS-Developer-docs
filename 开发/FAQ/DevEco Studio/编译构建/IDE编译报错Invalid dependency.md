@@ -11,7 +11,7 @@ DevEco Studio编译有以下报错：
 ```text
 ohpm ERROR: Invalid dependency entry@...\entry -> entry@1.0.0.
 ohpm ERROR: Found exception: Error: Invalid dependency, reached retry limit or non retryable error encountered.
-<em>// ...</em>
+// ...
 ohpm ERROR: Install failed, detail: Error: Invalid dependency.
 ```
  

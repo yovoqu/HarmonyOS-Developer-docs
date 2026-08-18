@@ -115,8 +115,8 @@ struct FlexMin {
               .backgroundColor('#F1F3F5')
               .borderRadius(24)
               .margin(10)
-              <em>// 父组件为Flex时，flexShrink默认值为1，导致子组件被压缩</em>
-              <em>// 显式设置为0，避免子组件压缩</em>
+              // 父组件为Flex时，flexShrink默认值为1，导致子组件被压缩
+              // 显式设置为0，避免子组件压缩
               .flexShrink(0);
           });
         }

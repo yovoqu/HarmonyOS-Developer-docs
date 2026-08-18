@@ -28,7 +28,7 @@ saveas参数在[request.agent.Config](https://developer.huawei.com/consumer/cn/d
 import { webview } from '@kit.ArkWeb';
 import { request } from '@kit.BasicServicesKit';
 
-<em>// In the utility class, retrieve the Context from the Entry Ability and save it to AppStore, then use AppStore to retrieve it in the utility class</em>
+// In the utility class, retrieve the Context from the Entry Ability and save it to AppStore, then use AppStore to retrieve it in the utility class
 let context = AppStorage.get("context") as UIContext;
 let filesDir = context.getHostContext()!.filesDir;
 let config: request.agent.Config = {

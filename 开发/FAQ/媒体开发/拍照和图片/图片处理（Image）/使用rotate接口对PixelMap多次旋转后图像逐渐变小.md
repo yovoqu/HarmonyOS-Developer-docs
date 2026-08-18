@@ -28,16 +28,16 @@
  1. 使用Image组件显示PixelMap数据，组件id为'ImageContent'，objectFit属性设置为ImageFit.Contain，确保图片完整显示。
 2. 旋转图片时，先获取Image组件的组件截图，对组件截图旋转相应的角度后，将旋转后的PixelMap赋值给状态变量currentPixelMap，显示在Image组件上。
 ```text
-<em>// 显示PixelMap图像</em>
+// 显示PixelMap图像
 Image(this.currentPixelMap)
   .id('ImageContent')
   .objectFit(ImageFit.Contain)
 
-<em>// 旋转PixelMap图像的函数</em>
+// 旋转PixelMap图像的函数
 rotateImage: (rotate: number) => void = (rotate: number) => {
-  let pixelMap = componentSnapshot.getSync('ImageContent'); <em>// 获取Image组件的组件截图</em>
-  pixelMap?.rotateSync(rotate);                             <em>// 对Image组件的截图旋转相应的角度</em>
-  this.currentPixelMap = pixelMap;                          <em>// 用旋转后的组件截图刷新Image组件显示的PixelMap数据</em>
+  let pixelMap = componentSnapshot.getSync('ImageContent'); // 获取Image组件的组件截图
+  pixelMap?.rotateSync(rotate);                             // 对Image组件的截图旋转相应的角度
+  this.currentPixelMap = pixelMap;                          // 用旋转后的组件截图刷新Image组件显示的PixelMap数据
 }
 ```
 
@@ -61,17 +61,17 @@ import { Context } from '@kit.AbilityKit';
 @Entry
 @Component
 export struct PixelMapRotateSmallerDemo {
-  @State rotationPixelMap: image.PixelMap | undefined = undefined; <em>// 旋转PixelMap</em>
-  private pixelMap: image.PixelMap | undefined = undefined; <em>// 原始PixelMap</em>
-  private rotation: number = 0; <em>// 旋转角度</em>
+  @State rotationPixelMap: image.PixelMap | undefined = undefined; // 旋转PixelMap
+  private pixelMap: image.PixelMap | undefined = undefined; // 原始PixelMap
+  private rotation: number = 0; // 旋转角度
 
   async aboutToAppear(): Promise<void> {
     let imageSource: image.ImageSource | undefined;
     try {
-     <em> // 读取图片文件，这里以Rawfile目录下的img.png图片为例</em>
+      // 读取图片文件，这里以Rawfile目录下的img.png图片为例
       let context = this.getUIContext().getHostContext() as Context;
       let fileData: Uint8Array = context.resourceManager.getRawFileContentSync('img.png');
-      <em>// 解码图片文件为PixelMap</em>
+      // 解码图片文件为PixelMap
       imageSource = image.createImageSource(fileData.buffer.slice(0));
       this.pixelMap = await imageSource.createPixelMap();
 
@@ -90,12 +90,12 @@ export struct PixelMapRotateSmallerDemo {
       return undefined;
     }
     try {
-      <em>// 从原始PixelMap读取像素数据</em>
+      // 从原始PixelMap读取像素数据
       let bufferSize = this.pixelMap.getPixelBytesNumber();
       let pixelsBuffer = new ArrayBuffer(bufferSize);
       this.pixelMap.readPixelsToBufferSync(pixelsBuffer);
       let info = this.pixelMap.getImageInfoSync();
-      <em>// 创建新的PixelMap，确保每次都在原图基础上旋转</em>
+      // 创建新的PixelMap，确保每次都在原图基础上旋转
       let initOpts: image.InitializationOptions = {
         size: info.size,
         srcPixelFormat: info.pixelFormat,
@@ -109,7 +109,7 @@ export struct PixelMapRotateSmallerDemo {
   }
 
   async rotatePixelmap() {
-    <em>// 设置旋转角度，每次旋转30度</em>
+    // 设置旋转角度，每次旋转30度
     this.rotation = (this.rotation + 30) % 360;
     let oldPixelMap: image.PixelMap | undefined;
     try {
@@ -117,11 +117,11 @@ export struct PixelMapRotateSmallerDemo {
       if (newPixelMap === undefined) {
         return;
       }
-      <em>// 旋转PixelMap</em>
+      // 旋转PixelMap
       newPixelMap.rotateSync(this.rotation);
-      <em>// 保存旧PixelMap</em>
+      // 保存旧PixelMap
       oldPixelMap = this.rotationPixelMap;
-      <em>// 更新PixelMap</em>
+      // 更新PixelMap
       this.rotationPixelMap = newPixelMap;
     } catch (err) {
       console.error(`failed to rotate image, Cause: ${JSON.stringify(err)}`);

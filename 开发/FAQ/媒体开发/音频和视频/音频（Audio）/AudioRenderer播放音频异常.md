@@ -53,7 +53,7 @@ AudioRenderer仅支持播放PCM格式的音频文件，播放其他音频格式�
 
   在无法填满回调所需长度数据的情况下，需要返回audio.AudioDataCallbackResult.INVALID，此时系统不会处理该段音频数据，然后会再次向应用请求数据，在确认数据填满后再返回audio.AudioDataCallbackResult.VALID进行播放，参考如下代码，可以判断写入数据是否已填满buffer，如果未填满就可以返回INVALID：
 ```text
-<em>// </em><em>如果开发者不希望播放某段buffer，返回audio.AudioDataCallbackResult.INVALID即可。</em>
+// 如果开发者不希望播放某段buffer，返回audio.AudioDataCallbackResult.INVALID即可。
 if (bufferLength < buffer.byteLength) {
   return audio.AudioDataCallbackResult.INVALID;
 }
@@ -88,11 +88,11 @@ if (bufferLength < buffer.byteLength) {
 
   对于最后一帧，如果数据不够填满缓冲长度，开发者需要使用剩余数据拼接空数据的方式，将缓冲填满，不够的时候可以用0将数据填满，没有音频数据写入时返回INVALID，或停止AudioRenderer。参考示例代码如下：
 ```text
-<em>// </em><em>如果当前回调传入的数据不足一帧，空白区域需要使用静音数据填充，否则会导致播放出现杂音。</em>
+// 如果当前回调传入的数据不足一帧，空白区域需要使用静音数据填充，否则会导致播放出现杂音。
 if (bufferLength < buffer.byteLength) {
   let view = new DataView(buffer);
   for (let i = bufferLength; i < buffer.byteLength; i++) {
-   <em> // 空白区域填充静音数据。当使用音频采样格式为SAMPLE_FORMAT_U8时0x7F为静音数据，使用其他采样格式时0为静音数据。</em>
+    // 空白区域填充静音数据。当使用音频采样格式为SAMPLE_FORMAT_U8时0x7F为静音数据，使用其他采样格式时0为静音数据。
     view.setUint8(i, 0);
   }
 }

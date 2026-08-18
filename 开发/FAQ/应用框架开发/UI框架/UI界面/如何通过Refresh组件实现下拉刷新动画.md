@@ -41,13 +41,13 @@ ohpm install @ohos/lottie
 ```json
 loadPullDownAnimation() {
   this.animateItem = lottie.loadAnimation({
-    container: this.context, <em>// </em><em>渲染上下文</em>
-    renderer: 'canvas', <em>// canvas</em><em>渲染模式</em>
-    loop: 10, <em>// </em><em>是否循环播放,默认true</em>
-    autoplay: true, <em>// 是否自动播放，默认true</em>
+    container: this.context, // 渲染上下文
+    renderer: 'canvas', // canvas渲染模式
+    loop: 10, // 是否循环播放,默认true
+    autoplay: true, // 是否自动播放，默认true
     name: this.animateName,
     contentMode: 'Contain',
-    path: 'common/lottie/animation.json', <em>// json</em><em>路径</em>
+    path: 'common/lottie/animation.json', // json路径
   })
 }
 ```
@@ -71,13 +71,13 @@ struct RefreshExample {
 
   loadPullDownAnimation() {
     this.animateItem = lottie.loadAnimation({
-      container: this.context, <em>// </em><em>渲染上下文</em>
-      renderer: 'canvas', <em>// canvas渲染模式</em>
-      loop: 10,<em> </em><em>// 是否循环播放,默认true</em>
-      autoplay: true, <em>// 是否自动播放，默认true</em>
+      container: this.context, // 渲染上下文
+      renderer: 'canvas', // canvas渲染模式
+      loop: 10, // 是否循环播放,默认true
+      autoplay: true, // 是否自动播放，默认true
       name: this.animateName,
       contentMode: 'Contain',
-      path: 'common/lottie/animation.json', <em>// json</em><em>路径</em>
+      path: 'common/lottie/animation.json', // json路径
     })
   }
 
@@ -89,7 +89,7 @@ struct RefreshExample {
           .width('50%')
           .backgroundColor('#aabbcc')
           .onDisAppear(() => {
-            lottie.destroy(this.lottieName) <em>// Canvas销毁时顺带销毁lottie动画</em>
+            lottie.destroy(this.lottieName) // Canvas销毁时顺带销毁lottie动画
           })
           .onReady(() => {
             if (this.mainCanvasRenderingContext) {
@@ -105,7 +105,7 @@ struct RefreshExample {
     }
     .align(Alignment.Center)
     .clip(true)
-   <em> // 设置最小高度约束保证自定义组件高度随刷新区域高度变化时自定义组件高度不会低于minHeight</em>
+    // 设置最小高度约束保证自定义组件高度随刷新区域高度变化时自定义组件高度不会低于minHeight
     .constraintSize({ minHeight: 32 })
     .width('100%')
   }
@@ -140,17 +140,17 @@ struct RefreshExample {
       .refreshOffset(64)
       .onStateChange((refreshStatus: RefreshStatus) => {
         console.info(`Refresh onStatueChange state is ${refreshStatus}`)
-        if (refreshStatus === 0) { <em>// 未下拉</em>
+        if (refreshStatus === 0) { // 未下拉
           this.animateItem!.destroy()
           this.animateItem = null
         }
-        if (refreshStatus === 1) { <em>// 下拉中</em>
+        if (refreshStatus === 1) { // 下拉中
           this.loadPullDownAnimation()
         }
-        if (refreshStatus === 3) {<em> </em><em>// 刷新中</em>
+        if (refreshStatus === 3) { // 刷新中
           this.animateItem?.play();
         }
-        if (refreshStatus === 4) { <em>// 刷新结束</em>
+        if (refreshStatus === 4) { // 刷新结束
           setTimeout(() => {
             this.animateItem!.destroy()
             this.animateItem = null

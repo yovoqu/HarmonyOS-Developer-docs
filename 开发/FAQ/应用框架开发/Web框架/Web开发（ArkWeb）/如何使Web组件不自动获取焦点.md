@@ -62,10 +62,10 @@ struct Index {
           });
       }.padding({ top: 20, bottom: 20 });
 
-      Web({ src: 'www.example.com', controller: this.controller }) <em>// </em><em>监听获焦事件，获焦后改变颜色</em>
+      Web({ src: 'www.example.com', controller: this.controller }) // 监听获焦事件，获焦后改变颜色
         .onFocus(() => {
           this.webBorderColor = Color.Red;
-        }) <em>// </em><em>监听失焦事件，失焦后改变颜色</em>
+        }) // 监听失焦事件，失焦后改变颜色
         .onBlur(() => {
           this.webBorderColor = Color.Yellow;
         })

@@ -11,7 +11,7 @@ huks.exportKeyItem导出密钥时，总是报401，Invalid parameters.部分代�
 - 方法generateKey。
 ```text
 export async function generateKey(mode: number) {
-  let properties: Array<huks.HuksParam> = getGenerateProperties(mode);<em> </em><em>// 根据所选模式进行切换算法</em>
+  let properties: Array<huks.HuksParam> = getGenerateProperties(mode); // 根据所选模式进行切换算法
   let options: huks.HuksOptions = {
     properties: properties
   };
@@ -19,11 +19,11 @@ export async function generateKey(mode: number) {
     properties: properties,
     inData: new Uint8Array([])
   }
-<em>  // 确认Key是否存在</em>
+  // 确认Key是否存在
   huks.isKeyItemExist(keyAlias, options, async (error, data) => {
     if (data) {
       try {
-     <em>   // 导出密钥</em>
+        // 导出密钥
         huks.exportKeyItem(keyAlias, HuksPropertiesConstants.EMPTY_OPTION, (error, data) => {
           if (error) {
             isInit = false
@@ -50,7 +50,7 @@ export async function encryptData(plainText: string, mode: number): Promise<stri
   if (!isInit) {
     generateKey(mode)
   }
- <em> // ...</em>
+  // ...
   await huks.initSession(keyAlias, options).then((data) => {
     handle = data.handle;
   }).catch((error: BusinessError) => {
@@ -69,7 +69,7 @@ export async function encryptData(plainText: string, mode: number): Promise<stri
 
 - 方法getGenerateProperties。
 ```text
-export function getGenerateProperties(mode: number) { <em>// </em><em>根据模式不同选择相应的算法参数：AES，RSA，SM4</em>
+export function getGenerateProperties(mode: number) { // 根据模式不同选择相应的算法参数：AES，RSA，SM4
   let properties: Array<huks.HuksParam> = new Array();
   let index: number = 0;
   switch (mode) {

@@ -36,11 +36,11 @@ function isRecord(
   }
 
   if (keyChecker === undefined || valueChecker === undefined) {
-  <em>  // 排除数组、排除Date对象</em>
+    // 排除数组、排除Date对象
     return !Array.isArray(variable) && !(variable instanceof Date);
   }
 
- <em> // 遍历对象的键和值，进行类型检查</em>
+  // 遍历对象的键和值，进行类型检查
   const arr = Object.keys(variable);
   for (let i = 0; i < arr.length; i++) {
     const key = arr[i];
@@ -69,7 +69,7 @@ struct RecordJudgment {
 
           const result1 = isRecord(this.cDirection);
           const result2 = isRecord(this.cDirection, keyChecker, valueChecker);
-          console.info(`flag:${result1} ${result2}`); <em>// flag:true true</em>
+          console.info(`flag:${result1} ${result2}`); // flag:true true
         });
     }
     .height('100%')

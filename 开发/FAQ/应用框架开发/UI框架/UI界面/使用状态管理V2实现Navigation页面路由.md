@@ -122,12 +122,12 @@ struct ProviderPage {
 
 @ComponentV2
 struct ConsumerChildPage {
- <em> // 通过绑定同样的key获取其最近父节点的@Provider的数据</em>
+  // 通过绑定同样的key获取其最近父节点的@Provider的数据
   @Consumer('pageInfos') pageInfos: NavPathStack = new NavPathStack();
   @Local params: string = '';
 
   aboutToAppear(): void {
-   <em> // getParamByIndex通过页面在路由栈中的索引位置获取参数（索引从栈底开始计算）</em>
+    // getParamByIndex通过页面在路由栈中的索引位置获取参数（索引从栈底开始计算）
     this.params = this.pageInfos.getParamByIndex(this.pageInfos.getAllPathName().length - 1) as string;
   }
 
@@ -169,7 +169,7 @@ class ParamData {
 @Entry
 @ComponentV2
 struct AppStorageV2Page {
-<em>  // 将key为NavPathStack，value为new NavPathStack()的键值对存入内存中，并赋值给pageInfos</em>
+  // 将key为NavPathStack，value为new NavPathStack()的键值对存入内存中，并赋值给pageInfos
   @Local pageInfos: NavPathStack = AppStorageV2.connect<NavPathStack>(NavPathStack, () => new NavPathStack())!;
   @Local params: ParamData = new ParamData('使用V2传递的参数');
 
@@ -181,8 +181,8 @@ struct AppStorageV2Page {
   }
 
   aboutToAppear(): void {
- <em>   // AppStorageV2只支持class类型，否则会抛出运行时报错</em>
-<em>    // 将key为ParamData，value为this.params的键值对存入内存</em>
+    // AppStorageV2只支持class类型，否则会抛出运行时报错
+    // 将key为ParamData，value为this.params的键值对存入内存
     AppStorageV2.connect(ParamData, () => this.params);
   }
 
@@ -204,9 +204,9 @@ struct AppStorageV2Page {
 
 @ComponentV2
 struct AppStorageV2ChildPage {
- <em> // key为NavPathStack已经在AppStorageV2中，将值返回给pageInfos</em>
+  // key为NavPathStack已经在AppStorageV2中，将值返回给pageInfos
   @Local pageInfos: NavPathStack = AppStorageV2.connect(NavPathStack) as NavPathStack;
- <em> // key为ParamData已经在AppStorageV2中，将值返回给params</em>
+  // key为ParamData已经在AppStorageV2中，将值返回给params
   @Local params: ParamData = AppStorageV2.connect(ParamData) as ParamData;
 
   build() {

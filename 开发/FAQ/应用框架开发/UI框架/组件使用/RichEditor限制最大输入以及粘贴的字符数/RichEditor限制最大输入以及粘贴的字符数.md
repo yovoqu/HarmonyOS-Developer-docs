@@ -24,7 +24,7 @@
 示例代码如下：
  
 ```text
-<em>/</em><em>/ 当前示例支持图片、emoji表情的计数</em>
+// 当前示例支持图片、emoji表情的计数
 import pasteboard from '@ohos.pasteboard';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -44,10 +44,10 @@ struct RichEditorLimitedLengthDemo {
     let length = 0;
     spans?.forEach(span => {
       const textSpan = span as RichEditorTextSpanResult;
-      if (textSpan.value) { <em>// 纯文本计数</em>
-     <em>   // 过滤掉特殊标记，只计算真实文本长度</em>
+      if (textSpan.value) { // 纯文本计数
+        // 过滤掉特殊标记，只计算真实文本长度
         length += this.countStrLength(textSpan.value.replace(/&&at&&|&&topic&&|&&img&&/g, ''));
-      } else { <em>// 图片计数</em>
+      } else { // 图片计数
         length++;
       }
     });
@@ -55,10 +55,10 @@ struct RichEditorLimitedLengthDemo {
   }
 
 
-  <em>// 计算文本长度：由于emoji表情占据两个字符，计算长度时需要减掉emoji个数</em>
+  // 计算文本长度：由于emoji表情占据两个字符，计算长度时需要减掉emoji个数
   countStrLength(str: string): number {
     const arr = str.split('');
-<em>    // 统计emoji表情个数</em>
+    // 统计emoji表情个数
     let emojiLength = 0;
     for (const item of arr) {
       if (item >= '\uD800' && item <= '\uDBFF') {
@@ -82,9 +82,9 @@ struct RichEditorLimitedLengthDemo {
         })
         .onPaste((event?: PasteEvent) => {
           if (event !== undefined && event.preventDefault) {
-          <em>  // 覆盖系统默认粘贴行为</em>
+            // 覆盖系统默认粘贴行为
             event.preventDefault();
-           <em> // 获取粘贴板数据</em>
+            // 获取粘贴板数据
             pasteboard.getSystemPasteboard().getData((err: BusinessError, pasteData: pasteboard.PasteData) => {
               if (err) {
                 console.error('Failed to get PasteData. Cause: ', err.message);
@@ -97,11 +97,11 @@ struct RichEditorLimitedLengthDemo {
                     .showToast({ message: '最多输入' + this.maxContentLength + '个字' });
                   return;
                 }
-                if (pasteData.getRecord(index).plainText) { <em>// 对纯文本计数</em>
+                if (pasteData.getRecord(index).plainText) { // 对纯文本计数
                   let text: string = pasteData.getRecord(index).plainText;
                   let copyTempLength = this.countStrLength(text);
                   let canLength = this.maxContentLength - this.currentTextLength;
-               <em>   // 当粘贴板文本长度超过最大输入限制，对内容进行裁剪</em>
+                  // 当粘贴板文本长度超过最大输入限制，对内容进行裁剪
                   if (copyTempLength > canLength) {
                     this.currentTextLength = this.maxContentLength;
                     let str = this.dateTrim(text, canLength);
@@ -110,7 +110,7 @@ struct RichEditorLimitedLengthDemo {
                     this.currentTextLength += copyTempLength;
                     this.controller.addTextSpan(text, { style: { fontSize: 16, fontColor: Color.Black } });
                   }
-                } else if (pasteData.getRecord(index).uri) { <em>// 对图片进行计数</em>
+                } else if (pasteData.getRecord(index).uri) { // 对图片进行计数
                   this.currentTextLength++;
                   this.controller.addImageSpan(pasteData.getRecord(index).uri, {
                     imageStyle: { size: ["57px", "57px"] }
@@ -130,7 +130,7 @@ struct RichEditorLimitedLengthDemo {
           }
           const cleanInsertValue = value.insertValue.replace(/&&at&&|&&topic&&|&&img&&/g, '');
           let canLength = this.maxContentLength - currentLength;
-       <em>   // 当输入文本小于等于最大字符限制，直接输入；否则，做内容裁剪</em>
+          // 当输入文本小于等于最大字符限制，直接输入；否则，做内容裁剪
           if (canLength >= this.countStrLength(cleanInsertValue)) {
             return true;
           }
@@ -151,14 +151,14 @@ struct RichEditorLimitedLengthDemo {
   }
 
 
- <em> // 对超长内容进行裁剪</em>
-<em>  // value：待裁剪内容；canLength：待裁剪长度</em>
+  // 对超长内容进行裁剪
+  // value：待裁剪内容；canLength：待裁剪长度
   dateTrim(value: string, canLength: number): string {
     let str = '';
     let length = 0;
     for (const item of value.split('')) {
       length++;
-  <em>    // emoji表情占2位字符长度，需要减一处理</em>
+      // emoji表情占2位字符长度，需要减一处理
       if (item >= '\uD800' && item <= '\uDBFF' && length <= canLength) {
         length--;
       }

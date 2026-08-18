@@ -35,13 +35,13 @@ struct SliderPage {
   private slideWidth: number = 340;
   private slideStepSize: number = 5;
   private blockSize: number = 32;
- <em> // 需要将app.media.background替换为实际资源值。</em>
+  // 需要将app.media.background替换为实际资源值。
   private imgArr: string[] =
     ['app.media.background', 'app.media.background', 'app.media.background', 'app.media.background',
       'app.media.background', 'app.media.background',
       'app.media.background', 'app.media.background', 'app.media.background', 'app.media.background'];
 
- <em> // 滑块跟随Slider滑块运动，计算滑块在屏幕中的位置</em>
+  // 滑块跟随Slider滑块运动，计算滑块在屏幕中的位置
   private showTip(value: number) {
     this.isTipShow = true;
     let percent = Number((value / 100).toFixed(2));
@@ -49,7 +49,7 @@ struct SliderPage {
       Math.round(this.getUIContext().px2vp(this.beginX)) + (this.slideWidth - 8) * percent + (0.8 - percent) * 5;
   }
 
- <em> // popup构造器定义弹框内容</em>
+  // popup构造器定义弹框内容
   @Builder
   popupBuilder() {
     Column() {
@@ -66,19 +66,19 @@ struct SliderPage {
   build() {
     Column() {
       if (this.isTipShow) {
-       <em> // 按照滑块的大小设置一个跟随的透明滑块，跟Slider滑块动作保持一致，设置当前块的大小保持跟Slider滑块大小一致，代码如下：</em>
+        // 按照滑块的大小设置一个跟随的透明滑块，跟Slider滑块动作保持一致，设置当前块的大小保持跟Slider滑块大小一致，代码如下：
         Stack() {
         }
         .width(this.blockSize)
         .height(this.blockSize)
-        <em>// tipsOffset：Slider滑块位置的横坐标，offsetY：Slider滑块位置的纵坐标</em>
+        // tipsOffset：Slider滑块位置的横坐标，offsetY：Slider滑块位置的纵坐标
         .position({ x: this.tipsOffset, y: this.offsetY })
-       <em> // 将Popup绑定到Stack滑块，跟随Slider滑块运动</em>
+        // 将Popup绑定到Stack滑块，跟随Slider滑块运动
         .bindPopup(true, {
           builder: this.popupBuilder,
           placement: Placement.Bottom,
           mask: false,
-        <em>  // 指向绑定的组件</em>
+          // 指向绑定的组件
           arrowOffset: 0,
           popupColor: Color.White,
           enableArrow: true,

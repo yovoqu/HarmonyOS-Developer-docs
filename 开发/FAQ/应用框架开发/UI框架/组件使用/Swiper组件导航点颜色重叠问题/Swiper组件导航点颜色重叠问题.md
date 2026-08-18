@@ -12,12 +12,12 @@ Swiper组件中圆点指示器会出现选中页面的导航点和选中前颜�
  
 ```text
 export class YDSwiperIndicatorStyles implements AttributeModifier<SwiperAttribute> {
-<em>  // 通过构造函数，创建时传参</em>
+  // 通过构造函数，创建时传参
   constructor() {
   }
 
   applyNormalAttribute(instance: SwiperAttribute): void {
- <em>   // instance为Button的属性对象，可以通过instance对象对属性进行修改</em>
+    // instance为Button的属性对象，可以通过instance对象对属性进行修改
     instance
       .indicator(
         Indicator.dot()
@@ -72,12 +72,12 @@ export class YDSwiperIndicatorStyles implements AttributeModifier<SwiperAttribut
  
 ```text
 class YDSwiperIndicatorStyles implements AttributeModifier<SwiperAttribute> {
-<em>  // 通过构造函数，创建时传参</em>
+  // 通过构造函数，创建时传参
   constructor() {
   }
 
   applyNormalAttribute(instance: SwiperAttribute): void {
-   <em> // instance为Button的属性对象，可以通过instance对象对属性进行修改</em>
+    // instance为Button的属性对象，可以通过instance对象对属性进行修改
     instance
       .indicator(
         Indicator.dot()

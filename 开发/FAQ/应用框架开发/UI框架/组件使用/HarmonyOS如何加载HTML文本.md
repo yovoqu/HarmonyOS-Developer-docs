@@ -72,7 +72,7 @@ struct Solution2Page {
 
   aboutToAppear(): void {
     StyledString.fromHtml(this.message).then((StyledString: StyledString) => {
-      this.StyledString = StyledString;<em> // 将html转属性字符串</em>
+      this.StyledString = StyledString; // 将html转属性字符串
     });
   }
 
@@ -82,8 +82,8 @@ struct Solution2Page {
         .height('35%')
         .border({ width: 1, color: Color.Blue })
         .onReady(() => {
-          let t = this.controller.fromStyledString(this.StyledString);<em> // 将属性字符串</em>
-          t.forEach(item => {<em> // 编辑span并添加</em>
+          let t = this.controller.fromStyledString(this.StyledString); // 将属性字符串
+          t.forEach(item => { // 编辑span并添加
             this.controller.addTextSpan((item as RichEditorTextSpanResult).value,
               { style: (item as RichEditorTextSpanResult).textStyle });
           });

@@ -133,14 +133,14 @@ class BasicDataSource implements IDataSource {
     return this.originDataArray[index];
   }
 
- <em> // 该方法为框架侧调用，为LazyForEach组件向其数据源处添加listener监听</em>
+  // 该方法为框架侧调用，为LazyForEach组件向其数据源处添加listener监听
   registerDataChangeListener(listener: DataChangeListener): void {
     if (this.listeners.indexOf(listener) < 0) {
       this.listeners.push(listener);
     }
   }
 
- <em> // 该方法为框架侧调用，为对应的LazyForEach组件在数据源处去除listener监听</em>
+  // 该方法为框架侧调用，为对应的LazyForEach组件在数据源处去除listener监听
   unregisterDataChangeListener(listener: DataChangeListener): void {
     const pos = this.listeners.indexOf(listener);
     if (pos >= 0) {
@@ -148,35 +148,35 @@ class BasicDataSource implements IDataSource {
     }
   }
 
- <em> // 通知LazyForEach组件需要重载所有子组件</em>
+  // 通知LazyForEach组件需要重载所有子组件
   notifyDataReload(): void {
     this.listeners.forEach(listener => {
       listener.onDataReloaded();
     });
   }
 
- <em> // 通知LazyForEach组件需要在index对应索引处添加子组件</em>
+  // 通知LazyForEach组件需要在index对应索引处添加子组件
   notifyDataAdd(index: number): void {
     this.listeners.forEach(listener => {
       listener.onDataAdd(index);
     });
   }
 
-<em>  // 通知LazyForEach组件在index对应索引处数据有变化，需要重建该子组件</em>
+  // 通知LazyForEach组件在index对应索引处数据有变化，需要重建该子组件
   notifyDataChange(index: number): void {
     this.listeners.forEach(listener => {
       listener.onDataChange(index);
     });
   }
 
- <em> // 通知LazyForEach组件需要在index对应索引处删除该子组件</em>
+  // 通知LazyForEach组件需要在index对应索引处删除该子组件
   notifyDataDelete(index: number): void {
     this.listeners.forEach(listener => {
       listener.onDataDelete(index);
     });
   }
 
- <em> // 通知LazyForEach组件将from索引和to索引处的子组件进行交换</em>
+  // 通知LazyForEach组件将from索引和to索引处的子组件进行交换
   notifyDataMove(from: number, to: number): void {
     this.listeners.forEach(listener => {
       listener.onDataMove(from, to);
@@ -245,7 +245,7 @@ struct LazyForEachListTransition {
             .animation({ curve: curves.springMotion(), duration: 300, delay: (index % 10) * 30 }) : null);
         }, (item: string) => item);
       }
-      .listDirection(Axis.Vertical) <em>// </em><em>排列方向</em>
+      .listDirection(Axis.Vertical) // 排列方向
       .scrollBar(BarState.Off)
       .friction(0.6)
       .divider({
@@ -253,8 +253,8 @@ struct LazyForEachListTransition {
         color: 0xFFFFFF,
         startMargin: 20,
         endMargin: 20
-      }) <em>// </em><em>每行之间的分界线</em>
-      .edgeEffect(EdgeEffect.Spring) <em>// 边缘效果设置为Spring</em>
+      }) // 每行之间的分界线
+      .edgeEffect(EdgeEffect.Spring) // 边缘效果设置为Spring
       .onScrollIndex(() => {})
       .onDidScroll((scrollOffset: number, scrollState: ScrollState) => {
         this.currentScrollOffsetInList = scrollOffset;

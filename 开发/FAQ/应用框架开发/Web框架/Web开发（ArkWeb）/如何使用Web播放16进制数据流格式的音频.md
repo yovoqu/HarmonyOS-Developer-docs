@@ -34,7 +34,7 @@ import { filePreview } from '@kit.PreviewKit';
 struct WebText {
   @State musics: Array<string> = [];
   private context: Context = this.getUIContext().getHostContext() as Context;
- <em> // 在线链接，返回音频的16进制数据流</em>
+  // 在线链接，返回音频的16进制数据流
   private url: string = 'www.example.com';
   private sandbox: string = this.context.cacheDir + '/new.text';
   controller: webview.WebviewController = new webview.WebviewController();
@@ -225,16 +225,16 @@ html：
 <audio id="audioPlayer" muted="" controls></audio>
 <script>
     function playAudio(hexInput) {
-        <em>// 将16进制字符串转换为二进制字节数组</em>
+        // 将16进制字符串转换为二进制字节数组
         const binaryData = Uint8Array.from(hexInput.match(/.{1,2}/g), byte => parseInt(byte, 16));
-        <em>// 创建一个Blob对象</em>
+        // 创建一个Blob对象
         const blob = new Blob([binaryData], { type: 'audio/mpeg' });
-       <em> // 创建一个URL对应于该Blob</em>
+        // 创建一个URL对应于该Blob
         const url = URL.createObjectURL(blob);
-       <em> // 设置音频元素的src属性</em>
+        // 设置音频元素的src属性
         const audioPlayer = document.getElementById('audioPlayer');
         audioPlayer.src = url;
-        <em>// 播放音频</em>
+        // 播放音频
         audioPlayer.play().catch(error => {
         });
     }

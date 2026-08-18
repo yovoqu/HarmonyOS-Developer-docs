@@ -27,9 +27,9 @@ Native侧代码实现：
 #include <future> 
 #include <hilog/log.h> 
  
-#define LOG_TAG "Pure" <em>// Global tag macro, identifying module log tags</em>
+#define LOG_TAG "Pure" // Global tag macro, identifying module log tags
  
-<em>// Context data, used for transferring data between threads</em>
+// Context data, used for transferring data between threads
 struct CallbackData { 
     napi_threadsafe_function tsfn; 
     napi_async_work work; 
@@ -46,12 +46,12 @@ static napi_value ResolvedCallback(napi_env env, napi_callback_info info) {
     double result = 0; 
     napi_get_value_double(env, widthProp, &result); 
     OH_LOG_INFO(LOG_APP, "width in ResolvedCallback is %{public}f", result); 
-   <em> // Data is reinterpreted as a pointer to std:: promise<double>and the value of the promise is set to width </em>
+    // Data is reinterpreted as a pointer to std:: promise<double>and the value of the promise is set to width 
     reinterpret_cast<std::promise<double> *>(data)->set_value(result); 
     return nullptr; 
 } 
 static void CallJs(napi_env env, napi_value jsCb, void *context, void *data) { 
-  <em>  // Import system library modules and call down to methods layer by layer</em>
+    // Import system library modules and call down to methods layer by layer
     napi_value systemModule; 
     napi_load_module(env, "@ohos.display", &systemModule); 
     napi_value displayFunc = nullptr; 
@@ -61,7 +61,7 @@ static void CallJs(napi_env env, napi_value jsCb, void *context, void *data) {
     napi_value thenFunc = nullptr; 
     napi_get_named_property(env, promise, "then", &thenFunc); 
     napi_value resolvedCallback; 
-   <em> // Promise resolve callback</em>
+    // Promise resolve callback
     napi_create_function(env, "resolvedCallback", NAPI_AUTO_LENGTH, ResolvedCallback, data, &resolvedCallback); 
     napi_value argv[] = {resolvedCallback}; 
     napi_call_function(env, promise, thenFunc, 1, argv, nullptr); 
@@ -81,13 +81,13 @@ static void ExecuteWork(napi_env env, void *data) {
 } 
 static void WorkComplete(napi_env env, napi_status status, void *data) { 
     CallbackData *callbackData = reinterpret_cast<CallbackData *>(data); 
-   <em> // Return the calculation results of the business code to the application </em>
+    // Return the calculation results of the business code to the application 
     napi_value result = nullptr; 
     napi_create_double(env, callbackData->res, &result); 
     napi_resolve_deferred(env, callbackData->deferred, result); 
-   <em> // Release thread safety methods </em>
+    // Release thread safety methods 
     napi_release_threadsafe_function(callbackData->tsfn, napi_tsfn_release); 
-  <em>  // Delete asynchronous work items </em>
+    // Delete asynchronous work items 
     napi_delete_async_work(env, callbackData->work); 
     callbackData->tsfn = nullptr; 
     callbackData->work = nullptr; 
@@ -102,16 +102,16 @@ static napi_value getDisplayWidthAsync(napi_env env, napi_callback_info info) {
     napi_load_module(env, "@ohos.display", &sysModule); 
     napi_value getDefaultDisplay; 
     napi_get_named_property(env, sysModule, "getDefaultDisplay", &getDefaultDisplay); 
-  <em>  // Create a thread safe function </em>
+    // Create a thread safe function 
     napi_value resourceName = nullptr; 
     napi_create_string_utf8(env, "getDisplayWidthAsync", NAPI_AUTO_LENGTH, &resourceName); 
     napi_create_threadsafe_function(env, getDefaultDisplay, nullptr, resourceName, 0, 1, callbackData, nullptr, 
                                     callbackData, CallJs, &callbackData->tsfn); 
-  <em>  // Create an asynchronous task </em>
+    // Create an asynchronous task 
     napi_create_async_work(env, nullptr, resourceName, ExecuteWork, WorkComplete, callbackData, &callbackData->work); 
-  <em>  // Add asynchronous tasks to the asynchronous queue and have them executed by the underlying scheduling system </em>
+    // Add asynchronous tasks to the asynchronous queue and have them executed by the underlying scheduling system 
     napi_queue_async_work(env, callbackData->work); 
-  <em>  // Method returns promise </em>
+    // Method returns promise 
     napi_value result = nullptr; 
     napi_create_promise(env, &callbackData->deferred, &result); 
     return result; 

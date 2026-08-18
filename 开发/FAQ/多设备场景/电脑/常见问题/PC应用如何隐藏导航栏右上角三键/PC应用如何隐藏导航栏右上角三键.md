@@ -42,10 +42,10 @@ struct Index {
   context: Context | undefined = this.getUIContext().getHostContext();
 
   onPageShow(): void {
-  <em>  // 设置定时任务检测一定时间内鼠标是否移动</em>
+    // 设置定时任务检测一定时间内鼠标是否移动
     setInterval(() => {
       if (this.curX == this.preX && this.curY == this.preY) {
-     <em>   // 设置导航栏不可见</em>
+        // 设置导航栏不可见
         changeRight(this.context, false, false, false);
       } else {
         this.preX = this.curX;
@@ -69,11 +69,11 @@ struct Index {
         })
     }
     .onMouse((event?: MouseEvent) => {
-   <em>   // 设置页面的onMouse回调记录鼠标位置</em>
+      // 设置页面的onMouse回调记录鼠标位置
       if (event) {
         this.curX = event.windowX;
         this.curY = event.windowY;
-       <em> // 设置导航栏可见</em>
+        // 设置导航栏可见
         changeRight(this.context, true, true, true);
       }
     })
@@ -91,9 +91,9 @@ function changeRight(context: Context | undefined, max: boolean, min: boolean, i
   uiContext.windowStage.getMainWindow().then(
     data => {
       mainWindow = data;
-     <em> // setWindowDecorVisible用于隐藏图标、名称与状态栏</em>
+      // setWindowDecorVisible用于隐藏图标、名称与状态栏
       mainWindow.setWindowDecorVisible(max);
-     <em> // setWindowTitleButtonVisible接口，隐藏主窗标题栏最大化、最小化、关闭按钮。</em>
+      // setWindowTitleButtonVisible接口，隐藏主窗标题栏最大化、最小化、关闭按钮。
       mainWindow.setWindowTitleButtonVisible(max, min, isClose);
     }
   ).catch((err: BusinessError) => {

@@ -97,7 +97,7 @@ struct SafeAreaKeyboardPage {
   private keyboardListenerWindow?: window.Window;
   @State currentKeyboardAvoidMode: boolean = false;
   @State currentExpandMode: boolean = false;
-  @State isManual: boolean = false; <em>// 手动处理各组件高度</em>
+  @State isManual: boolean = false; // 手动处理各组件高度
   screenHeight: number = 0;
   @State @Watch('onKeyboardHeightChange') keyboardHeight: number = 0;
   @State listItems: string[] = [];
@@ -114,7 +114,7 @@ struct SafeAreaKeyboardPage {
   }
 
   aboutToDisappear(): void {
-   <em> // 关闭键盘高度监听，避免内存泄露</em>
+    // 关闭键盘高度监听，避免内存泄露
     if (this.keyboardListenerWindow) {
       this.keyboardListenerWindow.off('keyboardHeightChange');
     }
@@ -143,7 +143,7 @@ struct SafeAreaKeyboardPage {
   }
 
   onKeyboardHeightChange() {
-  <em>  // 手动处理各组件的高度</em>
+    // 手动处理各组件的高度
     if (this.bottomBlankHeight && !this.keyboardHeight) {
       this.getUIContext().animateTo({
         duration: 300,
@@ -197,7 +197,7 @@ struct SafeAreaKeyboardPage {
     }
 
     if (!(this.currentFocus % 2)) {
-     <em> // TextArea 顶出List，List高度使用LayoutWeight，因此调整Blank组件的高度就可以</em>
+      // TextArea 顶出List，List高度使用LayoutWeight，因此调整Blank组件的高度就可以
       let offset = this.listBottom - keyboardTopEdge;
       this.getUIContext().animateTo(animateShowParams, () => {
         this.bottomBlankHeight = offset;
@@ -269,7 +269,7 @@ struct SafeAreaKeyboardPage {
           }
         });
         ListSwitchItem({
-      <em>    // KeyboardAvoidMode为Resize时，expandSafeArea不生效</em>
+          // KeyboardAvoidMode为Resize时，expandSafeArea不生效
           title: `组件扩展安全区 - 不避让键盘`,
           isOn: this.currentExpandMode,
           onSwitchChange: (isOn: boolean) => {
@@ -309,7 +309,7 @@ struct SafeAreaKeyboardPage {
       .width('100%')
       .scrollBar(BarState.Off)
       .backgroundColor('#F1F3F5')
-      .layoutWeight(1) <em>// 父容器组件主轴方向布局比重，可以用来自动填满剩余空间，当KeyBoardAvoidMode为Resize，键盘弹出时组件会被压缩</em>
+      .layoutWeight(1) // 父容器组件主轴方向布局比重，可以用来自动填满剩余空间，当KeyBoardAvoidMode为Resize，键盘弹出时组件会被压缩
       .onAreaChange((_oldValue: Area, newValue: Area) => {
         if (this.listBottom) {
           return;
@@ -365,7 +365,7 @@ struct SafeAreaKeyboardPage {
           this.blueBlockBottoms.below = bottom;
         });
 
-      Blank() <em>// </em><em>底部留空区域，当自行处理键盘弹出事件时生效</em>
+      Blank() // 底部留空区域，当自行处理键盘弹出事件时生效
         .visibility(Visibility.Hidden)
         .height(this.bottomBlankHeight)
         .expandSafeArea([SafeAreaType.KEYBOARD], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM]);
@@ -373,7 +373,7 @@ struct SafeAreaKeyboardPage {
     .width('100%')
     .height('100%')
     .onTouch(() => {
-    <em>  // 点击非输入框区域时收起键盘</em>
+      // 点击非输入框区域时收起键盘
       this.currentFocus = -2;
       this.getUIContext().getFocusController().clearFocus();
 

@@ -45,7 +45,7 @@ struct Index {
             let context = this.getUIContext().getHostContext() as common.Context;
             let documentPicker = new picker.DocumentViewPicker(context);
             let documentSelectOptions = new picker.DocumentSelectOptions();
-         <em>   // filePathList:选中的文件集合</em>
+            // filePathList:选中的文件集合
             documentPicker.select(documentSelectOptions).then((filePathList: Array<string>) => {
               for (let i = 0; i < filePathList.length; i++) {
                 let filePath = filePathList[i];
@@ -87,12 +87,12 @@ struct Index {
 ```text
 copyRawFileToSdcard(context: common.Context) {
   let destRoot = context.filesDir;
-  <em>// rawfile下的文件名</em>
+  // rawfile下的文件名
   let srcFileName = 'testaaa.jpg';
   let destFilePath = destRoot + '/test/' + srcFileName;
-<em>  // 创建文件目录</em>
+  // 创建文件目录
   fileIo.mkdir(destRoot + '/test').then(async () => {
-   <em> // 创建目录成功</em>
+    // 创建目录成功
     console.info('copyRawFileToSdcard mkdir success');
     context.resourceManager.getRawFileContent(srcFileName, (error: BusinessError, data: Uint8Array) => {
       if (error != null) {
@@ -102,13 +102,13 @@ copyRawFileToSdcard(context: common.Context) {
         let fileStream = fileIo.createStreamSync(destFilePath, 'w+');
         fileStream.writeSync(data.buffer);
         fileStream.close();
-       <em> // 文件拷贝成功</em>
+        // 文件拷贝成功
         promptAction.openToast({ message: '拷贝成功' });
         console.info('copyRawFileToSdcard write success');
       }
     });
   }).catch((error: BusinessError) => {
-   <em> // 可能目录已存在或者没有权限</em>
+    // 可能目录已存在或者没有权限
     promptAction.openToast({ message: '拷贝失败' });
     console.error(`copyRawFileToSdcard mkdir fail: ${error.code}, ${error.code}`);
   });
@@ -123,12 +123,12 @@ SaveFile(filePath: string) {
     console.info('SaveFile path cant access: ' + filePath);
     return;
   }
-<em>  // 创建文件管理器选项实例</em>
+  // 创建文件管理器选项实例
   const documentSaveOptions = new picker.DocumentSaveOptions();
-  documentSaveOptions.newFileNames = ['test.jpg'];<em> </em><em>// 保存文件名</em>
-  documentSaveOptions.fileSuffixChoices = ['.jpg'];<em> </em><em>// 保存文件类型</em>
+  documentSaveOptions.newFileNames = ['test.jpg']; // 保存文件名
+  documentSaveOptions.fileSuffixChoices = ['.jpg']; // 保存文件类型
   let uris: Array<string> = [];
-  const documentViewPicker = new picker.DocumentViewPicker(); <em>// 创建文件选择器实例</em>
+  const documentViewPicker = new picker.DocumentViewPicker(); // 创建文件选择器实例
   documentViewPicker.save(documentSaveOptions).then((documentSaveResult: Array<string>) => {
     uris = documentSaveResult;
     console.info('documentViewPicker.save to file succeed and uris are:' + uris);
@@ -183,12 +183,12 @@ struct Index {
       console.info('SaveFile path cant access: ' + filePath);
       return;
     }
-  <em>  // 创建文件管理器选项实例</em>
+    // 创建文件管理器选项实例
     const documentSaveOptions = new picker.DocumentSaveOptions();
-    documentSaveOptions.newFileNames = ['test.jpg']; <em>// 保存文件名</em>
-    documentSaveOptions.fileSuffixChoices = ['.jpg'];<em> </em><em>// 保存文件类型</em>
+    documentSaveOptions.newFileNames = ['test.jpg']; // 保存文件名
+    documentSaveOptions.fileSuffixChoices = ['.jpg']; // 保存文件类型
     let uris: Array<string> = [];
-    const documentViewPicker = new picker.DocumentViewPicker(); <em>// 创建文件选择器实例</em>
+    const documentViewPicker = new picker.DocumentViewPicker(); // 创建文件选择器实例
     documentViewPicker.save(documentSaveOptions).then((documentSaveResult: Array<string>) => {
       uris = documentSaveResult;
       console.info('documentViewPicker.save to file succeed and uris are:' + uris);
@@ -205,12 +205,12 @@ struct Index {
   }
   copyRawFileToSdcard(context: common.Context) {
     let destRoot = context.filesDir;
-   <em> // rawfile下的文件名</em>
+    // rawfile下的文件名
     let srcFileName = 'testaaa.jpg';
     let destFilePath = destRoot + '/test/' + srcFileName;
-   <em> // 创建文件目录</em>
+    // 创建文件目录
     fileIo.mkdir(destRoot + '/test').then(async () => {
-   <em>   // 创建目录成功</em>
+      // 创建目录成功
       console.info('copyRawFileToSdcard mkdir success');
       context.resourceManager.getRawFileContent(srcFileName, (error: BusinessError, data: Uint8Array) => {
         if (error != null) {
@@ -220,13 +220,13 @@ struct Index {
           let fileStream = fileIo.createStreamSync(destFilePath, 'w+');
           fileStream.writeSync(data.buffer);
           fileStream.close();
-        <em>  // 文件拷贝成功</em>
+          // 文件拷贝成功
           promptAction.openToast({ message: '拷贝成功' });
           console.info('copyRawFileToSdcard write success');
         }
       });
     }).catch((error: BusinessError) => {
-     <em> // 可能目录已存在或者没有权限</em>
+      // 可能目录已存在或者没有权限
       promptAction.openToast({ message: '拷贝失败' });
       console.error(`copyRawFileToSdcard mkdir fail: ${error.code}, ${error.code}`);
     });

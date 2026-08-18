@@ -70,34 +70,34 @@ import { buffer, util } from '@kit.ArkTS';
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 
-<em>// RSA pubKey example. 实际使用需要更换自己的公钥PEM</em>
+// RSA pubKey example. 实际使用需要更换自己的公钥PEM
 const pubKeyStr = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCuo5/hnnCOAERqdJwQM6Uwo2FZ\n' +
   'Gq/JHKRj43QnxxnxUIhnwaHH7PUv8V2v8pNdJl5NYD6qiEiD7i59HI0G5PSj3gjZ\n' +
   '4KuHy/RIN95BZyLtrg2BKzNiGvUV4IPFzE9ZAe0fcEvDPxGZn/vRWLRnQaEeYehc\n' +
   'OUkt2vbKPLwtTWKwzQIDAQAB';
 
 
-<em>// RSA加密方法</em>
+// RSA加密方法
 async function encryptRSA(message: string, pubKeyStr: string) {
   try {
-    <em>// 初始化Base64工具实例</em>
+    // 初始化Base64工具实例
     let base64Helper = new util.Base64Helper();
-  <em>  // 公钥转换为Uint8Array，然后包装为DataBlob类型</em>
+    // 公钥转换为Uint8Array，然后包装为DataBlob类型
     let pubKeyBlob: cryptoFramework.DataBlob = { data: base64Helper.decodeSync(pubKeyStr) };
- <em>   // 创建RSA key生成器</em>
+    // 创建RSA key生成器
     let rsaGenerator = cryptoFramework.createAsyKeyGenerator('RSA1024');
-   <em> // 将公钥包装数据pubKeyBlob转换成密钥对类型KeyPair</em>
+    // 将公钥包装数据pubKeyBlob转换成密钥对类型KeyPair
     let keyPair = await rsaGenerator.convertKey(pubKeyBlob, null);
-   <em> // 创建Cipher对象</em>
+    // 创建Cipher对象
     let cipher = cryptoFramework.createCipher('RSA1024|PKCS1');
-    <em>// 初始化加密模式，指定密钥keyPair.pubKey</em>
+    // 初始化加密模式，指定密钥keyPair.pubKey
     await cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, keyPair.pubKey, null);
-   <em> // 包装要加密的明文</em>
+    // 包装要加密的明文
     let plainTextBlob: cryptoFramework.DataBlob = { data: new Uint8Array(buffer.from(message, 'utf-8').buffer) };
-    <em>// 传入明文，获取加密后的数据</em>
+    // 传入明文，获取加密后的数据
     let encryptBlob = await cipher.doFinal(plainTextBlob);
-   <em> // 返回加密后的字符串</em>
-<em>    // return base64Helper.encodeToStringSync(encryptBlob.data);</em>
+    // 返回加密后的字符串
+    // return base64Helper.encodeToStringSync(encryptBlob.data);
     console.info(`base64Helper: ${base64Helper.encodeToStringSync(encryptBlob.data)}`);
   } catch (e) {
     console.error('[base64Helper] error');

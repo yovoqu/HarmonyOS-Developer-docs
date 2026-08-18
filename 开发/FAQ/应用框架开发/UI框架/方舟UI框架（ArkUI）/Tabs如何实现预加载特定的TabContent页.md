@@ -16,7 +16,7 @@
 struct TabsDemo {
   @State currentIndex: number = 0;
   private tabsController: TabsController = new TabsController();
-  <em>// Set up page switching animations instead of sliding to jump to page animations</em>
+  // Set up page switching animations instead of sliding to jump to page animations
   private customContentTransition: (from: number, to: number) => TabContentAnimatedTransition =
     (from: number, to: number) => {
       let tabContentAnimatedTransition = {
@@ -69,7 +69,7 @@ struct MyComponent {
   private color: string = '';
 
   aboutToAppear(): void {
-  <em>  // It can be observed by printing the log that no intermediate page has been loaded</em>
+    // It can be observed by printing the log that no intermediate page has been loaded
     console.info('aboutToAppear backgroundColor:' + this.color);
   }
 

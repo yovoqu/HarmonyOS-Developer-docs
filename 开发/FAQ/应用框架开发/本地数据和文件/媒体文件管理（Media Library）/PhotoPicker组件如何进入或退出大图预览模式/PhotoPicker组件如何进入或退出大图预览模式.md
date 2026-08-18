@@ -31,7 +31,7 @@
 
   
 ```text
-<em>// 进入大图，预览已选择的图片。</em>
+// 进入大图，预览已选择的图片。
 Button('预览')
   .width('33%')
   .alignSelf(ItemAlign.Center)
@@ -45,7 +45,7 @@ Button('预览')
 ```
  
 ```text
-<em>// 退出大图预览</em>
+// 退出大图预览
 Button("退出大图")
   .width('33%')
   .alignSelf(ItemAlign.Center)
@@ -60,14 +60,14 @@ Button("退出大图")
 
   
 ```text
-<em>// 进入大图的回调。</em>
+// 进入大图的回调。
 private onEnterPhotoBrowser(): boolean {
   this.isBrowserShow = true;
   this.isFullShow = '100%';
   return true;
 }
 
-<em>// 退出大图的回调。</em>
+// 退出大图的回调。
 private onExitPhotoBrowser(): boolean {
   this.isBrowserShow = false;
   this.isFullShow = '50%';

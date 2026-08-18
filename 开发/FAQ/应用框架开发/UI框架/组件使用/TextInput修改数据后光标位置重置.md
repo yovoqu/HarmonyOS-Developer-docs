@@ -57,8 +57,8 @@ onChange函数的规格为value值变化后执行，所以删除空格、删除�
 struct caretPositionExample {
   @State text: string = '';
   @State bankNumberNoSpace: string = '';
-  @State nextCaret: number = -1;<em> </em><em>// 用于记录下次光标设置的位置</em>
-  @State actualCh: number = -1;<em> </em><em>// 用于记录光标在第i个数字后插入或者第i个数字前删除</em>
+  @State nextCaret: number = -1; // 用于记录下次光标设置的位置
+  @State actualCh: number = -1; // 用于记录光标在第i个数字后插入或者第i个数字前删除
   @State lastCaretPosition: number = 0;
   @State lastCaretPositionEnd: number = 0;
   controller: TextInputController = new TextInputController();
@@ -85,7 +85,7 @@ struct caretPositionExample {
   calcCaretPosition(nextText: string) {
     let befNumberNoSpace: string = this.removeSpace(this.text);
     this.actualCh = 0;
-    if (befNumberNoSpace.length < this.bankNumberNoSpace.length) { <em>// </em><em>插入场景</em>
+    if (befNumberNoSpace.length < this.bankNumberNoSpace.length) { // 插入场景
       for (let i = 0; i < this.lastCaretPosition; i++) {
         if (this.text[i] !== ' ') {
           this.actualCh += 1;
@@ -101,11 +101,11 @@ struct caretPositionExample {
           }
         }
       }
-    } else if (befNumberNoSpace.length > this.bankNumberNoSpace.length) { <em>// </em><em>删除场景</em>
+    } else if (befNumberNoSpace.length > this.bankNumberNoSpace.length) { // 删除场景
       if (this.lastCaretPosition === this.text.length) {
         console.info('Caret at last, no need to change');
       } else if (this.lastCaretPosition === this.lastCaretPositionEnd) {
-       <em> // 按键盘上回退键一个一个删的情况</em>
+        // 按键盘上回退键一个一个删的情况
         for (let i = this.lastCaretPosition; i < this.text.length; i++) {
           if (this.text[i] !== ' ') {
             this.actualCh += 1;
@@ -121,8 +121,8 @@ struct caretPositionExample {
           }
         }
       } else {
-     <em>   // 剪切/手柄选择一次删多个字符</em>
-        this.nextCaret = this.lastCaretPosition; <em>// 保持光标位置</em>
+        // 剪切/手柄选择一次删多个字符
+        this.nextCaret = this.lastCaretPosition; // 保持光标位置
       }
     }
   }
@@ -146,7 +146,7 @@ struct caretPositionExample {
               }
             }
             if (this.text === nextText && nextText === number) {
-             <em> // 此时说明数字已经格式化完成了，在这个时候改变光标位置不会被重置掉</em>
+              // 此时说明数字已经格式化完成了，在这个时候改变光标位置不会被重置掉
               this.setCaret();
             } else {
               this.calcCaretPosition(nextText);
@@ -154,11 +154,11 @@ struct caretPositionExample {
             this.text = nextText;
           })
           .onTextSelectionChange((selectionStart, selectionEnd) => {
-          <em>  // 记录光标位置</em>
+            // 记录光标位置
             console.info('selection change: ', selectionStart, selectionEnd);
             this.lastCaretPosition = selectionStart;
             this.lastCaretPositionEnd = selectionEnd;
-          }) <em>// 使用onWillInsert和onWillDelete判断是否为空格，是空格就不给添加和删除，如果需要用户删除空格的时候不删除空格而是直接后退一位</em>
+          }) // 使用onWillInsert和onWillDelete判断是否为空格，是空格就不给添加和删除，如果需要用户删除空格的时候不删除空格而是直接后退一位
           .onWillInsert((info: InsertValue) => {
             let value = info.insertValue;
             if (value === ' ') {

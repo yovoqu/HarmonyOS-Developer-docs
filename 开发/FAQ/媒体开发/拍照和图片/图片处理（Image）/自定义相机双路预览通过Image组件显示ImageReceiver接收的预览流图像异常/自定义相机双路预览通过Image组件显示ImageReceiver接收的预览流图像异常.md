@@ -9,18 +9,18 @@
 自定义相机双路预览，将ImageReceiver接收到的预览图像流通过Image组件显示，Image组件的objectFit属性设置为ImageFit.Contain，但是Image组件不能完整显示预览图像流，显示的画面不完整。用于显示预览图像数据的Image组件的UI描述如下：
  
 ```text
-<span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-  <em>// this.imagePixelMap</em><em><span style="color: rgb(128,128,128);">为</span><span style="color: rgb(128,128,128);">ImageReceiver</span><span style="color: rgb(128,128,128);">接收的预览流数据</span></em>
-  <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imagePixelMap</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rotate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">angle</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(255,0,0);">90 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)     </span><em>  </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">组件逆时针旋转</span><span style="color: rgb(128,128,128);">90</span><span style="color: rgb(128,128,128);">度，用于适应相机预览流的旋转角度</span></em>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">objectFit</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ImageFit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Contain</span><span style="color: rgb(0,0,255);">)  </span><em>// </em><em><span style="color: rgb(128,128,128);">设置图片的填充，使得预览流画面在</span><span style="color: rgb(128,128,128);">Image</span><span style="color: rgb(128,128,128);">组件中完整显示</span></em>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Black</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">clip</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">floatWindowWidth</span><span style="color: rgb(0,0,255);">)    </span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">组件宽</span></em>
-<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">floatWindowHeight</span><span style="color: rgb(0,0,255);">)  </span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">组件高</span></em>
+Column() {
+  // this.imagePixelMap为ImageReceiver接收的预览流数据
+  Image(this.imagePixelMap)
+    .width('100%')
+    .height('100%')
+    .rotate({ angle: -90 })       // 组件逆时针旋转90度，用于适应相机预览流的旋转角度
+    .objectFit(ImageFit.Contain)  // 设置图片的填充，使得预览流画面在Image组件中完整显示
+    .backgroundColor(Color.Black)
+}
+.clip(true)
+.width(this.floatWindowWidth)     // 组件宽
+.height(this.floatWindowHeight)   // 组件高
 ```
  
  

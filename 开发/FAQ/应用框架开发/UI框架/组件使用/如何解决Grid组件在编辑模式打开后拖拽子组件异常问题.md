@@ -54,10 +54,10 @@ import { DimensionUtil } from './DimensionUtil'
 @Entry
 @Component
 struct GridPullPage {
-  @State selectMedias: Array<string> = ["-1"]<em> // 选择的图片和视频</em>
+  @State selectMedias: Array<string> = ["-1"] // 选择的图片和视频
   @State imageWH: number = 60
   @State editMode: boolean = true;
-  @State maxSelectPics: number = 9<em> // 最大选择图片数量</em>
+  @State maxSelectPics: number = 9 // 最大选择图片数量
   private scroller: Scroller = new Scroller()
 
   aboutToAppear() {
@@ -73,7 +73,7 @@ struct GridPullPage {
 
   @Builder
   itemGrid(item: string, index: number) {
-   <em> // 此处'app.media.newsinformantspage_item_imagepicker_default'仅作示例。</em>
+    // 此处'app.media.newsinformantspage_item_imagepicker_default'仅作示例。
     Image(item === "-1" ? $r('app.media.newsinformantspage_item_imagepicker_default') : item)
       .objectFit(ImageFit.Cover)
       .width(this.imageWH)
@@ -125,13 +125,13 @@ struct GridPullPage {
     .supportAnimation(true)
     .scrollBar(BarState.Off)
     .onItemDragStart((event: ItemDragInfo, itemIndex: number) => {
-       <em> // 在onItemDragStart函数返回自定义组件，可在拖拽过程中显示此自定义组件。</em>
+        // 在onItemDragStart函数返回自定义组件，可在拖拽过程中显示此自定义组件。
         return this.itemDragGrid(this.selectMedias[itemIndex], itemIndex)
     })
     .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => {
-    <em>  // 执行gridItem切换操作</em>
+      // 执行gridItem切换操作
       if (isSuccess && insertIndex < this.selectMedias.length) {
-      <em>  // 点击选择图标不进行交换</em>
+        // 点击选择图标不进行交换
         if (this.selectMedias[itemIndex] === "-1") {
           return
         }
@@ -207,7 +207,7 @@ Grid组件的editMode属性能够控制整个Grid组件是否能编辑，在问�
 @Builder
 itemGrid(item: string, index: number) {
   if (item === '-1') {
-  <em>  // 此处'app.media.newsinformantspage_item_imagepicker_default'仅作示例。</em>
+    // 此处'app.media.newsinformantspage_item_imagepicker_default'仅作示例。
     Image($r('app.media.newsinformantspage_item_imagepicker_default'))
       .objectFit(ImageFit.Cover)
       .width(this.imageWH)
@@ -241,13 +241,13 @@ itemGrid(item: string, index: number) {
 2. 拖拽图片后，根据拖拽的位置序号来进行重新排序。
 ```text
 .onItemDragStart((event: ItemDragInfo, itemIndex: number) => {
- <em> // 在onItemDragStart函数返回自定义组件，可在拖拽过程中显示此自定义组件</em>
+  // 在onItemDragStart函数返回自定义组件，可在拖拽过程中显示此自定义组件
   return this.itemDragGrid(this.selectMedias[itemIndex], itemIndex);
 })
 .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => {
- <em> // 执行gridItem切换操作</em>
+  // 执行gridItem切换操作
   if (isSuccess && insertIndex < this.selectMedias.length) {
-   <em> // 点击选择图标不进行交换</em>
+    // 点击选择图标不进行交换
     if (this.selectMedias[itemIndex] === '-1') {
       return;
     }
@@ -291,10 +291,10 @@ import { DimensionUtil } from './DimensionUtil';
 @Entry
 @Component
 struct GridPullPage {
-  @State selectMedias: Array<string> = ['-1']; <em>// </em><em>选择的图片和视频</em>
+  @State selectMedias: Array<string> = ['-1']; // 选择的图片和视频
   @State imageWH: number = 60;
   editMode: boolean = true;
-  maxSelectPics: number = 9; <em>// </em><em>最大选择图片数量</em>
+  maxSelectPics: number = 9; // 最大选择图片数量
   private scroller: Scroller = new Scroller();
 
   aboutToAppear() {
@@ -311,7 +311,7 @@ struct GridPullPage {
   @Builder
   itemGrid(item: string, index: number) {
     if (item === '-1') {
-      <em>// 此处'app.media.newsinformantspage_item_imagepicker_default'仅作示例。</em>
+      // 此处'app.media.newsinformantspage_item_imagepicker_default'仅作示例。
       Image($r('app.media.newsinformantspage_item_imagepicker_default'))
         .objectFit(ImageFit.Cover)
         .width(this.imageWH)
@@ -376,13 +376,13 @@ struct GridPullPage {
     .supportAnimation(true)
     .scrollBar(BarState.Off)
     .onItemDragStart((event: ItemDragInfo, itemIndex: number) => {
-     <em> // 在onItemDragStart函数返回自定义组件，可在拖拽过程中显示此自定义组件</em>
+      // 在onItemDragStart函数返回自定义组件，可在拖拽过程中显示此自定义组件
       return this.itemDragGrid(this.selectMedias[itemIndex], itemIndex);
     })
     .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => {
-   <em>   // 执行gridItem切换操作</em>
+      // 执行gridItem切换操作
       if (isSuccess && insertIndex < this.selectMedias.length) {
-   <em>     // 点击选择图标不进行交换</em>
+        // 点击选择图标不进行交换
         if (this.selectMedias[itemIndex] === '-1') {
           return;
         }

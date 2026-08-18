@@ -39,7 +39,7 @@ struct Index {
 
   build() {
     Column() {
-      <em>// 需求:点击变更按钮的时候,Canvas绘制的内容不会闪动</em>
+      // 需求:点击变更按钮的时候,Canvas绘制的内容不会闪动
       Button('变更').onClick(() => {
         this.animatorResult.play()
       })
@@ -59,7 +59,7 @@ struct Index {
 
   private createAnimator() {
     this.settings.antialias = true
-   <em> // 创建动画的初始参数</em>
+    // 创建动画的初始参数
     let options: AnimatorOptions = {
       duration: 1000,
       easing: 'friction',
@@ -67,8 +67,8 @@ struct Index {
       fill: 'forwards',
       direction: 'normal',
       iterations: 1,
-      begin: 0,<em> // 动画onFrame插值首帧值</em>
-      end: 18, <em>// 动画onFrame插值尾帧值</em>
+      begin: 0, // 动画onFrame插值首帧值
+      end: 18, // 动画onFrame插值尾帧值
     };
     return this.getUIContext().createAnimator(options)
   }
@@ -134,7 +134,7 @@ struct FrameAnimator {
 
   build() {
     Column() {
-      <em>// 需求:点击变更按钮的时候,Canvas绘制的内容不会闪动</em>
+      // 需求:点击变更按钮的时候,Canvas绘制的内容不会闪动
       Button('变更').onClick(() => {
         this.animatorResult.play();
       });
@@ -152,7 +152,7 @@ struct FrameAnimator {
 
   private createAnimator() {
     this.settings.antialias = true;
-   <em> // 创建动画的初始参数</em>
+    // 创建动画的初始参数
     let options: AnimatorOptions = {
       duration: 1000,
       easing: 'friction',
@@ -160,8 +160,8 @@ struct FrameAnimator {
       fill: 'forwards',
       direction: 'normal',
       iterations: 1,
-      begin: 0, <em>// 动画onFrame插值首帧值</em>
-      end: 18, <em>// 动画onFrame插值尾帧值</em>
+      begin: 0, // 动画onFrame插值首帧值
+      end: 18, // 动画onFrame插值尾帧值
     };
     return this.getUIContext().createAnimator(options);
   }

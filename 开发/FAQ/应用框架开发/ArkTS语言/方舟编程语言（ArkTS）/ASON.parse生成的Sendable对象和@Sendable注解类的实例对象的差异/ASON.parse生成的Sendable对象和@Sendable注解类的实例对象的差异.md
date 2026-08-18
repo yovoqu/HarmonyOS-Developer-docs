@@ -27,72 +27,72 @@
 不同点：ASON.parse生成的Sendable对象无法调用类成员方法。原因是使用ArkTSUtils.ASON.parse()解析JSON生成Sendable对象时，生成的仅是数据结构的副本，不会保留原始类的原型链和方法，所以无法调用方法。
  
 ```json
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">ArkTSUtils</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">lang</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">taskpool </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { ArkTSUtils, lang, taskpool } from '@kit.ArkTS';
+import { BusinessError } from '@kit.BasicServicesKit';
 
-<span style="color: rgb(181,106,1);">@Sendable</span>
-class <span style="color: rgb(0,0,255);">TestClass </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Bob'</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">age</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">18</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">city</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'ct'</span><span style="color: rgb(181,106,1);">;</span>
+@Sendable
+class TestClass {
+  name: string = 'Bob';
+  age: number = 18;
+  city: string = 'ct';
 
-  <span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">age </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`name: </span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> age: </span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">age</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> city: </span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">city</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  info() {
+    this.age += 1;
+    console.info(`name: ${this.name} age: ${this.age} city: ${this.city}`);
+  }
+}
 
-<span style="color: rgb(181,106,1);">@Concurrent</span>
-function <span style="color: rgb(0,0,255);">method</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">testClass</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TestClass</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">testClass</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Cici'</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'modify name to Cici'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+@Concurrent
+function method(testClass: TestClass) {
+  testClass.name = 'Cici';
+  console.info('modify name to Cici');
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'ASON'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          type <span style="color: rgb(128,128,128);">ISendable </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">lang</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ISendable</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(0,0,255);">jsonText </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'{"name": "John", "age": 30, "city": "ct"}'</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(0,0,255);">obj </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">ArkTSUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ASON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parse</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">jsonText</span><span style="color: rgb(0,0,255);">) </span>as <span style="color: rgb(0,0,255);">ISendable</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  build() {
+    Column() {
+      Button('ASON')
+        .onClick(async () => {
+          type ISendable = lang.ISendable;
+          let jsonText = '{"name": "John", "age": 30, "city": "ct"}';
+          let obj = ArkTSUtils.ASON.parse(jsonText) as ISendable;
 
-        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">在线程中传递</span></em>
-          try <span style="color: rgb(255,0,170);">{</span>
-            let <span style="color: rgb(0,0,255);">task </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">taskpool</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Task</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">method</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">obj </span>as <span style="color: rgb(0,0,255);">TestClass</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-            await <span style="color: rgb(0,0,255);">taskpool</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">execute</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">task</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">obj </span>as <span style="color: rgb(0,0,255);">TestClass</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">打印</span><span style="color: rgb(128,128,128);">Cici</span></em>
-          <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            let <span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">e </span>as <span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">执行失败，</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
+          // 在线程中传递
+          try {
+            let task = new taskpool.Task(method, (obj as TestClass));
+            await taskpool.execute(task);
+            console.info((obj as TestClass).name); // 打印Cici
+          } catch (e) {
+            let err: BusinessError = e as BusinessError;
+            console.error(`执行失败，${err.code}, ${err.message}`);
+          }
 
-         <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取和修改属性值</span></em>
-          try <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">obj </span>as <span style="color: rgb(0,0,255);">TestClass</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Alice'</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">obj </span>as <span style="color: rgb(0,0,255);">TestClass</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">打印</span><span style="color: rgb(128,128,128);">Alice</span></em>
-            <span style="color: rgb(0,0,255);">jsonText </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">ArkTSUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ASON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">obj</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">jsonText</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">打印</span><span style="color: rgb(128,128,128);">{"name":"Alice","age":30,"city":"ct"}</span></em>
-          <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            let <span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">e </span>as <span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">修改失败，</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
+          // 获取和修改属性值
+          try {
+            (obj as TestClass).name = 'Alice';
+            console.info((obj as TestClass).name); // 打印Alice
+            jsonText = ArkTSUtils.ASON.stringify(obj);
+            console.info(`${jsonText}`); // 打印{"name":"Alice","age":30,"city":"ct"}
+          } catch (e) {
+            let err: BusinessError = e as BusinessError;
+            console.error(`修改失败，${err.code}, ${err.message}`);
+          }
 
-          <em>// </em><em><span style="color: rgb(128,128,128);">无法调用类成员方法</span></em>
-          try <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">obj </span>as <span style="color: rgb(0,0,255);">TestClass</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">调用成功</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            let <span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">e </span>as <span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">调用失败，</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">无法调用，打印：调用失败，</span><span style="color: rgb(128,128,128);">undefined, undefined is not callable</span></em>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+          // 无法调用类成员方法
+          try {
+            (obj as TestClass).info();
+            console.info('调用成功');
+          } catch (e) {
+            let err: BusinessError = e as BusinessError;
+            console.error(`调用失败，${err.code}, ${err.message}`); // 无法调用，打印：调用失败，undefined, undefined is not callable
+          }
+        });
+    }
+    .height('100%')
+    .width('100%')
+    .justifyContent(FlexAlign.Center);
+  }
+}
 ```

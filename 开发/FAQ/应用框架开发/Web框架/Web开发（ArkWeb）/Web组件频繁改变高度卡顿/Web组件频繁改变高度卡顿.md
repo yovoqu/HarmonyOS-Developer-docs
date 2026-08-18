@@ -50,7 +50,7 @@ struct Demo {
 }
 
 class Util {
- <em> // 防抖，在一段时间内函数被多次触发，防抖让函数在一段时间内只执行一次</em>
+  // 防抖，在一段时间内函数被多次触发，防抖让函数在一段时间内只执行一次
   static debounce(fun: (height: number) => void, delay?: number) {
     let timer: number;
     return (height: number) => {
@@ -65,11 +65,11 @@ class Util {
 @Entry
 @Component
 struct Index {
-  @State webHeight: number = 600; <em>// 当前显示高度</em>
-  constWebHeight: number = 600; <em>// 基础计算高度</em>
-  originScale: number = 100; <em>// 初始比例</em>
+  @State webHeight: number = 600; // 当前显示高度
+  constWebHeight: number = 600; // 基础计算高度
+  originScale: number = 100; // 初始比例
   webController: webview.WebviewController = new webview.WebviewController();
-<em>  // 创建防抖函数实例（300ms延迟）</em>
+  // 创建防抖函数实例（300ms延迟）
   debouncedSetHeight: (height: number) => void = Util.debounce((newHeight: number) => {
     this.webHeight = newHeight;
     console.info(`防抖后高度：${this.webHeight}`);
@@ -81,7 +81,7 @@ struct Index {
         controller: this.webController,
         changeEvent: (event: OnScaleChangeEvent) => {
           const targetHeight = this.constWebHeight * event.newScale / this.originScale;
-          this.debouncedSetHeight(targetHeight); <em>// 此处触发防抖函数，替换成this.webHeight = targetHeight则表示不采用防抖函数</em>
+          this.debouncedSetHeight(targetHeight); // 此处触发防抖函数，替换成this.webHeight = targetHeight则表示不采用防抖函数
         }
       });
     }
@@ -162,16 +162,16 @@ html代码如下：
         text-decoration: none;
     }
     main {
-        display: flex;<em> /* 使用Flexbox布局 */</em>
+        display: flex; /* 使用Flexbox布局 */
     }
     section, aside {
         padding: 20px;
     }
     section#home {
-        flex: 3;<em> /* 主内容区域占据更多空间 */</em>
+        flex: 3; /* 主内容区域占据更多空间 */
     }
     aside {
-        flex: 1;<em> /* 侧边栏占据较少空间 */</em>
+        flex: 1; /* 侧边栏占据较少空间 */
         background: #f4f4f4;
     }
     footer {

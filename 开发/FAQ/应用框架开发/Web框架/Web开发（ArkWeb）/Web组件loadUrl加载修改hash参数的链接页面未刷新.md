@@ -89,7 +89,7 @@ struct Index {
   changeHashParams() {
     this.url = 'resource://rawfile/alertUrlHash.html#vip?token=123456';
     this.controller.loadUrl(this.url);
-<em>    // loadUrl后需要setTimeout延迟执行refresh方法，实测设置为5毫秒问题未解决，设置为10毫秒以上问题得以解决，此处延迟建议设置为10-100。</em>
+    // loadUrl后需要setTimeout延迟执行refresh方法，实测设置为5毫秒问题未解决，设置为10毫秒以上问题得以解决，此处延迟建议设置为10-100。
     setTimeout(() => {
       this.controller.refresh();
     }, 100);

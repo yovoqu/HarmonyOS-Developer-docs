@@ -51,11 +51,11 @@ struct LoadingExample {
 @Component
 struct LoadingView {
   @Prop loading: boolean = false;
-  <em>//图片旋转角度</em>
+  //图片旋转角度
   @State angel: number = 0;
 
   build() {
-    Image($r('app.media.startIcon'))  <em>// 图片资源自行替换</em>
+    Image($r('app.media.startIcon'))  // 图片资源自行替换
       .width(30)
       .height(30)
       .rotate({
@@ -69,7 +69,7 @@ struct LoadingView {
         this.getUIContext()?.animateTo({
           curve: Curve.Linear,
           playMode: PlayMode.Normal,
-          iterations: -1, <em>// </em><em>设置-1表示动画无限循环</em>
+          iterations: -1, // 设置-1表示动画无限循环
           onFinish: () => {
           }
         }, () => {
@@ -88,13 +88,13 @@ struct LoadingView {
 自定义LoadingView.ets。
 ```text
 export class LoadingTime {
-<em>  // 显示时间为baseTime+msg.length*wordTime</em>
-  static baseTime: number = 400; <em>// 消息显示基本时间</em>
-  static wordTime: number = 90; <em>// </em><em>每个字增加显示的时间</em>
+  // 显示时间为baseTime+msg.length*wordTime
+  static baseTime: number = 400; // 消息显示基本时间
+  static wordTime: number = 90; // 每个字增加显示的时间
 
- <em> // 最终显示时间为上面计算结果限制到最短与最长之间</em>
-  static minTime: number = 1600; <em>// 最短显示时间</em>
-  static maxTime: number = 4200; <em>// 最长显示时间</em>
+  // 最终显示时间为上面计算结果限制到最短与最长之间
+  static minTime: number = 1600; // 最短显示时间
+  static maxTime: number = 4200; // 最长显示时间
 };
 
 export enum LoadingType {
@@ -112,7 +112,7 @@ interface LoadingParam {
   offset?: Offset,
   showInSubWindow?: boolean,
   isModal?: boolean,
-  tmpHUDNum?: number,<em> </em><em>// 缓存HUD的数量，用于多层返回HUD不显示情况</em>
+  tmpHUDNum?: number, // 缓存HUD的数量，用于多层返回HUD不显示情况
 };
 
 @Entry
@@ -208,7 +208,7 @@ export struct LoadingView {
     offset?: Offset,
     showInSubWindow?: boolean,
     isModal?: boolean,
-    tmpHUDNum: number = 1, <em>// </em><em>缓存HUD的数量，用于多层返回HUD不显示情况</em>
+    tmpHUDNum: number = 1, // 缓存HUD的数量，用于多层返回HUD不显示情况
   ): void {
     if (typeof msg === 'string') {
       this.showType(LoadingType.Loading, undefined, msg, cancelCallBack, alignment, offset, showInSubWindow, isModal);
@@ -218,7 +218,7 @@ export struct LoadingView {
       tmpHUDNum = msg.tmpHUDNum ?? 1;
     }
 
-   <em> // 用于解决网络返回或者其它情况下不显示的问题</em>
+    // 用于解决网络返回或者其它情况下不显示的问题
     if (tmpHUDArray.length < tmpHUDNum) {
       for (let index = 0; index < tmpHUDNum; index++) {
         tmpHUDArray.push(new LoadingView());
@@ -285,7 +285,7 @@ export struct LoadingView {
     offset: Offset = { dx: 0, dy: 0 },
     showInSubWindow: boolean = false,
     isModal: boolean = false,
-    useTmpHUD: boolean = true <em>// 是否使用缓存的HUD</em>
+    useTmpHUD: boolean = true // 是否使用缓存的HUD
   ): void {
     let self: LoadingView | undefined = this;
     if (useTmpHUD && tmpHUDArray.length > 0) {
@@ -330,7 +330,7 @@ export struct LoadingView {
       openAnimation: animate,
       closeAnimation: animate,
       showInSubWindow: showInSubWindow,
-      isModal: isModal, <em>// api11是否有蒙层</em>
+      isModal: isModal, // api11是否有蒙层
     });
     _dialogController.open();
     if (type !== LoadingType.Loading) {

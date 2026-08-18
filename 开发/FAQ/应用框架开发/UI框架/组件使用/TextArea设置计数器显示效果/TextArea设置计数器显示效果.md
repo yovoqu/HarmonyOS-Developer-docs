@@ -40,7 +40,7 @@ struct TextAreaDemo {
   @State textAreaNum: number = 0;
   maxLength: number = 20;
 
-  <em>// 定义字符计数器的字体颜色，当输入字符数大于或者等于最大字符数时，字体颜色为红色</em>
+  // 定义字符计数器的字体颜色，当输入字符数大于或者等于最大字符数时，字体颜色为红色
   @Builder
   OverlayNode() {
     Text(`${this.textAreaNum}/${this.maxLength}`)
@@ -66,7 +66,7 @@ struct TextAreaDemo {
           this.inputValue = value;
           this.textAreaNum = value.length;
         })
-        <em>// 给组件设置浮层显示字符计数器</em>
+        // 给组件设置浮层显示字符计数器
         .overlay(this.OverlayNode(), {
           align: Alignment.BottomEnd,
           offset: { x: -10, y: -15 }
@@ -91,7 +91,7 @@ struct TextAreaExample {
 
   build() {
     Column() {
-      <em>// 使用Stack使Text覆盖在TextArea上</em>
+      // 使用Stack使Text覆盖在TextArea上
       Stack({ alignContent: Alignment.BottomEnd }) {
         TextArea({
           text: this.text,
@@ -109,7 +109,7 @@ struct TextAreaExample {
           })
           .backgroundColor('#F1F3F5')
 
-        <em>// 自定义右下角的Text组件</em>
+        // 自定义右下角的Text组件
         Text(`${this.textAreaNum}/${this.maxLength}`)
           .fontSize(12)
           .fontColor(this.textAreaNum === this.maxLength ? Color.Red :

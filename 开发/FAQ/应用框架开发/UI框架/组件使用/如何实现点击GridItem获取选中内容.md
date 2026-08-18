@@ -51,7 +51,7 @@ struct GridHighLight {
       Grid() {
         ForEach(this.services, (item: ProductInfo) => {
           GridItem() {
-      <em>      // 父组件中传递数据</em>
+            // 父组件中传递数据
             ToDoItem({ content: item.productName, selectIndex: item.id });
           };
         }, (item: ProductInfo): string => JSON.stringify(item));
@@ -69,7 +69,7 @@ struct GridHighLight {
   }
 }
 
-<em>// </em><em>将GridItem内容抽取为独立组件</em>
+// 将GridItem内容抽取为独立组件
 @Component
 export default struct ToDoItem {
   private content?: string;
@@ -89,13 +89,13 @@ export default struct ToDoItem {
       .width('100%')
       .height(60)
       .onClick(() => {
-     <em>   // 通过状态变量控制背景色变化</em>
+        // 通过状态变量控制背景色变化
         this.isComplete = !this.isComplete;
         if (this.selectIndex) {
           if (this.isComplete) {
             this.selectIndexList.push(this.selectIndex);
           } else {
-        <em>    // 利用indexOf判断是否存在selectIndexList中</em>
+            // 利用indexOf判断是否存在selectIndexList中
             let index = this.selectIndexList.indexOf(this.selectIndex);
             if (index !== -1) {
               this.selectIndexList.splice(index, 1);

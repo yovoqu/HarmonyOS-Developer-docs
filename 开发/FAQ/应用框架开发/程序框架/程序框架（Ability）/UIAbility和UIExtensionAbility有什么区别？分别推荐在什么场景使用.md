@@ -11,7 +11,7 @@ UIAbility 用于实现独立界面，UIExtensionAbility 用于功能扩展。
 import { UIAbility } from "@kit.AbilityKit";
 import { window } from "@kit.ArkUI";
 
-<em>// MainAbility.ets</em>
+// MainAbility.ets
 export default class MainAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage) {
     windowStage.loadContent('pages/MainPage', (err) => {

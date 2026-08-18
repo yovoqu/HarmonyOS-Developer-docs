@@ -26,9 +26,9 @@ import { hvigor } from '@ohos/hvigor'
 import * as fs from 'fs';
 import * as path from 'path';
 
-<em>// 定义要删除的文件路径和文件格式</em>
-const dir = 'D:/Program/HarmonyProject/XXXXXX'; <em>// 替换为你的目标路径</em>
-const ext = '.app'; <em>// 要删除的文件格式</em>
+// 定义要删除的文件路径和文件格式
+const dir = 'D:/Program/HarmonyProject/XXXXXX'; // 替换为你的目标路径
+const ext = '.app'; // 要删除的文件格式
 hvigor.afterNodeEvaluate((hvigorNode)=>{
     const context = hvigorNode.getContext(OhosPluginId.OHOS_APP_PLUGIN)
     if (context && context.getBuildProfileOpt) {
@@ -60,7 +60,7 @@ function deleteOldApp(dir: string, ext: string): void {
             console.info(file.name)
             const filePath = path.join(dir, file.name);
             if (file.name.endsWith(ext)) {
-               <em> // 如果是目标文件，删除</em>
+                // 如果是目标文件，删除
                 fs.unlink(filePath, err => {
                     if (err) {
                         console.error(`Error occurred while deleting file ${filePath}:`, err);

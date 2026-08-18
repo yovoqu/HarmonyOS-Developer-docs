@@ -53,7 +53,7 @@ List({ scroller: this.categoryScroller }) {
     });
   };
 
-<em>  // A~L字母分组</em>
+  // A~L字母分组
   ForEach(this.groupNameList, (item: string) => {
     ListItemGroup({ header: this.itemHead(item) }) {
       ForEach(this.getCitiesWithGroupName(item), (item: Category) => {
@@ -84,9 +84,9 @@ this.categoryScroller.scrollToIndex(index + 2, true, ScrollAlign.START);
   placement: Placement.Left,
   radius: '50%',
   mask: { color: '#33000000' },
-  popupColor: Color.Transparent, <em>// 设置气泡的背景色</em>
-  arrowHeight: 10, <em>// 设置气泡箭头高度</em>
-  arrowWidth: 20, <em>// 设置气泡箭头宽度</em>
+  popupColor: Color.Transparent, // 设置气泡的背景色
+  arrowHeight: 10, // 设置气泡箭头高度
+  arrowWidth: 20, // 设置气泡箭头宽度
   offset: { x: -10 },
 });
 ```
@@ -188,7 +188,7 @@ export default struct CityList {
         });
       };
 
-     <em> // A~L字母分组</em>
+      // A~L字母分组
       ForEach(this.groupNameList, (item: string) => {
         ListItemGroup({ header: this.itemHead(item) }) {
           ForEach(this.getCitiesWithGroupName(item), (item: Category) => {
@@ -210,11 +210,11 @@ export default struct CityList {
     .scrollBar(BarState.Off)
     .sticky(StickyStyle.Header)
     .onTouch(() => {
-     <em> // 分列表触摸滚动，isClickScroll=false，防止滚动过程中与导航列表触发滚动冲突</em>
+      // 分列表触摸滚动，isClickScroll=false，防止滚动过程中与导航列表触发滚动冲突
       this.isClickScroll = false;
     })
     .onScrollIndex((start: number) => {
-     <em> // 通过selectGroupIndex状态变量与start联动控制导航列表选中状态</em>
+      // 通过selectGroupIndex状态变量与start联动控制导航列表选中状态
       if (!this.isClickScroll) {
         this.selectGroupIndex = start - 2;
       }
@@ -242,10 +242,10 @@ export default struct CityList {
               .backgroundColor(index === this.selectGroupIndex ? 0xCCCCCC : Color.Transparent)
               .borderRadius(15)
               .onClick(() => {
-               <em> // 导航列表选中isClickScroll=true，防止与分列表滚动过程中带动导航列表状态变化</em>
+                // 导航列表选中isClickScroll=true，防止与分列表滚动过程中带动导航列表状态变化
                 this.isClickScroll = true;
                 this.selectGroupIndex = index;
-              <em>  // 通过导航选中selectGroupIndex与Scroller控制分列表滚动到对应位置</em>
+                // 通过导航选中selectGroupIndex与Scroller控制分列表滚动到对应位置
                 this.categoryScroller.scrollToIndex(index + 2, true, ScrollAlign.START);
                 this.handlePopup = !this.handlePopup;
                 setTimeout(() => {
@@ -257,9 +257,9 @@ export default struct CityList {
                 placement: Placement.Left,
                 radius: '50%',
                 mask: { color: '#33000000' },
-                popupColor: Color.Transparent,<em> // 设置气泡的背景色</em>
-                arrowHeight: 10,<em> // 设置气泡箭头高度</em>
-                arrowWidth: 20,<em> // 设置气泡箭头宽度</em>
+                popupColor: Color.Transparent, // 设置气泡的背景色
+                arrowHeight: 10, // 设置气泡箭头高度
+                arrowWidth: 20, // 设置气泡箭头宽度
                 offset: { x: -10 },
               });
           };

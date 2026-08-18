@@ -21,7 +21,7 @@ export struct GetRawfile {
       }
       let fileBuffer: ArrayBufferLike = value.buffer;
       let context = this.getUIContext()
-        .getHostContext(); <em>// Obtain the application sandbox path for storing temporary files, and perform null checking</em>
+        .getHostContext(); // Obtain the application sandbox path for storing temporary files, and perform null checking
       let filePath = context!.filesDir + '/test.txt';
       console.info('testTag-filePath:' + filePath);
       let file = fileIo.openSync(filePath, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);

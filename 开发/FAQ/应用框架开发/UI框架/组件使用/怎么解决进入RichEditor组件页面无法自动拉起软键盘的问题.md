@@ -37,7 +37,7 @@ struct Index {
 
   build() {
     Column() {
-      <em>// 内部设置了defaultFocus属性为true。</em>
+      // 内部设置了defaultFocus属性为true。
       RichEditor({ controller: this.controller })
         .focusable(true)
         .onFocus(() => {
@@ -85,7 +85,7 @@ struct Solution2 {
   controller: RichEditorController = new RichEditorController();
 
   aboutToAppear(): void {
-    focusControl.requestFocus('editor'); <em>// </em><em>页面展示时获取</em>
+    focusControl.requestFocus('editor'); // 页面展示时获取
   }
 
   build() {
@@ -97,7 +97,7 @@ struct Solution2 {
         })
         .key('editor')
         .onAppear(() => {
-          focusControl.requestFocus('editor'); <em>// 组件挂载时</em>
+          focusControl.requestFocus('editor'); // 组件挂载时
         })
     }
     .width('100%')
@@ -157,7 +157,7 @@ struct Solution2 {
   controller: RichEditorController = new RichEditorController();
 
   aboutToAppear(): void {
-    focusControl.requestFocus('editor'); <em>// 页面展示时获取</em>
+    focusControl.requestFocus('editor'); // 页面展示时获取
   }
 
   build() {
@@ -169,7 +169,7 @@ struct Solution2 {
         })
         .key('editor')
         .onAppear(() => {
-          focusControl.requestFocus('editor'); <em>// </em><em>组件挂载时</em>
+          focusControl.requestFocus('editor'); // 组件挂载时
         })
     }
     .width('100%')

@@ -34,7 +34,7 @@ overlayExample() {
   .padding({ left: 20, right: 20 })
   .width('100%')
   .height(56)
-  .hitTestBehavior(HitTestMode.Transparent); <em>// 配置浮层不阻塞交互</em>
+  .hitTestBehavior(HitTestMode.Transparent); // 配置浮层不阻塞交互
 }
 ```
 
@@ -82,7 +82,7 @@ struct TabsExample {
     .padding({ left: 20, right: 20 })
     .width('100%')
     .height(56)
-    .hitTestBehavior(HitTestMode.Transparent); <em>// </em><em>配置浮层不阻塞交互</em>
+    .hitTestBehavior(HitTestMode.Transparent); // 配置浮层不阻塞交互
   }
 
   build() {

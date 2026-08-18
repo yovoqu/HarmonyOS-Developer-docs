@@ -25,7 +25,7 @@ function genGcmParamsSpec() {
   let tagBlob: cryptoFramework.DataBlob = {
     data: dataTag
   };
- <em> // GCM的authTag在加密时从doFinal结果中获取，在解密时填入init函数的params参数中</em>
+  // GCM的authTag在加密时从doFinal结果中获取，在解密时填入init函数的params参数中
   let gcmParamsSpec: cryptoFramework.GcmParamsSpec = {
     iv: ivBlob,
     aad: { data: new Uint8Array() },
@@ -35,12 +35,12 @@ function genGcmParamsSpec() {
   return gcmParamsSpec;
 }
 let gcmParams = genGcmParamsSpec();
-<em>// 加密消息</em>
+// 加密消息
 function encryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob) {
   let cipher = cryptoFramework.createCipher('AES256|GCM|NoPadding');
   cipher.initSync(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, gcmParams);
   let encryptUpdate = cipher.updateSync(plainText);
- <em> // gcm模式加密doFinal时传入空，获得tag数据，并更新至gcmParams对象中。</em>
+  // gcm模式加密doFinal时传入空，获得tag数据，并更新至gcmParams对象中。
   gcmParams.authTag = cipher.doFinalSync(null);
   return encryptUpdate;
 }
@@ -173,7 +173,7 @@ function genGcmParamsSpec() {
   let tagBlob: cryptoFramework.DataBlob = {
     data: dataTag
   };
-<em>  // GCM的authTag在加密时从doFinal结果中获取，在解密时填入init函数的params参数中</em>
+  // GCM的authTag在加密时从doFinal结果中获取，在解密时填入init函数的params参数中
   let gcmParamsSpec: cryptoFramework.GcmParamsSpec = {
     iv: ivBlob,
     aad: { data: new Uint8Array() },
@@ -185,13 +185,13 @@ function genGcmParamsSpec() {
 
 let gcmParams = genGcmParamsSpec();
 
-<em>// 加密消息</em>
+// 加密消息
 function encryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob) {
   let cipher = cryptoFramework.createCipher('AES256|GCM|NoPadding');
   cipher.initSync(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, gcmParams);
   let encryptUpdate = cipher.updateSync(plainText);
-<em>  // gcm模式加密doFinal时传入空，获得tag数据，并更新至gcmParams对象中。</em>
-<em>  // 数据量小直接调用doFinal，返回结果通过Base64编码与其他端一致</em>
+  // gcm模式加密doFinal时传入空，获得tag数据，并更新至gcmParams对象中。
+  // 数据量小直接调用doFinal，返回结果通过Base64编码与其他端一致
   gcmParams.authTag = cipher.doFinalSync(null);
   return encryptUpdate;
 }
@@ -212,7 +212,7 @@ export function aesMain() {
   let encryptText = encryptMessage(symKey, plainText);
   let encBuffer: ArrayBuffer = new ArrayBuffer(encryptText.data.length + gcmParams.authTag?.data.length);
   let encResult: Uint8Array = new Uint8Array(encBuffer);
-<em>  // 密文与authTag拼接，通过Base64编码即为其他端一致格式</em>
+  // 密文与authTag拼接，通过Base64编码即为其他端一致格式
   encResult.set(encryptText.data, 0);
   encResult.set(gcmParams.authTag.data, encryptText.data.length);
   let base64 = new util.Base64Helper();

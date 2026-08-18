@@ -9,15 +9,15 @@
 使用Progress组件配合animateTo来实现进度条循环动画，动画效果失效无反应。
  
 ```text
-<em>/** </em><em>进度条最小值 */</em>
+/** 进度条最小值 */
 const PROGRESS_MIN1 = 0;
-<em>/** </em><em>进度条最大值 */</em>
+/** 进度条最大值 */
 const PROGRESS_MAX1 = 100;
 
 @Entry
 @Component
 struct ProgressAnimWithProblem {
-<em>  /** 进度条当前值 */</em>
+  /** 进度条当前值 */
   @State progressValue: number = PROGRESS_MIN1;
   uiContext: UIContext | undefined = undefined;
 
@@ -29,7 +29,7 @@ struct ProgressAnimWithProblem {
     };
     this.uiContext?.animateTo({
       duration: 2000,
-      iterations: -1, <em>// 设置-1表示动画无限循环</em>
+      iterations: -1, // 设置-1表示动画无限循环
     }, () => {
       this.progressValue = PROGRESS_MAX1;
     });
@@ -38,17 +38,17 @@ struct ProgressAnimWithProblem {
   build() {
     Column({ space: 15 }) {
       Progress({
-        value: this.progressValue, <em>// 进度条当前进度值</em>
-        total: PROGRESS_MAX1, <em>// </em><em>进度条总长</em>
-        type: ProgressType.Ring, <em>// </em><em>进度条类型，分为Linear线性样式、ScaleRing环形有刻度样式、Ring环形无刻度样式、Eclipse圆形样式、Capsule</em><em>胶囊样式</em>
+        value: this.progressValue, // 进度条当前进度值
+        total: PROGRESS_MAX1, // 进度条总长
+        type: ProgressType.Ring, // 进度条类型，分为Linear线性样式、ScaleRing环形有刻度样式、Ring环形无刻度样式、Eclipse圆形样式、Capsule胶囊样式
       })
         .style({
-          strokeWidth: 10, <em>// 进度条宽度，默认4vp</em>
-          enableSmoothEffect: true <em>// </em><em>进度平滑动效的开关。开启平滑动效后设置进度，进度会从当前值渐变至设定值，否则进度从当前值突变至设定值，默认值true</em>
+          strokeWidth: 10, // 进度条宽度，默认4vp
+          enableSmoothEffect: true // 进度平滑动效的开关。开启平滑动效后设置进度，进度会从当前值渐变至设定值，否则进度从当前值突变至设定值，默认值true
         })
-        .width(100) <em>// 进度条组件宽度</em>
-        .color('#0A59F7')<em> </em><em>// 进度条前景色</em>
-        .backgroundColor(Color.White);<em> </em><em>// 进度条背景色</em>
+        .width(100) // 进度条组件宽度
+        .color('#0A59F7') // 进度条前景色
+        .backgroundColor(Color.White); // 进度条背景色
     }
     .width('100%')
     .height('100%')
@@ -90,37 +90,37 @@ animateTo适用于组件自身属性动画场景（如尺寸、颜色改变等�
 
  
 ```text
-<em>/** </em><em>进度条最小值 */</em>
+/** 进度条最小值 */
 const PROGRESS_MIN = 0;
-<em>/** </em><em>进度条最大值 */</em>
+/** 进度条最大值 */
 const PROGRESS_MAX = 100;
 
 @Entry
 @Component
 struct ProgressAnim {
- <em> /** 进度条当前值 */</em>
+  /** 进度条当前值 */
   @State progressValue: number = PROGRESS_MIN;
 
 
   aboutToAppear(): void {
-  <em>  // 进入界面时即启动进度条动画</em>
+    // 进入界面时即启动进度条动画
     this.startAnim();
   };
 
   build() {
     Column({ space: 15 }) {
       Progress({
-        value: this.progressValue,<em> </em><em>// 进度条当前进度值</em>
-        total: PROGRESS_MAX,<em> </em><em>// 进度条总长</em>
-        type: ProgressType.Ring, <em>// 进度条类型，分为Linear线性样式、ScaleRing环形有刻度样式、Ring环形无刻度样式、Eclipse圆形样式、Capsule</em><em>胶囊样式</em>
+        value: this.progressValue, // 进度条当前进度值
+        total: PROGRESS_MAX, // 进度条总长
+        type: ProgressType.Ring, // 进度条类型，分为Linear线性样式、ScaleRing环形有刻度样式、Ring环形无刻度样式、Eclipse圆形样式、Capsule胶囊样式
       })
         .style({
-          strokeWidth: 10, <em>// </em><em>进度条宽度，默认4vp</em>
-          enableSmoothEffect: true <em>// </em><em>进度平滑动效的开关。开启平滑动效后设置进度，进度会从当前值渐变至设定值，否则进度从当前值突变至设定值，默认值true</em>
+          strokeWidth: 10, // 进度条宽度，默认4vp
+          enableSmoothEffect: true // 进度平滑动效的开关。开启平滑动效后设置进度，进度会从当前值渐变至设定值，否则进度从当前值突变至设定值，默认值true
         })
-        .width(100)<em> </em><em>// 进度条组件宽度</em>
-        .color('#0A59F7') <em>// 进度条前景色</em>
-        .backgroundColor(Color.White);<em> </em><em>// 进度条背景色</em>
+        .width(100) // 进度条组件宽度
+        .color('#0A59F7') // 进度条前景色
+        .backgroundColor(Color.White); // 进度条背景色
     }
     .width('100%')
     .height('100%')
@@ -128,14 +128,14 @@ struct ProgressAnim {
     .justifyContent(FlexAlign.Center);
   };
 
- <em> // 开启进度条动画</em>
+  // 开启进度条动画
   private startAnim() {
-   <em> // intervalId为null时表示未启动interval</em>
+    // intervalId为null时表示未启动interval
     setInterval(() => {
-      <em>// 使用setInterval()方法重复执行以下代码片段，在每次调用之间具有固定的时间间隔20毫秒</em>
-<em>      // 每次进度值+1</em>
+      // 使用setInterval()方法重复执行以下代码片段，在每次调用之间具有固定的时间间隔20毫秒
+      // 每次进度值+1
       this.progressValue++;
-     <em> // 当进度值达到最大值时，将进度值重置为最小值，循环往复</em>
+      // 当进度值达到最大值时，将进度值重置为最小值，循环往复
       if (this.progressValue == PROGRESS_MAX) {
         this.progressValue = PROGRESS_MIN;
       };

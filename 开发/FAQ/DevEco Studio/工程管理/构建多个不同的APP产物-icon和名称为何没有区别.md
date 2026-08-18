@@ -37,16 +37,16 @@ app.json5中的icon和label改变的是设置中显示的图标和名称。例�
         "signingConfig": "default",
         "compatibleSdkVersion": "5.0.0(12)",
         "runtimeOS": "HarmonyOS",
-        "icon":"$media:default_icon", <em>// 定义default的icon</em>
-        "label":"$string:default_name", <em>// </em><em>定义default的label</em>
+        "icon":"$media:default_icon", // 定义default的icon
+        "label":"$string:default_name", // 定义default的label
       },
       {
         "name": "productA",
         "signingConfig": "default",
         "compatibleSdkVersion": "5.0.0(12)",
         "runtimeOS": "HarmonyOS",
-        "icon":"$media:productA_icon",<em> // 定义productA的icon</em>
-        "label":"$string:productA_name", <em>// 定义productA的label</em>
+        "icon":"$media:productA_icon", // 定义productA的icon
+        "label":"$string:productA_name", // 定义productA的label
       },
     ],
     "buildModeSet": [

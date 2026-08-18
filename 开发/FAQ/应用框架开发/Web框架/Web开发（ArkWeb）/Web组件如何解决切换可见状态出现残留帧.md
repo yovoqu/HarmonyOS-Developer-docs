@@ -94,14 +94,14 @@ struct WebPages {
 @Component
 export struct TabOne {
   @State webviewController: webview.WebviewController = new webview.WebviewController();
-  <em>// 用户标识</em>
+  // 用户标识
   @StorageProp('userInfo') userInfo: string = '';
- <em> // 监听用户登录及退出操作</em>
+  // 监听用户登录及退出操作
   @StorageProp('isLogged') @Watch('isLoggedChange') isLogged: boolean = false;
   loadNewUrl: () => void = () => {
-  <em>  // 通过loadUrl加载网页前，将Web组件设置为onActive状态</em>
+    // 通过loadUrl加载网页前，将Web组件设置为onActive状态
     this.webviewController.onActive();
-  <em>  // 此处地址实际使用过程中替换为三个不同的真实地址</em>
+    // 此处地址实际使用过程中替换为三个不同的真实地址
     if (this.userInfo === '1') {
       this.webviewController.loadUrl('xx.xx.xx');
     } else if (this.userInfo === '2') {
@@ -112,13 +112,13 @@ export struct TabOne {
   };
 
   aboutToAppear(): void {
-  <em>  // 订阅网页加载事件，其它Tab页面会通知加载网页</em>
+    // 订阅网页加载事件，其它Tab页面会通知加载网页
     emitter.on('loadUrl', this.loadNewUrl);
   }
 
   isLoggedChange() {
     if (!this.isLogged) {
-     <em> // 当用户退出时，将Web组件设置为onActive状态后加载空URL</em>
+      // 当用户退出时，将Web组件设置为onActive状态后加载空URL
       this.webviewController.onActive();
       this.webviewController.loadUrl('about:blank');
     }
@@ -129,7 +129,7 @@ export struct TabOne {
   }
 
   getSrc() {
-  <em>  // 此处地址实际使用过程中替换为三个不同的真实地址</em>
+    // 此处地址实际使用过程中替换为三个不同的真实地址
     let src = 'xx.xx.xx';
     if (this.userInfo === '1') {
       src = 'xx.xx.xx';
@@ -145,7 +145,7 @@ export struct TabOne {
       controller: this.webviewController
     })
       .onPageEnd((event) => {
-      <em>  // Web组件在后台时若一直保持onActive状态，可能会对功耗有影响。此处判断加载的URL，当加载空URL完成时将Web组件设置回onInactive状态</em>
+        // Web组件在后台时若一直保持onActive状态，可能会对功耗有影响。此处判断加载的URL，当加载空URL完成时将Web组件设置回onInactive状态
         if (event.url == 'about:blank') {
           this.webviewController.onInactive();
         }
@@ -168,7 +168,7 @@ export struct TabTwo {
       Text(`当前登录状态：${this.isLogged ? '已登录' : '未登录'}`);
       Text(`当前用户：${this.userInfo}`);
 
-     <em> // 模拟用户登录退出操作</em>
+      // 模拟用户登录退出操作
       Button('登录用户1 网页1')
         .onClick(() => {
           AppStorage.setOrCreate('isLogged', true);

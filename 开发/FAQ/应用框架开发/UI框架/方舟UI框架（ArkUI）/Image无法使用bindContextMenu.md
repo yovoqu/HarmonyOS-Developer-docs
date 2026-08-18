@@ -32,7 +32,7 @@ struct Index {
       }
       .bindContextMenu(this.menuBuilder, ResponseType.LongPress)
       .onDragStart(() => {
-      <em>  // Close menu when dragging</em>
+        // Close menu when dragging
         this.getUIContext().getContextMenuController().close()
       })
 

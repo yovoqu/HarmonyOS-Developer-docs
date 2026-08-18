@@ -34,17 +34,17 @@
 @Entry
 @Component
 struct ImageScalingDemo {
-  @State picWidth: number = 100; <em>// Image组件的宽度</em>
+  @State picWidth: number = 100; // Image组件的宽度
 
 
   build() {
     Column({ space: 10 }) {
-     <em> // 可更换为其他图片资源</em>
+      // 可更换为其他图片资源
       Image($r('app.media.startIcon'))
         .width(this.picWidth)
-        .objectFit(ImageFit.Contain) <em>// 设置图片缩放时保持宽高比，且不超出组件边界</em>
+        .objectFit(ImageFit.Contain) // 设置图片缩放时保持宽高比，且不超出组件边界
         .interpolation(ImageInterpolation.High) // 设置图片的插值效果为Cubic插值
-        .autoResize(false); <em>// 关闭图源自动缩放</em>
+        .autoResize(false); // 关闭图源自动缩放
       Button('点击图片放大').onClick(() => this.picWidth += 50);
       Button('点击图片缩小').onClick(() => this.picWidth -= 50);
     }

@@ -78,11 +78,11 @@ struct GetStageConfigData {
             console.info(`版本描述：${bundleInfo.versionName}`);
             console.info(`分布式场景下应用兼容的最低版本：${bundleInfo.minCompatibleVersionCode}`);
             console.info(`应用运行目标版本：${bundleInfo.targetVersion}`);
-           <em> // 权限信息：bundleFlags需要包含GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION</em>
+            // 权限信息：bundleFlags需要包含GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION
             let permissions = bundleInfo.reqPermissionDetails;
             console.info(`应用运行时需向系统申请的权限集合的详细信息：${JSON.stringify(permissions)}`);
 
-           <em> // 应用程序的配置信息，GET_BUNDLE_INFO_WITH_APPLICATION</em>
+            // 应用程序的配置信息，GET_BUNDLE_INFO_WITH_APPLICATION
             let applicationInfo = bundleInfo.appInfo;
             console.info(`bundleName：${applicationInfo.name}`);
             let descriptionId = applicationInfo.descriptionId;
@@ -99,7 +99,7 @@ struct GetStageConfigData {
               console.info(`icon: ${buffer.from(icon.buffer).toString()}`);
             }
 
-           <em> // 获取模块配置信息, GET_BUNDLE_INFO_WITH_HAP_MODULE</em>
+            // 获取模块配置信息, GET_BUNDLE_INFO_WITH_HAP_MODULE
             let hapInfos = bundleInfo.hapModulesInfo;
             for (let hapInfo of hapInfos) {
               console.info(`模块名称：${hapInfo.name}`);
@@ -109,12 +109,12 @@ struct GetStageConfigData {
               for (let ability of abilitiesInfo) {
                 console.info(`ability信息: ${JSON.stringify(ability)}`);
               }
-             <em> // 获取当前模块所有ExtensionAbility的信息,需要额外的GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY</em>
+              // 获取当前模块所有ExtensionAbility的信息,需要额外的GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY
               let extensionAbilitiesInfo = hapInfo.extensionAbilitiesInfo;
               for (let extensionAbilityInfo of extensionAbilitiesInfo) {
                 console.info(`extensionAbility信息: ${JSON.stringify(extensionAbilityInfo)}`);
               }
-            <em>  // 获取模块元信息, 需要额外的GET_BUNDLE_INFO_WITH_METADATA</em>
+              // 获取模块元信息, 需要额外的GET_BUNDLE_INFO_WITH_METADATA
               let metaData = hapInfo.metadata;
               console.info(`当前模块的元数据: ${JSON.stringify(metaData)}`);
             }

@@ -7,13 +7,13 @@
 **问题现象**
  
 ```ArkTS
-<em>// src/main/ets/api/AppInterfaces.ets</em>
+// src/main/ets/api/AppInterfaces.ets
 import { DemoService } from "../service/DemoService";
 class AppInterfaces {
   demoService?: DemoService;
 }
 export default new AppInterfaces() as AppInterfaces;
-<em>// Index.ets</em>
+// Index.ets
 export AppInterfaces from './src/main/ets/api/AppInterfaces';
 ```
  

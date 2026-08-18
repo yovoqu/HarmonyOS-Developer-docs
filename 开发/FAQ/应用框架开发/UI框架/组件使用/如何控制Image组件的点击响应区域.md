@@ -32,7 +32,7 @@
 struct Index1 {
   build() {
     Column() {
-      <em>// 本地资源，使用时自行替换</em>
+      // 本地资源，使用时自行替换
       Image($r('app.media.startIcon'))
         .width(150)
         .height(150)
@@ -67,7 +67,7 @@ struct Index1 {
 struct Index3 {
   build() {
     Stack() {
-     <em> // 本地资源，使用时自行替换</em>
+      // 本地资源，使用时自行替换
       Image($r('app.media.startIcon'))
         .width('300')
         .height('300')
@@ -78,7 +78,7 @@ struct Index3 {
       .height('280')
       .justifyContent(FlexAlign.Center)
       .backgroundColor(Color.Gray)
-      .opacity(0.5) <em>//实际使用可以把不透明度降为0</em>
+      .opacity(0.5) //实际使用可以把不透明度降为0
       .onClick(() => {
         this.getUIContext().getPromptAction().showToast({
           message: '已触发'

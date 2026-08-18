@@ -22,7 +22,7 @@
 #include "myLibrary.h" 
 int main() {
      MyType obj;
-     <em>// Use custom types</em>
+     // Use custom types
      return 0;
 }
 ```

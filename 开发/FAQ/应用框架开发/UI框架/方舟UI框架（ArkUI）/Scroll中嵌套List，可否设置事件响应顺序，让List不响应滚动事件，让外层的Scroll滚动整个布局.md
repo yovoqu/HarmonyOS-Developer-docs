@@ -27,8 +27,8 @@ export struct ScrollNestingList {
           }, (item: string) => item)
         }
         .nestedScroll({
-          scrollForward: NestedScrollMode.PARENT_FIRST, <em>// Triggering the parent scroll first when scrolling down</em>
-          scrollBackward: NestedScrollMode.SELF_FIRST  <em>// When scrolling up, the current List is triggered first</em>
+          scrollForward: NestedScrollMode.PARENT_FIRST, // Triggering the parent scroll first when scrolling down
+          scrollBackward: NestedScrollMode.SELF_FIRST  // When scrolling up, the current List is triggered first
         })
         .divider({
           strokeWidth: 1,

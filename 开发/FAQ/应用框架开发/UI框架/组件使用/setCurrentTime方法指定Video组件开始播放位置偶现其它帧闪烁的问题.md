@@ -24,7 +24,7 @@ struct VideoExamplePage {
   build() {
     Column() {
       Video({
-        src: $rawfile('videoTest.mp4'), <em>// 替换已有视频资源</em>
+        src: $rawfile('videoTest.mp4'), // 替换已有视频资源
         currentProgressRate: this.curRate,
         controller: this.controller
       })
@@ -36,13 +36,13 @@ struct VideoExamplePage {
           if (error != undefined) {
             console.error(`onPrepared is ${error.duration}`);
             this.totalTime = error.duration;
-            this.controller.setCurrentTime(10, SeekMode.Accurate); <em>// </em><em>从第十秒开始播放</em>
+            this.controller.setCurrentTime(10, SeekMode.Accurate); // 从第十秒开始播放
           }
         });
       Row() {
         Button('setTime')
           .onClick(() => {
-            this.controller.setCurrentTime(10, SeekMode.Accurate); <em>// 精准跳转到视频的10s位置</em>
+            this.controller.setCurrentTime(10, SeekMode.Accurate); // 精准跳转到视频的10s位置
           })
           .margin(2);
       };
@@ -93,7 +93,7 @@ interface DurationObject {
   if (error != undefined) {
     console.info(`onPrepared is ${error.duration}`);
     this.totalTime = error.duration;
-    this.controller.setCurrentTime(10, SeekMode.Accurate);<em> </em><em>// 从第十秒开始播放</em>
+    this.controller.setCurrentTime(10, SeekMode.Accurate); // 从第十秒开始播放
     this.controller.start();
   }
 })
@@ -116,7 +116,7 @@ struct VideoExamplePage {
   build() {
     Column() {
       Video({
-        src: $rawfile('example.mp4'), <em>// 替换已有视频资源</em>
+        src: $rawfile('example.mp4'), // 替换已有视频资源
         currentProgressRate: this.curRate,
         controller: this.controller
       })
@@ -127,7 +127,7 @@ struct VideoExamplePage {
           if (error != undefined) {
             console.info(`onPrepared is ${error.duration}`);
             this.totalTime = error.duration;
-            this.controller.setCurrentTime(10, SeekMode.Accurate); <em>// 从第十秒开始播放</em>
+            this.controller.setCurrentTime(10, SeekMode.Accurate); // 从第十秒开始播放
             this.controller.start();
           }
         })
@@ -135,7 +135,7 @@ struct VideoExamplePage {
       Row() {
         Button('setTime')
           .onClick(() => {
-            this.controller.setCurrentTime(10, SeekMode.Accurate);<em> </em><em>// 精准跳转到视频的10s位置</em>
+            this.controller.setCurrentTime(10, SeekMode.Accurate); // 精准跳转到视频的10s位置
           })
           .margin(2);
       };

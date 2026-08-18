@@ -72,7 +72,7 @@ Tid:63533, Name:com.hx.example
 static int TestAssertFail(int denominator) 
 {
     int numerator = 10;
-   <em> // 断言：分母不能为零</em>
+    // 断言：分母不能为零
     assert(denominator != 0);
     return numerator / denominator;
 }
@@ -215,9 +215,9 @@ A：见下表。
   
 ```text
 LastFatalMessage:[(<文件名>)(<napi_fatal_error>)] FATAL ERROR: <location参数：错误发生位置> <message参数：错误信息>
-<em>// napi_fatal_error函数</em>
+// napi_fatal_error函数
 void napi_fatal_error(const char* location, size_t location_len, const char* message, size_t message_len);
-<em>// 接收四个参数，一个位置信息，一个错误信息，两个长度参数。</em>
+// 接收四个参数，一个位置信息，一个错误信息，两个长度参数。
 ```
  如下案例中location信息为(null)，代表传入的值为nullptr，错误信息为init failed。
 
@@ -247,11 +247,11 @@ Tid:29506, Name:com.hx.example
 ```text
 static napi_value FatalError(napi_env env, napi_callback_info info)
 {
-   <em> // 请注意，使用napi_fatal_error函数会导致应用进程直接终止，因此应该谨慎使用，仅在遇到无法恢复的严重错误时才应该调用该函数</em>
-<em>    // 模拟一个致命错误条件</em>
+    // 请注意，使用napi_fatal_error函数会导致应用进程直接终止，因此应该谨慎使用，仅在遇到无法恢复的严重错误时才应该调用该函数
+    // 模拟一个致命错误条件
     bool errorCondition = true;
     if (errorCondition) {
-       <em> // 创建一个致命错误信息</em>
+        // 创建一个致命错误信息
         napi_fatal_error(nullptr, NAPI_AUTO_LENGTH, "init failed", NAPI_AUTO_LENGTH);
     }
     return nullptr;
@@ -307,7 +307,7 @@ Tid:11548, Name:.demo.dfxSample
 ```text
 napi_value AbortExit::AbortError(napi_env env, napi_callback_info info)
 {
-  <em>  // 模拟一个致命错误条件</em>
+    // 模拟一个致命错误条件
     bool errorCondition = true;
     if (errorCondition) {
         abort();

@@ -29,7 +29,7 @@ HAR包作为静态共享包，时常作为二方/三方SDK使用，但在HAR包�
   
 ```json
 "dependencies": {
-  "foo": "file:path/to/foo"  <em>// 此处也可以是以当前oh-package.json5所在目录为起点的相对路径</em>
+  "foo": "file:path/to/foo"  // 此处也可以是以当前oh-package.json5所在目录为起点的相对路径
 },
 ```
 
@@ -67,9 +67,9 @@ HAR包作为静态共享包，时常作为二方/三方SDK使用，但在HAR包�
 - 若本地存在foo的源码或者HAR包，想确保foo始终使用您本地的版本，可以在项目级的oh-package.json5中如下配置：
 ```json
 "overrides": {
- <em> // 本地存在"foo"的源码目录，如项目根目录下的foo目录</em>
-<em>  // "foo": "file:./foo"</em>
-<em>  // 本地存在"foo"的HAR文件，如项目根目录下的libs目录中的foo.har</em>
+  // 本地存在"foo"的源码目录，如项目根目录下的foo目录
+  // "foo": "file:./foo"
+  // 本地存在"foo"的HAR文件，如项目根目录下的libs目录中的foo.har
   "foo": "file:./libs/foo.har"
 },
 ```

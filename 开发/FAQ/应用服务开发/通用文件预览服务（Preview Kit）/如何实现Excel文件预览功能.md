@@ -51,25 +51,25 @@ if (!fs.statSync(srcFileDescriptor.fd).isFile()) {
 
 3. 通过UIAbilityContext获取沙箱地址filesDir，fs.openSync打开文件，“readSync/writeSync”执行数据读写，操作完成后调用closeSync释放资源。
 ```text
-let pathDir = this.context.filesDir; <em>// </em><em>通过UIAbilityContext获取沙箱地址filesDir</em>
+let pathDir = this.context.filesDir; // 通过UIAbilityContext获取沙箱地址filesDir
 let filePath = pathDir + '/test.xls';
-<em>// </em><em>以同步方法打开文件或目录。若文件不存在，则创建文件/读写打开</em>
+// 以同步方法打开文件或目录。若文件不存在，则创建文件/读写打开
 let file = fs.openSync(filePath, fs.OpenMode.CREATE | fs.OpenMode.READ_WRITE);
 let bufsize = 4096;
-let buf = new ArrayBuffer(bufsize); <em>//  用于保存读取到的文件数据的缓冲区。</em>
-let off = 0, len = 0, readLen = 0; <em>// </em><em>动态调整目标文件的写入位置. 写入实际读取的字节数,累计已读取的总字节数</em>
+let buf = new ArrayBuffer(bufsize); //  用于保存读取到的文件数据的缓冲区。
+let off = 0, len = 0, readLen = 0; // 动态调整目标文件的写入位置. 写入实际读取的字节数,累计已读取的总字节数
 len = fs.readSync(srcFileDescriptor.fd, buf, { offset: srcFileDescriptor.offset + off, length: bufsize });
 while (len) {
   readLen += len;
   fs.writeSync(file.fd, buf, { offset: off, length: len });
   off = off + len;
-  <em>// </em><em>当剩余未读取的字节数小于当前分块大小时，调整bufsize为剩余大小，避免无效读取</em>
+  // 当剩余未读取的字节数小于当前分块大小时，调整bufsize为剩余大小，避免无效读取
   if ((srcFileDescriptor.length - readLen) < bufsize) {
     bufsize = srcFileDescriptor.length - readLen;
   }
   len = fs.readSync(srcFileDescriptor.fd, buf, { offset: srcFileDescriptor.offset + off, length: bufsize });
 }
-<em>// </em><em>关闭文件或目录</em>
+// 关闭文件或目录
 fs.close(file.fd);
 ```
 
@@ -99,40 +99,40 @@ import { BusinessError } from '@kit.BasicServicesKit';
 struct filePreviewDemo {
   context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
   uiContext: Context = this.getUIContext().getHostContext() as common.Context;
-<em>  // 文件预览信息</em>
+  // 文件预览信息
   private fileInfo: filePreview.PreviewInfo = {
-    title: 'test.xls', <em>// 文件的标题名称</em>
-    uri: 'file://com.example.myapplication/data/storage/el2/base/haps/entry/files/test.xls', <em>// </em><em>文件的uri，此处com.example.myapplication为包名，请按照应用的实际包名替换</em>
-    mimeType: 'application/vnd.ms-excel' <em>// </em><em>文件(夹)的媒体资源类型</em>
+    title: 'test.xls', // 文件的标题名称
+    uri: 'file://com.example.myapplication/data/storage/el2/base/haps/entry/files/test.xls', // 文件的uri，此处com.example.myapplication为包名，请按照应用的实际包名替换
+    mimeType: 'application/vnd.ms-excel' // 文件(夹)的媒体资源类型
   };
 
   copyFile() {
-   <em> // 获取resources/rawfile目录下rawfile文件所在HAP的文件描述符（fd）</em>
+    // 获取resources/rawfile目录下rawfile文件所在HAP的文件描述符（fd）
     let srcFileDescriptor = this.context.resourceManager.getRawFdSync('test.xls');
-    <em>// </em><em>判断文件是否是普通文件。true：是普通文件；false：不是普通文件。</em>
+    // 判断文件是否是普通文件。true：是普通文件；false：不是普通文件。
     if (!fs.statSync(srcFileDescriptor.fd).isFile()) {
       console.error('Not a regular file');
       return;
     }
-    let pathDir = this.context.filesDir; <em>// 通过UIAbilityContext获取沙箱地址filesDir</em>
+    let pathDir = this.context.filesDir; // 通过UIAbilityContext获取沙箱地址filesDir
     let filePath = pathDir + '/test.xls';
-   <em> // 以同步方法打开文件或目录。若文件不存在，则创建文件/读写打开</em>
+    // 以同步方法打开文件或目录。若文件不存在，则创建文件/读写打开
     let file = fs.openSync(filePath, fs.OpenMode.CREATE | fs.OpenMode.READ_WRITE);
     let bufsize = 4096;
-    let buf = new ArrayBuffer(bufsize); <em>//  </em><em>用于保存读取到的文件数据的缓冲区。</em>
-    let off = 0, len = 0, readLen = 0; <em>// </em><em>动态调整目标文件的写入位置. 写入实际读取的字节数,累计已读取的总字节数</em>
+    let buf = new ArrayBuffer(bufsize); //  用于保存读取到的文件数据的缓冲区。
+    let off = 0, len = 0, readLen = 0; // 动态调整目标文件的写入位置. 写入实际读取的字节数,累计已读取的总字节数
     len = fs.readSync(srcFileDescriptor.fd, buf, { offset: srcFileDescriptor.offset + off, length: bufsize });
     while (len) {
       readLen += len;
       fs.writeSync(file.fd, buf, { offset: off, length: len });
       off = off + len;
-    <em>  // 当剩余未读取的字节数小于当前分块大小时，调整bufsize为剩余大小，避免无效读取</em>
+      // 当剩余未读取的字节数小于当前分块大小时，调整bufsize为剩余大小，避免无效读取
       if ((srcFileDescriptor.length - readLen) < bufsize) {
         bufsize = srcFileDescriptor.length - readLen;
       }
       len = fs.readSync(srcFileDescriptor.fd, buf, { offset: srcFileDescriptor.offset + off, length: bufsize });
     }
-   <em> // 关闭文件或目录</em>
+    // 关闭文件或目录
     fs.close(file.fd);
 
   }

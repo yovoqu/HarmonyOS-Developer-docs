@@ -25,7 +25,7 @@
 ```text
 @State swipeRatio = 0;
 backToTabs(swipeRatio){
-  <em>// ...</em>
+  // ...
   event.currentOffset = swipeRatio;
 }
 ```
@@ -46,7 +46,7 @@ backToTabs(swipeRatio){
 ```text
 @State swipeRatio =  `${Math.abs(this.tabsWidth / this.tabsIndex)}vp`;
 backToTabs(swipeRatio){
-  <em>// ...</em>
+  // ...
   event.currentOffset = swipeRatio;
 }
 ```

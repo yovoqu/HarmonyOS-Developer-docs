@@ -34,13 +34,13 @@ base64编码是基于64个可打印字符来表示任意二进制数据的方法
 HarmonyOS提供[Base64Helper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#base64helper9)工具函数[encodeToStringSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#encodetostringsync9)方法将Uint8Array转换为base64编码，使用方法如下：
  
 ```text
-<em>// </em><em>入参为Uint8Array</em>
+// 入参为Uint8Array
 function uint8Array2Base64(uint8Array: Uint8Array): string {
   let base64Helper = new util.Base64Helper();
   return base64Helper.encodeToStringSync(uint8Array);
 }
 
-<em>// </em><em>入参为ArrayBuffer，可转换为Uint8Array后再转base64</em>
+// 入参为ArrayBuffer，可转换为Uint8Array后再转base64
 function arrayBuffer2Base64(arrayBuffer: ArrayBuffer): string {
   return uint8Array2Base64(new Uint8Array(arrayBuffer));
 }
@@ -50,7 +50,7 @@ function arrayBuffer2Base64(arrayBuffer: ArrayBuffer): string {
  
 - **场景一**：应用resources资源文件通过[resourceManager.getMediaContentSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getmediacontentsync10)获取Uint8Array：
 ```text
-<em>// </em><em>开发者根据自身需求传入resource目录下的文件</em>
+// 开发者根据自身需求传入resource目录下的文件
 function readResource2Uint8Array(resource: Resource): Uint8Array {
   let resourceManager = uContext.getHostContext()?.resourceManager;
   return resourceManager!.getMediaContentSync(resource.id);
@@ -59,7 +59,7 @@ function readResource2Uint8Array(resource: Resource): Uint8Array {
 
 - **场景二**：应用沙箱文件通过[fs.readSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsreadsync)获取ArrayBuffer：
 ```text
-<em>// </em><em>传入应用沙箱路径，需要保证路径存在，路径不存在会使应用崩溃</em>
+// 传入应用沙箱路径，需要保证路径存在，路径不存在会使应用崩溃
 function readSandFile2ArrayBuffer(sandFilePath: string): ArrayBuffer {
   let sandFile: fs.File | null = null;
   try {
@@ -82,7 +82,7 @@ function readSandFile2ArrayBuffer(sandFilePath: string): ArrayBuffer {
 
 - **场景三**：使用[PhotoPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-guidelines-photoviewpicker)组件访问图片，用户相册文件通过fs.readSync获取ArrayBuffer：
 ```text
-<em>// </em><em>调用相册管理模块选择指定图片</em>
+// 调用相册管理模块选择指定图片
 async function readUserPhoto2ArrayBuffer(): Promise<ArrayBuffer> {
   let photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
   photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE;
@@ -109,7 +109,7 @@ async function readUserPhoto2ArrayBuffer(): Promise<ArrayBuffer> {
 
 - **场景四**：网络文件通过http模块[request](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#request)请求获取文件ArrayBuffer：
 ```json
-<em>// </em><em>使用网络图片需要确保module.json5中申请了网络权限ohos.permission.INTERNET，网络图片地址url需要实际可用</em>
+// 使用网络图片需要确保module.json5中申请了网络权限ohos.permission.INTERNET，网络图片地址url需要实际可用
 async function readHttpFile2ArrayBuffer(url: string): Promise<ArrayBuffer> {
   try {
     let httpResponse: http.HttpResponse = await http.createHttp().request(url);
@@ -126,7 +126,7 @@ async function readHttpFile2ArrayBuffer(url: string): Promise<ArrayBuffer> {
 
 - **场景五**：[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)通过ImagePacker组件[packToData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagepacker#packtodata13)获取ArrayBuffer：
 ```text
-<em>// </em><em>使用packToData获取PixelMap的ArrayBuffer</em>
+// 使用packToData获取PixelMap的ArrayBuffer
 async function readPixelMap2ArrayBuffer(pixelMap: image.PixelMap,
   packOpts: image.PackingOption): Promise<ArrayBuffer> {
   try {
@@ -155,26 +155,26 @@ import { UIContext } from '@kit.ArkUI';
 
 let uContext: UIContext;
 
-<em>// </em><em>入参为Uint8Array</em>
+// 入参为Uint8Array
 function uint8Array2Base64(uint8Array: Uint8Array): string {
   let base64Helper = new util.Base64Helper();
   return base64Helper.encodeToStringSync(uint8Array);
 }
 
-<em>// </em><em>入参为ArrayBuffer，可转换为Uint8Array后再转base64</em>
+// 入参为ArrayBuffer，可转换为Uint8Array后再转base64
 function arrayBuffer2Base64(arrayBuffer: ArrayBuffer): string {
   return uint8Array2Base64(new Uint8Array(arrayBuffer));
 }
 
 
-<em>// </em><em>开发者根据自身需求传入resource目录下的文件</em>
+// 开发者根据自身需求传入resource目录下的文件
 function readResource2Uint8Array(resource: Resource): Uint8Array {
   let resourceManager = uContext.getHostContext()?.resourceManager;
   return resourceManager!.getMediaContentSync(resource.id);
 }
 
 
-<em>// </em><em>传入应用沙箱路径，需要保证路径存在，路径不存在会使应用崩溃</em>
+// 传入应用沙箱路径，需要保证路径存在，路径不存在会使应用崩溃
 function readSandFile2ArrayBuffer(sandFilePath: string): ArrayBuffer {
   let sandFile: fs.File | null = null;
   try {
@@ -195,7 +195,7 @@ function readSandFile2ArrayBuffer(sandFilePath: string): ArrayBuffer {
 }
 
 
-<em>// </em><em>调用相册管理模块选择指定图片</em>
+// 调用相册管理模块选择指定图片
 async function readUserPhoto2ArrayBuffer(): Promise<ArrayBuffer> {
   let photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
   photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE;
@@ -220,7 +220,7 @@ async function readUserPhoto2ArrayBuffer(): Promise<ArrayBuffer> {
 }
 
 
-<em>// </em><em>使用网络图片需要确保module.json5中申请了网络权限ohos.permission.INTERNET，网络图片地址url需要实际可用</em>
+// 使用网络图片需要确保module.json5中申请了网络权限ohos.permission.INTERNET，网络图片地址url需要实际可用
 async function readHttpFile2ArrayBuffer(url: string): Promise<ArrayBuffer> {
   try {
     let httpResponse: http.HttpResponse = await http.createHttp().request(url);
@@ -235,7 +235,7 @@ async function readHttpFile2ArrayBuffer(url: string): Promise<ArrayBuffer> {
 }
 
 
-<em>// </em><em>使用packToData获取PixelMap的ArrayBuffer</em>
+// 使用packToData获取PixelMap的ArrayBuffer
 async function readPixelMap2ArrayBuffer(pixelMap: image.PixelMap,
   packOpts: image.PackingOption): Promise<ArrayBuffer> {
   try {

@@ -22,9 +22,9 @@ static napi_value TestFunc(napi_env env, napi_callback_info info)
     napi_get_cb_info(env, info, &argc, args , nullptr, nullptr); 
      
     size_t len = 0; 
-    napi_get_value_string_utf8(env, args[0], nullptr, 0, &len);   <em> // Get string length to len </em>
-    char* buf = new char[len+1];                                 <em>  // Allocate a char array of appropriate size</em>
-    napi_get_value_string_utf8(env, args[0], buf, len + 1, &len); <em> // get string </em>
-  <em>  // ... </em>
+    napi_get_value_string_utf8(env, args[0], nullptr, 0, &len);    // Get string length to len 
+    char* buf = new char[len+1];                                   // Allocate a char array of appropriate size
+    napi_get_value_string_utf8(env, args[0], buf, len + 1, &len);  // get string 
+    // ... 
 }
 ```

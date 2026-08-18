@@ -19,7 +19,7 @@
 ```text
 ForEach(this.data, (item: number, i: number) => {
   Stack() {
-   <em> // 开发者需自行配置媒体资源文件</em>
+    // 开发者需自行配置媒体资源文件
     Image($r('app.media.vip_sn_star'))
       .width('100%')
       .height('100%');
@@ -31,14 +31,14 @@ ForEach(this.data, (item: number, i: number) => {
       .height('100%');
   }
   .animation({ duration: 200, curve: Curve.EaseInOut })
-  <em>// 根据位置透明度递减，具体数值需要根据具体情况调整。</em>
+  // 根据位置透明度递减，具体数值需要根据具体情况调整。
   .opacity(1 - 0.4 * (69 +
     (this.getStarPosition(i + this.moveDistance).y - this.maxSize * this.getScale(i + this.moveDistance) / 2)) /
     324)
-  .rotate({ angle: -90 }) <em>// 保持文字端正</em>
+  .rotate({ angle: -90 }) // 保持文字端正
   .width(this.maxSize * this.getScale(i + this.moveDistance))
   .height(this.maxSize * this.getScale(i + this.moveDistance))
- <em> // 位置信息需要添加位移变量（修改部分）</em>
+  // 位置信息需要添加位移变量（修改部分）
   .position({
     x: this.getStarPosition(i + this.moveDistance).x - this.maxSize * this.getScale(i + this.moveDistance) / 2,
     y: this.getStarPosition(i + this.moveDistance).y - this.maxSize * this.getScale(i + this.moveDistance) / 2
@@ -49,7 +49,7 @@ ForEach(this.data, (item: number, i: number) => {
 2. 手势滑动相关代码：
 ```text
 .gesture(
-<em>  // 手势需要触发位移变量的改变（修改部分）</em>
+  // 手势需要触发位移变量的改变（修改部分）
   PanGesture({ direction: PanDirection.Vertical, distance: 20 })
     .onActionUpdate((event: GestureEvent) => {
       console.info(`月亮图片：onActionUpdate event.offsetY = + event.offsetY`);
@@ -58,7 +58,7 @@ ForEach(this.data, (item: number, i: number) => {
           this.moveDistance -= 0.1;
         });
       } else if (event.offsetY > 20) {
-        <em>// 向下滑：回退</em>
+        // 向下滑：回退
         this.uiContext?.animateTo({ duration: 200 }, () => {
           this.moveDistance += 0.1;
         });
@@ -106,11 +106,11 @@ import { Position } from '@kit.ArkUI';
 struct StartPage {
   @State data: number[] = Array.from<number, number>({ length: 30 }, (_, i: number) => i + 1);
   radius: number = 250;
-  starCount: number = 8; <em>// 平均分成8份</em>
+  starCount: number = 8; // 平均分成8份
   maxSize: number = 150;
-  scaleStep: number = 0.8; <em>// 缩放比例递减，每边递减20%。</em>
-  startIndex: number = 0;<em> // 控制滑动窗口的开始索引</em>
-  @State moveDistance: number = 0; <em>// 新增位移变量（修改部分）</em>
+  scaleStep: number = 0.8; // 缩放比例递减，每边递减20%。
+  startIndex: number = 0; // 控制滑动窗口的开始索引
+  @State moveDistance: number = 0; // 新增位移变量（修改部分）
   uiContext: UIContext | undefined = undefined;
 
 
@@ -123,13 +123,13 @@ struct StartPage {
   }
 
 
- <em> // 计算每个点的坐标</em>
+  // 计算每个点的坐标
   private getStarPosition(index: number): Position {
-    const angleStep = 180 / (this.starCount - 1); /<em>/ 平均分starCount份，间距starCount-1段</em>
+    const angleStep = 180 / (this.starCount - 1); // 平均分starCount份，间距starCount-1段
     const angleDeg = Math.min(Math.max(180 - angleStep * index, -90), 270);
- <em>   // 从180°往0°递减</em>
+    // 从180°往0°递减
     const angleRad = angleDeg * Math.PI / 180;
-   <em> // 从右侧0度开始，逆时针画半圆。</em>
+    // 从右侧0度开始，逆时针画半圆。
     const centerX = this.radius;
     const centerY = this.radius;
     const x = centerX + this.radius * Math.cos(angleRad);
@@ -140,7 +140,7 @@ struct StartPage {
   }
 
 
-  /<em>/ 计算每个点的缩放比例</em>
+  // 计算每个点的缩放比例
   private getScale(index: number): number {
     const centerIndex = Math.floor(this.starCount / 2);
     const distanceFromCenter = Math.abs(index - centerIndex);
@@ -151,10 +151,10 @@ struct StartPage {
   build() {
     Stack() {
       Stack({ alignContent: Alignment.Center }) {
-       <em> // 布置月亮图片（修改部分）</em>
+        // 布置月亮图片（修改部分）
         ForEach(this.data, (item: number, i: number) => {
           Stack() {
-            <em>// 开发者需自行配置媒体资源文件</em>
+            // 开发者需自行配置媒体资源文件
             Image($r('app.media.vip_sn_star'))
               .width('100%')
               .height('100%');
@@ -166,14 +166,14 @@ struct StartPage {
               .height('100%');
           }
           .animation({ duration: 200, curve: Curve.EaseInOut })
-        <em>  // 根据位置透明度递减，具体数值需要根据具体情况调整</em>。
+          // 根据位置透明度递减，具体数值需要根据具体情况调整。
           .opacity(1 - 0.4 * (69 +
             (this.getStarPosition(i + this.moveDistance).y - this.maxSize * this.getScale(i + this.moveDistance) / 2)) /
             324)
           .rotate({ angle: -90 }) // 保持文字端正
           .width(this.maxSize * this.getScale(i + this.moveDistance))
           .height(this.maxSize * this.getScale(i + this.moveDistance))
-        <em>  // 位置信息需要添加位移变量（修改部分）</em>
+          // 位置信息需要添加位移变量（修改部分）
           .position({
             x: this.getStarPosition(i + this.moveDistance).x - this.maxSize * this.getScale(i + this.moveDistance) / 2,
             y: this.getStarPosition(i + this.moveDistance).y - this.maxSize * this.getScale(i + this.moveDistance) / 2
@@ -183,16 +183,16 @@ struct StartPage {
       .margin({ left: -this.radius })
       .width(this.radius * 2)
       .height(this.radius * 2)
-      .rotate({ angle: 90 });<em> // 组件旋转90，才符合UI需求。</em>
+      .rotate({ angle: 90 }); // 组件旋转90，才符合UI需求。
 
 
-    <em>  // 增加一层覆盖在上面处理手势</em>
+      // 增加一层覆盖在上面处理手势
       Stack() {
       }
       .width(this.radius * 2)
       .height(this.radius * 2)
       .gesture(
-      <em>  // 手势需要触发位移变量的改变（修改部分）</em>
+        // 手势需要触发位移变量的改变（修改部分）
         PanGesture({ direction: PanDirection.Vertical, distance: 20 })
           .onActionUpdate((event: GestureEvent) => {
             console.info(`月亮图片：onActionUpdate event.offsetY = + event.offsetY`);
@@ -201,7 +201,7 @@ struct StartPage {
                 this.moveDistance -= 0.1;
               });
             } else if (event.offsetY > 20) {
-             <em> // 向下滑：回退</em>
+              // 向下滑：回退
               this.uiContext?.animateTo({ duration: 200 }, () => {
                 this.moveDistance += 0.1;
               });

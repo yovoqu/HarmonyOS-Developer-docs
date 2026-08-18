@@ -18,11 +18,11 @@ export async function getLocalImgOrientation(oriFilePath: string) : Promise<numb
     orientation = await imageSource.getImageProperty(image.PropertyKey.ORIENTATION);
   } catch (e) {
     Logger.info('catch called');
-   <em> // sayHello()是一个没有声明和定义的不存在的函数，但是编译不会报错</em>
+    // sayHello()是一个没有声明和定义的不存在的函数，但是编译不会报错
     e.sayHello();
   }
 
-  <em>// 此处日志不会被打印</em>
+  // 此处日志不会被打印
   Logger.info('tag one');
   let rotate: number = 0;
   if (orientation.length > 0) {
@@ -37,7 +37,7 @@ export async function getLocalImgOrientation(oriFilePath: string) : Promise<numb
 ```text
 Button('异步任务中调用不存在函数')
   .onClick(() => {
-   <em> // 传入一个错误参数，模拟发生异常</em>
+    // 传入一个错误参数，模拟发生异常
     let path = 'empty';
     getLocalImgOrientation(path).then((r: number) => {
       Logger.info(`r is ${r}`);
@@ -58,7 +58,7 @@ Button('异步任务中调用不存在函数')
 异常发生时，catch的参数e类型为any，此时调用了未定义的函数编译器无法报错属于正常现象。async函数内部的异步任务是以微任务的形态执行的，执行失败不会导致整个进程crash，也不会导致运行报错。可以通过在调用的外层函数处增加catch来捕获报错。
  
 ```text
-<em>// </em><em>传入一个错误参数，模拟发生异常</em>
+// 传入一个错误参数，模拟发生异常
 let path = 'empty';
 getLocalImgOrientation(path).then((r: number) => {
   console.info(`r is ${r}`);
@@ -83,7 +83,7 @@ struct Index {
     Column() {
       Button('异步任务中调用不存在函数')
         .onClick(() => {
-        <em>  // 传入一个错误参数，模拟发生异常</em>
+          // 传入一个错误参数，模拟发生异常
           let path = 'empty';
           getLocalImgOrientation(path).then((r: number) => {
             console.info(`r is ${r}`);
@@ -107,11 +107,11 @@ async function getLocalImgOrientation(oriFilePath: string): Promise<number> {
     orientation = await imageSource.getImageProperty(image.PropertyKey.ORIENTATION);
   } catch (e) {
     console.info('try called');
-  <em>  // sayHello()是一个没有声明和定义的不存在的函数，但是编译不会报错</em>
+    // sayHello()是一个没有声明和定义的不存在的函数，但是编译不会报错
     e.sayHello();
   }
 
- <em> // 此处日志不会被打印</em>
+  // 此处日志不会被打印
   console.info('tag');
   let rotate: number = 0;
   if (orientation.length > 0) {

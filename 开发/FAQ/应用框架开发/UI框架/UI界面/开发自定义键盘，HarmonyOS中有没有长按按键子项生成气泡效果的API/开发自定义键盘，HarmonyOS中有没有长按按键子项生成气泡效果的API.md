@@ -33,20 +33,20 @@
 ```text
 @State customPopup: boolean = false;
 @State indexNum: number = 0;
-<em>// 手指位置1、2、3、4（长按气泡中显示的内容数量）四个参数，分别代指长按后出现的四个位置，参数值与实际业务有关。</em>
+// 手指位置1、2、3、4（长按气泡中显示的内容数量）四个参数，分别代指长按后出现的四个位置，参数值与实际业务有关。
 @State fingerRect: string = '1';
-<em>// 组件宽度</em>
+// 组件宽度
 @State widthRect: number = 0;
-<em>// 键盘宽度</em>
+// 键盘宽度
 @State inputWidthRect: number = 0;
-<em>// 判断是否在偏右侧位置</em>
+// 判断是否在偏右侧位置
 @State isRight: boolean = false;
 ```
 
 2. 增加LongPressGesture长按控制手势，在onAction事件中增加逻辑，让气泡仅显示在指定按键上方；长按手势默认最短长按时间为500毫秒，可配置duration参数控制最短长按时长：
 ```text
 .gesture(
- <em> // 绑定可以重复触发的LongPressGesture</em>
+  // 绑定可以重复触发的LongPressGesture
   LongPressGesture({ repeat: true })
     .onAction(() => {
       for (let i = 0; i < EnglishKeyboardData[0].length; i++) {
@@ -66,7 +66,7 @@
 3. 增加bindPopup气泡控制，设置placement: Placement.TopRight,让气泡显示在按钮上方，通过this.popupBuilder(item)给自定义气泡组件传参然后自定义气泡内容：
 ```text
 .bindPopup(this.customPopup && EnglishKeyboardData[0].indexOf(item) === this.indexNum, {
-<em>  // CustomPopupOptions类型气泡的内容</em>
+  // CustomPopupOptions类型气泡的内容
   builder: this.popupBuilder(item),
   placement: Placement.TopLeft,
   targetSpace: '15vp',
@@ -106,7 +106,7 @@ popupBuilder(item: Menu) {
   .padding(5)
   .justifyContent(FlexAlign.SpaceAround)
   .onAreaChange((oldVal, newVal) => {
-   <em> // 如果此时键盘在偏右侧位置，需要重新计算位置</em>
+    // 如果此时键盘在偏右侧位置，需要重新计算位置
     this.isRight = this.inputWidthRect <= Math.ceil(Number(newVal.globalPosition.x) + Number(newVal.width));
   });
 }
@@ -115,9 +115,9 @@ popupBuilder(item: Menu) {
 4. 使用onAreaChange监听新生成的气泡组件的宽度，再使用onTouch事件获取当前手指的坐标，然后根据手指的坐标和气泡组件的宽度，获取当前手指在气泡组件中的位置：
 ```text
 .onTouch((event) => {
- <em> // 获取当前手指的坐标（相对于父容器，与组件rect的坐标系一致）</em>
+  // 获取当前手指的坐标（相对于父容器，与组件rect的坐标系一致）
   const fingerX = event.touches[0].x;
-  <em>// 靠近右边屏幕时，需要特殊处理。</em>
+  // 靠近右边屏幕时，需要特殊处理。
   this.fingerRect =
     this.isRight ? Math.ceil(((fingerX + event.touches[0].displayX) - 230) / this.widthRect) + '' :
       Math.ceil(fingerX / this.widthRect) + '';
@@ -133,19 +133,19 @@ popupBuilder(item: Menu) {
 参考官网[自定义键盘实现](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-custom-keyboard)，将demo中的NumberKeyboard文件替换为以下示例代码：
  
 ```json
-<em>// 该场景代码基于自定义键盘实现官网示例代码https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-custom-keyboard#section1680905412256进行调试；</em>
-<em>  // 修改demo中NumberKeyboard文件如下</em>
+// 该场景代码基于自定义键盘实现官网示例代码https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-custom-keyboard#section1680905412256进行调试；
+  // 修改demo中NumberKeyboard文件如下
 @Component
 export struct NumberKeyboard {
   @State customPopup: boolean = false;
   @State indexNum: number = 0;
-  <em>// 手指位置1、2、3、4（长按气泡中显示的内容数量）四个参数，分别代指长按后出现的四个位置，参数值与实际业务有关。</em>
+  // 手指位置1、2、3、4（长按气泡中显示的内容数量）四个参数，分别代指长按后出现的四个位置，参数值与实际业务有关。
   @State fingerRect: string = '1';
- <em> // 组件宽度</em>
+  // 组件宽度
   @State widthRect: number = 0;
-<em>  // 键盘宽度</em>
+  // 键盘宽度
   @State inputWidthRect: number = 0;
-  <em>// 判断是否在偏右侧位置</em>
+  // 判断是否在偏右侧位置
   @State isRight: boolean = false;
 
   build() {
@@ -156,7 +156,7 @@ export struct NumberKeyboard {
             ForEach(EnglishKeyboardData[0], (item: Menu) => {
               EnglishButton({ item: item })
                 .gesture(
-              <em>    // 绑定可以重复触发的LongPressGesture</em>
+                  // 绑定可以重复触发的LongPressGesture
                   LongPressGesture({ repeat: true })
                     .onAction(() => {
                       for (let i = 0; i < EnglishKeyboardData[0].length; i++) {
@@ -172,7 +172,7 @@ export struct NumberKeyboard {
                     })
                 )
                 .bindPopup(this.customPopup && EnglishKeyboardData[0].indexOf(item) === this.indexNum, {
-                <em>  // CustomPopupOptions类型气泡的内容</em>
+                  // CustomPopupOptions类型气泡的内容
                   builder: this.popupBuilder(item),
                   placement: Placement.TopLeft,
                   targetSpace: '15vp',
@@ -184,9 +184,9 @@ export struct NumberKeyboard {
                   }
                 })
                 .onTouch((event) => {
-                <em>  // 获取当前手指的坐标（相对于父容器，与组件rect的坐标系一致）</em>
+                  // 获取当前手指的坐标（相对于父容器，与组件rect的坐标系一致）
                   const fingerX = event.touches[0].x;
-              <em>    // 靠近右边屏幕时，需要特殊处理。</em>
+                  // 靠近右边屏幕时，需要特殊处理。
                   this.fingerRect =
                     this.isRight ? Math.ceil(((fingerX + event.touches[0].displayX) - 230) / this.widthRect) + '' :
                       Math.ceil(fingerX / this.widthRect) + '';
@@ -225,7 +225,7 @@ export struct NumberKeyboard {
           .padding({ top: 11 });
         }
         .onAreaChange((oldVal, newVal) => {
-         <em> // 键盘宽度</em>
+          // 键盘宽度
           this.inputWidthRect = Math.ceil(Number(newVal.globalPosition.x) + Number(newVal.width));
         });
       }
@@ -260,7 +260,7 @@ export struct NumberKeyboard {
     .padding(5)
     .justifyContent(FlexAlign.SpaceAround)
     .onAreaChange((oldVal, newVal) => {
-    <em>  // 如果此时键盘在偏右侧位置，需要重新计算位置</em>
+      // 如果此时键盘在偏右侧位置，需要重新计算位置
       this.isRight = this.inputWidthRect <= Math.ceil(Number(newVal.globalPosition.x) + Number(newVal.width));
     });
   }
@@ -274,11 +274,11 @@ function globalFancy() {
   .height('100%');
 }
 
-<em>// [Start EnglishButton_start]</em>
+// [Start EnglishButton_start]
 @Component
 struct EnglishButton {
   @Consume inputText: string;
- <em> // [StartExclude EnglishButton_start]</em>
+  // [StartExclude EnglishButton_start]
   @Prop item: Menu;
   @Consume keyboardController: KeyboardController;
 
@@ -290,7 +290,7 @@ struct EnglishButton {
     }
   }
 
-<em>  // [EndExclude EnglishButton_start]</em>
+  // [EndExclude EnglishButton_start]
 
   build() {
     Button({ type: ButtonType.Normal }) {
@@ -316,5 +316,5 @@ struct EnglishButton {
   }
 }
 
-<em>// [End EnglishButton_start]</em>
+// [End EnglishButton_start]
 ```

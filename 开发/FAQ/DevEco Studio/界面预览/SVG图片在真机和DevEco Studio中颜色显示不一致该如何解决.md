@@ -57,8 +57,8 @@ DevEco Studio和浏览器仅支持解析颜色值为RGBA格式的SVG图片，不
 <svg id='vector' xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'>
   <defs>
     <linearGradient gradientUnits='userSpaceOnUse' x1='6.935' y1='3.252' x2='6.909' y2='10.552' id='gradient_0'>
-      <stop offset='0' stop-color='rgba(254,65,68,1)'/> <em>// 修改颜色为RGBA格式</em>
-      <stop offset='1' stop-color='rgba(255,109,103,1)'/> <em>// 修改颜色为RGBA格式</em>
+      <stop offset='0' stop-color='rgba(254,65,68,1)'/> // 修改颜色为RGBA格式
+      <stop offset='1' stop-color='rgba(255,109,103,1)'/> // 修改颜色为RGBA格式
     </linearGradient>
   </defs>
  <path fill='url(#gradient_0)' d='M10.983,3.951C10.983,3.313 10.461,2.79 9.823,2.79C5.983,2.79 2.862,5.913 2.862,9.755C2.862,10.393 3.384,10.915 4.022,10.915C4.66,10.915 5.182,10.393 5.182,9.755C5.182,7.189 7.259,5.112 9.823,5.112C10.461,5.112 10.983,4.589 10.983,3.951Z' stroke-width='1'

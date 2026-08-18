@@ -31,7 +31,7 @@ Text(item.toString())
   .fontSize(50)
   .textAlign(TextAlign.Center)
   .backgroundColor('#0A59F7')
-<em>  // 自定义动画变化透明度、缩放页面、抵消系统默认位移、渲染层级等</em>
+  // 自定义动画变化透明度、缩放页面、抵消系统默认位移、渲染层级等
   .opacity(this.opacityList[index])
   .scale({ x: this.scaleList[index], y: this.scaleList[index] })
   .translate({
@@ -40,27 +40,27 @@ Text(item.toString())
   })
   .zIndex(this.zIndexList[index])
   .rotate({
-    angle: this.angleList[index], <em>// 设定旋转角度</em>
+    angle: this.angleList[index], // 设定旋转角度
   });
 ```
 
 2. 给Swiper组件设置页面切换动画属性customContentTransition，在页面切换时逐帧触发回调，在回调中设置子组件的旋转等属性值：
 ```text
 .customContentTransition({
- <em> // 页面移除视窗时超时1000ms下渲染树</em>
+  // 页面移除视窗时超时1000ms下渲染树
   timeout: 1000,
- <em> // 对视窗内所有页面逐帧回调transition，在回调中修改opacity、scale、translate、zIndex等属性值，实现自定义动画</em>
+  // 对视窗内所有页面逐帧回调transition，在回调中修改opacity、scale、translate、zIndex等属性值，实现自定义动画
   transition: (proxy: SwiperContentTransitionProxy) => {
     if (proxy.position <= proxy.index % this.DISPLAY_COUNT ||
       proxy.position >= this.DISPLAY_COUNT + proxy.index % this.DISPLAY_COUNT) {
-    <em>  // 同组页面往左滑或往右完全滑出视窗外时，重置属性值</em>
+      // 同组页面往左滑或往右完全滑出视窗外时，重置属性值
       this.opacityList[proxy.index] = 1.0;
       this.scaleList[proxy.index] = 1.0;
       this.translateList[proxy.index] = 0.0;
       this.zIndexList[proxy.index] = 0;
       this.angleList[proxy.index] = 0;
     } else {
-   <em>   // 同组页面往右滑且未滑出视窗外时，对同组中左右两个页面，逐帧根据position修改属性值，页面靠拢并透明缩放的自定义切换动画</em>
+      // 同组页面往右滑且未滑出视窗外时，对同组中左右两个页面，逐帧根据position修改属性值，页面靠拢并透明缩放的自定义切换动画
       if (proxy.index % this.DISPLAY_COUNT === 0) {
         this.opacityList[proxy.index] = 1 - proxy.position / this.DISPLAY_COUNT;
         this.scaleList[proxy.index] =
@@ -77,7 +77,7 @@ Text(item.toString())
       this.zIndexList[proxy.index] = -1;
     }
     if (proxy.position < 0 && proxy.position > -1) {
-    <em>  // 当前页向左滑出或上一页向右滑入</em>
+      // 当前页向左滑出或上一页向右滑入
       this.angleList[proxy.index] = proxy.position * 60;
       this.opacityList[proxy.index] = 1 + proxy.position;
     }
@@ -107,7 +107,7 @@ struct SwiperArcPage {
   @State zIndexList: number[] = [];
   @State angleList: number[] = [];
 
-  setWindowFull() {<em> // 设置沉浸式</em>
+  setWindowFull() { // 设置沉浸式
     let windowClass: window.Window | undefined = undefined;
     try {
       let promise = window.getLastWindow(this.context);
@@ -119,14 +119,14 @@ struct SwiperArcPage {
           hilog.error(0x0000, 'testTag',
             'Failed to set the window layout to full-screen mode. Cause:' + JSON.stringify(err));
         });
-      <em>  //状态栏隐藏</em>
+        //状态栏隐藏
         windowClass.setSpecificSystemBarEnabled('status', true).then(() => {
           hilog.info(0x0000, 'testTag', 'Succeeded in setting the status bar to be invisible.');
         }).catch((err: BusinessError) => {
           hilog.error(0x0000, 'testTag', `Failed to set the status bar to be invisible. Code is ${err.code},
           message is ${err.message}`);
         });
-     <em>   //导航条隐藏</em>
+        //导航条隐藏
         windowClass.setSpecificSystemBarEnabled('navigationIndicator', false).then(() => {
           hilog.info(0x0000, 'testTag', 'Succeed in setting the system bar to be invisible');
         }).catch((err: BusinessError) => {
@@ -163,7 +163,7 @@ struct SwiperArcPage {
             .fontSize(50)
             .textAlign(TextAlign.Center)
             .backgroundColor('#0A59F7')
-          <em>  // 自定义动画变化透明度、缩放页面、抵消系统默认位移、渲染层级等</em>
+            // 自定义动画变化透明度、缩放页面、抵消系统默认位移、渲染层级等
             .opacity(this.opacityList[index])
             .scale({ x: this.scaleList[index], y: this.scaleList[index] })
             .translate({
@@ -172,7 +172,7 @@ struct SwiperArcPage {
             })
             .zIndex(this.zIndexList[index])
             .rotate({
-              angle: this.angleList[index],<em> // 设定旋转角度</em>
+              angle: this.angleList[index], // 设定旋转角度
             });
         });
       }
@@ -181,20 +181,20 @@ struct SwiperArcPage {
       .indicator(false)
       .displayCount(this.DISPLAY_COUNT, true)
       .customContentTransition({
-      <em>  // 页面移除视窗时超时1000ms下渲染树</em>
+        // 页面移除视窗时超时1000ms下渲染树
         timeout: 1000,
-     <em>   // 对视窗内所有页面逐帧回调transition，在回调中修改opacity、scale、translate、zIndex等属性值，实现自定义动画</em>
+        // 对视窗内所有页面逐帧回调transition，在回调中修改opacity、scale、translate、zIndex等属性值，实现自定义动画
         transition: (proxy: SwiperContentTransitionProxy) => {
           if (proxy.position <= proxy.index % this.DISPLAY_COUNT ||
             proxy.position >= this.DISPLAY_COUNT + proxy.index % this.DISPLAY_COUNT) {
-         <em>   // 同组页面往左滑或往右完全滑出视窗外时，重置属性值</em>
+            // 同组页面往左滑或往右完全滑出视窗外时，重置属性值
             this.opacityList[proxy.index] = 1.0;
             this.scaleList[proxy.index] = 1.0;
             this.translateList[proxy.index] = 0.0;
             this.zIndexList[proxy.index] = 0;
             this.angleList[proxy.index] = 0;
           } else {
-        <em>    // 同组页面往右滑且未滑出视窗外时，对同组中左右两个页面，逐帧根据position修改属性值，页面靠拢并透明缩放的自定义切换动画</em>
+            // 同组页面往右滑且未滑出视窗外时，对同组中左右两个页面，逐帧根据position修改属性值，页面靠拢并透明缩放的自定义切换动画
             if (proxy.index % this.DISPLAY_COUNT === 0) {
               this.opacityList[proxy.index] = 1 - proxy.position / this.DISPLAY_COUNT;
               this.scaleList[proxy.index] =
@@ -211,14 +211,14 @@ struct SwiperArcPage {
             this.zIndexList[proxy.index] = -1;
           }
           if (proxy.position < 0 && proxy.position > -1) {
-          <em>  // 当前页向左滑出或上一页向右滑入</em>
+            // 当前页向左滑出或上一页向右滑入
             this.angleList[proxy.index] = proxy.position * 60;
             this.opacityList[proxy.index] = 1 + proxy.position;
           }
         }
       })
       .onContentDidScroll((selectedIndex: number, index: number, position: number, mainAxisLength: number) => {
-     <em>   // 监听Swiper页面滑动事件，在该回调中可以实现自定义导航点切换动画等</em>
+        // 监听Swiper页面滑动事件，在该回调中可以实现自定义导航点切换动画等
         console.info(`onContentDidScroll selectedIndex: ${selectedIndex}, index: ${index}, position: ${position}, mainAxisLength: ${mainAxisLength}`);
       })
     }

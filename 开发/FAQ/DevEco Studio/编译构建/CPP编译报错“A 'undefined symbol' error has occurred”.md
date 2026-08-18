@@ -39,7 +39,7 @@ add_library(myProgram SHARED main.cpp myLibrary.cpp)
 ```text
 #include "myLibrary.h" 
 void myFunction() {     
-<em>// Function implementation</em>
+// Function implementation
 }
 ```
  

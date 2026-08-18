@@ -18,7 +18,7 @@ struct Index {
 
   build() {
     RelativeContainer() {
-      Image($r('app.media.test')) <em>// 运行时需替换为实际的资源文件</em>
+      Image($r('app.media.test')) // 运行时需替换为实际的资源文件
         .width(300)
         .height(200)
         .resizable({

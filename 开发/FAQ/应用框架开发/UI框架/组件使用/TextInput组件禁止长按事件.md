@@ -47,7 +47,7 @@ struct TextInputNoLongPress {
         })
         .gesture(
           LongPressGesture({ repeat: true, duration: 400 })
-          <em>  // 由于repeat设置为true，长按动作存在时会连续触发，触发间隔为duration（默认值500ms）</em>
+            // 由于repeat设置为true，长按动作存在时会连续触发，触发间隔为duration（默认值500ms）
             .onAction(() => {
               return true;
             })

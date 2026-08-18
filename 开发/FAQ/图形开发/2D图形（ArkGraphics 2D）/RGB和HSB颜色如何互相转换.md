@@ -25,7 +25,7 @@ interface ColorHsv {
   v: number;
 }
 
-<em>// RGB</em><em>模型转HSV模型</em>
+// RGB模型转HSV模型
 function rgb2hsv(r: number, g: number, b: number): ColorHsv {
   r = r / 255.0;
   g = g / 255.0;
@@ -59,7 +59,7 @@ interface ColorRgb {
   b: number;
 }
 
-<em>// HSV</em><em>模型转RGB模型</em>
+// HSV模型转RGB模型
 function hsv2rgb(h: number, s: number, v: number): ColorRgb {
   let r: number = 0, g: number = 0, b: number = 0;
   let i = Math.floor(h / 60);

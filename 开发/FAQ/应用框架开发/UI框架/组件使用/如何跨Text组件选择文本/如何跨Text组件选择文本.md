@@ -33,7 +33,7 @@
 实现思路：通过自定义光标组件结合手势事件，调整文本选区范围，并通过Canvas绘制区域高亮，实现跨Text组件选择文本。
  1. 自定义光标组件，并绑定了PanGesture，处理拖动事件，更新光标位置并调整选中区域：
 ```text
-<em>// 自定义光标组件</em>
+// 自定义光标组件
 @Builder
 caretBuilder(info: CaretInfo) {
   Column() {
@@ -47,7 +47,7 @@ caretBuilder(info: CaretInfo) {
       .border({ width: 2, color: 'rgba(10, 89, 247, 1)', radius: 10 });
   }
   .position(info.position)
- <em> // 拖拽时更新贯标位置</em>
+  // 拖拽时更新贯标位置
   .gesture(
     PanGesture()
       .onActionStart(() => {
@@ -69,7 +69,7 @@ caretBuilder(info: CaretInfo) {
 
 2. 调用getTextInfos来获取选中的文本区域信息，最后通过paint方法在Canvas上绘制高亮，实现跨Text组件选择文本：
 ```text
-<em>// 历起始和结束位置之间的列表项，获取每个项的选区矩形，计算光标的位置，并调用paint进行绘制。</em>
+// 历起始和结束位置之间的列表项，获取每个项的选区矩形，计算光标的位置，并调用paint进行绘制。
 getTextInfos(start: CaretInfo, end: CaretInfo) {
   this.textInfos = [];
   for (let i = start.listItemIndex; i <= end.listItemIndex; i++) {
@@ -184,7 +184,7 @@ export struct ListSelectText {
       });
   }
 
- <em> // 自定义光标组件</em>
+  // 自定义光标组件
   @Builder
   caretBuilder(info: CaretInfo) {
     Column() {
@@ -198,7 +198,7 @@ export struct ListSelectText {
         .border({ width: 2, color: 'rgba(10, 89, 247, 1)', radius: 10 });
     }
     .position(info.position)
-   <em> // 拖拽时更新贯标位置</em>
+    // 拖拽时更新贯标位置
     .gesture(
       PanGesture()
         .onActionStart(() => {
@@ -217,7 +217,7 @@ export struct ListSelectText {
     );
   }
 
- <em> // 获取文本中字符位置</em>
+  // 获取文本中字符位置
   getTextIndex(x: number, y: number, layoutManager: LayoutManager) {
     let lineCount = layoutManager.getLineCount();
     let lineNum: number = -1;
@@ -268,7 +268,7 @@ export struct ListSelectText {
     });
   }
 
- <em> // 历起始和结束位置之间的列表项，获取每个项的选区矩形，计算光标的位置，并调用paint进行绘制。</em>
+  // 历起始和结束位置之间的列表项，获取每个项的选区矩形，计算光标的位置，并调用paint进行绘制。
   getTextInfos(start: CaretInfo, end: CaretInfo) {
     this.textInfos = [];
     for (let i = start.listItemIndex; i <= end.listItemIndex; i++) {
@@ -293,7 +293,7 @@ export struct ListSelectText {
     this.paint();
   }
 
- <em> // 使用Canvas绘制黄色高亮背景</em>
+  // 使用Canvas绘制黄色高亮背景
   paint() {
     this.context.reset();
     this.context.translate(0, -this.yOffset);

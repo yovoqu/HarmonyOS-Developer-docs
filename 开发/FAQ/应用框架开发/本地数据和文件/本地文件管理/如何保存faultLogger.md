@@ -29,9 +29,9 @@ export class LogUtils {
       if (len === 0) {
         return;
       }
-     <em> // Get instance</em>
+      // Get instance
       let preference: preferences.Preferences = await preferences.getPreferences(context, 'STLiveness');
-   <em>   // Query the timestamp of the last processing time</em>
+      // Query the timestamp of the last processing time
       let lastFaultHandleTime = preference.getSync('faultHandleTime', 0);
       hilog.info(0x0000, TAG, 'lastFaultHandleTime:' + lastFaultHandleTime);
       for (let i = 0; i < len; i++) {
@@ -41,7 +41,7 @@ export class LogUtils {
           hilog.error(0x00000, TAG, 'Maple No New Logs.');
           return;
         }
-       <em> // Save the log to the application sandbox directory with the file name "timestamp.log"</em>
+        // Save the log to the application sandbox directory with the file name "timestamp.log"
         await LogUtils.save(value[i].fullLog, context.filesDir + '/crash', timestamp + '.log');
         await preference.put('faultHandleTime', timestamp);
         await preference.flush();

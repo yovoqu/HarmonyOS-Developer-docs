@@ -41,7 +41,7 @@ struct CenterAlignPage {
   build() {
     Row() {
       Column() {
-      <em>  // 加入水平分割线</em>
+        // 加入水平分割线
         Text("")
           .width('35%')
           .height(0.2)
@@ -78,10 +78,10 @@ struct CenterAlignPage {
           this.selectedTime.setHours(value.hour, value.minute);
           console.info('select current date is: ', JSON.stringify(value));
         })
-         <em> // 调整TimePicker组件的宽度</em>
+          // 调整TimePicker组件的宽度
         .width('30%');
       Column() {
-       <em> // 加入水平分割线</em>
+        // 加入水平分割线
         Text("")
           .width('35%')
           .height(0.2)

@@ -48,7 +48,7 @@ struct SwiperIndexDemo {
             .textAlign(TextAlign.Center)
             .fontSize(30);
         });
-      }.index($$this.showIndex); <em>// 与showIndex变量双向绑定</em>
+      }.index($$this.showIndex); // 与showIndex变量双向绑定
       Text(`当前showIndex: ${this.showIndex}`);
       Button(`showIndex+1`)
         .onClick(() => {

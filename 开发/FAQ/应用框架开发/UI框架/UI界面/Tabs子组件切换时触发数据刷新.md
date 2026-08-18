@@ -66,18 +66,18 @@ struct TabEmitterPage {
 
   refreshTabContent(index: number) {
     if (index === 0) {
-     <em> // 事件携带的数据</em>
+      // 事件携带的数据
       let eventData: emitter.EventData = {
         data: {}
       };
-    <em>  // 通过emitter.emit('refreshTableOne')发送指定的事件</em>
+      // 通过emitter.emit('refreshTableOne')发送指定的事件
       emitter.emit('refreshTableOne', eventData);
     } else if (index === 1) {
-     <em> // 事件携带的数据</em>
+      // 事件携带的数据
       let eventData: emitter.EventData = {
         data: {}
       };
-     <em> // 通过emitter.emit('refreshTableTwo')发送指定的事件</em>
+      // 通过emitter.emit('refreshTableTwo')发送指定的事件
       emitter.emit('refreshTableTwo', eventData);
     }
   }
@@ -103,8 +103,8 @@ struct TabEmitterPage {
       if (index === targetIndex) {
         return;
       }
-      this.selectedIndex = targetIndex;<em> // selectedIndex控制自定义TabBar内Text颜色切换</em>
-      this.refreshTabContent(targetIndex); <em>// 在切换动画启动时发送刷新事件</em>
+      this.selectedIndex = targetIndex; // selectedIndex控制自定义TabBar内Text颜色切换
+      this.refreshTabContent(targetIndex); // 在切换动画启动时发送刷新事件
     }).width('100%').height('100%');
   }
 }
@@ -114,7 +114,7 @@ struct EmitterContentOne {
   @State counter: number = 0;
 
   aboutToAppear(): void {
-   <em> // Tabs子组件通过emitter.on持续订阅该事件去刷新数据</em>
+    // Tabs子组件通过emitter.on持续订阅该事件去刷新数据
     emitter.on('refreshTableOne', () => {
       this.counter += 1;
     });
@@ -134,7 +134,7 @@ struct EmitterContentTwo {
   @State text: string = 'A';
 
   aboutToAppear(): void {
-    <em>// Tabs子组件通过emitter.on持续订阅该事件去刷新数据</em>
+    // Tabs子组件通过emitter.on持续订阅该事件去刷新数据
     emitter.on('refreshTableTwo', () => {
       this.text += 'A';
     });
@@ -163,7 +163,7 @@ struct EmitterContentTwo {
 struct ConsumerPage {
   fontColor: string = '#182431';
   selectedFontColor: string = '#007DFF';
-  @Provide('refreshNumber') refreshNumber: number = 0; <em>// 记录要刷新的子页</em>
+  @Provide('refreshNumber') refreshNumber: number = 0; // 记录要刷新的子页
   @State selectedIndex: number = 0;
 
   @Builder
@@ -198,8 +198,8 @@ struct ConsumerPage {
         console.info(`onAnimationStart ${index} ${targetIndex}`);
         return;
       }
-      this.selectedIndex = targetIndex;<em> // selectedIndex控制自定义TabBar内Text颜色切换</em>
-      this.refreshNumber = targetIndex;<em> // 更新目标页签，触发刷新</em>
+      this.selectedIndex = targetIndex; // selectedIndex控制自定义TabBar内Text颜色切换
+      this.refreshNumber = targetIndex; // 更新目标页签，触发刷新
     })
     .width('100%')
     .height('100%');
@@ -208,15 +208,15 @@ struct ConsumerPage {
 
 @Component
 struct ConsumerContentOne {
-  index: number = 0;<em> // 记录当前子页的页签序号</em>
+  index: number = 0; // 记录当前子页的页签序号
   @State counter: number = 0;
   @Consume('refreshNumber') @Watch('refresh') refreshNumber: number;
 
   refresh() {
-<em>    // 目标页签是当前子页</em>
+    // 目标页签是当前子页
     if (this.index === this.refreshNumber) {
-     <em> // 在此进行网络请求</em>
-      this.counter += 1;<em> // 刷新数据</em>
+      // 在此进行网络请求
+      this.counter += 1; // 刷新数据
     }
   }
 
@@ -227,15 +227,15 @@ struct ConsumerContentOne {
 
 @Component
 struct ConsumerContentTwo {
-  index: number = 0; <em>// 记录当前子页的页签序号</em>
+  index: number = 0; // 记录当前子页的页签序号
   @State text: string = 'A';
   @Consume('refreshNumber') @Watch('refresh') refreshNumber: number;
 
   refresh() {
-  <em>  // 目标页签是当前子页</em>
+    // 目标页签是当前子页
     if (this.index === this.refreshNumber) {
-    <em>  // 在此进行网络请求</em>
-      this.text += 'A'; <em>// 刷新数据</em>
+      // 在此进行网络请求
+      this.text += 'A'; // 刷新数据
     }
   }
 
@@ -257,15 +257,15 @@ struct ConsumerContentTwo {
 @Component
 export struct ConsumerContentTwo {
   enableFresh: boolean = true;
-  index: number = 0; <em>// 记录当前子页的页签序号</em>
+  index: number = 0; // 记录当前子页的页签序号
   @State text: string = 'A';
   @Consume('refreshNumber') @Watch('refresh') refreshNumber: number;
 
   refresh() {
- <em>   // 目标页签是当前子页</em>
+    // 目标页签是当前子页
     if (this.enableFresh && this.index === this.refreshNumber) {
-     <em> // 在此进行网络请求</em>
-      this.text += 'A'; <em>// 刷新数据</em>
+      // 在此进行网络请求
+      this.text += 'A'; // 刷新数据
       this.enableFresh = false;
     }
   }

@@ -16,8 +16,8 @@
  
 ```text
 request.downloadFile(context, {
-  url: 'http://www.example/fdb17952b79f46b3a20b9fc1d239177b_20250724145715AecsMOQ031.png', <em>// </em><em>示例网址</em>
- <em> // url:'https://copyright.bdstatic.com/vcg/creative/cc9c744cf9f7c864889c563cbdeddce6.jpg',</em>
+  url: 'http://www.example/fdb17952b79f46b3a20b9fc1d239177b_20250724145715AecsMOQ031.png', // 示例网址
+  // url:'https://copyright.bdstatic.com/vcg/creative/cc9c744cf9f7c864889c563cbdeddce6.jpg',
   filePath: (this.getUIContext().getHostContext())?.filesDir + '/test.png'
 })
 ```
@@ -83,14 +83,14 @@ struct Index {
     .height('100%');
   }
 
-  <em>/**</em>
-<em>   * 通过http的request方法从网络下载图片资源</em>
-<em>   */</em>
+  /**
+   * 通过http的request方法从网络下载图片资源
+   */
   async getPicture() {
-  <em>  // 此处地址实际使用过程中替换为真实地址</em>
+    // 此处地址实际使用过程中替换为真实地址
     http.createHttp().request('xx.xx.xx', (error: BusinessError, data: http.HttpResponse) => {
       if (error) {
-       <em> // 下载失败时弹窗提示检查网络，不执行后续逻辑</em>
+        // 下载失败时弹窗提示检查网络，不执行后续逻辑
         this.getUIContext().getPromptAction().showToast({
           message: '请求失败',
           duration: 2000
@@ -100,10 +100,10 @@ struct Index {
       }
 
       let context = this.getUIContext().getHostContext();
-    <em>  // 获取沙箱路径（如：filesDir）</em>
+      // 获取沙箱路径（如：filesDir）
       if (context) {
         let filePath = context.filesDir + '/test.png';
-       <em> // 创建文件并写入数据</em>
+        // 创建文件并写入数据
         let file = fs.openSync(filePath, fs.OpenMode.CREATE | fs.OpenMode.READ_WRITE);
         try {
           fs.writeSync(file.fd, data.result as ArrayBuffer);

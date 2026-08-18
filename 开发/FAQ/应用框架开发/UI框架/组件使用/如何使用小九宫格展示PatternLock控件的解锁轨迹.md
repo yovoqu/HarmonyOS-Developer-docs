@@ -35,7 +35,7 @@
 #### 解决方案
 1. 在PatternLock手势路径经过的地方使用current存储。
 ```text
-<em>// </em><em>最高层</em>
+// 最高层
 PatternLock(this.patternLockController)
   .activateCircleStyle({
     color: '#331D9CDF',
@@ -57,7 +57,7 @@ PatternLock(this.patternLockController)
 
 2. 定义小九宫格时，判断当前的位置是否在current中来确认展示对应的样式。
 ```text
-<em>// </em><em>手势路径：小九宫格</em>
+// 手势路径：小九宫格
 Grid() {
   ForEach(this.circularItems, (item: string, index) => {
     GridItem() {
@@ -65,7 +65,7 @@ Grid() {
       }
       .width(10)
       .height(10)
-      .backgroundColor(this.current.includes(index) ? Color.Black : Color.Grey) <em>// </em><em>根据当前选中的点进行改色</em>
+      .backgroundColor(this.current.includes(index) ? Color.Black : Color.Grey) // 根据当前选中的点进行改色
       .borderRadius(10);
     };
   }, (item: string) => item);
@@ -89,12 +89,12 @@ struct PatternLockExample {
   @State passwords: Number[] = [];
   @State message: string = '请输入不小于5位数的手势密码！';
   @State circularItems: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-  @State current: number[] = []; <em>// </em><em>当前手势密码所选点</em>
+  @State current: number[] = []; // 当前手势密码所选点
   private patternLockController: PatternLockController = new PatternLockController();
 
   build() {
     Column() {
-   <em>   // 手势路径：小九宫格</em>
+      // 手势路径：小九宫格
       Grid() {
         ForEach(this.circularItems, (item: string, index) => {
           GridItem() {
@@ -102,7 +102,7 @@ struct PatternLockExample {
             }
             .width(10)
             .height(10)
-            .backgroundColor(this.current.includes(index) ? Color.Black : Color.Grey) <em>// </em><em>根据当前选中的点进行改色</em>
+            .backgroundColor(this.current.includes(index) ? Color.Black : Color.Grey) // 根据当前选中的点进行改色
             .borderRadius(10);
           };
         }, (item: string) => item);
@@ -116,7 +116,7 @@ struct PatternLockExample {
 
       Text(this.message).textAlign(TextAlign.Center).margin(20).fontSize(20);
       Stack() {
-    <em>    // 最底层</em>
+        // 最底层
         PatternLock(this.patternLockController)
           .activateCircleStyle({
             color: '#661D9CDF',
@@ -126,10 +126,10 @@ struct PatternLockExample {
           .sideLength(320)
           .circleRadius(30)
           .pathStrokeWidth(5)
-          .regularColor('#ffe0e0e0') <em>// 设置未选择时颜色</em>
-          .activeColor('#661D9CDF') <em>// </em><em>设置经过还未离开时颜色</em>
-          .selectedColor('#661D9CDF'); <em>// </em><em>设置已选择后颜色</em>
-     <em>   // 中间层</em>
+          .regularColor('#ffe0e0e0') // 设置未选择时颜色
+          .activeColor('#661D9CDF') // 设置经过还未离开时颜色
+          .selectedColor('#661D9CDF'); // 设置已选择后颜色
+        // 中间层
         PatternLock(this.patternLockController)
           .activateCircleStyle({
             color: '#B3FFFFFF',
@@ -143,7 +143,7 @@ struct PatternLockExample {
           .activeColor('#B3FFFFFF')
           .selectedColor('#B3FFFFFF')
           .pathColor('#cc05a9f7');
-     <em>   // 最高层</em>
+        // 最高层
         PatternLock(this.patternLockController)
           .activateCircleStyle({
             color: '#331D9CDF',
@@ -163,15 +163,15 @@ struct PatternLockExample {
           })
 
           .onPatternComplete((input: Array<number>) => {
-            <em>// </em><em>输入的密码长度小于5时，提示重新输入</em>
+            // 输入的密码长度小于5时，提示重新输入
             if (input.length < 5) {
               this.current = [];
               this.message = '密码需要超过五位';
               return;
             }
-           <em> // 判断密码长度是否大于0</em>
+            // 判断密码长度是否大于0
             if (this.passwords.length > 0) {
-             <em> // 判断两次输入的密码是否相同，相同则提示密码设置成功，否则提示重新输入</em>
+              // 判断两次输入的密码是否相同，相同则提示密码设置成功，否则提示重新输入
               if (this.passwords.toString() === input.toString()) {
                 this.current = [];
                 this.passwords = input;
@@ -183,7 +183,7 @@ struct PatternLockExample {
                 this.patternLockController.setChallengeResult(PatternLockChallengeResult.WRONG);
               }
             } else {
-             <em> // 提示第二次输入密码</em>
+              // 提示第二次输入密码
               this.passwords = input;
               this.message = '请再次输入';
               this.current = [];
@@ -192,7 +192,7 @@ struct PatternLockExample {
       };
 
       Button('重置').margin(30).onClick(() => {
-       <em> // 重置密码锁</em>
+        // 重置密码锁
         this.patternLockController.reset();
         this.passwords = [];
         this.message = '请输入不小于5位数的手势密码！';

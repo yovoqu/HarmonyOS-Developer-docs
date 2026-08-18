@@ -12,15 +12,15 @@ import { hvigor } from '@ohos/hvigor';
 import * as fileIo from 'fs';
 import * as path from 'path';
 
-<em>// Callback function after node evaluation</em>
+// Callback function after node evaluation
 hvigor.afterNodeEvaluate((hvigorNode) => {
-  <em>// Ensure this directory exists</em>
+  // Ensure this directory exists
   const resourcesDir = path.join(__dirname, 'entry/src/main/resources/rawfile');
   if (!fileIo.existsSync(resourcesDir)) {
     fileIo.mkdirSync(resourcesDir, { recursive: true });
   }
 
-  <em>// Write the build time into the JSON file</em>
+  // Write the build time into the JSON file
   const now = new Date();
   const buildTime = now.getFullYear() + '-'
     + String(now.getMonth() + 1).padStart(2, '0') + '-'
@@ -36,7 +36,7 @@ hvigor.afterNodeEvaluate((hvigorNode) => {
 })
 
 export default {
-  system: appTasks, <em>/* Built-in plugin of Hvigor. It cannot be modified. */</em>
-  plugins: [] <em>/* Custom plugin to extend the functionality of Hvigor. */</em>
+  system: appTasks, /* Built-in plugin of Hvigor. It cannot be modified. */
+  plugins: [] /* Custom plugin to extend the functionality of Hvigor. */
 }
 ```

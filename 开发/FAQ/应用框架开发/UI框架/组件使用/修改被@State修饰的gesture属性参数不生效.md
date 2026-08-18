@@ -29,25 +29,25 @@ struct PinchGesturePage {
         .gesture(this.isGesture ?
         PinchGesture({ fingers: 2 })
           .onActionStart(() => {
-            <em>// 在手势开始时，记录当前的缩放比例</em>
+            // 在手势开始时，记录当前的缩放比例
             this.lastScale = this.scaleValue;
           })
           .onActionUpdate((event: GestureEvent | undefined) => {
             if (event) {
-             <em> // 计算新的缩放比例，将当前缩放比例乘以最后一次记录的缩放比例</em>
+              // 计算新的缩放比例，将当前缩放比例乘以最后一次记录的缩放比例
               let newScale = this.lastScale * event.scale;
-             <em> // 进行边界检查</em>
+              // 进行边界检查
               if (newScale < 1) {
                 newScale = 1;
               } else if (newScale > 5) {
                 newScale = 5;
               }
-              <em>// </em><em>更新缩放值</em>
+              // 更新缩放值
               this.scaleValue = newScale;
             }
           })
           .onActionEnd(() => {
-          <em>  // 手势结束时，不需要特殊处理</em>
+            // 手势结束时，不需要特殊处理
           }) : null
         );
       Row()
@@ -123,27 +123,27 @@ struct PinchGesturePage {
         })
         .gesture(PinchGesture({ fingers: 2 })
           .onActionStart(() => {
-          <em>  // 在手势开始时，记录当前的缩放比例</em>
+            // 在手势开始时，记录当前的缩放比例
             console.info(`The lastScale is ${this.lastScale}`);
             this.lastScale = this.scaleValue;
           })
           .onActionUpdate((event: GestureEvent | undefined) => {
             if (event) {
-            <em>  // 计算新的缩放比例，将当前缩放比例乘以最后一次记录的缩放比例</em>
+              // 计算新的缩放比例，将当前缩放比例乘以最后一次记录的缩放比例
               let newScale = this.lastScale * event.scale;
-            <em>  // 进行边界检查</em>
+              // 进行边界检查
               if (newScale < 1) {
                 newScale = 1;
               } else if (newScale > 5) {
                 newScale = 5;
               }
-             <em> // 更新缩放值</em>
+              // 更新缩放值
               this.scaleValue = newScale;
               console.info(`The newScale is ${this.scaleValue}`);
             }
           })
           .onActionEnd(() => {
-         <em>   // 手势结束时，不需要特殊处理</em>
+            // 手势结束时，不需要特殊处理
             console.info('The action is end');
           })
         );

@@ -70,10 +70,10 @@ struct SliderPage1 {
     .width('100%')
     .height('100%')
     .backgroundColor('#F5F5F5')
-    .onScrollStart(() => { <em>// 监听滚动开始事件</em>
+    .onScrollStart(() => { // 监听滚动开始事件
       this.isListScrolling = true;
     })
-    .onScrollStop(() => { <em>// 监听滚动结束事件</em>
+    .onScrollStop(() => { // 监听滚动结束事件
       this.isListScrolling = false;
     });
   }
@@ -81,7 +81,7 @@ struct SliderPage1 {
 
 @Component
 struct ListItemComponent {
-  @ObjectLink item: ListItemData; <em>// 建立对象级绑定</em>
+  @ObjectLink item: ListItemData; // 建立对象级绑定
   @Prop isListScrolling: boolean;
 
   build() {
@@ -139,7 +139,7 @@ struct SliderPage2 {
   }
 
   private startResetAnimation() {
-    <em>// 清除之前的计时器</em>
+    // 清除之前的计时器
     if (this.slideInterval) {
       clearInterval(this.slideInterval);
     }
@@ -150,9 +150,9 @@ struct SliderPage2 {
         this.slideInterval = undefined;
         return;
       }
-      <em>// 每次减少10步，模拟滑动回0</em>
+      // 每次减少10步，模拟滑动回0
       this.currentValue = Math.max(0, this.currentValue - 10);
-    }, 16); <em>// 约60fps，更平滑</em>
+    }, 16); // 约60fps，更平滑
   }
 
   build() {
@@ -171,7 +171,7 @@ struct SliderPage2 {
               this.currentValue = value;
             }
           } else {
-            <em>// 滑动过程中取消正在进行的回弹动画</em>
+            // 滑动过程中取消正在进行的回弹动画
             if (this.slideInterval) {
               clearInterval(this.slideInterval);
               this.slideInterval = undefined;

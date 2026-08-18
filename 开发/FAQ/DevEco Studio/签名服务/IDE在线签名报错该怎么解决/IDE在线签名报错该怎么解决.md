@@ -9,7 +9,7 @@
 IDE自动签名时报错，报错信息为：
  
 ```text
-<span style="color: rgb(0,0,255);">The bundle name contains </span><span style="color: rgb(255,0,0);">7 </span><span style="color: rgb(0,0,255);">to </span><span style="color: rgb(255,0,0);">128 </span><span style="color: rgb(0,0,255);">characters</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">including only letters</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">digits</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">and </span><span style="color: rgb(0,0,255);">underscores </span><span style="color: rgb(0,0,255);">( )</span><span style="color: rgb(181,106,1);">. </span><span style="color: rgb(0,0,255);">It must start </span>with <span style="color: rgb(0,0,255);">a letter and contain at least three segments separated by </span><span style="color: rgb(0,0,255);">periods </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">each of the segments ending </span>with <span style="color: rgb(0,0,255);">a digit or letter</span><span style="color: rgb(181,106,1);">.</span>
+The bundle name contains 7 to 128 characters, including only letters, digits, and underscores ( ). It must start with a letter and contain at least three segments separated by periods (.), each of the segments ending with a digit or letter.
 ```
  
  

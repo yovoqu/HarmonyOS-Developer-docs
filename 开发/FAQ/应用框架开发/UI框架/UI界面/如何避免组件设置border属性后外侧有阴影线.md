@@ -68,7 +68,7 @@ struct BottomWithBar {
       Row() {
         Text(`方案一`);
       }
-   <em>   // 边框宽度10vp，取消后减少对应宽高</em>
+      // 边框宽度10vp，取消后减少对应宽高
       .height(250)
       .width(250)
       .justifyContent(FlexAlign.Center)
@@ -76,16 +76,16 @@ struct BottomWithBar {
       .border({
         color: Color.White,
         radius: 100,
-    <em>    // width:10，取消边框宽度设置。即无边框</em>
+        // width:10，取消边框宽度设置。即无边框
       })
-    <em>  // 新增outline属性</em>
+      // 新增outline属性
       .outline({
         width: outLineWidth,
         color: Color.White,
         radius: 100,
         style: OutlineStyle.SOLID
       })
-     <em> // 设置外边框，与outline宽度一致</em>
+      // 设置外边框，与outline宽度一致
       .margin(outLineWidth);
 
 
@@ -98,7 +98,7 @@ struct BottomWithBar {
       .backgroundColor('#0a59f7')
       .clipShape(
         new RectShape({
-          radius: [80, 80, 80, 20] <em>// 圆角尺寸，分别对应组件左上角、右上角、右下角、左下角</em>
+          radius: [80, 80, 80, 20] // 圆角尺寸，分别对应组件左上角、右上角、右下角、左下角
         })
           .height(200)
           .width(200));

@@ -14,17 +14,17 @@ export const nativeCallArkTS: (a: object) => number;
 static napi_value NativeCallArkTS(napi_env env, napi_callback_info info) 
 {     
     size_t argc = 1; 
-   <em> // Declare parameter array </em>
+    // Declare parameter array 
     napi_value args[1] = {nullptr}; 
  
-  <em>  // Retrieve the incoming parameters and sequentially place them into the parameter array </em>
+    // Retrieve the incoming parameters and sequentially place them into the parameter array 
     napi_get_cb_info(env, info, &argc, args , nullptr, nullptr); 
  
-   <em> // Create an int as a parameter for ArkTS</em>
+    // Create an int as a parameter for ArkTS
     napi_value argv = nullptr;     
     napi_create_int32(env, 2, &argv ); 
  
-  <em>  // Call the incoming callback and return its result</em>
+    // Call the incoming callback and return its result
     napi_value result = nullptr; 
     napi_call_function(env, nullptr, args[0], 1, &argv, &result); 
     return result; 
@@ -33,8 +33,8 @@ static napi_value NativeCallArkTS(napi_env env, napi_callback_info info)
 
 3. 在ArkTS侧，通过nativeModule.nativeCallArkTS()方法传入回调函数。
 ```ArkTS
-<em>// entry/src/main/ets/pages/Index.ets</em>
-<em>// Introduce native capabilities through import.</em>
+// entry/src/main/ets/pages/Index.ets
+// Introduce native capabilities through import.
 import nativeModule from 'libentry.so'
 
 @Entry
@@ -44,7 +44,7 @@ struct Index {
   build() {
     Row() {
       Column() {
-       <em> // Call the nativeCallArkTS method, corresponding to the Native NativeCallArkTS, and call the ArkTS function in Native.</em>
+        // Call the nativeCallArkTS method, corresponding to the Native NativeCallArkTS, and call the ArkTS function in Native.
         Text(this.message)
           .fontSize(50)
           .fontWeight(FontWeight.Bold)

@@ -86,7 +86,7 @@ function concurrentFuncAfterEighteen() {
   
 ```text
 function concurrentFuncBeforeEighteen() {
-  let task: taskpool.Task = new taskpool.Task(printArgs, 100);<em> // 100: test number</em>
+  let task: taskpool.Task = new taskpool.Task(printArgs, 100); // 100: test number
   taskpool.execute(task).catch((err: BusinessError) => {
     hilog.error(0x0000, 'testTag', 'taskpool catch err: ' + err.message);
   });
@@ -143,7 +143,7 @@ function concurrentFuncAfterEighteen() {
 }
 
 function concurrentFuncBeforeEighteen() {
-  let task: taskpool.Task = new taskpool.Task(printArgs, 100); <em>// 100: test number</em>
+  let task: taskpool.Task = new taskpool.Task(printArgs, 100); // 100: test number
   taskpool.execute(task).catch((err: BusinessError) => {
     hilog.error(0x0000, 'testTag', 'taskpool catch err: ' + err.message);
   });

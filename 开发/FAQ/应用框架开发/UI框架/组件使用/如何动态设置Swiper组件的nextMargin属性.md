@@ -44,7 +44,7 @@
 struct SwiperDemo {
   private swiperController: SwiperController = new SwiperController();
   private data: string[] = ['0', '1', '2', '3', '4', '5', '6'];
-  @State currentIndex: number = 0;<em> </em><em>// 当前页面</em>
+  @State currentIndex: number = 0; // 当前页面
 
   build() {
     Column({ space: 25 }) {
@@ -59,17 +59,17 @@ struct SwiperDemo {
         });
       }
       .displayMode(SwiperDisplayMode.STRETCH)
-      .displayCount(1) <em>// </em><em>设置Swiper视窗内元素显示个数</em>
+      .displayCount(1) // 设置Swiper视窗内元素显示个数
       .loop(false)
       .index(this.currentIndex)
       .cachedCount(2)
       .indicator(true)
-      .duration(500) <em>// </em><em>设置子组件切换的动画时长</em>
-      .nextMargin(this.currentIndex <= 2 ? 50 : 0)<em> </em><em>// nextMargin属性来控制后边距</em>
+      .duration(500) // 设置子组件切换的动画时长
+      .nextMargin(this.currentIndex <= 2 ? 50 : 0) // nextMargin属性来控制后边距
       .curve(Curve.Linear)
       .backgroundColor('#ffbbfce2')
       .onAnimationStart((targetIndex: number) => {
-        <em>// </em><em>在onAnimationStart回调中结合animateTo方法来更新当前轮播页的索引</em>
+        // 在onAnimationStart回调中结合animateTo方法来更新当前轮播页的索引
         this.getUIContext()?.animateTo
         ({
           duration: 500,

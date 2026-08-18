@@ -31,9 +31,9 @@ export struct MyDialog {
 struct Dialog {
   myDiaController: CustomDialogController = new CustomDialogController({
     builder: MyDialog({}),
-    customStyle: true, <em>// 弹窗容器样式是否自定义</em>
-    autoCancel: false,<em> // 是否允许点击遮障层退出</em>
-    alignment: DialogAlignment.Bottom,<em> // 弹窗在竖直方向上的对齐，底部对齐失效</em>
+    customStyle: true, // 弹窗容器样式是否自定义
+    autoCancel: false, // 是否允许点击遮障层退出
+    alignment: DialogAlignment.Bottom, // 弹窗在竖直方向上的对齐，底部对齐失效
   });
 
   onPageShow(): void {
@@ -70,7 +70,7 @@ export struct MyDialog {
   pathStack: NavPathStack = new NavPathStack();
 
   build() {
- <em>   // 弹窗内使用Navigation可实现弹窗内路由跳转，从而更换弹窗内显示的页面</em>
+    // 弹窗内使用Navigation可实现弹窗内路由跳转，从而更换弹窗内显示的页面
     Navigation(this.pathStack) {
       Column() {
         Text('我是弹窗')
@@ -90,9 +90,9 @@ export struct MyDialog {
 struct DialogDemo {
   myDialogController: CustomDialogController = new CustomDialogController({
     builder: MyDialog({}),
-    customStyle: true, <em>// 弹窗容器样式是否自定义</em>
-    autoCancel: false,<em> // 是否允许点击遮障层退出</em>
-    alignment: DialogAlignment.Bottom,<em> // 弹窗在竖直方向上的对齐，底部对齐失效</em>
+    customStyle: true, // 弹窗容器样式是否自定义
+    autoCancel: false, // 是否允许点击遮障层退出
+    alignment: DialogAlignment.Bottom, // 弹窗在竖直方向上的对齐，底部对齐失效
   });
 
   onPageShow(): void {

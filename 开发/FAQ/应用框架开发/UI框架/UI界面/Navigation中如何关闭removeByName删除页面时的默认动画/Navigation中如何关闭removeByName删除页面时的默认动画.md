@@ -57,12 +57,12 @@ struct Index {
       .width('100%')
       .height('100%');
     }
-    <em>// 设置自定义转场动画</em>
+    // 设置自定义转场动画
     .customNavContentTransition((from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation) => {
       console.info(`current info: ${to.name}, index: ${to.index}, mode: ${to.mode}`);
       console.info(`pre info: ${from.name}, index: ${from.index}, mode: ${from.mode}`);
       console.info(`operation: ${operation}`);
-    <em>  // 通过name区分具体的页面</em>
+      // 通过name区分具体的页面
       if (from.name == 'SubPage' && this.flag === true) {
         this.flag = false;
         let customAnimation: NavigationAnimatedTransition = {
@@ -70,11 +70,11 @@ struct Index {
             console.info(`current transition result is ${isSuccess}`);
           },
           timeout: 100,
-          <em>// 转场开始时系统调用该方法，并传入转场上下文代理对象</em>
+          // 转场开始时系统调用该方法，并传入转场上下文代理对象
           transition: () => {
             if (operation == NavigationOperation.POP) {
               this.getUIContext().animateTo({
-                duration: 0, <em>// 持续时间设置为0</em>
+                duration: 0, // 持续时间设置为0
               }, () => {
               });
             }
@@ -108,7 +108,7 @@ struct SubPage {
         Button('removeByName当前页面')
           .onClick(() => {
             let eventhub = this.getUIContext().getHostContext()?.eventHub;
-          <em>  // 通过eventHub设置removeByName的区分标志区分removeByName和页面返回事件</em>
+            // 通过eventHub设置removeByName的区分标志区分removeByName和页面返回事件
             eventhub!.emit('removeByNameEvent');
             this.pathStack.removeByName('SubPage');
           });

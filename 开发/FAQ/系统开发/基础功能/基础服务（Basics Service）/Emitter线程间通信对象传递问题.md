@@ -48,7 +48,7 @@ let options: emitter.Options = {
 
 let eventData = new SelfEventData();
 
-<em>// 订阅事件</em>
+// 订阅事件
 emitter.on('eventId', (eventData: SelfEventData) => {
   console.log('Event received:', eventData.data);
   eventData.data.printCount();
@@ -62,9 +62,9 @@ struct Index {
       Button('点击')
         .onClick(() => {
           console.log('Button clicked');
-         <em> // 点击后打印当前 count 值</em>
+          // 点击后打印当前 count 值
           console.log('Current count:', eventData.data.count);
-        <em>  // 发送事件</em>
+          // 发送事件
           emitter.emit('eventId', options, eventData);
         });
     }

@@ -78,7 +78,7 @@ struct NavPageOne {
         .height(40)
         .margin(10)
         .onClick(() => {
-          <em>// 使用router跳转到下一个页面</em>
+          // 使用router跳转到下一个页面
           this.getUIContext().getRouter().pushUrl({
             url: 'pages/RouterPageOne'
           });
@@ -101,8 +101,8 @@ struct RouterPageOne {
   pageInfo: NavPathStack = new NavPathStack();
 
   build() {
-    <em>// 注意：使用NavDestination，会导致无法跳转到指定NavDestination</em>
-    <em>// 使用Navigation，可以正常跳转</em>
+    // 注意：使用NavDestination，会导致无法跳转到指定NavDestination
+    // 使用Navigation，可以正常跳转
     Navigation(this.pageInfo) {
       Column() {
         Text('RouterPage1')
@@ -245,7 +245,7 @@ struct SceneThree {
   onPageShow(): void {
     let rouNam: number | undefined = AppStorage.get('router');
     if (rouNam === 1) {
-      this.getUIContext().getRouter().clear(); <em>// 清除掉历史页面router</em>
+      this.getUIContext().getRouter().clear(); // 清除掉历史页面router
       this.pageInfos.pushDestination({ name: 'pageThree' }, false);
     }
   }
@@ -429,12 +429,12 @@ export struct PageThree {
     .title('pageThree')
     .onBackPressed(() => {
       let rouNam: number | undefined = AppStorage.get('router');
-      <em>// 消除返回重影</em>
+      // 消除返回重影
       setTimeout(() => {
         this.pathStack?.pop();
       }, rouNam === 1 ? 500 : 0);
       if (rouNam === 1) {
-        this.getUIContext().getRouter().clear();<em> // 清除掉历史页面router</em>
+        this.getUIContext().getRouter().clear(); // 清除掉历史页面router
         AppStorage.delete('router');
       }
       return true;

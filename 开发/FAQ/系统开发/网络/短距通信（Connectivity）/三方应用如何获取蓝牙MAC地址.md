@@ -10,7 +10,7 @@
 import { connection } from '@kit.ConnectivityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function onReceiveEvent(data: Array<string>) { <em>// data is a collection of Bluetooth device addresses</em>
+function onReceiveEvent(data: Array<string>) { // data is a collection of Bluetooth device addresses
   console.info('bluetooth device find = '+ JSON.stringify(data));
 }
 

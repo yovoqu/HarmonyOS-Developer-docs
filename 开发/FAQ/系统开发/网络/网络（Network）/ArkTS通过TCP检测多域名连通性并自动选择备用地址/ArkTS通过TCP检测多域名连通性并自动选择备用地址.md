@@ -33,60 +33,60 @@
 该方案通过以下三步实现目标地址的连通性检测和优选逻辑：
  1. 定义一个包含主地址和两个备用地址的优先级列表，每个地址包括host和port：
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">仅供展示，请根据需要替换真实地址</span></em>
-const <span style="color: rgb(0,0,255);">PRIORITY_TARGETS</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CheckTarget</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span>
-  <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">主地址</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'app.xxx.cn'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8443 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">备用地址</span><span style="color: rgb(255,0,170);">1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'app1.xxx.cn'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8443 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">备用地址</span><span style="color: rgb(255,0,170);">2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'app2.xxx.cn'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8443 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+// 仅供展示，请根据需要替换真实地址
+const PRIORITY_TARGETS: CheckTarget[] = [
+  { name: '主地址', host: 'app.xxx.cn', port: 8443 },
+  { name: '备用地址1', host: 'app1.xxx.cn', port: 8443 },
+  { name: '备用地址2', host: 'app2.xxx.cn', port: 8443 },
+];
 ```
 
 2. 基于TCP实现网络连通性检测。使用socket.constructTCPSocketInstance()创建TCP套接字，并设置连接目标和超时时间（默认2000ms）。连接成功即视为网络连通，失败则记录错误信息。
 ```text
-private async <span style="color: rgb(0,0,255);">checkNetworkConnectivity</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">NetWorkResult</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-  return new <span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">tcpSocket </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">constructTCPSocketInstance</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(0,0,255);">connectOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ConnectOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">port</span>
-      <span style="color: rgb(255,0,170);">} </span>as <span style="color: rgb(0,0,255);">NetAddress</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">timeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">2000</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+private async checkNetworkConnectivity(host: string, port: number): Promise<NetWorkResult> {
+  return new Promise((resolve) => {
+    let tcpSocket = socket.constructTCPSocketInstance();
+    const connectOptions: ConnectOptions = {
+      address: {
+        address: host,
+        port: port
+      } as NetAddress,
+      timeout: 2000
+    };
 
-    <span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">connectOptions</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">isReachable</span><span style="color: rgb(181,106,1);">: </span>true <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">isReachable</span><span style="color: rgb(181,106,1);">: </span>false<span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">errorCode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`ERROR_</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">errorMessage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+    tcpSocket.connect(connectOptions, (error: BusinessError) => {
+      if (!error) {
+        tcpSocket.close();
+        resolve({ isReachable: true });
+      } else {
+        resolve({
+          isReachable: false,
+          errorCode: `ERROR_${error.code}`,
+          errorMessage: error.message
+        });
+      }
+    });
+  });
+}
 ```
 
 3. 按照优先级依次检测并选用第一个可用地址。通过遍历PRIORITY_TARGETS列表，逐一调用上一步的检测函数。若某个地址连通，则将其设置为全局使用的Constants.DOMAIN并立即返回成功；若均不可达则返回失败。
 ```text
-private async <span style="color: rgb(0,0,255);">checkWithPriority</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isChecking </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-  for <span style="color: rgb(0,0,255);">(</span>const <span style="color: rgb(0,0,255);">target </span>of <span style="color: rgb(0,0,255);">PRIORITY_TARGETS</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">正在检测 </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> (</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">host</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">)...`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(0,0,255);">result </span><span style="color: rgb(181,106,1);">= </span>await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">checkNetworkConnectivity</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isReachable</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">✅ </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(255,0,170);">} </span><span style="color: rgb(255,0,170);">连通！</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Constants</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DOMAIN </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">host</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
-      break<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">❌ </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(255,0,170);">} </span><span style="color: rgb(255,0,170);">不可达</span><span style="color: rgb(255,0,170);">: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">errorMessage</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isChecking </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+private async checkWithPriority(): Promise<void> {
+  this.isChecking = true;
+  for (const target of PRIORITY_TARGETS) {
+    hilog.error(0x0000, TAG, `正在检测 ${target.name} (${target.host}:${target.port})...`);
+    const result = await this.checkNetworkConnectivity(target.host, target.port);
+    if (result.isReachable) {
+      hilog.error(0x0000, TAG, `✅ ${target.name} 连通！`);
+      Constants.DOMAIN = `${target.host}:${target.port}`;
+      break;
+    } else {
+      hilog.error(0x0000, TAG, `❌ ${target.name} 不可达: ${result.errorMessage}`);
+    }
+  }
+  this.isChecking = false;
+}
 ```
 
  
@@ -105,123 +105,123 @@ private async <span style="color: rgb(0,0,255);">checkWithPriority</span><span s
 
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">socket </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.NetworkKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">Constants </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'../constants/Constants'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">hilog </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.PerformanceAnalysisKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">NetWorkResult</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ConnectOptions</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">NetAddress</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">CheckTarget </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'../model/DataModel'</span><span style="color: rgb(181,106,1);">;</span>
+import { socket } from '@kit.NetworkKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { Constants } from '../constants/Constants';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import { NetWorkResult, ConnectOptions, NetAddress, CheckTarget } from '../model/DataModel';
 
-const <span style="color: rgb(0,0,255);">TAG </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'NetworkTest'</span><span style="color: rgb(181,106,1);">;</span>
+const TAG = 'NetworkTest';
 
-<em>// </em><em><span style="color: rgb(128,128,128);">仅供展示，请根据需要替换真实地址</span></em>
-const <span style="color: rgb(0,0,255);">PRIORITY_TARGETS</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CheckTarget</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span>
-  <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">主地址</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'app.xxx.cn'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8443 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">备用地址</span><span style="color: rgb(255,0,170);">1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'app1.xxx.cn'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8443 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">备用地址</span><span style="color: rgb(255,0,170);">2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'app2.xxx.cn'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8443 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+// 仅供展示，请根据需要替换真实地址
+const PRIORITY_TARGETS: CheckTarget[] = [
+  { name: '主地址', host: 'app.xxx.cn', port: 8443 },
+  { name: '备用地址1', host: 'app1.xxx.cn', port: 8443 },
+  { name: '备用地址2', host: 'app2.xxx.cn', port: 8443 },
+];
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">isChecking</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  @State isChecking: boolean = false;
 
-  private async <span style="color: rgb(0,0,255);">checkWithPriority</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isChecking </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-    for <span style="color: rgb(0,0,255);">(</span>const <span style="color: rgb(0,0,255);">target </span>of <span style="color: rgb(0,0,255);">PRIORITY_TARGETS</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">正在检测 </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> (</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">host</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">)...`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      const <span style="color: rgb(0,0,255);">result </span><span style="color: rgb(181,106,1);">= </span>await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">checkNetworkConnectivity</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isReachable</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">✅ </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(255,0,170);">} </span><span style="color: rgb(255,0,170);">连通！</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">Constants</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DOMAIN </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">host</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
-        break<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">❌ </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">target</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(255,0,170);">} </span><span style="color: rgb(255,0,170);">不可达</span><span style="color: rgb(255,0,170);">: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">errorMessage</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isChecking </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  private async checkWithPriority(): Promise<void> {
+    this.isChecking = true;
+    for (const target of PRIORITY_TARGETS) {
+      hilog.error(0x0000, TAG, `正在检测 ${target.name} (${target.host}:${target.port})...`);
+      const result = await this.checkNetworkConnectivity(target.host, target.port);
+      if (result.isReachable) {
+        hilog.error(0x0000, TAG, `✅ ${target.name} 连通！`);
+        Constants.DOMAIN = `${target.host}:${target.port}`;
+        break;
+      } else {
+        hilog.error(0x0000, TAG, `❌ ${target.name} 不可达: ${result.errorMessage}`);
+      }
+    }
+    this.isChecking = false;
+  }
 
-  private async <span style="color: rgb(0,0,255);">checkNetworkConnectivity</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">NetWorkResult</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    return new <span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      let <span style="color: rgb(0,0,255);">tcpSocket </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">constructTCPSocketInstance</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-      const <span style="color: rgb(0,0,255);">connectOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ConnectOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">port</span>
-        <span style="color: rgb(255,0,170);">} </span>as <span style="color: rgb(0,0,255);">NetAddress</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">timeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">2000</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  private async checkNetworkConnectivity(host: string, port: number): Promise<NetWorkResult> {
+    return new Promise((resolve) => {
+      let tcpSocket = socket.constructTCPSocketInstance();
+      const connectOptions: ConnectOptions = {
+        address: {
+          address: host,
+          port: port
+        } as NetAddress,
+        timeout: 2000
+      };
 
-      <span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">connectOptions</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">tcpSocket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">isReachable</span><span style="color: rgb(181,106,1);">: </span>true <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">isReachable</span><span style="color: rgb(181,106,1);">: </span>false<span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">errorCode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`ERROR_</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">errorMessage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+      tcpSocket.connect(connectOptions, (error: BusinessError) => {
+        if (!error) {
+          tcpSocket.close();
+          resolve({ isReachable: true });
+        } else {
+          resolve({
+            isReachable: false,
+            errorCode: `ERROR_${error.code}`,
+            errorMessage: error.message
+          });
+        }
+      });
+    });
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">网络连通性检测</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">24</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Column() {
+      Text('网络连通性检测')
+        .fontSize(24)
+        .margin(16)
+        .fontWeight(FontWeight.Bold);
 
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isChecking </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">检测中</span><span style="color: rgb(255,0,170);">...' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">开始检测</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isChecking</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">checkWithPriority</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+      Button(this.isChecking ? '检测中...' : '开始检测')
+        .width(100)
+        .margin(10)
+        .onClick(async () => {
+          if (!this.isChecking) {
+            this.checkWithPriority();
+          }
+        });
+    }
+    .width('100%')
+    .height('100%');
+  }
+}
 ```
  
 - DataModel.ets代码：
 
  
 ```text
-export interface <span style="color: rgb(0,0,255);">CheckTarget </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">host</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+export interface CheckTarget {
+  name: string;
+  host: string;
+  port: number;
+}
 
-<em>// </em><em><span style="color: rgb(128,128,128);">网络地址类型</span></em>
-export interface <span style="color: rgb(0,0,255);">NetAddress </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+// 网络地址类型
+export interface NetAddress {
+  address: string;
+  port: number;
+}
 
-export interface <span style="color: rgb(0,0,255);">ConnectOptions </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">NetAddress</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">timeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+export interface ConnectOptions {
+  address: NetAddress;
+  timeout: number;
+}
 
-export interface <span style="color: rgb(0,0,255);">NetWorkResult </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">isReachable</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">errorCode</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">errorMessage</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+export interface NetWorkResult {
+  isReachable: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+}
 ```
  
 - Constants.ets代码：
 
  
 ```text
-export class <span style="color: rgb(0,0,255);">Constants </span><span style="color: rgb(255,0,170);">{</span>
-  static <span style="color: rgb(0,0,255);">DOMAIN</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+export class Constants {
+  static DOMAIN: string = '';
+}
 ```

@@ -42,7 +42,7 @@ using namespace std;
 int N = 100;
 int M = 100;
 
-<em>// ffrt::submit中使用了std::mutex</em>
+// ffrt::submit中使用了std::mutex
     void PositiveCase1(int temp) {
     ffrt::mutex lock;
     int acc = 0;
@@ -58,7 +58,7 @@ int M = 100;
             {}, {});
     }
 }
-<em>// ffrt::submit中使用了std::condition_variable</em>
+// ffrt::submit中使用了std::condition_variable
     void PositiveCase2(int temp) {
     ffrt::condition_variable cond;
     int a = 0;
@@ -78,7 +78,7 @@ int M = 100;
         {}, {});
     ffrt::wait();
 }
-<em>// ffrt::submit中使用了std::usleep</em>
+// ffrt::submit中使用了std::usleep
     void PositiveCase3(int temp) {
     ffrt::submit(
         [&]() {
@@ -87,7 +87,7 @@ int M = 100;
         ffrt_yield();      
     }, {}, {});
 }
-<em>// ffrt::submit中使用了pthread_rwlock_wrlock或pthread_rwlock_rdlock</em>
+// ffrt::submit中使用了pthread_rwlock_wrlock或pthread_rwlock_rdlock
     void PositiveCase4(int temp) {
     int a = 0;
     ffrt_rwlock_t mtx;
@@ -135,7 +135,7 @@ int M = 100;
 using namespace std;
 int N = 100;
 int M = 100;
-<em>// ffrt::submit中使用了std::mutex</em>
+// ffrt::submit中使用了std::mutex
     void NegativeCase1(int temp) {
     std::mutex lock;
     int acc = 0;
@@ -151,7 +151,7 @@ int M = 100;
             {}, {});
     }
 }
-<em>// ffrt::submit中使用了std::condition_variable</em>
+// ffrt::submit中使用了std::condition_variable
     void NegativeCase2(int temp) {
     std::condition_variable cond;
     int a = 0;
@@ -171,7 +171,7 @@ int M = 100;
         {}, {});
     ffrt::wait();
 }
-<em>// ffrt::submit中使用了std::usleep</em>
+// ffrt::submit中使用了std::usleep
     void NegativeCase3(int temp) {
     ffrt::submit(
         [&]() {
@@ -180,7 +180,7 @@ int M = 100;
         ffrt_yield();
     }, {}, {});
 }
-<em>// ffrt::submit中使用了pthread_rwlock_wrlock或pthread_rwlock_rdlock</em>
+// ffrt::submit中使用了pthread_rwlock_wrlock或pthread_rwlock_rdlock
     void NegativeCase4(int temp) {
     int a = 0;
     pthread_rwlock_t mtx;

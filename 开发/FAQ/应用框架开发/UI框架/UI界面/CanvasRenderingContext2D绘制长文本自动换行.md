@@ -45,12 +45,12 @@ struct CanvasExample {
   promptAction: PromptAction = this.getUIContext().getPromptAction();
 
   handleDrawText() {
-   <em> // 多个连续空格只保留一个</em>
+    // 多个连续空格只保留一个
     let tempText = this.testText.replace(/(^\s*)|(\s*$)/g, ' ').replace(/ +/g, ' ');
     let textLen = tempText.length;
     this.context.font = `${this.fontSize}vp YaHei`;
 
-   <em> // 如果绘制的文本总宽度并没有超过最大宽度，那么直接绘制</em>
+    // 如果绘制的文本总宽度并没有超过最大宽度，那么直接绘制
     if (this.context.measureText(tempText).width + textLen * this.letterSpacing < this.context.width) {
       this.context.fillText(tempText, 0, 0);
     } else {
@@ -58,32 +58,32 @@ struct CanvasExample {
       let tempStr = '';
       for (let i = 0; i < textLen; i++) {
         let currStr = tempText[i];
-       <em> // 判断当前字符是否是换行符，如果是，那么新增下一行</em>
+        // 判断当前字符是否是换行符，如果是，那么新增下一行
         let isWrap = !/\r?\n/.test(currStr);
         if (isWrap && (this.context.measureText(tempStr + currStr).width + (tempStr.length + 1) * this.letterSpacing) <
         this.context.width) {
-        <em>  // 如果不是换行符且当前绘制的文本宽度加字距小于最大宽度，直接当前行字符串直接拼接</em>
+          // 如果不是换行符且当前绘制的文本宽度加字距小于最大宽度，直接当前行字符串直接拼接
           tempStr += currStr;
         } else {
-        <em>  // 否则就是当前行的宽度已经达到极限，进行换行</em>
+          // 否则就是当前行的宽度已经达到极限，进行换行
           strArray.push(tempStr);
           if (isWrap) {
-          <em>  // 如果不是换行符，直接新的一行开头就是这个字符</em>
+            // 如果不是换行符，直接新的一行开头就是这个字符
             tempStr = currStr;
           } else {
-        <em>    // 否则，新的一行开头将换行符替换为空字符串</em>
+            // 否则，新的一行开头将换行符替换为空字符串
             tempStr = '';
           }
         }
       }
-  <em>    // 如果还有剩余结尾的字符串，直接就算作一行</em>
+      // 如果还有剩余结尾的字符串，直接就算作一行
       if (tempStr !== '') {
         strArray.push(tempStr);
         tempStr = '';
       }
 
       strArray.forEach((str, index) => {
-      <em>  // 逐行绘制，绘制的y坐标当前行行数加上字体大小加上行高近似的模拟</em>
+        // 逐行绘制，绘制的y坐标当前行行数加上字体大小加上行高近似的模拟
         this.handleDrawOneLineText(str, (index + 1) * (this.fontSize + this.lineHeight));
       });
     }
@@ -92,7 +92,7 @@ struct CanvasExample {
   handleDrawOneLineText(str: string, y: number) {
     let tempStr = '';
     for (let i = 0, len = str.length; i < len; i++) {
-   <em>   // 逐字绘制，每行的y不变，单个字符的x是前面绘制文本的宽度加上每个字符的间距和</em>
+      // 逐字绘制，每行的y不变，单个字符的x是前面绘制文本的宽度加上每个字符的间距和
       this.context.fillText(str[i], i * this.letterSpacing + (this.context.measureText(tempStr).width), y);
       tempStr += str[i];
     }

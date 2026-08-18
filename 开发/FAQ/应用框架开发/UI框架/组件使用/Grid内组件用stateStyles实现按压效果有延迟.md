@@ -102,7 +102,7 @@ Grid的内置滑动手势比按压手势更快响应，导致延迟，从而导�
 @Entry
 @Component
 struct GridPressExample {
- <em> // 添加一个状态变量，用来追踪Grid中组件的按压状态</em>
+  // 添加一个状态变量，用来追踪Grid中组件的按压状态
   @State isGridItemPressed: boolean = false;
 
   @Styles
@@ -121,7 +121,7 @@ struct GridPressExample {
             .borderRadius(32)
             .backgroundColor(this.isGridItemPressed ? '#0950DE' : '#0A59F7')
             .textAlign(TextAlign.Center)
-         <em>   // 添加onTouch事件，实现即时响应</em>
+            // 添加onTouch事件，实现即时响应
             .onTouch((event: TouchEvent) => {
               if (event.type === TouchType.Down) {
                 this.isGridItemPressed = true;

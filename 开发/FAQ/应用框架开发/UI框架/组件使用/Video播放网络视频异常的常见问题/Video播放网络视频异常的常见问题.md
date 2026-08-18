@@ -91,13 +91,13 @@ struct Index {
               this.videoSrc = fileUri.getUriFromPath(path);
               let file = await fs.open(path, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
               try {
-               <em> // 写入文件</em>
+                // 写入文件
                 await fs.write(file.fd, buffer);
                 this.getUIContext().getPromptAction().showToast({ message: '下载完成' });
                 this.testFetchFrameByTime(path);
                 console.log(`videoPath = ${path}`);
               } finally {
-              <em>  // 关闭文件</em>
+                // 关闭文件
                 await fs.close(file.fd);
               }
             } catch (error) {
@@ -111,19 +111,19 @@ struct Index {
   }
 
   async testFetchFrameByTime(filePath: string) {
-  <em>  // 创建AVImageGenerator对象</em>
+    // 创建AVImageGenerator对象
     let avImageGenerator: media.AVImageGenerator = await media.createAVImageGenerator();
     let file = fs.openSync(filePath, fs.OpenMode.READ_ONLY);
     try {
       let avFileDescriptor: media.AVFileDescriptor = { fd: file.fd };
       avImageGenerator.fdSrc = avFileDescriptor;
-    <em>  // 初始化入参</em>
+      // 初始化入参
       let timeUs = 6000000;
       let queryOption = media.AVImageQueryOptions.AV_IMAGE_QUERY_NEXT_SYNC;
       let param: media.PixelMapParams = { width: 300, height: 400, };
-     <em> // 获取缩略图（promise模式）</em>
+      // 获取缩略图（promise模式）
       this.pixelMap = await avImageGenerator.fetchFrameByTime(timeUs, queryOption, param);
-   <em>   // 释放资源（promise模式）</em>
+      // 释放资源（promise模式）
       avImageGenerator.release();
     } finally {
       fs.closeSync(file);
@@ -147,7 +147,7 @@ struct Index {
         .objectFit(ImageFit.Contain)
         .controls(true)
         .onError((err) => {
-        <em>  // 通过onError事件获取错误码，code为错误码，message为错误信息。</em>
+          // 通过onError事件获取错误码，code为错误码，message为错误信息。
           console.error(`code is ${err.code}, message is ${err.message}`);
         });
     };

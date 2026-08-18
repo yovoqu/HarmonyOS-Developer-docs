@@ -36,7 +36,7 @@ ArkTS如何实现点阵屏背景样式的弹幕滚动？效果如下图：
 通过Marquee实现滚动播放的效果，Canvas组件画出一个LED效果的遮罩，具体步骤如下：
  1. 计算文本是否超过Marquee的宽度，如果没有超过，用空格补齐，以保证正常滚动。
 ```text
-<em>// </em><em>计算文本是否超过Marquee的宽度，如果没有超过，用空格补齐，以保证正常滚动</em>
+// 计算文本是否超过Marquee的宽度，如果没有超过，用空格补齐，以保证正常滚动
 CompleteTextByTextWidth(src: string, fontSize: number, fontWeight: number) {
   let displayInfo = display.getDefaultDisplaySync();
   let displayWidth = displayInfo.width;
@@ -71,7 +71,7 @@ Marquee({
 
 3. 通过Canvas绘制网格遮罩，实现LED点阵屏的效果。
 ```text
-<em>// LED</em><em>点阵屏模拟遮罩</em>
+// LED点阵屏模拟遮罩
 Canvas(this.canvasContext)
   .width(this.danMuScreenWidth)
   .height(this.danMuScreenHeight)
@@ -80,13 +80,13 @@ Canvas(this.canvasContext)
     this.canvasContext.lineWidth = 0.55;
     let lineCountW = this.danMuScreenWidth / this.spaceWidth;
     let lineCountH = this.danMuScreenHeight / this.spaceWidth;
-   <em> // 相等间隔画出横线</em>
+    // 相等间隔画出横线
     for (let index = 0; index <= lineCountH; index++) {
       let y = index === lineCountH ? (this.danMuScreenHeight) : this.spaceWidth * index;
       this.canvasContext.moveTo(0, y);
       this.canvasContext.lineTo(this.danMuScreenWidth, y);
     }
- <em>   // 相等间隔画出竖线</em>
+    // 相等间隔画出竖线
     for (let index = 0; index <= lineCountW; index++) {
       let x = index === lineCountW ? (this.danMuScreenWidth) : this.spaceWidth * index;
       this.canvasContext.moveTo(x, 0);
@@ -118,7 +118,7 @@ struct MarqueePage {
     this.danMuSrc = this.CompleteTextByTextWidth(this.danMuSrc, 48, 700);
   }
 
-  <em>// </em><em>计算文本是否超过Marquee的宽度，如果没有超过，用空格补齐，以保证正常滚动</em>
+  // 计算文本是否超过Marquee的宽度，如果没有超过，用空格补齐，以保证正常滚动
   CompleteTextByTextWidth(src: string, fontSize: number, fontWeight: number) {
     let displayInfo = display.getDefaultDisplaySync();
     let displayWidth = displayInfo.width;
@@ -149,7 +149,7 @@ struct MarqueePage {
           .fontSize(48)
           .fontWeight(700)
           .backgroundColor('#182431')
-      <em>  // LED点阵屏模拟遮罩</em>
+        // LED点阵屏模拟遮罩
         Canvas(this.canvasContext)
           .width(this.danMuScreenWidth)
           .height(this.danMuScreenHeight)
@@ -158,13 +158,13 @@ struct MarqueePage {
             this.canvasContext.lineWidth = 0.55;
             let lineCountW = this.danMuScreenWidth / this.spaceWidth;
             let lineCountH = this.danMuScreenHeight / this.spaceWidth;
-            <em>// 相等间隔画出横线</em>
+            // 相等间隔画出横线
             for (let index = 0; index <= lineCountH; index++) {
               let y = index === lineCountH ? (this.danMuScreenHeight) : this.spaceWidth * index;
               this.canvasContext.moveTo(0, y);
               this.canvasContext.lineTo(this.danMuScreenWidth, y);
             }
-           <em> // 相等间隔画出竖线</em>
+            // 相等间隔画出竖线
             for (let index = 0; index <= lineCountW; index++) {
               let x = index === lineCountW ? (this.danMuScreenWidth) : this.spaceWidth * index;
               this.canvasContext.moveTo(x, 0);

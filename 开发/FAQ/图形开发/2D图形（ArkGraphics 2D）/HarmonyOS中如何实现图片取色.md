@@ -45,7 +45,7 @@
 
 2. **核心代码：**
 ```text
-<em>// 同步主色获取</em>
+// 同步主色获取
 const color = colorPicker.getMainColorSync();
 console.info('get main color =', '{red:', color.red, 'green:', color.green, 'blue:', color.blue, 'alpha:',
   color.alpha, '}');
@@ -75,11 +75,11 @@ console.info('get main color =', '{red:', color.red, 'green:', color.green, 'blu
 
 6. **核心代码：**
 ```text
-<em>// 获取占比最大的颜色</em>
+// 获取占比最大的颜色
 const largestColor = colorPicker.getLargestProportionColor();
 console.info('get largest proportion color =' + '{red:', largestColor.red, 'green:', largestColor.green,
   'blue:', largestColor.blue, 'alpha:', largestColor.alpha, '}');
-<em>// 获取占比靠前的颜色值</em>
+// 获取占比靠前的颜色值
 const topColors = colorPicker.getTopProportionColors(2);
 for (let index = 0; index < topColors.length; index++) {
   if (topColors[index]) {
@@ -124,7 +124,7 @@ for (let index = 0; index < topColors.length; index++) {
 
 10. **核心代码：**
 ```text
-<em>// 获取平均色</em>
+// 获取平均色
 const averageColor = colorPicker.getAverageColor();
 console.info('get average color =' + '{red:', averageColor.red, 'green:', averageColor.green, 'blue:',
   averageColor.blue, 'alpha:', averageColor.alpha, '}');
@@ -148,7 +148,7 @@ console.info('get average color =' + '{red:', averageColor.red, 'green:', averag
 
 14. **核心代码：**
 ```text
-<em>// 获取饱和度最高的颜色</em>
+// 获取饱和度最高的颜色
 const highestSatColor = colorPicker.getHighestSaturationColor();
 console.info('get highest SatColor color =', '{red:', highestSatColor.red, 'green:', highestSatColor.green,
   'blue:', highestSatColor.blue, 'alpha:', highestSatColor.alpha, '}');
@@ -180,7 +180,7 @@ console.info('get highest SatColor color =', '{red:', highestSatColor.red, 'gree
 
 19. **核心代码：**
 ```text
-<em>// 黑白灰检测</em>
+// 黑白灰检测
 const isNeutral = colorPicker.isBlackOrWhiteOrGrayColor(0xFFFF00FF);
 console.info('isBlackOrWhiteOrGrayColor', isNeutral);
 ```
@@ -215,10 +215,10 @@ const area: image.PositionArea = {
 };
 if (pixelMap !== undefined) {
   pixelMap.readPixels(area).then(() => {
-    console.info('Succeeded in reading the image data in the area.'); <em>// 符合条件则进入。</em>
+    console.info('Succeeded in reading the image data in the area.'); // 符合条件则进入。
     console.info('BGRA data is ', new Uint8Array(area.pixels));
   }).catch((error: BusinessError) => {
-    console.error(`Failed to read the image data in the area. code is ${error.code}, message is ${error.message}`); <em>// 不符合条件则进</em><em>入。</em>
+    console.error(`Failed to read the image data in the area. code is ${error.code}, message is ${error.message}`); // 不符合条件则进入。
   });
 }
 ```
@@ -258,25 +258,25 @@ struct Index {
       };
       if (pixelMap !== undefined) {
         pixelMap.readPixels(area).then(() => {
-          console.info('Succeeded in reading the image data in the area.'); <em>// 符合条件则进入。</em>
+          console.info('Succeeded in reading the image data in the area.'); // 符合条件则进入。
           console.info('BGRA data is ', new Uint8Array(area.pixels));
         }).catch((error: BusinessError) => {
-          console.error(`Failed to read the image data in the area. code is ${error.code}, message is ${error.message}`); <em>// 不符合条件则进入。</em>
+          console.error(`Failed to read the image data in the area. code is ${error.code}, message is ${error.message}`); // 不符合条件则进入。
         });
       }
       effectKit.createColorPicker(pixelMap, (err, colorPicker) => {
         if (err) {
           console.error(`failed to create color picker.`);
         }
-        <em>// 同步主色获取</em>
+        // 同步主色获取
         const color = colorPicker.getMainColorSync();
         console.info('get main color =', '{red:', color.red, 'green:', color.green, 'blue:', color.blue, 'alpha:',
           color.alpha, '}');
-        <em>// 获取占比最大的颜色</em>
+        // 获取占比最大的颜色
         const largestColor = colorPicker.getLargestProportionColor();
         console.info('get largest proportion color =' + '{red:', largestColor.red, 'green:', largestColor.green,
           'blue:', largestColor.blue, 'alpha:', largestColor.alpha, '}');
-        <em>// 获取占比靠前的颜色值</em>
+        // 获取占比靠前的颜色值
         const topColors = colorPicker.getTopProportionColors(2);
         for (let index = 0; index < topColors.length; index++) {
           if (topColors[index]) {
@@ -285,15 +285,15 @@ struct Index {
               topColors[index]?.alpha, '}');
           }
         }
-        <em>// 获取平均色</em>
+        // 获取平均色
         const averageColor = colorPicker.getAverageColor();
         console.info('get average color =' + '{red:', averageColor.red, 'green:', averageColor.green, 'blue:',
           averageColor.blue, 'alpha:', averageColor.alpha, '}');
-        <em>// 获取饱和度最高的颜色</em>
+        // 获取饱和度最高的颜色
         const highestSatColor = colorPicker.getHighestSaturationColor();
         console.info('get highest SatColor color =', '{red:', highestSatColor.red, 'green:', highestSatColor.green,
           'blue:', highestSatColor.blue, 'alpha:', highestSatColor.alpha, '}');
-        <em>// 黑白灰检测</em>
+        // 黑白灰检测
         const isNeutral = colorPicker.isBlackOrWhiteOrGrayColor(0xFFFF00FF);
         console.info('isBlackOrWhiteOrGrayColor', isNeutral);
       });
@@ -331,7 +331,7 @@ struct Index {
 首先直接获取需要的十进制颜色值，分别获取各个颜色值。
 - 将十进制转化成十六进制。核心参考代码如下（完整代码参考解决方案）：
 ```text
-<em>// 将十进制的bgra_8888像素值转换为十六进制的颜色值</em>
+// 将十进制的bgra_8888像素值转换为十六进制的颜色值
 export function color2hex(color: effectKit.Color): string {
   const b = color.blue;
   const g = color.green;

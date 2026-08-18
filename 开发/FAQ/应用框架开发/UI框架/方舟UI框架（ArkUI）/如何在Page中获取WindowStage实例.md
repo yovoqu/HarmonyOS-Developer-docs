@@ -12,9 +12,9 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
 
 export default class EntryAbility extends UIAbility {
-<em>  // ...</em>
+  // ...
   onWindowStageCreate(windowStage: window.WindowStage): void {
-  <em>  // Main window is created, set main page for this ability</em>
+    // Main window is created, set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
     windowStage.loadContent('pages/Index', (err) => {
@@ -25,18 +25,18 @@ export default class EntryAbility extends UIAbility {
       hilog.info(0x0000, 'testTag', 'Succeeded in loading the content.');
     });
     console.info('windowStage', JSON.stringify(windowStage))
-   <em> // Store windowStage instance globally for cross-page access</em>
+    // Store windowStage instance globally for cross-page access
     AppStorage.setAndLink('windowStage', windowStage)
   }
 
- <em> // ...</em>
+  // ...
 }
 ```
  
 方式二：UIAbilityContext提供了获取WindowStage实例的接口，此方式适用于需要动态获取WindowStage的页面级场景，无需持久化存储。
  
 ```ArkTS
-<em>// Index.ets</em>
+// Index.ets
 import common from '@ohos.app.ability.common';
 
 @Entry

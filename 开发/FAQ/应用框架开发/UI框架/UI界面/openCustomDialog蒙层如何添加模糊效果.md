@@ -116,24 +116,24 @@ class Params {
 function buildText(params: Params) {
   Stack() {
     if (params.flag) {
-  <em>    // 蒙层</em>
+      // 蒙层
       Column()
         .width('100%')
         .height('100%')
         .backdropBlur(30)
         .borderRadius(15)
-        .transition(TransitionEffect.OPACITY.animation({ duration: 1000, curve: Curve.Ease }))<em> // 蒙层动画</em>
+        .transition(TransitionEffect.OPACITY.animation({ duration: 1000, curve: Curve.Ease })) // 蒙层动画
         .onClick(() => {
-        <em>  // 弹窗关闭的时候置为false标识弹窗即将关闭</em>
+          // 弹窗关闭的时候置为false标识弹窗即将关闭
           PromptActionDialogClass.contentNode.update(new Params(params.topHeight, false));
-        <em>  // 延迟2s关闭动画</em>
+          // 延迟2s关闭动画
           setTimeout(() => {
             PromptActionDialogClass.closeDialog();
           }, 2000);
         });
 
 
-    <em>  // 实际弹窗内容</em>
+      // 实际弹窗内容
       Column() {
         Text('这是自定义弹窗')
           .fontSize(30)
@@ -141,7 +141,7 @@ function buildText(params: Params) {
         Button('点我关闭弹窗')
           .onClick(() => {
             PromptActionDialogClass.contentNode.update(new Params(params.topHeight, false));
-          <em>  // 延迟2s关闭动画</em>
+            // 延迟2s关闭动画
             setTimeout(() => {
               PromptActionDialogClass.closeDialog();
             }, 2000);
@@ -151,16 +151,16 @@ function buildText(params: Params) {
       .padding(15)
       .backgroundColor(Color.Gray)
       .borderRadius(15)
-    <em>  // 弹窗动画</em>
+      // 弹窗动画
       .transition(TransitionEffect.move(TransitionEdge.START).animation({ duration: 1000 }))
-     <em> // 加入空的点击事件弹窗就不会关闭</em>
+      // 加入空的点击事件弹窗就不会关闭
       .onClick(() => {
       });
     }
   }
   .width('100%')
   .height('100%')
- <em> // 此处margin需要替换为顶部安全区高度topHeight，因蒙层会侵入安全区，所以做假蒙层也要侵入安全区</em>
+  // 此处margin需要替换为顶部安全区高度topHeight，因蒙层会侵入安全区，所以做假蒙层也要侵入安全区
   .margin({ top: -params.topHeight })
   .padding({ top: params.topHeight });
 }
@@ -195,7 +195,7 @@ struct CustomDialogMaskPage {
         Button('open dialog and update options')
           .margin({ top: 50 })
           .onClick(() => {
-          <em>  // 弹窗开启的时候设置为true标识弹窗打开</em>
+            // 弹窗开启的时候设置为true标识弹窗打开
             this.contentNode.update(new Params(this.topHeight, true));
             PromptActionDialogClass.openDialog();
           });

@@ -33,14 +33,14 @@
 **实现思路**：HarmonyOS中自定义弹窗需要在@Component中才可以调用，而问题现象需要用在全局，window窗口可以实现此功能。在EntryAbility.ets文件中定义一个新窗口，封装window方法类用于后续调用，最后在UI页面中调用实现用作全局网络请求时拦截的loading弹窗。
  1. 在EntryAbility.ets定义窗口，并在onWindowStageCreate()函数中调用。代码如下：
 ```json
-<em>// 定义窗口</em>
+// 定义窗口
 subWindowStage: window.WindowStage | null = null;
 
 onWindowStageCreate(windowStage: window.WindowStage): void {
-  <em>// Main window is created, set main page for this ability</em>
+  // Main window is created, set main page for this ability
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
-<em>  // onWindowStageCreate()函数，并且增加监听</em>
+  // onWindowStageCreate()函数，并且增加监听
   this.subWindowStage = windowStage;
   const that: EntryAbility = this;
   this.context.eventHub.on('createWindow', (data: Data) => {
@@ -109,7 +109,7 @@ export class CommonWindow {
         } else {
           let names: Array<'status' | 'navigation'> = [];
           this.subWindow.setWindowSystemBarEnable(names);
-          this.subWindow.setWindowTouchable(false); <em>// 设置是否可以点击</em>
+          this.subWindow.setWindowTouchable(false); // 设置是否可以点击
           this.loadContent(entryName);
           this.showSubWindow();
         }
@@ -190,19 +190,19 @@ export struct MainPage {
   @LocalStorageLink('PropA') varA: number | undefined = 1;
   localStorage = this.getUIContext().getSharedLocalStorage();
 
-  <em>// 页面生命周期：打开沉浸式</em>
+  // 页面生命周期：打开沉浸式
   onPageShow() {
     window.getLastWindow(this.getUIContext().getHostContext(), (err, win) => {
-     <em> // 获取当前窗口的属性</em>
+      // 获取当前窗口的属性
       let prop: window.WindowProperties = win.getWindowProperties();
-   <em>   // 打印当前窗口属性</em>
+      // 打印当前窗口属性
       console.info(JSON.stringify(prop));
       console.error(`err: ${err}`);
       win.setWindowLayoutFullScreen(true);
     });
   }
 
- <em> // 页面生命周期：关闭沉浸式</em>
+  // 页面生命周期：关闭沉浸式
   onPageHide() {
     window.getLastWindow(this.getUIContext().getHostContext(), (err, win) => {
       console.error(`err: ${err}`);

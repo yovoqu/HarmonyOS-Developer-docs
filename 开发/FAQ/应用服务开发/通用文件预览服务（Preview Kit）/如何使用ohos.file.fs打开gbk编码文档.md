@@ -32,20 +32,20 @@ import type { common } from '@kit.AbilityKit';
 import { fileIo as fs } from '@kit.CoreFileKit';
 import { util } from '@kit.ArkTS';
 
-<em>// demo展示使用utf8\gbk编码打开gbk编码文档的页面</em>
-<em>// writeGbkStr方法用于生成gbk编码文档用于展示</em>
-<em>// readGbkStr方法为使用gbk编码打开文档的实现</em>
+// demo展示使用utf8\gbk编码打开gbk编码文档的页面
+// writeGbkStr方法用于生成gbk编码文档用于展示
+// readGbkStr方法为使用gbk编码打开文档的实现
 
 
 @Entry
 @Component
 struct Index {
   private ctx = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  <em>// 写入文档的内容，用于展示</em>
+  // 写入文档的内容，用于展示
   private text = 'Text是文本组件，用于展示用户视图，如显示文章的文字内容。该组件支持绑定自定义文本选择菜单，用户可根据需要选择不同功能。';
-  <em>// 用于测试生成的临时文件名</em>
+  // 用于测试生成的临时文件名
   private fileName = 'test0.txt';
-  <em>// 文件地址请按实际填写</em>
+  // 文件地址请按实际填写
   private filesDir = this.ctx.filesDir + "/" + this.fileName;
 
   aboutToAppear(): void {
@@ -65,7 +65,7 @@ struct Index {
   }
 }
 
-<em>// 生成gbk编码的文档</em>
+// 生成gbk编码的文档
 function writeGbkStr(filesDir: string, content: string) {
   let file = fs.openSync(filesDir, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
   try {
@@ -82,7 +82,7 @@ function writeGbkStr(filesDir: string, content: string) {
 function readGbkStr(filesDir: string) {
   let file = fs.openSync(filesDir, fs.OpenMode.READ_ONLY);
   try {
-    <em>// 读取数据到Uint8Array</em>
+    // 读取数据到Uint8Array
     let buf = new ArrayBuffer(118);
     fs.readSync(file.fd, buf);
     let decoder = util.TextDecoder.create('gbk');

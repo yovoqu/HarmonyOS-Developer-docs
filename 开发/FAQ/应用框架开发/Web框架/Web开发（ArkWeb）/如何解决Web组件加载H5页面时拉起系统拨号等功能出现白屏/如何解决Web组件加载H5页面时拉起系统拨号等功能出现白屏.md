@@ -95,9 +95,9 @@ struct Index {
         .onLoadIntercept((event) => {
           if (event) {
             let url: string = event.data.getRequestUrl();
-         <em>   // 判断链接是否为拨号链接</em>
+            // 判断链接是否为拨号链接
             if (url.indexOf('tel:') === 0) {
-             <em> // 跳转拨号界面</em>
+              // 跳转拨号界面
               call.makeCall(url.substring(SUB_COUNT), (err) => {
                 if (!err) {
                   console.info('make call succeeded.');
@@ -107,9 +107,9 @@ struct Index {
               });
               return true;
             }
-         <em>   // 判断链接是否为发短信链接</em>
+            // 判断链接是否为发短信链接
             if (url.indexOf('sms:') === 0) {
-           <em>   // 跳转到短信编辑界面</em>
+              // 跳转到短信编辑界面
               let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
               let want: Want = {
                 bundleName: 'com.ohos.mms',
@@ -123,9 +123,9 @@ struct Index {
               });
               return true;
             }
-          <em>  // 判断链接是否为发邮件链接</em>
+            // 判断链接是否为发邮件链接
             if (url.indexOf('mailto:') === 0) {
-             <em> // 跳转到邮件应用</em>
+              // 跳转到邮件应用
               let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
               let want: Want = {
                 action: 'ohos.want.action.sendToData',

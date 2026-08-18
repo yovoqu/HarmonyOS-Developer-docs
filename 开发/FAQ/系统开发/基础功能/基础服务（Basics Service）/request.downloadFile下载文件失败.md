@@ -8,7 +8,7 @@
 
 - 问题一：报错信息：Failed to request the download. err: {"code":13400001}，提示操作文件异常，问题场景代码如下：
 ```text
-<em> // 场景一</em>
+ // 场景一
  let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
  let filesDir = context.filesDir;
  try {
@@ -18,13 +18,13 @@
    console.error(`Failed to request the download. Code: ${error.code}, message: ${error.message}`);
  }
 
- <em>// 场景二</em>
+ // 场景二
  request.downloadFile(context, {
    url: 'https://www.example.com/xxxx.jpg', 
    filePath: '/data/storage/el2/base/files/test/test.jpg'
  }
 
- <em>// 场景三</em>
+ // 场景三
  let url = 'https://www.example.com/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.docx';
  request.downloadFile(context, { url:url}).then((data: request.DownloadTask) => {
    let downloadTask: request.DownloadTask = data;
@@ -99,14 +99,14 @@ interface DownloadResult {
 @Component
 struct Index {
   context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  downloadUrl: string = ''; <em>// 需要手动将url替换为真实服务器的HTTP协议地址</em>
+  downloadUrl: string = ''; // 需要手动将url替换为真实服务器的HTTP协议地址
   @State filePath: string = '';
   @State current: number = 0;
   @State total: number = 0;
   @State downloadTask: request.DownloadTask = {} as request.DownloadTask;
   @State downloadImage: string = '';
 
-<em>  // 创建文件</em>
+  // 创建文件
   createFolder(url: string) {
     let isExist = fs.accessSync(`${this.context.filesDir}/testDir`, fs.AccessModeType.EXIST);
     if (isExist) {
@@ -132,20 +132,20 @@ struct Index {
     return new Promise(async (resolve, reject) => {
       this.filePath = savePath + '/test.png';
       this.downloadTask = await request.downloadFile(this.context, { url, filePath: this.filePath });
-    <em>  // 监听下载进度</em>
+      // 监听下载进度
       this.downloadTask.on('progress', (receivedSize: number, totalSize: number) => {
         this.current = receivedSize;
         this.total = totalSize;
       });
 
-   <em>   // 监听下载是否失败</em>
+      // 监听下载是否失败
       this.downloadTask.on('fail', (err) => {
         if (err) {
           return reject({ isSuccess: false, msg: '下载失败' });
         }
       });
 
-    <em>  // 监听下载是否完成</em>
+      // 监听下载是否完成
       this.downloadTask.on('complete', () => {
         this.downloadImage = 'file://' + this.filePath;
         return resolve({ isSuccess: true, msg: 'Download task completed.' });

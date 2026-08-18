@@ -34,7 +34,7 @@ export struct BindSheetAndForEach {
     .width('100%')
   }
 
- <em> // Each array item corresponds to an independent pop-up window displaying the status, which is index bound</em>
+  // Each array item corresponds to an independent pop-up window displaying the status, which is index bound
   build() {
     Column() {
       ForEach(this.arr, (item: number, idx: number) => {

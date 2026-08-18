@@ -31,7 +31,7 @@ struct HttpRequest {
         console.info('code:' + data.responseCode);
         console.info('type:' + JSON.stringify(data.resultType));
         console.info('header:' + JSON.stringify(data.header));
-        console.info('cookies:' + data.cookies); <em>// Starting from API version 8, cookies are supported</em>
+        console.info('cookies:' + data.cookies); // Starting from API version 8, cookies are supported
       } else {
         console.info('error:' + JSON.stringify(err));
       }

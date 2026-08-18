@@ -39,7 +39,7 @@ struct SwiperGifDemo {
   data: ResourceStr[] = [];
 
   aboutToAppear() {
-  <em>  // 图片资源需自行替换</em>
+    // 图片资源需自行替换
     this.data.push($r('app.media.img1'));
     this.data.push($r('app.media.img2'));
     this.data.push($r('app.media.img3'));
@@ -58,13 +58,13 @@ struct SwiperGifDemo {
             .borderRadius('12vp');
         }, (index: number) => index.toString());
       }
-      .autoPlay(true)<em> </em><em>// 自动切换</em>
+      .autoPlay(true) // 自动切换
       .indicator(false)
-      .loop(true) <em>// 循环播放</em>
-      .duration(0) <em>// 动画时长</em>
-      .curve(Curve.Linear) <em>// </em><em>动画曲线</em>
-      .interval(300) <em>// 切换时间间隔</em>
-      .disableSwipe(true); <em>// </em><em>禁止滑动切换</em>
+      .loop(true) // 循环播放
+      .duration(0) // 动画时长
+      .curve(Curve.Linear) // 动画曲线
+      .interval(300) // 切换时间间隔
+      .disableSwipe(true); // 禁止滑动切换
     }.padding('12vp');
   }
 }

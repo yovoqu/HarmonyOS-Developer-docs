@@ -35,13 +35,13 @@
 @Entry
 @Component
 struct DrawBankCom {
-  paintSize: number = 5; <em>// </em><em>当前画笔大小</em>
+  paintSize: number = 5; // 当前画笔大小
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
   canvasContext: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
   tempPath: Path2D = new Path2D();
-  @State @Watch('onChange') pathArray: Array<Path2D> = []; <em>// 所有画图路径信息</em>
+  @State @Watch('onChange') pathArray: Array<Path2D> = []; // 所有画图路径信息
   isUpdate: boolean = true;
-  removeArray: Array<Path2D> = []; <em>// </em><em>回退的路径集合</em>
+  removeArray: Array<Path2D> = []; // 回退的路径集合
   @State text: string = '';
   @State eventType: string = '';
 
@@ -51,7 +51,7 @@ struct DrawBankCom {
         Row() {
           Column() {
             Canvas(this.canvasContext)
-            <em>  // Canvas(子组件)宽高设置为300*300</em>
+              // Canvas(子组件)宽高设置为300*300
               .width(300)
               .height(300)
               .onReady(() => {
@@ -89,7 +89,7 @@ struct DrawBankCom {
                 }
               })
               .renderFit(RenderFit.TOP_RIGHT)
-               <em> // 设置触摸热区，蓝色区域可响应“down”操作，红色不可响应“down”操作，只能响应“move”操作</em>
+                // 设置触摸热区，蓝色区域可响应“down”操作，红色不可响应“down”操作，只能响应“move”操作
               .responseRegion({
                 x: 75,
                 y: 0,
@@ -97,7 +97,7 @@ struct DrawBankCom {
                 height: 150
               });
           }
-        <em>  // Column(父组件)宽高设置为150*150</em>
+          // Column(父组件)宽高设置为150*150
           .width(150)
           .height(150)
           .backgroundColor('#ffbdf3e9');

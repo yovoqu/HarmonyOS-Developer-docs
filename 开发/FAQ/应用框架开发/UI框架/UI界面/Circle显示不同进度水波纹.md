@@ -114,12 +114,12 @@ struct WaterRipplePage {
     Column() {
       Column() {
         Stack() {
-       <em>   // 外框圆环</em>
+          // 外框圆环
           Circle({ width: BIG_DIAMETER, height: BIG_DIAMETER })
             .fill(COLOR_TRANSPARENT)
             .stroke('#007DFF')
             .strokeWidth(5);
-       <em>   // 进度显示</em>
+          // 进度显示
           Circle({ width: DIAMETER, height: DIAMETER })
             .fill(this.backGroundColor);
           Path()
@@ -128,7 +128,7 @@ struct WaterRipplePage {
             .stroke('#007DFF')
             .commands(this.pathCommands)
             .fill(COLOR_BACKGROUND_FILL);
-        <em>  // 进度</em>
+          // 进度
           Text(this.outSetValue.toFixed(0) + '%')
             .fontSize(60);
         }.width(BIG_DIAMETER)

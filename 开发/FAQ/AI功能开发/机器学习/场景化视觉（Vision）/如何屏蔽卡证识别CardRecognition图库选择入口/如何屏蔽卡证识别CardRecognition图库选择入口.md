@@ -137,7 +137,7 @@ struct MainPage {
     }
   }
 
- <em> // 卡证识别入口按钮</em>
+  // 卡证识别入口按钮
   build() {
     Navigation(this.pathStack) {
       Button('CardRecognition', { stateEffect: true, type: ButtonType.Capsule })

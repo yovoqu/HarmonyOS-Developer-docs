@@ -117,13 +117,13 @@ hvigorw [taskNames...] -p ohos-enable-hwasan=true  <options>
 
 2. 在需要使能HWASan的模块中，通过添加构建参数开启HWASan检测插桩，在对应模块的模块级build-profile.json5中添加命令参数。
 ```text
-<span style="color: rgb(147,147,147);">// DevEco Studio 6.1.0 Beta1以下版本</span>
+// DevEco Studio 6.1.0 Beta1以下版本
 "buildOption": {
   "externalNativeOptions": {
     "arguments": ["-DOHOS_ENABLE_HWASAN=ON"]
   }
 }
-<span style="color: rgb(147,147,147);">// DevEco Studio 6.1.0 Beta1及以上版本，同时开启有源码和无源码的C++的HWASan检测插桩</span>
+// DevEco Studio 6.1.0 Beta1及以上版本，同时开启有源码和无源码的C++的HWASan检测插桩
 "buildOption": {
   "externalNativeOptions": {
     "arguments": ["-DOHOS_ENABLE_HWASAN=ON", "-DOHOS_ENABLE_BINXO=ON"]

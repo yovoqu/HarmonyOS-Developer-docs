@@ -13,18 +13,18 @@
 
  
 ```text
-<em>// 模块级hvigorfile.ts文件</em>
+// 模块级hvigorfile.ts文件
 import { harTasks } from '@ohos/hvigor-ohos-plugin';
 import { exec } from 'node:child_process';
 import util from 'node:util';
 const scriptPath = 'xxxx.bat';
-<em>// 实现自定义插件</em>
+// 实现自定义插件
 export function customPluginFunction2(str?: string) {
   return {
     pluginId: 'CustomPluginID2',
     apply(pluginContext) {
       pluginContext.registerTask({
-       <em>// 在模块上注册任务</em>
+       // 在模块上注册任务
         name: 'customTask2',
         run: (taskContext) => {
           console.log('run into: ');
@@ -35,18 +35,18 @@ export function customPluginFunction2(str?: string) {
             console.log(err, 'err');
           })
         },
-<em>        // 配置前置任务依赖</em>
+        // 配置前置任务依赖
         dependencies: ['default@BuildJS'],
-	<em>// 配置任务的后置任务依赖</em>
+	// 配置任务的后置任务依赖
         postDependencies: ['default@CompileArkTS']
       })
     }
   }
 }
 export default {
-  <em>// Hvigor插件任务类型，具体请查看最后的说明内容</em>
+  // Hvigor插件任务类型，具体请查看最后的说明内容
   system: harTasks,
-  <em>// 用于扩展Hvigor功能的自定义插件</em>
+  // 用于扩展Hvigor功能的自定义插件
   plugins: [customPluginFunction2()]
 }
 ```
@@ -57,28 +57,28 @@ export default {
 
 如果多个模块的shell脚本是共用的，可以在工程级的hvigorfile.ts中调用：
 ```text
-<em>// 工程级hvigorfile.ts文件</em>
+// 工程级hvigorfile.ts文件
 import { hvigor, HvigorNode, HvigorPlugin } from '@ohos/hvigor';
 import { appTasks } from '@ohos/hvigor-ohos-plugin';
 import { exec } from 'node:child_process';
 import util from 'node:util';
 const scriptPath = 'xxxx.bat';
-<em>// 实现自定义插件</em>
+// 实现自定义插件
 export function customPluginFunction1(): HvigorPlugin {
   return {
     pluginId: 'CustomPluginID1',
     async apply(currentNode: HvigorNode): Promise<void> {
       hvigor.nodesEvaluated(async () => {
-        <em>// 注册模块级任务</em>
+        // 注册模块级任务
         hapTask(currentNode);
       });
     }
   };
 }
 function hapTask(currentNode: HvigorNode) {
-  <em>// 遍历所有子模块节点</em>
+  // 遍历所有子模块节点
   currentNode.subNodes((node: HvigorNode) => {
-    <em>// 在每个子模块上注册任务</em>
+    // 在每个子模块上注册任务
     node.registerTask({
       name: 'customTask1',
       run: (taskContext) => {
@@ -90,17 +90,17 @@ function hapTask(currentNode: HvigorNode) {
           console.log(err, 'err');
         })
       },
-	  <em>// 配置前置任务依赖</em>
+	  // 配置前置任务依赖
 	  dependencies: ['default@BuildJS'],
-	  <em>// 配置任务的后置任务依赖</em>
+	  // 配置任务的后置任务依赖
 	  postDependencies: ['default@']
     });
   });
 }
 export default {
-  <em>// 任务类型，不可修改</em>
+  // 任务类型，不可修改
   system: appTasks,
-  <em>// 用于扩展Hvigor功能的自定义插件</em>
+  // 用于扩展Hvigor功能的自定义插件
   plugins: [customPluginFunction1()]
 };
 ```

@@ -90,6 +90,6 @@ struct Index {
  
 ```text
 Text()
-<em>// ...</em>
+// ...
   .fontFeature("\"liga\" 0")
 ```

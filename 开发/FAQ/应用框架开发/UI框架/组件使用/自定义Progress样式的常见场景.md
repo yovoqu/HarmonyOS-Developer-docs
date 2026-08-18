@@ -43,7 +43,7 @@ struct CustomProgressExample1 {
       Progress({
         value: this.value
       })
-        .contentModifier(new MyProgressModifier1());<em> // 绑定自定义进度条</em>
+        .contentModifier(new MyProgressModifier1()); // 绑定自定义进度条
       Button('进度减少10')
         .onClick(() => {
           if (this.value - 10 < 0) {
@@ -86,12 +86,12 @@ export function myProgress1(config: ProgressConfiguration) {
         let context = (config.contentModifier as MyProgressModifier1).context;
         context.lineWidth = 40;
         context.lineCap = 'butt';
-      <em>  // 先画一个完整的灰色圆环作为背景</em>
+        // 先画一个完整的灰色圆环作为背景
         context.strokeStyle = '#e5e5ea';
-        context.arc(150, 150, 75, Math.PI * (-0.5), Math.PI * (1.5));<em> // 绘制完整圆环</em>
+        context.arc(150, 150, 75, Math.PI * (-0.5), Math.PI * (1.5)); // 绘制完整圆环
         context.stroke();
         context.beginPath();
-      <em>  // 再画金色部分作为进度</em>
+        // 再画金色部分作为进度
         context.strokeStyle = '#f3cb5d';
         context.arc(150, 150, 75, Math.PI * (-0.5), Math.PI * (-0.5 + config.value / config.total * 2));
         context.stroke();
@@ -161,7 +161,7 @@ export class MyProgressModifier2 implements ContentModifier<ProgressConfiguratio
 export function myProgress2(config: ProgressConfiguration) {
   Stack() {
     ForEach((config.contentModifier as MyProgressModifier2).textList, (item: string, index: number) => {
-    <em>  // 阶段进度条上的点</em>
+      // 阶段进度条上的点
       Row() {
         Circle({ width: 5, height: 5 }).fill('#ffffff');
       }
@@ -172,13 +172,13 @@ export function myProgress2(config: ProgressConfiguration) {
       .justifyContent(FlexAlign.Center)
       .position({ x: -5 + index * 240 / (config.total - 1) })
       .zIndex(2);
-    <em>  // 阶段描述</em>
+      // 阶段描述
       Text(item)
         .position({ x: -10 + index * 240 / (config.total - 1), y: 15 })
         .fontSize(10)
         .fontColor('#ea000000');
     });
-   <em> // 阶段进度条</em>
+    // 阶段进度条
     Row()
       .width('100%')
       .height(10)
@@ -206,11 +206,11 @@ import { drawing } from '@kit.ArkGraphics2D';
 @Entry
 @Component
 struct CustomProgressExample3 {
-  @State num: number = 50; <em>// Progress进度值</em>
-  @State modifier: MyProgressDrawModifier = new MyProgressDrawModifier(this.getUIContext()); <em>//</em>
+  @State num: number = 50; // Progress进度值
+  @State modifier: MyProgressDrawModifier = new MyProgressDrawModifier(this.getUIContext()); //
 
   aboutToAppear(): void {
-    this.modifier.value = this.num; <em>// 初始化绘制时的进度值</em>
+    this.modifier.value = this.num; // 初始化绘制时的进度值
     this.modifier.total = 100;
   }
 
@@ -227,7 +227,7 @@ struct CustomProgressExample3 {
           } else {
             this.modifier.value -= 10;
           }
-          this.num = this.modifier.value;<em> // 同步绘制的进度值到Progress组件</em>
+          this.num = this.modifier.value; // 同步绘制的进度值到Progress组件
         });
       Button('进度增加')
         .onClick(() => {
@@ -245,8 +245,8 @@ struct CustomProgressExample3 {
 }
 
 export class MyProgressDrawModifier extends DrawModifier {
-  value: number = 0; <em>// 绘制时的进度值</em>
-  total: number = 0;<em> // 绘制时的最大值</em>
+  value: number = 0; // 绘制时的进度值
+  total: number = 0; // 绘制时的最大值
   uiContext: UIContext;
 
   constructor(uiContext: UIContext) {
@@ -254,53 +254,53 @@ export class MyProgressDrawModifier extends DrawModifier {
     this.uiContext = uiContext;
   }
 
- <em> // 自定义绘制内容，会替换组件原本绘制的内容</em>
+  // 自定义绘制内容，会替换组件原本绘制的内容
   drawContent(drawContext: DrawContext): void {
-    let canvas = drawContext.canvas; <em>// 获取绘制内容时的画布</em>
-    let pen = new drawing.Pen();<em> // 创建画笔对象</em>
-    pen.setStrokeWidth(this.uiContext.vp2px(40));<em> // 设置绘制时的线宽</em>
+    let canvas = drawContext.canvas; // 获取绘制内容时的画布
+    let pen = new drawing.Pen(); // 创建画笔对象
+    pen.setStrokeWidth(this.uiContext.vp2px(40)); // 设置绘制时的线宽
     pen.setColor({
-    <em>  // 设置绘制时的颜色，进度条背景</em>
+      // 设置绘制时的颜色，进度条背景
       alpha: 255,
       red: 241,
       green: 243,
       blue: 245
     });
-    let path = new drawing.Path();<em> // 创建路径，背景路径</em>
+    let path = new drawing.Path(); // 创建路径，背景路径
     path.addArc({
-     <em> // 弧形进度条背景路径</em>
+      // 弧形进度条背景路径
       left: this.uiContext.vp2px(20),
       top: this.uiContext.vp2px(20),
       right: this.uiContext.vp2px(180),
       bottom: this.uiContext.vp2px(180)
     }, -180, 180);
-    canvas.attachPen(pen); <em>// 绑定画笔到画布</em>
-    canvas.drawPath(path);<em> // 绘制弧形进度条背景</em>
+    canvas.attachPen(pen); // 绑定画笔到画布
+    canvas.drawPath(path); // 绘制弧形进度条背景
 
     pen.setColor({
-  <em>    // 修改绘制时的颜色，用于绘制进度条进度</em>
+      // 修改绘制时的颜色，用于绘制进度条进度
       alpha: 255,
       red: 134,
       green: 176,
       blue: 255
     });
-    let path2 = new drawing.Path(); <em>// 进度条进度的路径</em>
+    let path2 = new drawing.Path(); // 进度条进度的路径
     path2.addArc({
       left: this.uiContext.vp2px(20),
       top: this.uiContext.vp2px(20),
       right: this.uiContext.vp2px(180),
       bottom: this.uiContext.vp2px(180)
     }, -180, this.value / this.total * 180);
-    canvas.attachPen(pen); <em>// pen的效果修改后重新绑定</em>
-    canvas.drawPath(path2); <em>// 绘制进度</em>
-    canvas.detachPen(); <em>// 画笔与画布解绑</em>
+    canvas.attachPen(pen); // pen的效果修改后重新绑定
+    canvas.drawPath(path2); // 绘制进度
+    canvas.detachPen(); // 画笔与画布解绑
 
-    let font = new drawing.Font(); <em>// 字型对象</em>
-    font.setSize(50); <em>// 设置字体大小，单位px</em>
-    let text = `${this.value}/100`;<em> // 进度值文本</em>
+    let font = new drawing.Font(); // 字型对象
+    font.setSize(50); // 设置字体大小，单位px
+    let text = `${this.value}/100`; // 进度值文本
     let width = font.measureText(text, 0);
     let textBlob = drawing.TextBlob.makeFromString(text, font);
-    canvas.drawTextBlob(textBlob, this.uiContext.vp2px(100) - width / 2, this.uiContext.vp2px(90)); <em>// 绘制进度的文本</em>
+    canvas.drawTextBlob(textBlob, this.uiContext.vp2px(100) - width / 2, this.uiContext.vp2px(90)); // 绘制进度的文本
   }
 }
 ```
@@ -320,40 +320,40 @@ export class MyProgressDrawModifier extends DrawModifier {
 struct CustomProgressExample4 {
   componentWidth: number = 300;
   componentHeight: number = 600;
-  stroke: number = 10;<em> // 折线进度条的宽度</em>
+  stroke: number = 10; // 折线进度条的宽度
   polylineWidth: number = this.componentWidth - this.stroke;
   polylineHeight: number = this.componentHeight - this.stroke;
-  @State @Watch('setPoints') value: number = 0; <em>// 进度值，变动会修改折线的坐标点</em>
-  @State points: number[][] = [];<em> // 折线坐标点</em>
-  total: number = 2 * (this.componentWidth + this.componentHeight) - 4 * this.stroke; <em>// 折线进度条最大值</em>
+  @State @Watch('setPoints') value: number = 0; // 进度值，变动会修改折线的坐标点
+  @State points: number[][] = []; // 折线坐标点
+  total: number = 2 * (this.componentWidth + this.componentHeight) - 4 * this.stroke; // 折线进度条最大值
 
   setPoints() {
-    if (this.value < this.polylineWidth / 2) { <em>// 进度未超过左下角</em>
+    if (this.value < this.polylineWidth / 2) { // 进度未超过左下角
       this.points = [
         [this.polylineWidth / 2, this.polylineHeight],
         [this.polylineWidth / 2 - this.value, this.polylineHeight]
       ];
-    } else if (this.value < this.componentWidth / 2 + this.componentHeight) { <em>// 进度在组件左边</em>
+    } else if (this.value < this.componentWidth / 2 + this.componentHeight) { // 进度在组件左边
       this.points = [
         [this.polylineWidth / 2, this.polylineHeight],
         [0, this.polylineHeight],
         [0, this.polylineHeight + this.polylineWidth / 2 - this.value]
       ];
-    } else if (this.value < this.polylineWidth * 3 / 2 + this.componentHeight) { <em>//进度在组件顶部</em>
+    } else if (this.value < this.polylineWidth * 3 / 2 + this.componentHeight) { //进度在组件顶部
       this.points = [
         [this.polylineWidth / 2, this.polylineHeight],
         [0, this.polylineHeight],
         [0, 0],
         [this.value - this.polylineWidth / 2 - this.polylineHeight, 0]
       ];
-    } else if (this.value < this.polylineWidth * 3 / 2 + this.componentHeight * 2) { <em>//进度在组件右侧</em>
+    } else if (this.value < this.polylineWidth * 3 / 2 + this.componentHeight * 2) { //进度在组件右侧
       this.points = [
         [this.polylineWidth / 2, this.polylineHeight],
         [0, this.polylineHeight],
         [0, 0],
         [this.polylineWidth, 0],
         [this.polylineWidth, this.value - this.polylineWidth / 2 * 3 - this.polylineHeight]];
-    } else { <em>// 进度超过右下角</em>
+    } else { // 进度超过右下角
       this.points = [
         [this.polylineWidth / 2, this.polylineHeight],
         [0, this.polylineHeight],
@@ -368,7 +368,7 @@ struct CustomProgressExample4 {
     Column({ space: 10 }) {
       Text(this.value + '/' + this.total);
       Stack() {
-        Polyline() <em>// 折线作为环绕组件的进度条</em>
+        Polyline() // 折线作为环绕组件的进度条
           .width(this.polylineWidth)
           .height(this.polylineHeight)
           .fillOpacity(0)

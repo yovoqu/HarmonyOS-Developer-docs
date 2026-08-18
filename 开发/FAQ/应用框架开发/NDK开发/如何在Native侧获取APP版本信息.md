@@ -27,8 +27,8 @@ struct Index {
           .fontWeight(FontWeight.Bold)
           .onClick(() => {
             bundleManager.getBundleInfoForSelf(bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION).then((bundleInfo)=>{
-              let versionName = bundleInfo.versionName;<em>//Application version name</em>
-              let versionNo = bundleInfo.versionCode;<em>//Application version number</em>
+              let versionName = bundleInfo.versionName;//Application version name
+              let versionNo = bundleInfo.versionCode;//Application version number
             }).catch((error : BusinessError)=>{
               console.error("get bundleInfo failed,error is "+error)})
           })

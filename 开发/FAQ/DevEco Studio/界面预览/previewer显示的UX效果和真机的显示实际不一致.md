@@ -14,7 +14,7 @@
 struct Index {
   build() {
     Column() {
-      Flex({ direction: FlexDirection.Row, justifyContent: FlexAlign.SpaceBetween }) {<em> </em><em>// 子组件在容器主轴上行布局</em>
+      Flex({ direction: FlexDirection.Row, justifyContent: FlexAlign.SpaceBetween }) { // 子组件在容器主轴上行布局
         Text('约伴召集')
           .width(180)
           .height(38)
@@ -102,7 +102,7 @@ struct Index {
 
   build() {
     Column() {
-      Flex({ direction: FlexDirection.Row, justifyContent: FlexAlign.SpaceBetween }) { <em>// 子组件在容器主轴上行布局</em>
+      Flex({ direction: FlexDirection.Row, justifyContent: FlexAlign.SpaceBetween }) { // 子组件在容器主轴上行布局
         Text('约伴召集')
           .width('50%')
           .height(38)

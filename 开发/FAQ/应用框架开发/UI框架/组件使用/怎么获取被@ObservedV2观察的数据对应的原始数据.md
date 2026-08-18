@@ -40,12 +40,12 @@ class FormDataClassV1 {
 
 2. 用V2对象初始化V1对象：
 ```text
-let dataV1: FormDataClassV1 = new FormDataClassV1(this.dataV2); <em>// 用V2对象初始化V1对象</em>
+let dataV1: FormDataClassV1 = new FormDataClassV1(this.dataV2); // 用V2对象初始化V1对象
 ```
 
 3. 用getTarget接口获取原始数据：
 ```text
-let rawV1 = UIUtils.getTarget(dataV1); <em>// 用getTarget接口获取原始对象</em>
+let rawV1 = UIUtils.getTarget(dataV1); // 用getTarget接口获取原始对象
 ```
 
  
@@ -89,9 +89,9 @@ struct FormDataClassPage {
           middle: { anchor: '__container__', align: HorizontalAlign.Center }
         })
         .onClick(() => {
-          let dataV1: FormDataClassV1 = new FormDataClassV1(this.dataV2); <em>// 用V2对象初始化V1对象</em>
-          let rawV1 = UIUtils.getTarget(dataV1); <em>// 用getTarget接口获取原始对象</em>
-          console.info(JSON.stringify(rawV1)); <em>// 此时打印的日志不带__ob_框架</em>
+          let dataV1: FormDataClassV1 = new FormDataClassV1(this.dataV2); // 用V2对象初始化V1对象
+          let rawV1 = UIUtils.getTarget(dataV1); // 用getTarget接口获取原始对象
+          console.info(JSON.stringify(rawV1)); // 此时打印的日志不带__ob_框架
         })
     }
     .height('100%')

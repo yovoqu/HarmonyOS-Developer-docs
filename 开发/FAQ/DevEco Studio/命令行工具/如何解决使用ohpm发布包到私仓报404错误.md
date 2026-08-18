@@ -53,10 +53,10 @@ server {
      listen 8081;
      server_name localhost;
 
-<em>     #charset koi8-r;</em>
-<em>     #access_log logs/host.access.log main;</em>
-<em>     # $request_uri: /repos/ohpm/@test%2fohpmhsplib</em>
-<em>     # $uri: /repos/ohpm/@test/ohpmhsplib</em>
+     #charset koi8-r;
+     #access_log logs/host.access.log main;
+     # $request_uri: /repos/ohpm/@test%2fohpmhsplib
+     # $uri: /repos/ohpm/@test/ohpmhsplib
      location / {
          set $lb_upstream 127.0.0.1:8088;
          set $backend_uri $request_uri;
@@ -78,7 +78,7 @@ server {
          proxy_pass http://$lb_upstream$backend_uri;
          proxy_redirect off;
      }
-     <em># 新增配置</em>
+     # 新增配置
      location /repos/ohpm {
          set $lb_upstream 127.0.0.1:8088;
 

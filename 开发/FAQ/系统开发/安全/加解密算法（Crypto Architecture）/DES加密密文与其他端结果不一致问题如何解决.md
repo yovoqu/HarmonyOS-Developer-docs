@@ -54,7 +54,7 @@ DES目前支持分组模式为ECB/CBC/OFB/CFB，以下使用ECB/CBC分组模式�
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';
 
-<em>// 加密消息。</em>
+// 加密消息。
 function encryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob) {
   let cipher = cryptoFramework.createCipher('DES64|CBC|PKCS7');
   cipher.initSync(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, genIvParamsSpec());
@@ -62,7 +62,7 @@ function encryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramewo
   return encryptData;
 }
 
-<em>// 解密消息。</em>
+// 解密消息。
 function decryptMessage(symKey: cryptoFramework.SymKey, cipherText: cryptoFramework.DataBlob) {
   let decoder = cryptoFramework.createCipher('DES64|CBC|PKCS7');
   decoder.initSync(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, genIvParamsSpec());
@@ -78,7 +78,7 @@ function genSymKeyByData(symKeyData: Uint8Array) {
   return symKey;
 }
 
-<em>// 生成偏移量</em>
+// 生成偏移量
 function genIvParamsSpec() {
   let ivParamsSpec: cryptoFramework.IvParamsSpec = {
     algName: 'IvParamsSpec',

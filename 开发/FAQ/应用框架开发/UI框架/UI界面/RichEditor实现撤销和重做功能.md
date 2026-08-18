@@ -30,13 +30,13 @@
 具体代码如下：
  
 ```json
-<em>// 1. 抽象命令基类</em>
+// 1. 抽象命令基类
 export abstract class EditorCommand {
   abstract execute(controller: RichEditorController);
   abstract undo(controller: RichEditorController);
 }
 
-<em>// 2. 插入文本命令类</em>
+// 2. 插入文本命令类
 export class InsertTextCommand extends EditorCommand {
   private text: string;
   private prevOffset: number | null = 0;
@@ -50,7 +50,7 @@ export class InsertTextCommand extends EditorCommand {
   }
 
   execute(controller: RichEditorController) {
-   <em> // 移动到插入位置并插入文本</em>
+    // 移动到插入位置并插入文本
     this.prevOffset = controller.getCaretOffset();
     this.options.offset = this.prevOffset;
     controller.addTextSpan(this.text, this.options);
@@ -58,17 +58,17 @@ export class InsertTextCommand extends EditorCommand {
   }
 
   undo(controller: RichEditorController) {
-   <em> // 计算要删除的范围</em>
+    // 计算要删除的范围
     const start = this.prevOffset;
     const end = this.curOffset;
-   <em> // 删除插入的文本</em>
+    // 删除插入的文本
     controller.deleteSpans({ start: start, end: end });
-   <em> // 恢复原始光标位置</em>
+    // 恢复原始光标位置
     controller.setCaretOffset(start);
   }
 }
 
-<em>// 历史输入管理类</em>
+// 历史输入管理类
 @ObservedV2
 export class EditorHistoryManager {
   @Trace private undoStack: EditorCommand[] = [];
@@ -90,13 +90,13 @@ export class EditorHistoryManager {
     return this.redoStack.length > 0;
   }
 
-  <em>// 执行新命令</em>
+  // 执行新命令
   executeCommand(command: EditorCommand) {
     command.execute(this.controller);
     this.undoStack.push(command);
-  <em>  // 清空重做栈</em>
+    // 清空重做栈
     this.redoStack = [];
-   <em> // 控制历史记录大小</em>
+    // 控制历史记录大小
     this.trimHistory();
   }
 

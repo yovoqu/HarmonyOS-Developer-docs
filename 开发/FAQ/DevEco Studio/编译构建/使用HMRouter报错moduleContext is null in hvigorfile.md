@@ -47,34 +47,34 @@ moduleContext is null in hvigorfile
     "@hadss/hmrouter-plugin": "^1.0.0-rc.11"
   },
   "execution": {
-   <em> // "analyze": "normal",                     /* Define the build analyze mode. Value: [ "normal" | "advanced" | "ultrafine" | false ]. Default: "normal" */</em>
-<em>    // "daemon": true,                          /* Enable daemon compilation. Value: [ true | false ]. Default: true */</em>
-<em>    // "incremental": true,                     /* Enable incremental compilation. Value: [ true | false ]. Default: true */</em>
-<em>    // "parallel": true,                        /* Enable parallel compilation. Value: [ true | false ]. Default: true */</em>
-<em>    // "typeCheck": false,                      /* Enable typeCheck. Value: [ true | false ]. Default: false */</em>
-<em>    // "optimizationStrategy": "memory"         /* Define the optimization strategy. Value: [ "memory" | "performance" ]. Default: "memory" */</em>
+    // "analyze": "normal",                     /* Define the build analyze mode. Value: [ "normal" | "advanced" | "ultrafine" | false ]. Default: "normal" */
+    // "daemon": true,                          /* Enable daemon compilation. Value: [ true | false ]. Default: true */
+    // "incremental": true,                     /* Enable incremental compilation. Value: [ true | false ]. Default: true */
+    // "parallel": true,                        /* Enable parallel compilation. Value: [ true | false ]. Default: true */
+    // "typeCheck": false,                      /* Enable typeCheck. Value: [ true | false ]. Default: false */
+    // "optimizationStrategy": "memory"         /* Define the optimization strategy. Value: [ "memory" | "performance" ]. Default: "memory" */
   },
   "logging": {
-    <em>// "level": "info"                          /* Define the log level. Value: [ "debug" | "info" | "warn" | "error" ]. Default: "info" */</em>
+    // "level": "info"                          /* Define the log level. Value: [ "debug" | "info" | "warn" | "error" ]. Default: "info" */
   },
   "debugging": {
-    <em>// "stacktrace": false                      /* Disable stacktrace compilation. Value: [ true | false ]. Default: false */</em>
+    // "stacktrace": false                      /* Disable stacktrace compilation. Value: [ true | false ]. Default: false */
   },
   "nodeOptions": {
-   <em> // "maxOldSpaceSize": 8192                  /* Enable nodeOptions maxOldSpaceSize compilation. Unit M. Used for the daemon process. Default: 8192*/</em>
-<em>    // "exposeGC": true                         /* Enable to trigger garbage collection explicitly. Default: true*/</em>
+    // "maxOldSpaceSize": 8192                  /* Enable nodeOptions maxOldSpaceSize compilation. Unit M. Used for the daemon process. Default: 8192*/
+    // "exposeGC": true                         /* Enable to trigger garbage collection explicitly. Default: true*/
   }
 }
 ```
 
 2. 将工程根目录下hvigorfile.ts中的hapPlugin配置转移到entry目录下的hvigorfile.ts中。
 ```text
-<em>// entry</em><em>模块的hvigorfile.ts</em>
+// entry模块的hvigorfile.ts
 import { hapTasks } from '@ohos/hvigor-ohos-plugin';
 import { hapPlugin } from '@hadss/hmrouter-plugin';
 
 export default {
   system: hapTasks,
-  plugins: [hapPlugin()] <em>// 使用HMRouter</em><em>标签的模块均需要配置，与模块类型保持一致</em>
+  plugins: [hapPlugin()] // 使用HMRouter标签的模块均需要配置，与模块类型保持一致
 }
 ```

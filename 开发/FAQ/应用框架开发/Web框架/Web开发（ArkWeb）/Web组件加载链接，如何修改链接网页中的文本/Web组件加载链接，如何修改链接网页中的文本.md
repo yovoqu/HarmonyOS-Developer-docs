@@ -15,12 +15,12 @@
 - 在H5（HTML5）中，可以使用getElementById获取到指定ID的标签：
 根据ID获取指定的Span标签：
 ```text
-const <span style="color: rgb(255,255,255);">spanElement </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">document</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getElementById</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'mySpan'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+const spanElement = document.getElementById('mySpan');
 ```
 
 - 也可以通过getElementsByTagName获取到指定名称标签的集合：
 ```text
-const <span style="color: rgb(255,255,255);">spanElements </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">document</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getElementsByTagName</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'span'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+const spanElements = document.getElementsByTagName('span');
 ```
 
 
@@ -32,71 +32,71 @@ const <span style="color: rgb(255,255,255);">spanElements </span><span style="co
 #### 解决方案
 1. 可以通过runJavaScriptExt注入脚本实现修改三方网页中文本。
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">webview </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkWeb'</span><span style="color: rgb(181,106,1);">;</span>
+import { webview } from '@kit.ArkWeb';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(181,106,1);">{</span>
-  private <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">Context</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  private controller: webview.WebviewController = new webview.WebviewController();
+  private context: Context = this.getUIContext().getHostContext() as Context;
 
-  <span style="color: rgb(0,0,255);">initJavaScrip</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">注入本地的</span><span style="color: rgb(128,128,128);">js</span><span style="color: rgb(128,128,128);">脚本</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRawFileContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'index.js'</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ESObject</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取</span><span style="color: rgb(128,128,128);">js</span><span style="color: rgb(128,128,128);">脚本的</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">数据</span></em>
-        let <span style="color: rgb(255,255,255);">rawfile</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ArrayBuffer </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">开始注入脚本</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">runJavaScriptExt</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">rawfile</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">开始注入脚本成功</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">开始注入脚本失败</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  initJavaScrip() {
+    // 注入本地的js脚本
+    this.context.resourceManager.getRawFileContent('index.js')
+      .then((value: ESObject) => {
+        // 获取js脚本的ArrayBuffer数据
+        let rawfile: ArrayBuffer = value.buffer;
+        console.info('开始注入脚本');
+        this.controller.runJavaScriptExt(rawfile).then(() => {
+          console.info('开始注入脚本成功');
+        }).catch(() => {
+          console.info('开始注入脚本失败');
+        });
+      });
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$rawfile</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'span.html'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onPageEnd</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">setTimeout</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">initJavaScrip</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">3000</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileAccess</span><span style="color: rgb(255,0,170);">(</span>false<span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">geolocationAccess</span><span style="color: rgb(255,0,170);">(</span>false<span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">domStorageAccess</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    RelativeContainer() {
+      Web({
+        src: $rawfile('span.html'),
+        controller: this.controller
+      })
+        .onPageEnd(() => {
+          setTimeout(() => {
+            this.initJavaScrip();
+          }, 3000);
+        })
+        .fileAccess(false)
+        .geolocationAccess(false)
+        .domStorageAccess(true)
+    }
+    .height('100%')
+    .width('100%')
+  }
+}
 ```
 
 2. 在js中通过getElementById获取指定ID的标签，并修改其文本内容。index.js：
 
   
 ```text
-let <span style="color: rgb(255,255,255);">spanLabels </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">document</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getElementById</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'mySpan'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`mySpan:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">spanLabels</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">innerHTML</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span>
-<span style="color: rgb(255,255,255);">spanLabels</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">innerHTML </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">"</span><span style="color: rgb(132,63,161);">修改后的文本</span><span style="color: rgb(132,63,161);">"</span>
+let spanLabels = document.getElementById('mySpan');
+console.info(`mySpan:${spanLabels.innerHTML}`)
+spanLabels.innerHTML = "修改后的文本"
 ```
 
 3. 加载的本地页面。span.html：
 
   
 ```text
-<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">!DOCTYPE </span><span style="color: rgb(128,128,128);">html</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">html</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">body</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">meta </span><span style="color: rgb(128,128,128);">name</span><span style="color: rgb(80,160,79);">="viewport" </span><span style="color: rgb(128,128,128);">content</span><span style="color: rgb(80,160,79);">="width=device-width, initial-scale=1.0"</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">h1 </span><span style="color: rgb(128,128,128);">id</span><span style="color: rgb(80,160,79);">="example"</span><span style="color: rgb(181,106,1);">></span>示例文本<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/h1</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">span </span><span style="color: rgb(128,128,128);">id</span><span style="color: rgb(80,160,79);">="mySpan"</span><span style="color: rgb(181,106,1);">></span>这是默认文本<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/span</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/body</span><span style="color: rgb(181,106,1);">></span>
-<span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">/html</span><span style="color: rgb(181,106,1);">></span>
+<!DOCTYPE html>
+<html>
+<body>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<h1 id="example">示例文本</h1>
+<span id="mySpan">这是默认文本</span>
+</body>
+</html>
 ```
 
  

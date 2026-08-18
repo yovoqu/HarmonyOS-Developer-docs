@@ -47,7 +47,7 @@ class SceneOneOptionOneParams {
 ```text
 aboutToAppear(): void {
   this.params.callback = () => {
-    this.contentNode.update(this.params); <em>// 用于更新WrappedBuilder对象封装的builder函数参数</em>
+    this.contentNode.update(this.params); // 用于更新WrappedBuilder对象封装的builder函数参数
   };
 }
 ```
@@ -64,7 +64,7 @@ Button('修改value')
 
 3. 弹窗数据同步到页面：弹窗中的TextInput组件通过onChange方法直接将输入值同步给params.value，而页面中的Text组件也通过params.value的值显示，因此实现了弹窗数据同步到页面。
 ```text
-<em>// TextInput是弹窗中的组件</em>
+// TextInput是弹窗中的组件
 TextInput({
   text: params.value,
   placeholder: '你好'
@@ -79,7 +79,7 @@ TextInput({
 ```
  
 ```text
-<em>// Text是页面中的组件</em>
+// Text是页面中的组件
 Text(`text:${this.params.value}`)
   .margin(10);
 ```
@@ -104,7 +104,7 @@ function childComOne(params: SceneOneOptionOneParams) {
   Column() {
     Text(`${params.value}`);
 
-    <em>// TextInput是弹窗中的组件</em>
+    // TextInput是弹窗中的组件
     TextInput({
       text: params.value,
       placeholder: '你好'
@@ -156,14 +156,14 @@ struct SceneOneOptionOne {
 
   aboutToAppear(): void {
     this.params.callback = () => {
-      this.contentNode.update(this.params); <em>// 用于更新WrappedBuilder对象封装的builder函数参数</em>
+      this.contentNode.update(this.params); // 用于更新WrappedBuilder对象封装的builder函数参数
     };
   }
 
   build() {
     Column() {
       Column() {
-        <em>// Text是页面中的组件</em>
+        // Text是页面中的组件
         Text(`text:${this.params.value}`)
           .margin(10);
 
@@ -209,7 +209,7 @@ struct SceneOneOptionTwo {
   childCom(params: Params) {
     Column() {
       Text(`${params.value}`);
-      <em>// TextInput是弹窗中的组件</em>
+      // TextInput是弹窗中的组件
       TextInput({
         text: params.value,
         placeholder: '你好'
@@ -238,7 +238,7 @@ struct SceneOneOptionTwo {
   build() {
     Column() {
       Column() {
-        <em>// Text是页面中的组件</em>
+        // Text是页面中的组件
         Text(`text:${this.params.value}`)
           .margin(10);
         Button('修改value')
@@ -282,7 +282,7 @@ struct SceneOneOptionTwo {
 export function
 sheetBuilder(items: number[]) {
   Column() {
-    <em>// 自定义滚动容器</em>
+    // 自定义滚动容器
     List({ space: '10vp' }) {
       ForEach(items, (item: number) => {
         ListItem() {
@@ -294,7 +294,7 @@ sheetBuilder(items: number[]) {
     .margin({ top: '10vp' })
     .width('100%')
     .height('900px')
-    <em>// 设置滚动组件的嵌套滚动属性</em>
+    // 设置滚动组件的嵌套滚动属性
     .nestedScroll({
       scrollForward: NestedScrollMode.PARENT_FIRST,
       scrollBackward: NestedScrollMode.SELF_FIRST,
@@ -312,9 +312,9 @@ sheetBuilder(items: number[]) {
 @Entry
 @Component
 struct SceneTwo {
-  <em>// 响应式状态变量：控制Sheet是否显示</em>
+  // 响应式状态变量：控制Sheet是否显示
   @State isShowSheet: boolean = false;
-  <em>// 定义菜单项数据参数</em>
+  // 定义菜单项数据参数
   private items: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   build() {
@@ -323,13 +323,13 @@ struct SceneTwo {
         .onClick(() => {
           this.isShowSheet = !this.isShowSheet;
         })
-        <em>// 绑定Sheet组件：根据isShowSheet状态动态显示，传入参数items组数</em>
+        // 绑定Sheet组件：根据isShowSheet状态动态显示，传入参数items组数
         .bindSheet($$this.isShowSheet, sheetBuilder(this.items), {
-          <em>// Sheet尺寸配置：允许的展开尺寸</em>
+          // Sheet尺寸配置：允许的展开尺寸
           detents: [SheetSize.MEDIUM, SheetSize.LARGE, 600],
-          <em>// 优先显示位置：底部弹出</em>
+          // 优先显示位置：底部弹出
           preferType: SheetType.BOTTOM,
-          <em>// 标题配置：设置Sheet标题</em>
+          // 标题配置：设置Sheet标题
           title: { title: '嵌套滚动场景' },
         });
     }.width('100%').height('100%')

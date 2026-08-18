@@ -25,7 +25,7 @@ static void CallJsFunction(napi_env env, napi_value callBack, [[maybe_unused]] v
     napi_create_double(env, callbackData->result, &callBackArgs);
     napi_value callBackResult = nullptr;
     napi_call_function(env, nullptr, callBack, 1, &callBackArgs,
-                       &callBackResult); <em>// Call the callback to send the result to the ArkTS side.</em>
+                       &callBackResult); // Call the callback to send the result to the ArkTS side.
 }
 
 static void Thread_Finalize_CBFunction(napi_env env, void *finalize_data, void *finalize_hint) {
@@ -34,9 +34,9 @@ static void Thread_Finalize_CBFunction(napi_env env, void *finalize_data, void *
 }
 
 static void AddFunc(void *data) {
-    CallbackData *callbackData = static_cast<CallbackData *>(data); <em>// Parse the context, and process the service (add the two numbers).</em>
-    callbackData->result = callbackData->data[0] + callbackData->data[1]; <em>// Place the result.</em>
-    napi_call_threadsafe_function(callbackData->tsfn, data, napi_tsfn_blocking); <em>// Call the thread-safe function.</em>
+    CallbackData *callbackData = static_cast<CallbackData *>(data); // Parse the context, and process the service (add the two numbers).
+    callbackData->result = callbackData->data[0] + callbackData->data[1]; // Place the result.
+    napi_call_threadsafe_function(callbackData->tsfn, data, napi_tsfn_blocking); // Call the thread-safe function.
     napi_release_threadsafe_function(callbackData->tsfn, napi_tsfn_release);
 }
 
@@ -52,10 +52,10 @@ static napi_value AddTSFCallback(napi_env env, napi_callback_info info) {
     napi_value resourceName = nullptr;
     napi_create_string_utf8(env, "Thread_safe Function", NAPI_AUTO_LENGTH, &resourceName);
 
-   <em> // Create a thread-safe function object, and register and bind callback and call_js_cb.</em>
+    // Create a thread-safe function object, and register and bind callback and call_js_cb.
     napi_create_threadsafe_function(env, args[2], nullptr, resourceName, 0, 1, callbackData, Thread_Finalize_CBFunction, callbackData,
                                     CallJsFunction, &callbackData->tsfn);
-    thread t(AddFunc, reinterpret_cast<void *>(callbackData)); <em>// Create a C++ subthread to process service logic.</em>
+    thread t(AddFunc, reinterpret_cast<void *>(callbackData)); // Create a C++ subthread to process service logic.
     t.detach();
     return nullptr;
 }
@@ -70,7 +70,7 @@ import testNapi from 'libentry.so';
 @Component
 struct Index {
   result: number = 0;
- <em> // ...</em>
+  // ...
     .onClick(() => {
       testNapi.addTSFCallback(2, 3, (nativeResult: number) => {
         this.result = nativeResult;

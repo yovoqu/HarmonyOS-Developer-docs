@@ -40,7 +40,7 @@ struct ListExample {
   private arr: number[] = [];
   private scrollerForList: Scroller = new Scroller();
 
- <em> // 页面加载时初始化数据</em>
+  // 页面加载时初始化数据
   aboutToAppear() {
     for (let i = 0; i < 25; i++) {
       this.arr.push(i);
@@ -50,9 +50,9 @@ struct ListExample {
   build() {
     Column() {
 
-     <em> // 初始显示的列表项索引（从后往前显示）</em>
+      // 初始显示的列表项索引（从后往前显示）
       List({ space: 20, initialIndex: this.arr.length - 1, scroller: this.scrollerForList }) {
-     <em>   // 使数据源反向排列</em>
+        // 使数据源反向排列
         ForEach(this.arr.reverse(), (item: number) => {
           ListItem() {
             Text('' + item)
@@ -71,9 +71,9 @@ struct ListExample {
       .scrollBarWidth(3)
       .chainAnimation(true)
       .edgeEffect(EdgeEffect.Spring)
-      .listDirection(Axis.Horizontal) <em>// 设置组件横向排列</em>
+      .listDirection(Axis.Horizontal) // 设置组件横向排列
       .height(55)
-      .scrollSnapAlign(ScrollSnapAlign.END)<em> </em><em>// 视图中的最后一项将在列表末尾对齐。</em>
+      .scrollSnapAlign(ScrollSnapAlign.END) // 视图中的最后一项将在列表末尾对齐。
       .lanes(1);
     }
     .justifyContent(FlexAlign.Center)

@@ -19,8 +19,8 @@ class RouTmp {
 
 const context = AppStorage.get("context") as UIContext;
 const params: RouTmp = context.getRouter().getParams() as RouTmp; <strong>// Get the parameter object passed</strong>
-const id: object = params.id <em>// Get the value of the id property</em>
-const age: number = params.info.age <em>// Get the value of the age property</em>
+const id: object = params.id // Get the value of the id property
+const age: number = params.info.age // Get the value of the age property
 ```
  
 **参考链接**

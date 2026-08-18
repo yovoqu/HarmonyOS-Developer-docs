@@ -29,7 +29,7 @@
 
 4. 如果第三方包依赖无法重新发布，可以通过Hvigor自定义插件在HSP模块中增加自定义任务，删除build/${productName}/intermediates/package/${targetName}/module.json中的入口 Ability 相关配置，然后重新构建。
 ```json
-<em>// HSP module hvigorfile.ts</em>
+// HSP module hvigorfile.ts
 import { hspTasks,OhosPluginId, Target } from '@ohos/hvigor-ohos-plugin';
 import { hvigor, HvigorNode, HvigorPlugin,FileUtil } from '@ohos/hvigor';
 export function customPlugin():HvigorPlugin {
@@ -48,16 +48,16 @@ export function customPlugin():HvigorPlugin {
     }
 }
 function hspTask(currentNode: HvigorNode) {
-    <em>// Obtain contextual information of the HSP module</em>
+    // Obtain contextual information of the HSP module
     const hspContext = currentNode.getContext(OhosPluginId.OHOS_HSP_PLUGIN) as OhosHspContext;
     hspContext?.targets((target: Target) => {
         const targetName = target.getTargetName();
         const outputPath = target.getBuildTargetOutputPath();
         const task = currentNode.getTaskByName(`${targetName}@GeneratePkgModuleJson`);
         currentNode.registerTask({
-            <em>// TASK</em>
+            // TASK
             name: `${targetName}@changeModuleJson`,
-            <em>// Task execution logic entity function</em>
+            // Task execution logic entity function
             run() {
                 const moduleJson = FileUtil.readJson5(outputPath+"/../../intermediates/package/"+targetName+"/module.json");
                 const abilities = moduleJson['module']['abilities'];
@@ -68,15 +68,15 @@ function hspTask(currentNode: HvigorNode) {
                 moduleJson['module']['abilities'] = abilities
                 FileUtil.writeFileSync(outputPath+"/../../intermediates/package/"+targetName+"/module.json",JSON.stringify(moduleJson));
             },
-            <em>// Configure prerequisite task dependencies</em>
+            // Configure prerequisite task dependencies
             dependencies: [`${targetName}@GeneratePkgModuleJson`],
-            <em>// Post task dependencies for configuring tasks</em>
+            // Post task dependencies for configuring tasks
             postDependencies: [`${targetName}@PackageSharedHar`]
         });
     });
 }
 export default {
-    system: hspTasks,  <em>/* Built-in plugin of Hvigor. It cannot be modified. */</em>
-    plugins:[customPlugin()]         <em>/* Custom plugin to extend the functionality of Hvigor. */</em>
+    system: hspTasks,  /* Built-in plugin of Hvigor. It cannot be modified. */
+    plugins:[customPlugin()]         /* Custom plugin to extend the functionality of Hvigor. */
 }
 ```

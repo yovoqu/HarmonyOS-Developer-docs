@@ -46,66 +46,66 @@
 struct FadePage {
   private durationList: number[] = [];
   private barList: string[] = ['#33000000', '#1a000000', '#0d000000'];
-  private isRestAnim: boolean = false;<em> // 滑动回弹动画是否正在执行</em>
+  private isRestAnim: boolean = false; // 滑动回弹动画是否正在执行
   @State opacityList: number[] = [];
   @State scaleList: number[] = [];
   @State currentIndex: number = 0;
 
-  <em>// 点击Tab渐显渐隐</em>
+  // 点击Tab渐显渐隐
   private clickTabHandle(from: number, to: number) {
- <em>   // 页面重复点击，直接拦截</em>
+    // 页面重复点击，直接拦截
     if (from === to) {
       return;
     }
- <em>   // 如果回弹动画正在进行：强制终止、重置</em>
+    // 如果回弹动画正在进行：强制终止、重置
     if (this.isRestAnim) {
-     <em> // 清空滑动残留的中间插值状态</em>
+      // 清空滑动残留的中间插值状态
       for (let i = 0; i < this.barList.length; i++) {
         this.scaleList[i] = i === from ? 1 : 0.9;
         this.opacityList[i] = i === from ? 1 : 0;
       }
-   <em>   // 强制关闭回弹动画</em>
+      // 强制关闭回弹动画
       this.isRestAnim = false;
     }
-  <em>  // 新页面初始状态</em>
+    // 新页面初始状态
     this.opacityList[to] = 0;
     this.scaleList[to] = 0.9;
     this.getUIContext().animateTo({ duration: this.durationList[from], curve: Curve.EaseOut }, () => {
-   <em>   // 原页面：透明淡出+缩小</em>
+      // 原页面：透明淡出+缩小
       this.opacityList[from] = 0;
       this.scaleList[from] = 0.9;
-  <em>    // 目标页面：透明淡入+放大</em>
+      // 目标页面：透明淡入+放大
       this.opacityList[to] = 1;
       this.scaleList[to] = 1;
       this.currentIndex = to;
     });
   }
 
- <em> // 滑动跟手渐显渐隐</em>
+  // 滑动跟手渐显渐隐
   private gestureSwiperHandle(curIndex: number, event: TabsAnimationEvent) {
     let offset = event.currentOffset;
-    <em>// 判断左右滑动</em>
+    // 判断左右滑动
     let targetIndex = offset > 0 ? curIndex - 1 : curIndex + 1;
     if (targetIndex < 0 || targetIndex >= this.opacityList.length) {
       return;
     }
-   <em> // 跟手进度计算</em>
+    // 跟手进度计算
     let progress = Math.min(Math.abs(offset) / 300, 1);
-   <em> // 当前页面</em>
+    // 当前页面
     this.opacityList[curIndex] = 1 - progress;
     this.scaleList[curIndex] = 1 - progress * 0.1;
- <em>   // 目标页面</em>
+    // 目标页面
     this.opacityList[targetIndex] = progress;
     this.scaleList[targetIndex] = 0.9 + progress * 0.1;
   }
 
-<em>  // 滑动回弹复原</em>
+  // 滑动回弹复原
   private resetStyle(from: number, to: number) {
- <em>   // 开启回弹动画</em>
+    // 开启回弹动画
     this.isRestAnim = true;
     this.getUIContext().animateTo({
       duration: this.durationList[from], curve: Curve.EaseOut, onFinish: () => {
-        <em>// 动画结束时关闭回弹动画</em>
+        // 动画结束时关闭回弹动画
         this.isRestAnim = false;
       }
     }, () => {
@@ -132,7 +132,7 @@ struct FadePage {
           TabContent()
             .tabBar(`页签${index + 1}`)
             .backgroundColor(item)
-          <em>  // 自定义动画变化透明度、缩放页面等</em>
+            // 自定义动画变化透明度、缩放页面等
             .opacity(this.opacityList[index])
             .scale({ x: this.scaleList[index], y: this.scaleList[index] });
         });
@@ -201,13 +201,13 @@ struct MatchPage {
     new DataItem(1, 'B页面', '#1a000000', '100%'),
     new DataItem(0, 'C页面', '#03000000', '80%')
   ];
-<em>  // 屏幕宽度</em>
+  // 屏幕宽度
   private screenX: number = 0;
- <em> // 三个页面滚动停靠位置</em>
+  // 三个页面滚动停靠位置
   private pagePersent: number[] = [0, 0.8, 1.8];
- <em> // 页面区域判定阈值</em>
+  // 页面区域判定阈值
   private pivotPersent: number[] = [0.4, 1.3];
-  @State currentIndex: number = 1; <em>// 当前页面索引</em>
+  @State currentIndex: number = 1; // 当前页面索引
 
   aboutToAppear(): void {
     let screenWidthPx = display.getDefaultDisplaySync().width;
@@ -247,9 +247,9 @@ struct MatchPage {
       .layoutWeight(1)
       .scrollBar(BarState.Off)
       .scrollable(ScrollDirection.Horizontal)
-    <em>  // 设置摩擦系数</em>
+      // 设置摩擦系数
       .friction(10)
-    <em>  // 限位滚动时的分页点</em>
+      // 限位滚动时的分页点
       .scrollSnap({
         snapAlign: ScrollSnapAlign.START,
         snapPagination: ['0%', '80%', '180%'],
@@ -260,7 +260,7 @@ struct MatchPage {
       .onScrollStop(() => {
         let offsetX = this.scroller.currentOffset().xOffset;
         let ratio = offsetX / this.screenX;
-      <em>  // 根据滚动偏移判断当前落到哪个页面区间</em>
+        // 根据滚动偏移判断当前落到哪个页面区间
         if (ratio < this.pivotPersent[0]) {
           this.currentIndex = 0;
         } else if (ratio < this.pivotPersent[1]) {

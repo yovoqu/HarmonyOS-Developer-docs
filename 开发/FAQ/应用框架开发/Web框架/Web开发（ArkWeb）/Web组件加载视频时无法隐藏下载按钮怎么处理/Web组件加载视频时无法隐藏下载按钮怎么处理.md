@@ -46,7 +46,7 @@ import { window } from '@kit.ArkUI';
 @Component
 struct Index {
   private webviewController: webview.WebviewController = new webview.WebviewController();
- <em> // 此处地址实际使用过程中替换为真实视频地址</em>
+  // 此处地址实际使用过程中替换为真实视频地址
   private videoUrl: string = 'xx.xx.xx';
   private removeDownloadButtonScript: string = 'window.onload = function() {\n' +
     '    let video = document.querySelector(\'video[name="media"]\');\n' +
@@ -62,7 +62,7 @@ struct Index {
         return;
       }
       let systemBarProperties: window.SystemBarProperties = {
-        statusBarContentColor: '#FFFFFF' <em>// 状态栏文字颜色</em>
+        statusBarContentColor: '#FFFFFF' // 状态栏文字颜色
       };
       windowClass.setWindowSystemBarProperties(systemBarProperties).then(() => {
         console.info('Succeeded in setting the system bar properties.');

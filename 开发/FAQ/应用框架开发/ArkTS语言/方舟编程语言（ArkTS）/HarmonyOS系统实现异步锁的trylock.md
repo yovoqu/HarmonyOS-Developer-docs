@@ -86,35 +86,35 @@ function doTest(count: number): void {
 }
 
 export namespace locks {
- <em> /**</em>
-<em>   * 可重入锁，生成子锁供不同线程使用</em>
-<em>   */</em>
+  /**
+   * 可重入锁，生成子锁供不同线程使用
+   */
   export class ReentrantLock {
     private sysLock: ArkTSUtils.locks.AsyncLock = new ArkTSUtils.locks.AsyncLock();
     private context: LockContext;
 
-    <em>/**</em>
-<em>     *</em>
-<em>     * @param timeOutMs 锁超时时间，超过时间自动释放 <=0时锁不超时</em>
-<em>     */</em>
+    /**
+     *
+     * @param timeOutMs 锁超时时间，超过时间自动释放 <=0时锁不超时
+     */
     constructor(timeOutMs?: number) {
       this.context = new LockContext(timeOutMs);
     }
 
-   <em> // 获取单个线程使用的子锁</em>
+    // 获取单个线程使用的子锁
     getLock(): Lock {
       return new Lock(this.sysLock, this.context, util.generateRandomUUID());
     }
   }
 
-  <em>/**</em>
-<em>   * 公共的锁上下文</em>
-<em>   */</em>
+  /**
+   * 公共的锁上下文
+   */
   @Sendable
   class LockContext {
     private lockTime: number = systemDateTime.getTime();
     private lockUuid?: string;
-    <em>// </em><em>默认10s超时</em>
+    // 默认10s超时
     private timeOutMs: number = 10 * 1000;
 
     constructor(timeOutMs?: number) {
@@ -161,10 +161,10 @@ export namespace locks {
       this.uuid = uuid;
     }
 
-   <em> /**</em>
-<em>     * 尝试上锁，上锁失败失败返回false</em>
-<em>     * @returns</em>
-<em>     */</em>
+    /**
+     * 尝试上锁，上锁失败失败返回false
+     * @returns
+     */
     async tryLock(): Promise<boolean> {
       if (this.context.isReentrant(this.uuid)) {
         return true;
@@ -179,10 +179,10 @@ export namespace locks {
       return this.context.isReentrant(this.uuid);
     }
 
-   <em> /**</em>
-<em>     * 解锁，未获取到锁时直接返回</em>
-<em>     * @returns</em>
-<em>     */</em>
+    /**
+     * 解锁，未获取到锁时直接返回
+     * @returns
+     */
     async unlock(): Promise<void> {
       if (!this.context.isLocked()) {
         return;

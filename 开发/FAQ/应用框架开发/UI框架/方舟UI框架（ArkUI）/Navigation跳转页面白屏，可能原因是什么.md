@@ -14,7 +14,7 @@
  
 - 路由表中的页面，需要配置入口函数Builder，并且需要使用NavDestination组件才能展示页面。
 ```text
-<em>// Jump Page Entry Function </em>
+// Jump Page Entry Function 
 @Builder
 export function pageOneBuilder() {
   NavigationJumpToPageWithWhiteScreen();
@@ -27,7 +27,7 @@ struct NavigationJumpToPageWithWhiteScreen {
 
   build() {
     NavDestination() {
-     <em> // ...</em>
+      // ...
     }
     .title('PageOne')
     .onReady((context: NavDestinationContext) => {
@@ -42,7 +42,7 @@ struct NavigationJumpToPageWithWhiteScreen {
 "module": {
   "name": "feature_splash",
   "type": "feature",
- <em> // The type needs to be either "har" or "shared"</em>
+  // The type needs to be either "har" or "shared"
 ```
  即使配置正确，跳转时仍可能出现白屏。可以尝试清理项目，以恢复正常跳转。
 

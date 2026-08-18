@@ -14,7 +14,7 @@ let bundleFlags = bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_SIGNATURE_INFO;
 try {
   bundleManager.getBundleInfoForSelf(bundleFlags).then((data) => {
     hilog.info(0x0000, 'testTag', 'getBundleInfoForSelf successfully. Data: %{public}s', JSON.stringify(data));
-    <em>// In the data, you can obtain the signtureInfo, which is the signature certificate information of the application</em>
+    // In the data, you can obtain the signtureInfo, which is the signature certificate information of the application
   }).catch((err: BusinessError) => {
     hilog.error(0x0000, 'testTag', 'getBundleInfoForSelf failed. Cause: %{public}s', err.message);
   });

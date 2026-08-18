@@ -112,9 +112,9 @@ screenCapture.html：
     function share() {
         navigator.mediaDevices.getDisplayMedia({video: true}).then(stream => {
             document.getElementById('res').innerText = '';
-          <em>  // 创建一个video元素</em>
+            // 创建一个video元素
             let video = document.getElementById('video');
-         <em>   // 设置video元素的srcObject为获取到的流</em>
+            // 设置video元素的srcObject为获取到的流
             video.srcObject = stream;
             video.play();
         }).catch(res => {
@@ -124,7 +124,7 @@ screenCapture.html：
 </script>
 <button onclick="share()">投屏</button>
 <video id="video"></video>
-<span id="res"></span>
+
 </body>
 </html>
 ```

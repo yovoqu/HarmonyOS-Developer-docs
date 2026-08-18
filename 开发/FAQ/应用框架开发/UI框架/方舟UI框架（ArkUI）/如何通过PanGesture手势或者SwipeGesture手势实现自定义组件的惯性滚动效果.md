@@ -25,21 +25,21 @@ struct PanGestureExample {
     .padding(20)
     .border({ width: 3 })
     .margin(30)
- <em>   // 以组件左上角为坐标原点进行移动</em>
+    // 以组件左上角为坐标原点进行移动
     .translate({
       x: this.offsetX,
       y: this.offsetY,
       z: 0
     })
     .gesture(
-   <em>   // 拖动</em>
+      // 拖动
       PanGesture(this.panOption)
         .onActionStart((event?: GestureEvent) => {
           console.info('Pan start');
         })
         .onActionUpdate((event?: GestureEvent) => {
           if (event) {
-          <em>  // 最后的位置加上偏移量</em>
+            // 最后的位置加上偏移量
             this.offsetX = this.positionX + event.offsetX;
             this.offsetY = this.positionY + event.offsetY;
           }

@@ -36,7 +36,7 @@
 可以使用[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)堆叠布局将百分比文本信息和DataPanel组件居中显示，让百分比文本刚好在环形数据面板中心。通过sin/cos还有距离和角度计算出文本相对圆环中心的坐标，[offset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#offset)控制文本根据坐标偏移。刚好让百分比信息显示在环形DataPanel组件上对应的位置。文本和坐标信息计算步骤如下：
  1. 通过reduce计算从0到每段数据结尾的总和，用该总和/圆环整体的值得到当前数据结尾所在的弧度。
 ```text
-<em>// </em><em>获取从0到各个数据段结尾的弧度</em>
+// 获取从0到各个数据段结尾的弧度
 getRadian() {
   for (let i = 0; i < this.dataPanelList.length; i++) {
     let count = this.dataPanelList.reduce((accumulator, value, index) => {
@@ -53,7 +53,7 @@ getRadian() {
 
 2. 获取每段数据的百分比文本。
 ```text
-<em>// </em><em>获取百分比的文本</em>
+// 获取百分比的文本
 getText() {
   let count = 0;
   for (let i = 0; i < this.dataPanelList.length - 1; i++) {
@@ -67,7 +67,7 @@ getText() {
 3. 通过DataPanel组件的尺寸的一半减去strokeWidth可以得到圆环的半径。
 4. sin(弧度)*圆环半径和cos(弧度)*圆环半径的方式可以得到当前弧度下圆环外层的坐标信息，向内偏移半个strokeWidth就是百分比信息文本显示的位置。
 ```text
-<em>// x</em><em>坐标：sin(弧度)*半径，y坐标：-cos(弧度)*半径</em>
+// x坐标：sin(弧度)*半径，y坐标：-cos(弧度)*半径
 .offset({
   x: Math.sin(item) * (this.dataPaneRadius - this.strokeWidth / 2),
   y: -Math.cos(item) * (this.dataPaneRadius - this.strokeWidth / 2)
@@ -83,18 +83,18 @@ getText() {
 struct DataPanelExample {
   @State dataPanelList: number[] = [10, 20, 40, 30];
   sum: number = this.dataPanelList.reduce((accumulator, value) => accumulator + value);
-  @State radianList: number[] = [];<em> </em><em>// 从0到各个分段结尾的弧度</em>
-  @State textList: number[] = [];<em> </em><em>// 每个数据分段的百分比文本</em>
-  dataPanelSize: number = 300; <em>// 数据面板组件宽度</em>
-  strokeWidth: number = 40; <em>// </em><em>圆环粗细，不能超过dataPanelSize/4</em>
-  dataPaneRadius: number = this.dataPanelSize / 2 - this.strokeWidth; <em>// 数据面板中圆环的半径</em>
+  @State radianList: number[] = []; // 从0到各个分段结尾的弧度
+  @State textList: number[] = []; // 每个数据分段的百分比文本
+  dataPanelSize: number = 300; // 数据面板组件宽度
+  strokeWidth: number = 40; // 圆环粗细，不能超过dataPanelSize/4
+  dataPaneRadius: number = this.dataPanelSize / 2 - this.strokeWidth; // 数据面板中圆环的半径
 
   aboutToAppear(): void {
     this.getRadian();
     this.getText();
   }
 
- <em> // 获取从0到各个数据段结尾的弧度</em>
+  // 获取从0到各个数据段结尾的弧度
   getRadian() {
     for (let i = 0; i < this.dataPanelList.length; i++) {
       let count = this.dataPanelList.reduce((accumulator, value, index) => {
@@ -108,7 +108,7 @@ struct DataPanelExample {
     }
   }
 
-  <em>// 获取百分比的文本</em>
+  // 获取百分比的文本
   getText() {
     let count = 0;
     for (let i = 0; i < this.dataPanelList.length - 1; i++) {
@@ -128,13 +128,13 @@ struct DataPanelExample {
           .backgroundColor('#ffd6f7ff');
         ForEach(this.radianList, (item: number, index: number) => {
           Text(`${this.textList[index]}%`)
-        <em>  // x坐标：sin(弧度)*半径，y坐标：-cos(弧度)*半径</em>
+          // x坐标：sin(弧度)*半径，y坐标：-cos(弧度)*半径
             .offset({
               x: Math.sin(item) * (this.dataPaneRadius - this.strokeWidth / 2),
               y: -Math.cos(item) * (this.dataPaneRadius - this.strokeWidth / 2)
             })
             .fontColor('#fff')
-            .fontSize(this.strokeWidth / 2.5); <em>// 文本大小根据圆环粗细设置</em>
+            .fontSize(this.strokeWidth / 2.5); // 文本大小根据圆环粗细设置
         });
       };
     }

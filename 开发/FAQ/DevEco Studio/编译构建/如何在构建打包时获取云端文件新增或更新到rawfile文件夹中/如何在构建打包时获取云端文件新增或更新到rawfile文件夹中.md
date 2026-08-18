@@ -45,30 +45,30 @@ echo 文件下载完成，保存路径为：'%save_folder%/%filename%'
 
   而类Unix平台可以使用shell脚本，示例代码如下所示：
 ```bash
-<span style="color: rgb(181,106,1);">#</span>!/<span style="color: rgb(181,106,1);">bin</span>/bash
-<span style="color: rgb(181,106,1);"># </span>设置变量
+#!/bin/bash
+# 设置变量
 download_url="https://example.com/file.zip"
 save_folder="./Downloads"
 filename="file.zip"
-<span style="color: rgb(181,106,1);"># </span>创建保存目录（如果不存在）
+# 创建保存目录（如果不存在）
 mkdir -p "$save_folder"
-<span style="color: rgb(181,106,1);"># </span>检查系统中是否有 <span style="color: rgb(181,106,1);">curl </span>或 wget，并选择其一进行下载
-if command -v curl >/dev/null <span style="color: rgb(0,0,255);">2</span>>&<span style="color: rgb(0,0,255);">1</span>; then
+# 检查系统中是否有 curl 或 wget，并选择其一进行下载
+if command -v curl >/dev/null 2>&1; then
     echo "使用 curl 下载文件..."
     curl -L -o "$save_folder/$filename" "$download_url"
-elif command -v wget >/dev/null <span style="color: rgb(0,0,255);">2</span>>&<span style="color: rgb(0,0,255);">1</span>; then
+elif command -v wget >/dev/null 2>&1; then
     echo "使用 wget 下载文件..."
     wget -O "$save_folder/$filename" "$download_url"
 else
     echo "错误：未找到 curl 或 wget，请安装其中一个工具。"
-    exit <span style="color: rgb(0,0,255);">1</span>
+    exit 1
 fi
-<span style="color: rgb(181,106,1);"># </span>检查下载是否成功
-if [ $? -eq <span style="color: rgb(0,0,255);">0 </span>]; then
+# 检查下载是否成功
+if [ $? -eq 0 ]; then
     echo "文件下载完成，保存路径为：$(realpath "$save_folder/$filename")"
 else
     echo "下载失败！"
-    exit <span style="color: rgb(0,0,255);">1</span>
+    exit 1
 fi
 ```
 
@@ -76,45 +76,45 @@ fi
   然后将对应脚本文件放在需要更新rawfile目录文件的模块中，例如放在Entry模块的根目录，此时可以save_folder可改为./src/main/resources/rawfile。
 2. 修改Entry模块根目录中的hvigorfile.ts脚本，根据构建的环境运行不同的脚本，示例代码如下所示:
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">hapTasks </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@ohos/hvigor-ohos-plugin'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">execSync </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'node:child_process'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(0,0,255);">util </span>from <span style="color: rgb(255,0,170);">'node:util'</span><span style="color: rgb(181,106,1);">;</span>
+import { hapTasks } from '@ohos/hvigor-ohos-plugin';
+import { execSync } from 'node:child_process';
+import util from 'node:util';
 
-export function <span style="color: rgb(0,0,255);">downloadFilePluginFunc</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HvigorPlugin </span><span style="color: rgb(255,0,170);">{</span>
-  return <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">pluginId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'DownloadFilePluginID01'</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">apply</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">pluginContext</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">pluginContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">registerTask</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-        <em>// </em><em><span style="color: rgb(128,128,128);">编写自定义任务</span></em>
-        <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'customTask1'</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">run</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">taskContext</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          let <span style="color: rgb(0,0,255);">command </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-          const <span style="color: rgb(0,0,255);">platform </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">process</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">platform</span><span style="color: rgb(181,106,1);">;</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">platform </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'win32'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">command </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'downloadFile.bat'</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">command </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'sh downloadFile.sh'</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-          const <span style="color: rgb(0,0,255);">workingDirectory </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">__dirname</span><span style="color: rgb(181,106,1);">;</span>
-          try <span style="color: rgb(255,0,170);">{</span>
-            const <span style="color: rgb(0,0,255);">output </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">execSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">command</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">cwd</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">workingDirectory </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">文件下载成功，输出</span><span style="color: rgb(255,0,170);">: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">output</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">} </span>catch<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">文件下载失败，输出</span><span style="color: rgb(255,0,170);">: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(181,106,1);">,</span>
-        <em>// </em><em><span style="color: rgb(128,128,128);">确认自定义任务插入位置</span></em>
-        <span style="color: rgb(0,0,255);">dependencies</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'default@GenerateMetadata'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">postDependencies</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'default@ProcessResource'</span><span style="color: rgb(0,0,255);">]</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
-<span style="color: rgb(255,0,170);">}</span>
+export function downloadFilePluginFunc(str?: string): HvigorPlugin {
+  return {
+    pluginId: 'DownloadFilePluginID01',
+    apply(pluginContext): void {
+      pluginContext.registerTask({
+        // 编写自定义任务
+        name: 'customTask1',
+        run: (taskContext) => {
+          let command = '';
+          const platform = process.platform;
+          if (platform === 'win32') {
+            command = 'downloadFile.bat';
+          } else {
+            command = 'sh downloadFile.sh';
+          }
+          const workingDirectory = __dirname;
+          try {
+            const output = execSync(command, { cwd: workingDirectory });
+            console.info(`文件下载成功，输出: ${output.toString()}`);
+          } catch(e) {
+            console.info(`文件下载失败，输出: ${e.toString()}`);
+          }
+        },
+        // 确认自定义任务插入位置
+        dependencies: ['default@GenerateMetadata'],
+        postDependencies: ['default@ProcessResource']
+      })
+    }
+  }
+}
 
-export default <span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">system</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">hapTasks</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(128,128,128);">/* Built-in plugin of Hvigor. It cannot be modified. */</span>
-  <span style="color: rgb(0,0,255);">plugins</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">downloadFilePluginFunc</span><span style="color: rgb(0,0,255);">()] </span><span style="color: rgb(128,128,128);">/* Custom plugin to extend the functionality of Hvigor. */</span>
-<span style="color: rgb(255,0,170);">}</span>
+export default {
+  system: hapTasks, /* Built-in plugin of Hvigor. It cannot be modified. */
+  plugins: [downloadFilePluginFunc()] /* Custom plugin to extend the functionality of Hvigor. */
+}
 ```
 
 3. 在未构建前，可以看到目前rawfile文件夹中没有文件：

@@ -32,143 +32,143 @@ PersistenceV2实现持久化的方式是利用connect绑定一个key，返回一
 完整示例参考如下：
  
 ```json
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">JSON </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">PersistenceV2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Type </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
+import { JSON } from '@kit.ArkTS';
+import { PersistenceV2, Type } from '@kit.ArkUI';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@ComponentV2</span>
-struct <span style="color: rgb(0,0,255);">PersistentPage </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(0,0,255);">jsonStr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">=</span>
-    <span style="color: rgb(255,0,170);">`{</span>
-<span style="color: rgb(255,0,170);">      "answerQuestion":false,</span>
-<span style="color: rgb(255,0,170);">      "customerId":"930772319746404352",</span>
-<span style="color: rgb(255,0,170);">      "firstLogin":false,</span>
-<span style="color: rgb(255,0,170);">      "lastLoginDeviceName":"HUAWEI",</span>
-<span style="color: rgb(255,0,170);">      "lastLoginIp":"192.168.61.37",</span>
-<span style="color: rgb(255,0,170);">      "lastLoginTime":"2024-12-17 09:25:13",</span>
-<span style="color: rgb(255,0,170);">      "msgValidate":false,</span>
-<span style="color: rgb(255,0,170);">      "needWindow":false,</span>
-<span style="color: rgb(255,0,170);">      "ticketString":"95ce6acb-f9a3-446f-8b32-81480bc8c01c",</span>
-<span style="color: rgb(255,0,170);">      "userBaseInfo":{</span>
-<span style="color: rgb(255,0,170);">        "id":930772319746404422,</span>
-<span style="color: rgb(255,0,170);">        "idCard":"xxxxxxx",</span>
-<span style="color: rgb(255,0,170);">        "laborUnionId":0,</span>
-<span style="color: rgb(255,0,170);">        "lastLoginTime":1734398772793,</span>
-<span style="color: rgb(255,0,170);">        "memberType":1,</span>
-<span style="color: rgb(255,0,170);">        "mobile":"xxxx",</span>
-<span style="color: rgb(255,0,170);">        "modelWorkerType":0,</span>
-<span style="color: rgb(255,0,170);">        "nickName":"R202qMeZ2o",</span>
-<span style="color: rgb(255,0,170);">        "openWalletBankCode":"102",</span>
-<span style="color: rgb(255,0,170);">        "realName":"</span><span style="color: rgb(255,0,170);">李四</span><span style="color: rgb(255,0,170);">",</span>
-<span style="color: rgb(255,0,170);">        "status":10101,</span>
-<span style="color: rgb(255,0,170);">        "verifyStatus":true,</span>
-<span style="color: rgb(255,0,170);">        "walletState":false</span>
-<span style="color: rgb(255,0,170);">        }</span>
-<span style="color: rgb(255,0,170);">      }`</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">UserInfoModel </span><span style="color: rgb(181,106,1);">=</span>
-    <span style="color: rgb(0,0,255);">PersistenceV2</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">UserInfoModel</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'LocalUserInfoModelKey'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> new <span style="color: rgb(0,0,255);">UserInfoModel</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">!;</span>
+@Entry
+@ComponentV2
+struct PersistentPage {
+  @Local jsonStr: string =
+    `{
+      "answerQuestion":false,
+      "customerId":"930772319746404352",
+      "firstLogin":false,
+      "lastLoginDeviceName":"HUAWEI",
+      "lastLoginIp":"192.168.61.37",
+      "lastLoginTime":"2024-12-17 09:25:13",
+      "msgValidate":false,
+      "needWindow":false,
+      "ticketString":"95ce6acb-f9a3-446f-8b32-81480bc8c01c",
+      "userBaseInfo":{
+        "id":930772319746404422,
+        "idCard":"xxxxxxx",
+        "laborUnionId":0,
+        "lastLoginTime":1734398772793,
+        "memberType":1,
+        "mobile":"xxxx",
+        "modelWorkerType":0,
+        "nickName":"R202qMeZ2o",
+        "openWalletBankCode":"102",
+        "realName":"李四",
+        "status":10101,
+        "verifyStatus":true,
+        "walletState":false
+        }
+      }`;
+  @Local user: UserInfoModel =
+    PersistenceV2.connect(UserInfoModel, 'LocalUserInfoModelKey', () => new UserInfoModel())!;
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  aboutToAppear(): void {
+    console.info(JSON.stringify(this.user));
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">15 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">用户名</span><span style="color: rgb(255,0,170);">:</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">userBaseInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">nickName</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">40</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">真名</span><span style="color: rgb(255,0,170);">:</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">userBaseInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">realName</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">是否登录</span><span style="color: rgb(255,0,170);">:</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isLogin</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`token:</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ticketString</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Column({ space: 15 }) {
+      Text(`用户名:${this.user.userBaseInfo?.nickName}`)
+        .margin({
+          top: 40
+        });
+      Text(`真名:${this.user.userBaseInfo?.realName}`);
+      Text(`是否登录:${this.user.isLogin}`);
+      Text(`token:${this.user.ticketString}`);
 
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">保存用户信息</span></em>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">登录</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        const <span style="color: rgb(0,0,255);">model </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parse</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">jsonStr</span><span style="color: rgb(0,0,255);">) </span>as <span style="color: rgb(0,0,255);">UserInfoModel</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">model</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isLogin </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-       <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">重新持久化存储</span><span style="color: rgb(128,128,128);">UI</span><span style="color: rgb(128,128,128);">状态</span></em>
-        <span style="color: rgb(0,0,255);">PersistenceV2</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">remove</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'LocalUserInfoModelKey'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">user </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">PersistenceV2</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">UserInfoModel</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'LocalUserInfoModelKey'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> new <span style="color: rgb(0,0,255);">UserInfoModel</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">model</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">!;</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      // 保存用户信息
+      Button('登录').onClick(() => {
+        const model = JSON.parse(this.jsonStr) as UserInfoModel;
+        model.isLogin = true;
+        // 重新持久化存储UI状态
+        PersistenceV2.remove('LocalUserInfoModelKey');
+        this.user = PersistenceV2.connect(UserInfoModel, 'LocalUserInfoModelKey', () => new UserInfoModel(model))!;
+        console.info(JSON.stringify(this.user));
+      });
 
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">修改用户名</span><span style="color: rgb(255,0,170);">:</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">userBaseInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">nickName</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">userBaseInfo</span><span style="color: rgb(181,106,1);">!.</span><span style="color: rgb(0,0,255);">nickName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">测试张三</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">修改</span><span style="color: rgb(255,0,170);">token:</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ticketString</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ticketString </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'xxxxxx'</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">退出登录</span><span style="color: rgb(255,0,170);">:</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isLogin</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isLogin </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+      Button(`修改用户名:${this.user.userBaseInfo?.nickName}`)
+        .onClick(() => {
+          this.user.userBaseInfo!.nickName = '测试张三';
+        });
+      Button(`修改token:${this.user.ticketString}`)
+        .onClick(() => {
+          this.user.ticketString = 'xxxxxx';
+        });
+      Button(`退出登录:${this.user.isLogin}`)
+        .onClick(() => {
+          this.user.isLogin = false;
+        });
+    }
+    .height('100%')
+    .width('100%');
+  }
+}
 
-<span style="color: rgb(181,106,1);">@ObservedV2</span>
-export class <span style="color: rgb(0,0,255);">UserBaseInfoModel </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">idCard</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">laborUnionId</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">lastLoginTime</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">memberType</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">mobile</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">modelWorkerType</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">nickName</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">openWalletBankCode</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">realName</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">status</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">verifyStatus</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">walletState</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+@ObservedV2
+export class UserBaseInfoModel {
+  @Trace id?: number = 0;
+  @Trace idCard?: string = '';
+  @Trace laborUnionId?: number = 0;
+  @Trace lastLoginTime?: number = 0;
+  @Trace memberType?: number = 0;
+  @Trace mobile?: string = '';
+  @Trace modelWorkerType?: number = 0;
+  @Trace nickName?: string = '';
+  @Trace openWalletBankCode?: string = '';
+  @Trace realName?: string = '';
+  @Trace status?: number = 0;
+  @Trace verifyStatus?: boolean = false;
+  @Trace walletState?: boolean = false;
 
-  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">baseInfo</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">UserBaseInfoModel</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">baseInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">id </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">idCard </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">baseInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">idCard </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">laborUnionId </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">baseInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">laborUnionId </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lastLoginTime </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">baseInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">lastLoginTime </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">memberType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">baseInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">memberType </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mobile </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">baseInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">mobile </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">modelWorkerType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">baseInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">modelWorkerType </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">nickName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">baseInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">nickName </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openWalletBankCode </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">baseInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">openWalletBankCode </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">realName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">baseInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">realName </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">baseInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">status </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">verifyStatus </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">baseInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">verifyStatus </span><span style="color: rgb(181,106,1);">|| </span>false<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">walletState </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">baseInfo</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">walletState </span><span style="color: rgb(181,106,1);">|| </span>false<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  constructor(baseInfo?: UserBaseInfoModel) {
+    this.id = baseInfo?.id || 0;
+    this.idCard = baseInfo?.idCard || '';
+    this.laborUnionId = baseInfo?.laborUnionId || 0;
+    this.lastLoginTime = baseInfo?.lastLoginTime || 0;
+    this.memberType = baseInfo?.memberType || 0;
+    this.mobile = baseInfo?.mobile || '';
+    this.modelWorkerType = baseInfo?.modelWorkerType || 0;
+    this.nickName = baseInfo?.nickName || '';
+    this.openWalletBankCode = baseInfo?.openWalletBankCode || '';
+    this.realName = baseInfo?.realName || '';
+    this.status = baseInfo?.status || 0;
+    this.verifyStatus = baseInfo?.verifyStatus || false;
+    this.walletState = baseInfo?.walletState || false;
+  }
+}
 
-<span style="color: rgb(181,106,1);">@ObservedV2</span>
-export class <span style="color: rgb(0,0,255);">UserInfoModel </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">answerQuestion</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">customerId</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">firstLogin</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">lastLoginDeviceName</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">lastLoginIp</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">lastLoginTime</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">msgValidate</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">needWindow</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">ticketString</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">isLogin</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Type</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">UserBaseInfoModel</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(0,0,255);">userBaseInfo</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">UserBaseInfoModel </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">UserBaseInfoModel</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+@ObservedV2
+export class UserInfoModel {
+  @Trace answerQuestion?: boolean = false;
+  @Trace customerId?: string = '';
+  @Trace firstLogin?: boolean = false;
+  @Trace lastLoginDeviceName?: string = '';
+  @Trace lastLoginIp?: string = '';
+  @Trace lastLoginTime?: string = '';
+  @Trace msgValidate?: boolean = false;
+  @Trace needWindow?: boolean = false;
+  @Trace ticketString?: string = '';
+  @Trace isLogin?: boolean = false;
+  @Type(UserBaseInfoModel)
+  @Trace userBaseInfo?: UserBaseInfoModel = new UserBaseInfoModel();
 
-  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">UserInfoModel</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">answerQuestion </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">answerQuestion </span><span style="color: rgb(181,106,1);">|| </span>false<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">customerId </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">customerId </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">firstLogin </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">firstLogin </span><span style="color: rgb(181,106,1);">|| </span>false<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lastLoginDeviceName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">lastLoginDeviceName </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lastLoginIp </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">lastLoginIp </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lastLoginTime </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">lastLoginTime </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">needWindow </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">needWindow </span><span style="color: rgb(181,106,1);">|| </span>false<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ticketString </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">ticketString </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,170);">'aaa'</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isLogin </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">isLogin </span><span style="color: rgb(181,106,1);">|| </span>false<span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">userBaseInfo </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">UserBaseInfoModel</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">user</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">userBaseInfo</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  constructor(user?: UserInfoModel) {
+    this.answerQuestion = user?.answerQuestion || false;
+    this.customerId = user?.customerId || '';
+    this.firstLogin = user?.firstLogin || false;
+    this.lastLoginDeviceName = user?.lastLoginDeviceName || '';
+    this.lastLoginIp = user?.lastLoginIp || '';
+    this.lastLoginTime = user?.lastLoginTime || '';
+    this.needWindow = user?.needWindow || false;
+    this.ticketString = user?.ticketString || 'aaa';
+    this.isLogin = user?.isLogin || false;
+    this.userBaseInfo = new UserBaseInfoModel(user?.userBaseInfo);
+  }
+}
 ```

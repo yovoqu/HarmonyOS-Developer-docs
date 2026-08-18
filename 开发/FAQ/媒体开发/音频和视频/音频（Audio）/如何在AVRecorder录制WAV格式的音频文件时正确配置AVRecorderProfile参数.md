@@ -22,10 +22,10 @@ AVRecorderProfile参数配置错误，WAV格式需要匹配相应的比特率、
  
 ```text
 private avProfile: media.AVRecorderProfile = {
-  audioBitrate: 64000, <em>// set audioBitrate according to device ability.</em>
-  audioChannels: 1, <em>// set audioChannels,valid value 1-8,CFT_WAV supports 1.</em>
-  audioCodec: media.CodecMimeType.AUDIO_G711MU, <em>// set audioCodec,AUDIO_G711MU matching CFT_WAV.</em>
-  audioSampleRate: 8000, <em>// set audioSampleRate according to device ability.</em>
-  fileFormat: media.ContainerFormatType.CFT_WAV <em>// set fileFormat,CFT_WAV.</em>
+  audioBitrate: 64000, // set audioBitrate according to device ability.
+  audioChannels: 1, // set audioChannels,valid value 1-8,CFT_WAV supports 1.
+  audioCodec: media.CodecMimeType.AUDIO_G711MU, // set audioCodec,AUDIO_G711MU matching CFT_WAV.
+  audioSampleRate: 8000, // set audioSampleRate according to device ability.
+  fileFormat: media.ContainerFormatType.CFT_WAV // set fileFormat,CFT_WAV.
 }
 ```

@@ -122,7 +122,7 @@ export struct AppBar {
 - 定义AppBarTitleModifier类实现AttributeModifier接口，用于修饰Text组件的属性。
 ```text
 export class AppBarTitleModifier implements AttributeModifier<TextAttribute> {
- <em> // 字体颜色</em>
+  // 字体颜色
   private fontColor?: ResourceColor;
 
   constructor(fontColor?: ResourceColor) {

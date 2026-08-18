@@ -136,10 +136,10 @@ struct TestPage {
   }
 
   async create() {
- <em>   // 创建soundPool实例</em>
+    // 创建soundPool实例
     let audioRendererInfo: audio.AudioRendererInfo = {
-      usage: audio.StreamUsage.STREAM_USAGE_MUSIC, <em>// 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage</em>
-      rendererFlags: 1 <em>// 音频渲染器标志</em>
+      usage: audio.StreamUsage.STREAM_USAGE_MUSIC, // 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage
+      rendererFlags: 1 // 音频渲染器标志
     };
     try {
       soundPool = await media.createSoundPool(32, audioRendererInfo);
@@ -147,14 +147,14 @@ struct TestPage {
       console.error('load raw file error ' + JSON.stringify(error));
     }
 
-    this.loadCallback(soundPool); <em>// 监听loadComplete</em>
-    await this.scanRawFile(); <em>// 扫描rawfile音频资源</em>
+    this.loadCallback(soundPool); // 监听loadComplete
+    await this.scanRawFile(); // 扫描rawfile音频资源
   }
 
   async scanRawFile() {
     try {
       let resourceManager = this.context.resourceManager;
-      let files = await resourceManager.getRawFileList('soundpool/'); <em>//确保目录存在，并包含音频文件</em>
+      let files = await resourceManager.getRawFileList('soundpool/'); //确保目录存在，并包含音频文件
       for (let i = 0; i < files.length; i++) {
         let soundFile: SoundFile = new SoundFile(files[i], -1);
         this.soundFilesArr.push(soundFile);
@@ -180,7 +180,7 @@ struct TestPage {
   }
 
   async play(soundId: number) {
-   <em> // 开始播放，这边play也可带播放的参数PlayParameters，请在音频资源加载完毕，即收到loadComplete回调之后再执行play操作</em>
+    // 开始播放，这边play也可带播放的参数PlayParameters，请在音频资源加载完毕，即收到loadComplete回调之后再执行play操作
     await soundPool.play(soundId).then(async (streamId: number) => {
       console.info('play sound success soundid:' + soundId, streamId);
     }, (err: BusinessError) => {
@@ -207,7 +207,7 @@ struct TestPage {
 
 
   updListArrSoundId(fileName: string, soundId: number) {
-  <em>  // 更新list记录soundId</em>
+    // 更新list记录soundId
     this.soundFilesArr.forEach((soundFile) => {
       if (soundFile.filename == fileName) {
         soundFile.soundId = soundId;

@@ -37,7 +37,7 @@ struct MainPage {
   pageInfos: NavPathStack = new NavPathStack();
   @StorageLink('isSplit') isSplit: boolean = true;
 
-  <em>// 跳转回主页时重新修改为分栏模式，根据实际需求设置</em>
+  // 跳转回主页时重新修改为分栏模式，根据实际需求设置
   aboutToAppear(): void {
     AppStorage.set('isSplit', true);
   }
@@ -73,7 +73,7 @@ export function NavPageOneBuilder() {
 struct NavPageOne {
   @State message: string = '放大';
 
- <em> // 跳转回该页面时重新修改为分栏模式，根据实际需求设置</em>
+  // 跳转回该页面时重新修改为分栏模式，根据实际需求设置
   aboutToAppear(): void {
     AppStorage.set('isSplit', true);
   }
@@ -120,13 +120,13 @@ export function NavPageTwoBuilder() {
 struct NavPageTwo {
   @State message: string = '缩小';
 
- <em> // Startsolution1</em>
-<em>  // 其它页面跳转该页面时，会先重置为单栏模式</em>
+  // Startsolution1
+  // 其它页面跳转该页面时，会先重置为单栏模式
   aboutToAppear(): void {
     AppStorage.set('isSplit', false);
     this.message = '缩小';
   }
-<em>  // Endsolution1</em>
+  // Endsolution1
 
   build() {
     NavDestination() {
@@ -196,7 +196,7 @@ struct MainPage {
           })
       }
     }
-    .mode(NavigationMode.Stack) <em>// 强制设置为单栏模式，避免横屏时自动切换为分栏模式</em>
+    .mode(NavigationMode.Stack) // 强制设置为单栏模式，避免横屏时自动切换为分栏模式
     .hideTitleBar(true)
     .hideToolBar(true)
   }

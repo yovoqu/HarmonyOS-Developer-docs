@@ -30,14 +30,14 @@
 .onClick(() => {
   this.title = '子集标题';
   this.getUIContext()?.animateTo({
-    duration: 800, <em>// 动画持续时间，单位为毫秒。</em>
-    curve: Curve.EaseOut, <em>// 动画曲线。</em>
-    playMode: PlayMode.Normal, <em>// 动画播放模式，默认播放完成后重头开始播放。  默认值：PlayMode.Normal</em>
+    duration: 800, // 动画持续时间，单位为毫秒。
+    curve: Curve.EaseOut, // 动画曲线。
+    playMode: PlayMode.Normal, // 动画播放模式，默认播放完成后重头开始播放。  默认值：PlayMode.Normal
     onFinish: () => {
       console.info('play end');
     }
   }, () => {
-    <em>// 指定显示动效的闭包函数，在闭包函数中导致的状态变化系统会自动插入过渡动画。</em>
+    // 指定显示动效的闭包函数，在闭包函数中导致的状态变化系统会自动插入过渡动画。
     this.flag = !this.flag;
   });
 });
@@ -51,7 +51,7 @@ SheetBuilder2({ title: this.title, flag: this.flag })
   .translate(this.flag ? { x: 0 } : { x: this.translateX })
   .onAreaChange((oldValue: Area, newValue: Area) => {
     console.info('testTag', `获取到oldValue、newValue:${oldValue.width}、${newValue.width}`);
-  <em>  // 适配其他尺寸设备时，使用onAreaChange获取宽度，动画的移动尺寸直接取弹窗的宽度。</em>
+    // 适配其他尺寸设备时，使用onAreaChange获取宽度，动画的移动尺寸直接取弹窗的宽度。
     this.translateX = newValue.width as number;
   });
 ```
@@ -94,14 +94,14 @@ struct SheetDemo {
             .onClick(() => {
               this.title = '子集标题';
               this.getUIContext()?.animateTo({
-                duration: 800, <em>// 动画持续时间，单位为毫秒。</em>
-                curve: Curve.EaseOut, <em>// 动画曲线。</em>
-                playMode: PlayMode.Normal, <em>// 动画播放模式，默认播放完成后重头开始播放。  默认值：PlayMode.Normal</em>
+                duration: 800, // 动画持续时间，单位为毫秒。
+                curve: Curve.EaseOut, // 动画曲线。
+                playMode: PlayMode.Normal, // 动画播放模式，默认播放完成后重头开始播放。  默认值：PlayMode.Normal
                 onFinish: () => {
                   console.info('play end');
                 }
               }, () => {
-           <em>    </em><em> // 指定显示动效的闭包函数，在闭包函数中导致的状态变化系统会自动插入过渡动画。</em>
+                // 指定显示动效的闭包函数，在闭包函数中导致的状态变化系统会自动插入过渡动画。
                 this.flag = !this.flag;
               });
             });
@@ -121,7 +121,7 @@ struct SheetDemo {
         .translate(this.flag ? { x: 0 } : { x: this.translateX })
         .onAreaChange((oldValue: Area, newValue: Area) => {
           console.info('testTag', `获取到oldValue、newValue:${oldValue.width}、${newValue.width}`);
-      <em>    // 适配其他尺寸设备时，使用onAreaChange获取宽度，动画的移动尺寸直接取弹窗的宽度。</em>
+          // 适配其他尺寸设备时，使用onAreaChange获取宽度，动画的移动尺寸直接取弹窗的宽度。
           this.translateX = newValue.width as number;
         });
 

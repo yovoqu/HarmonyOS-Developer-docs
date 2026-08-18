@@ -29,7 +29,7 @@ get('goods', (data: Object) => {
   let goods: Goods = JSON.parse(data.toString());
   let type = goods.goods;
   console.info(type);
- <em> // 依据服务器返回的商品类型再请求具体的商品列表。</em>
+  // 依据服务器返回的商品类型再请求具体的商品列表。
   get(type!, (data: Object) => {
     let sorts: Shoes = JSON.parse(data.toString());
     this.shoes = sorts.shoes;
@@ -42,7 +42,7 @@ get('goods', (data: Object) => {
 2. 服务端：随机返回当前服务器上存在的商品类型。
 ```json
 if (type === "goods") {
-  <em>// 客户端请求商品类型时随机返回 clothing 或 shoes</em>
+  // 客户端请求商品类型时随机返回 clothing 或 shoes
   res.json({ "goods": Math.random() > 0.5 ? "clothing" : "shoes" })
 }
 ```
@@ -85,22 +85,22 @@ httpRequest.on('headersReceive', (header) => {
 
 function get(type: string, f: (data: Object) => void) {
   httpRequest.request(
-   <em> // 服务器url，运行服务器的电脑连手机wifi时可直接用ip代替域名。</em>
+    // 服务器url，运行服务器的电脑连手机wifi时可直接用ip代替域名。
     'http://x.x.x.x:9588',
     {
       method: http.RequestMethod.GET,
-    <em>  // header字段为Object，支持动态设置。</em>
+      // header字段为Object，支持动态设置。
       header: {
         'type': type
       },
-      connectTimeout: 10000, <em>// </em><em>可选，默认为60000ms.</em>
-      readTimeout: 10000, <em>// </em><em>可选，默认为60000ms.</em>
+      connectTimeout: 10000, // 可选，默认为60000ms.
+      readTimeout: 10000, // 可选，默认为60000ms.
     }, (err: BusinessError, data: http.HttpResponse) => {
     if (!err) {
       f(data.result);
     } else {
       console.error(`error code:${err.code}, error message:${err.message}`);
-     <em> // 取消订阅http响应头事件。</em>
+      // 取消订阅http响应头事件。
       httpRequest.off('headersReceive');
     }
   }
@@ -125,12 +125,12 @@ struct Index {
           middle: { anchor: '__container__', align: HorizontalAlign.Center }
         })
         .onClick(() => {
-      <em>    // 先发请求询问有哪些商品类型，服务器随机返回shoes或clothing.</em>
+          // 先发请求询问有哪些商品类型，服务器随机返回shoes或clothing.
           get('goods', (data: Object) => {
             let goods: Goods = JSON.parse(data.toString());
             let type = goods.goods;
             console.info(type);
-          <em>  // 依据服务器返回的商品类型再请求具体的商品列表。</em>
+            // 依据服务器返回的商品类型再请求具体的商品列表。
             get(type!, (data: Object) => {
               let sorts: Shoes = JSON.parse(data.toString());
               this.shoes = sorts.shoes;
@@ -176,21 +176,21 @@ struct Index {
 const express = require('express');
 const app = express();
 
-<em>/* GET home page. */</em>
+/* GET home page. */
 app.get('/', function (req, res, next) {
   let header = req.headers;
   console.log(JSON.stringify(header))
   let type = header.type;
   if (type === "goods") {
-  <em>  // 客户端请求商品类型时随机返回 clothing 或 shoes</em>
+    // 客户端请求商品类型时随机返回 clothing 或 shoes
     res.json({ "goods": Math.random() > 0.5 ? "clothing" : "shoes" })
   }
   if (type === "clothing") {
-   <em> // 客户端请求clothing则返回clothing列表</em>
+    // 客户端请求clothing则返回clothing列表
     res.json({ "clothing": ["coat", "shirt", "jacket"] })
   }
   if (type === "shoes") {
-  <em>  // 客户端请求shoes则返回shoes列表</em>
+    // 客户端请求shoes则返回shoes列表
     res.json({ "shoes": ["slippers", "sneakers", "high heels"] })
   }
   res.send('Home Page');

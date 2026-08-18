@@ -11,7 +11,7 @@
 加解密代码参考如下：
  
 ```text
-<em>// </em><em>加密消息。</em>
+// 加密消息。
 async function encryptMessagePromise(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob) {
   let cipher = cryptoFramework.createCipher('SM4_128|CTR|NoPadding');
   let smIV = '12345678'
@@ -24,7 +24,7 @@ async function encryptMessagePromise(symKey: cryptoFramework.SymKey, plainText: 
   return encryptData;
 }
 
-<em>// </em><em>解密消息。</em>
+// 解密消息。
 async function decryptMessagePromise(symKey: cryptoFramework.SymKey, cipherText: cryptoFramework.DataBlob) {
   let decoder = cryptoFramework.createCipher('SM4_128|CTR|NoPadding');
   let smIV = '12345678'

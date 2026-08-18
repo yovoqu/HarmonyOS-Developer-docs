@@ -32,14 +32,14 @@ export function customPlugin(): HvigorPlugin {
   return {
     pluginId: 'customPlugin',
     async apply(node: HvigorNode): Promise<void> {
-    <em>  // node评估后的回调函数</em>
+      // node评估后的回调函数
       hvigor.afterNodeEvaluate((hvigorNode) => {
-        <em>// 确保目录存在</em>
+        // 确保目录存在
         const resourcesDir = path.join(__dirname, 'src/main/resources/rawfile');
         if (!fs.existsSync(resourcesDir)) {
           fs.mkdirSync(resourcesDir, { recursive: true });
         }
-        <em>// </em><em>写入构建时间到json文件</em>
+        // 写入构建时间到json文件
         const now = new Date();
         const year = now.getFullYear();
         const month = String(now.getMonth() + 1).padStart(2, '0');

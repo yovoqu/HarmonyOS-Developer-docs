@@ -8,7 +8,7 @@
  1. 新建一个HSP，将HAR包拷贝到lib目录，并在HSP的oh-package.json5文件的dependencies下配置HAR包。
 ```json
 "dependencies": {
-  "myhar": "file:./lib/myHar.har" <em>// MyHar.Har path: oh-package.json5 file in the same directory as the lib folder</em>
+  "myhar": "file:./lib/myHar.har" // MyHar.Har path: oh-package.json5 file in the same directory as the lib folder
 },
 ```
 

@@ -63,7 +63,7 @@ struct Index55 {
   private customDialogComponentId: number = 0;
 
 
- <em> // 在结构体内构建定义函数</em>
+  // 在结构体内构建定义函数
   @Builder
   customDialogComponent() {
     Column() {

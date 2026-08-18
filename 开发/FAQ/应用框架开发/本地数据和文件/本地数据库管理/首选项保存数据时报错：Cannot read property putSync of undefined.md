@@ -23,7 +23,7 @@ Stacktrace:
 问题代码示例参考如下：
  
 ```ArkTS
-<em>// index.ets</em>
+// index.ets
 
 import Prompt from '@system.prompt';
 import { UIAbility } from '@kit.AbilityKit';
@@ -49,7 +49,7 @@ struct Index {
 
   build() {
     Column() {
-     <em> // 输入框</em>
+      // 输入框
       TextInput({ placeholder: '请输入要保存的内容' })
         .width('90%')
         .height(60)
@@ -57,7 +57,7 @@ struct Index {
           this.inputText = value;
         })
 
-      <em>// </em><em>保存按钮</em>
+      // 保存按钮
       Button('保存数据')
         .width('90%')
         .height(60)
@@ -66,7 +66,7 @@ struct Index {
           this.saveData();
         })
 
-   <em>   // 显示保存内容的按钮</em>
+      // 显示保存内容的按钮
       Button('显示保存内容')
         .width('90%')
         .height(60)
@@ -75,7 +75,7 @@ struct Index {
           this.loadData();
         })
 
-   <em>   // 显示保存内容的文本区域</em>
+      // 显示保存内容的文本区域
       Text(this.savedText)
         .width('90%')
         .margin({ top: 20 })
@@ -87,7 +87,7 @@ struct Index {
     .justifyContent(FlexAlign.Center)
   }
 
-  <em>// 保存数据到Preferences</em>
+  // 保存数据到Preferences
   private saveData() {
     if(this.inputText == null){
       Prompt.showToast({message: '内容为空请重试'})
@@ -97,7 +97,7 @@ struct Index {
     dataPreferences.flush()
   }
 
-<em>  // 从Preferences加载数据</em>
+  // 从Preferences加载数据
   private loadData() {
     let get_text = dataPreferences.getSync('my','6666')
     this.savedText = get_text.toString()
@@ -150,7 +150,7 @@ struct Index {
 
   build() {
     Column() {
-     <em> // 输入框</em>
+      // 输入框
       TextInput({ placeholder: '请输入要保存的内容' })
         .width('90%')
         .height(60)
@@ -158,7 +158,7 @@ struct Index {
           this.inputText = value;
         })
 
- <em>     // 保存按钮</em>
+      // 保存按钮
       Button('保存数据')
         .width('90%')
         .height(60)
@@ -167,7 +167,7 @@ struct Index {
           this.saveData();
         })
 
-     <em> // 显示保存内容的按钮</em>
+      // 显示保存内容的按钮
       Button('显示保存内容')
         .width('90%')
         .height(60)
@@ -176,7 +176,7 @@ struct Index {
           this.loadData();
         })
 
-    <em>  // 显示保存内容的文本区域</em>
+      // 显示保存内容的文本区域
       Text(this.savedText)
         .width('90%')
         .margin({ top: 20 })
@@ -188,7 +188,7 @@ struct Index {
     .justifyContent(FlexAlign.Center)
   }
 
-<em>  // 保存数据到Preferences</em>
+  // 保存数据到Preferences
   private saveData() {
     if (this.inputText == null) {
       promptAction.openToast({ message: '内容为空请重试' });
@@ -198,7 +198,7 @@ struct Index {
     dataPreferences.flush();
   }
 
- <em> // 从Preferences加载数据</em>
+  // 从Preferences加载数据
   private loadData() {
     let get_text = dataPreferences.getSync('my', '6666');
     this.savedText = get_text.toString();

@@ -41,13 +41,13 @@ struct HoverPopup1 {
       Image($r('app.media.startIcon'))
         .width(30)
         .bindTips(this.str, {
-        <em>  // 设置悬浮气泡的显示时延</em>
+          // 设置悬浮气泡的显示时延
           appearingTime: 10,
-        <em>  // 设置悬浮气泡的隐藏时延</em>
+          // 设置悬浮气泡的隐藏时延
           disappearingTime: 300,
           appearingTimeWithContinuousOperation: 300,
           disappearingTimeWithContinuousOperation: 0,
-      <em>    // 设置是否显示气泡箭头。值为true时，显示箭头；值为false时，不显示箭头</em>
+          // 设置是否显示气泡箭头。值为true时，显示箭头；值为false时，不显示箭头
           enableArrow: true,
         });
     }
@@ -79,7 +79,7 @@ struct HoverPopup2 {
         .onHover((isHover: boolean, event: HoverEvent) => {
           console.info(`${event}`);
           if (isHover) {
-         <em>   // 鼠标悬浮</em>
+            // 鼠标悬浮
             this.handlePopup = true;
           }
         })

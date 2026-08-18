@@ -28,9 +28,9 @@ static napi_value TestFunc(napi_env env, napi_callback_info info)
     napi_get_cb_info(env, info, &argc, args , nullptr, nullptr); 
      
     size_t len = 0; 
-    char buf[5];                                                          <em>  // Allocate a char array of length 5</em>
-    napi_get_value_string_utf8(env, args[0], buf, 1024, &len);  <em>// Get string, buf result is' abcde '</em>
-  <em>  // ... </em>
+    char buf[5];                                                            // Allocate a char array of length 5
+    napi_get_value_string_utf8(env, args[0], buf, 1024, &len);  // Get string, buf result is' abcde '
+    // ... 
 }
 ```
  
@@ -47,8 +47,8 @@ static napi_value TestFunc(napi_env env, napi_callback_info info)
      
     size_t len = 0; 
     char buf[1024];                                                 
-    napi_get_value_string_utf8(env, args[0], buf, 5, &len);                   <em> // Get string, buf result is' abcde '</em>
-  <em>  // ... </em>
+    napi_get_value_string_utf8(env, args[0], buf, 5, &len);                    // Get string, buf result is' abcde '
+    // ... 
 }
 ```
  
@@ -65,9 +65,9 @@ napi_value Test::TestFunc(napi_env env, napi_callback_info info) {
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
 
     size_t len = 0;
-    napi_get_value_string_utf8(env, args[0], nullptr, 0, &len);  <em> // Get string length to len</em>
-    char *buf = new char[len + 1];                               <em> // Allocate a char array of appropriate size</em>
-    napi_get_value_string_utf8(env, args[0], buf, len + 1, &len); <em>// get string</em>
+    napi_get_value_string_utf8(env, args[0], nullptr, 0, &len);   // Get string length to len
+    char *buf = new char[len + 1];                                // Allocate a char array of appropriate size
+    napi_get_value_string_utf8(env, args[0], buf, len + 1, &len); // get string
     OH_LOG_ERROR(LOG_APP, "result is:  b:%{public}s.", buf);
     return nullptr;
 }

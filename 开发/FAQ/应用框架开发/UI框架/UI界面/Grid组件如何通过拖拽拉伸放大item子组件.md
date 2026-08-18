@@ -29,19 +29,19 @@ import { curves } from '@kit.ArkUI';
 @Entry
 @Component
 struct GridItemChangeSizeByDrag {
-  private gridData: number[] = [1, 2, 3, 4, 5, 6, 7, 8]; <em>// 定义一个包含8个元素的数组gridData</em>
-  @State itemWidths: number[] = []; <em>// 定义一个数组，用于存储每个网格项的宽度</em>
-  @State itemWidth: number = 0; <em>// </em><em>定义一个状态变量，用于存储网格项的宽度</em>
-  @State itemHeight: number = 0; <em>// 定义一个状态变量，用于存储网格项的高度</em>
-  @State irregularIndexes: number[] = []; <em>// </em><em>定义一个数组，用于存储不规则索引</em>
-  @State firstLayout: boolean = true; <em>// 定义一个布尔值，用于标识是否是第一个布局</em>
+  private gridData: number[] = [1, 2, 3, 4, 5, 6, 7, 8]; // 定义一个包含8个元素的数组gridData
+  @State itemWidths: number[] = []; // 定义一个数组，用于存储每个网格项的宽度
+  @State itemWidth: number = 0; // 定义一个状态变量，用于存储网格项的宽度
+  @State itemHeight: number = 0; // 定义一个状态变量，用于存储网格项的高度
+  @State irregularIndexes: number[] = []; // 定义一个数组，用于存储不规则索引
+  @State firstLayout: boolean = true; // 定义一个布尔值，用于标识是否是第一个布局
   @State layoutOption: GridLayoutOptions = {
-    regularSize: [1, 1] <em><strong>// 定义网格布局选项，每个网格项的默认大小为1行1列</strong></em>
+    regularSize: [1, 1] <strong>// 定义网格布局选项，每个网格项的默认大小为1行1列</strong>
   };
   private uiContext: UIContext = this.getUIContext();
 
   aboutToAppear(): void {
-   <em> // 初始化每个网格项的宽度为0</em>
+    // 初始化每个网格项的宽度为0
     for (let i = 0; i < this.gridData.length; i++) {
       this.itemWidths.push(0);
     }
@@ -49,16 +49,16 @@ struct GridItemChangeSizeByDrag {
   }
 
   build() {
-    Grid(undefined, this.layoutOption) { <em>// 创建网格布局</em>
-      ForEach(this.gridData, (num: number, index: number) => {<em> </em><em>// 遍历每个网格项</em>
-        GridItem() { <em>// </em><em>创建网格项</em>
-          Stack({ alignContent: Alignment.Start }) { <em>// 创建堆叠布局</em>
-            Column()<em> // </em><em>创建列布局</em>
-              .width(this.itemWidths[index]) <em>// 设置列宽度为网格项的宽度</em>
-              .height(this.itemHeight)<em> // </em><em>设置列高度为网格项的高度</em>
-              .backgroundColor('#0D5AF5') <em>// </em><em>设置背景颜色为橙色</em>
+    Grid(undefined, this.layoutOption) { // 创建网格布局
+      ForEach(this.gridData, (num: number, index: number) => { // 遍历每个网格项
+        GridItem() { // 创建网格项
+          Stack({ alignContent: Alignment.Start }) { // 创建堆叠布局
+            Column() // 创建列布局
+              .width(this.itemWidths[index]) // 设置列宽度为网格项的宽度
+              .height(this.itemHeight) // 设置列高度为网格项的高度
+              .backgroundColor('#0D5AF5') // 设置背景颜色为橙色
               .gesture(
-               <em> // 设置组合手势，当长按并拖拽时，改变item组件的宽度</em>
+                // 设置组合手势，当长按并拖拽时，改变item组件的宽度
                 GestureGroup(GestureMode.Sequence,
                   LongPressGesture({ repeat: true, duration: 150 })
                     .onAction(() => {
@@ -67,13 +67,13 @@ struct GridItemChangeSizeByDrag {
                     .onActionUpdate((event) => {
                       let idx = this.irregularIndexes.indexOf(index);
                       if (idx === -1) {
-                        this.itemWidths[index] = this.itemWidth + event.offsetX; <em>// 拖拽时更新宽度</em>
+                        this.itemWidths[index] = this.itemWidth + event.offsetX; // 拖拽时更新宽度
                       } else {
-                        this.itemWidths[index] = this.itemWidth * 2 + event.offsetX;<em> </em><em>// 拖拽时更新宽度</em>
+                        this.itemWidths[index] = this.itemWidth * 2 + event.offsetX; // 拖拽时更新宽度
                       }
                     })
                     .onActionEnd(() => {
-                    <em>  // 判断拖拽偏移量，并根据偏移量，改变Grid布局选项的参数</em>
+                      // 判断拖拽偏移量，并根据偏移量，改变Grid布局选项的参数
                       if (this.itemWidths[index] < this.itemWidth * 1.5) {
                         this.uiContext.animateTo({ curve: curves.interpolatingSpring(0, 1, 400, 38) }, () => {
                           this.itemWidths[index] = this.itemWidth;
@@ -84,7 +84,7 @@ struct GridItemChangeSizeByDrag {
                           this.layoutOption = {
                             regularSize: [1, 1],
                             irregularIndexes: this.irregularIndexes,
-                            onGetIrregularSizeByIndex: () => [1, 1] <em>// 组件占布局的1行、1列</em>
+                            onGetIrregularSizeByIndex: () => [1, 1] // 组件占布局的1行、1列
                           };
                         });
                       } else {
@@ -94,7 +94,7 @@ struct GridItemChangeSizeByDrag {
                           this.layoutOption = {
                             regularSize: [1, 1],
                             irregularIndexes: this.irregularIndexes,
-                            onGetIrregularSizeByIndex: () => [1, 2] <em>// 组件占布局的1行、2列</em>
+                            onGetIrregularSizeByIndex: () => [1, 2] // 组件占布局的1行、2列
                           };
                         });
                       }
@@ -108,7 +108,7 @@ struct GridItemChangeSizeByDrag {
                 .fontSize('16fp')
                 .fontWeight(FontWeight.Bold);
             }
-            .width(this.itemWidths[index] - 20) <em>// 露出可拖拽组件的一边，用于拖拽放大</em>
+            .width(this.itemWidths[index] - 20) // 露出可拖拽组件的一边，用于拖拽放大
             .height('8%')
             .backgroundColor('#F1F3F5')
             .justifyContent(FlexAlign.Center)
@@ -118,7 +118,7 @@ struct GridItemChangeSizeByDrag {
         .alignSelf(ItemAlign.Start)
         .onAreaChange((oldValue, newValue) => {
           if (this.firstLayout) {
-          <em>  // 仅在第一个item变化时收集item的宽、高</em>
+            // 仅在第一个item变化时收集item的宽、高
             this.itemHeight = newValue.height as number;
             this.itemWidth = newValue.width as number;
             this.firstLayout = false;

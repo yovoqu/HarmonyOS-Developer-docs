@@ -17,7 +17,7 @@ import { BusinessError, commonEventManager } from '@kit.BasicServicesKit';
 function  listen_network() {
   let netSpecifier: connection.NetSpecifier = {
     netCapabilities: {
-      <em>// Assuming the current default network is WiFi, a cellular network connection needs to be created, and the network type can be specified as cellular network</em>
+      // Assuming the current default network is WiFi, a cellular network connection needs to be created, and the network type can be specified as cellular network
       bearerTypes: [connection.NetBearType.BEARER_CELLULAR, connection.NetBearType.BEARER_WIFI],
     },
   };
@@ -27,45 +27,45 @@ function  listen_network() {
     console.warn('register Network ' + JSON.stringify(err))
   });
 
-  <em>// Subscription event, network available</em>
+  // Subscription event, network available
   conn.on('netAvailable', ((data: connection.NetHandle) => {
     console.warn('Network available, netId is ' + data.netId);
   }));
 
-  <em>// Subscription event, network available</em>
+  // Subscription event, network available
   conn.on('netCapabilitiesChange', ((data: connection.NetCapabilityInfo) => {
     console.warn('Network netCapabilitiesChange bearerTypes ' + data.netCap.bearerTypes);
     console.warn('Network netCapabilitiesChange networkCap ' + data.netCap.networkCap);
   }));
 
-  <em>// Subscription event, network unavailable</em>
+  // Subscription event, network unavailable
   conn.on('netUnavailable', ((data: void) => {
     console.warn('The network is unavailable, data is ' + JSON.stringify(data));
   }));
 
-  <em>// Subscription event, network disconnection</em>
+  // Subscription event, network disconnection
   conn.on('netLost', ((data: connection.NetHandle) => {
     console.warn('Network lost, netId is ' + data.netId);
   }));
 }
 
-<em>// After monitoring an event, it is necessary to obtain the network status through a network interface</em>
+// After monitoring an event, it is necessary to obtain the network status through a network interface
 function sub_network() {
   console.warn('into sub_network')
-  <em>// Public event monitoring code:</em>
+  // Public event monitoring code:
   let subscribeInfo: commonEventManager.CommonEventSubscribeInfo = {
-    <em>// Subscription message exception public event</em>
+    // Subscription message exception public event
     events: ['usual.event.CONNECTIVITY_CHANGE']
   }
 
-  <em>// Create subscriber callback</em>
+  // Create subscriber callback
   commonEventManager.createSubscriber(subscribeInfo, (err: BusinessError, subscriber: commonEventManager.CommonEventSubscriber) => {
     if (err) {
       console.warn(`Failed to create netWorkSubscribeInfo. Code is ${err.code}, message is ${err.message}`);
       return;
     }
     if (subscribeInfo && subscribeInfo != null) {
-      <em>// Subscribe to public event callbacks</em>
+      // Subscribe to public event callbacks
       commonEventManager.subscribe(subscriber, (err: BusinessError, data: commonEventManager.CommonEventData) => {
         if (err) {
           console.warn(`Failed to netWorkSubscribe common event. Code is ${err.code}, message is ${err.message}`);
@@ -78,7 +78,7 @@ function sub_network() {
             console.log(JSON.stringify(error))
             console.log(JSON.stringify(data))
           }) }, 500);
-        <em>// The log printed here is{'NetType':1,'moduleName':''}</em>
+        // The log printed here is{'NetType':1,'moduleName':''}
       })
     }
   })

@@ -14,7 +14,7 @@ ArkTS支持TS5.0之前（如TS4.x及以下版本）的TS装饰器语法。关于
 function MyDescriptor(target: Object, key: string, descriptor: PropertyDescriptor) {
   const originalMethod: Function = descriptor.value
   descriptor.value = (...args: Object[]) => {
-   <em> // Get the name, input parameters, and return value of the decorated method</em>
+    // Get the name, input parameters, and return value of the decorated method
     console.log(`Calling ${target.constructor?.name} method ${key} with argument: ${args}`)
     const result: Object = originalMethod(...args)
     console.log(`Method ${key} returned: ${result}`)

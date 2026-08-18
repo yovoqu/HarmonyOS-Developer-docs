@@ -54,7 +54,7 @@ struct Index {
       .backgroundColor('#fff1f1f1')
       .visibility(this.successLoad !== 0 ? Visibility.Visible : Visibility.None);
 
-      Web({ controller: this.webController, src: 'www.example.com' })<em> // Web页面</em>
+      Web({ controller: this.webController, src: 'www.example.com' }) // Web页面
         .width('100%')
         .height('100%')
         .fileAccess(false)

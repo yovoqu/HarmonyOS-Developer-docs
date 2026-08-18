@@ -45,7 +45,7 @@ private lineX: number = 200;
 getTotalWidth(text: string): number {
   let totalWidth = 0;
   for (let i = 0; i < text.length; i++) {
-    <em>// 累计已占用宽度</em>
+    // 累计已占用宽度
     if (i === text.length - 1) {
       totalWidth += this.context.measureText(text[i]).width;
     } else {
@@ -63,7 +63,7 @@ let leftTotalWidth = this.lineX;
 this.context.font = '24vp sans-serif';
 for (let i = 0; i < this.leftText.length; i++) {
   this.context.fillText(this.leftText[i], leftTotalWidth, 50);
-  <em>// 累计已占用宽度</em>
+  // 累计已占用宽度
   if (i === this.leftText.length - 1) {
     leftTotalWidth += this.context.measureText(this.leftText[i]).width;
   } else {
@@ -79,7 +79,7 @@ centerTotalWidth = this.getTotalWidth(this.centerText);
 centerTotalWidth = this.lineX - centerTotalWidth / 2;
 for (let i = 0; i < this.centerText.length; i++) {
   this.context.fillText(this.centerText[i], centerTotalWidth, 90);
-  <em>// 累计已占用宽度</em>
+  // 累计已占用宽度
   if (i === this.centerText.length - 1) {
     centerTotalWidth += this.context.measureText(this.centerText[i]).width;
   } else {
@@ -95,7 +95,7 @@ rightTotalWidth = this.getTotalWidth(this.rightText);
 rightTotalWidth = this.lineX - rightTotalWidth;
 for (let i = 0; i < this.rightText.length; i++) {
   this.context.fillText(this.rightText[i], rightTotalWidth, 130);
-  <em>// 累计已占用宽度</em>
+  // 累计已占用宽度
   if (i === this.rightText.length - 1) {
     rightTotalWidth += this.context.measureText(this.rightText[i]).width;
   } else {
@@ -121,7 +121,7 @@ struct Index {
   getTotalWidth(text: string): number {
     let totalWidth = 0;
     for (let i = 0; i < text.length; i++) {
-     <em> // 累计已占用宽度</em>
+      // 累计已占用宽度
       if (i === text.length - 1) {
         totalWidth += this.context.measureText(text[i]).width;
       } else {
@@ -141,38 +141,38 @@ struct Index {
           this.context.moveTo(this.lineX, 10);
           this.context.lineTo(this.lineX, 160);
           this.context.stroke();
-          <em>// 左对齐</em>
+          // 左对齐
           let leftTotalWidth = this.lineX;
           this.context.font = '24vp sans-serif';
           for (let i = 0; i < this.leftText.length; i++) {
             this.context.fillText(this.leftText[i], leftTotalWidth, 50);
-            <em>// 累计已占用宽度</em>
+            // 累计已占用宽度
             if (i === this.leftText.length - 1) {
               leftTotalWidth += this.context.measureText(this.leftText[i]).width;
             } else {
               leftTotalWidth += this.context.measureText(this.leftText[i]).width + this.letterSpacing;
             }
           }
-          <em>// 居中对齐</em>
+          // 居中对齐
           let centerTotalWidth = 0;
           centerTotalWidth = this.getTotalWidth(this.centerText);
           centerTotalWidth = this.lineX - centerTotalWidth / 2;
           for (let i = 0; i < this.centerText.length; i++) {
             this.context.fillText(this.centerText[i], centerTotalWidth, 90);
-            <em>// 累计已占用宽度</em>
+            // 累计已占用宽度
             if (i === this.centerText.length - 1) {
               centerTotalWidth += this.context.measureText(this.centerText[i]).width;
             } else {
               centerTotalWidth += this.context.measureText(this.centerText[i]).width + this.letterSpacing;
             }
           }
-          <em>// 右对齐</em>
+          // 右对齐
           let rightTotalWidth = 0;
           rightTotalWidth = this.getTotalWidth(this.rightText);
           rightTotalWidth = this.lineX - rightTotalWidth;
           for (let i = 0; i < this.rightText.length; i++) {
             this.context.fillText(this.rightText[i], rightTotalWidth, 130);
-            <em>// 累计已占用宽度</em>
+            // 累计已占用宽度
             if (i === this.rightText.length - 1) {
               rightTotalWidth += this.context.measureText(this.rightText[i]).width;
             } else {

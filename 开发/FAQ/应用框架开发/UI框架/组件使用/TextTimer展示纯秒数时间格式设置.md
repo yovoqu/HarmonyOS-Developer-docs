@@ -43,7 +43,7 @@ function buildTextTimer(config: TextTimerConfiguration) {
     Stack({ alignContent: Alignment.Center }) {
       Circle({ width: 150, height: 150 })
         .fill(config.started ? (config.isCountDown ? 0xFF232323 : 0xFF717171) : 0xFF929292);
-    <em>  // 剩余时间：用初始时间减去计时器经过的时间</em>
+      // 剩余时间：用初始时间减去计时器经过的时间
       Text(Math.max(config.count / 1000 - config.elapsedTime / 100, 0).toFixed(0))
         .fontColor(Color.White);
     };
@@ -60,7 +60,7 @@ struct MyTextTimerDemo {
   build() {
     Column({ space: 20 }) {
       TextTimer({ isCountDown: true, count: this.count, controller: this.countDownTextTimerController })
-        .contentModifier(this.myTimerModifier);<em> </em><em>// 自定义显示的内容</em>
+        .contentModifier(this.myTimerModifier); // 自定义显示的内容
       Row({ space: 10 }) {
         Button('start').onClick(() => this.countDownTextTimerController.start());
         Button('pause').onClick(() => this.countDownTextTimerController.pause());

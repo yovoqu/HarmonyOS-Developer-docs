@@ -19,7 +19,7 @@ struct GridTestPage {
   @State text: string = 'drag'
 
   @Builder
-  pixelMapBuilder() { <em>// </em><em>拖拽过程样式</em>
+  pixelMapBuilder() { // 拖拽过程样式
     Column() {
       Text(this.text)
         .fontSize(16)
@@ -37,7 +37,7 @@ struct GridTestPage {
     }
   }
 
-  changeIndex(index1: number, index2: number) {<em> </em><em>// 交换数组位置</em>
+  changeIndex(index1: number, index2: number) { // 交换数组位置
     let temp: string;
     temp = this.numbers[index1];
     this.numbers[index1] = this.numbers[index2];
@@ -64,15 +64,15 @@ struct GridTestPage {
       .width('90%')
       .backgroundColor(0xFAEEE0)
       .height(300)
-      .editMode(true)<em> </em><em>// 设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem</em>
+      .editMode(true) // 设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem
       .supportAnimation(true)
-      .onItemDragStart((event: ItemDragInfo, itemIndex: number) => {<em> </em><em>// 第一次拖拽此事件绑定的组件时，触发回调。</em>
+      .onItemDragStart((event: ItemDragInfo, itemIndex: number) => { // 第一次拖拽此事件绑定的组件时，触发回调。
         this.text = this.numbers[itemIndex]
-        return this.pixelMapBuilder() <em>// 设置拖拽过程中显示的图片。</em>
+        return this.pixelMapBuilder() // 设置拖拽过程中显示的图片。
       })
       .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number,
-        isSuccess: boolean) => { <em>// 绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。</em>
-     <em>   // isSuccess=false时，说明drop的位置在grid外部；insertIndex>length时，说明有新增元素的事件发生</em>
+        isSuccess: boolean) => { // 绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。
+        // isSuccess=false时，说明drop的位置在grid外部；insertIndex>length时，说明有新增元素的事件发生
         if (!isSuccess || insertIndex >= this.numbers.length) {
           return
         }
@@ -97,14 +97,14 @@ struct GridTestPage {
       .width('90%')
       .backgroundColor(0xFAEEE0)
       .height(300)
-      .editMode(false) <em>// 设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem</em>
+      .editMode(false) // 设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem
       .supportAnimation(true)
       .margin({ top: 30 })
-      .onItemDragStart((event: ItemDragInfo, itemIndex: number) => { <em>// </em><em>第一次拖拽此事件绑定的组件时，触发回调。</em>
+      .onItemDragStart((event: ItemDragInfo, itemIndex: number) => { // 第一次拖拽此事件绑定的组件时，触发回调。
 
       })
       .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number,
-        isSuccess: boolean) => {<em> </em><em>// 绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。</em>
+        isSuccess: boolean) => { // 绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。
 
       })
     }.width('100%').margin({ top: 5 })
@@ -138,7 +138,7 @@ struct GridTestPage {
 
   以两个Grid组件不可交换数据为例：1. 通过设置判定变量，当某一个组件的onItemDragStart事件触发时，设置变量指向该Grid组件。设置判定变量：
 ```text
-@State whoIsStart: number = -1;<em> </em><em>// 两个Grid的onItemDragStart触发时分别赋值为0和1</em>
+@State whoIsStart: number = -1; // 两个Grid的onItemDragStart触发时分别赋值为0和1
 ```
 
 
@@ -155,7 +155,7 @@ changeIndex(index1: number, index2: number) {
   this.whoIsStart = -1;
 }
 
-<em>// </em><em>交换数组位置。</em>
+// 交换数组位置。
 changeIndex1(index1: number, index2: number) {
   let temp: string = 'changeIndex1';
   if (this.whoIsStart === 1 && index2 !== -1) {
@@ -189,7 +189,7 @@ changeIndex(index1: number, index2: number) {
 
 3. 分别调用changeIndex()函数。完整示例代码如下：
 ```text
-<em>// </em><em>交换数组位置。</em>
+// 交换数组位置。
 @Entry
 @Component
 struct ChangeIndexOne {
@@ -206,7 +206,7 @@ struct ChangeIndexOne {
     this.whoIsStart = -1;
   }
 
- <em> // 交换数组位置。</em>
+  // 交换数组位置。
   changeIndex1(index1: number, index2: number) {
     let temp: string = 'changeIndex1';
     if (this.whoIsStart === 1 && index2 !== -1) {
@@ -224,7 +224,7 @@ struct ChangeIndexOne {
         if (!isSuccess || insertIndex >= this.numbers.length) {
           return;
         }
-        <em>// 判定是否是同一个Grid在交换数据，不是同一个执行返回。</em>
+        // 判定是否是同一个Grid在交换数据，不是同一个执行返回。
         if (this.whoIsStart !== 0) {
           return;
         }
@@ -238,7 +238,7 @@ struct ChangeIndexOne {
         if (!isSuccess || insertIndex >= this.numbers.length) {
           return;
         }
-     <em>   // 判定是否是同一个Grid在交换数据，不是同一个执行返回。</em>
+        // 判定是否是同一个Grid在交换数据，不是同一个执行返回。
         if (this.whoIsStart !== 0) {
           return;
         }
@@ -291,7 +291,7 @@ struct GridTestPageOne {
   @State numbersArr: Array<GridInfo> = [];
   @State text: string = 'drag';
 
-  <em>// </em><em>拖拽过程样式。</em>
+  // 拖拽过程样式。
   @Builder
   pixelMapBuilder() {
     Column() {
@@ -305,19 +305,19 @@ struct GridTestPageOne {
   }
 
   aboutToAppear() {
-    <em>// </em><em>第一个Grid数据。</em>
+    // 第一个Grid数据。
     for (let i = 1; i <= 9; i++) {
       this.numbers.push(i + '');
     }
     this.numbersArr.push(new GridInfo(this.numbers));
-    this.numbers = []; <em>// </em><em>置空。</em>
-   <em> // 第二个Grid数据。</em>
+    this.numbers = []; // 置空。
+    // 第二个Grid数据。
     for (let i = 1; i <= 9; i++) {
       this.numbers.push(i + 'a');
     }
     this.numbersArr.push(new GridInfo(this.numbers));
-    this.numbers = []; <em>// </em><em>置空。</em>
-    <em>// </em><em>第三个Grid数据。</em>
+    this.numbers = []; // 置空。
+    // 第三个Grid数据。
     for (let i = 1; i <= 9; i++) {
       this.numbers.push(i + 'b');
     }
@@ -325,14 +325,14 @@ struct GridTestPageOne {
   }
 
   changeIndex(index1: number, index2: number) {
-   <em> // 由于执行函数前已经判定过this.whoIsStart，所以不需要再次判定this.whoIsStart超出数组索引范围。</em>
+    // 由于执行函数前已经判定过this.whoIsStart，所以不需要再次判定this.whoIsStart超出数组索引范围。
     if (index2 !== -1) {
       let temp: string = this.numbersArr[this.whoIsStart].numbers[index1];
       this.numbersArr[this.whoIsStart].numbers[index1] = this.numbersArr[this.whoIsStart].numbers[index2];
       this.numbersArr[this.whoIsStart].numbers[index2] = temp;
     }
     this.text = '';
-    this.whoIsStart = -1; <em>// 交换完成后重新赋值为-1等待下次数据交换。</em>
+    this.whoIsStart = -1; // 交换完成后重新赋值为-1等待下次数据交换。
   }
 
   build() {
@@ -356,12 +356,12 @@ struct GridTestPageOne {
         .width(250)
         .backgroundColor(0xFAEEE0)
         .height(250)
-        .editMode(true) <em>// </em><em>设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem。</em>
+        .editMode(true) // 设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem。
         .onItemDragStart((event: ItemDragInfo, itemIndex: number) => {
           console.info(`event：${event}`);
           this.text = item.numbers[itemIndex];
-          this.whoIsStart = indexGrid;<em> </em><em>// 拖动时将第几个Grid组件在进行拖动，赋值给判定变量。</em>
-          return this.pixelMapBuilder();<em> </em><em>// 设置拖拽过程中显示的图片。</em>
+          this.whoIsStart = indexGrid; // 拖动时将第几个Grid组件在进行拖动，赋值给判定变量。
+          return this.pixelMapBuilder(); // 设置拖拽过程中显示的图片。
         })
         .onItemDragMove(() => {
         })
@@ -369,11 +369,11 @@ struct GridTestPageOne {
           if (!isSuccess || insertIndex >= item.numbers.length) {
             return;
           }
-      <em>    // 判定是不是同一个Grid不可进行数据交换。</em>
+          // 判定是不是同一个Grid不可进行数据交换。
           if (this.whoIsStart !== indexGrid) {
             return;
           }
-          this.changeIndex(itemIndex, insertIndex);<em> </em><em>// 同一个Grid执行数据交换。</em>
+          this.changeIndex(itemIndex, insertIndex); // 同一个Grid执行数据交换。
           console.info(`event：${event},itemIndex：${itemIndex}`);
         });
       });
@@ -390,8 +390,8 @@ struct GridTestPageOne {
  
 - **场景二**：多个Grid既可以内部交换数据又可以外部互相交换数据（桌面分组图标交换等）。1. 在场景一的基础上引入changeData变量存储不同Grid间需要交换的数据，同时引入whoIsEnd变量判断哪一个Grid作为结束插入。
 ```text
-@State changeData: Array<number> = [];<em> </em><em>// 存储需要交换的数据。</em>
-@State whoIsStart: number = -1;<em> </em><em>// 两个Grid的onItemDragStart触发时分别赋值为0和1</em>
+@State changeData: Array<number> = []; // 存储需要交换的数据。
+@State whoIsStart: number = -1; // 两个Grid的onItemDragStart触发时分别赋值为0和1
 ```
 
 
@@ -411,14 +411,14 @@ class GridInfo1 {
 @Entry
 @Component
 struct GridTestPageTwo {
-  @State changeData: Array<number> = []; <em>// </em><em>存储需要交换的数据。</em>
-  @State whoIsStart: number = -1; <em>// 两个Grid的onItemDragStart触发时分别赋值为0和1</em>
+  @State changeData: Array<number> = []; // 存储需要交换的数据。
+  @State whoIsStart: number = -1; // 两个Grid的onItemDragStart触发时分别赋值为0和1
   @State whoIsEnd: number = -1;
   @State numbers: string[] = [];
   @State numbersArr: Array<GridInfo1> = [];
   @State text: string = 'drag';
 
- <em> // 拖拽过程样式</em>
+  // 拖拽过程样式
   @Builder
   pixelMapBuilder() {
     Column() {
@@ -432,19 +432,19 @@ struct GridTestPageTwo {
   }
 
   aboutToAppear() {
-   <em> // 第一个Grid数据。</em>
+    // 第一个Grid数据。
     for (let i = 1; i <= 9; i++) {
       this.numbers.push(i + '');
     }
     this.numbersArr.push(new GridInfo1(this.numbers));
-    this.numbers = [];<em> </em><em>// 置空。</em>
-   <em> // 第二个Grid数据。</em>
+    this.numbers = []; // 置空。
+    // 第二个Grid数据。
     for (let i = 1; i <= 9; i++) {
       this.numbers.push(i + 'a');
     }
     this.numbersArr.push(new GridInfo1(this.numbers));
-    this.numbers = [];<em> </em><em>// 置空。</em>
- <em>   // 第三个Grid数据。</em>
+    this.numbers = []; // 置空。
+    // 第三个Grid数据。
     for (let i = 1; i <= 9; i++) {
       this.numbers.push(i + 'b');
     }
@@ -452,16 +452,16 @@ struct GridTestPageTwo {
   }
 
   changeIndex(index1: number, index2: number) {
-   <em> // 由于执行函数前已经判定过this.whoIsStart，无需再次判定this.whoIsStart超出数组索引范围。</em>
+    // 由于执行函数前已经判定过this.whoIsStart，无需再次判定this.whoIsStart超出数组索引范围。
     if (index2 !== -1 && this.whoIsStart !== -1 && this.whoIsEnd !== -1) {
       let temp: string = this.numbersArr[this.whoIsStart].numbers[index1];
       this.numbersArr[this.whoIsStart].numbers[index1] = this.numbersArr[this.whoIsEnd].numbers[index2];
       this.numbersArr[this.whoIsEnd].numbers[index2] = temp;
     }
     this.text = '';
-    this.changeData = [];<em> </em><em>// 存储置空。</em>
-    this.whoIsStart = -1;<em> </em><em>// 交换完成后重新赋值为-1等待下次数据交换。</em>
-    this.whoIsEnd = -1;<em> </em><em>// 交换完成后重新赋值为-1等待下次数据交换。</em>
+    this.changeData = []; // 存储置空。
+    this.whoIsStart = -1; // 交换完成后重新赋值为-1等待下次数据交换。
+    this.whoIsEnd = -1; // 交换完成后重新赋值为-1等待下次数据交换。
   }
 
   build() {
@@ -485,11 +485,11 @@ struct GridTestPageTwo {
         .width(250)
         .backgroundColor(0xFAEEE0)
         .height(250)
-        .editMode(true)<em> </em><em>// 设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem。</em>
+        .editMode(true) // 设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem。
         .onItemDragStart((event: ItemDragInfo, itemIndex: number) => {
           console.info(`event：${event}`);
           this.text = item.numbers[itemIndex];
-          this.whoIsStart = indexGrid; <em>// </em><em>拖动时将第几个Grid组件在进行拖动，赋值给判定变量。</em>
+          this.whoIsStart = indexGrid; // 拖动时将第几个Grid组件在进行拖动，赋值给判定变量。
           this.changeData[0] = itemIndex;
           return this.pixelMapBuilder();
         })
@@ -502,9 +502,9 @@ struct GridTestPageTwo {
           if (insertIndex === -1) {
             return;
           }
-          this.whoIsEnd = indexGrid; <em>// 插入时将第几个Grid组件在进行插入，赋值给判定变量。</em>
+          this.whoIsEnd = indexGrid; // 插入时将第几个Grid组件在进行插入，赋值给判定变量。
           this.changeData[1] = insertIndex;
-          this.changeIndex(this.changeData[0], this.changeData[1]); <em>// 不同Grid执行数据交换。</em>
+          this.changeIndex(this.changeData[0], this.changeData[1]); // 不同Grid执行数据交换。
           console.info(`event：${event},itemIndex：${itemIndex}`);
         });
       });

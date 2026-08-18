@@ -29,14 +29,14 @@ interface DataModel {
 @Entry
 @Component
 struct CheckboxGroupExample {
-  <em>// 数据源</em>
+  // 数据源
   groups: Array<DataModel> = [
     { groupName: '第一章', items: ['1.1', '1.2', '1.3', '1.4'], selectAll: false },
     { groupName: '第二章', items: ['2.1', '2.2', '2.3'], selectAll: false }
   ];
-  @State groupSelect: boolean[] = [false, false]; <em>// 每个CheckBoxGroup选择状态</em>
-  @State selectAll: boolean = false; <em>// 全选按钮的状态</em>
-  @State selectItem: Array<Array<string>> = [[], []]; <em>// 保存已选的数据</em>
+  @State groupSelect: boolean[] = [false, false]; // 每个CheckBoxGroup选择状态
+  @State selectAll: boolean = false; // 全选按钮的状态
+  @State selectItem: Array<Array<string>> = [[], []]; // 保存已选的数据
 
   @Builder
   createGroup(data: DataModel, index: number) {
@@ -52,7 +52,7 @@ struct CheckboxGroupExample {
           for (let item of this.groups) {
             this.selectAll = (this.selectAll && item.selectAll);
           }
-       <em>   // 保存当前分组所选数据</em>
+          // 保存当前分组所选数据
           this.selectItem[index] = event.name;
         });
       Text(data.groupName).fontSize(14).lineHeight(20).fontColor('#182431').fontWeight(500);
@@ -82,7 +82,7 @@ struct CheckboxGroupExample {
           .selectedColor('#007DFF')
           .shape(CheckBoxShape.ROUNDED_SQUARE)
           .onClick(() => {
-          <em>  // 点击全选按钮，改变每个CheckBoxGroup选择状态</em>
+            // 点击全选按钮，改变每个CheckBoxGroup选择状态
             this.selectAll = !this.selectAll;
             for (let i = 0; i < this.groupSelect.length; i++) {
               this.groupSelect[i] = !this.groupSelect[i];
@@ -109,8 +109,8 @@ struct CheckboxGroupExample {
 @Component
 struct Index {
   @State dataList: string[] = [];
-  @State selectedItemInGroup: boolean = false;<em> // group是否存在被选中item</em>
-  @State notSelectedItemInGroup: boolean = true;<em> // group是否存在未被选中item</em>
+  @State selectedItemInGroup: boolean = false; // group是否存在被选中item
+  @State notSelectedItemInGroup: boolean = true; // group是否存在未被选中item
 
   aboutToAppear(): void {
     for (let i = 0; i < 300; i++) {
@@ -127,7 +127,7 @@ struct Index {
             .selectedColor(Color.Orange)
             .onChange((itemName: CheckboxGroupResult) => {
               console.info(`checkbox itemName.status:${itemName.status}`);
-             <em> // 关键代码</em>
+              // 关键代码
               if (itemName.status === SelectStatus.All) {
                 this.selectedItemInGroup = true;
                 this.notSelectedItemInGroup = false;

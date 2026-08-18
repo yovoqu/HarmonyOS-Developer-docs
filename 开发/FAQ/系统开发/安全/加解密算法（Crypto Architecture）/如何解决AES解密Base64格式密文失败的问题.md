@@ -32,7 +32,7 @@ async function aesDecryptString(data: string): Promise<string> {
   return new util.Base64Helper().encodeToString(decryptText.data)
 }
 
-<em>// </em><em>加密方法</em>
+// 加密方法
 async function encryptMessagePromise(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob) {
   let cipher = cryptoFramework.createCipher('AES128|CBC|PKCS7');
   let iv = genIvParamsSpec();
@@ -41,7 +41,7 @@ async function encryptMessagePromise(symKey: cryptoFramework.SymKey, plainText: 
   return cipherData;
 }
 
-<em>// </em><em>解密方法</em>
+// 解密方法
 async function decryptMessagePromise(symKey: cryptoFramework.SymKey, cipherText: cryptoFramework.DataBlob) {
   let decoder = cryptoFramework.createCipher('AES128|CBC|PKCS7');
   let iv = genIvParamsSpec();
@@ -173,7 +173,7 @@ struct AESalgorithm {
     return new util.Base64Helper().encodeToString(decryptText.data);
   }
 
-<em>  // 加密方法</em>
+  // 加密方法
   async encryptMessagePromise(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob) {
     let cipher = cryptoFramework.createCipher('AES128|CBC|PKCS7');
     let iv = this.genIvParamsSpec();
@@ -182,7 +182,7 @@ struct AESalgorithm {
     return cipherData;
   }
 
-  <em>// 解密方法</em>
+  // 解密方法
   async decryptMessagePromise(symKey: cryptoFramework.SymKey, cipherText: cryptoFramework.DataBlob) {
     let decoder = cryptoFramework.createCipher('AES128|CBC|PKCS7');
     let iv = this.genIvParamsSpec();

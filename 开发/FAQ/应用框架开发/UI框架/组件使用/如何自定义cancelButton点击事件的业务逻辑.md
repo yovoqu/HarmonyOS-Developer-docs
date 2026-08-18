@@ -63,7 +63,7 @@ struct Index {
         Image($r('app.media.background'))
           .height(44)
           .onClick(() => {
-          <em>  // 此处编写自定义逻辑。</em>
+            // 此处编写自定义逻辑。
             this.isFocus = !this.isFocus;
           });
       };
@@ -82,7 +82,7 @@ struct Index {
 @Component
 struct ClearNodeExample {
   @State text: string = '';
-  <em>// 编辑状态</em>
+  // 编辑状态
   @State isOK: boolean = false;
   controller: TextInputController = new TextInputController();
 
@@ -93,7 +93,7 @@ struct ClearNodeExample {
         .height(60)
         .margin({ bottom: 16, left: 20, right: 20 })
         .cancelButton({
-        <em>  // 使用三元表达式更改图标的显示模式</em>
+          // 使用三元表达式更改图标的显示模式
           style: (this.isOK ? CancelButtonStyle.INPUT : CancelButtonStyle.INVISIBLE),
           icon: {
             size: 45,
@@ -102,7 +102,7 @@ struct ClearNodeExample {
           }
         })
         .onEditChange((isEditing: boolean) => {
-        <em>  // 存储TextInput组件的编辑状态</em>
+          // 存储TextInput组件的编辑状态
           this.isOK = isEditing;
         })
         .onChange((value: string) => {

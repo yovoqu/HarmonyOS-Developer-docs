@@ -25,7 +25,7 @@ struct AnimateToExample {
         .opacity(this.opacityValue)
         .onClick(() => {
           if (this.flag) {
-          <em>  // Implement multi-stage animations by animateTo</em>
+            // Implement multi-stage animations by animateTo
             this.getUIContext().animateTo({
               duration: 2000,
               curve: Curve.EaseOut,
@@ -40,12 +40,12 @@ struct AnimateToExample {
                   onFinish: () => {
                   }
                 }, () => {
-               <em>   // Second stage, opacityValue becomes 0.2</em>
+                  // Second stage, opacityValue becomes 0.2
                   this.opacityValue = 0.2;
                 })
               }
             }, () => {
-             <em> // First stage, opacityValue becomes 0.5 </em>
+              // First stage, opacityValue becomes 0.5 
               this.opacityValue = 0.5;
             })
           }

@@ -56,19 +56,19 @@ struct PolygonDemo {
     Column() {
       Shape() {
         Polygon({ width: 100, height: 100 })
-          .points([[10, 10], [220, 30], [180, 260], [10, 130]]) <em>// 画一个四边形</em>
+          .points([[10, 10], [220, 30], [180, 260], [10, 130]]) // 画一个四边形
           .stroke('#EE6F20')
           .fillOpacity(0)
           .strokeWidth(2)
         Polygon({ width: 100, height: 100 })
-          .points(this.points) <em>// 默认画一个三角形，可通过动态更新points数组，实现点的增删与实时渲染</em>
+          .points(this.points) // 默认画一个三角形，可通过动态更新points数组，实现点的增删与实时渲染
           .stroke('#0A59F7')
           .fillOpacity(0)
           .strokeWidth(2)
       }
       .backgroundColor('#ffe7e6e6')
       .viewPort({
-     <em>   // viewport的区域范围，就是Shape的子组件同一坐标范围。</em>
+        // viewport的区域范围，就是Shape的子组件同一坐标范围。
         x: 0,
         y: 0,
         width: 280,

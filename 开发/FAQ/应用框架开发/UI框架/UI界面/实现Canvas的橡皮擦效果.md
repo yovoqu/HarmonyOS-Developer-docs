@@ -42,12 +42,12 @@ Canvas如何实现橡皮擦效果，清除已绘制的路径？
 @Entry
 @Component
 struct CanvasDemo {
-  @State paintSize: number = 5; <em>// 当前画笔大小</em>
-  @State paintColor: Color = Color.Black; <em>// 当前画笔颜色</em>
+  @State paintSize: number = 5; // 当前画笔大小
+  @State paintColor: Color = Color.Black; // 当前画笔颜色
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
   canvasContext: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
   tempPath: Path2D = new Path2D();
-  @State pathArray: Array<Path2D | undefined> = []; <em>// </em><em>所有画图路径信息</em>
+  @State pathArray: Array<Path2D | undefined> = []; // 所有画图路径信息
   @State text: string = '';
   @State eventType: string = '';
 

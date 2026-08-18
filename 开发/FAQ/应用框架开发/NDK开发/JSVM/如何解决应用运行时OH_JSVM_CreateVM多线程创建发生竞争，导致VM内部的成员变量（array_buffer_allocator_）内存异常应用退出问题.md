@@ -38,8 +38,8 @@ std::unique_ptr<BackingStore> BackingStore::Allocate(
       }
       void* buffer_start = allocator->Allocate(byte_length);
       if (buffer_start) {
-      <em>  // TODO(wasm): node does not implement the zero-initialization API.</em>
-<em>        // Reenable this debug check when node does implement it properly.</em>
+        // TODO(wasm): node does not implement the zero-initialization API.
+        // Reenable this debug check when node does implement it properly.
         constexpr bool
             kDebugCheckZeroDisabledDueToNodeNotImplementingZeroInitAPI = true;
         if ((!(kDebugCheckZeroDisabledDueToNodeNotImplementingZeroInitAPI)) &&
@@ -64,7 +64,7 @@ std::unique_ptr<BackingStore> BackingStore::Allocate(
 应用方需加锁处理，确保 OH_JSVM_CreateVM 调用期间，其他线程无法同时进入该代码块。这样可以确保每次只有一个线程可以创建 VM 实例，从而避免竞争条件。示例如下：
  
 ```text
-<em>// Create an instance of JSVM.</em>
+// Create an instance of JSVM.
 const JSVM_CreateVMOptions* options = new JSVM_CreateVMOptions();
 JSVM_Status res = USVM_OK;
 {
@@ -74,5 +74,5 @@ JSVM_Status res = USVM_OK;
 if (res != JSVM_OK vm_ == nullptr) {
   XLOG(ERROR) << "JSVM create vm failed";
 }
-<em>// When we start, open vm scope.</em>
+// When we start, open vm scope.
 ```

@@ -48,7 +48,7 @@ struct CustomerButtonDialog {
     .justifyContent(FlexAlign.Center);
   }
 
-<em>  // 自定义弹出框的内容区</em>
+  // 自定义弹出框的内容区
   @Builder
   buildContent(): void {
     Column() {

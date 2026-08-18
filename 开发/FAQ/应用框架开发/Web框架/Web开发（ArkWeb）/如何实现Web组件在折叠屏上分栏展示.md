@@ -53,10 +53,10 @@ export default class EntryAbility extends UIAbility {
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
     windowStage.getMainWindow().then((windowObj) => {
-      <em>// 获取应用启动时的窗口尺寸</em>
+      // 获取应用启动时的窗口尺寸
       this.updateBreakpoint(windowObj.getWindowProperties().windowRect.width,
         windowObj.getWindowProperties().windowRect.height);
-      <em>// 注册回调函数，监听窗口尺寸变化</em>
+      // 注册回调函数，监听窗口尺寸变化
       windowObj.on('windowSizeChange', (windowSize) => {
         this.updateBreakpoint(windowSize.width, windowSize.height);
       });
@@ -71,15 +71,15 @@ export default class EntryAbility extends UIAbility {
     });
   }
 
-  <em>/**</em>
-<em>   * 根据当前窗口尺寸更新断点</em>
-<em>   * @param windowWidth</em>
-<em>   * @param windowHeight</em>
-<em>   */</em>
+  /**
+   * 根据当前窗口尺寸更新断点
+   * @param windowWidth
+   * @param windowHeight
+   */
   private updateBreakpoint(windowWidth: number, windowHeight: number): void {
     AppStorage.setOrCreate(Constants.windowWidth, windowWidth);
     AppStorage.setOrCreate(Constants.windowHeight, windowHeight);
-    <em>// 将长度的单位由px换算为vp</em>
+    // 将长度的单位由px换算为vp
     let windowWidthVp = windowWidth / display.getDefaultDisplaySync().densityPixels;
     let newBp: string = '';
     if (windowWidthVp < 320) {
@@ -91,7 +91,7 @@ export default class EntryAbility extends UIAbility {
     } else {
       newBp = BreakpointConstants.BREAKPOINT_LG;
     }
-    <em>// 使用状态变量记录当前断点值，使用方法:在组件添加@StorageProp(Constant.currentBreakpoint)curBp:string='md';</em>
+    // 使用状态变量记录当前断点值，使用方法:在组件添加@StorageProp(Constant.currentBreakpoint)curBp:string='md';
     AppStorage.setOrCreate(Constants.currentBreakpoint, newBp);
   }
 };
@@ -108,7 +108,7 @@ import { SplitWeb } from './SplitWeb';
 @Entry
 @Component
 struct Index {
-  <em>// 代码中url链接使用时更换为实际链接</em>
+  // 代码中url链接使用时更换为实际链接
   url = 'xxx.xxx.xxx';
   @Provide('lastPage') lastPage: string = '';
   controller: webview.WebviewController = new webview.WebviewController();
@@ -171,9 +171,9 @@ SplitWeb.ets：
 ```text
 import { webview } from '@kit.ArkWeb';
 
-<em>/**</em>
-<em> * web分屏页面</em>
-<em> */</em>
+/**
+ * web分屏页面
+ */
 @Component
 export struct SplitWeb {
   @Consume('pageInfos') pageInfos: NavPathStack;
@@ -194,11 +194,11 @@ export struct SplitWeb {
     }
     .hideTitleBar(true)
     .onBackPressed(() => {
-      if (this.controller.accessBackward()) { <em>// 判断web页面是否可以后退</em>
-        this.controller.backward(); <em>// web页面后退</em>
+      if (this.controller.accessBackward()) { // 判断web页面是否可以后退
+        this.controller.backward(); // web页面后退
         return true;
       } else {
-        this.pageInfos.pop(); <em>// 弹出路由栈栈顶元素</em>
+        this.pageInfos.pop(); // 弹出路由栈栈顶元素
         if (this.pageInfos.getAllPathName().length === 0) {
           this.lastPage = '';
         }

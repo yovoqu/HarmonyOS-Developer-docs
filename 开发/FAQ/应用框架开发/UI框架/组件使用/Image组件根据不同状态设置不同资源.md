@@ -36,22 +36,22 @@ focused：获焦态。
 struct Solution1 {
   @State imageEnable: boolean = true;
 
-<em>  // 正常态</em>
+  // 正常态
   @Styles
   normalStyle() {
-    .backgroundImage($r('app.media.normalStyle')); <em>// 运行时替换为实际图片资源</em>
+    .backgroundImage($r('app.media.normalStyle')); // 运行时替换为实际图片资源
   }
 
- <em> // 按压态</em>
+  // 按压态
   @Styles
   pressedStyle() {
-    .backgroundImage($r('app.media.pressedStyle'));<em> </em><em>// 运行时替换为实际图片资源</em>
+    .backgroundImage($r('app.media.pressedStyle')); // 运行时替换为实际图片资源
   }
 
-  <em>// 不可用态</em>
+  // 不可用态
   @Styles
   unableStyle() {
-    .backgroundImage($r('app.media.unableStyle')); <em>// </em><em>运行时替换为实际图片资源</em>
+    .backgroundImage($r('app.media.unableStyle')); // 运行时替换为实际图片资源
   }
 
   build() {
@@ -60,9 +60,9 @@ struct Solution1 {
         .onClick(() => {
           this.imageEnable = !this.imageEnable;
         })
-        .margin({ bottom: 30 }); <em>// </em><em>按钮和图片之间的间距</em>
+        .margin({ bottom: 30 }); // 按钮和图片之间的间距
 
-    <em>  // 使用stateStyles控制不同状态的图片显示</em>
+      // 使用stateStyles控制不同状态的图片显示
       Column()
         .width(200)
         .height(200)
@@ -88,19 +88,19 @@ struct Solution1 {
 @Entry
 @Component
 struct Solution2 {
-  @State imageSrc: Resource | string = $r('app.media.normalStyle'); <em>// </em><em>运行时替换为实际图片资源</em>
+  @State imageSrc: Resource | string = $r('app.media.normalStyle'); // 运行时替换为实际图片资源
 
   build() {
     Column() {
-   <em>   // 通过onTouch控制不同状态的图片显示</em>
+      // 通过onTouch控制不同状态的图片显示
       Image(this.imageSrc)
         .onTouch((e) => {
           if (e.type === TouchType.Up) {
-          <em>  // 手指抬起后切换为常态图片</em>
-            this.imageSrc = $r('app.media.normalStyle'); <em>// </em><em>运行时替换为实际图片资源</em>
+            // 手指抬起后切换为常态图片
+            this.imageSrc = $r('app.media.normalStyle'); // 运行时替换为实际图片资源
           } else if (e.type === TouchType.Down) {
-          <em>  // 手指按下后切换为按压态图片</em>
-            this.imageSrc = $r('app.media.pressedStyle'); <em>// 运行时替换为实际图片资源</em>
+            // 手指按下后切换为按压态图片
+            this.imageSrc = $r('app.media.pressedStyle'); // 运行时替换为实际图片资源
           }
         })
         .width(200)
@@ -120,7 +120,7 @@ struct Solution2 {
 @Entry
 @Component
 struct Solution3 {
-  @State imageSrc: Resource | string = $r('app.media.normalStyle');<em> </em><em>// 运行时替换为实际图片资源</em>
+  @State imageSrc: Resource | string = $r('app.media.normalStyle'); // 运行时替换为实际图片资源
 
   build() {
     Row() {
@@ -129,10 +129,10 @@ struct Solution3 {
         .gesture(
           LongPressGesture({ repeat: true, duration: 100 })
             .onAction(() => {
-              this.imageSrc = $r('app.media.pressedStyle'); <em>// </em><em>运行时替换为实际图片资源</em>
+              this.imageSrc = $r('app.media.pressedStyle'); // 运行时替换为实际图片资源
             })
             .onActionEnd(() => {
-              this.imageSrc = $r('app.media.normalStyle');<em> </em><em>// 运行时替换为实际图片资源</em>
+              this.imageSrc = $r('app.media.normalStyle'); // 运行时替换为实际图片资源
             })
         );
     }

@@ -50,14 +50,14 @@ struct ListSwiper {
           };
         }, (item: string) => item);
       }
-      .listDirection(Axis.Horizontal) <em>// 排列方向</em>
+      .listDirection(Axis.Horizontal) // 排列方向
       .scrollBar(BarState.Off)
       .friction(0.6)
       .enableScrollInteraction(false)
       .gesture(
-      <em>  // 绑定滑动手势</em>
+        // 绑定滑动手势
         PanGesture()
-       <em> // 当触发滑动手势时，根据回调函数修改组件的布局位置信息</em>
+        // 当触发滑动手势时，根据回调函数修改组件的布局位置信息
           .onActionUpdate((event: GestureEvent | undefined) => {
             if (event) {
               if (this.currentIndex === this.arr.length - 1 && event.offsetX < 0) {
@@ -136,12 +136,12 @@ struct ListSwiper1 {
           };
         }, (item: string) => item);
       }
-      .listDirection(Axis.Horizontal) <em>// 排列方向</em>
+      .listDirection(Axis.Horizontal) // 排列方向
       .scrollBar(BarState.Off)
       .friction(0.6)
       .enableScrollInteraction(false)
       .gesture(
-      <em>  // 绑定滑动手势</em>
+        // 绑定滑动手势
         PanGesture()
           .onActionUpdate((event: GestureEvent | undefined) => {
             if (event) {

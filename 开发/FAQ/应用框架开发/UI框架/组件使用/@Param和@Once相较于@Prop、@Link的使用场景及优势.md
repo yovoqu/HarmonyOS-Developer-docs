@@ -11,7 +11,7 @@
 @Entry
 @ComponentV2
 struct SceneOne {
- <em> // 点击的次数</em>
+  // 点击的次数
   count: number = 0;
 
 
@@ -19,7 +19,7 @@ struct SceneOne {
     Column({ space: 5 }) {
       Button('父组件改变初始数据')
         .onClick(() => {
-       <em>   // 对数据源的更改不会同步给子组件</em>
+          // 对数据源的更改不会同步给子组件
           this.count++;
         });
       Column({ space: 20 }) {
@@ -57,7 +57,7 @@ struct SceneOneChild {
 @Entry
 @Component
 struct Index {
-<em>  // 已知需要传递三个参数需要传递给子组件</em>
+  // 已知需要传递三个参数需要传递给子组件
   @State countOne: number = 999;
   @State countTwo: number = 999;
   @State countThree: number = 999;
@@ -72,11 +72,11 @@ struct Index {
           this.countThree++;
         });
       Column({ space: 20 }) {
-       <em> /**</em>
-<em>         * linkCount、propCount分别采用@Link、@Prop装饰器装饰，则表示需要通过外部传参，</em>
-<em>         * 假设this.countTwo需要传递给propCount，this.countThree需要传递给linkCount，</em>
-<em>         * 在未被明确告知this.countOne需要传递给谁的情况下，this.countOne存在以下几种可能：</em>
-<em>         */</em>
+        /**
+         * linkCount、propCount分别采用@Link、@Prop装饰器装饰，则表示需要通过外部传参，
+         * 假设this.countTwo需要传递给propCount，this.countThree需要传递给linkCount，
+         * 在未被明确告知this.countOne需要传递给谁的情况下，this.countOne存在以下几种可能：
+         */
         Child({
           countOne: this.countOne,
           propCount: this.countTwo,
@@ -162,9 +162,9 @@ struct Child {
 @Entry
 @ComponentV2
 struct SceneOne {
-  count: number = 0; <em>// 声明为普通变量</em>
-  @Local localCount: number = 0; <em>// 声明为状态变量</em>
-  test: Test = new Test(); <em>// 声明为普通变量，内部count被@Trace修饰，可刷新子组件UI</em>
+  count: number = 0; // 声明为普通变量
+  @Local localCount: number = 0; // 声明为状态变量
+  test: Test = new Test(); // 声明为普通变量，内部count被@Trace修饰，可刷新子组件UI
 
 
   build() {
@@ -176,12 +176,12 @@ struct SceneOne {
           this.test.count++;
         });
       Column({ space: 20 }) {
-       <em> // 方式一：通过其它状态变量的改变强制刷新子组件内count变化</em>
+        // 方式一：通过其它状态变量的改变强制刷新子组件内count变化
         SceneOneChild({
           count: this.count,
           localCount: this.localCount
         });
-      <em>  // 方式二：将count数据封装到@ObservedV2/@Trace装饰的类里</em>
+        // 方式二：将count数据封装到@ObservedV2/@Trace装饰的类里
         SceneOneChildTwo({
           test: this.test
         });
@@ -246,7 +246,7 @@ class Test {
 @Entry
 @ComponentV2
 struct SceneThree {
-<em>  // 需要传递的三个参数</em>
+  // 需要传递的三个参数
   @Local countOne: number = 999;
   @Local countTwo: number = 999;
   @Local countThree: number = 999;
@@ -261,11 +261,11 @@ struct SceneThree {
           this.countThree++;
         });
       Column({ space: 20 }) {
-       <em> /**</em>
-<em>         * 状态管理V2中只有被@Param装饰器装饰的变量可以进行外部传参初始化</em>
-<em>         * 未被@Param装饰器装饰的变量，localCount、count、providerCount均不能通过外部传入参数初始化</em>
-<em>         * 有效的区分了哪些参数需要外部传入初始化，哪些参数不需要外部传入初始化。</em>
-<em>         */</em>
+        /**
+         * 状态管理V2中只有被@Param装饰器装饰的变量可以进行外部传参初始化
+         * 未被@Param装饰器装饰的变量，localCount、count、providerCount均不能通过外部传入参数初始化
+         * 有效的区分了哪些参数需要外部传入初始化，哪些参数不需要外部传入初始化。
+         */
         SceneThreeChild({
           countOne: this.countOne,
           countTwo: this.countTwo,
@@ -287,8 +287,8 @@ struct SceneThreeChild {
   @Local localCount: number = 0;
   count: number = 0;
   @Provider('providerCount') providerCount: number = 0;
-  @Param @Once countOne: number = 0; <em>// 代表需要外部传参一次，且可以本地修改，类似V1版本中的@State/@Provide可以外部初始化一次</em>
-  @Param @Require countTwo: number;<em> // 搭配@Event实现类似@Prop/@Link功能，并且不能本地修改该变量</em>
+  @Param @Once countOne: number = 0; // 代表需要外部传参一次，且可以本地修改，类似V1版本中的@State/@Provide可以外部初始化一次
+  @Param @Require countTwo: number; // 搭配@Event实现类似@Prop/@Link功能，并且不能本地修改该变量
   @Param countThree: number = 0;
   @Event change: () => void = () => {
   };

@@ -37,7 +37,7 @@ function setAVPlayerCallback(avPlayer: media.AVPlayer) {
   if (avPlayer === undefined) {
     return;
   }
- <em> // 监听播放状态机AVPlayerState切换的事件</em>
+  // 监听播放状态机AVPlayerState切换的事件
   avPlayer?.on('stateChange', async (state: string) => {
     switch (state) {
       case 'idle':
@@ -109,9 +109,9 @@ struct Index {
   xComponentController2: XComponentController = new XComponentController();
 
   async avPlayerLiveDemo(value: string, file: string) {
-   <em> // 创建avPlayer实例对象</em>
+    // 创建avPlayer实例对象
     let avPlayer: media.AVPlayer = await media.createAVPlayer();
-  <em>  // 创建状态机变化回调函数</em>
+    // 创建状态机变化回调函数
     setAVPlayerCallback(avPlayer);
     let fileDescriptor = await this.context.resourceManager.getRawFd(file);
     avPlayer.fdSrc = fileDescriptor;
@@ -119,13 +119,13 @@ struct Index {
   }
 
   aboutToAppear() {
-    this.avPlayerLiveDemo('valueA', 'test.mp4');<em> </em><em>// 此处'test.mp4'等资源仅作示例，请开发者自行替换。</em>
+    this.avPlayerLiveDemo('valueA', 'test.mp4'); // 此处'test.mp4'等资源仅作示例，请开发者自行替换。
 
-    this.avPlayerLiveDemo('valueB', 'test2.mp4');<em> </em><em>// 此处'test2.mp4'等资源仅作示例，请开发者自行替换。</em>
+    this.avPlayerLiveDemo('valueB', 'test2.mp4'); // 此处'test2.mp4'等资源仅作示例，请开发者自行替换。
     console.info('aboutToAppear start');
   }
 
- <em> // 层叠布局创建2个XComponent组件，组件id设置唯一</em>
+  // 层叠布局创建2个XComponent组件，组件id设置唯一
   build() {
     Column() {
       Stack({ alignContent: Alignment.Top }) {
@@ -144,7 +144,7 @@ struct Index {
               player.surfaceId = this.surfaceId;
               await player.prepare();
             }
-            player?.play();<em> </em><em>// 音频播放</em>
+            player?.play(); // 音频播放
           })
           .align(Alignment.TopStart)
           .id('xcomponent');
@@ -170,7 +170,7 @@ struct Index {
           .margin({ top: this.xbM, left: this.xbMl });
       }.height('80%');
 
-      Button('切换屏幕').onClick(() => { <em>// 实时改变XComponent组件的宽高和位置。</em>
+      Button('切换屏幕').onClick(() => { // 实时改变XComponent组件的宽高和位置。
         this.xAh = '100%';
         this.xBw = '50%';
         this.xbM = '20%';
@@ -178,9 +178,9 @@ struct Index {
         window.getLastWindow(this.context, (err, win) => {
           let currentOrientation = win.getPreferredOrientation();
           if (currentOrientation == window.Orientation.PORTRAIT) {
-            win.setPreferredOrientation(window.Orientation.LANDSCAPE); <em>// 通过setPreferredOrientation实现多个画面切换。</em>
+            win.setPreferredOrientation(window.Orientation.LANDSCAPE); // 通过setPreferredOrientation实现多个画面切换。
           } else {
-            win.setPreferredOrientation(window.Orientation.PORTRAIT); <em>// 通过setPreferredOrientation实现多个画面切换。</em>
+            win.setPreferredOrientation(window.Orientation.PORTRAIT); // 通过setPreferredOrientation实现多个画面切换。
           }
         });
       });

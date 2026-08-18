@@ -144,7 +144,7 @@ struct Crypto {
   }
 }
 
-<em>//ISO7816_4_PADDING</em><em>函数实现ISO 7816-4填充算法：</em>
+//ISO7816_4_PADDING函数实现ISO 7816-4填充算法：
 async function ISO7816_4_PADDING(addPadding: boolean, data: Uint8Array): Promise<Uint8Array> {
   let blockSize = 16;
   try {
@@ -178,7 +178,7 @@ async function ISO7816_4_PADDING(addPadding: boolean, data: Uint8Array): Promise
   }
 }
 
-<em>// aes_enc_with_ISO7816_4PADDING</em><em>实现ISO 7816-4填充的AES-CBC加密算法：</em>
+// aes_enc_with_ISO7816_4PADDING实现ISO 7816-4填充的AES-CBC加密算法：
 async function aes_enc_with_ISO7816_4PADDING(key: Uint8Array, iv: Uint8Array, plaintext: Uint8Array): Promise<Uint8Array> {
   try {
     let ivParam: cryptoFramework.IvParamsSpec = { iv: { data: iv }, algName: 'IvParamsSpec' };
@@ -197,7 +197,7 @@ async function aes_enc_with_ISO7816_4PADDING(key: Uint8Array, iv: Uint8Array, pl
   }
 }
 
-<em>//aes_dec_with_ISO7816_4PADDING</em><em>实现ISO 7816-4填充的AES-CBC解密算法：</em>
+//aes_dec_with_ISO7816_4PADDING实现ISO 7816-4填充的AES-CBC解密算法：
 async function aes_dec_with_ISO7816_4PADDING(key: Uint8Array, iv: Uint8Array, ciphertext: Uint8Array): Promise<Uint8Array> {
   try {
     let ivParam: cryptoFramework.IvParamsSpec = { iv: { data: iv }, algName: 'IvParamsSpec' };

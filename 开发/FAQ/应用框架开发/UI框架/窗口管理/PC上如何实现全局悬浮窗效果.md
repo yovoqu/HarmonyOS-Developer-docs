@@ -105,22 +105,22 @@ export default class FloatWindowAbility extends UIAbility {
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-   <em> // 加载主窗口对应的页面。</em>
+    // 加载主窗口对应的页面。
     windowStage.loadContent('pages/pageTwo', () => {
       let mainWindow: window.Window | undefined = undefined;
-    <em>  // 获取应用主窗口。</em>
+      // 获取应用主窗口。
       windowStage.getMainWindow().then(async (data: window.Window) => {
         if (!data) {
           return;
         }
         mainWindow = data;
-     <em>   // 设置窗口大小</em>
+        // 设置窗口大小
         await this.resizeWindow(mainWindow, 200, 100);
-      <em>  // 设置窗口标题可见</em>
+        // 设置窗口标题可见
         this.setDecorVisible(mainWindow, false);
-      <em>  // 设置窗口最大化、最小化、关闭按钮可见</em>
+        // 设置窗口最大化、最小化、关闭按钮可见
         this.setTitleButtonVisible(mainWindow, false, false, false);
-      <em>  // 设置窗口置顶</em>
+        // 设置窗口置顶
         await this.setTopmost(mainWindow, true);
       }).catch((err: BusinessError) => {
         if (err.code) {
@@ -172,7 +172,7 @@ struct Index {
       Button('拉起悬浮窗')
         .onClick(() => {
           let want: Want = {
-        <em>    // 此处需要根据实际包名进行更改</em>
+            // 此处需要根据实际包名进行更改
             bundleName: 'com.example.myapplication',
             abilityName: 'FloatWindowAbility',
             moduleName: 'entry',

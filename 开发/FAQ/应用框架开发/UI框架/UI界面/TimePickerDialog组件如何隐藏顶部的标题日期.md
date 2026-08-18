@@ -88,9 +88,9 @@ struct TestPage {
     backgroundColor: Color.White,
   });
 
- <em> // 在自定义组件即将析构销毁时将dialogController置空</em>
+  // 在自定义组件即将析构销毁时将dialogController置空
   aboutToDisappear() {
-    this.dialogController = null;<em> </em><em>// 将dialogController置空</em>
+    this.dialogController = null; // 将dialogController置空
   }
 
   onCancel() {

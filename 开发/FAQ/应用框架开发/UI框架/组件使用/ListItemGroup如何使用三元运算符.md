@@ -34,7 +34,7 @@ ListItemGroup如何使用三元运算符，渲染不同的组件？
 import { ComponentContent } from '@kit.ArkUI';
 import cryptoFramework from '@ohos.security.cryptoFramework';
 
-<em>// 1.</em><em>定义不同的头部组件</em>
+// 1.定义不同的头部组件
 @Builder
 function aList() {
   Text('Aa')
@@ -59,17 +59,17 @@ function bList() {
 @Component
 struct Index {
   private list?: MyDataSource2;
-<em>  // 2.状态管理</em>
+  // 2.状态管理
   @State isActive: boolean = true;
   headerA?: ComponentContent<string> = undefined;
   headerB?: ComponentContent<string> = undefined;
 
-<em>  // 3.初始化组件</em>
+  // 3.初始化组件
   aboutToAppear() {
     let rand = cryptoFramework.createRandom();
-  <em>  // 设置生成随机数的字节长度为1</em>
+    // 设置生成随机数的字节长度为1
     let randData = rand.generateRandomSync(1);
-  <em>  // 自定义范围(0-10之内)</em>
+    // 自定义范围(0-10之内)
     let num: number = randData.data[0] * 10 / 255;
     const listItem: MyDataSource1[] = [];
     for (let date = 1; date < ~~num + 3; date++) {
@@ -87,7 +87,7 @@ struct Index {
 
   build() {
     Column() {
-   <em>   // 4.切换按钮</em>
+      // 4.切换按钮
       Button('true').onClick(() => {
         this.isActive = true;
       });
@@ -95,10 +95,10 @@ struct Index {
         this.isActive = false;
       })
         .margin({ top: 3, bottom: 3 });
-    <em>  // 5.列表组件</em>
+      // 5.列表组件
       List({ space: 20 }) {
         LazyForEach(this.list, (item: MyDataSource1) => {
-     <em>     // 6.使用三元运算符动态切换头部</em>
+          // 6.使用三元运算符动态切换头部
           ListItemGroup({ headerComponent: this.isActive ? this.headerA : this.headerB }) {
             LazyForEach(item, (order: string,) => {
               ListItem() {

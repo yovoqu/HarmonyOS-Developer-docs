@@ -31,7 +31,7 @@ struct ScrollCeilingSolution1 {
   itemData: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   tabTitles: Array<string> = ['Tab1', 'Tab2', 'Tab3'];
 
- <em> // 创建Tabs组件单个tab下的内容组件，并设置TabContent组件内的List组件的nestedScroll属性，List组件的父组件为TabContent组件</em>
+  // 创建Tabs组件单个tab下的内容组件，并设置TabContent组件内的List组件的nestedScroll属性，List组件的父组件为TabContent组件
   @Builder
   tabContentData(tabTitle: string) {
     TabContent() {
@@ -60,22 +60,22 @@ struct ScrollCeilingSolution1 {
     .padding({ top: 5, bottom: 5 });
   }
 
- <em> /*</em>
-<em>  设置scrollForward的滚动模式为NestedScrollMode.PARENT_FIRST：</em>
-<em>  当控制List内元素向前滚动时，其父组件TabContent先滚动，覆盖Scroll组件嵌套的Column组件内的Image组件，随后Tabs组件触碰顶部边缘，触发边缘效果，从而固定在顶部</em>
-<em>  设置scrollBackward的滚动模式为NestedScrollMode.SELF_FIRST：</em>
-<em>  当控制List内元素向后滚动时，List的内容先滚动，直至滚动到List最顶部后，父组件TabContent开始滚动</em>
-<em>  */</em>
+  /*
+  设置scrollForward的滚动模式为NestedScrollMode.PARENT_FIRST：
+  当控制List内元素向前滚动时，其父组件TabContent先滚动，覆盖Scroll组件嵌套的Column组件内的Image组件，随后Tabs组件触碰顶部边缘，触发边缘效果，从而固定在顶部
+  设置scrollBackward的滚动模式为NestedScrollMode.SELF_FIRST：
+  当控制List内元素向后滚动时，List的内容先滚动，直至滚动到List最顶部后，父组件TabContent开始滚动
+  */
 
   build() {
     Scroll(this.scroller) {
       Column() {
-       <em> // 顶部图片，资源替换为实际图片</em>
+        // 顶部图片，资源替换为实际图片
         Image($r('app.media.startIcon'))
           .height(96)
           .margin({ top: 8, bottom: 8 });
 
-      <em>  // 分类数据</em>
+        // 分类数据
         Tabs() {
           ForEach(this.tabTitles, (title: string) => {
             this.tabContentData(title);
@@ -108,10 +108,10 @@ struct ScrollCeiling2 {
   build() {
     Scroll(this.scroller) {
       Column() {
-     <em>   // 搜索框</em>
+        // 搜索框
         Stack({ alignContent: Alignment.End }) {
           Row() {
-            Image($r('sys.media.ohos_ic_public_search_filled')) <em>// </em><em>资源替换为实际图片</em>
+            Image($r('sys.media.ohos_ic_public_search_filled')) // 资源替换为实际图片
               .height(20)
               .margin({ left: 5 });
 
@@ -140,7 +140,7 @@ struct ScrollCeiling2 {
         .margin({ top: 8, bottom: 8 });
 
         Column() {
-       <em>   // 自定义分类列表</em>
+          // 自定义分类列表
           List() {
             ForEach(this.classList, (cls: string) => {
               ListItem() {
@@ -160,14 +160,14 @@ struct ScrollCeiling2 {
           .width('100%')
           .listDirection(Axis.Horizontal);
 
-        <em>  /*</em>
-<em>          设置scrollForward的滚动模式为NestedScrollMode.PARENT_FIRST：</em>
-<em>          当控制Data_List内元素向前滚动时，其父组件Column先滚动，覆盖Scroll组件嵌套的Column组件内的Stack组件（搜索框），随后Column组件触碰顶部边缘，触发边缘效果，从而将Class_List固定在顶部</em>
-<em>          设置scrollBackward的滚动模式为NestedScrollMode.SELF_FIRST：</em>
-<em>          当控制Data_List内元素向后滚动时，Data_List的内容先滚动，直至滚动到Data_List最顶部后，父组件Column开始滚动</em>
-<em>           */</em>
+          /*
+          设置scrollForward的滚动模式为NestedScrollMode.PARENT_FIRST：
+          当控制Data_List内元素向前滚动时，其父组件Column先滚动，覆盖Scroll组件嵌套的Column组件内的Stack组件（搜索框），随后Column组件触碰顶部边缘，触发边缘效果，从而将Class_List固定在顶部
+          设置scrollBackward的滚动模式为NestedScrollMode.SELF_FIRST：
+          当控制Data_List内元素向后滚动时，Data_List的内容先滚动，直至滚动到Data_List最顶部后，父组件Column开始滚动
+           */
 
-<em>          // 分类数据</em>
+          // 分类数据
           List() {
             ForEach(this.itemData, (item: number) => {
               ListItem() {

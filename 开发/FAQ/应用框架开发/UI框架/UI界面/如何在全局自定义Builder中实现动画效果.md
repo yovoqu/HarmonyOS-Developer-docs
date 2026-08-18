@@ -66,7 +66,7 @@ function bottomViewBuilderOne(simple: AnimatesOne) {
   });
 }
 
-<em>// </em><em>动画属性只支持状态变量的修改，同时由于Builder的传参限制，建议封装为一个可深度观测的类</em>
+// 动画属性只支持状态变量的修改，同时由于Builder的传参限制，建议封装为一个可深度观测的类
 class AnimatesOne {
   @Track windowWidth: number = 100;
   @Track windowHeight: number = 100;

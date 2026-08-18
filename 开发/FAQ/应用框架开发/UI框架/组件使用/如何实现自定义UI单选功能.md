@@ -40,7 +40,7 @@
 @Entry
 @Component
 struct RadioPage {
-  @State select: string = 'SELECT_OPTION_1'; <em>// SELECT_OPTION_1</em><em>为选项一，SELECT_OPTION_2为选项二</em>
+  @State select: string = 'SELECT_OPTION_1'; // SELECT_OPTION_1为选项一，SELECT_OPTION_2为选项二
 
   @Builder
   commonUI(selectValue:string,imageUrl:string,context:string) {
@@ -54,12 +54,12 @@ struct RadioPage {
       .width(150)
       .padding(5)
       .borderRadius(5)
-      .border({ width: 1, color: this.select === selectValue ? '#ff5892de' : '#ffc4cac7' }) <em>// </em><em>根据select变量判断选中的border颜色</em>
-      .backgroundColor(this.select === selectValue? '#ff5892de' : '#ffc4cac7') <em>// </em><em>根据select变量判断选中的backgroundColor颜色</em>
+      .border({ width: 1, color: this.select === selectValue ? '#ff5892de' : '#ffc4cac7' }) // 根据select变量判断选中的border颜色
+      .backgroundColor(this.select === selectValue? '#ff5892de' : '#ffc4cac7') // 根据select变量判断选中的backgroundColor颜色
       .justifyContent(FlexAlign.Center)
 
       if (this.select === selectValue) {
-      <em>  // 三角形指示图标</em>
+        // 三角形指示图标
         Polygon({ width: 20, height: 20 })
           .points([[10, 10], [15, 0], [20, 10]])
           .fill('#ff5892de')
@@ -74,9 +74,9 @@ struct RadioPage {
   build() {
     Column() {
       Flex({ justifyContent: FlexAlign.SpaceBetween }) {
-      <em>  // 选项一</em>
+        // 选项一
         this.commonUI('SELECT_OPTION_1','app.media.startIcon','选项一');
-     <em>   // 选项二</em>
+        // 选项二
         this.commonUI('SELECT_OPTION_2','app.media.startIcon','选项二');
       }
       .padding(10)

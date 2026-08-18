@@ -42,21 +42,21 @@ struct ListVisibleByH {
   private arr: number[] = [];
   private scrollerForList: Scroller = new Scroller();
   @State startStr: string = '';
-  startIndex = 0; <em>// 保存第一个可见Item</em>
-  endIndex = 0;<em> </em><em>// 保存最后一个可见Item</em>
-  listHeight: number = 0;<em> </em><em>// 保存list的高度</em>
+  startIndex = 0; // 保存第一个可见Item
+  endIndex = 0; // 保存最后一个可见Item
+  listHeight: number = 0; // 保存list的高度
 
   private judgeVisibleByHeight() {
     console.info('judgeVisibleByHeight');
     this.startStr = '';
-   <em> // 判断是否遮挡，判断条件可自行调节，这里设置3vp的误差</em>
+    // 判断是否遮挡，判断条件可自行调节，这里设置3vp的误差
     let rect = this.scrollerForList.getItemRect(this.startIndex);
     if (rect.y < -3) {
-      this.startIndex = this.startIndex + 1;<em> </em><em>// 上方元素y坐标小于-3，被遮挡</em>
+      this.startIndex = this.startIndex + 1; // 上方元素y坐标小于-3，被遮挡
     }
     rect = this.scrollerForList.getItemRect(this.endIndex);
     if (rect.y + rect.height > this.listHeight + 3) {
-      this.endIndex = this.endIndex - 1;<em> </em><em>// 下方元素高度超过父组件的高度，被遮挡</em>
+      this.endIndex = this.endIndex - 1; // 下方元素高度超过父组件的高度，被遮挡
     }
     if (this.startIndex <= this.endIndex) {
       this.startStr = `首尾可见Item：${this.startIndex}, ${this.endIndex}`;
@@ -98,15 +98,15 @@ struct ListVisibleByH {
         .borderRadius(10)
         .onAreaChange((oldValue, newValue) => {
           console.info(`onAreaChange ${oldValue}`);
-          this.listHeight = newValue.height as number; <em>// list的高度</em>
-          this.judgeVisibleByHeight(); <em>// 初始判断</em>
+          this.listHeight = newValue.height as number; // list的高度
+          this.judgeVisibleByHeight(); // 初始判断
         })
         .onScrollIndex((start, end) => {
           this.startIndex = start;
           this.endIndex = end;
         })
         .onScrollStop(() => {
-        <em>  // 缓存开始结束索引：在最后一项继续滑动，不会触发onScrollIndex</em>
+          // 缓存开始结束索引：在最后一项继续滑动，不会触发onScrollIndex
           let tmpStart = this.startIndex;
           let tmpEnd = this.endIndex;
           this.judgeVisibleByHeight();

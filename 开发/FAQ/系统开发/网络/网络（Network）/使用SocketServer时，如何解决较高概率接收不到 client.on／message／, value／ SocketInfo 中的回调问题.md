@@ -16,7 +16,7 @@
 import { socket } from '@kit.NetworkKit';
 
 let tcpServer: socket.TCPSocketServer = socket.constructTCPSocketServerInstance();
-<em>// 定义存放客户端连接的数组</em>
+// 定义存放客户端连接的数组
 let tcpConnectArray: socket.TCPSocketConnection[] = [];
 
 class SocketInfo {
@@ -31,14 +31,14 @@ struct CreateSocket {
     Column() {
       Button('创建socket').onClick(async () => {
         tcpServer.on('connect', (client: socket.TCPSocketConnection) => {
-          <em>// 保存客户端的socket</em>
+          // 保存客户端的socket
           tcpConnectArray.push(client);
-          <em>// Subscribe to events of the TCPSocketConnection object.</em>
+          // Subscribe to events of the TCPSocketConnection object.
           client.on('close', () => {
             console.log("on close success");
           });
           client.on('message', (value: SocketInfo) => {
-            <em>// 此处高概率收不到message</em>
+            // 此处高概率收不到message
             let buffer = value.message;
             let dataView = new DataView(buffer);
             let str = '';

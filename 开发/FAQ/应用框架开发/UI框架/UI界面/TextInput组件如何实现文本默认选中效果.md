@@ -48,9 +48,9 @@ struct SelectedIndex {
         controller: this.controller
       })
         .width('100%')
-        .defaultFocus(true) <em>// 默认获取焦点</em>
+        .defaultFocus(true) // 默认获取焦点
         .onFocus(() => {
-          this.controller.setTextSelection(0, this.text.length);<em> </em><em>// 选择文本区域</em>
+          this.controller.setTextSelection(0, this.text.length); // 选择文本区域
         });
     }
     .padding({ left: 16, right: 16 })

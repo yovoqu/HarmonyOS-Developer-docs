@@ -26,13 +26,13 @@ struct GetTargetDemo {
       Text(`info.name: ${this.info.name}`)
       Button('Change the properties of the proxy object')
         .onClick(() => {
-          this.info.name = 'Alice';<em> // The Text component can refresh</em>
+          this.info.name = 'Alice'; // The Text component can refresh
         })
       Button('更改原始对象的属性')
         .onClick(() => {
           let rawInfo: UserInfo = UIUtils.getTarget(this.info);
           if (rawInfo) {
-            rawInfo.name = 'Bob';<em> // The Text component cannot be refreshed</em>
+            rawInfo.name = 'Bob'; // The Text component cannot be refreshed
           }
         })
     }

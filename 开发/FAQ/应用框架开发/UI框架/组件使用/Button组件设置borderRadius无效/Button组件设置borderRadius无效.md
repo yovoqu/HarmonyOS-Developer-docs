@@ -13,7 +13,7 @@
 ```text
 Button('按钮')
   .type(ButtonType.Normal)
-  .borderRadius(8) <em>// 设置borderRadius不生效</em>
+  .borderRadius(8) // 设置borderRadius不生效
   .backgroundColor(0x317aff)
   .fontColor('white')
   .width(54)
@@ -64,8 +64,8 @@ struct Index {
     Column() {
       Button('按钮')
         .type(ButtonType.Normal)
-        .border({ color: '#E5E7EB', width: 1 }) <em>// 调整该属性配置顺序在borderRadius前</em>
-        .borderRadius(16) <em>// 设置borderRadius生效</em>
+        .border({ color: '#E5E7EB', width: 1 }) // 调整该属性配置顺序在borderRadius前
+        .borderRadius(16) // 设置borderRadius生效
         .backgroundColor(0x317aff)
         .fontColor('white')
         .width(108)

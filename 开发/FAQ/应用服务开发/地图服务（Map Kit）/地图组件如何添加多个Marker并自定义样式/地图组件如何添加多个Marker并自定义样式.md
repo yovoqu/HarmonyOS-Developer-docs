@@ -49,7 +49,7 @@ struct CustomizationMarker {
         if (error) {
           return;
         }
-     <em>   // Marker初始化参数</em>
+        // Marker初始化参数
         let markerOptions: mapCommon.MarkerOptions = {
           position: {
             latitude: 31.984410259206815,
@@ -71,7 +71,7 @@ struct CustomizationMarker {
   }
 
   aboutToAppear(): void {
-<em>    // 地图初始化参数</em>
+    // 地图初始化参数
     this.mapOptions = {
       position: {
         target: {

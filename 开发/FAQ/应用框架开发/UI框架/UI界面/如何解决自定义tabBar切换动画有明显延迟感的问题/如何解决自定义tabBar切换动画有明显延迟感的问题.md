@@ -29,13 +29,13 @@ Tabs页面切换时，tabBar切换动画发生的比较慢，需要等到Tabs页
  
 ```text
 Tabs({ barPosition: BarPosition.Start, index: this.currentIndex, controller: this.controller }) {
- <em> // ...</em>
+  // ...
 }
 .vertical(false)
 .barMode(BarMode.Fixed)
 .animationDuration(400)
 .onChange((index: number) => {
-  <em>// currentIndex控制TabContent显示页签</em>
+  // currentIndex控制TabContent显示页签
   this.currentIndex = index
 })
 ```
@@ -160,7 +160,7 @@ struct TabsExample {
       .barHeight(56)
       .animationDuration(400)
       .onChange((index: number) => {
-   <em>     // currentIndex控制TabContent显示页签</em>
+        // currentIndex控制TabContent显示页签
         this.currentIndex = index;
         this.selectedIndex = index;
       })
@@ -169,7 +169,7 @@ struct TabsExample {
           return;
         }
         console.info(`event currentOffset ${event.currentOffset}`);
-      <em>  // selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
+        // selectedIndex控制自定义TabBar内Image和Text颜色切换
         this.selectedIndex = targetIndex;
       });
     }

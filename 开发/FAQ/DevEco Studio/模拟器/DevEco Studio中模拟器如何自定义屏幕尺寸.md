@@ -17,10 +17,10 @@ DevEco Studio 6.0.0及以上版本创建的模拟器支持在界面配置屏幕�
 DevEco Studio 6.0.0之前的版本可以手动修改模拟器配置文件config.ini(默认地址为C:\Users\${user}\AppData\Local\Huawei\Emulator\deployed\Huawei_Phone)来自定义屏幕尺寸。
  
 ```text
-hw.lcd.density=480 <em>// DPI</em>
-diagonalSize=6.82 <em>// 尺寸</em>
-hw.lcd.height=2412 <em>// 分辨率-高度</em>
-hw.lcd.width=1084  <em>// 分辨率-宽度</em>
+hw.lcd.density=480 // DPI
+diagonalSize=6.82 // 尺寸
+hw.lcd.height=2412 // 分辨率-高度
+hw.lcd.width=1084  // 分辨率-宽度
 ```
  
 配置完成后需要清理缓存并重新打开模拟器。

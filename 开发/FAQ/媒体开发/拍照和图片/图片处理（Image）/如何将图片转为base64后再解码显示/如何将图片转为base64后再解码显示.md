@@ -47,7 +47,7 @@ struct Index {
   @State targetPixelMap: image.PixelMap | null = null;
 
 
- <em> // 从相册选择图片并进行预览</em>
+  // 从相册选择图片并进行预览
   selectPhoto() {
     try {
       let photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
@@ -58,7 +58,7 @@ struct Index {
         let result = JSON.stringify(photoSelectResult);
         console.info(`PhotoViewPicker.select successfully, PhotoSelectResult uri: ${result}`);
         let uri = photoSelectResult.photoUris[0];
-     <em>   // 获取到图片或者视频文件的URI后进行文件读取等操作</em>
+        // 获取到图片或者视频文件的URI后进行文件读取等操作
         let file: fs.File | null = null;
         try {
           file = fs.openSync(uri, fs.OpenMode.READ_ONLY);
@@ -68,7 +68,7 @@ struct Index {
           let readBuffer: ArrayBuffer = new ArrayBuffer(num);
           this.originalPixelMap.readPixelsToBufferSync(readBuffer);
           let utilBase64Helper = new util.Base64Helper();
-       <em>   // 获取到图片Base64字符串</em>
+          // 获取到图片Base64字符串
           this.imageBase64Str = utilBase64Helper.encodeToStringSync(new Uint8Array(readBuffer));
           imageSourceApi.release();
           this.base64ToPixmap();
@@ -76,7 +76,7 @@ struct Index {
           let err: BusinessError = e as BusinessError;
           console.error(`PhotoViewPicker failed with err: ${err.code}, ${err.message}`);
         } finally {
-        <em>  // 释放资源</em>
+          // 释放资源
           if (file !== null) {
             fs.closeSync(file.fd);
           }
@@ -91,7 +91,7 @@ struct Index {
   }
 
 
-  <em>// 将Base64编码的字符串转换为PixelMap</em>
+  // 将Base64编码的字符串转换为PixelMap
   base64ToPixmap() {
     try {
       let utilBase64Helper = new util.Base64Helper();

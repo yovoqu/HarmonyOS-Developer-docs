@@ -19,10 +19,10 @@ class MyNodeController extends NodeController {
   makeNode(uiContext: UIContext): FrameNode | null {
     this.rootNode = new FrameNode(uiContext);
     this.node1 = new FrameNode(uiContext);
-    this.node1.commonAttribute.id('node1'); <em>// Set id</em>
+    this.node1.commonAttribute.id('node1'); // Set id
     this.node2 = new FrameNode(uiContext);
-    this.node2.commonAttribute.id('node2'); <em>// Set id</em>
-    this.rootNode.appendChild(this.node1);<em> // Node1 on the main tree, node2 not on the main tree.</em>
+    this.node2.commonAttribute.id('node2'); // Set id
+    this.rootNode.appendChild(this.node1); // Node1 on the main tree, node2 not on the main tree.
     return this.rootNode;
   }
 }
@@ -37,7 +37,7 @@ struct Index {
       NodeContainer(this.myNodeController)
       Button('Click')
         .onClick(() => {
-         <em> // If the node cannot be obtained through getAttachedFrameNodeById, it indicates that the node has not been mounted to the main tree.</em>
+          // If the node cannot be obtained through getAttachedFrameNodeById, it indicates that the node has not been mounted to the main tree.
           console.info(`node1 is attached to main tree: ${(this.getUIContext().getAttachedFrameNodeById('node1') !==
             null)}`);
           console.info(`node2 is attached to main tree: ${(this.getUIContext().getAttachedFrameNodeById('node2') !==

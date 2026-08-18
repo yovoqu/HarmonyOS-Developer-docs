@@ -29,7 +29,7 @@ Image('图片地址')
  1. 由于Image组件无法拿到图片数据，需要先通过网络请求获取图片，设置传输数据类型expectDataType为arraybuffer，然后使用[createImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreateimagesource9)转换成image.ImageSource对象；
 2. 获取图片Exif信息，可以通过getImageProperty接口 (PropertyKey传入"Orientation"）获取旋转信息。通过判断图片是否要旋转，并将不同返回值的旋转角度返回给Image组件的[orientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#orientation14)属性进行旋转或镜像；
 ```text
-<em>// 根据获取到的EXIF方向信息，转换ImageRotateOrientation，使图片显示为正确的方向。</em>
+// 根据获取到的EXIF方向信息，转换ImageRotateOrientation，使图片显示为正确的方向。
 getOrientation(orientation: string): ImageRotateOrientation {
   if (orientation == 'Top-right') {
     return ImageRotateOrientation.UP_MIRRORED;
@@ -136,9 +136,9 @@ struct CorrectDisplayOfImage {
   @State rotateOrientation: ImageRotateOrientation = ImageRotateOrientation.UP;
   @State pixelMapImg1: PixelMap | undefined = undefined;
   @State pixelMapImg2: PixelMap | undefined = undefined;
-  imageUrl: string = '';<em> // 请填写一个具体的网络图片地址</em>
+  imageUrl: string = ''; // 请填写一个具体的网络图片地址
 
- <em> // 根据获取到的EXIF方向信息，转换ImageRotateOrientation，使图片显示为正确的方向。</em>
+  // 根据获取到的EXIF方向信息，转换ImageRotateOrientation，使图片显示为正确的方向。
   getOrientation(orientation: string): ImageRotateOrientation {
     if (orientation == 'Top-right') {
       return ImageRotateOrientation.UP_MIRRORED;
@@ -234,7 +234,7 @@ struct CorrectDisplayOfImage {
       Row() {
         Button('solution1')
           .onClick(() => {
-            this.requestImageUrl(this.imageUrl);<em> // 请填写一个具体的网络图片地址</em>
+            this.requestImageUrl(this.imageUrl); // 请填写一个具体的网络图片地址
           });
         Image(this.pixelMapImg1)
           .objectFit(ImageFit.Contain)

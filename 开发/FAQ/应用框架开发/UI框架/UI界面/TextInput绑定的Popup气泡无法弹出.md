@@ -69,7 +69,7 @@ struct CustomPopup {
         .margin({
           top: 50
         })
-        .enableAutoFill(false) <em>// 属性值为false，禁用自动填充。</em>
+        .enableAutoFill(false) // 属性值为false，禁用自动填充。
         .bindPopup(this.customPopup, {
           builder: this.popupBuilder,
           placement: Placement.Top,

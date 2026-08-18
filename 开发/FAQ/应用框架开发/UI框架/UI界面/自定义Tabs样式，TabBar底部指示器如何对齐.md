@@ -42,7 +42,7 @@ struct TabSolution1 {
   private scrollerForScroll: Scroller = new Scroller();
 
 
-  <em>// 单独的页签</em>
+  // 单独的页签
   @Builder
   myTabBar(tabName: string, tabItem: number, tabIndex: number) {
     Row({ space: 20 }) {
@@ -51,7 +51,7 @@ struct TabSolution1 {
           .fontSize(18)
           .fontColor(tabIndex === this.focusIndex ? '#0A59F7' : Color.Black)
           .id(tabIndex.toString());
-      <em>  // 资源文件需自行替换，可以替换为三角图片</em>
+        // 资源文件需自行替换，可以替换为三角图片
         Column()
           .width(20)
           .height(4)
@@ -73,7 +73,7 @@ struct TabSolution1 {
   @Builder
   sideComponent(textName: string) {
     Row({ space: 20 }) {
-     <em> // 可以根据需要自行替换</em>
+      // 可以根据需要自行替换
       Text(textName).fontSize(18);
     }
     .justifyContent(FlexAlign.Center)
@@ -86,7 +86,7 @@ struct TabSolution1 {
   build() {
     Column() {
       Stack({ alignContent: Alignment.TopStart }) {
-        <em>// List自定义页签</em>
+        // List自定义页签
         Column() {
           Row({ space: 8 }) {
             List({ space: 20, initialIndex: 0, scroller: this.scrollerForScroll }) {
@@ -155,7 +155,7 @@ struct TabSolution1 {
 
   
 ```json
-<em>// 单独的页签</em>
+// 单独的页签
 @Builder
 myTabBar(tabName: string, tabItem: number, tabIndex: number) {
   Row({ space: 20 }) {
@@ -165,7 +165,7 @@ myTabBar(tabName: string, tabItem: number, tabIndex: number) {
       .id(tabIndex.toString())
       .onAreaChange((oldValue: Area, newValue: Area) => {
         console.debug(`oldValue:${JSON.stringify(oldValue)}, newValue:${JSON.stringify(newValue)}`);
-     <em>   // 初始位置：底部指示器</em>
+        // 初始位置：底部指示器
         if (this.focusIndex === tabIndex && (this.indicatorLeftMargin === 0 || this.indicatorWidth === 0)) {
           if (newValue.position.x !== undefined) {
             let positionX = Number.parseFloat(newValue.position.x.toString());
@@ -226,13 +226,13 @@ Tabs({ barPosition: BarPosition.Start, controller: this.controller }) {
 })
 .onAnimationStart((index: number, targetIndex: number, event: TabsAnimationEvent) => {
   console.debug(`index:${index}, event:${JSON.stringify(event)}`);
-<em>  // 切换动画开始时触发该回调。下划线跟着页面一起滑动</em>
+  // 切换动画开始时触发该回调。下划线跟着页面一起滑动
   this.focusIndex = targetIndex;
   let targetIndexInfo = this.getTextInfo(targetIndex);
   this.startAnimateTo(this.animationDuration, targetIndexInfo.left, targetIndexInfo.width);
 })
 .onGestureSwipe((index: number, event: TabsAnimationEvent) => {
- <em> // 在页面跟手滑动过程中，逐帧触发该回调。</em>
+  // 在页面跟手滑动过程中，逐帧触发该回调。
   let currentIndicatorInfo = this.getCurrentIndicatorInfo(index, event);
   this.focusIndex = currentIndicatorInfo.index;
   this.indicatorLeftMargin = currentIndicatorInfo.left;
@@ -242,7 +242,7 @@ Tabs({ barPosition: BarPosition.Start, controller: this.controller }) {
 ```
  
 ```text
-<em>// 获取页签信息，返回距左侧偏移量和页签宽度</em>
+// 获取页签信息，返回距左侧偏移量和页签宽度
 private getTextInfo(index: number): Record<string, number> {
   try {
     const rect = this.getUIContext().getComponentUtils().getRectangleById(index.toString());
@@ -266,20 +266,20 @@ private getCurrentIndicatorInfo(index: number, event: TabsAnimationEvent): Recor
   let indexInfo = this.getTextInfo(index);
   let nextIndexInfo = this.getTextInfo(nextIndex);
   let swipeRatio = Math.abs(event.currentOffset / this.tabsWidth);
-  let currentIndex = swipeRatio > 0.5 ? nextIndex : index; <em>// 页面滑动超过一半，tabBar切换到下一页。</em>
+  let currentIndex = swipeRatio > 0.5 ? nextIndex : index; // 页面滑动超过一半，tabBar切换到下一页。
   let currentLeft = indexInfo.left + (nextIndexInfo.left - indexInfo.left) * swipeRatio;
   let currentWidth = indexInfo.width + (nextIndexInfo.width - indexInfo.width) * swipeRatio;
   return { 'index': currentIndex, 'left': currentLeft, 'width': currentWidth };
 }
 
 
-<em>// 动画效果（使底部指示器与页签同步移动）</em>
+// 动画效果（使底部指示器与页签同步移动）
 private startAnimateTo(duration: number, leftMargin: number, width: number) {
   this.getUIContext().animateTo({
-    duration: duration,<em> // 动画时长</em>
-    curve: Curve.Linear,<em> // 动画曲线</em>
-    iterations: 1, <em>// 播放次数</em>
-    playMode: PlayMode.Normal,<em> // 动画模式</em>
+    duration: duration, // 动画时长
+    curve: Curve.Linear, // 动画曲线
+    iterations: 1, // 播放次数
+    playMode: PlayMode.Normal, // 动画模式
     onFinish: () => {
       console.info('play end');
     }
@@ -316,7 +316,7 @@ List({ space: 20, initialIndex: 0, scroller: this.scrollerForScroll }) {
 .width('80%')
 .backgroundColor('#FFFFFF')
 .onDidScroll((xOffset: number) => {
-<em>  // 场景三，跟随页签一起移动</em>
+  // 场景三，跟随页签一起移动
   this.indicatorLeftMargin -= xOffset;
 });
 ```
@@ -345,7 +345,7 @@ struct TabSolution2 {
   private scrollerForScroll: Scroller = new Scroller();
 
 
-  <em>// 单独的页签</em>
+  // 单独的页签
   @Builder
   myTabBar(tabName: string, tabItem: number, tabIndex: number) {
     Row({ space: 20 }) {
@@ -355,7 +355,7 @@ struct TabSolution2 {
         .id(tabIndex.toString())
         .onAreaChange((oldValue: Area, newValue: Area) => {
           console.debug(`oldValue:${JSON.stringify(oldValue)}, newValue:${JSON.stringify(newValue)}`);
-         <em> // 初始位置：底部指示器</em>
+          // 初始位置：底部指示器
           if (this.focusIndex === tabIndex && (this.indicatorLeftMargin === 0 || this.indicatorWidth === 0)) {
             if (newValue.position.x !== undefined) {
               let positionX = Number.parseFloat(newValue.position.x.toString());
@@ -396,7 +396,7 @@ struct TabSolution2 {
   build() {
     Column() {
       Stack({ alignContent: Alignment.TopStart }) {
-      <em>  // List自定义页签</em>
+        // List自定义页签
         Column() {
           Row({ space: 8 }) {
             List({ space: 20, initialIndex: 0, scroller: this.scrollerForScroll }) {
@@ -415,7 +415,7 @@ struct TabSolution2 {
             .width('80%')
             .backgroundColor('#FFFFFF')
             .onDidScroll((xOffset: number) => {
-            <em>  // 场景三，跟随页签一起移动</em>
+              // 场景三，跟随页签一起移动
               this.indicatorLeftMargin -= xOffset;
             });
 
@@ -430,7 +430,7 @@ struct TabSolution2 {
         .width('100%');
 
 
-    <em>    // 资源文件需自行替换，可以替换为三角图片</em>
+        // 资源文件需自行替换，可以替换为三角图片
         Column()
           .width(50)
           .height(4)
@@ -468,13 +468,13 @@ struct TabSolution2 {
       })
       .onAnimationStart((index: number, targetIndex: number, event: TabsAnimationEvent) => {
         console.debug(`index:${index}, event:${JSON.stringify(event)}`);
-    <em>    // 切换动画开始时触发该回调。下划线跟着页面一起滑动</em>
+        // 切换动画开始时触发该回调。下划线跟着页面一起滑动
         this.focusIndex = targetIndex;
         let targetIndexInfo = this.getTextInfo(targetIndex);
         this.startAnimateTo(this.animationDuration, targetIndexInfo.left, targetIndexInfo.width);
       })
       .onGestureSwipe((index: number, event: TabsAnimationEvent) => {
-      <em>  // 在页面跟手滑动过程中，逐帧触发该回调。</em>
+        // 在页面跟手滑动过程中，逐帧触发该回调。
         let currentIndicatorInfo = this.getCurrentIndicatorInfo(index, event);
         this.focusIndex = currentIndicatorInfo.index;
         this.indicatorLeftMargin = currentIndicatorInfo.left;
@@ -486,7 +486,7 @@ struct TabSolution2 {
   }
 
 
- <em> // 获取页签信息，返回距左侧偏移量和页签宽度</em>
+  // 获取页签信息，返回距左侧偏移量和页签宽度
   private getTextInfo(index: number): Record<string, number> {
     try {
       const rect = this.getUIContext().getComponentUtils().getRectangleById(index.toString());
@@ -510,20 +510,20 @@ struct TabSolution2 {
     let indexInfo = this.getTextInfo(index);
     let nextIndexInfo = this.getTextInfo(nextIndex);
     let swipeRatio = Math.abs(event.currentOffset / this.tabsWidth);
-    let currentIndex = swipeRatio > 0.5 ? nextIndex : index; <em>// 页面滑动超过一半，tabBar切换到下一页。</em>
+    let currentIndex = swipeRatio > 0.5 ? nextIndex : index; // 页面滑动超过一半，tabBar切换到下一页。
     let currentLeft = indexInfo.left + (nextIndexInfo.left - indexInfo.left) * swipeRatio;
     let currentWidth = indexInfo.width + (nextIndexInfo.width - indexInfo.width) * swipeRatio;
     return { 'index': currentIndex, 'left': currentLeft, 'width': currentWidth };
   }
 
 
- <em> // 动画效果（使底部指示器与页签同步移动）</em>
+  // 动画效果（使底部指示器与页签同步移动）
   private startAnimateTo(duration: number, leftMargin: number, width: number) {
     this.getUIContext().animateTo({
-      duration: duration, <em>// 动画时长</em>
-      curve: Curve.Linear, <em>// 动画曲线</em>
-      iterations: 1,<em> // 播放次数</em>
-      playMode: PlayMode.Normal, <em>// 动画模式</em>
+      duration: duration, // 动画时长
+      curve: Curve.Linear, // 动画曲线
+      iterations: 1, // 播放次数
+      playMode: PlayMode.Normal, // 动画模式
       onFinish: () => {
         console.info('play end');
       }

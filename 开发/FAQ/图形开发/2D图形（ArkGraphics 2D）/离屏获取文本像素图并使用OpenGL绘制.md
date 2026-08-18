@@ -39,24 +39,24 @@ XComponent({ type: XComponentType.SURFACE, controller: this.xController3 })
   .aspectRatio(4)
   .backgroundColor(Color.Yellow)
   .onLoad(async () => {
-   <em> // 离屏绘制文本</em>
+    // 离屏绘制文本
     let text: string = '你好\u{D83D}\u{DE02}';
     let offCanvas: OffscreenCanvas = new OffscreenCanvas(300, 100);
     let offContext = offCanvas.getContext('2d');
     offContext.fillStyle = '#000000';
     offContext.font = '100px sans-serif';
     offContext.fillText(text, 0, 50);
-  <em>  // 从离屏画布上读取位图数据。</em>
+    // 从离屏画布上读取位图数据。
     this.pixel = offContext.getPixelMap(0, 0, 300, 100);
     let buffer = new ArrayBuffer(this.pixel.getPixelBytesNumber());
     await this.pixel.readPixelsToBuffer(buffer);
-  <em>  // 获取位图的宽、高信息。</em>
+    // 获取位图的宽、高信息。
     let imgInfo = await this.pixel.getImageInfo();
     let imgWidth = imgInfo.size.width;
     let imgHeight = imgInfo.size.height;
-  <em>  // 获取XComponent的SurfaceID。</em>
+    // 获取XComponent的SurfaceID。
     let surfaceId = this.xController3.getXComponentSurfaceId();
-   <em> // 将位图数据、宽、高，SurfaceID传递到Native侧使用OpenGL ES完成绘制。</em>
+    // 将位图数据、宽、高，SurfaceID传递到Native侧使用OpenGL ES完成绘制。
     testNapi.drawText(BigInt(surfaceId), buffer, imgWidth, imgHeight);
   });
 ```
@@ -69,25 +69,25 @@ static napi_value DrawImage(napi_env env, napi_callback_info info)
     size_t argc = 5;
     napi_value args[5] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
-  <em>  // 获取SurfaceID</em>
+    // 获取SurfaceID
     bool lossless = true;
     uint64_t surfaceId = 0;
     napi_get_value_bigint_uint64(env, args[0], &surfaceId, &lossless);
-   <em> // 获取位图数据</em>
+    // 获取位图数据
     void *data = nullptr;
     size_t byteLength = 0;
     napi_get_arraybuffer_info(env, args[1], &data, &byteLength);
-   <em> // 获取位图宽、高</em>
+    // 获取位图宽、高
     int32_t imageWidth = 0;
     int32_t imageHeight = 0;
     napi_get_value_int32(env, args[2], &imageWidth);
     napi_get_value_int32(env, args[3], &imageHeight);
-   <em> // 创建NativeWindow对象</em>
+    // 创建NativeWindow对象
     OHNativeWindow *window = nullptr;
     OH_NativeWindow_CreateNativeWindowFromSurfaceId(surfaceId, &window);
-  <em>  // 使用OpenGL ES绘制位图</em>
+    // 使用OpenGL ES绘制位图
     GLDraw(window, imageWidth, imageHeight, data);
- <em>   // 销毁NativeWindow</em>
+    // 销毁NativeWindow
     OH_NativeWindow_DestroyNativeWindow(window);
     return nullptr;
 }
@@ -131,14 +131,14 @@ static void GLDraw(OHNativeWindow *window, int32_t width, int32_t height, void *
     glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     GLfloat vertices[] = {
-        <em>// First triangle</em>
-        1.0f, 1.0f, 0.0f, 1.0f, 0.0f,  <em> // ...</em>
-        1.0f, -1.0f, 0.0f, 1.0f, 1.0f,  <em>// ...</em>
-        -1.0f, -1.0f, 0.0f, 0.0f, 1.0f, <em>// ...</em>
-      <em>  // Second triangle</em>
-        1.0f, 1.0f, 0.0f, 1.0f, 0.0f,   <em>// ...</em>
-        -1.0f, -1.0f, 0.0f, 0.0f, 1.0f, <em>// ...</em>
-        -1.0f, 1.0f, 0.0f, 0.0f, 0.0f,  <em>// ...</em>
+        // First triangle
+        1.0f, 1.0f, 0.0f, 1.0f, 0.0f,   // ...
+        1.0f, -1.0f, 0.0f, 1.0f, 1.0f,  // ...
+        -1.0f, -1.0f, 0.0f, 0.0f, 1.0f, // ...
+        // Second triangle
+        1.0f, 1.0f, 0.0f, 1.0f, 0.0f,   // ...
+        -1.0f, -1.0f, 0.0f, 0.0f, 1.0f, // ...
+        -1.0f, 1.0f, 0.0f, 0.0f, 0.0f,  // ...
     };
     GLuint vbo;
     GLuint vao[0];
@@ -227,16 +227,16 @@ static napi_value NativeDrawCpu(napi_env env, napi_callback_info info)
 {
     int32_t width = 900;
     int32_t height = 300;
-  <em>  // 创建位图对象</em>
+    // 创建位图对象
     OH_Drawing_Bitmap *bitmap = OH_Drawing_BitmapCreate();
     OH_Drawing_BitmapFormat cFormat{COLOR_FORMAT_BGRA_8888, ALPHA_FORMAT_PREMUL};
- <em>   // 初始化位图</em>
+    // 初始化位图
     OH_Drawing_BitmapBuild(bitmap, width, height, &cFormat);
-  <em>  // 创建Canvas对象</em>
+    // 创建Canvas对象
     OH_Drawing_Canvas *bitmapCanvas = OH_Drawing_CanvasCreate();
-  <em>  // 将Canvas与位图绑定，Canvas绘制的内容会输出到绑定的bitmap内存中</em>
+    // 将Canvas与位图绑定，Canvas绘制的内容会输出到绑定的bitmap内存中
     OH_Drawing_CanvasBind(bitmapCanvas, bitmap);
-  <em>  // 绘制字块</em>
+    // 绘制字块
     char text[] = "你好\xF0\x9F\x98\x82";
     OH_Drawing_Font *font = OH_Drawing_FontCreate();
     OH_Drawing_FontSetTextSize(font, 100);
@@ -255,26 +255,26 @@ static napi_value NativeDrawCpu(napi_env env, napi_callback_info info)
         posX += textWidth;
     }
     OH_Drawing_FontDestroy(font);
-   <em> // 从Canvas上拷贝绘制结果位图数据</em>
+    // 从Canvas上拷贝绘制结果位图数据
     std::unique_ptr<uint8_t> dstPixels(new uint8_t[width * height * 4]);
     OH_Drawing_Image_Info imageInfo = {width, height, COLOR_FORMAT_RGBA_8888, ALPHA_FORMAT_PREMUL};
     OH_Drawing_CanvasReadPixels(bitmapCanvas, &imageInfo, dstPixels.get(), 4 * width, 0, 0);
-  <em>  // 清理资源</em>
+    // 清理资源
     OH_Drawing_CanvasDestroy(bitmapCanvas);
     OH_Drawing_BitmapDestroy(bitmap);
     size_t argc = 1;
     napi_value args[1] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
-  <em>  // 获取XComponent的SurfaceID</em>
+    // 获取XComponent的SurfaceID
     bool lossless = true;
     uint64_t surfaceId = 0;
     napi_get_value_bigint_uint64(env, args[0], &surfaceId, &lossless);
- <em>   // 通过SurfaceID创建NativeWindow对象</em>
+    // 通过SurfaceID创建NativeWindow对象
     OHNativeWindow *window = nullptr;
     OH_NativeWindow_CreateNativeWindowFromSurfaceId(surfaceId, &window);
-  <em>  // 通过OpenGL ES绘制图像</em>
+    // 通过OpenGL ES绘制图像
     GLDraw(window, width, height, dstPixels.get());
-  <em>  // 销毁NativeWindow</em>
+    // 销毁NativeWindow
     OH_NativeWindow_DestroyNativeWindow(window);
     return nullptr;
 }
@@ -299,7 +299,7 @@ XComponent({ type: XComponentType.SURFACE, controller: this.xController2 })
 ```text
 static napi_value NativeDrawGpu(napi_env env, napi_callback_info info)
 {
-   <em> // 初始化EGL上下文</em>
+    // 初始化EGL上下文
     EGLDisplay bufDisplay;
     EGLConfig bufConfig;
     EGLSurface bufSurface;
@@ -329,18 +329,18 @@ static napi_value NativeDrawGpu(napi_env env, napi_callback_info info)
     bufSurface = eglCreatePbufferSurface(bufDisplay, bufConfig, attribs);
     bufContext = eglCreateContext(bufDisplay, bufConfig, EGL_NO_CONTEXT, contextAttribs);
     eglMakeCurrent(bufDisplay, bufSurface, bufSurface, bufContext);
-   <em> // 设置宽高（按需设定）</em>
+    // 设置宽高（按需设定）
     int32_t width = 900;
     int32_t height = 300;
-   <em> // 设置图像宽、高、颜色格式和透明度格式</em>
+    // 设置图像宽、高、颜色格式和透明度格式
     OH_Drawing_Image_Info imageInfo = {width, height, COLOR_FORMAT_RGBA_8888, ALPHA_FORMAT_PREMUL};
- <em>   // 创建GPU后端的绘图上下文</em>
+    // 创建GPU后端的绘图上下文
     OH_Drawing_GpuContext *gpuContext = OH_Drawing_GpuContextCreate();
- <em>   // 创建Surface对象</em>
+    // 创建Surface对象
     OH_Drawing_Surface *drawSurface = OH_Drawing_SurfaceCreateFromGpuContext(gpuContext, true, imageInfo);
- <em>   // 创建Canvas对象</em>
+    // 创建Canvas对象
     OH_Drawing_Canvas *gpuCanvas = OH_Drawing_SurfaceGetCanvas(drawSurface);
- <em>   // 绘制字块</em>
+    // 绘制字块
     char text[] = "你好\xF0\x9F\x98\x82";
     OH_Drawing_Font *font = OH_Drawing_FontCreate();
     OH_Drawing_FontSetTextSize(font, 100);
@@ -359,28 +359,28 @@ static napi_value NativeDrawGpu(napi_env env, napi_callback_info info)
         posX += textWidth;
     }
     OH_Drawing_FontDestroy(font);
-  <em>  // 从Canvas 上拷贝绘制结果位图数据</em>
+    // 从Canvas 上拷贝绘制结果位图数据
     std::unique_ptr<uint8_t> dstPixels(new uint8_t[width * height * 4]);
     OH_Drawing_CanvasReadPixels(gpuCanvas, &imageInfo, dstPixels.get(), 4 * width, 0, 0);
-  <em>  // 清理资源</em>
+    // 清理资源
     OH_Drawing_CanvasDestroy(gpuCanvas);
-  <em>  // 清理EGL</em>
+    // 清理EGL
     eglDestroySurface(bufDisplay, bufSurface);
     eglDestroyContext(bufDisplay, bufContext);
     eglTerminate(bufDisplay);
     size_t argc = 1;
     napi_value args[1] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
-<em>    // 获取XComponent的SurfaceID</em>
+    // 获取XComponent的SurfaceID
     bool lossless = true;
     uint64_t surfaceId = 0;
     napi_get_value_bigint_uint64(env, args[0], &surfaceId, &lossless);
-   <em> // 通过SurfaceID创建NativeWindow对象</em>
+    // 通过SurfaceID创建NativeWindow对象
     OHNativeWindow *window = nullptr;
     OH_NativeWindow_CreateNativeWindowFromSurfaceId(surfaceId, &window);
-  <em>  // 通过OpenGL ES绘制图像</em>
+    // 通过OpenGL ES绘制图像
     GLDraw(window, width, height, dstPixels.get());
-   <em> // 销毁NativeWindow</em>
+    // 销毁NativeWindow
     OH_NativeWindow_DestroyNativeWindow(window);
     return nullptr;
 }
@@ -438,24 +438,24 @@ struct Index {
           .aspectRatio(4)
           .backgroundColor(Color.Yellow)
           .onLoad(async () => {
-        <em>    // 离屏绘制文本</em>
+            // 离屏绘制文本
             let text: string = '你好\u{D83D}\u{DE02}';
             let offCanvas: OffscreenCanvas = new OffscreenCanvas(300, 100);
             let offContext = offCanvas.getContext('2d');
             offContext.fillStyle = '#000000';
             offContext.font = '100px sans-serif';
             offContext.fillText(text, 0, 50);
-       <em>     // 从离屏画布上读取位图数据。</em>
+            // 从离屏画布上读取位图数据。
             this.pixel = offContext.getPixelMap(0, 0, 300, 100);
             let buffer = new ArrayBuffer(this.pixel.getPixelBytesNumber());
             await this.pixel.readPixelsToBuffer(buffer);
-          <em>  // 获取位图的宽、高信息。</em>
+            // 获取位图的宽、高信息。
             let imgInfo = await this.pixel.getImageInfo();
             let imgWidth = imgInfo.size.width;
             let imgHeight = imgInfo.size.height;
-        <em>    // 获取XComponent的SurfaceID。</em>
+            // 获取XComponent的SurfaceID。
             let surfaceId = this.xController3.getXComponentSurfaceId();
-            <em>// 将位图数据、宽、高，SurfaceID传递到Native侧使用OpenGL ES完成绘制。</em>
+            // 将位图数据、宽、高，SurfaceID传递到Native侧使用OpenGL ES完成绘制。
             testNapi.drawText(BigInt(surfaceId), buffer, imgWidth, imgHeight);
           });
       };
@@ -470,9 +470,9 @@ struct Index {
 
 - Native侧：
 ```text
-<em>/*</em>
-<em> * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.</em>
-<em> */</em>
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
+ */
 #include "napi/native_api.h"
 #include <EGL/egl.h>
 #include <EGL/eglext.h>
@@ -528,14 +528,14 @@ static void GLDraw(OHNativeWindow *window, int32_t width, int32_t height, void *
     glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     GLfloat vertices[] = {
-        <em>// First triangle</em>
-        1.0f, 1.0f, 0.0f, 1.0f, 0.0f,  <em> // ...</em>
-        1.0f, -1.0f, 0.0f, 1.0f, 1.0f, <em> // ...</em>
-        -1.0f, -1.0f, 0.0f, 0.0f, 1.0f, <em>// ...</em>
-      <em>  // Second triangle</em>
-        1.0f, 1.0f, 0.0f, 1.0f, 0.0f,  <em> // ...</em>
-        -1.0f, -1.0f, 0.0f, 0.0f, 1.0f, <em>// ...</em>
-        -1.0f, 1.0f, 0.0f, 0.0f, 0.0f,  <em>// ...</em>
+        // First triangle
+        1.0f, 1.0f, 0.0f, 1.0f, 0.0f,   // ...
+        1.0f, -1.0f, 0.0f, 1.0f, 1.0f,  // ...
+        -1.0f, -1.0f, 0.0f, 0.0f, 1.0f, // ...
+        // Second triangle
+        1.0f, 1.0f, 0.0f, 1.0f, 0.0f,   // ...
+        -1.0f, -1.0f, 0.0f, 0.0f, 1.0f, // ...
+        -1.0f, 1.0f, 0.0f, 0.0f, 0.0f,  // ...
     };
     GLuint vbo;
     GLuint vao[0];
@@ -605,7 +605,7 @@ static void GLDraw(OHNativeWindow *window, int32_t width, int32_t height, void *
 }
 static napi_value NativeDrawGpu(napi_env env, napi_callback_info info)
 {
-  <em>  // 初始化EGL上下文</em>
+    // 初始化EGL上下文
     EGLDisplay bufDisplay;
     EGLConfig bufConfig;
     EGLSurface bufSurface;
@@ -635,18 +635,18 @@ static napi_value NativeDrawGpu(napi_env env, napi_callback_info info)
     bufSurface = eglCreatePbufferSurface(bufDisplay, bufConfig, attribs);
     bufContext = eglCreateContext(bufDisplay, bufConfig, EGL_NO_CONTEXT, contextAttribs);
     eglMakeCurrent(bufDisplay, bufSurface, bufSurface, bufContext);
-  <em>  // 设置宽高（按需设定）</em>
+    // 设置宽高（按需设定）
     int32_t width = 900;
     int32_t height = 300;
-  <em>  // 设置图像宽、高、颜色格式和透明度格式</em>
+    // 设置图像宽、高、颜色格式和透明度格式
     OH_Drawing_Image_Info imageInfo = {width, height, COLOR_FORMAT_RGBA_8888, ALPHA_FORMAT_PREMUL};
- <em>   // 创建GPU后端的绘图上下文</em>
+    // 创建GPU后端的绘图上下文
     OH_Drawing_GpuContext *gpuContext = OH_Drawing_GpuContextCreate();
-  <em>  // 创建Surface对象</em>
+    // 创建Surface对象
     OH_Drawing_Surface *drawSurface = OH_Drawing_SurfaceCreateFromGpuContext(gpuContext, true, imageInfo);
- <em>   // 创建Canvas对象</em>
+    // 创建Canvas对象
     OH_Drawing_Canvas *gpuCanvas = OH_Drawing_SurfaceGetCanvas(drawSurface);
-  <em>  // 绘制字块</em>
+    // 绘制字块
     char text[] = "你好\xF0\x9F\x98\x82";
     OH_Drawing_Font *font = OH_Drawing_FontCreate();
     OH_Drawing_FontSetTextSize(font, 100);
@@ -665,28 +665,28 @@ static napi_value NativeDrawGpu(napi_env env, napi_callback_info info)
         posX += textWidth;
     }
     OH_Drawing_FontDestroy(font);
-  <em>  // 从Canvas 上拷贝绘制结果位图数据</em>
+    // 从Canvas 上拷贝绘制结果位图数据
     std::unique_ptr<uint8_t> dstPixels(new uint8_t[width * height * 4]);
     OH_Drawing_CanvasReadPixels(gpuCanvas, &imageInfo, dstPixels.get(), 4 * width, 0, 0);
-  <em>  // 清理资源</em>
+    // 清理资源
     OH_Drawing_CanvasDestroy(gpuCanvas);
-   <em> // 清理EGL</em>
+    // 清理EGL
     eglDestroySurface(bufDisplay, bufSurface);
     eglDestroyContext(bufDisplay, bufContext);
     eglTerminate(bufDisplay);
     size_t argc = 1;
     napi_value args[1] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
-   <em> // 获取XComponent的SurfaceID</em>
+    // 获取XComponent的SurfaceID
     bool lossless = true;
     uint64_t surfaceId = 0;
     napi_get_value_bigint_uint64(env, args[0], &surfaceId, &lossless);
-  <em>  // 通过SurfaceID创建NativeWindow对象</em>
+    // 通过SurfaceID创建NativeWindow对象
     OHNativeWindow *window = nullptr;
     OH_NativeWindow_CreateNativeWindowFromSurfaceId(surfaceId, &window);
- <em>   // 通过OpenGL ES绘制图像</em>
+    // 通过OpenGL ES绘制图像
     GLDraw(window, width, height, dstPixels.get());
- <em>   // 销毁NativeWindow</em>
+    // 销毁NativeWindow
     OH_NativeWindow_DestroyNativeWindow(window);
     return nullptr;
 }
@@ -694,16 +694,16 @@ static napi_value NativeDrawCpu(napi_env env, napi_callback_info info)
 {
     int32_t width = 900;
     int32_t height = 300;
- <em>   // 创建位图对象</em>
+    // 创建位图对象
     OH_Drawing_Bitmap *bitmap = OH_Drawing_BitmapCreate();
     OH_Drawing_BitmapFormat cFormat{COLOR_FORMAT_BGRA_8888, ALPHA_FORMAT_PREMUL};
-  <em>  // 初始化位图</em>
+    // 初始化位图
     OH_Drawing_BitmapBuild(bitmap, width, height, &cFormat);
-   <em> // 创建Canvas对象</em>
+    // 创建Canvas对象
     OH_Drawing_Canvas *bitmapCanvas = OH_Drawing_CanvasCreate();
-<em>    // 将Canvas与位图绑定，Canvas绘制的内容会输出到绑定的bitmap内存中</em>
+    // 将Canvas与位图绑定，Canvas绘制的内容会输出到绑定的bitmap内存中
     OH_Drawing_CanvasBind(bitmapCanvas, bitmap);
-   <em> // 绘制字块</em>
+    // 绘制字块
     char text[] = "你好\xF0\x9F\x98\x82";
     OH_Drawing_Font *font = OH_Drawing_FontCreate();
     OH_Drawing_FontSetTextSize(font, 100);
@@ -722,26 +722,26 @@ static napi_value NativeDrawCpu(napi_env env, napi_callback_info info)
         posX += textWidth;
     }
     OH_Drawing_FontDestroy(font);
-  <em>  // 从Canvas上拷贝绘制结果位图数据</em>
+    // 从Canvas上拷贝绘制结果位图数据
     std::unique_ptr<uint8_t> dstPixels(new uint8_t[width * height * 4]);
     OH_Drawing_Image_Info imageInfo = {width, height, COLOR_FORMAT_RGBA_8888, ALPHA_FORMAT_PREMUL};
     OH_Drawing_CanvasReadPixels(bitmapCanvas, &imageInfo, dstPixels.get(), 4 * width, 0, 0);
-   <em> // 清理资源</em>
+    // 清理资源
     OH_Drawing_CanvasDestroy(bitmapCanvas);
     OH_Drawing_BitmapDestroy(bitmap);
     size_t argc = 1;
     napi_value args[1] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
- <em>   // 获取XComponent的SurfaceID</em>
+    // 获取XComponent的SurfaceID
     bool lossless = true;
     uint64_t surfaceId = 0;
     napi_get_value_bigint_uint64(env, args[0], &surfaceId, &lossless);
-  <em>  // 通过SurfaceID创建NativeWindow对象</em>
+    // 通过SurfaceID创建NativeWindow对象
     OHNativeWindow *window = nullptr;
     OH_NativeWindow_CreateNativeWindowFromSurfaceId(surfaceId, &window);
-  <em>  // 通过OpenGL ES绘制图像</em>
+    // 通过OpenGL ES绘制图像
     GLDraw(window, width, height, dstPixels.get());
-   <em> // 销毁NativeWindow</em>
+    // 销毁NativeWindow
     OH_NativeWindow_DestroyNativeWindow(window);
     return nullptr;
 }
@@ -750,25 +750,25 @@ static napi_value DrawImage(napi_env env, napi_callback_info info)
     size_t argc = 5;
     napi_value args[5] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
-   <em> // 获取SurfaceID</em>
+    // 获取SurfaceID
     bool lossless = true;
     uint64_t surfaceId = 0;
     napi_get_value_bigint_uint64(env, args[0], &surfaceId, &lossless);
-   <em> // 获取位图数据</em>
+    // 获取位图数据
     void *data = nullptr;
     size_t byteLength = 0;
     napi_get_arraybuffer_info(env, args[1], &data, &byteLength);
-   <em> // 获取位图宽、高</em>
+    // 获取位图宽、高
     int32_t imageWidth = 0;
     int32_t imageHeight = 0;
     napi_get_value_int32(env, args[2], &imageWidth);
     napi_get_value_int32(env, args[3], &imageHeight);
-    <em>// 创建NativeWindow对象</em>
+    // 创建NativeWindow对象
     OHNativeWindow *window = nullptr;
     OH_NativeWindow_CreateNativeWindowFromSurfaceId(surfaceId, &window);
-   <em> // 使用OpenGL ES绘制位图</em>
+    // 使用OpenGL ES绘制位图
     GLDraw(window, imageWidth, imageHeight, data);
-   <em> // 销毁NativeWindow</em>
+    // 销毁NativeWindow
     OH_NativeWindow_DestroyNativeWindow(window);
     return nullptr;
 }

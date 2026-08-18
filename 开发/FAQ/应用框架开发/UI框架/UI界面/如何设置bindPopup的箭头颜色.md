@@ -28,7 +28,7 @@ bindPopup箭头是容器的一部分，和popupColor一致，popupColor默认是
 struct PopupDemoForPopArrowColor {
   @State customPopup: boolean = false;
 
- <em> // popup构造器定义弹框内容</em>
+  // popup构造器定义弹框内容
   @Builder
   popupBuilder() {
     Row({ space: 2 }) {
@@ -40,7 +40,7 @@ struct PopupDemoForPopArrowColor {
 
   build() {
     Flex({ direction: FlexDirection.Column }) {
-     <em> // CustomPopupOptions 类型设置弹框内容</em>
+      // CustomPopupOptions 类型设置弹框内容
       Button('CustomPopupOptions')
         .onClick(() => {
           this.customPopup = !this.customPopup;

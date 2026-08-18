@@ -24,19 +24,19 @@ Dockerfile是构建Docker镜像的文本文件，其中包含了构建镜像的�
 
   Dockerfile文件模板如下：
 ```text
-<em># 使用官方 Node.js 18 镜像</em>
+# 使用官方 Node.js 18 镜像
 FROM node:18
 COPY ./ohpm-repo.zip /tmp/ohpm-repo.zip
 RUN mkdir -p /opt/ohpm-repo && \
     unzip /tmp/ohpm-repo.zip -d /opt/ohpm-repo && \
     rm -f /tmp/ohpm-repo.zip
-<em># 修改conf/config.yaml的listen配置，不能用localhost和127.0.0.1，必须使用0.0.0.0</em>
+# 修改conf/config.yaml的listen配置，不能用localhost和127.0.0.1，必须使用0.0.0.0
 RUN if [ -f /opt/ohpm-repo/conf/config.yaml ]; then \
       sed -i 's/listen: [^ ]*/listen: 0.0.0.0:8088/g' /opt/ohpm-repo/conf/config.yaml; \
     fi
 ENV OHPM_REPO_BIN_DIR="/opt/ohpm-repo/bin"
 ENV PATH="${OHPM_REPO_BIN_DIR}:${PATH}"
-<em># 创建用户，不允许使用root用户来运行ohpm-repo install和ohpm-repo start命令</em>
+# 创建用户，不允许使用root用户来运行ohpm-repo install和ohpm-repo start命令
 RUN useradd -m myuser && \
     chown -R myuser:myuser /opt/ohpm-repo && \ 
     chmod -R 755 /opt/ohpm-repo
@@ -55,9 +55,9 @@ docker build -t ohpm-repo .
 
 2. 启动服务，包括前台运行命令、后台运行命令两种形式。
 ```text
-<em># </em>前台运行命令
+# 前台运行命令
 docker run -it -p 8088:8088 ohpm-repo
-<em># </em>后台运行命令
+# 后台运行命令
 docker run -d --restart=unless-stopped --name ohpm-repo -p 8088:8088 ohpm-repo
 ```
 

@@ -29,7 +29,7 @@ struct CustomKeyboardPage {
         .width('90%')
         .borderRadius(15)
         .customKeyboard(this.keyboardVisible ? this.customKeyboard :
-          undefined)<em> </em><em>// 这种写法点击「切换自定义键盘」无法正常调出自定义键盘，弹出的是系统键盘</em>
+          undefined) // 这种写法点击「切换自定义键盘」无法正常调出自定义键盘，弹出的是系统键盘
       Button('切换自定义键盘').onClick(() => {
         this.keyboardVisible = true
         this.getUIContext().getFocusController().requestFocus('RichEditor')
@@ -43,7 +43,7 @@ struct CustomKeyboardPage {
     .justifyContent(FlexAlign.Center)
   }
 
-<em>  // 自定义键盘</em>
+  // 自定义键盘
   @Builder
   buildCustomKeyboard() {
     Row() {
@@ -134,7 +134,7 @@ struct CustomKeyboardPage {
         .width('90%')
         .borderRadius(15)
         .customKeyboard(this.keyboardVisible ? this.customKeyboard :
-          undefined); <em>// 这种写法点击「切换自定义键盘」无法正常调出自定义键盘，弹出的是系统键盘</em>
+          undefined); // 这种写法点击「切换自定义键盘」无法正常调出自定义键盘，弹出的是系统键盘
       Button('切换自定义键盘')
         .onClick(() => {
           this.keyboardVisible = true;
@@ -149,7 +149,7 @@ struct CustomKeyboardPage {
     .justifyContent(FlexAlign.Center);
   }
 
- <em> // 自定义键盘</em>
+  // 自定义键盘
   @Builder
   buildCustomKeyboard() {
     Row() {

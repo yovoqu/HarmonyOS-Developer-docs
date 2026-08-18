@@ -23,7 +23,7 @@ public static timelineReceivedResult(path: string): void {
       type: 'txt'
     }
   ]
-  let data: Array<request.RequestData> = []; <em>// { name: 'name', value: 'value' }</em>
+  let data: Array<request.RequestData> = []; // { name: 'name', value: 'value' }
   let uploadConfig: request.UploadConfig = {
     url: 'http://30.7.242.25:8800',
     header: header,
@@ -32,7 +32,7 @@ public static timelineReceivedResult(path: string): void {
     data: data
   }
 
- <em> // Upload the local application file to the web server.</em>
+  // Upload the local application file to the web server.
   try {
     request.uploadFile(context, uploadConfig)
       .then((uploadTask: request.UploadTask) => {

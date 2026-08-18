@@ -282,7 +282,7 @@ Scroll滚动类型，用于[setScrollable](https://developer.huawei.com/consumer
 | PREFETCH | 11 | 明确的预取请求。 |
 | FAVICON | 12 | 网站图标。 |
 | XHR | 13 | XMLHttpRequest。 |
-| PING | 14 | <a ping>/sendBeacon的Ping请求。 |
+| PING | 14 | &lt;a ping&gt;/sendBeacon的Ping请求。 |
 | SERVICE_WORKER | 15 | service worker的主资源。 |
 | CSP_REPORT | 16 | 内容安全策略违规报告。 |
 | PLUGIN_RESOURCE | 17 | 插件请求的资源。 |

@@ -36,7 +36,7 @@ struct Index {
     Column() {
       Button()
         .onClick(() => {
-          <em>// Create a context based on the module name</em>
+          // Create a context based on the module name
           let moduleName: string = 'library';
           application.createModuleContext(this.context, moduleName)
             .then((data: common.Context) => {
@@ -47,7 +47,7 @@ struct Index {
                 });
               }
 
-              <em>// Then run getStringByNameSync to obtain the string corresponding to the specified resource name</em>
+              // Then run getStringByNameSync to obtain the string corresponding to the specified resource name
               try {
                 let str = data.resourceManager.getStringByNameSync('shared_desc');
                 console.info(`getStringByNameSync, data: ${JSON.stringify(str)}`);

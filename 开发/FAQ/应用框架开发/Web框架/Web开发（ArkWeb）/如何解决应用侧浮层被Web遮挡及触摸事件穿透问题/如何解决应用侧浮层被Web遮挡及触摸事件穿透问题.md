@@ -35,12 +35,12 @@ struct Index {
 
   build() {
     Stack() {
-   <em>   // Web组件作为底层</em>
+      // Web组件作为底层
       Web({ src: 'https://www.example.com', controller: this.controller })
         .width('100%')
         .height('100%')
 
-    <em>  // 应用侧浮层，通过zIndex设置较高的显示层级</em>
+      // 应用侧浮层，通过zIndex设置较高的显示层级
       Column() {
         Text('导航栏')
           .fontSize(20)
@@ -54,7 +54,7 @@ struct Index {
       .height(60)
       .backgroundColor('#FF0000')
       .zIndex(100)
-       <em> // 设置HitTestMode.Block阻塞触摸事件向后续节点传递，防止事件穿透到Web组件</em>
+        // 设置HitTestMode.Block阻塞触摸事件向后续节点传递，防止事件穿透到Web组件
       .hitTestBehavior(HitTestMode.Block)
     }
     .width('100%')
@@ -67,7 +67,7 @@ struct Index {
 
   
 ```text
-<em>// 为应用侧浮层设置HitTestMode.Block，阻塞事件向后续节点传递</em>
+// 为应用侧浮层设置HitTestMode.Block，阻塞事件向后续节点传递
 .hitTestBehavior(HitTestMode.Block)
 ```
 

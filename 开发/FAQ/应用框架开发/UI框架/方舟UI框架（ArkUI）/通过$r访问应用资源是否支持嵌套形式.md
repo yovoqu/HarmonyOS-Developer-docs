@@ -16,7 +16,7 @@ struct Page16 {
     Row() {
       Column() {
         Text($r('app.string.EntryAbility1_label2',
-          this.context.getHostContext()!.resourceManager.getStringSync($r('app.string.EntryAbility_label'))))<em>// path: resources\base\element\string.json</em>
+          this.context.getHostContext()!.resourceManager.getStringSync($r('app.string.EntryAbility_label'))))// path: resources\base\element\string.json
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
       }

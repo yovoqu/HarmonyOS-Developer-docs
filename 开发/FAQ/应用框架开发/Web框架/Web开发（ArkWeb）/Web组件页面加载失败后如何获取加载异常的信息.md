@@ -31,11 +31,11 @@ Web组件加载页面时可能会出现加载异常的情况，此时如何获�
 ```text
 .onErrorReceive((event) => {
   if (event) {
-    <em>// </em><em>部分打印，其他打印可参考onErrorReceive接口</em>
+    // 部分打印，其他打印可参考onErrorReceive接口
     console.info('getErrorInfo:' + event.error.getErrorInfo());
     console.info('getErrorCode:' + event.error.getErrorCode());
     console.info('url:' + event.request.getRequestUrl());
-   <em> // 根据isMainFrame判断是主资源还是子资源报错</em>
+    // 根据isMainFrame判断是主资源还是子资源报错
     console.info('isMainFrame:' + event.request.isMainFrame());
   }
 })
@@ -47,9 +47,9 @@ Web组件加载页面时可能会出现加载异常的情况，此时如何获�
 ```text
 .onHttpErrorReceive((event) => {
   if (event) {
-   <em> // 部分打印，其他打印可参考onHttpErrorReceive接口</em>
+    // 部分打印，其他打印可参考onHttpErrorReceive接口
     console.info('url:' + event.request.getRequestUrl());
-    <em>// </em><em>根据isMainFrame判断是主资源还是子资源报错</em>
+    // 根据isMainFrame判断是主资源还是子资源报错
     console.info('isMainFrame:' + event.request.isMainFrame());
     console.info('getResponseCode:' + event.response.getResponseCode());
     console.info('getReasonMessage:' + event.response.getReasonMessage());
@@ -61,17 +61,17 @@ Web组件加载页面时可能会出现加载异常的情况，此时如何获�
 
   
 ```text
-<em>// </em><em>只加载主资源时通过此方法监听SSL校验错误</em>
+// 只加载主资源时通过此方法监听SSL校验错误
 .onSslErrorEventReceive((event) => {
   if (event) {
     console.error('ssl check failed,error is : ' + event.error.toString());
     event.handler.handleCancel();
   }
 })
- <em> // 加载的资源有主资源和子资源时使用此方法监听SSL校验错误</em>
+  // 加载的资源有主资源和子资源时使用此方法监听SSL校验错误
   .onSslErrorEvent((event: SslErrorEvent) => {
     if (event) {
-      <em>// 根据isMainFrame判断是主资源还是子资源报错</em>
+      // 根据isMainFrame判断是主资源还是子资源报错
       console.info('onSslErrorEvent isMainFrame: ' + event.isMainFrame);
       event.handler.handleCancel();
     }
@@ -92,43 +92,43 @@ struct WebComponent {
 
   build() {
     Column() {
-    <em>  // src可更换为自己业务地址</em>
+      // src可更换为自己业务地址
       Web({ src: 'www.example.com', controller: this.controller })
         .fileAccess(false)
         .geolocationAccess(false)
         .onErrorReceive((event) => {
           if (event) {
-          <em>  // 部分打印，其他打印可参考onErrorReceive接口</em>
+            // 部分打印，其他打印可参考onErrorReceive接口
             console.info('getErrorInfo:' + event.error.getErrorInfo());
             console.info('getErrorCode:' + event.error.getErrorCode());
             console.info('url:' + event.request.getRequestUrl());
-           <em> // 根据isMainFrame判断是主资源还是子资源报错</em>
+            // 根据isMainFrame判断是主资源还是子资源报错
             console.info('isMainFrame:' + event.request.isMainFrame());
           }
         })
 
         .onHttpErrorReceive((event) => {
           if (event) {
-          <em>  // 部分打印，其他打印可参考onHttpErrorReceive接口</em>
+            // 部分打印，其他打印可参考onHttpErrorReceive接口
             console.info('url:' + event.request.getRequestUrl());
-          <em>  // 根据isMainFrame判断是主资源还是子资源报错</em>
+            // 根据isMainFrame判断是主资源还是子资源报错
             console.info('isMainFrame:' + event.request.isMainFrame());
             console.info('getResponseCode:' + event.response.getResponseCode());
             console.info('getReasonMessage:' + event.response.getReasonMessage());
           }
         })
 
-          <em>// 只加载主资源时通过此方法监听SSL校验错误</em>
+          // 只加载主资源时通过此方法监听SSL校验错误
         .onSslErrorEventReceive((event) => {
           if (event) {
             console.error('ssl check failed,error is : ' + event.error.toString());
             event.handler.handleCancel();
           }
         })
-        <em>  // 加载的资源有主资源和子资源时使用此方法监听SSL校验错误</em>
+          // 加载的资源有主资源和子资源时使用此方法监听SSL校验错误
         .onSslErrorEvent((event: SslErrorEvent) => {
           if (event) {
-            <em>// 根据isMainFrame判断是主资源还是子资源报错</em>
+            // 根据isMainFrame判断是主资源还是子资源报错
             console.info('onSslErrorEvent isMainFrame: ' + event.isMainFrame);
             event.handler.handleCancel();
           }

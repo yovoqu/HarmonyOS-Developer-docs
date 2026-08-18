@@ -31,7 +31,7 @@ Swiper相关内容可以参考官方文档[Swiper API](https://developer.huawei.
 可以通过禁用Swiper内置的边缘回弹效果，使用自定义边缘的回弹动作。参考如下代码：
  
 ```ArkTS
-<em>// xxx.ets</em>
+// xxx.ets
 class MyDataSource implements IDataSource {
   private list: number[] = [];
 
@@ -81,7 +81,7 @@ export struct SwiperExample {
             .textAlign(TextAlign.Center)
             .fontSize(30)
             .translate({
-              y: this.traY   <em>// </em><em>偏移设置为捕获到的偏移量</em>
+              y: this.traY   // 偏移设置为捕获到的偏移量
             });
         }, (item: string) => item);
       }
@@ -91,22 +91,22 @@ export struct SwiperExample {
       })
       .loop(false)
       .vertical(true)
-      .effectMode(EdgeEffect.None) <em>// </em><em>禁用内置边缘效果</em>
+      .effectMode(EdgeEffect.None) // 禁用内置边缘效果
       .parallelGesture(
         PanGesture({ direction: PanDirection.Vertical })
           .onActionUpdate((event) => {
-            <em>// </em><em>这里控制滑动距离，第一个往下滑</em>
+            // 这里控制滑动距离，第一个往下滑
             if (this.index == 0 && event.offsetY < 160) {
               this.traY = event.offsetY;
             }
-           <em> // 这里控制滑动距离，最后一个往上滑</em>
+            // 这里控制滑动距离，最后一个往上滑
             if (this.index == this.data.totalCount() - 1 && event.offsetY > -160) {
               this.traY = event.offsetY;
             }
           })
           .onActionEnd(() => {
             animateToImmediately({
-              duration: 100, <em>// </em><em>这里可以控制回弹速度</em>
+              duration: 100, // 这里可以控制回弹速度
               curve: Curve.EaseOut,
               iterations: 1,
               playMode: PlayMode.Normal,

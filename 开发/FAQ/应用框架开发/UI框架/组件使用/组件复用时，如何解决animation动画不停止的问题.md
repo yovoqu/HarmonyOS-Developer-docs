@@ -50,9 +50,9 @@ duration：动画持续时间，单位为毫秒。
 ```text
 .onVisibleAreaChange([0.0, 1.0], (isVisible: boolean) => {
   if (isVisible) {
-    this.duration = 2500; <em>// </em><em>组件从缓存取出复用</em>
+    this.duration = 2500; // 组件从缓存取出复用
   } else {
-    this.duration = 0;<em> </em><em>// 组件放入缓存</em>
+    this.duration = 0; // 组件放入缓存
   }
 });
 ```
@@ -66,7 +66,7 @@ List父组件页面代码：
 @Entry
 @Component
 struct ListRepeatPage {
-  <em>// 复用组件的背景渐变色</em>
+  // 复用组件的背景渐变色
   static readonly colorsGreen: [ResourceColor, number][] = [
     ['#00008A5C', 0.0],
     ['#66008A5C', 1.0]
@@ -78,7 +78,7 @@ struct ListRepeatPage {
   @State list: StockListData = new StockListData([]);
 
   aboutToAppear(): void {
-   <em> // 初始化显示数据</em>
+    // 初始化显示数据
     const list: ItemInfo[] = [];
     for (let i = 0; i < 50; ++i) {
       let stockName = 'item' + i;
@@ -92,7 +92,7 @@ struct ListRepeatPage {
     Column({ space: 10 }) {
       Button('开始').width('100%')
         .onClick(() => {
-         <em> // 前三项渐变色</em>
+          // 前三项渐变色
           for (let i = 0; i < 3; ++i) {
             const bg = this.list.getData(i).bgState;
             this.list.getData(i).bgState = bg === 1 ? 0 : 1;
@@ -150,7 +150,7 @@ struct ItemView {
         duration: this.duration,
         curve: Curve.FastOutLinearIn,
         onFinish: () => {
-         <em> // 绿色渐变结束后，渐变回原来的颜色</em>
+          // 绿色渐变结束后，渐变回原来的颜色
           if (this.linearGradientBgStatus !== this.info.bgState) {
             this.linearGradientBgStatus = this.info.bgState;
           } else {
@@ -164,9 +164,9 @@ struct ItemView {
     }
     .onVisibleAreaChange([0.0, 1.0], (isVisible: boolean) => {
       if (isVisible) {
-        this.duration = 2500;<em> </em><em>// 组件从缓存取出复用</em>
+        this.duration = 2500; // 组件从缓存取出复用
       } else {
-        this.duration = 0; <em>// 组件放入缓存</em>
+        this.duration = 0; // 组件放入缓存
       }
     });
   }

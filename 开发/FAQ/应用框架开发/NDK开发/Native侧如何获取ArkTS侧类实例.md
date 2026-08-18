@@ -7,7 +7,7 @@
 在ArkTS创建一个类并传递给Native侧，Native侧通过napi_call_function接口调用ArkTS侧的类函数。
  
 ```text
-<em>// Declare Demo class</em>
+// Declare Demo class
 class Demo {
   add(a: number, b: number): number {
     return a + b;
@@ -24,7 +24,7 @@ export default new Demo();
 ArkTS侧：
  
 ```text
-<em>// Pass the parameters to the native side</em>
+// Pass the parameters to the native side
 import testNapi from 'libentry.so';
 import demo from './interface/ClassDemo1'
 
@@ -55,7 +55,7 @@ struct Index {
 Native侧：
  
 ```text
-<em>// Get class information and call class functions</em>
+// Get class information and call class functions
 #include "CGetArkTSObject.h" 
 napi_value CGetArkTSObject::Cal(napi_env env, napi_callback_info info) { 
     size_t argc = 4; 
@@ -68,7 +68,7 @@ napi_value CGetArkTSObject::Cal(napi_env env, napi_callback_info info) {
     double value1; 
     napi_get_value_double(env, args[1], &value1); 
  
-  <em>  // Construct class instances</em>
+    // Construct class instances
     napi_value demo; 
     napi_create_object(env, &demo); 
     napi_coerce_to_object(env, args[2], &demo); 
@@ -76,12 +76,12 @@ napi_value CGetArkTSObject::Cal(napi_env env, napi_callback_info info) {
     bool flag; 
     napi_get_value_bool(env, args[3], &flag); 
  
-   <em> // Obtain the add and sub functions of the class instance</em>
+    // Obtain the add and sub functions of the class instance
     napi_value add, sub, num; 
     napi_get_named_property(env, demo, "add", &add); 
     napi_get_named_property(env, demo, "sub", &sub); 
  
-   <em> // Call the ArkTS function</em>
+    // Call the ArkTS function
     napi_value result; 
     if (flag) { 
         napi_call_function(env, nullptr, add, 2, args, &result); 

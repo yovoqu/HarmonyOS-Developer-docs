@@ -16,7 +16,7 @@ export struct GridExample {
   @State numbers: string[] = [];
   scroller: Scroller = new Scroller();
 
-  <em>// Drag and drop process style</em>
+  // Drag and drop process style
   @Builder
   pixelMapBuilder(text: string) {
     Column() {
@@ -35,7 +35,7 @@ export struct GridExample {
     }
   }
 
- <em> // Swap array positions</em>
+  // Swap array positions
   changeIndex(index1: number, index2: number) {
     let temp: string;
     temp = this.numbers[index1];
@@ -58,14 +58,14 @@ export struct GridExample {
       .width('90%')
       .backgroundColor(0xFAEEE0)
       .height(500)
-      .editMode(true) <em>// Set whether the Grid enters editing mode. When entering editing mode, you can drag and drop the GridItem inside the Grid component</em>
-      .onItemDragStart((event: ItemDragInfo, itemIndex: number) => { <em>// 第一次拖拽此事件绑定的组件时，触发回调。</em>
-      <em>  // Set the image displayed during the drag and drop process</em>
+      .editMode(true) // Set whether the Grid enters editing mode. When entering editing mode, you can drag and drop the GridItem inside the Grid component
+      .onItemDragStart((event: ItemDragInfo, itemIndex: number) => { // 第一次拖拽此事件绑定的组件时，触发回调。
+        // Set the image displayed during the drag and drop process
         return this.pixelMapBuilder(this.numbers[itemIndex]);
       })
       .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => {
-        <em>// The component bound to this event can be used as a drag and drop release target. When the drag behavior stops within the scope of this component, a callback is triggered.</em>
-<em>        // When isSuccess=false, it indicates that the drop is located outside the grid; When insertIndex>length, it indicates that an event of adding new elements has occurred</em>
+        // The component bound to this event can be used as a drag and drop release target. When the drag behavior stops within the scope of this component, a callback is triggered.
+        // When isSuccess=false, it indicates that the drop is located outside the grid; When insertIndex>length, it indicates that an event of adding new elements has occurred
         if (!isSuccess || insertIndex >= this.numbers.length) {
           return;
         }

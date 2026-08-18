@@ -21,7 +21,7 @@ struct XComponentSurfaceRenderFit {
   build() {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Start }) {
       XComponent({
-        id: 'myXComponent_RenderFitSurface', <em>// When the string of the id contains "RenderFitSurface", RenderFit can be displayed correctly</em>
+        id: 'myXComponent_RenderFitSurface', // When the string of the id contains "RenderFitSurface", RenderFit can be displayed correctly
         type: XComponentType.SURFACE,
         controller: this.myXComponentController
       })

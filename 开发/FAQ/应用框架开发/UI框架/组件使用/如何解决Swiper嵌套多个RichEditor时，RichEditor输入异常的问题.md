@@ -98,7 +98,7 @@ struct Index {
 ```
  
 ```text
-<em>// 每一个Swiper页面有一个RichEditor组件，所以需要设置相同数量的RichEditorController</em>
+// 每一个Swiper页面有一个RichEditor组件，所以需要设置相同数量的RichEditorController
 aboutToAppear(): void {
   for (let index = 0; index < this.list.length; index++) {
     this.controllerList.push(new RichEditorController());
@@ -116,7 +116,7 @@ struct SwiperInput {
   @State list: string[] = ['', '', ''];
   index: number = 0;
 
-  <em>// 每一个Swiper页面有一个RichEditor组件，所以需要设置相同数量的RichEditorController</em>
+  // 每一个Swiper页面有一个RichEditor组件，所以需要设置相同数量的RichEditorController
   aboutToAppear(): void {
     for (let index = 0; index < this.list.length; index++) {
       this.controllerList.push(new RichEditorController());
@@ -128,10 +128,10 @@ struct SwiperInput {
       Swiper(this.swiperController) {
         ForEach(this.list, (item: string, index: number) => {
           Column() {
-           <em> // ForEach的索引index唯一，每一个RichEditor拥有一个controllerList中专属的RichEditorController</em>
+            // ForEach的索引index唯一，每一个RichEditor拥有一个controllerList中专属的RichEditorController
             RichEditor({ controller: this.controllerList[index] })
               .onReady(() => {
-               <em> // 不同RichEditor采用对应的RichEditorController控制</em>
+                // 不同RichEditor采用对应的RichEditorController控制
                 this.controllerList[index].addImageSpan($r('app.media.startIcon'),
                   {
                     imageStyle: { size: ['57px', '57px'] }

@@ -78,7 +78,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Component
 struct Page {
   @State pixelMap: PixelMap | undefined = undefined;
-  imgUrl: string = 'https://xxx/xxx.jpg'; <em>// 替换在线url图片</em>
+  imgUrl: string = 'https://xxx/xxx.jpg'; // 替换在线url图片
 
   build() {
     Column() {
@@ -88,20 +88,20 @@ struct Page {
           console.error('error:', error.message);
         });
       Button('下载图片').onClick(() => {
-        <em>// 请求头</em>
+        // 请求头
         let header: Record<string, string | number> = {
           'userAgent': 'Mozilla/5.0'
         };
         http.createHttp().request(
-          <em>// 在线图片url</em>
+          // 在线图片url
           this.imgUrl,
-          <em>// 发起请求可选参数的类型和取值范围</em>
+          // 发起请求可选参数的类型和取值范围
           {
             expectDataType: http.HttpDataType.ARRAY_BUFFER,
             header: header
           }
         ).then(async (res) => {
-          <em>// 将图片资源转为像素图（PixelMap）</em>
+          // 将图片资源转为像素图（PixelMap）
           this.pixelMap = await image.createImageSource(res.result as ArrayBuffer).createPixelMap();
         }).catch((err: BusinessError) => {
           console.error(`Failed to request. Code is ${err.code}, message is ${err.message}`);
@@ -123,14 +123,14 @@ import { ImageKnifeComponent, ImageKnifeOption } from '@ohos/imageknife';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { rcp } from '@kit.RemoteCommunicationKit';
 
-<em>// 自定义下载方法</em>
+// 自定义下载方法
 @Concurrent
 async function custom(context: Context, src: string | PixelMap | Resource): Promise<ArrayBuffer | undefined> {
   return new Promise((resolve, reject) => {
     if (typeof src === 'string') {
       const sessionConfig: rcp.SessionConfiguration = {
         headers: {
-          <em>// 添加需要的header'userAgent': 'customAgent',</em>
+          // 添加需要的header'userAgent': 'customAgent',
         },
       };
       const session = rcp.createSession(sessionConfig);
@@ -153,7 +153,7 @@ async function custom(context: Context, src: string | PixelMap | Resource): Prom
 @Component
 struct Index {
   @State optionErr: ImageKnifeOption = {
-    loadSrc: 'https://xxx/xxx.jpg', <em>// 替换在线url图片</em>
+    loadSrc: 'https://xxx/xxx.jpg', // 替换在线url图片
     customGetImage: custom
   };
 

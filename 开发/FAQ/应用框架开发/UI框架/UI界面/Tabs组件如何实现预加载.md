@@ -28,11 +28,11 @@ Tabs的子组件是否可以实现预加载，具体实现方式是什么？
 @ComponentV2
 struct TabsPreLoadDemo {
   @Local tabNames: string[] = ['飞机', '铁路', '自驾', '地铁', '公交', '骑行'];
-  @Local selectedTabIndex: number = 0; <em>// 当前选中标签页的索引值</em>
-  @Local indicatorLeftOffset: number = 0;<em> </em><em>// 指示器左侧偏移量</em>
-  @Local indicatorOffset: number = 0; <em>// 指示器整体偏移量</em>
-  @Local firstWidth: number = -1; <em>// 选中标签宽度</em>
-  @Local otherWidth: number = -1; <em>// 其他标签宽度</em>
+  @Local selectedTabIndex: number = 0; // 当前选中标签页的索引值
+  @Local indicatorLeftOffset: number = 0; // 指示器左侧偏移量
+  @Local indicatorOffset: number = 0; // 指示器整体偏移量
+  @Local firstWidth: number = -1; // 选中标签宽度
+  @Local otherWidth: number = -1; // 其他标签宽度
   @Local swiperController: SwiperController = new SwiperController();
   @Local swiperWidth: number = 0;
 
@@ -53,7 +53,7 @@ struct TabsPreLoadDemo {
         center: { anchor: 'TabBar', align: VerticalAlign.Center }
       });
 
-     <em> // 自定义标签栏</em>
+      // 自定义标签栏
       Row() {
         ForEach(this.tabNames, (name: string, index: number) => {
           Row() {
@@ -73,7 +73,7 @@ struct TabsPreLoadDemo {
           .layoutWeight(this.selectedTabIndex === index ? 1.5 : 1)
           .animation({ duration: 300 })
           .onClick(() => {
-          <em>  // 点击标签栏切换swiper</em>
+            // 点击标签栏切换swiper
             this.selectedTabIndex = index;
             this.swiperController.changeIndex(index, false);
             this.getUIContext().animateTo({ duration: 500, curve: Curve.LinearOutSlowIn }, () => {
@@ -86,7 +86,7 @@ struct TabsPreLoadDemo {
       .height(30)
       .id('TabBar')
       .onAreaChange((_: Area, newValue: Area) => {
-   <em>     // 设置被选中标签宽度和其它标签宽度</em>
+        // 设置被选中标签宽度和其它标签宽度
         let tabBarWidth = newValue.width.valueOf() as number;
         this.firstWidth = 1.5 * tabBarWidth / (this.tabNames.length + 0.5);
         this.otherWidth = tabBarWidth / (this.tabNames.length + 0.5);
@@ -104,9 +104,9 @@ struct TabsPreLoadDemo {
           .width('100%');
         });
       }
-      .cachedCount(3)<em> </em><em>// 设置预加载，即当前页面前后各3个组件均会被加载</em>
+      .cachedCount(3) // 设置预加载，即当前页面前后各3个组件均会被加载
       .onAnimationStart((index: number, targetIndex: number) => {
-     <em>   // 控制指示器同步效果</em>
+        // 控制指示器同步效果
         if (targetIndex > index) {
           this.indicatorLeftOffset += this.otherWidth;
         } else if (targetIndex < index) {
@@ -119,7 +119,7 @@ struct TabsPreLoadDemo {
         this.indicatorOffset = 0;
       })
       .onGestureSwipe((_: number, extraInfo: SwiperAnimationEvent) => {
-     <em>   // 控制边界项的滑动</em>
+        // 控制边界项的滑动
         let move: number = this.getOffset(extraInfo.currentOffset);
         if ((this.selectedTabIndex === 0 && extraInfo.currentOffset > 0) ||
           (this.selectedTabIndex === this.tabNames.length - 1 && extraInfo.currentOffset < 0)) {
@@ -146,7 +146,7 @@ struct TabsPreLoadDemo {
     .padding(10);
   }
 
-<em>  // 计算偏移量的方法（根据Swiper滑动偏移量计算标签指示器位置）</em>
+  // 计算偏移量的方法（根据Swiper滑动偏移量计算标签指示器位置）
   getOffset(swiperOffset: number): number {
     let swiperMoveRatio: number = Math.abs(swiperOffset / this.swiperWidth);
     let tabMoveValue: number = swiperMoveRatio >= 1 ? this.otherWidth : this.otherWidth * swiperMoveRatio;

@@ -92,10 +92,10 @@ const sonObj: string = `[
 @Entry
 @Component
 struct SceneOneOptionTwo {
-  @State sonArr: Son[] = JSON.parse(sonObj) as Son[]; <em>// 未通过new的方式构造实例</em>
+  @State sonArr: Son[] = JSON.parse(sonObj) as Son[]; // 未通过new的方式构造实例
 
   aboutToAppear(): void {
-    <em>// makeV1Observed不会递归执行，仅会将第一层包装成V1的状态变量，需要手动递归。</em>
+    // makeV1Observed不会递归执行，仅会将第一层包装成V1的状态变量，需要手动递归。
     for (let i = 0; i < this.sonArr.length; i++) {
       this.sonArr[i] = UIUtils.makeV1Observed(this.sonArr[i]);
       this.sonArr[i].father = UIUtils.makeV1Observed(this.sonArr[i].father);
@@ -177,16 +177,16 @@ export class StockViewModel {
   @Trace name: string = '';
   @Trace code: string = '';
 
-  <em>/* 一次性批量更新，避免多次触发 */</em>
+  /* 一次性批量更新，避免多次触发 */
   updateFrom(data: StockData) {
     this.name = data.name;
     this.code = data.code;
   }
 
-  <em>/*监听多个字段变化 */</em>
+  /*监听多个字段变化 */
   @Monitor('name', 'code')
   onStockChanged() {
-    console.info(`股票变更: ${this.name} ${this.code}`); <em>// 这里可以触发额外业务逻辑，比如重新请求详情接口</em>
+    console.info(`股票变更: ${this.name} ${this.code}`); // 这里可以触发额外业务逻辑，比如重新请求详情接口
   }
 }
 
@@ -200,7 +200,7 @@ struct SceneTwoOptionTwo {
       Text(`方案一：${this.view1.name}`);
       Button('Sendable对象更新到ObservedV2对象上')
         .onClick(() => {
-          <em>// 直接改即可，响应式照常工作</em>
+          // 直接改即可，响应式照常工作
           this.view1.updateFrom(new StockData('HK', '00700'));
         });
       Button('修改ObservedV2对象刷新UI')

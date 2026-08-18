@@ -51,7 +51,7 @@ struct SwiperDeletesDataToPreviousElementOne {
             .fontSize(30);
         }, (item: string) => item);
       }
-      .index($$this.index) <em>// </em><em>绑定索引状态变量</em>
+      .index($$this.index) // 绑定索引状态变量
       .indicator(Indicator.digit()
         .top(200)
         .fontColor(Color.Gray)
@@ -65,11 +65,11 @@ struct SwiperDeletesDataToPreviousElementOne {
       Row({ space: 10 }) {
         Button('Add').onClick(() => {
           this.data.push(++this.total);
-          this.index = this.total; <em>// 修改索引，触发UI更新</em>
+          this.index = this.total; // 修改索引，触发UI更新
         });
         Button('Remove').onClick(() => {
           this.data.pop();
-          this.index -= 1; <em>// </em><em>修改索引，触发UI更新</em>
+          this.index -= 1; // 修改索引，触发UI更新
         });
       };
     }
@@ -115,7 +115,7 @@ struct SwiperDeletesDataToPreviousElementTwo {
             .fontSize(30);
         }, (item: string) => item);
       }
-      .index($$this.index)<em> </em><em>// 绑定索引状态变量</em>
+      .index($$this.index) // 绑定索引状态变量
       .indicator(Indicator.digit()
         .top(200)
         .fontColor(Color.Gray)

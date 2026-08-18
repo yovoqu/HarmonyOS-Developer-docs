@@ -31,10 +31,10 @@ import { ConfigurationConstant } from '@kit.AbilityKit';
 @Component
 struct ToggleExample {
   @State isOn: boolean = false;
-  <em>// 背景颜色，通过内容中添加style样式，内容添加背景颜色或者其他样式信息</em>
+  // 背景颜色，通过内容中添加style样式，内容添加背景颜色或者其他样式信息
   richBgContent: string =
     '<style>*{ background-color: blue;width:100%;padding:0;font-size:50px}</style>';
-  <em>// 文字内容</em>
+  // 文字内容
   richContent: string =
     '<p style="background-color: blue">温馨提示：<br/>' +
       '这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字，仅供参考。</p>';
@@ -51,7 +51,7 @@ struct ToggleExample {
         Toggle({ type: ToggleType.Switch, isOn: this.isOn })
           .onChange(() => {
             this.isOn = !this.isOn;
-            <em>// 切换深浅色主题</em>
+            // 切换深浅色主题
             let context = this.getUIContext().getHostContext()?.getApplicationContext();
             if (context) {
               context.setColorMode(this.isOn ? ConfigurationConstant.ColorMode.COLOR_MODE_DARK :

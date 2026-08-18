@@ -14,7 +14,7 @@
 struct ImageRotationProblem {
   build() {
     Column() {
-     <em> // 运行时请按需替换图片资源</em>
+      // 运行时请按需替换图片资源
       Image($r('app.media.startIcon'));
     };
   }
@@ -74,7 +74,7 @@ struct ImageRotationProblem {
 struct ImageRotationOne {
   build() {
     Column() {
-    <em>  // 运行时请按需替换图片资源</em>
+      // 运行时请按需替换图片资源
       Image($r('app.media.startIcon'))
         .rotate({ angle: 90 });
     };
@@ -89,13 +89,13 @@ struct ImageRotationOne {
 
   利用orientation属性，[设置图像内容的显示方向](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#示例21设置图像内容的显示方向)。如果需要显示携带旋转角度信息或翻转信息的图片建议使用ImageRotateOrientation.AUTO进行设置。
 ```text
-<em>// 运行时请按需替换图片资源</em>
+// 运行时请按需替换图片资源
 @Entry
 @Component
 struct ImageRotationTwo {
   build() {
     Column() {
-     <em> // 运行时请按需替换图片资源</em>
+      // 运行时请按需替换图片资源
       Image($r('app.media.startIcon'))
         .orientation(ImageRotateOrientation.AUTO);
     };

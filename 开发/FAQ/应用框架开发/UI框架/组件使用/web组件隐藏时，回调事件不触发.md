@@ -52,7 +52,7 @@ import webview from '@ohos.web.webview';
 @Entry
 @Component
 struct Index {
-<em>  // 开发者需根据自身需求填写网址</em>
+  // 开发者需根据自身需求填写网址
   @State webSrc: string = 'xxx';
   @State webController: WebviewController = new webview.WebviewController();
 
@@ -63,7 +63,7 @@ struct Index {
         .onPageBegin(() => {
           console.info(`into onPageBegin (web Hidden)`);
         })
-    <em>    // 按照示例代码，开发者需要隐藏，因此设置为Visibility.Hidden</em>
+        // 按照示例代码，开发者需要隐藏，因此设置为Visibility.Hidden
         .visibility(Visibility.Hidden)
         .geolocationAccess(false)
         .fileAccess(false);

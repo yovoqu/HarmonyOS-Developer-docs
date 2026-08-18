@@ -47,7 +47,7 @@ struct Index {
         .margin({ top: 10 })
         .onClick(() => {
           this.arrData = [];
-       <em>   // 未改变label值，UI未刷新</em>
+          // 未改变label值，UI未刷新
           this.arrData =
             [new TestClass('label1', 'value11'), new TestClass('label2', 'value21'),
               new TestClass('label3', 'value631')];
@@ -58,7 +58,7 @@ struct Index {
         .margin({ top: 10 })
         .onClick(() => {
           this.arrData = [];
-        <em>  // 改变了label值，UI刷新</em>
+          // 改变了label值，UI刷新
           this.arrData =
             [new TestClass('label4', 'value12'), new TestClass('label5', 'value22'),
               new TestClass('label6', 'value32')];
@@ -86,7 +86,7 @@ struct ListTestPage {
   @State testArray: Array<TestItem> = [];
 
 
-  <em>// 删除数组项</em>
+  // 删除数组项
   changeArray(testArray: Array<TestItem>, index: number): Array<TestItem> {
     if (testArray.length <= 0 || index < 0 || index >= testArray.length) {
       return testArray;
@@ -114,7 +114,7 @@ struct ListTestPage {
       .margin({ top: 30 });
 
 
-    <em>  // 添加按钮</em>
+      // 添加按钮
       Row() {
         Button('添加列表数量');
       }
@@ -143,7 +143,7 @@ struct ListTestPage {
         .onChange((value: string) => {
           itemBean.content = value;
         })
-        .defaultFocus(false); <em>// 弹出软键盘</em>
+        .defaultFocus(false); // 弹出软键盘
       Text('删除')
         .visibility(index >= 2 ? Visibility.Visible : Visibility.None)
         .onClick(() => {
@@ -249,7 +249,7 @@ struct S_20250318164735110531 {
         .margin({ top: 10 })
         .onClick(() => {
           this.arrData = [];
-      <em>    // 未改变label值，UI未刷新</em>
+          // 未改变label值，UI未刷新
           this.arrData =
             [new TestClass('label1', 'value11'), new TestClass('label2', 'value21'),
               new TestClass('label3', 'value631')];
@@ -260,7 +260,7 @@ struct S_20250318164735110531 {
         .margin({ top: 10 })
         .onClick(() => {
           this.arrData = [];
-        <em>  // 改变了label值，UI刷新</em>
+          // 改变了label值，UI刷新
           this.arrData =
             [new TestClass('label4', 'value12'), new TestClass('label5', 'value22'),
               new TestClass('label6', 'value32')];
@@ -282,7 +282,7 @@ class TestItemOne {
 
 
   constructor(id: number) {
- <em>   // 构造时传入不同的id</em>
+    // 构造时传入不同的id
     this.id = id;
   }
 }
@@ -294,7 +294,7 @@ struct OptionOne {
   @State testArray: Array<TestItemOne> = [];
 
 
-<em>  // 删除数组项</em>
+  // 删除数组项
   changeArray(testArray: Array<TestItemOne>, index: number): Array<TestItemOne> {
     if (testArray.length <= 0 || index < 0 || index >= testArray.length) {
       return testArray;
@@ -322,7 +322,7 @@ struct OptionOne {
       .margin({ top: 30 });
 
 
-    <em>  // 添加按钮</em>
+      // 添加按钮
       Row() {
         Button('添加列表数量');
       }
@@ -330,7 +330,7 @@ struct OptionOne {
       .borderRadius(4)
       .alignItems(VerticalAlign.Center)
       .onClick(() => {
-       <em> // 构造时传入不同的id，此处以数组的长度作为数组最后一项的id，从而保证每个对象的id都不一致，从而刷新ForEach</em>
+        // 构造时传入不同的id，此处以数组的长度作为数组最后一项的id，从而保证每个对象的id都不一致，从而刷新ForEach
         this.testArray.push(new TestItemOne(this.testArray.length));
       });
     }

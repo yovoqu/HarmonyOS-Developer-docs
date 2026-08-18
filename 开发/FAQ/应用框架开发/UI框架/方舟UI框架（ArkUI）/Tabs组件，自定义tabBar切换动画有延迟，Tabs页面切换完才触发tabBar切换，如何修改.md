@@ -41,7 +41,7 @@ struct TabsDemo {
     Column() {
       Tabs({ barPosition: BarPosition.Start, index: this.currentIndex, controller: this.controller }) {
         ForEach(this.tabArray,(item: number, index:number) => {
-        <em>  // The system has its own tab.</em>
+          // The system has its own tab.
           TabContent() {
             Text('我的内容' + item)
               .fontSize(30)
@@ -50,14 +50,14 @@ struct TabsDemo {
         })
       }
       .onChange((index: number) => {
-    <em>    // CurrentIndex Control TabContent Display Tab.</em>
+        // CurrentIndex Control TabContent Display Tab.
         this.currentIndex = index;
       })
       .onAnimationStart((index: number, targetIndex: number, event: TabsAnimationEvent) => {
         if(index === targetIndex) {
           return;
         }
-       <em> // SelectedIndex controls the color switching between Image and Text in the custom TabBar.</em>
+        // SelectedIndex controls the color switching between Image and Text in the custom TabBar.
         this.selectedIndex = targetIndex;
       })
     }

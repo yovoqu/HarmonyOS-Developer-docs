@@ -91,7 +91,7 @@ struct WebRefreshDemo {
     <div>
 ![](./errorImg.png)
 </div>
-    <div><span class="refresh-text">当前无网络连接，请点击空白处刷新页面</span></div>
+    <div>当前无网络连接，请点击空白处刷新页面</div>
 </div>
 </body>
 </html>

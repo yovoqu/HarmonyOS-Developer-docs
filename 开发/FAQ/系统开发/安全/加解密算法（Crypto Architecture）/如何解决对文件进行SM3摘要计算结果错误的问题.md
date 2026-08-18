@@ -17,19 +17,19 @@ import { buffer } from '@kit.ArkTS';
 import { fileIo as fs } from '@kit.CoreFileKit';
 
 
-<em>/**</em>
-<em> * 计算文件SM3</em>
-<em> * @param filePath 文件路径</em>
-<em> * @returns string 摘要数据</em>
-<em> */</em>
+/**
+ * 计算文件SM3
+ * @param filePath 文件路径
+ * @returns string 摘要数据
+ */
 function fileSM3(filePath: string): string {
   if (!fs.accessSync(filePath)) {
-   <em> // 如果文件不存在，则返回空字符</em>
+    // 如果文件不存在，则返回空字符
     return ''
   }
-  <em>// 定义摘要类型</em>
+  // 定义摘要类型
   let md = cryptoFramework.createMd('SM3')
-<em>  // 打开文件</em>
+  // 打开文件
   let file = fs.openSync(filePath, fs.OpenMode.READ_ONLY)
   let fileBufferSize = 4096
   let readSize = 0
@@ -40,7 +40,7 @@ function fileSM3(filePath: string): string {
   }
   let readLength = fs.readSync(file.fd, fileBuffer, readOptions)
   while (readLength > 0) {
-  <em>  // 更新摘要数据</em>
+    // 更新摘要数据
     md.updateSync({
       data: new Uint8Array(fileBuffer)
     });
@@ -48,7 +48,7 @@ function fileSM3(filePath: string): string {
     readOptions.offset = readSize;
     readLength = fs.readSync(file.fd, fileBuffer, readOptions);
   }
-<em>  // 计算摘要数据</em>
+  // 计算摘要数据
   let mdResult = md.digestSync()
   return buffer.from(mdResult.data).toString('hex')
 }
@@ -113,19 +113,19 @@ import { fileIo as fs } from '@kit.CoreFileKit';
 import { common } from '@kit.AbilityKit';
 
 
-<em>/**</em>
-<em> * 计算文件SM3</em>
-<em> * @param filePath 文件路径</em>
-<em> * @returns string 摘要数据</em>
-<em> */</em>
+/**
+ * 计算文件SM3
+ * @param filePath 文件路径
+ * @returns string 摘要数据
+ */
 function fileSM3(filePath: string): string {
   if (!fs.accessSync(filePath)) {
- <em>   // 如果文件不存在，则返回空字符</em>
+    // 如果文件不存在，则返回空字符
     return '';
   }
-<em>  // 定义摘要类型</em>
+  // 定义摘要类型
   let md = cryptoFramework.createMd('SM3');
-  <em>// 打开文件</em>
+  // 打开文件
   let file = fs.openSync(filePath, fs.OpenMode.READ_ONLY);
   let fileBufferSize = 4096;
   let readSize = 0;
@@ -136,7 +136,7 @@ function fileSM3(filePath: string): string {
   };
   let readLength = fs.readSync(file.fd, fileBuffer, readOptions);
   while (readLength > 0) {
-   <em> // 更新摘要数据</em>
+    // 更新摘要数据
     md.updateSync({
       data: new Uint8Array(fileBuffer.slice(0, readLength))
     });
@@ -144,7 +144,7 @@ function fileSM3(filePath: string): string {
     readOptions.offset = readSize;
     readLength = fs.readSync(file.fd, fileBuffer, readOptions);
   }
-  <em>// 计算摘要数据</em>
+  // 计算摘要数据
   let mdResult = md.digestSync();
   return buffer.from(mdResult.data).toString('hex');
 }
@@ -155,12 +155,12 @@ function fileSM3(filePath: string): string {
 可以在rawfile同级目录下创建resfile目录，将测试文件放入resfile目录下，通过上下文获取文件目录，示例代码如下：
  
 ```text
-<em>// 获取上下文</em>
+// 获取上下文
 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 let resourceDir = context.resourceDir;
-<em>/*demoTest.docx是resources/resfile中文件的名称</em>
-<em>此时resourceDirTest就能拿到resfile文件夹文件的路径</em>
-<em>沙箱路径日志为/data/storage/el1/bundle/entry/resources/resfile/demoTest.docx*/</em>
+/*demoTest.docx是resources/resfile中文件的名称
+此时resourceDirTest就能拿到resfile文件夹文件的路径
+沙箱路径日志为/data/storage/el1/bundle/entry/resources/resfile/demoTest.docx*/
 let resourceDirTest = resourceDir + '/demoTest.docx';
 console.info(fileSM3(resourceDirTest));
 ```
@@ -175,19 +175,19 @@ import { fileIo as fs } from '@kit.CoreFileKit';
 import { common } from '@kit.AbilityKit';
 
 
-<em>/**</em>
-<em> * 计算文件SM3</em>
-<em> * @param filePath 文件路径</em>
-<em> * @returns string 摘要数据</em>
-<em> */</em>
+/**
+ * 计算文件SM3
+ * @param filePath 文件路径
+ * @returns string 摘要数据
+ */
 function fileSM3(filePath: string): string {
   if (!fs.accessSync(filePath)) {
-    <em>// 如果文件不存在，则返回空字符</em>
+    // 如果文件不存在，则返回空字符
     return '';
   }
-<em>  // 定义摘要类型</em>
+  // 定义摘要类型
   let md = cryptoFramework.createMd('SM3');
- <em> // 打开文件</em>
+  // 打开文件
   let file = fs.openSync(filePath, fs.OpenMode.READ_ONLY);
   let fileBufferSize = 4096;
   let readSize = 0;
@@ -198,7 +198,7 @@ function fileSM3(filePath: string): string {
   };
   let readLength = fs.readSync(file.fd, fileBuffer, readOptions);
   while (readLength > 0) {
-   <em> // 更新摘要数据</em>
+    // 更新摘要数据
     md.updateSync({
       data: new Uint8Array(fileBuffer.slice(0, readLength))
     });
@@ -206,7 +206,7 @@ function fileSM3(filePath: string): string {
     readOptions.offset = readSize;
     readLength = fs.readSync(file.fd, fileBuffer, readOptions);
   }
- <em> // 计算摘要数据</em>
+  // 计算摘要数据
   let mdResult = md.digestSync();
   return buffer.from(mdResult.data).toString('hex');
 }
@@ -227,12 +227,12 @@ struct Index {
           middle: { anchor: '__container__', align: HorizontalAlign.Center }
         })
         .onClick(() => {
-       <em>   // 获取上下文</em>
+          // 获取上下文
           let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
           let resourceDir = context.resourceDir;
-        <em>  /*demoTest.docx是resources/resfile中文件的名称</em>
-<em>          此时resourceDirTest就能拿到resfile文件夹文件的路径</em>
-<em>          沙箱路径日志为/data/storage/el1/bundle/entry/resources/resfile/demoTest.docx*/</em>
+          /*demoTest.docx是resources/resfile中文件的名称
+          此时resourceDirTest就能拿到resfile文件夹文件的路径
+          沙箱路径日志为/data/storage/el1/bundle/entry/resources/resfile/demoTest.docx*/
           let resourceDirTest = resourceDir + '/demoTest.docx';
           console.info(fileSM3(resourceDirTest));
         });

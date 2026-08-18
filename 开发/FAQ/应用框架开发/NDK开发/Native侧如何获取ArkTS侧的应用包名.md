@@ -24,13 +24,13 @@ Native代码可以使用Native Bundle接口获取应用的包名和appId等信�
  
 napi_value CGetAppPackageName::GetCurrentApplicationPackageName(napi_env env, napi_callback_info info) 
 { 
-   <em> // Call the Native interface to obtain application information </em>
+    // Call the Native interface to obtain application information 
     OH_NativeBundle_ApplicationInfo nativeApplicationInfo = OH_NativeBundle_GetCurrentApplicationInfo(); 
-   <em> // Convert the application package name obtained by the Native interface to the bundleName property in the JS object </em>
+    // Convert the application package name obtained by the Native interface to the bundleName property in the JS object 
     napi_value bundleName; 
     napi_create_string_utf8(env, nativeApplicationInfo.bundleName, NAPI_AUTO_LENGTH, &bundleName); 
     OH_LOG_INFO(LOG_APP, "napi get application package name： %{public}s", nativeApplicationInfo.bundleName); 
-   <em> // Finally, to prevent memory leaks, manually release</em>
+    // Finally, to prevent memory leaks, manually release
     free(nativeApplicationInfo.bundleName); 
     return nullptr; 
 }

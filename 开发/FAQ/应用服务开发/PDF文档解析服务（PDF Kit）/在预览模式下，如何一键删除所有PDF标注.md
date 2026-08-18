@@ -38,7 +38,7 @@ import { fileIo } from '@kit.CoreFileKit';
 import { pdfViewManager, pdfService, PdfView } from '@kit.PDFKit';
 import { common } from '@kit.AbilityKit';
 
-<em>// 循环添加删除批注</em>
+// 循环添加删除批注
 @Entry
 @Component
 struct delAnnotation {
@@ -63,13 +63,13 @@ struct delAnnotation {
   }
 
   aboutToAppear(): void {
-  <em>  // 获取沙箱目录</em>
+    // 获取沙箱目录
     let dir: string = this.context.filesDir;
-    let filePath: string = dir + '/test.pdf'; <em>// 需要在工程目录src/main/resources/rawfile里添加pdf文档，本例取名为test.pdf，请按实际修改</em>
+    let filePath: string = dir + '/test.pdf'; // 需要在工程目录src/main/resources/rawfile里添加pdf文档，本例取名为test.pdf，请按实际修改
     try {
       let res = fileIo.accessSync(filePath);
       if (!res) {
-      <em>  // 需要在工程目录src/main/resources/rawfile里添加pdf文档，本例取名为test.pdf，请按实际修改</em>
+        // 需要在工程目录src/main/resources/rawfile里添加pdf文档，本例取名为test.pdf，请按实际修改
         let content: Uint8Array = this.context.resourceManager.getRawFileContentSync('test.pdf');
         let fdSand =
           fileIo.openSync(filePath, fileIo.OpenMode.WRITE_ONLY | fileIo.OpenMode.CREATE | fileIo.OpenMode.TRUNC);
@@ -80,12 +80,12 @@ struct delAnnotation {
       console.error('pdf file access error' + error.message);
     }
 
-  <em>  // 获取原始pdf批注数量，后续删除自己添加的批注，从此索引开始</em>
+    // 获取原始pdf批注数量，后续删除自己添加的批注，从此索引开始
     let loadResult = this.pdfDocument.loadDocument(filePath);
     if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
       let pageCount: number = this.pdfDocument.getPageCount();
       for (let pageIndex = 0; pageIndex < pageCount; pageIndex++) {
-     <em>   // 初始化手动标注数量</em>
+        // 初始化手动标注数量
         this.manualAnnNumRecord[pageIndex] = 0;
         let page: pdfService.PdfPage = this.pdfDocument.getPage(pageIndex);
         let annotations: Array<pdfService.PdfAnnotation> = page.getAnnotations();
@@ -99,21 +99,21 @@ struct delAnnotation {
     }
 
     (async () => {
-    <em>  // 该监听方法只能在文档加载前调用一次</em>
+      // 该监听方法只能在文档加载前调用一次
       this.controller.registerPageCountChangedListener((pageCount: number) => {
         console.info('page count is %s', pageCount.toString());
       });
       let loadResult: pdfService.ParseResult = await this.controller.loadDocument(filePath);
-   <em>   // 注意：这里刚加载文档，请不要在这里立即设置PDF文档的预览方式</em>
+      // 注意：这里刚加载文档，请不要在这里立即设置PDF文档的预览方式
       if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
-   <em>     // 添加删除线批注</em>
+        // 添加删除线批注
         this.controller.enableAnnotation(pdfViewManager.SupportedAnnotationType.STRIKETHROUGH, 0xFFFF0000);
       }
     })();
- <em>   // 注册监听批注事件</em>
+    // 注册监听批注事件
     this.controller.registerAnnotationChangedListener((annotationChange: pdfViewManager.AnnotationChangedParam) => {
       if (annotationChange.controlType === 0) {
-      <em>  // ADD-0, MOD-1, DEL-2</em>
+        // ADD-0, MOD-1, DEL-2
         for (let i = 0; i < annotationChange.pageIndexArray.length; i++) {
           this.manualAnnNumRecord[annotationChange.pageIndexArray[i]]++;
           console.info('annotationChange, pageIndex is %d, manualAnnNumRecord is %d',
@@ -122,7 +122,7 @@ struct delAnnotation {
       }
       console.info('annotation controlType is %s', this.annotationControlType[annotationChange.controlType]);
     });
-  <em>  // 监听选中的批注信息</em>
+    // 监听选中的批注信息
     this.controller.registerAnnotationSelectedListener((annot: pdfViewManager.SelectedAnnotation | undefined) => {
       console.info('annotation index %d, page index %d', annot?.annotationIndex, annot?.pageIndex);
     });
@@ -130,7 +130,7 @@ struct delAnnotation {
 
   build() {
     Column() {
-  <em>    // 加载PdfView组件进行预览</em>
+      // 加载PdfView组件进行预览
       PdfView({
         controller: this.controller,
         pageFit: pdfService.PageFit.FIT_WIDTH,
@@ -147,14 +147,14 @@ struct delAnnotation {
       .padding(5)
       .margin(5)
       .onClick(() => {
-        this.delAllAnn(); <em>// 删除新增的所有批注</em>
+        this.delAllAnn(); // 删除新增的所有批注
       })
 
-    <em>  // 点击后调用saveDocument保存修改后的PDF，记录日志。</em>
+      // 点击后调用saveDocument保存修改后的PDF，记录日志。
       Button('保存文件')
         .onClick(async () => {
           let dir: string = this.context.filesDir;
-          let savePath = dir + '/test.pdf'; <em>// 需要在工程目录src/main/resources/rawfile里添加pdf文档，本例取名为test.pdf，请按实际修改</em>
+          let savePath = dir + '/test.pdf'; // 需要在工程目录src/main/resources/rawfile里添加pdf文档，本例取名为test.pdf，请按实际修改
           let result: number = await this.controller.saveDocument(savePath);
           console.info('savePdfDocument %s!', result ? 'success' : 'fail');
         })

@@ -207,11 +207,11 @@ struct PermissionPage {
 struct Page {
   @Consume('pageInfo') pageInfo: NavPathStack;
 
- <em> // 检查权限</em>
+  // 检查权限
   async checkPermissionGrant(permission: Permissions): Promise<abilityAccessCtrl.GrantStatus> {
     let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
     let grantStatus: abilityAccessCtrl.GrantStatus = abilityAccessCtrl.GrantStatus.PERMISSION_DENIED;
-  <em>  // 获取应用程序的accessTokenID。</em>
+    // 获取应用程序的accessTokenID。
     let tokenId: number = 0;
     try {
       let bundleInfo: bundleManager.BundleInfo =
@@ -222,7 +222,7 @@ struct Page {
       const err: BusinessError = error as BusinessError;
       console.error(`Failed to get bundle info for self, code: ${err.code}, message: ${err.message}`);
     }
-   <em> // 校验应用是否被授予权限。</em>
+    // 校验应用是否被授予权限。
     try {
       grantStatus = await atManager.checkAccessToken(tokenId, permission);
     } catch (error) {
@@ -232,24 +232,24 @@ struct Page {
     return grantStatus;
   }
 
- <em> // 检查位置定位权限，若未授权则开启二次授权</em>
+  // 检查位置定位权限，若未授权则开启二次授权
   async checkPermissions(): Promise<void> {
-  <em>  // 获取精确定位权限状态。</em>
+    // 获取精确定位权限状态。
     let grantStatus1: boolean =
       await this.checkPermissionGrant('ohos.permission.LOCATION') === abilityAccessCtrl.GrantStatus.PERMISSION_GRANTED;
- <em>   // 获取模糊定位权限状态。</em>
+    // 获取模糊定位权限状态。
     let grantStatus2: boolean = await this.checkPermissionGrant('ohos.permission.APPROXIMATELY_LOCATION') ===
       abilityAccessCtrl.GrantStatus.PERMISSION_GRANTED;
-  <em>  // 精确定位、模糊定位均授权</em>
+    // 精确定位、模糊定位均授权
     if (grantStatus1 && grantStatus2) {
       promptAction.openToast({ message: '用户已授权' });
     } else {
-   <em>   // 进行二次授权</em>
+      // 进行二次授权
       await this.requestPermissionSecond();
     }
   }
 
- <em> // 申请权限</em>
+  // 申请权限
   async requestPermission(): Promise<void> {
     let context: Context = this.getUIContext().getHostContext() as common.UIAbilityContext;
     let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
@@ -271,7 +271,7 @@ struct Page {
       });
   }
 
-<em>  // 二次授权</em>
+  // 二次授权
   async requestPermissionSecond(): Promise<void> {
     let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
     let context: Context = this.getUIContext().getHostContext() as common.UIAbilityContext;

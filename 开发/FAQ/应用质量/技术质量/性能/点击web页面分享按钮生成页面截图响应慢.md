@@ -112,7 +112,7 @@ import { BusinessError } from '@ohos.base';
 @Concurrent
 async function generalScreenShot(): Promise<PixelMap | undefined> {
   let pixelMap : PixelMap | undefined = undefined;
- <em> // 耗时操作模拟生成截图</em>
+  // 耗时操作模拟生成截图
   for (let i = 0; i < 100000; i++) {
     console.info(`number:${i}`);
   }
@@ -132,7 +132,7 @@ struct DemoPage {
           this.isLoading = true;
           taskpool.execute(generalScreenShot).then(() => {
             this.isLoading = false;
-          <em>  // 显示分享界面</em>
+            // 显示分享界面
           }).catch((error: BusinessError) => {
             console.error(`Failed to execute task: errCode is ${error.code}, errMessage is ${error.message}`);
           });

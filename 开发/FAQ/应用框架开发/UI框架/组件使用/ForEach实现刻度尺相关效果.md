@@ -43,34 +43,34 @@ import { display, window } from '@kit.ArkUI';
 @Entry
 @Component
 struct RulerComponent {
-  @State cellWidthInPixels: number = 0; <em>// 屏幕上1mm对应的像素值px</em>
-  textWidth: number = 80;<em> // 文本的宽度px</em>
-  @State rulerLines: RulerLine[] = [];<em> // 尺子每个刻度的索引对应的高度</em>
+  @State cellWidthInPixels: number = 0; // 屏幕上1mm对应的像素值px
+  textWidth: number = 80; // 文本的宽度px
+  @State rulerLines: RulerLine[] = []; // 尺子每个刻度的索引对应的高度
 
   aboutToAppear(): void {
     window.getLastWindow(this.getUIContext()?.getHostContext()).then((windowClass) => {
       windowClass.setPreferredOrientation(window.Orientation.LANDSCAPE);
     });
-    this.cellWidthInPixels = display.getDefaultDisplaySync().yDPI / 25.4; <em>// 计算当前屏幕上每毫米对应的像素值px</em>
+    this.cellWidthInPixels = display.getDefaultDisplaySync().yDPI / 25.4; // 计算当前屏幕上每毫米对应的像素值px
     for (let i = 0; i <= 15 * 10; i++) {
       let lineHeight: number = (i % 10 === 0) ? 90 : (i % 5 === 0) ? 60 : 45;
-      this.rulerLines.push(new RulerLine(i, lineHeight)); <em>// 初始化直尺每个刻度高</em>
+      this.rulerLines.push(new RulerLine(i, lineHeight)); // 初始化直尺每个刻度高
     }
   }
 
   build() {
     Column() {
       Stack() {
-      <em>  // 遍历直尺线数组</em>
+        // 遍历直尺线数组
         ForEach(this.rulerLines, (line: RulerLine, index: number) => {
-         <em> // 生成直尺的刻度</em>
+          // 生成直尺的刻度
           Line()
             .width(1)
             .height(`${line.height}px`)
             .backgroundColor(Color.Black)
             .margin({ left: `${this.cellWidthInPixels * index}px` })
             .stroke(Color.Black);
-        <em>  // 生成刻度值数字</em>
+          // 生成刻度值数字
           Text(line.showNumber())
             .fontColor(Color.Black)
             .fontSize(18)
@@ -93,17 +93,17 @@ struct RulerComponent {
   }
 }
 
-<em>// 直尺线类</em>
+// 直尺线类
 class RulerLine {
-  index: number; <em>// 刻度索引</em>
-  height: number; <em>// 当前刻度的高度</em>
+  index: number; // 刻度索引
+  height: number; // 当前刻度的高度
 
   constructor(index: number, height: number) {
     this.index = index;
     this.height = height;
   }
 
- <em> // 10的倍数展示刻度值</em>
+  // 10的倍数展示刻度值
   showNumber(): string {
     return this.index % 10 === 0 ? `${this.index / 10}` : '';
   }
@@ -127,14 +127,14 @@ export struct RulerComponent {
   @Param value: number = 0;
   @Param min: number = 0;
   @Param max: number = 60;
-  private itemWidth: number = 20;<em> // 每个刻度的宽度</em>
+  private itemWidth: number = 20; // 每个刻度的宽度
   private scroller: Scroller = new Scroller();
   @Local isTouching: boolean = false;
   @Event onValueChange?: (value: number) => void;
   arr: Array<number> = [];
 
   aboutToAppear() {
-    <em>// 延迟滚动到初始位置</em>
+    // 延迟滚动到初始位置
     setTimeout(() => {
       let offset = this.value * this.itemWidth + Math.floor(this.itemWidth / 2);
       console.info(`start offset: ${offset}`);
@@ -147,9 +147,9 @@ export struct RulerComponent {
 
   build() {
     RelativeContainer() {
-     <em> // 刻度列表</em>
+      // 刻度列表
       List({ scroller: this.scroller }) {
-       <em> // 头部占位，使0刻度能居中</em>
+        // 头部占位，使0刻度能居中
         ListItem()
           .width('50%')
           .height(60);
@@ -157,26 +157,26 @@ export struct RulerComponent {
         ForEach(this.arr, (index: number) => {
           ListItem() {
             Column() {
-           <em>   // 刻度线</em>
+              // 刻度线
               if (index % 10 === 0) {
-               <em> // 长刻度</em>
+                // 长刻度
                 Column()
                   .width(2)
                   .height(30)
                   .backgroundColor('#333333');
-               <em> // 刻度值</em>
+                // 刻度值
                 Text(index.toString())
                   .fontSize(12)
                   .fontColor('#333333')
                   .margin({ top: 8 });
               } else if (index % 5 === 0) {
-               <em> // 中刻度</em>
+                // 中刻度
                 Column()
                   .width(1.5)
                   .height(20)
                   .backgroundColor('#666666');
               } else {
-              <em>  // 短刻度</em>
+                // 短刻度
                 Column()
                   .width(1)
                   .height(12)
@@ -190,7 +190,7 @@ export struct RulerComponent {
           }
         })
 
-      <em>  // 尾部占位，使最大刻度能居中</em>
+        // 尾部占位，使最大刻度能居中
         ListItem()
           .width('50%')
           .height(60);
@@ -216,10 +216,10 @@ export struct RulerComponent {
           this.isTouching = true;
         } else if (event.type === TouchType.Up) {
           this.isTouching = false;
-        <em>  // 手指抬起时吸附到最近的刻度</em>
+          // 手指抬起时吸附到最近的刻度
           const x = this.scroller.currentOffset().xOffset;
           const targetValue = Math.round(x / this.itemWidth);
-          <em>// 让刻度居中</em>
+          // 让刻度居中
           let offSet = (targetValue * this.itemWidth) + Math.floor(this.itemWidth / 2);
           this.scroller.scrollTo({
             xOffset: offSet,
@@ -233,7 +233,7 @@ export struct RulerComponent {
         middle: { anchor: '__container__', align: HorizontalAlign.Center }
       });
 
-    <em>  // 中间指示器</em>
+      // 中间指示器
       Column() {
         Column()
           .width(2)

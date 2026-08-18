@@ -41,10 +41,10 @@ struct Index {
   private context: Context = this.getUIContext().getHostContext() as Context;
 
   initJavaScrip() {
-  <em>  // 注入本地的js脚本</em>
+    // 注入本地的js脚本
     this.context.resourceManager.getRawFileContent('index.js')
       .then((value: ESObject) => {
-     <em>   // 获取js脚本的ArrayBuffer数据</em>
+        // 获取js脚本的ArrayBuffer数据
         let rawfile: ArrayBuffer = value.buffer;
         console.info('开始注入脚本');
         this.controller.runJavaScriptExt(rawfile).then(() => {
@@ -94,7 +94,7 @@ spanLabels.innerHTML = "修改后的文本"
 <body>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <h1 id="example">示例文本</h1>
-<span id="mySpan">这是默认文本</span>
+这是默认文本
 </body>
 </html>
 ```

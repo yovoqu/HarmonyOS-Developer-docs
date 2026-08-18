@@ -27,7 +27,7 @@
 ```text
 import web_webview from '@ohos.web.webview';
 
-<em>// </em><em>子组件</em>
+// 子组件
 @Component
 export struct RichTextItem {
   private src: string = '';
@@ -45,7 +45,7 @@ export struct RichTextItem {
         .imageAccess(true)
         .cacheMode(CacheMode.None)
         .onlineImageAccess(true)
-        .layoutMode(WebLayoutMode.FIT_CONTENT) <em>// 使得web高度自适应</em>
+        .layoutMode(WebLayoutMode.FIT_CONTENT) // 使得web高度自适应
         .onControllerAttached(() => {
           this.controller.loadData(this.src, 'text/html', 'utf-8', ' ', ' ');
         })
@@ -61,28 +61,28 @@ export struct RichTextItem {
 struct ListWebViewSolutionOne {
   @State richTextList: Array<string> = [
     `
-      <span style="font-size:12.5px;"><span style="color:#666666;line-height:1.5;"><span style="font-size:12.5px;"><span style="color:#666666;"></span></span></span><span style="color:#666666;line-height:1.5;">【超级0卡糖*·低负担·0咖啡】</span><br />
+      【超级0卡糖*·低负担·0咖啡】<br />
       <br />
-      <span style="color:#0A59F7;line-height:1.5;">不含咖啡的友好小铁</span><br />
-      <span style="color:#0A59F7;line-height:1.5;">陪伴午后的闲暇时光</span><br />
+      不含咖啡的友好小铁<br />
+      陪伴午后的闲暇时光<br />
       <br />
-      <span style="color:#999;line-height:1.5;">「超级0卡糖*」原创定制</span><br />
-      <span style="color:#666666;line-height:1.5;">果味清爽沁甜</span><br />
+      「超级0卡糖*」原创定制<br />
+      果味清爽沁甜<br />
       <br />
-      <span style="color:#444;line-height:1.5;">感受青提风味在奶香和椰香中游走</span><br />
-      <span style="color:#555;line-height:1.5;">轻盈地，过夏天</span><br />
+      感受青提风味在奶香和椰香中游走<br />
+      轻盈地，过夏天<br />
       <br />
-      <span style="color:#777;line-height:1.5;">*本品使用0卡青提风味饮料浓浆（含赤藓糖醇）</span><br />
-      </span>
+      *本品使用0卡青提风味饮料浓浆（含赤藓糖醇）<br />
+      
     `,
     `
     <div>
       <p>我是 P1</p>
-      <span><font color="#0A59F7">我是span1</font></span>
-      <span>我是span2</span>
+      <font color="#0A59F7">我是span1</font>
+      我是span2
       <p>我是 P2</p>
-      <span><font color="#0A59F7">我是span3</font></span>
-      <span>我是span4</span>
+      <font color="#0A59F7">我是span3</font>
+      我是span4
     </div>
     `,
     `
@@ -92,14 +92,14 @@ struct ListWebViewSolutionOne {
     <font color="#0A59F7">兑换说明</font><font color="blue">赠送125.0%；</font><br>
     `,
     `
-    <span style=\"color:#999999;\">手机的实名人需与我的信息为</span> <span style=\"color:#0A59F7;\">同一人</span> <span style=\"color:#999999;\">，否则请更换账户或手机号码</span>
+    手机的实名人需与我的信息为 同一人 ，否则请更换账户或手机号码
     `,
     `
-    <span style='text-align:center;'>您好, 现在会员促销期间<font color='#0A59F7'>全场商品打6折</font>哟~错过时间会<font color='#0A59F7'>恢复原价</font>哈!</span>
+    您好, 现在会员促销期间<font color='#0A59F7'>全场商品打6折</font>哟~错过时间会<font color='#0A59F7'>恢复原价</font>哈!
     `,
     `<font color='#0A59F7'>宝宝</font><font color='#0A59F7'>不爱吃饭</font>别怕！有它轻松拿捏挑食<font color='#0A59F7'>宝宝</font>！我家<font color='#0A59F7'>宝宝</font>不知是随...#<font color='#0A59F7'>宝宝</font>营养补充#`,
     `
-    <span style='text-align:center;'>您好, 现在会员促销期间<font color='#0A59F7'>打6折</font>哟~错过时间<font color='#0A59F7'>恢复原价</font>哈!</span>
+    您好, 现在会员促销期间<font color='#0A59F7'>打6折</font>哟~错过时间<font color='#0A59F7'>恢复原价</font>哈!
     `,
     '<p>欢迎来到松山湖华为溪流背坡村</p><table><tbody><tr class="firstRow"><td width="204" valign="top"><img src="https://www-file.huawei.com/-/media/corporate/images/press%20center/facilities%20around%20the%20world/2019/xcun-0404.jpg?w=500" style="width:100%;"/></td><td width="204" ' +
       'valign="top"><img src="https://www-file.huawei.com/-/media/corporate/images/press%20center/facilities%20around%20the%20world/2019/xcun-0406.jpg?w=500" style="width:100%;"/></td></tr><tr><td width="204" valign="top"><br/></td><td width="204" valign="top"><br/></td></tr></tbody></table><p><br/></p>',
@@ -130,7 +130,7 @@ struct ListWebViewSolutionOne {
     .padding(8)
   }
 
- <em> // 使用完整的html片段加载</em>
+  // 使用完整的html片段加载
   getHtmlText(src: string) {
     let msg = `
       <!DOCTYPE html>
@@ -159,28 +159,28 @@ import web_webview from '@ohos.web.webview';
 struct ListWebViewSolutionTwo {
   @State richTextList: Array<string> = [
     `
-      <span style="font-size:12.5px;"><span style="color:#666666;line-height:1.5;"><span style="font-size:12.5px;"><span style="color:#666666;"></span></span></span><span style="color:#666666;line-height:1.5;">【超级0卡糖*·低负担·0咖啡】</span><br />
+      【超级0卡糖*·低负担·0咖啡】<br />
       <br />
-      <span style="color:#0A59F7;line-height:1.5;">不含咖啡的友好小铁</span><br />
-      <span style="color:#0A59F7;line-height:1.5;">陪伴午后的闲暇时光</span><br />
+      不含咖啡的友好小铁<br />
+      陪伴午后的闲暇时光<br />
       <br />
-      <span style="color:#999;line-height:1.5;">「超级0卡糖*」原创定制</span><br />
-      <span style="color:#666666;line-height:1.5;">果味清爽沁甜</span><br />
+      「超级0卡糖*」原创定制<br />
+      果味清爽沁甜<br />
       <br />
-      <span style="color:#444;line-height:1.5;">感受青提风味在奶香和椰香中游走</span><br />
-      <span style="color:#555;line-height:1.5;">轻盈地，过夏天</span><br />
+      感受青提风味在奶香和椰香中游走<br />
+      轻盈地，过夏天<br />
       <br />
-      <span style="color:#777;line-height:1.5;">*本品使用0卡青提风味饮料浓浆（含赤藓糖醇）</span><br />
-      </span>
+      *本品使用0卡青提风味饮料浓浆（含赤藓糖醇）<br />
+      
     `,
     `
     <div>
       <p>我是 P1</p>
-      <span><font color="#0A59F7">我是span1</font></span>
-      <span>我是span2</span>
+      <font color="#0A59F7">我是span1</font>
+      我是span2
       <p>我是 P2</p>
-      <span><font color="#0A59F7">我是span3</font></span>
-      <span>我是span4</span>
+      <font color="#0A59F7">我是span3</font>
+      我是span4
     </div>
     `,
     `
@@ -190,14 +190,14 @@ struct ListWebViewSolutionTwo {
     <font color="#0A59F7">兑换说明</font><font color="blue">赠送125.0%；</font><br>
     `,
     `
-    <span style=\"color:#999999;\">手机的实名人需与我的信息为</span> <span style=\"color:#0A59F7;\">同一人</span> <span style=\"color:#999999;\">，否则请更换账户或手机号码</span>
+    手机的实名人需与我的信息为 同一人 ，否则请更换账户或手机号码
     `,
     `
-    <span style='text-align:center;'>您好, 现在会员促销期间<font color='#0A59F7'>全场商品打6折</font>哟~错过时间会<font color='#0A59F7'>恢复原价</font>哈!</span>
+    您好, 现在会员促销期间<font color='#0A59F7'>全场商品打6折</font>哟~错过时间会<font color='#0A59F7'>恢复原价</font>哈!
     `,
     `<font color='#0A59F7'>宝宝</font><font color='#0A59F7'>不爱吃饭</font>别怕！有它轻松拿捏挑食<font color='#0A59F7'>宝宝</font>！我家<font color='#0A59F7'>宝宝</font>不知是随...#<font color='#0A59F7'>宝宝</font>营养补充#`,
     `
-    <span style='text-align:center;'>您好, 现在会员促销期间<font color='#0A59F7'>打6折</font>哟~错过时间<font color='#0A59F7'>恢复原价</font>哈!</span>
+    您好, 现在会员促销期间<font color='#0A59F7'>打6折</font>哟~错过时间<font color='#0A59F7'>恢复原价</font>哈!
     `,
     '<p>欢迎来到松山湖华为溪流背坡村</p><table><tbody><tr class="firstRow"><td width="204" valign="top"><img src="https://www-file.huawei.com/-/media/corporate/images/press%20center/facilities%20around%20the%20world/2019/xcun-0404.jpg?w=500" style="width:100%;"/></td><td width="204" ' +
       'valign="top"><img src="https://www-file.huawei.com/-/media/corporate/images/press%20center/facilities%20around%20the%20world/2019/xcun-0406.jpg?w=500" style="width:100%;"/></td></tr><tr><td width="204" valign="top"><br/></td><td width="204" valign="top"><br/></td></tr></tbody></table><p><br/></p>',
@@ -220,7 +220,7 @@ struct ListWebViewSolutionTwo {
               .imageAccess(true)
               .cacheMode(CacheMode.None)
               .onlineImageAccess(true)
-              .layoutMode(WebLayoutMode.FIT_CONTENT) <em>// 使得web高度自适应</em>
+              .layoutMode(WebLayoutMode.FIT_CONTENT) // 使得web高度自适应
               .onControllerAttached(() => {
                 this.controller.loadData(this.getHtmlText(item), 'text/html', 'utf-8', ' ', ' ');
               })
@@ -244,7 +244,7 @@ struct ListWebViewSolutionTwo {
     .padding(8)
   }
 
-  <em>// 使用完整的html片段加载</em>
+  // 使用完整的html片段加载
   getHtmlText(src: string) {
     let msg = `
       <!DOCTYPE html>

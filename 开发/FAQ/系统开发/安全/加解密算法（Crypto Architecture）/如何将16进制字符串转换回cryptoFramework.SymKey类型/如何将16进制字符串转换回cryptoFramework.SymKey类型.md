@@ -23,14 +23,14 @@
 1. 以创建密钥算法为SM4、密钥长度为128位的对称密钥生成器为例，将获取的对称密钥的二进制数据转为16进制字符串的代码如下：
 ```text
 function getHexStringOfSymKey() {
- <em> // 创建SymKeyGenerator实例。</em>
+  // 创建SymKeyGenerator实例。
   let symKeyGenerator = cryptoFramework.createSymKeyGenerator('SM4_128');
- <em> // 使用密钥生成器随机生成对称密钥。</em>
+  // 使用密钥生成器随机生成对称密钥。
   let promiseSymKey: cryptoFramework.SymKey = symKeyGenerator.generateSymKeySync();
- <em> // 获取对称密钥的二进制数据，输出256位密钥。长度为32字节。</em>
+  // 获取对称密钥的二进制数据，输出256位密钥。长度为32字节。
   let encodedKey = promiseSymKey.getEncoded();
   console.info(`demo日志1-生成的对称密钥编码为Uint8Array: ${encodedKey.data}`);
-<em>  // 将encodedKey转为16进制字符串。</em>
+  // 将encodedKey转为16进制字符串。
   let hexString: string = '';
   for (let elem of encodedKey.data) {
     hexString += elem.toString(16).padStart(2, '0');
@@ -43,9 +43,9 @@ function getHexStringOfSymKey() {
 ```text
 function getSymKeyFromHexString(hexString: string) {
   let keyData = new Uint8Array(buffer.from(hexString, 'hex').buffer);
-<em>  // 创建SymKeyGenerator实例。</em>
+  // 创建SymKeyGenerator实例。
   let symKeyGenerator = cryptoFramework.createSymKeyGenerator('SM4_128');
-  <em>// 将二进制数据包装为 DataBlob对象，并通过同步方法生成密钥.</em>
+  // 将二进制数据包装为 DataBlob对象，并通过同步方法生成密钥.
   let keyBlob: cryptoFramework.DataBlob = { data: keyData };
   let symKey = symKeyGenerator.convertKeySync(keyBlob);
   console.info(`demo日志3-对称密钥恢复后编码为Uint8Array: ${symKey.getEncoded().data}`);
@@ -83,14 +83,14 @@ import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';
 
 function getHexStringOfSymKey() {
- <em> // 创建SymKeyGenerator实例。</em>
+  // 创建SymKeyGenerator实例。
   let symKeyGenerator = cryptoFramework.createSymKeyGenerator('SM4_128');
-  <em>// 使用密钥生成器随机生成对称密钥。</em>
+  // 使用密钥生成器随机生成对称密钥。
   let promiseSymKey: cryptoFramework.SymKey = symKeyGenerator.generateSymKeySync();
-  <em>// 获取对称密钥的二进制数据，输出256位密钥。长度为32字节。</em>
+  // 获取对称密钥的二进制数据，输出256位密钥。长度为32字节。
   let encodedKey = promiseSymKey.getEncoded();
   console.info(`demo日志1-生成的对称密钥编码为Uint8Array: ${encodedKey.data}`);
-  <em>// 将encodedKey转为16进制字符串。</em>
+  // 将encodedKey转为16进制字符串。
   let hexString: string = '';
   for (let elem of encodedKey.data) {
     hexString += elem.toString(16).padStart(2, '0');
@@ -100,9 +100,9 @@ function getHexStringOfSymKey() {
 
 function getSymKeyFromHexString(hexString: string) {
   let keyData = new Uint8Array(buffer.from(hexString, 'hex').buffer);
-  <em>// 创建SymKeyGenerator实例。</em>
+  // 创建SymKeyGenerator实例。
   let symKeyGenerator = cryptoFramework.createSymKeyGenerator('SM4_128');
-<em>  // 将二进制数据包装为 DataBlob对象，并通过同步方法生成密钥.</em>
+  // 将二进制数据包装为 DataBlob对象，并通过同步方法生成密钥.
   let keyBlob: cryptoFramework.DataBlob = { data: keyData };
   let symKey = symKeyGenerator.convertKeySync(keyBlob);
   console.info(`demo日志3-对称密钥恢复后编码为Uint8Array: ${symKey.getEncoded().data}`);

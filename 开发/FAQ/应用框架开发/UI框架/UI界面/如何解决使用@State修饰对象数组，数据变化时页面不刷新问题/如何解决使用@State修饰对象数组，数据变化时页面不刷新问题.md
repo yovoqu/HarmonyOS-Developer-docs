@@ -90,7 +90,7 @@ interface PerInfoModel {
 
 @Component
 struct SceneTwoFirstChild {
-  @ObjectLink info: PerInfo;<em> // 必须创建子组件，并用@ObjectLink接收数据。</em>
+  @ObjectLink info: PerInfo; // 必须创建子组件，并用@ObjectLink接收数据。
 
 
   build() {
@@ -563,8 +563,8 @@ struct SceneThreeOptionOne {
       ForEach(this.persons, (curPerson: SceneThreeOptionOnePerson) => {
         SceneThreeOptionOneChild({ person: curPerson });
       }, (item: SceneThreeOptionOnePerson, index: number) => {
-        console.info(`${index}'__'${JSON.stringify(item)}${JSON.stringify(Date.now())}`); <em>// 打印keyGenerator</em>
-        return index + '__' + JSON.stringify(item) + JSON.stringify(Date.now()); <em>// 加入Date.now()避免重复</em>
+        console.info(`${index}'__'${JSON.stringify(item)}${JSON.stringify(Date.now())}`); // 打印keyGenerator
+        return index + '__' + JSON.stringify(item) + JSON.stringify(Date.now()); // 加入Date.now()避免重复
       });
       Button('修改对象数组属性-修改小张年龄为+1')
         .onClick(() => {
@@ -591,7 +591,7 @@ struct SceneThreeOptionOne {
 class SceneThreeOptionTwoPerson {
   name: string;
   age: number;
-  id: string; <em>// 给每个对象设置一个id</em>
+  id: string; // 给每个对象设置一个id
 
 
   constructor(name: string, age: number, id: string) {
@@ -635,7 +635,7 @@ struct SceneThreeOptionTwo {
     Column({ space: 10 }) {
       ForEach(this.persons, (curPerson: SceneThreeOptionTwoPerson) => {
         SceneThreeOptionTwoChild({ person: curPerson });
-      }); <em>// 使用默认的keyGenerator创建规则</em>
+      }); // 使用默认的keyGenerator创建规则
       Button('修改对象数组属性-修改小张年龄为+1')
         .onClick(() => {
           this.persons[0].age++;
@@ -643,7 +643,7 @@ struct SceneThreeOptionTwo {
         });
       Button('替换对象数组元素-修改小张年龄为88')
         .onClick(() => {
-      <em>    // 此处以当前时间作为对象的id</em>
+          // 此处以当前时间作为对象的id
           this.persons.splice(0, 1, new SceneThreeOptionTwoPerson('小张', 88, Date.now().toString()));
           console.info(`当前小张的年龄为${JSON.stringify(this.persons[0])}`);
         });

@@ -11,43 +11,43 @@ mock中继承Base64Helper不生效。
 问题代码示例参考如下：
  
 ```ArkTS
-<em>// Base64HelperMock.mock.ets</em>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">util </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkTS'</span>
+// Base64HelperMock.mock.ets
+import { util } from '@kit.ArkTS'
 
-export class <span style="color: rgb(0,0,255);">Base64HelperMock </span>extends <span style="color: rgb(255,255,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Base64Helper </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(0,0,255);">decodeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">Uint8Array</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Type </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Uint8Array </span><span style="color: rgb(181,106,1);">{</span>
-    return new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">([</span><span style="color: rgb(80,160,79);">99</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(80,160,79);">97</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-  <span style="color: rgb(0,0,255);">encodeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Uint8Array</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Type </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    return new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">([</span><span style="color: rgb(80,160,79);">99</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(80,160,79);">97</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-  <span style="color: rgb(0,0,255);">encodeToStringSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Uint8Array</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Type </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">{</span>
-    return <span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+export class Base64HelperMock extends util.Base64Helper {
+  decodeSync(src: string | Uint8Array, options?: util.Type | undefined): Uint8Array {
+    return new Uint8Array([99,97,10]);
+  }
+  encodeSync(src: Uint8Array, options?: util.Type | undefined) {
+    return new Uint8Array([99,97,10]);
+  }
+  encodeToStringSync(src: Uint8Array, options?: util.Type | undefined): string {
+    return '';
+  }
+}
 ```
  
 ```ArkTS
-<em>// mock-config.json5</em>
+// mock-config.json5
 {
-  <span style="color: rgb(132,63,161);">"@ohos.util"</span><span style="color: rgb(181,106,1);">: </span>{
-    <span style="color: rgb(132,63,161);">"source"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"src/mock/Base64HelperMock.mock.ets"</span>
+  "@ohos.util": {
+    "source": "src/mock/Base64HelperMock.mock.ets"
   }
 }
 ```
  
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">测试文件</span></em>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">util </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkTS'</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">describe</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">it </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@ohos/hypium'</span><span style="color: rgb(181,106,1);">;</span>
+// 测试文件
+import { util } from '@kit.ArkTS'
+import { describe, it } from '@ohos/hypium';
 
-export default function <span style="color: rgb(0,0,255);">localUnitTest</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(0,0,255);">describe</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'localUnitTest'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">it</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'assertContain'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      const <span style="color: rgb(255,255,255);">array </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decodeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+export default function localUnitTest() {
+  describe('localUnitTest', () => {
+    it('assertContain', 0, () => {
+      const array = new util.Base64Helper().decodeSync('')
+    });
+  });
+}
 ```
  
 运行报错如下：
@@ -92,48 +92,48 @@ mock文件的导出方式和被mock接口的导出方式不一致。
 mock文件的导出方式要与mock的接口（util接口）的导出方式一致，[util](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util)接口的导出方式为export default util，所以这边mock文件的导出方式要为export default mockUtil。
  1. 在“src/mock”目录下新建一个ArkTS文件，例如Base64HelperMock.mock.ets，在这个文件内定义目标模块的mock实现。
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">util </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkTS'</span>
-type MockUtil <span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">Record</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">Object</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">;</span>
+import { util } from '@kit.ArkTS'
+type MockUtil = Record<string, Object>;
 
-export class <span style="color: rgb(0,0,255);">Base64HelperMock </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(0,0,255);">decodeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">Uint8Array</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Type </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Uint8Array </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'run mock'</span><span style="color: rgb(255,0,170);">)</span>
-    return new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">([</span><span style="color: rgb(80,160,79);">99</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(80,160,79);">97</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-  <span style="color: rgb(0,0,255);">encodeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Uint8Array</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Type </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    return new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">([</span><span style="color: rgb(80,160,79);">99</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(80,160,79);">97</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-  <span style="color: rgb(0,0,255);">encodeToStringSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Uint8Array</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">options</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Type </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">{</span>
-    return <span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+export class Base64HelperMock {
+  decodeSync(src: string | Uint8Array, options?: util.Type | undefined): Uint8Array {
+    console.info('run mock')
+    return new Uint8Array([99,97,10]);
+  }
+  encodeSync(src: Uint8Array, options?: util.Type | undefined) {
+    return new Uint8Array([99,97,10]);
+  }
+  encodeToStringSync(src: Uint8Array, options?: util.Type | undefined): string {
+    return '';
+  }
+}
 
-const <span style="color: rgb(255,255,255);">mockUtil</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">MockUtil </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(132,63,161);">'Base64Helper'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Base64HelperMock</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(181,106,1);">}</span>
+const mockUtil: MockUtil = {
+  'Base64Helper': Base64HelperMock,
+}
 
-export default <span style="color: rgb(255,255,255);">mockUtil</span>
+export default mockUtil
 ```
 
 2. 在mock配置文件“src/mock/mock-config.json5”中定义目标模块与mock实现的映射关系。
 ```ArkTS
 {
-  <span style="color: rgb(132,63,161);">"@ohos.util"</span><span style="color: rgb(181,106,1);">: </span>{
-    <span style="color: rgb(132,63,161);">"source"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"src/mock/Base64HelperMock.mock.ets"</span>
+  "@ohos.util": {
+    "source": "src/mock/Base64HelperMock.mock.ets"
   }
 }
 ```
 
 3. 在测试文件中编写如下代码。
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">util </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkTS'</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">describe</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">it </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@ohos/hypium'</span><span style="color: rgb(181,106,1);">;</span>
+import { util } from '@kit.ArkTS'
+import { describe, it } from '@ohos/hypium';
 
-export default function <span style="color: rgb(0,0,255);">localUnitTest</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(0,0,255);">describe</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'localUnitTest'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">it</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'assertContain'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      const <span style="color: rgb(255,255,255);">array </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decodeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+export default function localUnitTest() {
+  describe('localUnitTest', () => {
+    it('assertContain', 0, () => {
+      const array = new util.Base64Helper().decodeSync('')
+    });
+  });
+}
 ```

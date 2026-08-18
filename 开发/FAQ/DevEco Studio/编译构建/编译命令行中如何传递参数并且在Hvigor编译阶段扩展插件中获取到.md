@@ -13,7 +13,7 @@
 获取自定义参数代码：
  
 ```text
-<em>// hvigorfile.ts</em>
+// hvigorfile.ts
 import { harTasks } from '@ohos/hvigor-ohos-plugin';
 import { hvigor } from '@ohos/hvigor';
 

@@ -47,39 +47,39 @@
 配置完成后运行示例代码：
  
 ```json
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">site </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.MapKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { site } from '@kit.MapKit';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(181,106,1);">{</span>
-  async <span style="color: rgb(0,0,255);">poiSearch</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">site</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SearchByTextParams </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">指定关键字，</span><span style="color: rgb(128,128,128);">xxx</span><span style="color: rgb(128,128,128);">需替换具体地址</span></em>
-      <span style="color: rgb(255,255,255);">query</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">"xxxxxxxx"</span><span style="color: rgb(181,106,1);">,</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">经纬度坐标</span></em>
-      <span style="color: rgb(255,255,255);">location</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">latitude</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">34.19390192547735</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">longitude</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">108.87269875520396</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
-   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">指定地理位置的范围半径</span></em>
-      <span style="color: rgb(255,255,255);">radius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10000</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">language</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">"zh"</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
- <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">返回关键字搜索结果</span></em>
-    const <span style="color: rgb(255,255,255);">result </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">site</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">searchByText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"</span><span style="color: rgb(132,63,161);">搜索结果：</span><span style="color: rgb(132,63,161);">"</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">result</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'click'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(</span>async <span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">{</span>
-        await  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">poiSearch</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"100%"</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">"100%"</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+@Entry
+@Component
+struct Index {
+  async poiSearch(){
+    let params: site.SearchByTextParams = {
+      // 指定关键字，xxx需替换具体地址
+      query: "xxxxxxxx",
+      // 经纬度坐标
+      location: {
+        latitude: 34.19390192547735,
+        longitude: 108.87269875520396
+      },
+      // 指定地理位置的范围半径
+      radius: 10000,
+      language: "zh"
+    };
+    // 返回关键字搜索结果
+    const result = await site.searchByText(params);
+    console.log("搜索结果：",JSON.stringify(result));
+  }
+  build() {
+    Column() {
+      Button('click').onClick(async ()=>{
+        await  this.poiSearch();
+      })
+    }
+    .width("100%")
+    .height("100%")
+    .justifyContent(FlexAlign.Center)
+  }
+}
 ```
  
  

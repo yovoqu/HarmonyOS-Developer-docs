@@ -25,10 +25,10 @@ struct Index {
     Stack() {
       Web({ src: 'www.example.com', controller: this.controller })
         .onErrorReceive((event) => {
-         <em> // Only handle loading errors of the main framework to avoid duplicate processing of errors in sub-resources</em>
+          // Only handle loading errors of the main framework to avoid duplicate processing of errors in sub-resources
           if (event && event.request.isMainFrame()) {
             try {
-             <em> // 加载自定义错误页面</em>
+              // 加载自定义错误页面
               this.controller.loadUrl($rawfile('custom_failure_page.html'));
             } catch (error) {
               console.error(`ErrorCode: ${(error as BusinessError).code}, Message: ${(error as BusinessError).message}`);

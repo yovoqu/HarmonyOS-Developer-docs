@@ -11,16 +11,16 @@
 方案二：适用于HAR文件数量较多的场景。单独为每个HAR包配置较为繁琐，可以通过自定义插件直接修改所有HAR包的byteCodeHar字段值。该方法在编译时生效，但不会修改build-profile.json5文件中的字段值。
  
 ```text
-<em>// Engineering-level hvigorfile.ts file</em>
+// Engineering-level hvigorfile.ts file
 import { hvigor, HvigorNode, HvigorPlugin } from '@ohos/hvigor';
 import { appTasks, OhosHarContext, OhosPluginId, Target } from '@ohos/hvigor-ohos-plugin';
-<em>// Implement custom plugins</em>
+// Implement custom plugins
 export function customPlugin(): HvigorPlugin {
   return {
     pluginId: 'customPlugin',
     async apply(currentNode: HvigorNode): Promise<void> {
       hvigor.afterNodeEvaluate(async () => {
-        <em>// Register module-level tasks</em>
+        // Register module-level tasks
         harTask(currentNode);
       });
     }
@@ -32,29 +32,29 @@ function harTask(currentNode: HvigorNode) {
     context?.targets((target: Target) => {
       const targetName = target.getTargetName();
       node.registerTask({
-        <em>// Task name</em>
+        // Task name
         name: `HarTask`,
-        <em>// Main function of task execution logic</em>
+        // Main function of task execution logic
         run() {
           if (context.getBuildProfileOpt) {
             const buildProfile = context.getBuildProfileOpt();
             console.log(buildProfile)
-            <em>// Set the bytecode har config to false</em>
+            // Set the bytecode har config to false
             buildProfile["buildOption"] = { arkOptions: { byteCodeHar: false } };
             console.log(buildProfile)
             context.setBuildProfileOpt(buildProfile);
           }
         },
-        <em>// Configure the dependency of the pre-task</em>
+        // Configure the dependency of the pre-task
         dependencies: [`${targetName}@PackageHar`],
-        <em>// Post-task dependency for configuring tasks</em>
+        // Post-task dependency for configuring tasks
         postDependencies: ['assembleHar']
       });
     });
   });
 }
 export default {
-  system: appTasks,  <em>/* Built-in plugin of Hvigor. It cannot be modified. */</em>
-  plugins:[customPlugin()]  <em>/* Custom plugin to extend the functionality of Hvigor. */</em>
+  system: appTasks,  /* Built-in plugin of Hvigor. It cannot be modified. */
+  plugins:[customPlugin()]  /* Custom plugin to extend the functionality of Hvigor. */
 }
 ```

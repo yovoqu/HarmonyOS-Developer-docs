@@ -32,19 +32,19 @@ import { text } from '@kit.ArkGraphics2D';
 @Entry
 @Component
 struct Index {
-  <em>// Hello1234밠</em>
+  // Hello1234밠
   message: string = 'Hello1\u{0032}34\u{2BC20}';
   buttonName: string = '跳转至正确显示页面';
   private pathStack: NavPathStack = new NavPathStack();
 
   aboutToAppear(): void {
     let fontCollection = text.FontCollection.getGlobalInstance();
-    <em>// 注册自定义字体</em>
-    <em>// 注册成功场景</em>
+    // 注册自定义字体
+    // 注册成功场景
     fontCollection.loadFontSync('testSuccess', $rawfile('Test.ttf'));
-    <em>// 注册失败场景</em>
+    // 注册失败场景
     fontCollection.loadFontSync('testError', $rawfile('TestError.ttf'));
-    <em>// 日志显示注册成功，实际未注册成功</em>
+    // 日志显示注册成功，实际未注册成功
     fontCollection.loadFontSync('testSuccess', $rawfile('Test02.ttf'));
   }
 
@@ -109,11 +109,11 @@ struct Index {
 #### 分析结论
 
 ```text
-<em>// 注册成功场景</em>
+// 注册成功场景
 fontCollection.loadFontSync('testSuccess', $rawfile('Test.ttf'));
-<em>// 注册失败场景</em>
+// 注册失败场景
 fontCollection.loadFontSync('testError', $rawfile('TestError.ttf'));
-<em>// 日志显示注册成功，实际未注册成功</em>
+// 日志显示注册成功，实际未注册成功
 fontCollection.loadFontSync('testSuccess', $rawfile('Test02.ttf'));
 ```
  1. line 2模拟了字体资源异常，注册字体失败的场景。
@@ -126,7 +126,7 @@ fontCollection.loadFontSync('testSuccess', $rawfile('Test02.ttf'));
 2. 使用自定义字体前，先查询对于fontFamily的名称是否已经注册，有两种方式。
 方式一：查询所有注册的字体，与需要注册的字体进行匹配。代码如下：
 ```json
-<em>// 获取所有已经注册的字体（包括系统字体）</em>
+// 获取所有已经注册的字体（包括系统字体）
 let promise = text.getSystemFontFullNamesByType(text.SystemFontType.CUSTOMIZED);
 await promise.then((data) => {
   console.info(`then font list size: ${data.length}`);
@@ -143,7 +143,7 @@ await promise.then((data) => {
 
 3. 方式二：通过需要注册的字体调用getFontDescriptorByFullName去查询是否存在。代码如下：
 ```json
-<em>// 根据字体名称和类型获取字体描述符</em>
+// 根据字体名称和类型获取字体描述符
 let promise2 = text.getFontDescriptorByFullName('testSuccess', text.SystemFontType.CUSTOMIZED);
 await promise2.then((fontDescriptor) => {
   console.info(`find fontName=testSuccess.desc: ${JSON.stringify(fontDescriptor)}`);
@@ -166,19 +166,19 @@ export function SolutionBuilder() {
 @Entry
 @Component
 struct Solution {
-  <em>// Hello1234밠</em>
+  // Hello1234밠
   message: string = 'Hello1\u{0032}34\u{2BC20}';
   @State registerFontName: string = 'testSuccess';
 
   aboutToAppear(): void {
 
-    <em>// 注册自定义字体：先检测name为test01是否已经注册，若已经注册，则注册test02的字体</em>
+    // 注册自定义字体：先检测name为test01是否已经注册，若已经注册，则注册test02的字体
     this.registerTestFont();
 
   }
 
   async registerTestFont() {
-    <em>// 获取所有已经注册的字体（包括系统字体）</em>
+    // 获取所有已经注册的字体（包括系统字体）
     let promise = text.getSystemFontFullNamesByType(text.SystemFontType.CUSTOMIZED);
     await promise.then((data) => {
       console.info(`then font list size: ${data.length}`);
@@ -192,7 +192,7 @@ struct Solution {
       console.error(`Failed to get font fullNames by type, error: ${JSON.stringify(error)}`);
     });
 
-    <em>// 根据字体名称和类型获取字体描述符</em>
+    // 根据字体名称和类型获取字体描述符
     let promise2 = text.getFontDescriptorByFullName('testSuccess', text.SystemFontType.CUSTOMIZED);
     await promise2.then((fontDescriptor) => {
       console.info(`find fontName=testSuccess.desc: ${JSON.stringify(fontDescriptor)}`);
@@ -200,7 +200,7 @@ struct Solution {
       console.error(`Failed to get fontDescriptor by fullName, error: ${JSON.stringify(error)}`);
     });
 
-    <em>// 实际需要自定义注册的字体</em>
+    // 实际需要自定义注册的字体
     text.FontCollection.getGlobalInstance().loadFontSync(this.registerFontName, $rawfile('Test02.ttf'));
   }
 

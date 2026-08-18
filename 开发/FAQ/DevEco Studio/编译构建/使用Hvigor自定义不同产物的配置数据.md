@@ -30,7 +30,7 @@ const productName = bundleProduct.productName;
 
 3. 使用subNodes接口获取所有模块的环境信息，然后通过getContext接口分别获取hap包配置信息。
 ```text
-<em>// </em><em>获取hap模块上下文信息</em>
+// 获取hap模块上下文信息
 const hapContext = hapNode.getContext(OhosPluginId.OHOS_HAP_PLUGIN) as OhosHapContext;
 ```
 
@@ -39,10 +39,10 @@ const hapContext = hapNode.getContext(OhosPluginId.OHOS_HAP_PLUGIN) as OhosHapCo
 if (moduleNameExample === moduleName) {
   const moduleJsonOpt = hapContext?.getModuleJsonOpt();
   if (moduleJsonOpt) {
-  <em>  // 根据产物变更参数值</em>
+    // 根据产物变更参数值
     moduleJsonOpt.module.metadata = productName === productNameExample ?
       [{ "name": "client_id", "value": "TestIdNo1" }] : [{ "name": "client_id", "value": "TestIdNo2" }];
- <em>   // 将obj对象设置回上下文对象以使能到构建的过程与结果中</em>
+    // 将obj对象设置回上下文对象以使能到构建的过程与结果中
     hapContext.setModuleJsonOpt(moduleJsonOpt);
   }
 }
@@ -54,9 +54,9 @@ import { appTasks, OhosHapContext, OhosAppContext, OhosPluginId } from '@ohos/hv
 import { getNode, hvigor, HvigorNode } from '@ohos/hvigor';
 
 
-<em>// </em><em>待修改的产物名</em>
+// 待修改的产物名
 const productNameExample = 'default'
-<em>// </em><em>待修改的模块名</em>
+// 待修改的模块名
 const moduleNameExample = 'entry'
 
 
@@ -66,18 +66,18 @@ hvigor.nodesEvaluated(() => {
   const bundleProduct = appContext.getCurrentProduct();
   const productName = bundleProduct.productName;
 
- <em> // 遍历子节点</em>
+  // 遍历子节点
   appNode.subNodes((hapNode: HvigorNode) => {
-  <em>  // 获取hap模块上下文信息</em>
+    // 获取hap模块上下文信息
     const hapContext = hapNode.getContext(OhosPluginId.OHOS_HAP_PLUGIN) as OhosHapContext;
     const moduleName = hapContext?.getModuleName();
     if (moduleNameExample === moduleName) {
       const moduleJsonOpt = hapContext?.getModuleJsonOpt();
       if (moduleJsonOpt) {
-    <em>    // 根据产物变更参数值</em>
+        // 根据产物变更参数值
         moduleJsonOpt.module.metadata = productName === productNameExample ?
           [{ "name": "client_id", "value": "TestIdNo1" }] : [{ "name": "client_id", "value": "TestIdNo2" }];
-    <em>    // 将obj对象设置回上下文对象以使能到构建的过程与结果中</em>
+        // 将obj对象设置回上下文对象以使能到构建的过程与结果中
         hapContext.setModuleJsonOpt(moduleJsonOpt);
       }
     }

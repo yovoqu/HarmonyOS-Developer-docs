@@ -69,27 +69,27 @@ try {
   
 ```text
 client.on('message', (value: socket.SocketMessageInfo) => {
-<em>  // 把接收到的数据复制到缓冲区有效数据尾部</em>
+  // 把接收到的数据复制到缓冲区有效数据尾部
   let copyCount = buffer.from(value.message).copy(this.receivedDataBuf, this.receivedDataLen);
- <em> // 缓冲区已使用长度加上本次接收的数据长度</em>
+  // 缓冲区已使用长度加上本次接收的数据长度
   this.receivedDataLen += copyCount;
- <em> // 缓冲区数据中数据包结束标志的位置</em>
+  // 缓冲区数据中数据包结束标志的位置
   let endFlagPos = this.receivedDataBuf.subarray(0, this.receivedDataLen).indexOf(this.packetEndFlag);
   let textDecoder = util.TextDecoder.create('utf-8');
   while (endFlagPos > -1) {
-   <em> // 把数据包结束标志前面的数据转换为字符串</em>
+    // 把数据包结束标志前面的数据转换为字符串
     let msgArray = new Uint8Array(this.receivedDataBuf.subarray(0, endFlagPos).buffer);
     let msg = textDecoder.decodeToString(msgArray);
     this.receivedMsg.push(msg);
-  <em>  // 剩余的未解析数据</em>
+    // 剩余的未解析数据
     let leaveBufData = this.receivedDataBuf.subarray(endFlagPos + 2, this.receivedDataLen);
- <em>   // 剩余的未解析数据移动到缓冲区头部</em>
+    // 剩余的未解析数据移动到缓冲区头部
     for (let pos = 0; pos < leaveBufData.length; pos++) {
       this.receivedDataBuf.writeUInt8(leaveBufData.readUInt8(pos), pos);
     }
-   <em> // 重新设置缓冲区已使用长度</em>
+    // 重新设置缓冲区已使用长度
     this.receivedDataLen = leaveBufData.length;
-  <em>  // 开始查找下一个数据包结束标志</em>
+    // 开始查找下一个数据包结束标志
     endFlagPos = this.receivedDataBuf.subarray(0, this.receivedDataLen).indexOf(this.packetEndFlag);
   }
 });
@@ -105,9 +105,9 @@ let msg = index.toString();
 let textEncoder = new util.TextEncoder();
 let encodeValue = textEncoder.encodeInto(msg);
 let sendBuf = buffer.alloc(2 + encodeValue.byteLength);
-<em>// </em><em>写入固定包头中的长度信息</em>
+// 写入固定包头中的长度信息
 sendBuf.writeUInt16LE(encodeValue.byteLength);
-<em>// </em><em>写入固定包头中的长度信息</em>
+// 写入固定包头中的长度信息
 sendBuf.write(msg, 2);
 try {
   await this.tcp.send({
@@ -124,35 +124,35 @@ try {
   
 ```text
 client.on('message', (value: socket.SocketMessageInfo) => {
-<em>  // 把接收到的数据复制到缓冲区有效数据尾部</em>
+  // 把接收到的数据复制到缓冲区有效数据尾部
   let copyCount = buffer.from(value.message).copy(this.receivedDataBuf, this.receivedDataLen);
   this.receivedDataLen += copyCount;
-  <em>// 至少写入了3个字节才需要解析</em>
+  // 至少写入了3个字节才需要解析
   if (this.receivedDataLen < 3) {
     return;
   }
- <em> // 当前数据包长度</em>
+  // 当前数据包长度
   let packLen = this.receivedDataBuf.readUInt16LE();
   let textDecoder = util.TextDecoder.create('utf-8');
- <em> // 当前数据包长度加上固定包体的2字节，如果小于等于缓冲区已使用长度，就可以解析</em>
+  // 当前数据包长度加上固定包体的2字节，如果小于等于缓冲区已使用长度，就可以解析
   while ((packLen + 2) <= this.receivedDataLen) {
- <em>   // 把可变包体中的数据转换为字符串</em>
+    // 把可变包体中的数据转换为字符串
     let msgArray = new Uint8Array(this.receivedDataBuf.subarray(2, packLen + 2).buffer);
     let msg = textDecoder.decodeToString(msgArray);
     this.receivedMsg.push(msg);
-  <em>  // 剩余的未解析数据</em>
+    // 剩余的未解析数据
     let leaveBufData = this.receivedDataBuf.subarray(packLen + 2, this.receivedDataLen);
-  <em>  // 剩余的未解析数据移动到缓冲区头部</em>
+    // 剩余的未解析数据移动到缓冲区头部
     for (let pos = 0; pos < leaveBufData.length; pos++) {
       this.receivedDataBuf.writeUInt8(leaveBufData.readUInt8(pos), pos);
     }
- <em>   // 重新设置缓冲区已使用长度</em>
+    // 重新设置缓冲区已使用长度
     this.receivedDataLen = leaveBufData.length;
-  <em>  // 至少写入了3个字节才需要解析，否则跳出循环</em>
+    // 至少写入了3个字节才需要解析，否则跳出循环
     if (this.receivedDataLen < 3) {
       break;
     }
-  <em>  // 开始查找下一个固定包头中的可变包体长度</em>
+    // 开始查找下一个固定包头中的可变包体长度
     packLen = this.receivedDataBuf.readUInt16LE();
   }
 });
@@ -173,13 +173,13 @@ struct SocketCommunication {
   private tcp: socket.TCPSocket = socket.constructTCPSocketInstance();
   private tcpServer: socket.TCPSocketServer = socket.constructTCPSocketServerInstance();
   @State receivedMsg: string[] = [];
-<em>  // 数据包结束标志</em>
+  // 数据包结束标志
   packetEndFlag: string = '\r\n';
-<em>  // 最大缓存长度</em>
+  // 最大缓存长度
   maxBufSize: number = 1024 * 8;
- <em> // 接收数据缓冲区</em>
+  // 接收数据缓冲区
   receivedDataBuf: buffer.Buffer = buffer.alloc(this.maxBufSize);
-<em>  // 缓冲区已使用长度</em>
+  // 缓冲区已使用长度
   receivedDataLen: number = 0;
 
   build() {
@@ -212,27 +212,27 @@ struct SocketCommunication {
               console.info('on close success');
             });
             client.on('message', (value: socket.SocketMessageInfo) => {
-         <em>     // 把接收到的数据复制到缓冲区有效数据尾部</em>
+              // 把接收到的数据复制到缓冲区有效数据尾部
               let copyCount = buffer.from(value.message).copy(this.receivedDataBuf, this.receivedDataLen);
-         <em>     // 缓冲区已使用长度加上本次接收的数据长度</em>
+              // 缓冲区已使用长度加上本次接收的数据长度
               this.receivedDataLen += copyCount;
-            <em>  // 缓冲区数据中数据包结束标志的位置</em>
+              // 缓冲区数据中数据包结束标志的位置
               let endFlagPos = this.receivedDataBuf.subarray(0, this.receivedDataLen).indexOf(this.packetEndFlag);
               let textDecoder = util.TextDecoder.create('utf-8');
               while (endFlagPos > -1) {
-             <em>   // 把数据包结束标志前面的数据转换为字符串</em>
+                // 把数据包结束标志前面的数据转换为字符串
                 let msgArray = new Uint8Array(this.receivedDataBuf.subarray(0, endFlagPos).buffer);
                 let msg = textDecoder.decodeToString(msgArray);
                 this.receivedMsg.push(msg);
-             <em>   // 剩余的未解析数据</em>
+                // 剩余的未解析数据
                 let leaveBufData = this.receivedDataBuf.subarray(endFlagPos + 2, this.receivedDataLen);
-              <em>  // 剩余的未解析数据移动到缓冲区头部</em>
+                // 剩余的未解析数据移动到缓冲区头部
                 for (let pos = 0; pos < leaveBufData.length; pos++) {
                   this.receivedDataBuf.writeUInt8(leaveBufData.readUInt8(pos), pos);
                 }
-              <em>  // 重新设置缓冲区已使用长度</em>
+                // 重新设置缓冲区已使用长度
                 this.receivedDataLen = leaveBufData.length;
-              <em>  // 开始查找下一个数据包结束标志</em>
+                // 开始查找下一个数据包结束标志
                 endFlagPos = this.receivedDataBuf.subarray(0, this.receivedDataLen).indexOf(this.packetEndFlag);
               }
             });
@@ -271,35 +271,35 @@ struct SocketCommunication {
               console.info('on close success');
             });
             client.on('message', (value: socket.SocketMessageInfo) => {
-          <em>    // 把接收到的数据复制到缓冲区有效数据尾部</em>
+              // 把接收到的数据复制到缓冲区有效数据尾部
               let copyCount = buffer.from(value.message).copy(this.receivedDataBuf, this.receivedDataLen);
               this.receivedDataLen += copyCount;
-           <em>   // 至少写入了3个字节才需要解析</em>
+              // 至少写入了3个字节才需要解析
               if (this.receivedDataLen < 3) {
                 return;
               }
-           <em>   // 当前数据包长度</em>
+              // 当前数据包长度
               let packLen = this.receivedDataBuf.readUInt16LE();
               let textDecoder = util.TextDecoder.create('utf-8');
-          <em>    // 当前数据包长度加上固定包体的2字节，如果小于等于缓冲区已使用长度，就可以解析</em>
+              // 当前数据包长度加上固定包体的2字节，如果小于等于缓冲区已使用长度，就可以解析
               while ((packLen + 2) <= this.receivedDataLen) {
-             <em>   // 把可变包体中的数据转换为字符串</em>
+                // 把可变包体中的数据转换为字符串
                 let msgArray = new Uint8Array(this.receivedDataBuf.subarray(2, packLen + 2).buffer);
                 let msg = textDecoder.decodeToString(msgArray);
                 this.receivedMsg.push(msg);
-              <em>  // 剩余的未解析数据</em>
+                // 剩余的未解析数据
                 let leaveBufData = this.receivedDataBuf.subarray(packLen + 2, this.receivedDataLen);
-              <em>  // 剩余的未解析数据移动到缓冲区头部</em>
+                // 剩余的未解析数据移动到缓冲区头部
                 for (let pos = 0; pos < leaveBufData.length; pos++) {
                   this.receivedDataBuf.writeUInt8(leaveBufData.readUInt8(pos), pos);
                 }
-             <em>   // 重新设置缓冲区已使用长度</em>
+                // 重新设置缓冲区已使用长度
                 this.receivedDataLen = leaveBufData.length;
-               <em> // 至少写入了3个字节才需要解析，否则跳出循环</em>
+                // 至少写入了3个字节才需要解析，否则跳出循环
                 if (this.receivedDataLen < 3) {
                   break;
                 }
-             <em>   // 开始查找下一个固定包头中的可变包体长度</em>
+                // 开始查找下一个固定包头中的可变包体长度
                 packLen = this.receivedDataBuf.readUInt16LE();
               }
             });
@@ -319,9 +319,9 @@ struct SocketCommunication {
               let textEncoder = new util.TextEncoder();
               let encodeValue = textEncoder.encodeInto(msg);
               let sendBuf = buffer.alloc(2 + encodeValue.byteLength);
-          <em>    // 写入固定包头中的长度信息</em>
+              // 写入固定包头中的长度信息
               sendBuf.writeUInt16LE(encodeValue.byteLength);
-          <em>    // 写入固定包头中的长度信息</em>
+              // 写入固定包头中的长度信息
               sendBuf.write(msg, 2);
               try {
                 await this.tcp.send({

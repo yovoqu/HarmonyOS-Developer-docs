@@ -30,98 +30,98 @@
 
 2. 在entry/src/ohosTest/ets/test目录下新建socketSelf.test.ets，实现服务端监听127.0.0.1:8080，客户端连接统一端口并发送HelloHypium，服务端收到原文后，在前面拼接Echo:再发回，客户端把回包内容与预期值做断言，判断是否相同。
 ```json
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">describe</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">it</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">expect </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@ohos/hypium'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">socket </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.NetworkKit'</span>
-const <span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'SocketSelfTest'</span><span style="color: rgb(181,106,1);">;</span>
+import { describe, it, expect } from '@ohos/hypium';
+import { socket } from '@kit.NetworkKit'
+const TAG: string = 'SocketSelfTest';
 
-export default function <span style="color: rgb(0,0,255);">socketSelfTest</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">describe</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'SocketSelfCommunicationTest'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">it</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">手机自发自收</span><span style="color: rgb(255,0,170);"> – </span><span style="color: rgb(255,0,170);">服务端</span><span style="color: rgb(255,0,170);">+</span><span style="color: rgb(255,0,170);">客户端在同一设备</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span>async <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">done</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Function</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-     <em> <span style="color: rgb(128,128,128);">/* ================= 1. </span><span style="color: rgb(128,128,128);">启动服务端</span><span style="color: rgb(128,128,128);"> ================= */</span></em>
-      const <span style="color: rgb(0,0,255);">server </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">constructTCPSocketServerInstance</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-      const <span style="color: rgb(0,0,255);">addr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">NetAddress </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'127.0.0.1'</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">8080</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">family</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+export default function socketSelfTest() {
+  describe('SocketSelfCommunicationTest', () => {
+    it('手机自发自收 – 服务端+客户端在同一设备', 0, async (done: Function) => {
+      /* ================= 1. 启动服务端 ================= */
+      const server = socket.constructTCPSocketServerInstance();
+      const addr: socket.NetAddress = {
+        address: '127.0.0.1',
+        port: 8080,
+        family: 1
+      };
 
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">一步完成</span><span style="color: rgb(128,128,128);">“</span><span style="color: rgb(128,128,128);">绑定</span><span style="color: rgb(128,128,128);">+</span><span style="color: rgb(128,128,128);">监听</span><span style="color: rgb(128,128,128);">”</span></em>
-      await new <span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">reject</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">server</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">listen</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">addr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> server listen fail: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">reject</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> server listening...`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      // 一步完成“绑定+监听”
+      await new Promise<void>((resolve, reject) => {
+        server.listen(addr, (err) => {
+          if (err) {
+            console.error(`${TAG} server listen fail: ${JSON.stringify(err)}`);
+            reject(err);
+          } else {
+            console.info(`${TAG} server listening...`);
+            resolve();
+          }
+        });
+      });
 
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">订阅</span><span style="color: rgb(128,128,128);">server</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">connect</span><span style="color: rgb(128,128,128);">事件，客户端与服务端建立连接后，返回一个</span><span style="color: rgb(128,128,128);">TCPSocketConnection</span><span style="color: rgb(128,128,128);">对象，用于与客户端通信（仅注册事件，不阻塞）</span></em>
-      <span style="color: rgb(0,0,255);">server</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'connect'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">clientSocket</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TCPSocketConnection</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> client on connected`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <em>  <span style="color: rgb(128,128,128);">// clientSocket</span><span style="color: rgb(128,128,128);">即为建立连接后获取到的连接对象，可以通过该对象订阅</span><span style="color: rgb(128,128,128);">TCPSocketConnection</span><span style="color: rgb(128,128,128);">相关的事件</span></em>
-<em>        <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">服务端接收到客户端发送的信息</span><span style="color: rgb(128,128,128);">HelloHypium</span></em>
-        <span style="color: rgb(0,0,255);">clientSocket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'message'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SocketMessageInfo</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          let <span style="color: rgb(0,0,255);">buffer </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(0,0,255);">dataView </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">DataView</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(0,0,255);">str </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">""</span><span style="color: rgb(181,106,1);">;</span>
-          for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">dataView</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">byteLength</span><span style="color: rgb(181,106,1);">; ++</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">str </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fromCharCode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">dataView</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUint8</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> server received message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> server received address: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">remoteInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">address</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-         <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">向客户端发送数据</span><span style="color: rgb(128,128,128);">Echo:HelloHypium</span></em>
-          <span style="color: rgb(0,0,255);">clientSocket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">send</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`Echo:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> server send message: Echo:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      // 订阅server的connect事件，客户端与服务端建立连接后，返回一个TCPSocketConnection对象，用于与客户端通信（仅注册事件，不阻塞）
+      server.on('connect', (clientSocket: socket.TCPSocketConnection) => {
+        console.info(`${TAG} client on connected`);
+        // clientSocket即为建立连接后获取到的连接对象，可以通过该对象订阅TCPSocketConnection相关的事件
+        // 服务端接收到客户端发送的信息HelloHypium
+        clientSocket.on('message', (value: socket.SocketMessageInfo) => {
+          let buffer = value.message;
+          let dataView = new DataView(buffer);
+          let str = "";
+          for (let i = 0; i < dataView.byteLength; ++i) {
+            str += String.fromCharCode(dataView.getUint8(i));
+          }
+          console.info(`${TAG} server received message: ${str}`);
+          console.info(`${TAG} server received address: ${value.remoteInfo.address}`);
+          // 向客户端发送数据Echo:HelloHypium
+          clientSocket.send({ data: `Echo:${str}` });
+          console.info(`${TAG} server send message: Echo:${str}`)
+        });
+      });
 
-     <em> <span style="color: rgb(128,128,128);">/* ================= 2. </span><span style="color: rgb(128,128,128);">启动客户端</span><span style="color: rgb(128,128,128);"> ================= */</span></em>
-      const <span style="color: rgb(0,0,255);">client </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">constructTCPSocketInstance</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-      const <span style="color: rgb(0,0,255);">resp </span><span style="color: rgb(181,106,1);">= </span>await new <span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">reject</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">client</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">addr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">timeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5000 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> client connect fail: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">reject</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            return<span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> client start connected`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      /* ================= 2. 启动客户端 ================= */
+      const client = socket.constructTCPSocketInstance();
+      const resp = await new Promise<string>((resolve, reject) => {
+        client.connect({ address: addr, timeout: 5000 }, (err) => {
+          if (err) {
+            console.error(`${TAG} client connect fail: ${JSON.stringify(err)}`);
+            reject(err);
+            return;
+          }
+          console.info(`${TAG} client start connected`);
 
-     <em>     <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">连接成功之后，向服务端发送数据</span><span style="color: rgb(128,128,128);">HelloHypium</span></em>
-          <span style="color: rgb(0,0,255);">client</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">send</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'HelloHypium' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> client send fail: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(0,0,255);">reject</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              return<span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> client send message: HelloHypium`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          // 连接成功之后，向服务端发送数据HelloHypium
+          client.send({ data: 'HelloHypium' }, (err) => {
+            if (err) {
+              console.error(`${TAG} client send fail: ${JSON.stringify(err)}`);
+              reject(err);
+              return;
+            }
+            console.info(`${TAG} client send message: HelloHypium`);
+          });
 
-         <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">监听</span><span style="color: rgb(128,128,128);">message</span><span style="color: rgb(128,128,128);">事件，接收到消息时，执行回调函数</span></em>
-          <span style="color: rgb(0,0,255);">client</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'message'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SocketMessageInfo</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            let <span style="color: rgb(0,0,255);">buffer </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">dataView </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">DataView</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(0,0,255);">str </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">""</span><span style="color: rgb(181,106,1);">;</span>
-            for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">dataView</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">byteLength</span><span style="color: rgb(181,106,1);">; ++</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">str </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fromCharCode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">dataView</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUint8</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> client received: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">client</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          // 监听message事件，接收到消息时，执行回调函数
+          client.on('message', (value: socket.SocketMessageInfo) => {
+            let buffer = value.message;
+            let dataView = new DataView(buffer);
+            let str = "";
+            for (let i = 0; i < dataView.byteLength; ++i) {
+              str += String.fromCharCode(dataView.getUint8(i));
+            }
+            console.info(`${TAG} client received: ${str}`);
+            client.close();
+            resolve(str);
+          });
+        });
+      });
 
-   <em>   <span style="color: rgb(128,128,128);">/* ================= 3. </span><span style="color: rgb(128,128,128);">断言</span> <span style="color: rgb(128,128,128);">&</span> <span style="color: rgb(128,128,128);">清理</span><span style="color: rgb(128,128,128);"> ================= */</span></em>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);"> resp: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">resp</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">expect</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">resp</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">assertEqual</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Echo:HelloHypium'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">server</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"connect"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">client</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"message"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">client</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"close"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">done</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+      /* ================= 3. 断言 & 清理 ================= */
+      console.info(`${TAG} resp: ${resp}`);
+      expect(resp).assertEqual('Echo:HelloHypium');
+      server.off("connect");
+      client.off("message");
+      client.off("close");
+      done();
+    });
+  });
+}
 ```

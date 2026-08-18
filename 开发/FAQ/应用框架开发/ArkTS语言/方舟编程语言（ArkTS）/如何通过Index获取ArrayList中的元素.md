@@ -72,7 +72,7 @@ struct Index {
       Column() {
         Button(this.message)
           .onClick(() => {
-            console.info('subArrayList result:', JSON.stringify(result)); <em>// subArrayList result {"0":"2","1":"3"}</em>
+            console.info('subArrayList result:', JSON.stringify(result)); // subArrayList result {"0":"2","1":"3"}
           })
       }
       .width('100%')

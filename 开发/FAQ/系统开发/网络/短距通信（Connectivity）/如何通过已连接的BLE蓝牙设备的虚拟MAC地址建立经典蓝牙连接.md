@@ -54,7 +54,7 @@ struct Index {
 
   connect(deviceId: string) {
     let sppOption: socket.SppOptions = {
-      <em>// 这里的uuid地址为socket服务端创建时定义的uuid</em>
+      // 这里的uuid地址为socket服务端创建时定义的uuid
       uuid: '0000xxxx-0000-1000-8000-00805f9b34fb',
       secure: true,
       type: 0
@@ -72,19 +72,19 @@ struct Index {
       connection.on('bondStateChange', (data: connection.BondStateParam) => {
         console.info(`pair state = ${data}`);
         if (data.state === 2) {
-         <em> // 3.配对完成后，重新获取配对列表信息。此刻，配对列表中存在该设备的ble配对信息和经典蓝牙配对信息。</em>
+          // 3.配对完成后，重新获取配对列表信息。此刻，配对列表中存在该设备的ble配对信息和经典蓝牙配对信息。
           let devices: Array<string> = connection.getPairedDevices();
           for (let i = 0; i < devices.length; i++) {
             console.info(`已配对mac： ${devices[i]}`);
             let dev: string = devices[i];
-           <em> // 4.通过ble蓝牙的mac地址，找出经典蓝牙的mac地址。</em>
+            // 4.通过ble蓝牙的mac地址，找出经典蓝牙的mac地址。
             if (dev !== this.bleAddress) {
               let n: string = connection.getRemoteDeviceName(devices[i]);
               console.info(`已配对后开始连接 n: ${n} mac: ${devices[i]}`);
-            <em>  // 5.通过经典蓝牙mac地址获取设备名称，然后通过这个名称二次匹配，确定设备。</em>
+              // 5.通过经典蓝牙mac地址获取设备名称，然后通过这个名称二次匹配，确定设备。
               if (n === this.name) {
                 connection.off('bondStateChange');
-               <em> // 6.确定设备后，发起经典蓝牙连接。</em>
+                // 6.确定设备后，发起经典蓝牙连接。
                 this.connect(devices[i]);
               }
             }
@@ -98,11 +98,11 @@ struct Index {
         console.info(`发现设备 ： ${name}，地址为 ： ${data[i].deviceId}`);
         ble.stopBLEScan();
         ble.off('BLEDeviceFind');
-      <em>  // 发现设备后，先保存设备名称</em>
+        // 发现设备后，先保存设备名称
         this.bleAddress = data[i].deviceId;
         let devices: Array<string> = connection.getPairedDevices();
         let index = devices.indexOf(data[i].deviceId);
-       <em> // 2.1查询配对列表，如果该设备未配对，先发起配对。</em>
+        // 2.1查询配对列表，如果该设备未配对，先发起配对。
         if (index < 0) {
           console.info(`准备配对: ${name}`);
           connection.pairDevice(data[i].deviceId).then(() => {
@@ -110,7 +110,7 @@ struct Index {
           });
         } else {
           console.info(`已配对: ${name}`);
-        <em>  // 2.2如果设备已经配对，直接在配对列表中找出设备对端设备的经典蓝牙mac地址，发起连接即可。</em>
+          // 2.2如果设备已经配对，直接在配对列表中找出设备对端设备的经典蓝牙mac地址，发起连接即可。
           for (let i = 0; i < devices.length; i++) {
             console.info(`已配对mac ${devices[i]} 设备名称： ${name}`);
             let dev: string = devices[i];
@@ -126,7 +126,7 @@ struct Index {
         }
       }
     });
-  <em>  // 1.以设备名称为过滤参数，发起ble扫描，获取对端ble蓝牙mac地址。</em>
+    // 1.以设备名称为过滤参数，发起ble扫描，获取对端ble蓝牙mac地址。
     ble.startBLEScan([{
       name: this.name
     }], {

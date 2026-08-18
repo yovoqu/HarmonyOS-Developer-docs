@@ -21,7 +21,7 @@ AudioRenderer支持低时延播放，可以通过创建多个实例并轮询其�
 通过循环创建多个AudioRenderer实例，通过周期性定时器不断轮询所有AudioRenderer实例的状态，取其中空闲状态的实例作为当前实例，用来播放当前音乐，当播放下一首音乐时，使用的是从所有AudioRenderer实例轮询出来的空闲实例，不影响当前音乐的播放，从而有效地处理大量的音频并发播放请求。
  1. 循环创建多个AudioRenderer实例。
 ```text
-<em>// </em><em>循环创建多个实例</em>
+// 循环创建多个实例
 for (let num = 0; num < 4; num++) {
   audio.createAudioRenderer(this.audioRendererOptions, (err, data) => {
     if (err) {
@@ -29,7 +29,7 @@ for (let num = 0; num < 4; num++) {
       return;
     } else {
       console.info(TAG, 'Invoke createAudioRenderer succeeded.');
-      this.audioRendererList.push(data); <em>// 创建的实例放到数组中</em>
+      this.audioRendererList.push(data); // 创建的实例放到数组中
     }
   });
 }
@@ -37,11 +37,11 @@ for (let num = 0; num < 4; num++) {
 
 2. 通过周期性定时器不断轮询所有AudioRenderer实例的状态，取其中空闲状态的实例作为当前实例。
 ```text
-<em>// </em><em>轮询audioRenderer实例数组中，空闲的实例，并设为当前实例，为后续播放做准备</em>
+// 轮询audioRenderer实例数组中，空闲的实例，并设为当前实例，为后续播放做准备
 setInterval(() => {
   for (let num = 0; num < 4; num++) {
     let renderModelTemp = this.audioRendererList[num];
-   <em> // 当数组中audioRenderer实例状态为prepared时，将该实例赋给当前实例</em>
+    // 当数组中audioRenderer实例状态为prepared时，将该实例赋给当前实例
     if ((renderModelTemp as audio.AudioRenderer).state.valueOf() == 1) {
       this.renderModel = renderModelTemp;
       console.info(TAG + `AudioRenderer state: ${renderModelTemp.state}`);
@@ -54,16 +54,16 @@ setInterval(() => {
 
 3. 调用当前AudioRenderer实例来播放音乐。
 ```text
-<em>// </em><em>开始一次音频渲染。</em>
+// 开始一次音频渲染。
 start() {
   if (this.renderModel !== undefined) {
     let stateGroup = [audio.AudioState.STATE_PREPARED, audio.AudioState.STATE_PAUSED, audio.AudioState.STATE_STOPPED];
     if (stateGroup.indexOf((this.renderModel as audio.AudioRenderer).state.valueOf()) ===
-      -1) { <em>// 当前状态为prepared、paused和stopped之一时才能启动渲染。</em>
+      -1) { // 当前状态为prepared、paused和stopped之一时才能启动渲染。
       console.error(TAG + 'start failed');
       return;
     }
-  <em>  // 启动渲染。</em>
+    // 启动渲染。
     (this.renderModel as audio.AudioRenderer).start((err: BusinessError) => {
       if (err) {
         console.error('Renderer start failed.');
@@ -96,7 +96,7 @@ struct Index {
   context: Context = this.getUIContext().getHostContext() as Context;
   @State renderModel: audio.AudioRenderer | undefined = undefined;
   @State file: fs.File | undefined = undefined;
-  <em>// 此处仅作示例，如下pcm资源，实际使用时需要将文件替换为应用要播放的PCM文件，否则无法成功运行。</em>
+  // 此处仅作示例，如下pcm资源，实际使用时需要将文件替换为应用要播放的PCM文件，否则无法成功运行。
   private fileStr: string[] = ['XXXX.pcm', 'XXXX.pcm'];
   private bufferSize: number = 0;
   private audioRendererList: Array<audio.AudioRenderer> = [];
@@ -116,7 +116,7 @@ struct Index {
   };
 
   aboutToAppear(): void {
- <em>   // 循环创建多个实例</em>
+    // 循环创建多个实例
     for (let num = 0; num < 4; num++) {
       audio.createAudioRenderer(this.audioRendererOptions, (err, data) => {
         if (err) {
@@ -124,16 +124,16 @@ struct Index {
           return;
         } else {
           console.info(TAG, 'Invoke createAudioRenderer succeeded.');
-          this.audioRendererList.push(data); <em>// </em><em>创建的实例放到数组中</em>
+          this.audioRendererList.push(data); // 创建的实例放到数组中
         }
       });
     }
 
- <em>   // 轮询audioRenderer实例数组中，空闲的实例，并设为当前实例，为后续播放做准备</em>
+    // 轮询audioRenderer实例数组中，空闲的实例，并设为当前实例，为后续播放做准备
     setInterval(() => {
       for (let num = 0; num < 4; num++) {
         let renderModelTemp = this.audioRendererList[num];
-    <em>    // 当数组中audioRenderer实例状态为prepared时，将该实例赋给当前实例</em>
+        // 当数组中audioRenderer实例状态为prepared时，将该实例赋给当前实例
         if ((renderModelTemp as audio.AudioRenderer).state.valueOf() == 1) {
           this.renderModel = renderModelTemp;
           console.info(TAG + `AudioRenderer state: ${renderModelTemp.state}`);
@@ -144,16 +144,16 @@ struct Index {
     }, 10);
   }
 
- <em> // 开始一次音频渲染。</em>
+  // 开始一次音频渲染。
   start() {
     if (this.renderModel !== undefined) {
       let stateGroup = [audio.AudioState.STATE_PREPARED, audio.AudioState.STATE_PAUSED, audio.AudioState.STATE_STOPPED];
       if (stateGroup.indexOf((this.renderModel as audio.AudioRenderer).state.valueOf()) ===
-        -1) { <em>// 当前状态为prepared、paused和stopped之一时才能启动渲染。</em>
+        -1) { // 当前状态为prepared、paused和stopped之一时才能启动渲染。
         console.error(TAG + 'start failed');
         return;
       }
-    <em>  // 启动渲染。</em>
+      // 启动渲染。
       (this.renderModel as audio.AudioRenderer).start((err: BusinessError) => {
         if (err) {
           console.error('Renderer start failed.');
@@ -164,15 +164,15 @@ struct Index {
     }
   }
 
-<em>  // 暂停渲染。</em>
+  // 暂停渲染。
   pause() {
     if (this.renderModel !== undefined) {
-    <em>  // 只有渲染器状态为running的时候才能暂停。</em>
+      // 只有渲染器状态为running的时候才能暂停。
       if ((this.renderModel as audio.AudioRenderer).state.valueOf() !== audio.AudioState.STATE_RUNNING) {
         console.info('Renderer is not running');
         return;
       }
-     <em> // 暂停渲染。</em>
+      // 暂停渲染。
       (this.renderModel as audio.AudioRenderer).pause((err: BusinessError) => {
         if (err) {
           console.error('Renderer pause failed.');
@@ -183,16 +183,16 @@ struct Index {
     }
   }
 
-<em>  // 停止渲染。</em>
+  // 停止渲染。
   async stop() {
     if (this.renderModel !== undefined) {
-   <em>   // 只有渲染器状态为running或paused的时候才可以停止。</em>
+      // 只有渲染器状态为running或paused的时候才可以停止。
       if ((this.renderModel as audio.AudioRenderer).state.valueOf() !== audio.AudioState.STATE_RUNNING &&
         (this.renderModel as audio.AudioRenderer).state.valueOf() !== audio.AudioState.STATE_PAUSED) {
         console.info('Renderer is not running or paused.');
         return;
       }
-    <em>  // 停止渲染。</em>
+      // 停止渲染。
       (this.renderModel as audio.AudioRenderer).stop((err: BusinessError) => {
         if (err) {
           console.error('Renderer stop failed.');
@@ -204,15 +204,15 @@ struct Index {
     }
   }
 
- <em> // 销毁实例，释放资源。</em>
+  // 销毁实例，释放资源。
   async release() {
     if (this.renderModel !== undefined) {
-   <em>   // 渲染器状态不是released状态，才能release。</em>
+      // 渲染器状态不是released状态，才能release。
       if (this.renderModel.state.valueOf() === audio.AudioState.STATE_RELEASED) {
         console.info('Renderer already released');
         return;
       }
-    <em>  // 释放资源。</em>
+      // 释放资源。
       (this.renderModel as audio.AudioRenderer).release((err: BusinessError) => {
         if (err) {
           console.error('Renderer release failed.');

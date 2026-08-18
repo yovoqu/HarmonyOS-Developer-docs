@@ -70,11 +70,11 @@ struct MenuIndex {
         .fontSize(20)
         .margin({ top: 20 })
         .bindMenu(this.MenuBuilder, {
-          enableArrow: true, <em>// 是否显示箭头</em>
-          placement: Placement.Bottom, <em>// 菜单组件优先显示的位置，当前位置显示不下时，会自动调整位置</em>
-          backgroundColor: '#F1F3F5', <em>// 菜单背板颜色</em>
-          backgroundBlurStyle: BlurStyle.NONE,<em> </em><em>// 菜单背板模糊材质</em>
-          borderRadius: 10 <em> </em><em>// 菜单边框圆角半径</em>
+          enableArrow: true, // 是否显示箭头
+          placement: Placement.Bottom, // 菜单组件优先显示的位置，当前位置显示不下时，会自动调整位置
+          backgroundColor: '#F1F3F5', // 菜单背板颜色
+          backgroundBlurStyle: BlurStyle.NONE, // 菜单背板模糊材质
+          borderRadius: 10  // 菜单边框圆角半径
         });
     }
     .height('100%')

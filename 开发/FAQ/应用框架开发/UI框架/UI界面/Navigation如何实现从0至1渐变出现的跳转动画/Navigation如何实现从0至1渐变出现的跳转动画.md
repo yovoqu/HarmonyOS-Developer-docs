@@ -35,243 +35,243 @@ start：初始化动画参数（如设置初始位移或透明度）。
 代码实现如下：（以下代码片段请放入同一个文件中运行）
  1. 声明动画回调函数接口。
 ```text
-interface AnimateCallback <span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">finish</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">isPush</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isExit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">start</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">isPush</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isExit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">onFinish</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">isPush</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isExit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">timeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+interface AnimateCallback {
+  finish: ((isPush: boolean, isExit: boolean) => void | undefined) | undefined;
+  start: ((isPush: boolean, isExit: boolean) => void | undefined) | undefined;
+  onFinish: ((isPush: boolean, isExit: boolean) => void | undefined) | undefined;
+  timeout: (number | undefined) | undefined;
+}
 ```
 
 2. 使用Map结构存储每个页面注册的动画回调。创建单例类CustomTransition管理每个页面动画回调函数的注册和移除。可参考[设置可交互转场动画](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#示例3设置可交互转场动画)中CustomTransition类的实现。
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">存储每个页面的动画回调函数</span></em>
-const <span style="color: rgb(255,255,255);">customTransitionMap</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Map</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">AnimateCallback</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span>new <span style="color: rgb(0,0,255);">Map</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+// 存储每个页面的动画回调函数
+const customTransitionMap: Map<number, AnimateCallback> = new Map();
 
-<em>// CustomTransition</em><em><span style="color: rgb(128,128,128);">类管理函数的注册和移除</span></em>
-export class <span style="color: rgb(0,0,255);">CustomTransition </span><span style="color: rgb(181,106,1);">{</span>
-  static <span style="color: rgb(255,255,255);">delegate </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CustomTransition</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+// CustomTransition类管理函数的注册和移除
+export class CustomTransition {
+  static delegate = new CustomTransition();
 
-  static <span style="color: rgb(0,0,255);">getInstance</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    return <span style="color: rgb(255,255,255);">CustomTransition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">delegate</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  static getInstance() {
+    return CustomTransition.delegate;
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">注册某个页面的动画回调</span></em>
-  <span style="color: rgb(0,0,255);">registerNavParam</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startCallback</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">operation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isExit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">void</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">endCallback</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">operation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isExit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">void</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">onFinish</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">operation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isExit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">void</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">timeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">customTransitionMap</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">has</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(255,0,170);">)) </span><span style="color: rgb(181,106,1);">{</span>
-      let <span style="color: rgb(255,255,255);">param </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">customTransitionMap</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">param </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">start </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">startCallback</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,255,255);">param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">finish </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">endCallback</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,255,255);">param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">onFinish </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">onFinish</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,255,255);">param</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">timeout </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">timeout</span><span style="color: rgb(181,106,1);">;</span>
-        return<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span>
-    let <span style="color: rgb(255,255,255);">params</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">AnimateCallback </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">timeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">timeout</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">start</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">startCallback</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">finish</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">endCallback</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">onFinish</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">onFinish</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">customTransitionMap</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">set</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">params</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  // 注册某个页面的动画回调
+  registerNavParam(name: number, startCallback: (operation: boolean, isExit: boolean) => void,
+    endCallback: (operation: boolean, isExit: boolean) => void,
+    onFinish: (operation: boolean, isExit: boolean) => void, timeout: number): void {
+    if (customTransitionMap.has(name)) {
+      let param = customTransitionMap.get(name);
+      if (param !== undefined) {
+        param.start = startCallback;
+        param.finish = endCallback;
+        param.onFinish = onFinish;
+        param.timeout = timeout;
+        return;
+      }
+    }
+    let params: AnimateCallback = {
+      timeout: timeout,
+      start: startCallback,
+      finish: endCallback,
+      onFinish: onFinish,
+    };
+    customTransitionMap.set(name, params);
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">移除某个页面的动画回调</span></em>
-  <span style="color: rgb(0,0,255);">unRegisterNavParam</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">customTransitionMap</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">delete</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  // 移除某个页面的动画回调
+  unRegisterNavParam(name: number): void {
+    customTransitionMap.delete(name);
+  }
 
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取某个页面的动画回调</span></em>
-  <span style="color: rgb(0,0,255);">getAnimateParam</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">AnimateCallback </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">result</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">AnimateCallback </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">start</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">customTransitionMap</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">start</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">finish</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">customTransitionMap</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">finish</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">timeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">customTransitionMap</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">timeout</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">onFinish</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">customTransitionMap</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">onFinish</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(255,255,255);">result</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  // 获取某个页面的动画回调
+  getAnimateParam(name: number): AnimateCallback {
+    let result: AnimateCallback = {
+      start: customTransitionMap.get(name)?.start,
+      finish: customTransitionMap.get(name)?.finish,
+      timeout: customTransitionMap.get(name)?.timeout,
+      onFinish: customTransitionMap.get(name)?.onFinish
+    };
+    return result;
+  }
+}
 ```
 
 3. 在希望自定义动画的页面中，调用CustomTransition类注册相应的动画回调。如下所示，注册的回调函数中设置了转场位置和透明度。
 ```json
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">pageOneTmp </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@Consume</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'pageInfos'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(255,255,255);">pageInfos</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">opacitys</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">添加透明度状态</span></em>
-  <span style="color: rgb(255,255,255);">pageId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+@Component
+struct pageOneTmp {
+  @Consume('pageInfos') pageInfos: NavPathStack;
+  @State x: number = 0;
+  @State opacitys: number = 1; // 添加透明度状态
+  pageId: number = 0;
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageId </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageInfos</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getAllPathName</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">CustomTransition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getInstance</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">registerNavParam</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageId</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isPush</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isExit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">isPush</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">isExit</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">x </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">isExit </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">300</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">opacitys </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">isExit </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置初始透明度</span></em>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isPush</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isExit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">isPush</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">isExit</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">x </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">isExit </span><span style="color: rgb(181,106,1);">? -</span><span style="color: rgb(80,160,79);">300 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">opacitys </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">isExit </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置结束透明度</span></em>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isPush</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isExit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">isPush</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">isExit</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">x </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">opacitys </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">重置透明度</span></em>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  aboutToAppear() {
+    this.pageId = this.pageInfos.getAllPathName().length - 1;
+    CustomTransition.getInstance().registerNavParam(this.pageId, (isPush: boolean, isExit: boolean) => {
+      console.info(`${isPush} ${isExit}`);
+      this.x = isExit ? 0 : 300;
+      this.opacitys = isExit ? 1 : 0; // 设置初始透明度
+    }, (isPush: boolean, isExit: boolean) => {
+      console.info(`${isPush} ${isExit}`);
+      this.x = isExit ? -300 : 0;
+      this.opacitys = isExit ? 0 : 1; // 设置结束透明度
+    }, (isPush: boolean, isExit: boolean) => {
+      console.info(`${isPush} ${isExit}`);
+      this.x = 0;
+      this.opacitys = 1; // 重置透明度
+    }, 200);
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'pageTwo'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">stateEffect</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Capsule </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'80%'</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">40</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageInfos</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPathByName</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'pageTwo'</span><span style="color: rgb(181,106,1);">, </span>null<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">//</span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">name</span><span style="color: rgb(128,128,128);">指定的</span><span style="color: rgb(128,128,128);">NavDestination</span><span style="color: rgb(128,128,128);">页面信息入栈，传递的数据为</span><span style="color: rgb(128,128,128);">param</span></em>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    NavDestination() {
+      Column() {
+        Button('pageTwo', { stateEffect: true, type: ButtonType.Capsule })
+          .width('80%')
+          .height(40)
+          .margin(20)
+          .onClick(() => {
+            this.pageInfos.pushPathByName('pageTwo', null); //将name指定的NavDestination页面信息入栈，传递的数据为param
+          });
 
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'pageOne'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">NavDestinationMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">STANDARD</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onBackPressed</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      const <span style="color: rgb(255,255,255);">popDestinationInfo </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageInfos</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pop</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">弹出路由栈栈顶元素</span></em>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'pop' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">返回值</span><span style="color: rgb(132,63,161);">' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">popDestinationInfo</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-      return true<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDisAppear</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">CustomTransition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getInstance</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">unRegisterNavParam</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageId</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">translate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">z</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">opacity</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">opacitys</span><span style="color: rgb(255,0,170);">) </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置透明度属性</span></em>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">White</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+      }.width('100%').height('100%');
+    }
+    .title('pageOne')
+    .mode(NavDestinationMode.STANDARD)
+    .onBackPressed(() => {
+      const popDestinationInfo = this.pageInfos.pop(); // 弹出路由栈栈顶元素
+      console.log('pop' + '返回值' + JSON.stringify(popDestinationInfo));
+      return true;
+    })
+    .onDisAppear(() => {
+      CustomTransition.getInstance().unRegisterNavParam(this.pageId);
+    })
+    .translate({ x: 0, y: this.x, z: 0 })
+    .opacity(this.opacitys) // 设置透明度属性
+    .backgroundColor(Color.White);
+  }
+}
 ```
  
 ```text
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">PageTwoTemp </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@Consume</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'pageInfos'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(255,255,255);">pageInfos</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">300</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">opacitys</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">添加透明度状态</span></em>
-  <span style="color: rgb(255,255,255);">pageId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+@Component
+struct PageTwoTemp {
+  @Consume('pageInfos') pageInfos: NavPathStack;
+  @State x: number = 300;
+  @State opacitys: number = 1; // 添加透明度状态
+  pageId: number = 0;
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageId </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageInfos</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getAllPathName</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">CustomTransition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getInstance</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">registerNavParam</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageId</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isPush</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isExit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">isPush</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">isExit</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">x </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">isExit </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">isPush </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(80,160,79);">300 </span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(80,160,79);">300</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">opacitys </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">isExit </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置初始透明度</span></em>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isPush</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isExit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">isPush</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">isExit</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">x </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">isExit </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">isPush </span><span style="color: rgb(181,106,1);">? -</span><span style="color: rgb(80,160,79);">300 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">300 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">opacitys </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">isExit </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置结束透明度</span></em>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isPush</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isExit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">isPush</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">isExit</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">x </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">opacitys </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">重置透明度</span></em>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2000</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  aboutToAppear() {
+    this.pageId = this.pageInfos.getAllPathName().length - 1;
+    CustomTransition.getInstance().registerNavParam(this.pageId, (isPush: boolean, isExit: boolean) => {
+      console.info(`${isPush} ${isExit}`);
+      this.x = isExit ? 0 : isPush ? 300 : -300;
+      this.opacitys = isExit ? 1 : 0; // 设置初始透明度
+    }, (isPush: boolean, isExit: boolean) => {
+      console.info(`${isPush} ${isExit}`);
+      this.x = isExit ? isPush ? -300 : 300 : 0;
+      this.opacitys = isExit ? 0 : 1; // 设置结束透明度
+    }, (isPush: boolean, isExit: boolean) => {
+      console.info(`${isPush} ${isExit}`);
+      this.x = 0;
+      this.opacitys = 1; // 重置透明度
+    }, 2000);
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Page Two'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'pageTwo'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDisAppear</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">CustomTransition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getInstance</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">unRegisterNavParam</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageId</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">translate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">z</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">x </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">opacity</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">opacitys</span><span style="color: rgb(255,0,170);">) </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置透明度属性</span></em>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">White</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    NavDestination() {
+      Column() {
+        Text('Page Two').fontSize(50);
+      }.width('100%').height('100%');
+    }
+    .title('pageTwo')
+    .onDisAppear(() => {
+      CustomTransition.getInstance().unRegisterNavParam(this.pageId);
+    })
+    .translate({ x: 0, y: 0, z: this.x })
+    .opacity(this.opacitys) // 设置透明度属性
+    .backgroundColor(Color.White);
+  }
+}
 ```
 
 4. 通过Navigation的customNavContentTransition属性设置转场动画。此属性的回调入参包含了进退场Destination页面的信息。通过进退场页面的信息，使用CustomTransition类查询页面对应的动画回调函数，并构建自定义转场动画协议NavigationAnimatedTransition。
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">NavigationPage </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@Provide</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'pageInfos'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(255,255,255);">pageInfos</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct NavigationPage {
+  @Provide('pageInfos') pageInfos: NavPathStack = new NavPathStack();
 
-  <span style="color: rgb(181,106,1);">@Builder</span>
-  <span style="color: rgb(0,0,255);">PageMap</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">'pageOne'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">pageOneTmp</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">pageId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>else if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">'pageTwo'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">PageTwoTemp</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">pageId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Date</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  @Builder
+  PageMap(name: string) {
+    if (name === 'pageOne') {
+      pageOneTmp({ pageId: Date.now() });
+    } else if (name === 'pageTwo') {
+      PageTwoTemp({ pageId: Date.now() });
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageInfos</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPath</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'pageOne' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span>false<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使用路由拦截功能</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageInfos</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setInterception</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">willShow</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">from</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavDestinationContext </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">NavBar</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">to</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavDestinationContext </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">NavBar</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">operation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavigationOperation</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">isAnimated</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">如果要返回到主页面，就</span><span style="color: rgb(128,128,128);">push</span><span style="color: rgb(128,128,128);">名为</span><span style="color: rgb(128,128,128);">pageOne</span><span style="color: rgb(128,128,128);">的子页面</span></em>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">to </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(132,63,161);">'navBar'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">from</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">operation</span><span style="color: rgb(181,106,1);">} ${</span><span style="color: rgb(255,255,255);">isAnimated</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageInfos</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushPathByName</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'pageOne'</span><span style="color: rgb(181,106,1);">, </span>undefined<span style="color: rgb(181,106,1);">, </span>false<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span>
-<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  aboutToAppear() {
+    this.pageInfos.pushPath({ name: 'pageOne' }, false);
+    // 使用路由拦截功能
+    this.pageInfos.setInterception({
+      willShow: (from: NavDestinationContext | NavBar, to: NavDestinationContext | NavBar,
+        operation: NavigationOperation, isAnimated: boolean) => {
+        // 如果要返回到主页面，就push名为pageOne的子页面
+        if (to == 'navBar') {
+          console.info(`${from} ${operation} ${isAnimated}`);
+          this.pageInfos.pushPathByName('pageOne', undefined, false);
+        }
+      }
+    });
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pageInfos</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'NavIndex'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">navDestination</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PageMap</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideNavBar</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">customNavContentTransition</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">from</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavContentInfo</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">to</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavContentInfo</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">operation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavigationOperation</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">from</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mode </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">NavDestinationMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DIALOG </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,255,255);">to</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mode </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">NavDestinationMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DIALOG</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        return undefined<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">from</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">=== -</span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,255,255);">to</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">=== -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        return undefined<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      let <span style="color: rgb(255,255,255);">customAnimation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavigationAnimatedTransition </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">timeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">700</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">transition</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">transitionProxy</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">NavigationTransitionProxy</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-     <em>     <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取退场页面的动画回调函数</span></em>
-          let <span style="color: rgb(255,255,255);">fromParam</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">AnimateCallback </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">CustomTransition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getInstance</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getAnimateParam</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">from</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取进场页面的动画回调函数</span></em>
-          let <span style="color: rgb(255,255,255);">toParam</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">AnimateCallback </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">CustomTransition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getInstance</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getAnimateParam</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">to</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">fromParam</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">start </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">fromParam</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">start</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">operation </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">NavigationOperation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PUSH</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span>
-          if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">toParam</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">start </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">toParam</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">start</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">operation </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">NavigationOperation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PUSH</span><span style="color: rgb(181,106,1);">, </span>false<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animateTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1200</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">onFinish</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-              if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">fromParam</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">onFinish </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-                <span style="color: rgb(255,255,255);">fromParam</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onFinish</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">operation </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">NavigationOperation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PUSH</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(181,106,1);">}</span>
-              if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">toParam</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">onFinish </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-                <span style="color: rgb(255,255,255);">toParam</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onFinish</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">operation </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">NavigationOperation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PUSH</span><span style="color: rgb(181,106,1);">, </span>false<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(181,106,1);">}</span>
-              <span style="color: rgb(255,255,255);">transitionProxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">finishTransition</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">fromParam</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">finish </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(255,255,255);">fromParam</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">finish</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">operation </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">NavigationOperation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PUSH</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span>
-            if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">toParam</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">finish </span><span style="color: rgb(181,106,1);">!== </span>undefined<span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(255,255,255);">toParam</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">finish</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">operation </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">NavigationOperation</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PUSH</span><span style="color: rgb(181,106,1);">, </span>false<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(181,106,1);">;</span>
-      return <span style="color: rgb(255,255,255);">customAnimation</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Navigation(this.pageInfos) {
+    }.title('NavIndex').navDestination(this.PageMap)
+    .hideNavBar(true)
+    .customNavContentTransition((from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation) => {
+      if (from.mode === NavDestinationMode.DIALOG || to.mode === NavDestinationMode.DIALOG) {
+        return undefined;
+      }
+      if (from.index === -1 || to.index === -1) {
+        return undefined;
+      }
+      let customAnimation: NavigationAnimatedTransition = {
+        timeout: 700,
+        transition: (transitionProxy: NavigationTransitionProxy) => {
+          // 获取退场页面的动画回调函数
+          let fromParam: AnimateCallback = CustomTransition.getInstance()?.getAnimateParam(from.index);
+          // 获取进场页面的动画回调函数
+          let toParam: AnimateCallback = CustomTransition.getInstance()?.getAnimateParam(to.index);
+          if (fromParam.start !== undefined) {
+            fromParam.start(operation === NavigationOperation.PUSH, true);
+          }
+          if (toParam.start !== undefined) {
+            toParam.start(operation === NavigationOperation.PUSH, false);
+          }
+          this.getUIContext().animateTo({
+            duration: 1200, onFinish: () => {
+              if (fromParam.onFinish !== undefined) {
+                fromParam.onFinish(operation === NavigationOperation.PUSH, true);
+              }
+              if (toParam.onFinish !== undefined) {
+                toParam.onFinish(operation === NavigationOperation.PUSH, false);
+              }
+              transitionProxy.finishTransition();
+            }
+          }, () => {
+            if (fromParam.finish !== undefined) {
+              fromParam?.finish(operation === NavigationOperation.PUSH, true);
+            }
+            if (toParam.finish !== undefined) {
+              toParam?.finish(operation === NavigationOperation.PUSH, false);
+            }
+          });
+        }
+      };
+      return customAnimation;
+    });
+  }
+}
 ```

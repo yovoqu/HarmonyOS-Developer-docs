@@ -50,7 +50,7 @@ struct TabsExample {
     }
   };
 
- <em> // 自定义的构建标签栏内容的方法，接收标签标题和目标索引作为参数</em>
+  // 自定义的构建标签栏内容的方法，接收标签标题和目标索引作为参数
   @Builder
   tabBuilder(title: string, targetIndex: number) {
     Column() {
@@ -60,11 +60,11 @@ struct TabsExample {
 
   };
 
- <em> // 自定义的构建标签栏内容的方法，接收标签标题和目标索引作为参数</em>
+  // 自定义的构建标签栏内容的方法，接收标签标题和目标索引作为参数
   @Builder
   newsBuilder(targetIndex: number) {
     Column() {
-  <em>    // 三元表达式判别标签内容及颜色</em>
+      // 三元表达式判别标签内容及颜色
       Text(this.calcNewsGroup(this.currentListIndex) === targetIndex ? this.arrTitleBarEx[targetIndex] :
         this.arrTitleBar[targetIndex])
         .margin({
@@ -74,7 +74,7 @@ struct TabsExample {
           right: 8
         })
         .onClick(() => {
-         <em> // 实现点击标签list组件可以自动跳转到该标签对应listitem分类的首个item</em>
+          // 实现点击标签list组件可以自动跳转到该标签对应listitem分类的首个item
           this.scrollerForList.scrollToIndex(this.clickToNewsGroup(targetIndex), true);
         })
         .fontColor(this.calcNewsGroup(this.currentListIndex) === targetIndex ? Color.Black : Color.Gray);
@@ -123,10 +123,10 @@ struct TabsExample {
     }
   };
 
-<em>  // 组件的构建方法，用于定义组件的整体UI结构和布局</em>
+  // 组件的构建方法，用于定义组件的整体UI结构和布局
   build() {
     Column() {
-      <em>// 画面顶部的标签</em>
+      // 画面顶部的标签
       Column() {
         Column() {
           Row() {
@@ -136,16 +136,16 @@ struct TabsExample {
           }
           .height(20);
         }
-        .width('90%') <em>// 设置宽度</em>
-        .height(40) <em>// 设置高度</em>
-        .backgroundColor('rgba(242, 243, 245, 1)') <em>// 背景色（可自定义）</em>
-        .borderRadius(20) <em>// 半径为高度的一半（60 / 2 = 30），形成胶囊形</em>
+        .width('90%') // 设置宽度
+        .height(40) // 设置高度
+        .backgroundColor('rgba(242, 243, 245, 1)') // 背景色（可自定义）
+        .borderRadius(20) // 半径为高度的一半（60 / 2 = 30），形成胶囊形
         .margin({ left: 18, right: 18 })
         .justifyContent(FlexAlign.Center)
         .alignItems(HorizontalAlign.Center);
 
 
-        <em>// 画面中部的List组件，用于创建水平滚动的列表，设置了列表项间距、初始索引和滚动条</em>
+        // 画面中部的List组件，用于创建水平滚动的列表，设置了列表项间距、初始索引和滚动条
         Row() {
           List({ space: 20, initialIndex: 0, scroller: this.scrollerForList }) {
             ForEach(this.arr, (item: number) => {
@@ -161,7 +161,7 @@ struct TabsExample {
                     .textAlign(TextAlign.Center)
                     .align(Alignment.Top);
                   Text('Content ' + this.arrContent[item % 3])
-                 <em> // .textAlign(TextAlign.Center)</em>
+                  // .textAlign(TextAlign.Center)
                     .align(Alignment.Top);
                 }
                 .height('100%')
@@ -176,14 +176,14 @@ struct TabsExample {
             }, (item: number) => JSON.stringify(item));
           }
           .onScrollIndex((firstIndex: number, lastIndex: number, centerIndex: number) => {
-            this.currentListIndex = centerIndex; <em>// 获取到当前界面居中的子组件listitem</em>
+            this.currentListIndex = centerIndex; // 获取到当前界面居中的子组件listitem
           })
           .chainAnimation(true)
           .edgeEffect(EdgeEffect.Spring)
           .listDirection(Axis.Horizontal)
           .height('100%')
           .width('100%')
-         <em> // 识别抬手时，listitem为每个分类的末尾item既调用scrollToIndex并靠后对齐</em>
+          // 识别抬手时，listitem为每个分类的末尾item既调用scrollToIndex并靠后对齐
           .onTouch((event?: TouchEvent) => {
             if (event) {
               if (event.type === TouchType.Up) {

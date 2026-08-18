@@ -29,7 +29,7 @@ HAR和HSP的使用：[HAR的使用](https://developer.huawei.com/consumer/cn/doc
 2. 方式二：使用@bundle协议指定目标模块的包名、模块名和页面路径。格式规则：@bundle:包名（bundleName）/模块名（moduleName）/路径/页面所在的文件名(不加.ets后缀)。参考示例如下所示：
 ```ArkTS
 this.getUIContext().getRouter().pushUrl({
-  url: '@bundle:com.example.navigationsystemtable/hsp/ets/pages/Index' <em>// url格式为'@bundle:包名（bundleName）/模块名（moduleName）/路径/页面所在的文件名(不加.ets后缀)'</em>
+  url: '@bundle:com.example.navigationsystemtable/hsp/ets/pages/Index' // url格式为'@bundle:包名（bundleName）/模块名（moduleName）/路径/页面所在的文件名(不加.ets后缀)'
 });
 ```
 
@@ -70,7 +70,7 @@ this.pageInfos.pushPathByName('HspPage', null, false);
  除系统路由表外，可通过Navigation动态路由实现，开发者可参考[Navigation动态路由](https://gitcode.com/HarmonyOS-Cases/cases/tree/master/test/performance/dynamicRouter/)。
 - HAR模块HarPage页面->HAP模块Index页面，entry内模块路由跳转：pages/页面所在的文件名（不加.ets后缀），参考示例如下所示：
 ```text
-<em>// (无需@bundle前缀）</em>
+// (无需@bundle前缀）
 this.getUIContext().getRouter().pushUrl({ url: 'pages/Index' });
 ```
 
@@ -82,7 +82,7 @@ this.getUIContext().getRouter().pushUrl({ url: 'pages/Index' });
 HAP模块：oh-package.json5文件配置如上，Index页面代码如下所示。
  
 ```ArkTS
-<em>// import引入HSP模块内跳转目标页面</em>
+// import引入HSP模块内跳转目标页面
 import 'hsp/src/main/ets/pages/Index';
 
 
@@ -102,7 +102,7 @@ struct Index {
         Button('跳转到hspIndexPage页面（方法二）')
           .onClick(() => {
             this.getUIContext().getRouter().pushUrl({
-              url: '@bundle:com.example.navigationsystemtable/hsp/ets/pages/Index' <em>// url格式为'@bundle:包名（bundleName）/模块名（moduleName）/路径/页面所在的文件名(不加.ets后缀)'</em>
+              url: '@bundle:com.example.navigationsystemtable/hsp/ets/pages/Index' // url格式为'@bundle:包名（bundleName）/模块名（moduleName）/路径/页面所在的文件名(不加.ets后缀)'
             });
           });
         Button('跳转到HspPage页面')
@@ -125,7 +125,7 @@ struct Index {
 HSP模块：Index.ets文件如上配置。HspIndexPage页面代码如下：
  
 ```text
-<em>// 命名路由页面的名字</em>
+// 命名路由页面的名字
 @Entry({ routeName: 'HspIndexPage' })
 @Component
 export struct Index {

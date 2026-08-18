@@ -24,7 +24,7 @@
 ```text
 let pickerProfile: picker.PickerProfile = {
   cameraPosition: camera.CameraPosition.CAMERA_POSITION_BACK,
- <em> // 录制的最大时长（单位：秒）</em>
+  // 录制的最大时长（单位：秒）
   videoDuration: 5
 };
 let pickerResult: picker.PickerResult = await picker.pick(context,
@@ -37,7 +37,7 @@ let aVRecorderConfig: media.AVRecorderConfig = {
   audioSourceType: media.AudioSourceType.AUDIO_SOURCE_TYPE_MIC,
   videoSourceType: media.VideoSourceType.VIDEO_SOURCE_TYPE_SURFACE_YUV,
   profile: aVRecorderProfile,
-  url: `fd://${file.fd.toString()}`, <em>// 文件需先由调用者创建，赋予读写权限，将文件fd传给此参数，eg.fd://45--file:///data/media/01.mp4</em>
+  url: `fd://${file.fd.toString()}`, // 文件需先由调用者创建，赋予读写权限，将文件fd传给此参数，eg.fd://45--file:///data/media/01.mp4
   metadata: avMetadata,
   maxDuration: 5
 };

@@ -10,29 +10,29 @@ Web组件用file协议加载位于Download目录下的html文件，用JavaScript
 ```text
 jsBridgePermission: JsBridgePermission = {
   javascriptProxyPermission: {
-    urlPermissionList: [      <em> </em><em>// Object级权限，如果匹配，所有Method都授权</em>
+    urlPermissionList: [       // Object级权限，如果匹配，所有Method都授权
       {
-        scheme: 'resource',    <em>// 精确匹配，不能为空</em>
-        host: 'rawfile',      <em> </em><em>// 精确匹配，不能为空</em>
-        port: '',            <em>  </em><em>// 精确匹配，为空不检查</em>
-        path: ''             <em>  </em><em>// 前缀匹配，为空不检查</em>
+        scheme: 'resource',    // 精确匹配，不能为空
+        host: 'rawfile',       // 精确匹配，不能为空
+        port: '',              // 精确匹配，为空不检查
+        path: ''               // 前缀匹配，为空不检查
       },
       {
-        scheme: 'file',  <em> </em><em>// 精确匹配，不能为空</em>
-        host: '',  <em> </em><em>// 精确匹配，不能为空</em>
-        port: '',       <em>   </em><em>// 精确匹配，为空不检查</em>
-        path: ''        <em>   </em><em>// 前缀匹配，为空不检查</em>
+        scheme: 'file',   // 精确匹配，不能为空
+        host: '',   // 精确匹配，不能为空
+        port: '',          // 精确匹配，为空不检查
+        path: ''           // 前缀匹配，为空不检查
       }
     ],
     methodList: [
       {
         methodName: 'test',
-        urlPermissionList: [  <em> </em><em>// Method级权限</em>
+        urlPermissionList: [   // Method级权限
           {
-            scheme: 'resource', <em>// </em><em>精确匹配，不能为空</em>
-            host: 'rawfile',  <em> </em><em>// 精确匹配，不能为空</em>
-            port: '',       <em>   </em><em>// 精确匹配，为空不检查</em>
-            path: ''        <em>   </em><em>// 前缀匹配，为空不检查</em>
+            scheme: 'resource', // 精确匹配，不能为空
+            host: 'rawfile',   // 精确匹配，不能为空
+            port: '',          // 精确匹配，为空不检查
+            path: ''           // 前缀匹配，为空不检查
           }
         ]
       }
@@ -81,18 +81,18 @@ jsBridgePermission: JsBridgePermission = {
 ```text
 jsBridgePermission: JsBridgePermission = {
   javascriptProxyPermission: {
-    urlPermissionList: [ <em>// Object</em><em>级权限，如果匹配，所有Method都授权</em>
+    urlPermissionList: [ // Object级权限，如果匹配，所有Method都授权
       {
-        scheme: 'resource', <em>// 精确匹配，不能为空</em>
-        host: 'rawfile', <em>// 精确匹配，不能为空</em>
-        port: '', <em>// </em><em>精确匹配，为空不检查</em>
-        path: ''            <em>   </em><em>// 前缀匹配，为空不检查</em>
+        scheme: 'resource', // 精确匹配，不能为空
+        host: 'rawfile', // 精确匹配，不能为空
+        port: '', // 精确匹配，为空不检查
+        path: ''               // 前缀匹配，为空不检查
       },
       {
-        scheme: 'file',<em> </em><em>// 精确匹配，不能为空</em>
-        host: 'docs', <em>// </em><em>精确匹配，不能为空</em>
-        port: '', <em>// </em><em>精确匹配，为空不检查</em>
-        path: '/storage/Users/currentUser/Download/'          <em> </em><em>// file协议加载HTML时，所有JsBridge方法只允许Download目录下的HTML调用</em>
+        scheme: 'file', // 精确匹配，不能为空
+        host: 'docs', // 精确匹配，不能为空
+        port: '', // 精确匹配，为空不检查
+        path: '/storage/Users/currentUser/Download/'           // file协议加载HTML时，所有JsBridge方法只允许Download目录下的HTML调用
       },
     ]
   }
@@ -143,39 +143,39 @@ interface UrlPermission {
 @Component
 struct Index {
   webviewController: webview.WebviewController = new webview.WebviewController();
- <em> // 声明需要注册的对象</em>
+  // 声明需要注册的对象
   testObj: TestClass = new TestClass();
   jsBridgePermission: JsBridgePermission = {
     javascriptProxyPermission: {
-      urlPermissionList: [ <em>// Object</em><em>级权限，如果匹配，所有Method都授权</em>
+      urlPermissionList: [ // Object级权限，如果匹配，所有Method都授权
         {
-          scheme: 'resource',<em> </em><em>// 精确匹配，不能为空</em>
-          host: 'rawfile', <em>// 精确匹配，不能为空</em>
-          port: '',<em> </em><em>// 精确匹配，为空不检查</em>
-          path: ''             <em>  </em><em>// 前缀匹配，为空不检查</em>
+          scheme: 'resource', // 精确匹配，不能为空
+          host: 'rawfile', // 精确匹配，不能为空
+          port: '', // 精确匹配，为空不检查
+          path: ''               // 前缀匹配，为空不检查
         },
         {
-          scheme: 'file',<em> </em><em>// 精确匹配，不能为空</em>
-          host: 'docs', <em>// </em><em>精确匹配，不能为空</em>
-          port: '', <em>// </em><em>精确匹配，为空不检查</em>
-          path: '/storage/Users/currentUser/'         <em>  </em><em>// file协议加载HTML时，所有JsBridge方法只允许docs/storage/Users/currentUser/目录下的HTML调用</em>
+          scheme: 'file', // 精确匹配，不能为空
+          host: 'docs', // 精确匹配，不能为空
+          port: '', // 精确匹配，为空不检查
+          path: '/storage/Users/currentUser/'           // file协议加载HTML时，所有JsBridge方法只允许docs/storage/Users/currentUser/目录下的HTML调用
         }
       ],
       methodList: [
         {
           methodName: 'test',
-          urlPermissionList: [<em> // Method</em><em>级权限</em>
+          urlPermissionList: [ // Method级权限
             {
-              scheme: 'resource', <em>// </em><em>精确匹配，不能为空</em>
-              host: 'rawfile',<em> </em><em>// 精确匹配，不能为空</em>
-              port: '',<em> </em><em>// 精确匹配，为空不检查</em>
-              path: ''         <em>  </em><em>// 前缀匹配，为空不检查</em>
+              scheme: 'resource', // 精确匹配，不能为空
+              host: 'rawfile', // 精确匹配，不能为空
+              port: '', // 精确匹配，为空不检查
+              path: ''           // 前缀匹配，为空不检查
             },
             {
-              scheme: 'file', <em>// </em><em>精确匹配，不能为空</em>
-              host: 'docs', <em>// 精确匹配，不能为空</em>
-              port: '',<em> </em><em>// 精确匹配，为空不检查</em>
-              path: '/storage/Users/currentUser/Download/'         <em>  </em><em>// file协议加载HTML时，test方法只允许Download目录下的HTML调用</em>
+              scheme: 'file', // 精确匹配，不能为空
+              host: 'docs', // 精确匹配，不能为空
+              port: '', // 精确匹配，为空不检查
+              path: '/storage/Users/currentUser/Download/'           // file协议加载HTML时，test方法只允许Download目录下的HTML调用
             }
           ]
         }
@@ -239,7 +239,7 @@ struct Index {
     const documentViewPicker = new picker.DocumentViewPicker(context);
     documentViewPicker.select(documentSelectOptions).then((documentSelectResult: Array<string>) => {
       uris = documentSelectResult;
-      console.info(uris[0]);<em> </em><em>// file://docs/storage/Users/currentUser/Download/index.html</em>
+      console.info(uris[0]); // file://docs/storage/Users/currentUser/Download/index.html
       try {
         this.webviewController.loadUrl(uris[0]);
       } catch (error) {
@@ -299,39 +299,39 @@ interface UrlPermission {
 @Component
 struct Index {
   webviewController: webview.WebviewController = new webview.WebviewController();
- <em> // 声明需要注册的对象</em>
+  // 声明需要注册的对象
   testObj: TestClass = new TestClass();
   jsBridgePermission: JsBridgePermission = {
     javascriptProxyPermission: {
-      urlPermissionList: [ <em>// Object</em><em>级权限，如果匹配，所有Method都授权</em>
+      urlPermissionList: [ // Object级权限，如果匹配，所有Method都授权
         {
-          scheme: 'resource', <em>// </em><em>精确匹配，不能为空</em>
-          host: 'rawfile', <em>// 精确匹配，不能为空</em>
-          port: '', <em>// 精确匹配，为空不检查</em>
-          path: ''             <em>  </em><em>// </em><em>前缀匹配，为空不检查</em>
+          scheme: 'resource', // 精确匹配，不能为空
+          host: 'rawfile', // 精确匹配，不能为空
+          port: '', // 精确匹配，为空不检查
+          path: ''               // 前缀匹配，为空不检查
         },
         {
-          scheme: 'file', <em>// </em><em>精确匹配，不能为空</em>
-          host: 'docs',<em> </em><em>// 精确匹配，不能为空</em>
-          port: '', <em>// 精确匹配，为空不检查</em>
-          path: '/storage/Users/currentUser/'         <em>  </em><em>// file协议加载HTML时，所有JsBridge方法只允许docs/storage/Users/currentUser/目录下的HTML调用</em>
+          scheme: 'file', // 精确匹配，不能为空
+          host: 'docs', // 精确匹配，不能为空
+          port: '', // 精确匹配，为空不检查
+          path: '/storage/Users/currentUser/'           // file协议加载HTML时，所有JsBridge方法只允许docs/storage/Users/currentUser/目录下的HTML调用
         }
       ],
       methodList: [
         {
           methodName: 'test',
-          urlPermissionList: [<em> // Method</em><em>级权限</em>
+          urlPermissionList: [ // Method级权限
             {
-              scheme: 'resource', <em>// 精确匹配，不能为空</em>
-              host: 'rawfile',<em> </em><em>// 精确匹配，不能为空</em>
-              port: '', <em>// 精确匹配，为空不检查</em>
-              path: ''       <em>    </em><em>// 前缀匹配，为空不检查</em>
+              scheme: 'resource', // 精确匹配，不能为空
+              host: 'rawfile', // 精确匹配，不能为空
+              port: '', // 精确匹配，为空不检查
+              path: ''           // 前缀匹配，为空不检查
             },
             {
-              scheme: 'file',<em> </em><em>// 精确匹配，不能为空</em>
-              host: 'docs', <em>// 精确匹配，不能为空</em>
-              port: '', <em>// </em><em>精确匹配，为空不检查</em>
-              path: '/storage/Users/currentUser/Download/'       <em>    </em><em>// file协议加载HTML时，test方法只允许Download目录下的HTML调用</em>
+              scheme: 'file', // 精确匹配，不能为空
+              host: 'docs', // 精确匹配，不能为空
+              port: '', // 精确匹配，为空不检查
+              path: '/storage/Users/currentUser/Download/'           // file协议加载HTML时，test方法只允许Download目录下的HTML调用
             }
           ]
         }
@@ -395,7 +395,7 @@ struct Index {
     const documentViewPicker = new picker.DocumentViewPicker(context);
     documentViewPicker.select(documentSelectOptions).then((documentSelectResult: Array<string>) => {
       uris = documentSelectResult;
-      console.info(uris[0]); <em>// file://docs/storage/Users/currentUser/Download/index.html</em>
+      console.info(uris[0]); // file://docs/storage/Users/currentUser/Download/index.html
       try {
         this.webviewController.loadUrl(uris[0]);
       } catch (error) {
@@ -411,7 +411,7 @@ struct Index {
 html示例代码：
  
 ```text
-<em><!-- index.html --></em>
+<!-- index.html -->
 <!DOCTYPE html>
 <html>
 <head>

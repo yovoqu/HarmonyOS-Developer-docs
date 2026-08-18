@@ -25,9 +25,9 @@
 问题代码示例参考如下：
  
 ```text
-<em>/**</em>
-<em> * 下拉刷新文案</em>
-<em> */</em>
+/**
+ * 下拉刷新文案
+ */
 const PULL_REFRESH = '下拉刷新';
 const RELEASE_REFRESH = '释放刷新';
 const PULL_REFRESHING = '刷新中...';
@@ -101,21 +101,21 @@ struct RefreshExample {
   @State ratio: number = 1;
   @State arr: String[] = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
   @State angle: number = 0;
-  @State colors: [ResourceColor | LinearGradient, number][] = []; <em>// 组件进度条颜色配置</em>
+  @State colors: [ResourceColor | LinearGradient, number][] = []; // 组件进度条颜色配置
 
- <em> // 设置进度条颜色</em>
+  // 设置进度条颜色
   setColors(percentage: number) {
     this.colors = [['#FF585E70', percentage], ['#ffffff', 1 - percentage]];
   }
 
-  @State @Watch('valueChange') currentValue: number = 0; <em>// 当前值</em>
+  @State @Watch('valueChange') currentValue: number = 0; // 当前值
 
- <em> // 计算当前值占总的百分比</em>
+  // 计算当前值占总的百分比
   getPercentage(): number {
     return Math.min(this.currentValue / 100, 1);
   }
 
-<em>  // 当前值改变监听</em>
+  // 当前值改变监听
   valueChange() {
     this.setColors(this.getPercentage());
   }
@@ -167,7 +167,7 @@ struct RefreshExample {
       .refreshOffset(64)
       .onOffsetChange((offset: number) => {
         this.currentValue = (offset / this.maxRefreshingHeight) * 100;
-     <em>   // 越接近最大距离，下拉跟手系数越小</em>
+        // 越接近最大距离，下拉跟手系数越小
         this.ratio = 1 - Math.pow((offset / this.maxRefreshingHeight), 3);
       })
       .onStateChange((refreshStatus: RefreshStatus) => {
@@ -328,22 +328,22 @@ struct RefreshExample {
   maxRefreshingHeight: number = 200.0;
   @State ratio: number = 1;
   @State arr: String[] = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-  colors: [ResourceColor | LinearGradient, number][] = [];<em> </em><em>// 组件进度条颜色配置</em>
+  colors: [ResourceColor | LinearGradient, number][] = []; // 组件进度条颜色配置
 
 
-<em>  // 设置进度条颜色</em>
+  // 设置进度条颜色
   setColors(percentage: number) {
     this.colors = [['#FF585E70', percentage], ['#ffffff', 1 - percentage]];
   }
 
-  @State @Watch('valueChange') currentValue: number = 0; <em>// 当前值</em>
+  @State @Watch('valueChange') currentValue: number = 0; // 当前值
 
- <em> // 计算当前值占总的百分比</em>
+  // 计算当前值占总的百分比
   getPercentage(): number {
     return Math.min(this.currentValue / 100, 1);
   }
 
- <em> // 当前值改变监听</em>
+  // 当前值改变监听
   valueChange() {
     this.setColors(this.getPercentage());
   }
@@ -383,7 +383,7 @@ struct RefreshExample {
       .pullToRefresh(true)
       .refreshOffset(64)
       .onOffsetChange((offset: number) => {
-      <em>  // 越接近最大距离，下拉跟手系数越小</em>
+        // 越接近最大距离，下拉跟手系数越小
         this.ratio = 1 - Math.pow((offset / this.maxRefreshingHeight), 3);
       })
       .onStateChange((refreshStatus: RefreshStatus) => {
@@ -391,7 +391,7 @@ struct RefreshExample {
           this.refreshString = PULL_REFRESHING;
           this.getUIContext().animateTo({ curve: Curve.Linear, iterations: 5, duration: 1000 }, () => {
             this.params.angle = 360;
-        <em>    // 更新自定义组件内容</em>
+            // 更新自定义组件内容
             this.contentNode?.update(this.params);
           });
         }

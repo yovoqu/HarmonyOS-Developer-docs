@@ -14,20 +14,20 @@ napi_create_thread_safe_function函数调用时会触发参数中的napi_threads
 #include "hilog/log.h" 
  
 napi_ref cbObj = nullptr; 
-<em>// Thread safety function</em>
+// Thread safety function
 napi_threadsafe_function tsfn; 
-<em>// Native side Value Value</em>
+// Native side Value Value
 static int cValue; 
  
  
-<em>// Subthread running function </em>
+// Subthread running function 
 static void CallJs(napi_env env, napi_value js_cb, void *context, void *data) { 
     std::thread::id this_id = std::this_thread::get_id(); 
     OH_LOG_INFO(LOG_APP, "threadId3 is +%{public}d", this_id); 
-  <em>  // Get reference value </em>
+    // Get reference value 
     napi_get_reference_value(env, cbObj, &js_cb); 
  
-  <em>  // Create an ArkTS number as an input parameter for the ArkTS function.</em>
+    // Create an ArkTS number as an input parameter for the ArkTS function.
     napi_value argv; 
     napi_create_int32(env, cValue, &argv); 
  
@@ -39,30 +39,30 @@ static void CallJs(napi_env env, napi_value js_cb, void *context, void *data) {
     napi_delete_reference(env, cbObj); 
 } 
  
-<em>// Native main thread</em>
+// Native main thread
 static napi_value ThreadsTest(napi_env env, napi_callback_info info) { 
-   <em> // The number of parameters obtained from ArkTS side</em>
+    // The number of parameters obtained from ArkTS side
     size_t argc = 1; 
     napi_value js_cb, work_name; 
  
-   <em> // Get ArkTS parameters</em>
+    // Get ArkTS parameters
     napi_get_cb_info(env, info, &argc, &js_cb, nullptr, nullptr); 
  
-   <em> // Napi_ref cbObj pointing to napi_value js_cb</em>
+    // Napi_ref cbObj pointing to napi_value js_cb
     napi_create_reference(env, js_cb, 1, &cbObj); 
  
-   <em> // Create workname using UTF8 encoded C string data </em>
+    // Create workname using UTF8 encoded C string data 
     napi_create_string_utf8(env, "Work Item", NAPI_AUTO_LENGTH, &work_name); 
  
-  <em>  // Create thread safe function</em>
+    // Create thread safe function
     napi_create_threadsafe_function(env, js_cb, NULL, work_name, 0, 1, NULL, NULL, NULL, CallJs, &tsfn); 
  
     std::thread::id this_id = std::this_thread::get_id(); 
     OH_LOG_INFO(LOG_APP, "threadId1 is +%{public}d", this_id); 
  
-   <em> // Calling thread safe functions in other threads</em>
+    // Calling thread safe functions in other threads
     std::thread t([]() { 
-      <em>  // Can obtain thread ID</em>
+        // Can obtain thread ID
         std::thread::id this_id = std::this_thread::get_id(); 
         OH_LOG_INFO(LOG_APP, "threadId2 is +%{public}d", this_id); 
         napi_acquire_threadsafe_function(tsfn); 

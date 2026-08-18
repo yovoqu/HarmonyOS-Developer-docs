@@ -17,9 +17,9 @@ struct Index {
       TextInput({ placeholder: 'Please input a password', text: '123456', controller: this.controller })
         .type(InputType.Password)
         .placeholderColor(Color.Gray)
-        .inputFilter('[0-9]', (val) => { <em>//Only allow the input of characters 0-9, other characters are invalid</em>
+        .inputFilter('[0-9]', (val) => { //Only allow the input of characters 0-9, other characters are invalid
           console.error('TextInputExample : ' + val);
-      <em>    // Invalid input return 0</em>
+          // Invalid input return 0
           return 0;
         })
     }

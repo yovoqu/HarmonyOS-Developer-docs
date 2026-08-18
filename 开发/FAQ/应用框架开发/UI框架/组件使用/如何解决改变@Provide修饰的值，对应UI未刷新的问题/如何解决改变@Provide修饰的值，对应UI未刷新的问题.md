@@ -10,81 +10,81 @@
  
 - 首页Index.ets代码如下：
 ```text
-import <span style="color: rgb(0,0,255);">currentPlayInfo</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">PlayInfo </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'./PlayInfo'</span>
-import <span style="color: rgb(0,0,255);">player </span>from <span style="color: rgb(255,0,170);">'./AVPlayer'</span>
+import currentPlayInfo, { PlayInfo } from './PlayInfo'
+import player from './AVPlayer'
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@Provide</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'pageStack'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">pageStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(0,0,255);">()</span>
-  <span style="color: rgb(181,106,1);">@Provide</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'playInfo'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">playInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PlayInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">currentPlayInfo</span>
+@Entry
+@Component
+struct Index {
+  @Provide('pageStack') pageStack: NavPathStack = new NavPathStack()
+  @Provide('playInfo') playInfo: PlayInfo = currentPlayInfo
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pageStack</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">playInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isPlaying</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">正在播放</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">playInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(0,0,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">            }</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">没有播放</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(255,0,170);">}</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Change PlayInfo'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">player</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">play</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideTitleBar</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Navigation(this.pageStack) {
+      Column() {
+        if (this.playInfo.isPlaying) {
+          Text('正在播放' + this.playInfo.title)
+            .fontSize(50)
+            .fontWeight(FontWeight.Bold)
+            .alignRules({
+              center: { anchor: '__container__', align: VerticalAlign.Center },
+              middle: { anchor: '__container__', align: HorizontalAlign.Center }
+            })
+        } else {
+          Text('没有播放')
+            .fontSize(30)
+        }
+        Text('Change PlayInfo')
+          .fontSize(30)
+          .fontWeight(FontWeight.Bold)
+          .alignRules({
+            center: { anchor: '__container__', align: VerticalAlign.Center },
+            middle: { anchor: '__container__', align: HorizontalAlign.Center }
+          })
+          .onClick(() => {
+            player.play();
+          })
+      }
+      .height('100%')
+      .width('100%')
+    }
+    .hideTitleBar(true)
+  }
+}
 ```
 
 - 封装PlayInfo类，并导出全局实例对象给到Index.ets页面。
 
   PlayInfo.ets代码如下：
 ```text
-export class <span style="color: rgb(0,0,255);">PlayInfo </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">isPlaying</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false
-  <span style="color: rgb(0,0,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span>
-<span style="color: rgb(255,0,170);">}</span>
+export class PlayInfo {
+  isPlaying: boolean = false
+  title: string = ''
+}
 
-let <span style="color: rgb(0,0,255);">currentPlayInfo </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">PlayInfo</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+let currentPlayInfo = new PlayInfo();
 
-export default <span style="color: rgb(0,0,255);">currentPlayInfo </span>as <span style="color: rgb(0,0,255);">PlayInfo</span><span style="color: rgb(181,106,1);">;</span>
+export default currentPlayInfo as PlayInfo;
 ```
 
 - 封装AVPlayer方法类，修改播放的数据。
 
   AVPlayer.ets代码如下：
 ```text
-import <span style="color: rgb(0,0,255);">currentPlayInfo </span>from <span style="color: rgb(255,0,170);">'./PlayInfo'</span>
+import currentPlayInfo from './PlayInfo'
 
-class <span style="color: rgb(0,0,255);">AVPlayer </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">play</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">currentPlayInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isPlaying </span><span style="color: rgb(181,106,1);">= !</span><span style="color: rgb(0,0,255);">currentPlayInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isPlaying</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">currentPlayInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isPlaying</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">currentPlayInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">第 </span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">count</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">} </span><span style="color: rgb(255,0,170);">首</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
-<span style="color: rgb(255,0,170);">}</span>
+class AVPlayer {
+  play() {
+    currentPlayInfo.isPlaying = !currentPlayInfo.isPlaying
+    if (currentPlayInfo.isPlaying) {
+      currentPlayInfo.title = `第 ${this.count++} 首`;
+    }
+  }
+}
 
-let <span style="color: rgb(0,0,255);">player </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">AVPlayer</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+let player = new AVPlayer();
 
-export default <span style="color: rgb(0,0,255);">player </span>as <span style="color: rgb(0,0,255);">AVPlayer</span><span style="color: rgb(181,106,1);">;</span>
+export default player as AVPlayer;
 ```
 
 
@@ -140,84 +140,84 @@ play()函数修改的是普通变量currentPlayInfo，而不是状态变量playI
 应将AVPlayer类中play()函数修改的普通变量currentPlayInfo替换为状态变量playInfo。由于状态变量playInfo并不是全局实例对象，无法通过引用导入的方式修改，所以通过重写play()方法，在调用时传入状态变量playInfo并修改。修改如下：
  1. 定义PlayInfo类。
 ```text
-export class <span style="color: rgb(0,0,255);">PlayInfo </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">isPlaying</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+export class PlayInfo {
+  isPlaying: boolean = false;
+  title: string = '';
+}
 
-let <span style="color: rgb(0,0,255);">currentPlayInfo </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">PlayInfo</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+let currentPlayInfo = new PlayInfo();
 
-export default <span style="color: rgb(0,0,255);">currentPlayInfo </span>as <span style="color: rgb(0,0,255);">PlayInfo</span><span style="color: rgb(181,106,1);">;</span>
+export default currentPlayInfo as PlayInfo;
 ```
 
 2. 重写play()方法为需要传参的函数。
 
   AVPlayer.ets代码如下：
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">PlayInfo </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'./PlayInfo'</span><span style="color: rgb(181,106,1);">;</span>
+import { PlayInfo } from './PlayInfo';
 
-class <span style="color: rgb(0,0,255);">AVPlayer </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">count</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+class AVPlayer {
+  count: number = 0;
 
-  <span style="color: rgb(0,0,255);">playNew</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">playInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PlayInfo</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">playInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isPlaying </span><span style="color: rgb(181,106,1);">= !</span><span style="color: rgb(0,0,255);">playInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isPlaying</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">playInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isPlaying</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">playInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">第 </span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">count</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">} </span><span style="color: rgb(255,0,170);">首</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
-<span style="color: rgb(255,0,170);">}</span>
+  playNew(playInfo: PlayInfo) {
+    playInfo.isPlaying = !playInfo.isPlaying;
+    if (playInfo.isPlaying) {
+      playInfo.title = `第 ${this.count++} 首`;
+    }
+  }
+}
 
-let <span style="color: rgb(0,0,255);">player </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">AVPlayer</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+let player = new AVPlayer();
 
-export default <span style="color: rgb(0,0,255);">player </span>as <span style="color: rgb(0,0,255);">AVPlayer</span><span style="color: rgb(181,106,1);">;</span>
+export default player as AVPlayer;
 ```
 
 3. 将状态变量playInfo传入，实现点击修改，并刷新UI界面。首页Index.ets代码如下：
 
   
 ```text
-import <span style="color: rgb(0,0,255);">currentPlayInfo</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">PlayInfo </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'./PlayInfo'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(0,0,255);">player </span>from <span style="color: rgb(255,0,170);">'./AVPlayer'</span><span style="color: rgb(181,106,1);">;</span>
+import currentPlayInfo, { PlayInfo } from './PlayInfo';
+import player from './AVPlayer';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@Provide</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'pageStack'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">pageStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Provide</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'playInfo'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">playInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PlayInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">currentPlayInfo</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  @Provide('pageStack') pageStack: NavPathStack = new NavPathStack();
+  @Provide('playInfo') playInfo: PlayInfo = currentPlayInfo;
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pageStack</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">playInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isPlaying</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">正在播放</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">playInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">title</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(0,0,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">            }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">没有播放</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Change PlayInfo'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-           <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">需要修改的是状态变量，以实现驱动</span><span style="color: rgb(128,128,128);">UI</span><span style="color: rgb(128,128,128);">更新的效果</span></em>
-            <span style="color: rgb(0,0,255);">player</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">playNew</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">playInfo </span>as <span style="color: rgb(0,0,255);">PlayInfo</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideTitleBar</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Navigation(this.pageStack) {
+      Column() {
+        if (this.playInfo.isPlaying) {
+          Text('正在播放' + this.playInfo.title)
+            .fontSize(50)
+            .fontWeight(FontWeight.Bold)
+            .alignRules({
+              center: { anchor: '__container__', align: VerticalAlign.Center },
+              middle: { anchor: '__container__', align: HorizontalAlign.Center }
+            });
+        } else {
+          Text('没有播放')
+            .fontSize(30);
+        }
+        Text('Change PlayInfo')
+          .fontSize(30)
+          .fontWeight(FontWeight.Bold)
+          .alignRules({
+            center: { anchor: '__container__', align: VerticalAlign.Center },
+            middle: { anchor: '__container__', align: HorizontalAlign.Center }
+          })
+          .onClick(() => {
+            // 需要修改的是状态变量，以实现驱动UI更新的效果
+            player.playNew(this.playInfo as PlayInfo);
+          });
+      }
+      .height('100%')
+      .width('100%');
+    }
+    .hideTitleBar(true);
+  }
+}
 ```
 
  

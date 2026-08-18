@@ -33,33 +33,33 @@
 ```text
 class TextType {
   content: string = '';
- <em> // 1代表普通文字 2代表emoji</em>
+  // 1代表普通文字 2代表emoji
   type: number = 1;
 }
 ```
 
 2. 判断单个字符是否是emoji。
 ```text
-<em>// </em><em>判断单个字符是否为emoji</em>
+// 判断单个字符是否为emoji
 function isEmojiCharacter(char: string): boolean {
   const codePoint = char.codePointAt(0);
   if (codePoint === undefined) {
     return false;
   }
-  <em>// 常见emoji的Unicode范围参考</em>
+  // 常见emoji的Unicode范围参考
   return (
-    (codePoint >= 0x1F600 && codePoint <= 0x1F64F) || <em>// Emoticons</em>
-      (codePoint >= 0x1F300 && codePoint <= 0x1F5FF) || <em>// Misc Symbols and Pictographs</em>
-      (codePoint >= 0x1F680 && codePoint <= 0x1F6FF) || <em>// Transport and Map</em>
-      (codePoint >= 0x1F700 && codePoint <= 0x1F77F) || <em>// Alchemical Symbols</em>
-      (codePoint >= 0x1F780 && codePoint <= 0x1F7FF) ||<em> </em><em>// Geometric Shapes Extended</em>
-      (codePoint >= 0x1F800 && codePoint <= 0x1F8FF) || <em>// Supplemental Arrows-C</em>
-      (codePoint >= 0x1F900 && codePoint <= 0x1F9FF) || <em>// Supplemental Symbols and Pictographs</em>
-      (codePoint >= 0x1FA00 && codePoint <= 0x1FA6F) || <em>// Chess Symbols</em>
-      (codePoint >= 0x1FA70 && codePoint <= 0x1FAFF) ||<em> </em><em>// Symbols and Pictographs Extended-A</em>
-      (codePoint >= 0x2600 && codePoint <= 0x26FF) || <em>// Misc Symbols</em>
-      (codePoint >= 0x2700 && codePoint <= 0x27BF) || <em>// Dingbats</em>
-      (codePoint >= 0xFE00 && codePoint <= 0xFE0F) || <em>// Variation Selectors</em>
+    (codePoint >= 0x1F600 && codePoint <= 0x1F64F) || // Emoticons
+      (codePoint >= 0x1F300 && codePoint <= 0x1F5FF) || // Misc Symbols and Pictographs
+      (codePoint >= 0x1F680 && codePoint <= 0x1F6FF) || // Transport and Map
+      (codePoint >= 0x1F700 && codePoint <= 0x1F77F) || // Alchemical Symbols
+      (codePoint >= 0x1F780 && codePoint <= 0x1F7FF) || // Geometric Shapes Extended
+      (codePoint >= 0x1F800 && codePoint <= 0x1F8FF) || // Supplemental Arrows-C
+      (codePoint >= 0x1F900 && codePoint <= 0x1F9FF) || // Supplemental Symbols and Pictographs
+      (codePoint >= 0x1FA00 && codePoint <= 0x1FA6F) || // Chess Symbols
+      (codePoint >= 0x1FA70 && codePoint <= 0x1FAFF) || // Symbols and Pictographs Extended-A
+      (codePoint >= 0x2600 && codePoint <= 0x26FF) || // Misc Symbols
+      (codePoint >= 0x2700 && codePoint <= 0x27BF) || // Dingbats
+      (codePoint >= 0xFE00 && codePoint <= 0xFE0F) || // Variation Selectors
       (codePoint >= 0x1F1E6 && codePoint <= 0x1F1FF)
   );
 }
@@ -225,45 +225,45 @@ struct LinearGradientAndEmoji {
 
 class TextType {
   content: string = '';
-<em>  // 1代表普通文字 2代表emoji</em>
+  // 1代表普通文字 2代表emoji
   type: number = 1;
 }
-<em>// </em><em>判断单个字符是否为emoji</em>
+// 判断单个字符是否为emoji
 function isEmojiCharacter(char: string): boolean {
   const codePoint = char.codePointAt(0);
   if (codePoint === undefined) {
     return false;
   }
- <em> // 常见emoji的Unicode范围参考</em>
+  // 常见emoji的Unicode范围参考
   return (
-    (codePoint >= 0x1F600 && codePoint <= 0x1F64F) || <em>// Emoticons</em>
-      (codePoint >= 0x1F300 && codePoint <= 0x1F5FF) || <em>// Misc Symbols and Pictographs</em>
-      (codePoint >= 0x1F680 && codePoint <= 0x1F6FF) || <em>// Transport and Map</em>
-      (codePoint >= 0x1F700 && codePoint <= 0x1F77F) ||<em> </em><em>// Alchemical Symbols</em>
-      (codePoint >= 0x1F780 && codePoint <= 0x1F7FF) ||<em> </em><em>// Geometric Shapes Extended</em>
-      (codePoint >= 0x1F800 && codePoint <= 0x1F8FF) || <em>// Supplemental Arrows-C</em>
-      (codePoint >= 0x1F900 && codePoint <= 0x1F9FF) ||<em> </em><em>// Supplemental Symbols and Pictographs</em>
-      (codePoint >= 0x1FA00 && codePoint <= 0x1FA6F) || <em>// Chess Symbols</em>
-      (codePoint >= 0x1FA70 && codePoint <= 0x1FAFF) ||<em> </em><em>// Symbols and Pictographs Extended-A</em>
-      (codePoint >= 0x2600 && codePoint <= 0x26FF) ||<em> </em><em>// Misc Symbols</em>
-      (codePoint >= 0x2700 && codePoint <= 0x27BF) || <em>// Dingbats</em>
-      (codePoint >= 0xFE00 && codePoint <= 0xFE0F) ||<em> </em><em>// Variation Selectors</em>
+    (codePoint >= 0x1F600 && codePoint <= 0x1F64F) || // Emoticons
+      (codePoint >= 0x1F300 && codePoint <= 0x1F5FF) || // Misc Symbols and Pictographs
+      (codePoint >= 0x1F680 && codePoint <= 0x1F6FF) || // Transport and Map
+      (codePoint >= 0x1F700 && codePoint <= 0x1F77F) || // Alchemical Symbols
+      (codePoint >= 0x1F780 && codePoint <= 0x1F7FF) || // Geometric Shapes Extended
+      (codePoint >= 0x1F800 && codePoint <= 0x1F8FF) || // Supplemental Arrows-C
+      (codePoint >= 0x1F900 && codePoint <= 0x1F9FF) || // Supplemental Symbols and Pictographs
+      (codePoint >= 0x1FA00 && codePoint <= 0x1FA6F) || // Chess Symbols
+      (codePoint >= 0x1FA70 && codePoint <= 0x1FAFF) || // Symbols and Pictographs Extended-A
+      (codePoint >= 0x2600 && codePoint <= 0x26FF) || // Misc Symbols
+      (codePoint >= 0x2700 && codePoint <= 0x27BF) || // Dingbats
+      (codePoint >= 0xFE00 && codePoint <= 0xFE0F) || // Variation Selectors
       (codePoint >= 0x1F1E6 && codePoint <= 0x1F1FF)
   );
 }
 
-<em>// </em><em>判断字符串是否包含emoji</em>
+// 判断字符串是否包含emoji
 function containsEmoji(inputString: string): boolean {
   for (let i = 0; i < inputString.length; i++) {
-    <em>// 考虑代理对的情况（Surrogate Pairs），emoji可能由两个代码单元组成</em>
+    // 考虑代理对的情况（Surrogate Pairs），emoji可能由两个代码单元组成
     const char = inputString[i];
-   <em> // 如果当前字符是高位代理，则与下一个字符（低位代理）组合判断</em>
+    // 如果当前字符是高位代理，则与下一个字符（低位代理）组合判断
     if (isHighSurrogate(char.charCodeAt(0)) && i + 1 < inputString.length) {
       const combinedChar = char + inputString[i + 1];
       if (isEmojiCharacter(combinedChar)) {
         return true;
       }
-      i++; <em>// 跳过下一个字符，因为已经组合处理</em>
+      i++; // 跳过下一个字符，因为已经组合处理
     } else {
       if (isEmojiCharacter(char)) {
         return true;
@@ -273,7 +273,7 @@ function containsEmoji(inputString: string): boolean {
   return false;
 }
 
-<em>// </em><em>判断是否为高位代理（High Surrogate）</em>
+// 判断是否为高位代理（High Surrogate）
 function isHighSurrogate(codeUnit: number): boolean {
   return codeUnit >= 0xD800 && codeUnit <= 0xDBFF;
 }

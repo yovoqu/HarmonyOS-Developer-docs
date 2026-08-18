@@ -70,7 +70,7 @@ insertNumber(value: RichEditorInsertValue) {
   let realOffset = this.getRealOffset(value.insertOffset, true);
   this.originalPhoneNumber = this.originalPhoneNumber.substring(0, realOffset) + value.insertValue +
   this.originalPhoneNumber.substring(realOffset);
- <em> // 最长11位</em>
+  // 最长11位
   this.originalPhoneNumber = this.originalPhoneNumber.substring(0, 11);
   this.controller.addTextSpan(this.getSpacePhoneNumber(), { style: this.phoneNumberStyle });
   let caretOffset = this.getCaretOffset(realOffset, true);
@@ -112,7 +112,7 @@ struct Index {
     let realOffset = this.getRealOffset(value.insertOffset, true);
     this.originalPhoneNumber = this.originalPhoneNumber.substring(0, realOffset) + value.insertValue +
     this.originalPhoneNumber.substring(realOffset);
-  <em>  // 最长11位</em>
+    // 最长11位
     this.originalPhoneNumber = this.originalPhoneNumber.substring(0, 11);
     this.controller.addTextSpan(this.getSpacePhoneNumber(), { style: this.phoneNumberStyle });
     let caretOffset = this.getCaretOffset(realOffset, true);

@@ -87,7 +87,7 @@ struct WebComponent {
   build() {
     Column() {
       Web({
-        <em>// 使用时请替换为真实url</em>
+        // 使用时请替换为真实url
         src: 'https://*****',
         controller: this.controller
       })
@@ -97,12 +97,12 @@ struct WebComponent {
               resourceHandler: webview.WebResourceHandler) => {
               console.info('[schemeHandler] onRequestStart');
               try {
-                <em>// 可以指定请求不做拦截</em>
+                // 可以指定请求不做拦截
                 if (request.getRequestMethod() !== 'POST') {
                   return false;
                 }
 
-                <em>// 获取POST请求体</em>
+                // 获取POST请求体
                 let stream = request.getHttpBodyStream();
                 if (stream) {
                   stream.initialize().then(() => {
@@ -114,7 +114,7 @@ struct WebComponent {
                     console.info(`[schemeHandler] HttpBodyStream size is ${size}`);
                     stream.read(size).then((result: ArrayBuffer) => {
                       console.info(`[schemeHandler] HttpBodyStream buffer length is ${result.byteLength}`);
-                      <em>// 从buffer中转换请求体内容</em>
+                      // 从buffer中转换请求体内容
                       let decoder = util.TextDecoder.create('utf-8');
                       let requestBodyStr = decoder.decodeToString(new Uint8Array(result));
                       console.info(`[schemeHandler] HttpBodyStream requestBody is ${requestBodyStr}`);
@@ -129,7 +129,7 @@ struct WebComponent {
                 console.error(`[schemeHandler] ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
               }
 
-              <em>// 构造响应体返回</em>
+              // 构造响应体返回
               let response = new webview.WebSchemeHandlerResponse();
               try {
                 response.setNetErrorCode(WebNetErrorList.NET_OK);
@@ -142,13 +142,13 @@ struct WebComponent {
                 console.error(`[schemeHandler] ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
               }
 
-              <em>// 调用didFinish/didFail前需要优先调用didReceiveResponse将构造的响应头传递给被拦截的请求。</em>
+              // 调用didFinish/didFail前需要优先调用didReceiveResponse将构造的响应头传递给被拦截的请求。
               let buf = buffer.from(this.htmlData);
               try {
                 if (buf.length == 0) {
                   console.info('[schemeHandler] length 0');
                   resourceHandler.didReceiveResponse(response);
-                  <em>// 如果认为buf.length为0是正常情况，则调用resourceHandler.didFinish，否则调用resourceHandler.didFail</em>
+                  // 如果认为buf.length为0是正常情况，则调用resourceHandler.didFinish，否则调用resourceHandler.didFail
                   resourceHandler.didFail(WebNetErrorList.ERR_FAILED);
                 } else {
                   console.info('[schemeHandler] length 1');
@@ -191,9 +191,9 @@ import { WebNetErrorList, webview } from '@kit.ArkWeb';
 import { rcp } from '@kit.RemoteCommunicationKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-<em>// 源url</em>
+// 源url
 const SOURCE_URL: string = 'https://***1';
-<em>// 目标url</em>
+// 目标url
 const TARGET_URL: string = 'https://***2';
 
 export class HttpProxy {
@@ -207,17 +207,17 @@ export class HttpProxy {
     }
   }
 
-  <em>/**</em>
-<em>   * 处理响应</em>
-<em>   * @param res</em>
-<em>   * @param resourceHandler</em>
-<em>   */</em>
+  /**
+   * 处理响应
+   * @param res
+   * @param resourceHandler
+   */
   private handleResponse(res: rcp.Response, resourceHandler: webview.WebResourceHandler): void {
     let response = new webview.WebSchemeHandlerResponse();
     response.setStatus(res.statusCode);
     response.setStatusText('OK');
     response.setNetErrorCode(WebNetErrorList.NET_OK);
-   <em> // 将rcp响应头塞到Web响应头中，此处响应头也可自定义</em>
+    // 将rcp响应头塞到Web响应头中，此处响应头也可自定义
     Object.keys(res.headers).forEach((key: string) => {
       const value = res.headers[key];
       if (value) {
@@ -225,13 +225,13 @@ export class HttpProxy {
         response.setHeaderByName(key, value?.toString(), true);
       }
     });
-    <em>// 不涉及跨域，可手动删除下面的header</em>
+    // 不涉及跨域，可手动删除下面的header
     response.setHeaderByName('Access-Control-Allow-Origin', '*', true);
     response.setHeaderByName('Access-Control-Allow-Credentials', 'true', true);
     response.setHeaderByName('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE', true);
     response.setHeaderByName('Access-Control-Allow-Headers', 'Content-Type, Authorization', true);
     try {
-      <em>// 将响应返回给Web</em>
+      // 将响应返回给Web
       resourceHandler.didReceiveResponse(response);
       resourceHandler.didReceiveResponseBody(res.body);
       resourceHandler.didFinish();
@@ -240,16 +240,16 @@ export class HttpProxy {
     }
   }
 
-  <em>/**</em>
-<em>   * 代理请求</em>
-<em>   * @param request</em>
-<em>   * @param resourceHandler</em>
-<em>   */</em>
+  /**
+   * 代理请求
+   * @param request
+   * @param resourceHandler
+   */
   public fetch(request: webview.WebSchemeHandlerRequest, resourceHandler: webview.WebResourceHandler): void {
     try {
-      <em>// 替换请求url</em>
+      // 替换请求url
       let url = request.getRequestUrl().replace(SOURCE_URL, TARGET_URL);
-      <em>// 此处rcp请求，可自定义增加header、cookie、请求参数、对请求体加解密等</em>
+      // 此处rcp请求，可自定义增加header、cookie、请求参数、对请求体加解密等
       let req = new rcp.Request(url, request.getRequestMethod());
       this.session?.fetch(req).then((res) => {
         this.handleResponse(res, resourceHandler);
@@ -282,9 +282,9 @@ struct WebRequestProxyDemo {
             this.schemeHandler.onRequestStart((request: webview.WebSchemeHandlerRequest,
               resourceHandler: webview.WebResourceHandler) => {
               console.info('[schemeHandler] onRequestStart');
-              <em>// 对请求进行拦截，拦截规则可自定义</em>
+              // 对请求进行拦截，拦截规则可自定义
               if (request.getRequestUrl().includes(SOURCE_URL)) {
-                <em>// 使用rcp代理请求</em>
+                // 使用rcp代理请求
                 this.httpProxy.fetch(request, resourceHandler);
                 return true;
               } else {
@@ -292,7 +292,7 @@ struct WebRequestProxyDemo {
               }
             });
 
-            <em>// 通过WebSchemeHandler，拦截所有https协议请求</em>
+            // 通过WebSchemeHandler，拦截所有https协议请求
             this.controller.setWebSchemeHandler('https', this.schemeHandler);
           } catch (error) {
             console.error(`ErrorCode: ${(error as BusinessError).code}, Message: ${(error as BusinessError).message}`);

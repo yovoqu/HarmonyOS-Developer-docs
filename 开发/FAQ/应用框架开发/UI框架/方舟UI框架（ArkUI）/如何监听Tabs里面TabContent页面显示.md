@@ -36,7 +36,7 @@ struct MonitorTabContent {
         TabContent() {
           ChildrenComponent1();
         }
-     <em>   // ...</em>
+        // ...
       }
       .height('60%')
       .barMode(BarMode.Fixed)

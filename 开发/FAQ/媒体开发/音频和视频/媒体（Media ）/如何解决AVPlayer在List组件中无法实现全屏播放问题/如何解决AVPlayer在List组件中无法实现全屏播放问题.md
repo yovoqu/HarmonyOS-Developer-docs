@@ -42,7 +42,7 @@ aboutToAppear(): void {
 2. List + LazyForEach组件渲染视频列表，以及添加全屏、退出全屏、横屏等按钮，示例代码如下：
 ```text
 build() {
-  <em>// 通过显隐控制控制其他listItem是否展示</em>
+  // 通过显隐控制控制其他listItem是否展示
   Column() {
     Text(this.item.text)
       .visibility(this.isLayoutFullScreen === false ? Visibility.Visible : Visibility.None)
@@ -53,7 +53,7 @@ build() {
           this.player.setSurfaceID(this.mXComponentController.getXComponentSurfaceId());
         })
         .height(this.isLayoutFullScreen ? (this.isLandScape ? '100%' : 200) : '100%')
-     <em> // 视频按钮布局</em>
+      // 视频按钮布局
       Flex() {
         Button(this.player && (this.player.getStage() === 'playing') ? '播放中' : '开始')
           .onClick(async () => {
@@ -122,7 +122,7 @@ build() {
 
 3. 窗口方向（横屏）、窗口沉浸式设置，示例代码如下：
 ```text
-<em>// 设置窗口方向</em>
+// 设置窗口方向
 setR(orientation: number) {
   window.getLastWindow(this.getUIContext().getHostContext()).then((win) => {
     if (orientation === 1) {
@@ -140,7 +140,7 @@ setR(orientation: number) {
   });
 }
 
-<em>// 设置沉浸式窗口</em>
+// 设置沉浸式窗口
 setFullScreen(isLayoutFullScreen: boolean) {
   window.getLastWindow(this.getUIContext().getHostContext()).then((win) => {
     win.setWindowLayoutFullScreen(isLayoutFullScreen);
@@ -280,7 +280,7 @@ export struct VideoComponent {
   @State isLandScape: boolean = false;
   player?: AVPlayerDemo;
 
- <em> // 设置窗口方向</em>
+  // 设置窗口方向
   setR(orientation: number) {
     window.getLastWindow(this.getUIContext().getHostContext()).then((win) => {
       if (orientation === 1) {
@@ -298,7 +298,7 @@ export struct VideoComponent {
     });
   }
 
-  <em>// 设置沉浸式窗口</em>
+  // 设置沉浸式窗口
   setFullScreen(isLayoutFullScreen: boolean) {
     window.getLastWindow(this.getUIContext().getHostContext()).then((win) => {
       win.setWindowLayoutFullScreen(isLayoutFullScreen);
@@ -308,7 +308,7 @@ export struct VideoComponent {
   }
 
   build() {
-    <em>// 通过显隐控制控制其他listItem是否展示</em>
+    // 通过显隐控制控制其他listItem是否展示
     Column() {
       Text(this.item.text)
         .visibility(this.isLayoutFullScreen === false ? Visibility.Visible : Visibility.None)
@@ -319,7 +319,7 @@ export struct VideoComponent {
             this.player.setSurfaceID(this.mXComponentController.getXComponentSurfaceId());
           })
           .height(this.isLayoutFullScreen ? (this.isLandScape ? '100%' : 200) : '100%')
-       <em> // 视频按钮布局</em>
+        // 视频按钮布局
         Flex() {
           Button(this.player && (this.player.getStage() === 'playing') ? '播放中' : '开始')
             .onClick(async () => {
@@ -433,50 +433,50 @@ import { common } from '@kit.AbilityKit';
 
 export class AVPlayerDemo {
   private count: number = 0;
-  private surfaceID: string = ''; <em>// surfaceID用于播放画面显示，具体的值需要通过Xcomponent接口获取，相关文档链接见上面Xcomponent创建方法。</em>
+  private surfaceID: string = ''; // surfaceID用于播放画面显示，具体的值需要通过Xcomponent接口获取，相关文档链接见上面Xcomponent创建方法。
   private avPlayer: media.AVPlayer | undefined = undefined;
 
   setSurfaceID(surfaceId: string) {
     this.surfaceID = surfaceId;
   }
 
- <em> // 注册avplayer回调函数。</em>
+  // 注册avplayer回调函数。
   setAVPlayerCallback(avPlayer: media.AVPlayer) {
-   <em> // seek操作结果回调函数。</em>
+    // seek操作结果回调函数。
     avPlayer.on('seekDone', (seekDoneTime: number) => {
       console.info(`AVPlayer seek succeeded, seek time is ${seekDoneTime}`);
     });
-    <em>// error回调监听函数，当avplayer在操作过程中出现错误时，调用reset接口触发重置流程。</em>
+    // error回调监听函数，当avplayer在操作过程中出现错误时，调用reset接口触发重置流程。
     avPlayer.on('error', (err: BusinessError) => {
       console.error(`Invoke avPlayer failed, code is ${err.code}, message is ${err.message}`);
       avPlayer.reset();
     });
-   <em> // 状态机变化回调函数。</em>
+    // 状态机变化回调函数。
     avPlayer.on('stateChange', async (state: string) => {
       switch (state) {
-        case 'idle': <em>// 成功调用reset接口后触发该状态机上报。</em>
+        case 'idle': // 成功调用reset接口后触发该状态机上报。
           console.info('AVPlayer state idle called.');
-          avPlayer.release(); <em>// 调用release接口销毁实例对象。</em>
+          avPlayer.release(); // 调用release接口销毁实例对象。
           break;
-        case 'initialized': <em>// avplayer设置播放源后触发该状态上报。</em>
+        case 'initialized': // avplayer设置播放源后触发该状态上报。
           console.info('AVPlayer state initialized called.');
-          avPlayer.surfaceId = this.surfaceID; <em>// 设置显示画面，当播放的资源为纯音频时无需设置。</em>
+          avPlayer.surfaceId = this.surfaceID; // 设置显示画面，当播放的资源为纯音频时无需设置。
           avPlayer.prepare();
           break;
-        case 'prepared':<em> // prepared调用成功后上报该状态机。</em>
+        case 'prepared': // prepared调用成功后上报该状态机。
           avPlayer.play();
           break;
-        case 'playing': <em>// play成功调用后触发该状态机上报。</em>
+        case 'playing': // play成功调用后触发该状态机上报。
           break;
-        case 'paused': <em>// pause成功调用后触发该状态机上报。</em>
+        case 'paused': // pause成功调用后触发该状态机上报。
           break;
-        case 'completed':<em> // 播放接口后触发该状态机上报。</em>
-          avPlayer.play(); <em>// 调用播放接口接口。</em>
+        case 'completed': // 播放接口后触发该状态机上报。
+          avPlayer.play(); // 调用播放接口接口。
           break;
-        case 'stopped': <em>// stop接口后触发该状态机上报。</em>
-          avPlayer.reset(); <em>// 调用reset接口初始化avplayer状态。</em>
+        case 'stopped': // stop接口后触发该状态机上报。
+          avPlayer.reset(); // 调用reset接口初始化avplayer状态。
           break;
-        case 'released': <em>// 播放接口后触发该状态机上报。</em>
+        case 'released': // 播放接口后触发该状态机上报。
           break;
         default:
           break;
@@ -484,12 +484,12 @@ export class AVPlayerDemo {
     });
   }
 
-  <em>// 通过url设置网络地址来实现播放直播码流。</em>
+  // 通过url设置网络地址来实现播放直播码流。
   async avPlayerLiveDemo(count: number, url: string, context: common.UIAbilityContext) {
     this.count = count;
-   <em> // 创建avPlayer实例对象</em>
+    // 创建avPlayer实例对象
     this.avPlayer = await media.createAVPlayer();
-   <em> // 创建状态机变化回调函数。</em>
+    // 创建状态机变化回调函数。
     this.setAVPlayerCallback(this.avPlayer);
     let fileDescriptor = await context.resourceManager.getRawFd(url);
     let avFileDescriptor: media.AVFileDescriptor =

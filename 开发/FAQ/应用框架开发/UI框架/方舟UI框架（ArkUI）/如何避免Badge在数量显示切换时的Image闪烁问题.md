@@ -19,7 +19,7 @@ struct BadgeDemo {
         .fontSize(50)
         .fontWeight(FontWeight.Bold)
         .onClick(() => {
-        <em>  // change the Badge size</em>
+          // change the Badge size
           this.badgeSize = this.badgeSize === 0 ? 15 : 0;
         })
       Badge({

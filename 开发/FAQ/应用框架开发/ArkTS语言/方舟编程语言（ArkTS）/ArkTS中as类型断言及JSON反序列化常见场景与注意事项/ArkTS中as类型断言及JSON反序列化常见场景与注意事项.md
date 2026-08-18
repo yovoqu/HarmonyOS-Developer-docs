@@ -8,20 +8,20 @@
 
 - **场景一：** 使用as类型断言不能转换JSON.parse()方法解析的JSON字符串中成员属性的数据类型。举例说明：
 ```json
-<em>// </em><em>用ItemModel类接收responseData中JSON字符串的内容</em>
-let responseData = `{"id":123,"name":"Example","price":200}` <em>// </em><em>在responseData中的price值为number类型的200</em>
+// 用ItemModel类接收responseData中JSON字符串的内容
+let responseData = `{"id":123,"name":"Example","price":200}` // 在responseData中的price值为number类型的200
 
 class ItemModel {
   id?: number;
   name?: string;
-  price?: string; <em>// 作为接收类的ItemModel中price类型为string</em>
+  price?: string; // 作为接收类的ItemModel中price类型为string
 }
 
-<em>// </em><em>调用JSON.parse()解析JSON字符串，并用as得到ItemModel类型实例</em>
+// 调用JSON.parse()解析JSON字符串，并用as得到ItemModel类型实例
 let item = JSON.parse(responseData) as ItemModel;
 
-<em>// </em><em>此时得到item.price类型为number而非定义的string</em>
-console.info(`typeofprice: ${typeof item.price}`); <em>// 输出为typeofprice:number</em>
+// 此时得到item.price类型为number而非定义的string
+console.info(`typeofprice: ${typeof item.price}`); // 输出为typeofprice:number
 ```
 
 - **场景二：** 使用params为options赋值，但是as number未生效，options接收到的依旧是带引号的string类型。
@@ -90,7 +90,7 @@ class ItemModel {
     constructor(data: Record<string, Object>) {
       this.id = data['id'] as number;
       this.name = data['name'] as string;
-      this.price = String(data['price']); <em>// 将number类型的price转换为string</em>
+      this.price = String(data['price']); // 将number类型的price转换为string
     }
   }
 
@@ -98,7 +98,7 @@ class ItemModel {
   let parsedData = JSON.parse(responseData) as Record<string, Object>;
   let item = new ItemModel(parsedData);
 
-  console.info(`typeof price: ${typeof item.price}`);<em> // 输出为typeofprice:string</em>
+  console.info(`typeof price: ${typeof item.price}`); // 输出为typeofprice:string
 ```
 
 
@@ -107,7 +107,7 @@ class ItemModel {
 ```json
 let responseData = `{"id":123,"name":"Example","price":200}`;
 
-  <em>// 使用reviver参数在解析时将price的值转换为string类型</em>
+  // 使用reviver参数在解析时将price的值转换为string类型
   let item = JSON.parse(responseData, (key: string, value: Object) => {
     if (key === 'price') {
       return String(value);
@@ -115,7 +115,7 @@ let responseData = `{"id":123,"name":"Example","price":200}`;
     return value;
   });
 
-  console.info(`typeof price: ${typeof item.price}`); <em>// 输出为typeofprice:string</em>
+  console.info(`typeof price: ${typeof item.price}`); // 输出为typeofprice:string
 ```
 
 

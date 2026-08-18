@@ -10,11 +10,11 @@
 ```text
 void CreateShareEglContext() 
 {
-  if (renderContext == nullptr) { <em>// RenderContext is the main thread context </em>
+  if (renderContext == nullptr) { // RenderContext is the main thread context 
     RS_LOGE("renderContext_ is nullptr");
     return;
   }
-  eglShareContext = renderContext->CreateShareContext(); <em>// Create share context </em>
+  eglShareContext = renderContext->CreateShareContext(); // Create share context 
   if (eglShareContext == EGL_NO_CONTEXT) {
     RS_LOGE("eglShareContext is EGL_NO_CONTEXT");
     return;

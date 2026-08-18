@@ -33,7 +33,7 @@
 该方案通过以下三步实现目标地址的连通性检测和优选逻辑：
  1. 定义一个包含主地址和两个备用地址的优先级列表，每个地址包括host和port：
 ```text
-<em>// </em><em>仅供展示，请根据需要替换真实地址</em>
+// 仅供展示，请根据需要替换真实地址
 const PRIORITY_TARGETS: CheckTarget[] = [
   { name: '主地址', host: 'app.xxx.cn', port: 8443 },
   { name: '备用地址1', host: 'app1.xxx.cn', port: 8443 },
@@ -113,7 +113,7 @@ import { NetWorkResult, ConnectOptions, NetAddress, CheckTarget } from '../model
 
 const TAG = 'NetworkTest';
 
-<em>// </em><em>仅供展示，请根据需要替换真实地址</em>
+// 仅供展示，请根据需要替换真实地址
 const PRIORITY_TARGETS: CheckTarget[] = [
   { name: '主地址', host: 'app.xxx.cn', port: 8443 },
   { name: '备用地址1', host: 'app1.xxx.cn', port: 8443 },
@@ -199,7 +199,7 @@ export interface CheckTarget {
   port: number;
 }
 
-<em>// </em><em>网络地址类型</em>
+// 网络地址类型
 export interface NetAddress {
   address: string;
   port: number;

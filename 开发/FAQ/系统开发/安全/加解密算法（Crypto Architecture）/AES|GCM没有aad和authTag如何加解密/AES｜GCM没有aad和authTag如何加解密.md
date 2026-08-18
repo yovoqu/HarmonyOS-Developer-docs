@@ -36,166 +36,166 @@ AES加解密过程中需要生成[GcmParamsSpec](https://developer.huawei.com/co
 核心示例代码参考如下：
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">util </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">cryptoFramework </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.CryptoArchitectureKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { buffer, util } from '@kit.ArkTS';
+import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 
-export class <span style="color: rgb(0,0,255);">AESGCMHelper </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">algName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'AES128'</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">transformation </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'AES128|GCM|NoPadding'</span><span style="color: rgb(181,106,1);">;</span>
+export class AESGCMHelper {
+  private algName = 'AES128';
+  private transformation = 'AES128|GCM|NoPadding';
 
-  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">algName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">transformation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">algName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">algName</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">transformation </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">transformation</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  constructor(algName: string, transformation: string) {
+    this.algName = algName;
+    this.transformation = transformation;
+  }
 
-  <span style="color: rgb(0,0,255);">genGcmParamsByUint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">aad</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">authTag</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GcmParamsSpec </span><span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// GCM</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">authTag</span><span style="color: rgb(128,128,128);">在加密时从</span><span style="color: rgb(128,128,128);">doFinal</span><span style="color: rgb(128,128,128);">结果中获取，在解密时填入</span><span style="color: rgb(128,128,128);">init</span><span style="color: rgb(128,128,128);">函数的</span><span style="color: rgb(128,128,128);">params</span><span style="color: rgb(128,128,128);">参数中。</span></em>
-    let <span style="color: rgb(0,0,255);">gcmParamsSpec</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GcmParamsSpec </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">iv </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">aad</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">aad </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">authTag</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">authTag </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">algName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'GcmParamsSpec'</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">gcmParamsSpec</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  genGcmParamsByUint8Array(iv: Uint8Array, aad: Uint8Array, authTag: Uint8Array): cryptoFramework.GcmParamsSpec {
+    // GCM的authTag在加密时从doFinal结果中获取，在解密时填入init函数的params参数中。
+    let gcmParamsSpec: cryptoFramework.GcmParamsSpec = {
+      iv: { data: iv },
+      aad: { data: aad },
+      authTag: { data: authTag },
+      algName: 'GcmParamsSpec'
+    };
+    return gcmParamsSpec;
+  }
 
-  async <span style="color: rgb(0,0,255);">genSymKeyByData</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKeyData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">symKeyBlob</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataBlob </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">symKeyData </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">aesGenerator </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createSymKeyGenerator</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">algName</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">symKey </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">aesGenerator</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">convertKey</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKeyBlob</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'convertKey success'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  async genSymKeyByData(symKeyData: Uint8Array) {
+    let symKeyBlob: cryptoFramework.DataBlob = { data: symKeyData };
+    let aesGenerator = cryptoFramework.createSymKeyGenerator(this.algName);
+    let symKey = await aesGenerator.convertKey(symKeyBlob);
+    console.info('convertKey success');
+    return symKey;
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">加密消息</span></em>
-  async <span style="color: rgb(0,0,255);">encryptMessage</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SymKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataBlob</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">gcmParams</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GcmParamsSpec</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">cipher </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createCipher</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">transformation</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    await <span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">init</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CryptoMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ENCRYPT_MODE</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">gcmParams</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return await <span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doFinal</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  // 加密消息
+  async encryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob,
+    gcmParams: cryptoFramework.GcmParamsSpec) {
+    let cipher = cryptoFramework.createCipher(this.transformation);
+    await cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, gcmParams);
+    return await cipher.doFinal(plainText);
+  }
 
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">解密消息</span></em>
-  async <span style="color: rgb(0,0,255);">decryptMessage</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SymKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataBlob</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">gcmParams</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GcmParamsSpec</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">cipher </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createCipher</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">transformation</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">cipherData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">actualCipher </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cipherData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">slice</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">cipherData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">取出数据</span></em>
+  // 解密消息
+  async decryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob,
+    gcmParams: cryptoFramework.GcmParamsSpec) {
+    let cipher = cryptoFramework.createCipher(this.transformation);
+    let cipherData = plainText.data;
+    let actualCipher = cipherData.slice(0, cipherData.length - 16); // 取出数据
 
- <em>  </em><em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">初始化解密模式</span></em>
-    await <span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">init</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CryptoMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DECRYPT_MODE</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">gcmParams</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return await <span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doFinal</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">actualCipher </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+    // 初始化解密模式
+    await cipher.init(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, gcmParams);
+    return await cipher.doFinal({ data: actualCipher });
+  }
 
-  <span style="color: rgb(0,0,255);">getAuthTag</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataBlob</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">cipherData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">plainText</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">cipherData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">subarray</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cipherData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">cipherData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">取出</span><span style="color: rgb(128,128,128);">authTag</span></em>
-  <span style="color: rgb(255,0,170);">}</span>
+  getAuthTag(plainText: cryptoFramework.DataBlob) {
+    let cipherData = plainText.data;
+    return cipherData.subarray(cipherData.length - 16, cipherData.length); // 取出authTag
+  }
 
-  <span style="color: rgb(0,0,255);">str2Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    return new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  str2Uint8Array(str: string) {
+    return new Uint8Array(buffer.from(str, 'utf-8').buffer);
+  }
 
-  <span style="color: rgb(0,0,255);">uint8Array2Str</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uint8Array</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    return <span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uint8Array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  uint8Array2Str(uint8Array: Uint8Array) {
+    return buffer.from(uint8Array).toString('utf-8');
+  }
+}
 
-const <span style="color: rgb(0,0,255);">base64Helper </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-const <span style="color: rgb(0,0,255);">aesGCMHelper </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">AESGCMHelper</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'AES256'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'AES256|GCM|NoPadding'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+const base64Helper = new util.Base64Helper();
+const aesGCMHelper = new AESGCMHelper('AES256', 'AES256|GCM|NoPadding');
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-export struct <span style="color: rgb(0,0,255);">TestPage </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">msg2encrypt</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">msgEncryptBase64</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">msg2Decrypt</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'HV2ZwerCyjWmfupV4UiUYtX7WpI9FF1cigAbyig8UHCb9P7c49WUVDw='</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">msgDecrypted</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+export struct TestPage {
+  msg2encrypt: string = '';
+  @State msgEncryptBase64: string = '';
+  @State msg2Decrypt: string = 'HV2ZwerCyjWmfupV4UiUYtX7WpI9FF1cigAbyig8UHCb9P7c49WUVDw=';
+  @State msgDecrypted: string = '';
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">加密</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'80%'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            try <span style="color: rgb(255,0,170);">{</span>
-              let <span style="color: rgb(0,0,255);">keyData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">aesGCMHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">str2Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'1234567890abcdef1234567890abcdef'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">秘钥</span><span style="color: rgb(128,128,128);">key</span></em>
-              let <span style="color: rgb(0,0,255);">symKey </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">aesGCMHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">genSymKeyByData</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">keyData</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              let <span style="color: rgb(0,0,255);">iv </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'123456789012'</span><span style="color: rgb(181,106,1);">; </span><em>// iv</em>
-              let <span style="color: rgb(0,0,255);">aad </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// aad</span><span style="color: rgb(128,128,128);">赋空值</span></em>
-              let <span style="color: rgb(0,0,255);">authTag </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">; </span><em>// authTag</em><em><span style="color: rgb(128,128,128);">赋空值</span></em>
+  build() {
+    Column({ space: 20 }) {
+      Row() {
+        Button('加密')
+          .height('80%')
+          .onClick(async () => {
+            try {
+              let keyData = aesGCMHelper.str2Uint8Array('1234567890abcdef1234567890abcdef'); // 秘钥key
+              let symKey = await aesGCMHelper.genSymKeyByData(keyData);
+              let iv = '123456789012'; // iv
+              let aad = ''; // aad赋空值
+              let authTag = ''; // authTag赋空值
 
-              let <span style="color: rgb(0,0,255);">gcmParams </span><span style="color: rgb(181,106,1);">=</span>
-                <span style="color: rgb(0,0,255);">aesGCMHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">genGcmParamsByUint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">aesGCMHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">str2Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">aesGCMHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">str2Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">aad</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-                  <span style="color: rgb(0,0,255);">aesGCMHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">str2Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">authTag</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+              let gcmParams =
+                aesGCMHelper.genGcmParamsByUint8Array(aesGCMHelper.str2Uint8Array(iv), aesGCMHelper.str2Uint8Array(aad),
+                  aesGCMHelper.str2Uint8Array(authTag));
 
-              let <span style="color: rgb(0,0,255);">encryptText </span><span style="color: rgb(181,106,1);">=</span>
-                await <span style="color: rgb(0,0,255);">aesGCMHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encryptMessage</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">aesGCMHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">str2Uint8Array</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">msg2encrypt</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-                  <span style="color: rgb(0,0,255);">gcmParams</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">msgEncryptBase64 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">base64Helper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encodeToStringSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">encryptText</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">msg2Decrypt </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">msgEncryptBase64</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'encrypt plainText: ' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">msgEncryptBase64</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'error'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stack</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(0,0,255);">)</span>
+              let encryptText =
+                await aesGCMHelper.encryptMessage(symKey, { data: aesGCMHelper.str2Uint8Array(this.msg2encrypt) },
+                  gcmParams);
+              this.msgEncryptBase64 = base64Helper.encodeToStringSync(encryptText.data);
+              this.msg2Decrypt = this.msgEncryptBase64;
+              console.info('encrypt plainText: ' + this.msgEncryptBase64);
+            } catch (e) {
+              console.error('error', e.message, e.stack);
+            }
+          })
 
-        <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">TextArea</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">placeholder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">待加密内容</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$$this</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">msg2encrypt </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">60</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">待加密的信息</span></em>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">加密</span><span style="color: rgb(255,0,170);">base64:`</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">msgEncryptBase64</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copyOption</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">CopyOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">LocalDevice</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">加密后的信息</span></em>
-        <span style="color: rgb(255,0,170);">}</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'90%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'90%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SpaceEvenly</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Start</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+        Column({ space: 10 }) {
+          TextArea({ placeholder: '待加密内容', text: $$this.msg2encrypt })
+            .height(60); // 待加密的信息
+          Text(`加密base64:`)
+          Text(this.msgEncryptBase64)
+            .copyOption(CopyOptions.LocalDevice); // 加密后的信息
+        }
+        .height('90%')
+        .width('90%')
+        .justifyContent(FlexAlign.SpaceEvenly).alignItems(HorizontalAlign.Start)
+      }
+      .padding(10)
+      .height(200)
+      .width('100%')
 
-      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">解密</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            try <span style="color: rgb(255,0,170);">{</span>
-              let <span style="color: rgb(0,0,255);">keyData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">aesGCMHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">str2Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'1234567890abcdef1234567890abcdef'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">秘钥</span><span style="color: rgb(128,128,128);">key</span></em>
-              let <span style="color: rgb(0,0,255);">symKey </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">aesGCMHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">genSymKeyByData</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">keyData</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              let <span style="color: rgb(0,0,255);">iv </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'123456789012'</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// iv</span></em>
-              let <span style="color: rgb(0,0,255);">aad </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// aad</span><span style="color: rgb(128,128,128);">赋空值</span></em>
-              let <span style="color: rgb(0,0,255);">encryptMsg </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">base64Helper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decodeSync</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">msg2Decrypt</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">待解密的数据密文</span></em>
-              let <span style="color: rgb(0,0,255);">authTag </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">aesGCMHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getAuthTag</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">encryptMsg </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// authTag</span><span style="color: rgb(128,128,128);">取密文的最后</span><span style="color: rgb(128,128,128);">16</span><span style="color: rgb(128,128,128);">个字节</span></em>
-              let <span style="color: rgb(0,0,255);">gcmParams </span><span style="color: rgb(181,106,1);">=</span>
-                <span style="color: rgb(0,0,255);">aesGCMHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">genGcmParamsByUint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">aesGCMHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">str2Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">aesGCMHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">str2Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">aad</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-                  <span style="color: rgb(0,0,255);">authTag</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      Row() {
+        Button('解密')
+          .onClick(async () => {
+            try {
+              let keyData = aesGCMHelper.str2Uint8Array('1234567890abcdef1234567890abcdef'); // 秘钥key
+              let symKey = await aesGCMHelper.genSymKeyByData(keyData);
+              let iv = '123456789012'; // iv
+              let aad = ''; // aad赋空值
+              let encryptMsg = base64Helper.decodeSync(this.msg2Decrypt); // 待解密的数据密文
+              let authTag = aesGCMHelper.getAuthTag({ data: encryptMsg }); // authTag取密文的最后16个字节
+              let gcmParams =
+                aesGCMHelper.genGcmParamsByUint8Array(aesGCMHelper.str2Uint8Array(iv), aesGCMHelper.str2Uint8Array(aad),
+                  authTag);
 
-              let <span style="color: rgb(0,0,255);">decryptText </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">aesGCMHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decryptMessage</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">encryptMsg </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">gcmParams</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">msgDecrypted </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">aesGCMHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uint8Array2Str</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">decryptText</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'decrypt plainText: ' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">msgDecrypted</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'error'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stack</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'80%'</span><span style="color: rgb(0,0,255);">)</span>
+              let decryptText = await aesGCMHelper.decryptMessage(symKey, { data: encryptMsg }, gcmParams);
+              this.msgDecrypted = aesGCMHelper.uint8Array2Str(decryptText.data);
+              console.info('decrypt plainText: ' + this.msgDecrypted);
+            } catch (e) {
+              console.error('error', e.message, e.stack);
+            }
+          })
+          .height('80%')
 
-        <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">TextArea</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">placeholder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">待解密内容</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">text</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$$this</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">msg2Decrypt </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">60</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">待加密的信息</span></em>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">解密的</span><span style="color: rgb(255,0,170);">base64:`</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">msgDecrypted</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copyOption</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">CopyOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">LocalDevice</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">加密后的信息</span></em>
-        <span style="color: rgb(255,0,170);">}</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'90%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'90%'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SpaceEvenly</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Start</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+        Column({ space: 10 }) {
+          TextArea({ placeholder: '待解密内容', text: $$this.msg2Decrypt })
+            .height(60); // 待加密的信息
+          Text(`解密的base64:`)
+          Text(this.msgDecrypted)
+            .copyOption(CopyOptions.LocalDevice); // 加密后的信息
+        }
+        .height('90%')
+        .width('90%')
+        .justifyContent(FlexAlign.SpaceEvenly).alignItems(HorizontalAlign.Start)
+      }
+      .padding(10)
+      .height(200)
+      .width('100%')
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
 ```

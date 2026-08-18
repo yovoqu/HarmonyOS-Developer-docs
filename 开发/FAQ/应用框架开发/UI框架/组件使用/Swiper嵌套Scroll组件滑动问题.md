@@ -65,10 +65,10 @@ export struct ScrollPage {
                 Text(data + '内容顶部对齐').alignSelf(ItemAlign.Start);
               }
             }
-     <em>       // .height("100%") 这里将高度去掉</em>
+            // .height("100%") 这里将高度去掉
             .alignItems(HorizontalAlign.Start).justifyContent(FlexAlign.Start);
           }
-     <em>     // 设置Alignment.Top</em>
+          // 设置Alignment.Top
           .align(Alignment.Top)
           .nestedScroll({ scrollForward: NestedScrollMode.PARENT_FIRST, scrollBackward: NestedScrollMode.SELF_FIRST });
 

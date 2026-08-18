@@ -81,7 +81,7 @@ struct ColumnSplitExample2 {
         }
         .resizeable(false)
         .onGestureRecognizerJudgeBegin((_event: BaseGestureEvent, _current: GestureRecognizer,
-          _others: Array<GestureRecognizer>): GestureJudgeResult => { <em>// </em><em>在识别器即将要成功时，根据当前组件状态，设置识别器使能状态</em>
+          _others: Array<GestureRecognizer>): GestureJudgeResult => { // 在识别器即将要成功时，根据当前组件状态，设置识别器使能状态
           console.info(`${_event}${_current}${_others}`);
           return GestureJudgeResult.REJECT;
         })
@@ -119,16 +119,16 @@ struct ColumnSplitExample3 {
         }
         .resizeable(true)
         .onGestureRecognizerJudgeBegin((event: BaseGestureEvent, current: GestureRecognizer,
-          _others: Array<GestureRecognizer>): GestureJudgeResult => {<em> </em><em>// 在识别器即将要成功时，根据当前组件状态，设置识别器使能状态</em>
+          _others: Array<GestureRecognizer>): GestureJudgeResult => { // 在识别器即将要成功时，根据当前组件状态，设置识别器使能状态
           console.info(`${_others}`);
           if (current) {
             let target = current.getEventTargetInfo();
             if (target && current.isBuiltIn() && current.getType() == GestureControl.GestureType.PAN_GESTURE) {
               let panEvent = event as PanGestureEvent;
-              if (panEvent && panEvent.velocityY < 0 && this.scrollerEdge === Edge.Bottom) { <em>// 外层Scroll滑动到尽头</em>
+              if (panEvent && panEvent.velocityY < 0 && this.scrollerEdge === Edge.Bottom) { // 外层Scroll滑动到尽头
                 return GestureJudgeResult.CONTINUE;
               }
-              if (panEvent && panEvent.velocityY > 0 && this.scrollerEdge === Edge.Top) { <em>// 外层Scroll滑动到开头</em>
+              if (panEvent && panEvent.velocityY > 0 && this.scrollerEdge === Edge.Top) { // 外层Scroll滑动到开头
                 return GestureJudgeResult.CONTINUE;
               }
             }

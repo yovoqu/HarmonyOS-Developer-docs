@@ -64,7 +64,7 @@ export struct SavePixelMapToAlbum {
 
   async aboutToAppear() {
     let resourceMgr = this.context.getHostContext()?.resourceManager;
-    const fileData: Uint8Array = await resourceMgr!.getMediaContent($r('app.media.example').id);<em> // 本图片仅作示例，实际请按照目录下图片引用</em>
+    const fileData: Uint8Array = await resourceMgr!.getMediaContent($r('app.media.example').id); // 本图片仅作示例，实际请按照目录下图片引用
     let buffer = new Uint8Array(fileData).buffer as object as ArrayBuffer;
     let imageResource = image.createImageSource(buffer);
     let opts: image.DecodingOptions = { editable: true };
@@ -77,14 +77,14 @@ export struct SavePixelMapToAlbum {
       let helper = photoAccessHelper.getPhotoAccessHelper(uContext);
       let uri = await helper.createAsset(photoAccessHelper.PhotoType.IMAGE, 'png');
       let file = await fileIo.open(uri, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);
-    <em>  // 写入文件</em>
+      // 写入文件
       const imagePackerApi: image.ImagePacker = image.createImagePacker();
       let packOpts: image.PackingOption = { format: 'image/png', quality: 100 };
       imagePackerApi.packToFile(this.pixel, file.fd, packOpts).finally(() => {
-      <em>  //指定打包参数，将PixelMap图片源编码后直接打包进文件</em>
+        //指定打包参数，将PixelMap图片源编码后直接打包进文件
         fileIo.close(file.fd).finally(() => {
           this.getUIContext().getPromptAction().showToast({ message: '图片保存成功！' });
-          imagePackerApi.release(); <em>//主动调用release方法释放内存</em>
+          imagePackerApi.release(); //主动调用release方法释放内存
         });
       });
     } catch (error) {
@@ -96,7 +96,7 @@ export struct SavePixelMapToAlbum {
         .objectFit(ImageFit.Contain)
         .height('50%')
       SaveButton(this.saveButtonOptions)
-  <em>    //点击保存图片</em>
+      //点击保存图片
         .onClick(async (event, result: SaveButtonOnClickResult) => {
           if (result === SaveButtonOnClickResult.SUCCESS) {
             this.saveSnapshot();

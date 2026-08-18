@@ -86,21 +86,21 @@ pathStack.pushPath(pathInfo);
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-const BUNDLE_NAME: string = 'com.example.NewWantDemo'; <em>// 在应用app.json5文件中'bundleName'节点获得</em>
-const ABILITY_NAME: string = 'TargetAbility'; <em>// 在HAP包的对应Ability文件中获得</em>
+const BUNDLE_NAME: string = 'com.example.NewWantDemo'; // 在应用app.json5文件中'bundleName'节点获得
+const ABILITY_NAME: string = 'TargetAbility'; // 在HAP包的对应Ability文件中获得
 
 @Entry
 @Component
 struct HAPRouterDemo {
-  private context?: common.UIAbilityContext;<em> // 创建context实例</em>
+  private context?: common.UIAbilityContext; // 创建context实例
 
   aboutToAppear(): void {
-    this.context = this.getUIContext().getHostContext() as common.UIAbilityContext;<em> // 获取当前页面关联的UIAbilityContext</em>
+    this.context = this.getUIContext().getHostContext() as common.UIAbilityContext; // 获取当前页面关联的UIAbilityContext
   }
 
   jumpHap() {
     if (this.context) {
-      <em>// 启动Ability，拉起HAP模块的UIAbility实例</em>
+      // 启动Ability，拉起HAP模块的UIAbility实例
       this.context.startAbility({
         bundleName: BUNDLE_NAME,
         abilityName: ABILITY_NAME,

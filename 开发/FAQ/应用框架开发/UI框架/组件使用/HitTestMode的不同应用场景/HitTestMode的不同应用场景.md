@@ -169,7 +169,7 @@ struct HitTestModeDemo {
 
       NodeContainer(this.baseNode)
         .onTouchIntercept((event: TouchEvent) => {
-         <em> // 判断触摸点是否在深灰色矩形Column中</em>
+          // 判断触摸点是否在深灰色矩形Column中
           if (this.isPolygon(event) && 0 <= (Number(event.touches[0].displayX) - this.baseNode.params.columnX) &&
             (Number(event.touches[0].displayX) - this.baseNode.params.columnX) <=
             this.baseNode.params.columnWidth &&

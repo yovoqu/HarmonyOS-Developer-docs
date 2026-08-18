@@ -42,7 +42,7 @@ TaskPool和worker的多线程方案都是基于Actor并发模型实现的。每�
 ```text
 import { ArkTSUtils } from '@kit.ArkTS';
 import { hilog } from '@kit.PerformanceAnalysisKit';
-'use shared' <em>// 启动共享模块</em>
+'use shared' // 启动共享模块
 
 @Sendable
 export class TaskHandle {
@@ -51,7 +51,7 @@ export class TaskHandle {
   private testNum: number = 0;
 
   public async testTask(id: number) {
-   <em> // 共享异步线程操作同一个数据</em>
+    // 共享异步线程操作同一个数据
     await this.asyncLock.lockAsync(async () => {
       hilog.info(0x0000, 'taskpool', `TaskHandle task id: ${id} , testNum: ${this.testNum}`);
       this.testNum++;
@@ -61,17 +61,17 @@ export class TaskHandle {
   }
 
   public getTestNum() {
-   <em> // 获取测试数据</em>
+    // 获取测试数据
     return this.testNum;
   }
 
   public sleep(time: number): Promise<void> {
-   <em> // 模拟延时操作</em>
+    // 模拟延时操作
     return new Promise(resolve => setTimeout(resolve, time));
   }
 
   static getInstance(): TaskHandle {
-    <em>// 单例方法</em>
+    // 单例方法
     return TaskHandle.instance;
   }
 }
@@ -85,7 +85,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 export class Test {
   async testTaskpool(): Promise<void> {
-   <em> // 启动多个线程执行数据操作</em>
+    // 启动多个线程执行数据操作
     let task1: taskpool.Task = new taskpool.Task(func, 1);
     let task2: taskpool.Task = new taskpool.Task(func, 2);
     let task3: taskpool.Task = new taskpool.Task(func, 3);
@@ -99,7 +99,7 @@ export class Test {
 
 @Concurrent
 async function func(num: number): Promise<void> {
- <em> // 单个异步线程操作</em>
+  // 单个异步线程操作
   await TaskHandle.getInstance().testTask(num);
 }
 
@@ -112,7 +112,7 @@ struct Index {
         .fontSize(50)
         .fontWeight(FontWeight.Bold)
         .onClick(()=>{
-         <em> // 启动线程操作</em>
+          // 启动线程操作
           func(0);
           let a = new Test();
           a.testTaskpool();

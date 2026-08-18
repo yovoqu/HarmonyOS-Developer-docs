@@ -33,11 +33,11 @@ HarmonyOS如何实现资源替换的静态overlay以及动态overlay？
 1. 利用静态overlay机制实现资源替换：
 - 主应用EntryAbility中使能静态overlay：
 ```ArkTS
-<em>// EntryAbility.ets文件</em>
+// EntryAbility.ets文件
 onCreate(): void {
   this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onCreate');
- <em> // 系统默认使能，这里可以不设置</em>
+  // 系统默认使能，这里可以不设置
   overlay.setOverlayEnabled('staticOverlay', true, (err) => {
     if (err) {
       hilog.error(DOMAIN, 'testTag', 'err code: ' + err.code + ' ' + 'message:' + err.message);
@@ -51,7 +51,7 @@ onCreate(): void {
 
 2. 主应用Index页面中使用Resource目录下的“bg.png”文件:
 ```ArkTS
-<em>// Index.ets</em>
+// Index.ets
 @Entry
 @Component
 struct Index {
@@ -88,7 +88,7 @@ struct Index {
 
   
 ```json
-<em>// staticOverlay module.json5</em>
+// staticOverlay module.json5
 {
   "module": {
     "name": "staticOverlay",
@@ -128,7 +128,7 @@ struct Index {
 
 - 利用动态overlay机制实现资源替换：1. 主应用Index页面中使用Resource目录下的“bg.png”文件:
 ```ArkTS
-<em>// Index1.ets</em>
+// Index1.ets
 import { common } from '@kit.AbilityKit';
 
 @Entry
@@ -173,7 +173,7 @@ struct Index1 {
 
 3. dynamicOverlay.hsp中module.json5配置：（动态overlay不需要配置targetModuleName和targetPriority标签）。
 ```json
-<em>// dynamicOverlay module.json5</em>
+// dynamicOverlay module.json5
 {
   "module": {
     "name": "dynamicOverlay",

@@ -9,7 +9,7 @@
 参考代码如下：
  
 ```text
-<em>// EntryAbility中</em>
+// EntryAbility中
 export default class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage): void {
     AppStorage.setOrCreate<boolean>('isOnForeground', undefined);

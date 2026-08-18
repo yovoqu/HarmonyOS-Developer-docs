@@ -62,7 +62,7 @@ struct CanvasClearRect {
   }
 
   private draw() {
-   <em> // 用clearRect清除画布中内容</em>
+    // 用clearRect清除画布中内容
     this.context.clearRect(0, 0, 300, 400);
     this.context.fillStyle = '#0097D4';
     this.context.beginPath();
@@ -83,7 +83,7 @@ struct CanvasClearRect {
 struct CanvasReset {
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
   private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
- <em> // "common/images/example.png"需要替换为开发者所需的图像资源文件</em>
+  // "common/images/example.png"需要替换为开发者所需的图像资源文件
   private img: ImageBitmap = new ImageBitmap('common/images/example.png');
   private angle: number = Math.PI * 5 / 4;
 
@@ -110,7 +110,7 @@ struct CanvasReset {
   }
 
   private draw() {
-  <em>  // 这里clearRect无法清除路径，需要用reset重置画布状态</em>
+    // 这里clearRect无法清除路径，需要用reset重置画布状态
     this.context.reset();
     let width = 300;
     this.context.beginPath();
@@ -213,7 +213,7 @@ struct CanvasOnAreaChange {
           this.context.fillStyle = '#0097D4';
         })
         .onAreaChange(() => {
-          <em>// 监听尺寸变化事件，重新绘制，恢复画布</em>
+          // 监听尺寸变化事件，重新绘制，恢复画布
           this.draw();
         })
         .backgroundColor('#f1f3f5');
@@ -230,7 +230,7 @@ struct CanvasOnAreaChange {
   }
 
   private draw() {
-    <em>// 用clearRect清除画布中内容</em>
+    // 用clearRect清除画布中内容
     this.context.clearRect(0, 0, 300, 400);
     this.context.fillRect(50, 100, 200, 100);
   }

@@ -42,9 +42,9 @@ struct Index {
     Column({ space: 30 }) {
       Text('预期图片');
       Column() {
-        <em>// 本地资源，需自行替换</em>
+        // 本地资源，需自行替换
         Image($rawfile('notdisplayed.svg'))
-        <em>  // 注意：由于SVG标签内未设置width、height,此时需要给Image组件设置宽高尺寸。</em>
+          // 注意：由于SVG标签内未设置width、height,此时需要给Image组件设置宽高尺寸。
           .width('200')
           .height('200');
       }
@@ -54,7 +54,7 @@ struct Index {
 
       Text('加载失败图片');
       Column() {
-      <em>  // 本地资源，需自行替换</em>
+        // 本地资源，需自行替换
         Image($rawfile('notdisplayed.svg'));
       }
       .width('250')
@@ -72,9 +72,9 @@ struct Index {
  
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-   <em> <!-- 中心圆形 --></em>
+    <!-- 中心圆形 -->
     <circle cx="100" cy="100" r="40" fill="#0a59f7" opacity="0.9"/>
-  <em>  <!-- 装饰三角形 --></em>
+    <!-- 装饰三角形 -->
     <polygon points="100,20 120,60 80,60" fill="rgba(255, 117, 218, 1)" opacity="0.7"/>
 </svg>
 ```
@@ -99,7 +99,7 @@ struct Page {
     Column({ space: 30 }) {
       Text('预期图片');
       Column() {
-     <em>   // 本地资源，需自行替换</em>
+        // 本地资源，需自行替换
         Image($r('app.media.picture'))
           .width('150')
           .height('150');
@@ -110,7 +110,7 @@ struct Page {
 
       Text('加载失败图片');
       Column() {
-       <em> // 本地资源，需自行替换</em>
+        // 本地资源，需自行替换
         Image($rawfile('iconText.svg'));
       }
       .width('250')
@@ -128,15 +128,15 @@ struct Page {
  
 ```xml
 <svg width="800" height="800" xmlns="http://www.w3.org/2000/svg" style="background:#f0f0f0">
- <em>   <!-- 渐变背景 --></em>
+    <!-- 渐变背景 -->
     <defs>
         <radialGradient id="radial-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
             <stop offset="0%" stop-color="#0a59f7"/>
         </radialGradient>
     </defs>
-  <em>  <!-- 中心圆形 --></em>
+    <!-- 中心圆形 -->
     <circle cx="400" cy="300" r="180" fill="url(#radial-gradient)"/>
-  <em>  <!-- 添加在圆形中心的文字 --></em>
+    <!-- 添加在圆形中心的文字 -->
     <text x="400" y="300"
           text-anchor="middle"
           dominant-baseline="middle"
@@ -146,7 +146,7 @@ struct Page {
           fill="white">
         这是带文字的SVG
     </text>
- <em>   <!-- 装饰元素 --></em>
+    <!-- 装饰元素 -->
     <polygon points="350,150 450,150 400,80" fill="rgba(255, 117, 218, 1)" opacity="0.8"/>
 </svg>
 ```
@@ -171,7 +171,7 @@ struct PageOne {
     Column({ space: 30 }) {
       Text('预期图片');
       Column() {
-      <em>  // 本地资源，需自行替换</em>
+        // 本地资源，需自行替换
         Image($rawfile('display.svg'))
           .width('100')
           .height('200');
@@ -182,7 +182,7 @@ struct PageOne {
 
       Text('受到objectFit影响的图片');
       Column() {
-      <em>  // 本地资源，需自行替换</em>
+        // 本地资源，需自行替换
         Image($rawfile('display.svg'))
           .width('100')
           .height('200')
@@ -203,9 +203,9 @@ struct PageOne {
  
 ```xml
 <svg width="150" height="150" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-   <em> <!-- 中心圆形 --></em>
+    <!-- 中心圆形 -->
     <circle cx="100" cy="100" r="40" fill="#0a59f7" opacity="0.9"/>
-   <em> <!-- 装饰三角形 --></em>
+    <!-- 装饰三角形 -->
     <polygon points="100,20 120,60 80,60" fill="rgba(255, 117, 218, 1)" opacity="0.7"/>
 </svg>
 ```

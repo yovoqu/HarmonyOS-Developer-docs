@@ -65,10 +65,10 @@ struct BigintRdbDemo {
             console.info('Succeeded in getting RdbStore.');
             this.store = store;
 
-          <em>  // step1：建表时声明BigInt数据类型为：UNLIMITED INT</em>
+            // step1：建表时声明BigInt数据类型为：UNLIMITED INT
             const sqlCreateTable =
               'CREATE TABLE IF NOT EXISTS EMPLOYEE (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDENTITY UNLIMITED INT)';
-            store.executeSql(sqlCreateTable)<em> </em><em>// 创建数据表，以便后续调用insert接口插入数据</em>
+            store.executeSql(sqlCreateTable) // 创建数据表，以便后续调用insert接口插入数据
               .then(() => {
                 this.promptAction.showToast({ message: '初始化数据库表成功' });
               })
@@ -88,7 +88,7 @@ struct BigintRdbDemo {
           let dataList = new Array<relationalStore.ValuesBucket>();
           for (let index = 0; index < 10; index++) {
             let data: relationalStore.ValuesBucket = {
-          <em>    // step2：构造数据插入表中，使用BigInt()生成bigInt类型数据</em>
+              // step2：构造数据插入表中，使用BigInt()生成bigInt类型数据
               "IDENTITY": BigInt(time * 10000 + index)
             };
             dataList.push(data);
@@ -116,16 +116,16 @@ struct BigintRdbDemo {
               console.error(`Query failed, code is ${err.code},message is ${err.message}`);
               return;
             }
-         <em>   // resultSet是一个数据集合的游标，默认指向第-1个记录，有效的数据从0开始。</em>
+            // resultSet是一个数据集合的游标，默认指向第-1个记录，有效的数据从0开始。
             while (resultSet.goToNextRow()) {
               const id = resultSet.getLong(resultSet.getColumnIndex("ID"));
-           <em>   // step3：查询数据库，使用resultSet.getValue()获取BigInt型数据。</em>
+              // step3：查询数据库，使用resultSet.getValue()获取BigInt型数据。
               const identity = resultSet.getValue(resultSet.getColumnIndex("IDENTITY"));
               this.message = identity?.toString();
               console.info(`id=${id}, identity=${identity}`);
             }
             this.promptAction.showToast({ message: '数据查询成功' });
-          <em>  // 释放数据集的内存</em>
+            // 释放数据集的内存
             resultSet.close();
           });
         });

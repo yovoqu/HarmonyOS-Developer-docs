@@ -26,7 +26,7 @@ Text() {
 onDraw(context: DrawContext, options: CustomSpanDrawInfo) {
   let canvas = context.canvas;
   const brush = new drawing.Brush();
- <em> // 此处是设置背景色的，但是没有设置渐变色的方法</em>
+  // 此处是设置背景色的，但是没有设置渐变色的方法
   brush.setColor({ alpha: 255, red: 22, green: 22, blue: 22 });
   const font = new drawing.Font();
   font.setSize(25);
@@ -64,7 +64,7 @@ onDraw(context: DrawContext, options: CustomSpanDrawInfo) {
 
   
 ```text
-<em>// </em><em>设置渐变背景色</em>
+// 设置渐变背景色
 let startPt: common2D.Point = { x: 0, y: 0 };
 let endPt: common2D.Point = { x: gUIContext.vp2px(this.width), y: gUIContext.vp2px(this.height) };
 let shaderEffect =
@@ -95,7 +95,7 @@ class MyCustomSpan extends CustomSpan {
   onDraw(context: DrawContext, options: CustomSpanDrawInfo) {
     let canvas = context.canvas;
     const brush = new drawing.Brush();
-   <em> // 设置渐变背景色</em>
+    // 设置渐变背景色
     let startPt: common2D.Point = { x: 0, y: 0 };
     let endPt: common2D.Point = { x: gUIContext.vp2px(this.width), y: gUIContext.vp2px(this.height) };
     let shaderEffect =
@@ -253,7 +253,7 @@ struct OptionThree {
   @State pixelMap: image.PixelMap | undefined = undefined;
 
   onPageShow() {
-    this.draw();<em> </em><em>// 页面显示时绘制</em>
+    this.draw(); // 页面显示时绘制
   }
 
   build() {
@@ -276,10 +276,10 @@ struct OptionThree {
   }
 
   draw() {
-   <em> // 计算文本长款宽</em>
+    // 计算文本长款宽
     let size: SizeOptions =
       this.getUIContext().getMeasureUtils().measureTextSize({ textContent: 'Hello', fontSize: 16 });
- <em>   // 绘制图片</em>
+    // 绘制图片
     const color = new ArrayBuffer(200 * 200 * 4);
     let opts: image.InitializationOptions = {
       editable: true,
@@ -292,9 +292,9 @@ struct OptionThree {
     image.createPixelMap(color, opts).then((pixelMap: PixelMap) => {
       let width: number = size.width as number;
       let height: number = size.height as number;
-    <em>  // 1.构造canvas对象</em>
+      // 1.构造canvas对象
       const canvas = new drawing.Canvas(pixelMap);
-   <em>   // 2.构造一个新的画刷对象，绘制背景</em>
+      // 2.构造一个新的画刷对象，绘制背景
       const brush = new drawing.Brush();
       let startPt: common2D.Point = { x: 0, y: 0 };
       let endPt: common2D.Point = { x: width, y: height };
@@ -315,7 +315,7 @@ struct OptionThree {
       canvas.attachBrush(brush);
       canvas.drawPath(path);
       canvas.detachBrush();
-     <em> // 3.构造一个新的画刷对象，绘制文字</em>
+      // 3.构造一个新的画刷对象，绘制文字
       const brush2 = new drawing.Brush();
       brush2.setColor({
         alpha: 255,
@@ -327,7 +327,7 @@ struct OptionThree {
       font.setSize(50);
       const textBlob = drawing.TextBlob.makeFromString('Hello', font, drawing.TextEncoding.TEXT_ENCODING_UTF8);
       canvas.attachBrush(brush2);
-      canvas.drawTextBlob(textBlob, 0, height - this.getUIContext().vp2px(4)); <em>// 设置文字位置</em>
+      canvas.drawTextBlob(textBlob, 0, height - this.getUIContext().vp2px(4)); // 设置文字位置
       canvas.detachBrush();
       this.pixelMap = pixelMap as PixelMap;
     });

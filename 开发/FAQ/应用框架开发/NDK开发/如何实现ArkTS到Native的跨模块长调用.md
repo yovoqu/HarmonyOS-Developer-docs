@@ -20,7 +20,7 @@ har的ArkTS侧将函数包裹在命名空间中导出，其Native侧用napi_get_
 问题代码示例参考如下：
  
 ```ArkTS
-<em>// har</em><em>包的ObjectUtil.ets</em>
+// har包的ObjectUtil.ets
 namespace  ObjectUtil{
   export function testOne(){
     console.info('你好，世界！')
@@ -31,22 +31,22 @@ export {ObjectUtil}
 ```
  
 ```cpp
-<em>// har包的napi_init.cpp</em>
+// har包的napi_init.cpp
 static napi_value loadModule(napi_env env, napi_callback_info info) {
     napi_value result;
- <em>   // 1.使用napi_load_module_with_info加载Test文件中的模块</em>
+    // 1.使用napi_load_module_with_info加载Test文件中的模块
     napi_status status = napi_load_module_with_info(env, "mytest_sdk/src/main/ets/common/ObjectUtil",
                                                     "com.example.sodemo/mytest_sdk", &result);
     if (status != napi_ok) {
         return nullptr;
     }
     napi_value testFn;
-   <em> // 2.使用napi_get_named_property获取test函数</em>
-    status = napi_get_named_property(env, result, "testOne", &testFn); <em>// 获取失败，status：napi_object_expected</em>
+    // 2.使用napi_get_named_property获取test函数
+    status = napi_get_named_property(env, result, "testOne", &testFn); // 获取失败，status：napi_object_expected
     if (status != napi_ok) {
         return nullptr;
     }
- <em>   // 3.使用napi_call_function调用函数test</em>
+    // 3.使用napi_call_function调用函数test
     status = napi_call_function(env, result, testFn, 0, nullptr, nullptr);
     if (status != napi_ok) {
         return nullptr;
@@ -170,19 +170,19 @@ static napi_value TestCall(napi_env env, napi_callback_info info)
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
     
     size_t len1 = 0; 
-    napi_get_value_string_utf8(env, args[0], nullptr, 0, &len1); <em>   // Get string length to len </em>
-    char* path = new char[len1+1];                                   <em>// Allocate a char array of appropriate size</em>
-    napi_get_value_string_utf8(env, args[0], path, len1 + 1, &len1); <em> // get string </em>
+    napi_get_value_string_utf8(env, args[0], nullptr, 0, &len1);    // Get string length to len 
+    char* path = new char[len1+1];                                   // Allocate a char array of appropriate size
+    napi_get_value_string_utf8(env, args[0], path, len1 + 1, &len1);  // get string 
     
     size_t len2 = 0; 
-    napi_get_value_string_utf8(env, args[1], nullptr, 0, &len2);   <em> // Get string length to len </em>
-    char* moduleInfo = new char[len2+1];                                   <em>// Allocate a char array of appropriate size</em>
-    napi_get_value_string_utf8(env, args[1], moduleInfo, len2 + 1, &len2); <em> // get string </em>
+    napi_get_value_string_utf8(env, args[1], nullptr, 0, &len2);    // Get string length to len 
+    char* moduleInfo = new char[len2+1];                                   // Allocate a char array of appropriate size
+    napi_get_value_string_utf8(env, args[1], moduleInfo, len2 + 1, &len2);  // get string 
     
     OH_LOG_INFO(LOG_APP, "Receive：path[%{public}s], module_info:[%{public}s]", path,moduleInfo);
     
     napi_value result;
-  <em>  // 1. 使用napi_load_module_with_info加载Test文件中的模块</em>
+    // 1. 使用napi_load_module_with_info加载Test文件中的模块
     napi_status status = napi_load_module_with_info(env, path,moduleInfo, &result);   
     if (status != napi_ok) {
         OH_LOG_INFO(LOG_APP, "napi_load_module_with_info加载Test文件中的模块 失败: %{public}d", status);
@@ -190,19 +190,19 @@ static napi_value TestCall(napi_env env, napi_callback_info info)
     }
     napi_value testFn;
     napi_value testNamespace;
-   <em> // 2. 使用napi_get_named_property获取命名空间对象</em>
+    // 2. 使用napi_get_named_property获取命名空间对象
     status = napi_get_named_property(env, result, "ObjectUtil", &testNamespace);
     if (status != napi_ok) {
         OH_LOG_INFO(LOG_APP, "napi_get_named_property获取命名空间对象 失败: %{public}d", status);
         return nullptr;
     }
-  <em>  // 2.1 使用napi_get_named_property获取testTwo函数</em>
+    // 2.1 使用napi_get_named_property获取testTwo函数
     status = napi_get_named_property(env, testNamespace, "testOne", &testFn);
     if (status != napi_ok) {
         OH_LOG_INFO(LOG_APP, "napi_get_named_property获取testTwo函数 失败: %{public}d", status);
         return nullptr;
     }
-  <em>  // 3. 使用napi_call_function调用函数test</em>
+    // 3. 使用napi_call_function调用函数test
     status = napi_call_function(env, testNamespace, testFn, 0, nullptr, nullptr);
     if (status != napi_ok) {
         OH_LOG_INFO(LOG_APP, "napi_call_function调用函数test 失败: %{public}d", status);

@@ -39,33 +39,33 @@ interface isHeightLight {
 @Entry
 @Component
 struct IndexOfPage {
-  value: string = '<em>第</em>二届海南<em>岛</em>国际<em>电</em>影节开幕式';
+  value: string = '第二届海南岛国际电影节开幕式';
 
   heightLightWord(word: string) {
-   <em> // 先将需要高亮的字符筛选出来，待会高亮</em>
+    // 先将需要高亮的字符筛选出来，待会高亮
     let str = word;
     let result: string[] = [];
     let index = 0;
-    while ((index = str.indexOf("<em>", index)) !== -1) {
+    while ((index = str.indexOf("", index)) !== -1) {
       if (index + 4 < str.length) {
         result.push(str[index + 4]);
       }
       index += 4;
     }
- <em>   // 将字符之间的html格式全部去除</em>
+    // 将字符之间的html格式全部去除
     let rt: string = this.value.replace('<p></p><p></p>', '\n').replace('<p>', '\n').replace('\n\n', '\n');
     rt = rt.replace(/<br\s*\/?>/g, '\n');
     rt = rt.replace(/<\/?p/gi, '\n');
     rt = rt.replace(/<[^>]+>/g,
       '');
-  <em>  // 取'>'反的集合[^>]，+匹配集合元素一次或多次</em>
+    // 取'>'反的集合[^>]，+匹配集合元素一次或多次
     rt = rt.replace(/>/g, '');
     if (this.value) {
       rt = rt.trim();
     }
     const wordArr = rt.split('');
     const indexArr: number[] = [];
-  <em>  // 获取所有符合条件的下标</em>
+    // 获取所有符合条件的下标
     result.forEach((item: string) => {
       let index = wordArr.indexOf(item);
       while (index !== -1) {

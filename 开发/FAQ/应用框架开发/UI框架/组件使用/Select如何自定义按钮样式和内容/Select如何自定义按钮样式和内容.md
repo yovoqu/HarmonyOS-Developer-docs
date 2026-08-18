@@ -45,7 +45,7 @@ struct Center1 {
         .width('70%')
         .selected(0)
         .value('aaa')
-        .padding({ left: 90, right: 90 }) <em>// 设置左右边距，按钮内容实现居中</em>
+        .padding({ left: 90, right: 90 }) // 设置左右边距，按钮内容实现居中
         .space(0)
         .menuAlign(MenuAlignType.CENTER);
     }
@@ -65,7 +65,7 @@ struct Center1 {
 @Entry
 @Component
 struct Center2 {
-  @State selectValue: string = '未选择';<em> // Select的值</em>
+  @State selectValue: string = '未选择'; // Select的值
   @State selectWidth: number = 0;
   @State selectHeight: number = 0;
   selectItems: SelectOption[] = [
@@ -84,7 +84,7 @@ struct Center2 {
           .opacity(0)
           .menuAlign(MenuAlignType.CENTER)
           .onSizeChange((oldSize, newSize) => {
-          <em>  // 获取Select组件宽高</em>
+            // 获取Select组件宽高
             this.selectWidth = newSize.width as number;
             this.selectHeight = newSize.height as number;
             console.info('W：', this.selectWidth);
@@ -95,17 +95,17 @@ struct Center2 {
             .maxLines(1)
             .textOverflow({ overflow: TextOverflow.Ellipsis })
             .hitTestBehavior(HitTestMode.None)
-            .constraintSize({ maxWidth: this.selectWidth - 40, maxHeight: '100%' }); <em>// 选择的文本</em>
-          SymbolGlyph($r('sys.symbol.arrowtriangle_down_fill')).hitTestBehavior(HitTestMode.None).width(20); <em>// 下拉箭头</em>
+            .constraintSize({ maxWidth: this.selectWidth - 40, maxHeight: '100%' }); // 选择的文本
+          SymbolGlyph($r('sys.symbol.arrowtriangle_down_fill')).hitTestBehavior(HitTestMode.None).width(20); // 下拉箭头
         }
         .padding(10)
-        .width(this.selectWidth) <em>// 根据Select组件设置宽</em>
-        .height(this.selectHeight)<em> // 根据Select组件设置高</em>
-        .borderRadius(20)<em> // 设置圆角</em>
-        .justifyContent(FlexAlign.Center)<em> // 内容居中</em>
-        .hitTestBehavior(HitTestMode.None) <em>// 设置事件透传</em>
+        .width(this.selectWidth) // 根据Select组件设置宽
+        .height(this.selectHeight) // 根据Select组件设置高
+        .borderRadius(20) // 设置圆角
+        .justifyContent(FlexAlign.Center) // 内容居中
+        .hitTestBehavior(HitTestMode.None) // 设置事件透传
         .stateStyles({
-         <em> // 设置正常状态和按压状态颜色</em>
+          // 设置正常状态和按压状态颜色
           normal: {
             .backgroundColor('#f1f3f5');
           },
@@ -132,8 +132,8 @@ import { SymbolGlyphModifier, TextModifier } from '@kit.ArkUI';
 @Entry
 @Component
 struct TextInputSelect {
-  @State selectValue: string = ''; <em>// 文本输入框内容</em>
-  @State selectIndex: number = -1;<em> // 当前Select索引</em>
+  @State selectValue: string = ''; // 文本输入框内容
+  @State selectIndex: number = -1; // 当前Select索引
   @State selectWidth: number = 0;
   @State selectHeight: number = 0;
   selectItems: SelectOption[] = [
@@ -142,11 +142,11 @@ struct TextInputSelect {
     { value: 'ccc', icon: $r('app.media.startIcon') },
     { value: 'ddd', icon: $r('app.media.startIcon') }
   ];
-  textModifier: TextModifier = new TextModifier(); <em>// 自定义Select文本样式</em>
-  symbolGlyphModifier: SymbolGlyphModifier = new SymbolGlyphModifier(); <em>// 自定义Select下拉箭头样式</em>
+  textModifier: TextModifier = new TextModifier(); // 自定义Select文本样式
+  symbolGlyphModifier: SymbolGlyphModifier = new SymbolGlyphModifier(); // 自定义Select下拉箭头样式
 
   aboutToAppear(): void {
-   <em> // 文本和下拉箭头设置为纯透明</em>
+    // 文本和下拉箭头设置为纯透明
     this.textModifier.fontColor('#00000000');
     this.symbolGlyphModifier.fontColor(['#00000000']);
   }
@@ -168,32 +168,32 @@ struct TextInputSelect {
             console.info('W：', this.selectWidth);
             console.info('H：', this.selectHeight);
           });
-      <em>  // 自定义Select内容</em>
+        // 自定义Select内容
         Row() {
-      <em>    // 文本输入框</em>
+          // 文本输入框
           TextArea({ placeholder: '请选择', text: $$this.selectValue })
             .backgroundColor('#00000000')
             .selectionMenuHidden(true)
             .hitTestBehavior(HitTestMode.Transparent)
             .layoutWeight(1)
             .onChange(() => {
-          <em>    // 匹配当前输入框内容对应的索引</em>
+              // 匹配当前输入框内容对应的索引
               this.selectIndex = this.selectItems.findIndex((item) => {
                 return item.value === this.selectValue;
               });
               console.info(`当前索引值：${this.selectIndex}`);
             });
-        <em>  // 自定义下拉按钮</em>
+          // 自定义下拉按钮
           Row() {
             Text('显示菜单');
             SymbolGlyph($r('sys.symbol.chevron_down'));
           }.margin({ right: 10 })
-          .hitTestBehavior(HitTestMode.None);<em> // 设置透传</em>
+          .hitTestBehavior(HitTestMode.None); // 设置透传
         }
         .width(this.selectWidth)
         .height(this.selectHeight)
         .borderRadius(20)
-        .hitTestBehavior(HitTestMode.None);<em> // 设置透传</em>
+        .hitTestBehavior(HitTestMode.None); // 设置透传
       };
     }
     .height('100%')

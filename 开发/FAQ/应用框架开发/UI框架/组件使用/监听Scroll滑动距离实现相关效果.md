@@ -55,10 +55,10 @@ struct ScrollExample {
           }, (item: string) => item);
         }.width('100%');
       }
-      .scrollable(ScrollDirection.Vertical) <em>// 滚动方向纵向</em>
-      .scrollBar(BarState.On) <em>// </em><em>滚动条常驻显示</em>
-      .scrollBarColor(Color.Gray) <em>// </em><em>滚动条颜色</em>
-      .scrollBarWidth(10) <em>// </em><em>滚动条宽度</em>
+      .scrollable(ScrollDirection.Vertical) // 滚动方向纵向
+      .scrollBar(BarState.On) // 滚动条常驻显示
+      .scrollBarColor(Color.Gray) // 滚动条颜色
+      .scrollBarWidth(10) // 滚动条宽度
       .friction(0.6)
       .edgeEffect(EdgeEffect.Spring)
       .onScrollFrameBegin((offset: number) => {

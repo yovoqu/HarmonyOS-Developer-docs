@@ -22,15 +22,15 @@ class Utils {
   }
 }
 
-let startTime = 0; <em>// Initialization start time</em>
-let endTime = 0;<em> // Initialization end time</em>
+let startTime = 0; // Initialization start time
+let endTime = 0; // Initialization end time
 
 util.Aspect.addBefore(Utils, 'Add', false, () => {
-  startTime = systemDateTime.getTime(true); <em>// Return the start time in nanoseconds</em>
+  startTime = systemDateTime.getTime(true); // Return the start time in nanoseconds
 })
 
 util.Aspect.addAfter(Utils, 'Add', false, () => {
-  endTime = systemDateTime.getTime(true);<em> // Return the end time in nanoseconds</em>
+  endTime = systemDateTime.getTime(true); // Return the end time in nanoseconds
 })
 
 let utilsObj = new Utils();

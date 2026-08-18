@@ -42,16 +42,16 @@ struct Crypto {
   }
 }
 
-<em>// </em><em>分段加密消息</em>
+// 分段加密消息
 function rsaEncryptBySegment(pubKey: cryptoFramework.PubKey, plainText: cryptoFramework.DataBlob) {
   let cipher = cryptoFramework.createCipher('RSA1024|PKCS1');
   cipher.initSync(cryptoFramework.CryptoMode.ENCRYPT_MODE, pubKey, null);
-  let plainTextSplitLen = 117; <em>// </em><em>不高于加密位数/8-11 117</em>
+  let plainTextSplitLen = 117; // 不高于加密位数/8-11 117
   let cipherText = new Uint8Array();
   for (let i = 0; i < plainText.data.length; i += plainTextSplitLen) {
     let updateMessage = plainText.data.subarray(i, i + plainTextSplitLen);
     let updateMessageBlob: cryptoFramework.DataBlob = { data: updateMessage };
-   <em> // 将原文按64字符进行拆分，循环调用doFinal进行加密，使用1024bit密钥时，每次加密生成128字节长度的密文</em>
+    // 将原文按64字符进行拆分，循环调用doFinal进行加密，使用1024bit密钥时，每次加密生成128字节长度的密文
     let updateOutput = cipher.doFinalSync(updateMessageBlob);
     let mergeText = new Uint8Array(cipherText.length + updateOutput.data.length);
     mergeText.set(cipherText);
@@ -62,17 +62,17 @@ function rsaEncryptBySegment(pubKey: cryptoFramework.PubKey, plainText: cryptoFr
   return cipherBlob;
 }
 
-<em>// </em><em>分段解密消息</em>
+// 分段解密消息
 function rsaDecryptBySegment(priKey: cryptoFramework.PriKey, cipherText: cryptoFramework.DataBlob) {
   let decoder = cryptoFramework.createCipher('RSA1024|PKCS1');
   decoder.initSync(cryptoFramework.CryptoMode.DECRYPT_MODE, priKey, null);
-  let cipherTextSplitLen = 128; <em>// RSA</em><em>密钥每次加密生成的密文字节长度计算方式：密钥位数/8</em>
+  let cipherTextSplitLen = 128; // RSA密钥每次加密生成的密文字节长度计算方式：密钥位数/8
   let decryptText = new Uint8Array();
   for (let i = 0; i < cipherText.data.length; i += cipherTextSplitLen) {
     let updateMessage = cipherText.data.subarray(i, i + cipherTextSplitLen);
     let updateMessageBlob: cryptoFramework.DataBlob = { data: updateMessage };
-   <em> // 将密文按128字节进行拆分解密，得到原文后进行拼接</em>
-<em>    // 将原文按117字符进行拆分，循环调用doFinal进行加密，使用1024bit密钥时，每次加密生成128字节长度的密文</em>
+    // 将密文按128字节进行拆分解密，得到原文后进行拼接
+    // 将原文按117字符进行拆分，循环调用doFinal进行加密，使用1024bit密钥时，每次加密生成128字节长度的密文
     let updateOutput = decoder.doFinalSync(updateMessageBlob);
     let mergeText = new Uint8Array(decryptText.length + updateOutput.data.length);
     mergeText.set(decryptText);

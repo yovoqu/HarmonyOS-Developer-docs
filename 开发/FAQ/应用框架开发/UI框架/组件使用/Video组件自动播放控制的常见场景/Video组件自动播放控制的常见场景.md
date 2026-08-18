@@ -35,7 +35,7 @@
 @Entry
 @Component
 struct VideoAutoPlayByVisibility {
-  @State videoUrl: ResourceStr = $rawfile('video1.mp4'); <em>// 替换为您的本地视频文件路径</em>
+  @State videoUrl: ResourceStr = $rawfile('video1.mp4'); // 替换为您的本地视频文件路径
   controller: VideoController = new VideoController();
 
 
@@ -55,11 +55,11 @@ struct VideoAutoPlayByVisibility {
           .onVisibleAreaApproximateChange({ ratios: [0.5], expectedUpdateInterval: 200 },
             (isExpanding: boolean, currentRatio: number) => {
               console.info(`Test Video isExpanding: ${isExpanding}, currentRatio: ${currentRatio}`);
-             <em> // 可见比例逐渐变大，并超过一半，开始播放</em>
+              // 可见比例逐渐变大，并超过一半，开始播放
               if (isExpanding && currentRatio >= 0.5) {
                 this.controller.start();
               }
-             <em> // 可见比例逐渐变小，并小于一半，暂停播放</em>
+              // 可见比例逐渐变小，并小于一半，暂停播放
               if (!isExpanding && currentRatio <= 0.5) {
                 this.controller.pause();
               }

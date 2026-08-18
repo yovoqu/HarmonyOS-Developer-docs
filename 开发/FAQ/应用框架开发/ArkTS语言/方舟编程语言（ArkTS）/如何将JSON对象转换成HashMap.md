@@ -38,7 +38,7 @@ struct Index {
       Column() {
         Button('JSON to HashMap')
           .onClick(() => {
-          <em>  // common_params: {"city_id":1,"nav_id_list":"","show_hook_card":2,"use_one_stop_structure":1,"version_tag":"homepageonestop"}</em>
+            // common_params: {"city_id":1,"nav_id_list":"","show_hook_card":2,"use_one_stop_structure":1,"version_tag":"homepageonestop"}
             console.log('common_params:', JSON.stringify(hashMapData.get('common_params')));
           })
       }

@@ -25,11 +25,11 @@ import { map, mapCommon, MapComponent } from '@kit.MapKit';
 import { AsyncCallback } from '@kit.BasicServicesKit';
 import { geoLocationManager } from '@kit.LocationKit';
 
-<em>/**</em>
-<em> *</em>
-<em> * 1、监听用户是否进行地图缩放</em>
-<em> * 2、监听“我的位置”按钮点击事件，并初始化我的位置</em>
-<em> */</em>
+/**
+ *
+ * 1、监听用户是否进行地图缩放
+ * 2、监听“我的位置”按钮点击事件，并初始化我的位置
+ */
 @Entry
 @Component
 struct MapOnChangeZoom {
@@ -38,7 +38,7 @@ struct MapOnChangeZoom {
   private mapController?: map.MapComponentController;
 
   aboutToAppear(): void {
-  <em>  // 地图初始化参数，设置地图中心点坐标及层级</em>
+    // 地图初始化参数，设置地图中心点坐标及层级
     this.mapOption = {
       position: {
         target: {
@@ -51,30 +51,30 @@ struct MapOnChangeZoom {
       myLocationControlsEnabled: true
     };
 
-   <em> // 地图初始化的回调</em>
+    // 地图初始化的回调
     this.callback = async (err, mapController) => {
       if (!err) {
-      <em>  // 获取地图的控制器类，用来操作地图</em>
+        // 获取地图的控制器类，用来操作地图
         this.mapController = mapController;
-     <em>   // 启用我的位置图层</em>
+        // 启用我的位置图层
         this.mapController?.setMyLocationEnabled(true);
 
         let mapEventManager = mapController.getEventManager();
         let cameraChangeCallback = (position: mapCommon.LatLng) => {
           console.info('cameraChange', `callback position = ${position.longitude}`);
-        <em>  // 获取当前地图缩放级别，通过zoom是否变化来判断是否有缩放行为</em>
+          // 获取当前地图缩放级别，通过zoom是否变化来判断是否有缩放行为
           let zoom = this.mapController?.getCameraPosition().zoom;
           console.info('cameraChange', `callback zoom = ${zoom}`);
         };
         mapEventManager.on('cameraChange', cameraChangeCallback);
 
-      <em>  // 监听“我的位置”按钮点击事件</em>
+        // 监听“我的位置”按钮点击事件
         this.mapController.on('myLocationButtonClick', () => {
           console.info('myLocationButtonClick', `myLocationButtonClick`);
           this.getMyLocation();
         });
 
-       <em> // 初始化我的位置</em>
+        // 初始化我的位置
         this.getMyLocation();
       }
     };
@@ -86,7 +86,7 @@ struct MapOnChangeZoom {
     };
   }
 
-<em>  // 获取当前位置并视图移动过去</em>
+  // 获取当前位置并视图移动过去
   getMyLocation() {
     geoLocationManager.getCurrentLocation().then(async (result) => {
       let position: geoLocationManager.Location = {
@@ -101,7 +101,7 @@ struct MapOnChangeZoom {
       };
 
       this.mapController?.setMyLocation(position);
-    <em>  // 创建CameraUpdate对象</em>
+      // 创建CameraUpdate对象
       let gcj02Position: mapCommon.LatLng = await this.convertCoordinate(result.latitude, result.longitude);
       let latLng: mapCommon.LatLng = {
         latitude: gcj02Position.latitude,
@@ -109,7 +109,7 @@ struct MapOnChangeZoom {
       };
       let zoom = 17;
       let cameraUpdate = map.newLatLng(latLng, zoom);
-   <em>   // 以动画方式移动地图相机</em>
+      // 以动画方式移动地图相机
       this.mapController?.animateCamera(cameraUpdate, 1000);
     });
   }

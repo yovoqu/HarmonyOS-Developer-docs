@@ -43,11 +43,11 @@ struct BindSheetOnePage {
   @State currentY: number = 0;
 
   onPageShow(): void {
-   <em> // 全局获取半模态的状态</em>
+    // 全局获取半模态的状态
     this.isShow = AppStorage.get('isTrue') as boolean;
-   <em> // 全局获取List当前位置</em>
+    // 全局获取List当前位置
     this.currentY = AppStorage.get('currentY') as number;
-   <em> // 设置沉浸式</em>
+    // 设置沉浸式
     window.getLastWindow(this.getUIContext().getHostContext(), (err, win) => {
       console.error(`err: ${err}`);
       win.setWindowLayoutFullScreen(true);
@@ -55,7 +55,7 @@ struct BindSheetOnePage {
   }
 
   aboutToAppear(): void {
-    <em>// 插入list数据</em>
+    // 插入list数据
     for (let index = 0; index < 20; index++) {
       this.numArr.push(index);
     }
@@ -74,9 +74,9 @@ struct BindSheetOnePage {
           .width('100%')
           .backgroundColor('#F3F3F3')
           .onClick(() => {
-           <em> // 全局存储当前List滑动距离</em>
+            // 全局存储当前List滑动距离
             AppStorage.setOrCreate('currentY', this.scrollerForList.currentOffset().yOffset);
-          <em>  // 跳转到下一个页面</em>
+            // 跳转到下一个页面
             this.getUIContext().getRouter().pushUrl({
               url: 'pages/BindSheetTwoPage'
             }).catch((e: BusinessError) => {
@@ -91,7 +91,7 @@ struct BindSheetOnePage {
       right: 16
     })
     .onAppear(() => {
-     <em> // 通过Scroller滑动至之前保存的位置，实现保持原样的效果</em>
+      // 通过Scroller滑动至之前保存的位置，实现保持原样的效果
       this.scrollerForList.scrollTo({ xOffset: 0, yOffset: this.currentY });
     })
     .height('100%');
@@ -101,14 +101,14 @@ struct BindSheetOnePage {
     Column() {
       Button('transition modal 1')
         .onClick(() => {
-        <em>  // 点击打开半模态</em>
+          // 点击打开半模态
           this.isShow = true;
-        <em>  // 全局存储半模态状态</em>
+          // 全局存储半模态状态
           AppStorage.setOrCreate('isTrue', true);
         })
         .fontSize(20)
         .margin(10)
-       <em> // $$双向同步半模态的状态</em>
+        // $$双向同步半模态的状态
         .bindSheet($$this.isShow, this.myBuilder(), {
           height: 600,
           title: { title: "title" },
@@ -140,7 +140,7 @@ struct BindSheetTwoPage {
         .fontSize(50)
         .fontWeight(FontWeight.Bold)
         .onClick(() => {
-      <em>    // 点击返回上个页面</em>
+          // 点击返回上个页面
           this.getUIContext().getRouter().back();
         });
     }

@@ -26,11 +26,11 @@
  1. 使用[AVRecorder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder)录制WAV封装格式的音频文件，编码格式为G711MU、采样率8000HZ、单声道、比特率64000bps。
 ```text
 let avProfile: media.AVRecorderProfile = {
-  audioChannels: 1, <em>// 音频声道数目，单声道</em>
-  audioBitrate: 64000, <em>// 音频比特率</em>
-  audioSampleRate: 8000, <em>// 音频采样率</em>
-  audioCodec: media.CodecMimeType.AUDIO_G711MU, <em>// 音频编码格式</em>
-  fileFormat: media.ContainerFormatType.CFT_WAV,<em> // 音频封装格式</em>
+  audioChannels: 1, // 音频声道数目，单声道
+  audioBitrate: 64000, // 音频比特率
+  audioSampleRate: 8000, // 音频采样率
+  audioCodec: media.CodecMimeType.AUDIO_G711MU, // 音频编码格式
+  fileFormat: media.ContainerFormatType.CFT_WAV, // 音频封装格式
 };
 ```
 
@@ -151,11 +151,11 @@ struct WavAudioRecognizeDemo {
       console.error(`Failed to set avRecorder callback, error code: ${err.code}, message: ${err.message}`);
     }
     let avProfile: media.AVRecorderProfile = {
-      audioChannels: 1, <em>// 音频声道数目，单声道</em>
-      audioBitrate: 64000,<em> // 音频比特率</em>
-      audioSampleRate: 8000, <em>// 音频采样率</em>
-      audioCodec: media.CodecMimeType.AUDIO_G711MU, <em>// 音频编码格式</em>
-      fileFormat: media.ContainerFormatType.CFT_WAV, <em>// 音频封装格式</em>
+      audioChannels: 1, // 音频声道数目，单声道
+      audioBitrate: 64000, // 音频比特率
+      audioSampleRate: 8000, // 音频采样率
+      audioCodec: media.CodecMimeType.AUDIO_G711MU, // 音频编码格式
+      fileFormat: media.ContainerFormatType.CFT_WAV, // 音频封装格式
     };
     let avConfig: media.AVRecorderConfig = {
       audioSourceType: media.AudioSourceType.AUDIO_SOURCE_TYPE_MIC,
@@ -184,7 +184,7 @@ struct WavAudioRecognizeDemo {
     }
 
     try {
-      if (this.avRecorder.state === 'prepared') { <em>// 仅在prepared状态下调用start为合理状态切换。</em>
+      if (this.avRecorder.state === 'prepared') { // 仅在prepared状态下调用start为合理状态切换。
         await this.avRecorder.start();
       }
     } catch (error) {
@@ -262,9 +262,9 @@ struct WavAudioRecognizeDemo {
       return;
     }
 
-   <em> // 创建回调对象</em>
+    // 创建回调对象
     let setListener: speechRecognizer.RecognitionListener = {
-     <em> // 开始识别成功回调</em>
+      // 开始识别成功回调
       onStart: (sessionId: string, eventMessage: string) => {
         console.info(`onStart, sessionId: ${sessionId} eventMessage: ${eventMessage}`);
         let audioBuf = new Uint8Array(bufSize);
@@ -291,15 +291,15 @@ struct WavAudioRecognizeDemo {
           }
         }, intervalMS);
       },
-     <em> // 事件回调</em>
+      // 事件回调
       onEvent: (sessionId: string, eventCode: number, eventMessage: string) => {
         console.info(`onEvent, sessionId: ${sessionId} eventCode: ${eventCode} eventMessage: ${eventMessage}`);
       },
-     <em> // 识别结果回调，包括中间结果和最终结果</em>
+      // 识别结果回调，包括中间结果和最终结果
       onResult: (sessionId: string, result: speechRecognizer.SpeechRecognitionResult) => {
         console.info(`onResult, sessionId: ${sessionId} result: ${JSON.stringify(result)}`);
       },
-      <em>// 识别完成回调</em>
+      // 识别完成回调
       onComplete: (sessionId: string, eventMessage: string) => {
         console.info(`onComplete, sessionId: ${sessionId} eventMessage: ${eventMessage}`);
         this.asrEngine?.shutdown();
@@ -312,7 +312,7 @@ struct WavAudioRecognizeDemo {
           }
         }
       },
-     <em> // 错误回调</em>
+      // 错误回调
       onError: (sessionId: string, errorCode: number, errorMessage: string) => {
         console.error(`onError, sessionId: ${sessionId} errorCode: ${errorCode} errorMessage: ${errorMessage}`);
         this.asrEngine?.shutdown();
@@ -326,7 +326,7 @@ struct WavAudioRecognizeDemo {
         }
       },
     };
-   <em> // 设置回调</em>
+    // 设置回调
     this.asrEngine.setListener(setListener);
 
     let audioParam: speechRecognizer.AudioInfo = {

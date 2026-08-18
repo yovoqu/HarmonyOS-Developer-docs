@@ -66,7 +66,7 @@ struct SFI20250721204737765691 {
             (dismissPopupAction: DismissPopupAction) => {
               console.info('dismissReason:' + JSON.stringify(dismissPopupAction.reason));
               if (dismissPopupAction.reason === DismissReason.PRESS_BACK) {
-           <em>     // 自定义返回事件逻辑</em>
+                // 自定义返回事件逻辑
                 this.str = '自定义返回事件，执行成功。';
               }
               if (dismissPopupAction.reason === DismissReason.TOUCH_OUTSIDE) {

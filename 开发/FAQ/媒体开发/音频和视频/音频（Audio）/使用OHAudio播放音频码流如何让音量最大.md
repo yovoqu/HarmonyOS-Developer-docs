@@ -25,15 +25,15 @@
  
 - 开发者可使用OH_AudioRenderer_SetVolume接口设置当前音频流音量值，1.0为最大值。
 ```text
-<em>// 要设置的音量值，音量值的范围是[0.0f, 1.0f]。</em>
+// 要设置的音量值，音量值的范围是[0.0f, 1.0f]。
 float volume = 1.0f;
-<em>// 设置当前音频流音量值。</em>
+// 设置当前音频流音量值。
 OH_AudioStream_Result state = OH_AudioRenderer_SetVolume(m_renderer, volume);
 ```
 
 - 当音频流类型[OH_AudioStream_Usage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h#oh_audiostream_usage)为语音消息、VoIP语音通话或者VoIP视频通话的场景时可以使用OH_AudioRenderer_SetDefaultOutputDevice()方法设置本机内置发声设备为扬声器获得最大音量的效果。
 ```text
-<em>// 设置本机内置发声设备为扬声器。</em>
+// 设置本机内置发声设备为扬声器。
 OH_AudioRenderer_SetDefaultOutputDevice(m_renderer, AUDIO_DEVICE_TYPE_SPEAKER);
 ```
 
@@ -45,14 +45,14 @@ void AudioHelper::RaiseVolume(char *buf, uint32_t size, double vol) {
         return;
     }
     for (int i = 0; i < size; i += 2) {
-       <em> // 根据不同位数的PCM数据设置上下界，此处以16位PCM为例</em>
+        // 根据不同位数的PCM数据设置上下界，此处以16位PCM为例
         signed long minData = -0x8000;
         signed long maxData = 0x7FFF;
-      <em>  // 拼接单个16位样本</em>
+        // 拼接单个16位样本
         signed short wData = buf[i + 1];
         wData = MAKEWORD(buf[i], buf[i + 1]);
         signed long dwData = wData;
-      <em>  // 对样本做数乘和上下限控制</em>
+        // 对样本做数乘和上下限控制
         dwData = dwData * vol;
         if (dwData < minData) {
             dwData = minData;
@@ -60,7 +60,7 @@ void AudioHelper::RaiseVolume(char *buf, uint32_t size, double vol) {
             dwData = maxData;
         }
         wData = LOWORD(dwData);
-      <em>  // 将处理后的数据保存</em>
+        // 将处理后的数据保存
         buf[i] = LOBYTE(wData);
         buf[i + 1] = HIBYTE(wData);
     }

@@ -13,12 +13,12 @@ import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 @Entry
 @Component
 struct GetKey {
-  <em>// Convert string to byte stream</em>
+  // Convert string to byte stream
   stringToUint8Array(str: string) {
     return new Uint8Array(buffer.from(str, 'utf-8').buffer);
   }
 
-  <em>// Import key</em>
+  // Import key
   async getKey() {
     let symAlgName = 'AES128';
     let symKeyGenerator = cryptoFramework.createSymKeyGenerator(symAlgName);

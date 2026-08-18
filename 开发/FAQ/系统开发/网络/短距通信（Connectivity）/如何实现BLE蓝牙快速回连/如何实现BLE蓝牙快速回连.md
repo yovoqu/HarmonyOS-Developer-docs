@@ -30,145 +30,145 @@
 方案一、方案二完整示例参考如下：
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">access</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">connection</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">constant </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ConnectivityKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { access, ble, connection, constant } from '@kit.ConnectivityKit';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Reconnect </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">gattClient</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GattClientDevice </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Reconnect {
+  @State gattClient: ble.GattClientDevice | undefined = undefined;
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">方案一</span></em>
-  <span style="color: rgb(0,0,255);">ReconnectOne</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <em>// </em><em><span style="color: rgb(128,128,128);">先查询已配对设备列表，判断需要连接的设备是否在已配对设备列表中存在。</span></em>
-    let <span style="color: rgb(0,0,255);">devices </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">connection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPairedDevices</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">devices</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      let <span style="color: rgb(0,0,255);">name </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">connection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRemoteDeviceName</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">devices</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">需要连接的设备在已配对设备列表中存在，无需发起扫描，直接创建实例进行连接。</span></em>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">name </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'name'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建</span><span style="color: rgb(128,128,128);">ble</span><span style="color: rgb(128,128,128);">蓝牙</span><span style="color: rgb(128,128,128);">client</span><span style="color: rgb(128,128,128);">实例</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gattClient </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createGattClientDevice</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">devices</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
-      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">连接前先创建连接状态回调监听</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onBLEConnectionStateChangeOne</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">连接</span><span style="color: rgb(128,128,128);">ble</span><span style="color: rgb(128,128,128);">蓝牙</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gattClient</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        return<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span>
-<em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">需要连接的设备在已配对设备列表中不存在，开启常规</span><span style="color: rgb(128,128,128);">ble</span><span style="color: rgb(128,128,128);">蓝牙连接流程。</span></em>
-<em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">订阅</span><span style="color: rgb(128,128,128);">BLE</span><span style="color: rgb(128,128,128);">设备发现</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onBLEDeviceFindOne</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
- <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">过滤参数可根据实际场景进行设置</span></em>
-    let <span style="color: rgb(0,0,255);">scanFilter</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ScanFilter </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'name'</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
- <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">扫描参数可根据实际场景配置</span></em>
-    let <span style="color: rgb(0,0,255);">scanOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ScanOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">interval</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">500</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">dutyMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ScanDuty</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SCAN_MODE_LOW_POWER</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">matchMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MatchMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MATCH_MODE_AGGRESSIVE</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startBLEScan</span><span style="color: rgb(0,0,255);">([</span><span style="color: rgb(0,0,255);">scanFilter</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">scanOptions</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  // 方案一
+  ReconnectOne() {
+    // 先查询已配对设备列表，判断需要连接的设备是否在已配对设备列表中存在。
+    let devices = connection.getPairedDevices();
+    for (let index = 0; index < devices.length; index++) {
+      let name = connection.getRemoteDeviceName(devices[index]);
+      // 需要连接的设备在已配对设备列表中存在，无需发起扫描，直接创建实例进行连接。
+      if (name === 'name') {
+        // 创建ble蓝牙client实例
+        this.gattClient = ble.createGattClientDevice(devices[index]);
+        // 连接前先创建连接状态回调监听
+        this.onBLEConnectionStateChangeOne();
+        // 连接ble蓝牙
+        this.gattClient.connect();
+        return;
+      }
+    }
+    // 需要连接的设备在已配对设备列表中不存在，开启常规ble蓝牙连接流程。
+    // 订阅BLE设备发现
+    this.onBLEDeviceFindOne();
+    // 过滤参数可根据实际场景进行设置
+    let scanFilter: ble.ScanFilter = {
+      name: 'name'
+    };
+    // 扫描参数可根据实际场景配置
+    let scanOptions: ble.ScanOptions = {
+      interval: 500,
+      dutyMode: ble.ScanDuty.SCAN_MODE_LOW_POWER,
+      matchMode: ble.MatchMode.MATCH_MODE_AGGRESSIVE,
+    };
+    ble.startBLEScan([scanFilter], scanOptions);
+  }
 
-  <span style="color: rgb(0,0,255);">onBLEDeviceFindOne</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'BLEDeviceFind'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ScanResult</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">发现设备，创建实例进行连接</span></em>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gattClient </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createGattClientDevice</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">deviceId</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
- <em>     <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">连接前先创建连接状态回调监听</span></em>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onBLEConnectionStateChangeOne</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">连接</span><span style="color: rgb(128,128,128);">ble</span><span style="color: rgb(128,128,128);">蓝牙</span></em>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gattClient</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">连接成功后，将已连接设备加入配对列表。</span></em>
-<em>      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">注意：加入配对列表时机并不固定，可根据实际场景来进行变更。</span></em>
-      <span style="color: rgb(0,0,255);">connection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pairDevice</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">deviceId</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'pairDevice err'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  onBLEDeviceFindOne() {
+    ble.on('BLEDeviceFind', (data: Array<ble.ScanResult>) => {
+      // 发现设备，创建实例进行连接
+      this.gattClient = ble.createGattClientDevice(data[0].deviceId);
+      // 连接前先创建连接状态回调监听
+      this.onBLEConnectionStateChangeOne();
+      // 连接ble蓝牙
+      this.gattClient.connect();
+      // 连接成功后，将已连接设备加入配对列表。
+      // 注意：加入配对列表时机并不固定，可根据实际场景来进行变更。
+      connection.pairDevice(data[0].deviceId, () => {
+        console.info('pairDevice err');
+      });
+    });
+  }
 
-  <span style="color: rgb(0,0,255);">onBLEConnectionStateChangeOne</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gattClient</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'BLEConnectionStateChange'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">state</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BLEConnectionChangeState</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">state</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">state </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">constant</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ProfileConnectionState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">STATE_DISCONNECTED</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-       <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">如果蓝牙意外断开了连接，可以在此处重新发起连接，以达到意外断连快速回连能力。</span></em>
-<em>        <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">不过需要保证此时</span><span style="color: rgb(128,128,128);">this.gattClient</span><span style="color: rgb(128,128,128);">实例没有被销毁。</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gattClient</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  onBLEConnectionStateChangeOne() {
+    this.gattClient?.on('BLEConnectionStateChange', (state: ble.BLEConnectionChangeState) => {
+      if (state.state === constant.ProfileConnectionState.STATE_DISCONNECTED) {
+        // 如果蓝牙意外断开了连接，可以在此处重新发起连接，以达到意外断连快速回连能力。
+        // 不过需要保证此时this.gattClient实例没有被销毁。
+        this.gattClient?.connect();
+      }
+    });
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">方案二</span></em>
-  <span style="color: rgb(0,0,255);">ReconnectTwo</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
- <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">先查询已固化设备列表，判断需要连接的设备是否在已固化设备列表中存在。</span></em>
-    let <span style="color: rgb(0,0,255);">devices </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">access</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPersistentDeviceIds</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">devices</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      let <span style="color: rgb(0,0,255);">name </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">connection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRemoteDeviceName</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">devices</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(0,0,255);">isValid </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">access</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isValidRandomDeviceId</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">devices</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
-      <em>// </em><em><span style="color: rgb(128,128,128);">需要连接的设备在已固化设备列表中存在，同时该地址有效，无需发起扫描，直接创建实例进行连接。</span></em>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">isValid </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">name </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'name'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-       <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建</span><span style="color: rgb(128,128,128);">ble</span><span style="color: rgb(128,128,128);">蓝牙</span><span style="color: rgb(128,128,128);">client</span><span style="color: rgb(128,128,128);">实例</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gattClient </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createGattClientDevice</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">devices</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
-        <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">连接前先创建连接状态回调监听</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onBLEConnectionStateChangeTwo</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">连接</span><span style="color: rgb(128,128,128);">ble</span><span style="color: rgb(128,128,128);">蓝牙</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gattClient</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        return<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">需要连接的设备在已固化设备列表中不存在，开启常规</span><span style="color: rgb(128,128,128);">ble</span><span style="color: rgb(128,128,128);">蓝牙连接流程。</span></em>
-<em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">订阅</span><span style="color: rgb(128,128,128);">BLE</span><span style="color: rgb(128,128,128);">设备发现</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onBLEDeviceFindTwo</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">过滤参数可根据实际场景进行设置</span></em>
-    let <span style="color: rgb(0,0,255);">scanFilter</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ScanFilter </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'name'</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">扫描参数可根据实际场景配置</span></em>
-    let <span style="color: rgb(0,0,255);">scanOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ScanOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">interval</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">500</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">dutyMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ScanDuty</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SCAN_MODE_LOW_POWER</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">matchMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MatchMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MATCH_MODE_AGGRESSIVE</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startBLEScan</span><span style="color: rgb(0,0,255);">([</span><span style="color: rgb(0,0,255);">scanFilter</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">scanOptions</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  // 方案二
+  ReconnectTwo() {
+    // 先查询已固化设备列表，判断需要连接的设备是否在已固化设备列表中存在。
+    let devices = access.getPersistentDeviceIds();
+    for (let index = 0; index < devices.length; index++) {
+      let name = connection.getRemoteDeviceName(devices[index]);
+      let isValid = access.isValidRandomDeviceId(devices[index]);
+      // 需要连接的设备在已固化设备列表中存在，同时该地址有效，无需发起扫描，直接创建实例进行连接。
+      if (isValid && name === 'name') {
+        // 创建ble蓝牙client实例
+        this.gattClient = ble.createGattClientDevice(devices[index]);
+        // 连接前先创建连接状态回调监听
+        this.onBLEConnectionStateChangeTwo();
+        // 连接ble蓝牙
+        this.gattClient.connect();
+        return;
+      }
+    }
+    // 需要连接的设备在已固化设备列表中不存在，开启常规ble蓝牙连接流程。
+    // 订阅BLE设备发现
+    this.onBLEDeviceFindTwo();
+    // 过滤参数可根据实际场景进行设置
+    let scanFilter: ble.ScanFilter = {
+      name: 'name'
+    };
+    // 扫描参数可根据实际场景配置
+    let scanOptions: ble.ScanOptions = {
+      interval: 500,
+      dutyMode: ble.ScanDuty.SCAN_MODE_LOW_POWER,
+      matchMode: ble.MatchMode.MATCH_MODE_AGGRESSIVE,
+    };
+    ble.startBLEScan([scanFilter], scanOptions);
+  }
 
-  <span style="color: rgb(0,0,255);">onBLEDeviceFindTwo</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'BLEDeviceFind'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ScanResult</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">发现设备，创建实例进行连接。</span></em>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gattClient </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createGattClientDevice</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">deviceId</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">连接前先创建连接状态回调监听</span></em>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onBLEConnectionStateChangeTwo</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">连接</span><span style="color: rgb(128,128,128);">ble</span><span style="color: rgb(128,128,128);">蓝牙</span></em>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gattClient</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">连接成功后，将已连接设备加入固化列表。</span></em>
-<em>      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">注意：加入固化列表时机并不固定，可根据实际场景来进行变更。</span></em>
-      <span style="color: rgb(0,0,255);">access</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addPersistentDeviceId</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">deviceId</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  onBLEDeviceFindTwo() {
+    ble.on('BLEDeviceFind', (data: Array<ble.ScanResult>) => {
+      // 发现设备，创建实例进行连接。
+      this.gattClient = ble.createGattClientDevice(data[0].deviceId);
+      // 连接前先创建连接状态回调监听
+      this.onBLEConnectionStateChangeTwo();
+      // 连接ble蓝牙
+      this.gattClient.connect();
+      // 连接成功后，将已连接设备加入固化列表。
+      // 注意：加入固化列表时机并不固定，可根据实际场景来进行变更。
+      access.addPersistentDeviceId(data[0].deviceId);
+    });
+  }
 
-  <span style="color: rgb(0,0,255);">onBLEConnectionStateChangeTwo</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gattClient</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'BLEConnectionStateChange'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">state</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BLEConnectionChangeState</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">state</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">state </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">constant</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ProfileConnectionState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">STATE_DISCONNECTED</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">如果蓝牙意外断开了连接，可以在此处重新发起连接，以达到意外断连快速回连能力。</span></em>
-<em>        <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">不过需要保证此时</span><span style="color: rgb(128,128,128);">this.gattClient</span><span style="color: rgb(128,128,128);">实例没有被销毁。</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gattClient</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  onBLEConnectionStateChangeTwo() {
+    this.gattClient?.on('BLEConnectionStateChange', (state: ble.BLEConnectionChangeState) => {
+      if (state.state === constant.ProfileConnectionState.STATE_DISCONNECTED) {
+        // 如果蓝牙意外断开了连接，可以在此处重新发起连接，以达到意外断连快速回连能力。
+        // 不过需要保证此时this.gattClient实例没有被销毁。
+        this.gattClient?.connect();
+      }
+    });
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'ble</span><span style="color: rgb(255,0,170);">蓝牙连接</span><span style="color: rgb(255,0,170);">/</span><span style="color: rgb(255,0,170);">支持快速回连</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,0,170);">方案</span><span style="color: rgb(255,0,170);">1)'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">发起连接</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ReconnectOne</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'ble</span><span style="color: rgb(255,0,170);">蓝牙连接</span><span style="color: rgb(255,0,170);">/</span><span style="color: rgb(255,0,170);">支持快速回连</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,0,170);">方案</span><span style="color: rgb(255,0,170);">2)'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-       <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">发起连接</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ReconnectTwo</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SpaceAround</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Column() {
+      Button('ble蓝牙连接/支持快速回连(方案1)').onClick(() => {
+        // 发起连接
+        this.ReconnectOne();
+      });
+      Button('ble蓝牙连接/支持快速回连(方案2)').onClick(() => {
+        // 发起连接
+        this.ReconnectTwo();
+      });
+    }.height('100%')
+    .width('100%')
+    .justifyContent(FlexAlign.SpaceAround);
+  }
+}
 ```
  
 > [!NOTE]

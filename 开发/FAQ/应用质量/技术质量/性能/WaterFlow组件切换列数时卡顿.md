@@ -118,7 +118,7 @@ export struct WaterFlowComponentPage {
         radius: 12
       })
       .onAppear(() => {
-      <em>  // 滚动到底部</em>
+        // 滚动到底部
         setTimeout(() => {
           this.scroller.scrollEdge(Edge.End);
         }, 1000);
@@ -129,7 +129,7 @@ export struct WaterFlowComponentPage {
         min: 1,
         max: 4
       }).onChange((value: number) => {
-    <em>    // 切换显示的列数</em>
+        // 切换显示的列数
         this.column = value;
       })
     }
@@ -247,7 +247,7 @@ export struct WaterFlowComponentPage {
         radius: 12
       })
       .onAppear(() => {
-     <em>   // 滚动到底部</em>
+        // 滚动到底部
         setTimeout(() => {
           this.scroller.scrollEdge(Edge.End);
         }, 1000);
@@ -258,7 +258,7 @@ export struct WaterFlowComponentPage {
         min: 1,
         max: 4
       }).onChange((value: number) => {
-     <em>   // 切换显示的列数</em>
+        // 切换显示的列数
         this.column = value;
       })
     }

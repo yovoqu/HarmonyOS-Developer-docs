@@ -75,7 +75,7 @@ export struct LocalStorageChildOne {
 ```text
 import { LocalStorageChildTwo } from './LocalStorageChildTwo';
 
-<em>// </em><em>创建新实例并使用给定对象初始化</em>
+// 创建新实例并使用给定对象初始化
 let para: Record<string, number> = { 'propA': 47 };
 let storage: LocalStorage = new LocalStorage(para);
 
@@ -86,7 +86,7 @@ struct LocalStorageFatherTwo {
 
   build() {
     Column({ space: 15 }) {
-    <em>  // @Component子组件自动获得对LocalStorage实例的访问权限。</em>
+      // @Component子组件自动获得对LocalStorage实例的访问权限。
       LocalStorageChildTwo({ storageChild: this.storageFather });
     };
   }

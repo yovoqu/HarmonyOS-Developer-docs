@@ -21,7 +21,7 @@
 为了实现不同视图内容中复用组件间数据的隔离，需要为每个视图内容创建单独的刷新函数。当监听到Tabs页切换时，立即将每个视图内容独有的刷新函数与共享的刷新监听器重新绑定，以确保后续在当前页面执行刷新操作时，仅修改当前页面的数据。完整示例参考如下：
  1. 定义页面中使用的常量（实际使用时需要从后端服务器获取）：
 ```text
-<em>// </em><em>定义页面中使用的常量</em>
+// 定义页面中使用的常量
 export class SleepStyleModel {
   name: string;
   key: string;
@@ -40,11 +40,11 @@ export const styleData: SleepStyleModel[] = [
 
 2. 定义监听器。
 ```text
-<em>// </em><em>定义监听器</em>
+// 定义监听器
 export class RefreshListener {
- <em> // key: string;</em>
+  // key: string;
   onRefresh = (key: string) => {
-    <em>// return key</em>
+    // return key
     console.info(key);
   };
 }
@@ -57,7 +57,7 @@ export struct StyleList {
   @Prop typeKey: string;
   @Prop isRefreshing: boolean = false;
   @State list: string[] = [];
- <em> // 监听Tabs切换</em>
+  // 监听Tabs切换
   @Prop @Watch('onIndexChange') currentIndex: number;
   listener: RefreshListener = new RefreshListener();
   private onRefresh = (key: string) => {
@@ -66,11 +66,11 @@ export struct StyleList {
     this.loadData();
   };
 
-  <em>// </em><em>监听回调函数</em>
+  // 监听回调函数
   onIndexChange() {
     console.info('---------------------监听切换视图页面');
     if (styleData[this.currentIndex].key == this.typeKey) {
-     <em> // 重新绑定刷新函数</em>
+      // 重新绑定刷新函数
       console.info(`---------------------重新绑定监听函数${this.currentIndex}`);
       this.listener.onRefresh = this.onRefresh;
     }
@@ -167,11 +167,11 @@ export struct SleepMusicPage {
         }) {
           ForEach(this.styleList, (item: SleepStyleModel, index: number) => {
             TabContent() {
-            <em>  // 外部调用复用组件</em>
+              // 外部调用复用组件
               StyleList({
                 typeKey: item.key,
                 isRefreshing: this.isRefreshing,
-                <em>// 共享的刷新监听器</em>
+                // 共享的刷新监听器
                 listener: this.listener,
                 currentIndex: this.currentIndex
               });
@@ -204,7 +204,7 @@ export struct SleepMusicPage {
 完整示例参考如下：
  
 ```json
-<em>// </em><em>定义页面中使用的常量</em>
+// 定义页面中使用的常量
 export class SleepStyleModel {
   name: string;
   key: string;
@@ -220,11 +220,11 @@ export const styleData: SleepStyleModel[] = [
   new SleepStyleModel('睡眠', 'FastSleep')
 ];
 
-<em>// </em><em>定义监听器</em>
+// 定义监听器
 export class RefreshListener {
- <em> // key: string;</em>
+  // key: string;
   onRefresh = (key: string) => {
-   <em> // return key</em>
+    // return key
     console.info(key);
   };
 }
@@ -234,7 +234,7 @@ export struct StyleList {
   @Prop typeKey: string;
   @Prop isRefreshing: boolean = false;
   @State list: string[] = [];
-  <em>// </em><em>监听Tabs切换</em>
+  // 监听Tabs切换
   @Prop @Watch('onIndexChange') currentIndex: number;
   listener: RefreshListener = new RefreshListener();
   private onRefresh = (key: string) => {
@@ -243,11 +243,11 @@ export struct StyleList {
     this.loadData();
   };
 
- <em> // 监听回调函数</em>
+  // 监听回调函数
   onIndexChange() {
     console.info('---------------------监听切换视图页面');
     if (styleData[this.currentIndex].key == this.typeKey) {
-      <em>// </em><em>重新绑定刷新函数</em>
+      // 重新绑定刷新函数
       console.info(`---------------------重新绑定监听函数${this.currentIndex}`);
       this.listener.onRefresh = this.onRefresh;
     }
@@ -341,11 +341,11 @@ export struct SleepMusicPage {
         }) {
           ForEach(this.styleList, (item: SleepStyleModel, index: number) => {
             TabContent() {
-             <em> // 外部调用复用组件</em>
+              // 外部调用复用组件
               StyleList({
                 typeKey: item.key,
                 isRefreshing: this.isRefreshing,
-               <em> // 共享的刷新监听器</em>
+                // 共享的刷新监听器
                 listener: this.listener,
                 currentIndex: this.currentIndex
               });

@@ -45,8 +45,8 @@ struct RichEditorExample {
     Row() {
       Column() {
         RichEditor(this.options)
-          .onReady(() => { <em>// 组件初始化完成后会触发onReady回调</em>
-          <em>  // 在addTextSpan第一个参数中输入文本值，在第二个参数添加style，style中fontFeature属性为subs</em>
+          .onReady(() => { // 组件初始化完成后会触发onReady回调
+            // 在addTextSpan第一个参数中输入文本值，在第二个参数添加style，style中fontFeature属性为subs
             this.controller.addTextSpan('下角标效果示例：二氧化碳，CO2\n',
               {
                 style:

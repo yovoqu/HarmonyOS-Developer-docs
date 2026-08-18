@@ -28,16 +28,16 @@ ArkTS中的number数组是普通数组类型，而ArrayBuffer是二进制缓冲�
 ```text
 static napi_value TransmitByTypedArray(napi_env env, napi_callback_info info)
 {
-  <em>  // 获取ArkTS侧传入的参数</em>
+    // 获取ArkTS侧传入的参数
     size_t argc = 2;
     napi_value args[2] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
- <em>   // 定义napi_get_typedarray_info所需参数</em>
+    // 定义napi_get_typedarray_info所需参数
     void *data;
     napi_typedarray_type type;
     size_t byteOffset, length;
     napi_value arraybuffer;
-  <em>  // 调用接口napi_get_typedarray_info获得TypedArray类型数据的信息</em>
+    // 调用接口napi_get_typedarray_info获得TypedArray类型数据的信息
     napi_get_typedarray_info(env, args[0], &type, &length, &data, &arraybuffer, &byteOffset);
     float* displayArr = (float*)data;
     float a = displayArr[0];
@@ -75,28 +75,28 @@ Button('use TypedArray')
 ```text
 static napi_value TransmitByNumber(napi_env env, napi_callback_info info)
 {
-   <em> // 获取ArkTS侧传入的参数</em>
+    // 获取ArkTS侧传入的参数
     size_t argc = 2;
     napi_value args[2] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
-  <em>  // 判断是否为数组</em>
+    // 判断是否为数组
     bool isArr = false;
     napi_is_array(env, args[0], &isArr);
     if (!isArr) {
         napi_throw_error(env, nullptr, "Argument should be an object of type array");
         return NULL;
     }
-  <em>  // 获取数组长度</em>
+    // 获取数组长度
     uint32_t arrayLength;
     napi_get_array_length(env, args[0], &arrayLength);
-  <em>  // 循环语句逐一提取number[]元素</em>
+    // 循环语句逐一提取number[]元素
     std::vector<float> floatData;
     for (uint32_t i = 0; i < arrayLength; i++) {
         napi_value element;
         napi_get_element(env, args[0], i, &element);
         double val;
-        napi_get_value_double(env, element, &val); <em>// 转换为double</em>
-        floatData.push_back(static_cast<float>(val));<em> // 显式转为float</em>
+        napi_get_value_double(env, element, &val); // 转换为double
+        floatData.push_back(static_cast<float>(val)); // 显式转为float
     }
     float a = floatData[0];
     float b = floatData[1];
@@ -128,20 +128,20 @@ Button('use number[]')
  
 - C++侧代码：
 ```text
-<em>/*</em>
-<em> * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.</em>
-<em> * Licensed under the Apache License, Version 2.0 (the "License");</em>
-<em> * you may not use this file except in compliance with the License.</em>
-<em> * You may obtain a copy of the License at</em>
-<em> * </em>
-<em> *     http://www.apache.org/licenses/LICENSE-2.0</em>
-<em> * </em>
-<em> * Unless required by applicable law or agreed to in writing, software</em>
-<em> * distributed under the License is distributed on an "AS IS" BASIS,</em>
-<em> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</em>
-<em> * See the License for the specific language governing permissions and</em>
-<em> * limitations under the License.</em>
-<em> */</em>
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 #include "napi/native_api.h"
 #include "hilog/log.h"
 #include <cstddef>
@@ -149,20 +149,20 @@ Button('use number[]')
 
 #undef LOG_DOMAIN
 #undef LOG_TAG
-#define LOG_DOMAIN 0x0000  <em>// 全局domain宏，标识业务领域</em>
-#define LOG_TAG "MY_TAG"  <em> // 全局tag宏，标识模块日志tag</em>
+#define LOG_DOMAIN 0x0000  // 全局domain宏，标识业务领域
+#define LOG_TAG "MY_TAG"   // 全局tag宏，标识模块日志tag
 static napi_value TransmitByTypedArray(napi_env env, napi_callback_info info)
 {
- <em>   // 获取ArkTS侧传入的参数</em>
+    // 获取ArkTS侧传入的参数
     size_t argc = 2;
     napi_value args[2] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
-   <em> // 定义napi_get_typedarray_info所需参数</em>
+    // 定义napi_get_typedarray_info所需参数
     void *data;
     napi_typedarray_type type;
     size_t byteOffset, length;
     napi_value arraybuffer;
-   <em> // 调用接口napi_get_typedarray_info获得TypedArray类型数据的信息</em>
+    // 调用接口napi_get_typedarray_info获得TypedArray类型数据的信息
     napi_get_typedarray_info(env, args[0], &type, &length, &data, &arraybuffer, &byteOffset);
     float* displayArr = (float*)data;
     float a = displayArr[0];
@@ -173,28 +173,28 @@ static napi_value TransmitByTypedArray(napi_env env, napi_callback_info info)
 }
 static napi_value TransmitByNumber(napi_env env, napi_callback_info info)
 {
-   <em> // 获取ArkTS侧传入的参数</em>
+    // 获取ArkTS侧传入的参数
     size_t argc = 2;
     napi_value args[2] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
-  <em>  // 判断是否为数组</em>
+    // 判断是否为数组
     bool isArr = false;
     napi_is_array(env, args[0], &isArr);
     if (!isArr) {
         napi_throw_error(env, nullptr, "Argument should be an object of type array");
         return NULL;
     }
-   <em> // 获取数组长度</em>
+    // 获取数组长度
     uint32_t arrayLength;
     napi_get_array_length(env, args[0], &arrayLength);
- <em>   // 循环语句逐一提取number[]元素</em>
+    // 循环语句逐一提取number[]元素
     std::vector<float> floatData;
     for (uint32_t i = 0; i < arrayLength; i++) {
         napi_value element;
         napi_get_element(env, args[0], i, &element);
         double val;
-        napi_get_value_double(env, element, &val);<em> // 转换为double</em>
-        floatData.push_back(static_cast<float>(val)); <em>// 显式转为float</em>
+        napi_get_value_double(env, element, &val); // 转换为double
+        floatData.push_back(static_cast<float>(val)); // 显式转为float
     }
     float a = floatData[0];
     float b = floatData[1];

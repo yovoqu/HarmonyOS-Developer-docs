@@ -16,7 +16,7 @@
 import { Type, plainToClass } from 'class-transformer'
 import "reflect-metadata"
 
-<em>// Assuming accepted JSON data</em>
+// Assuming accepted JSON data
 let testJSON: Record<string, ESObject> = {
   'id': 1,
   'firstName': "Johny",
@@ -35,7 +35,7 @@ let testJSON: Record<string, ESObject> = {
   },
 }
 
-<em>// If there is a corresponding nested structure, the corresponding type needs to be specified</em>
+// If there is a corresponding nested structure, the corresponding type needs to be specified
 class A {
   name: string = 'john';
 
@@ -44,7 +44,7 @@ class A {
   }
 }
 
-<em>// When attempting to convert an object with nested objects, it is necessary to know the object type to be converted and use the @ Type decorator to implicitly specify the object type contained in each attribute</em>
+// When attempting to convert an object with nested objects, it is necessary to know the object type to be converted and use the @ Type decorator to implicitly specify the object type contained in each attribute
 class User {
   id: number = 0;
   firstName: string = '';

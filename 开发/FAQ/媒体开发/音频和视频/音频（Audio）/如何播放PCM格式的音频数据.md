@@ -50,54 +50,54 @@ async pcmToWav(pcmFilePath: string) {
   let idx: number = 0;
   let buffer: ArrayBuffer = new ArrayBuffer(44);
   let bufferView: DataView = new DataView(buffer);
-<em>  // riff</em>
+  // riff
   this.setString(idx, this.waveHeader.riff, bufferView);
   idx += 4;
- <em> // file size</em>
+  // file size
   bufferView.setInt32(idx, this.waveHeader.fileSize, true);
   idx += 4;
- <em> // wave</em>
+  // wave
   this.setString(idx, this.waveHeader.wave, bufferView);
   idx += 4;
- <em> // fmt</em>
+  // fmt
   this.setString(idx, this.waveHeader.fmtChunkMarker, bufferView);
   idx += 4;
-  <em>// fmt size</em>
+  // fmt size
   bufferView.setInt32(idx, this.waveHeader.fmtSize, true);
   idx += 4;
-  <em>// format type</em>
+  // format type
   bufferView.setInt16(idx, this.waveHeader.formatType, true);
   idx += 2;
-  <em>// channels</em>
+  // channels
   bufferView.setInt16(idx, this.waveHeader.channels, true);
   idx += 2;
-<em>  // sample rate</em>
+  // sample rate
   bufferView.setInt32(idx, this.waveHeader.sampleRate, true);
   idx += 4;
- <em> // byte rate</em>
+  // byte rate
   bufferView.setInt32(idx, this.waveHeader.byteRate, true);
   idx += 4;
-<em>  // block align</em>
+  // block align
   bufferView.setInt16(idx, this.waveHeader.blockAlign, true);
   idx += 2;
-  <em>// bits per sample</em>
+  // bits per sample
   bufferView.setInt16(idx, this.waveHeader.bitsPerSample, true);
   idx += 2;
- <em> // data</em>
+  // data
   this.setString(idx, this.waveHeader.dataChunkMarker, bufferView);
   idx += 4;
-<em>  // data size</em>
+  // data size
   bufferView.setInt32(idx, this.waveHeader.dataSize, true);
 
-  let path = this.context.filesDir + '/output.wav';<em> </em><em>// output wav file path</em>
+  let path = this.context.filesDir + '/output.wav'; // output wav file path
   let inputFile: fileIo.File | undefined;
   let outputFile: fileIo.File | undefined;
   try {
     inputFile = fileIo.openSync(pcmFilePath, fileIo.OpenMode.READ_ONLY);
     outputFile = fileIo.openSync(path, fileIo.OpenMode.CREATE | fileIo.OpenMode.TRUNC | fileIo.OpenMode.WRITE_ONLY);
-    <em>// write wav header</em>
+    // write wav header
     fileIo.writeSync(outputFile.fd, buffer);
-  <em>  // write pcm data</em>
+    // write pcm data
     let readSize = 0;
     let readBuf = new ArrayBuffer(1024 * 1024);
     do {
@@ -121,12 +121,12 @@ async pcmToWav(pcmFilePath: string) {
 ```text
 async avPlayerUrlDemo() {
   this.avPlayer = await media.createAVPlayer();
- <em> // 创建状态机变化回调函数</em>
+  // 创建状态机变化回调函数
   this.setAVPlayerCallback(this.avPlayer!);
   let fdPath = 'fd://';
- <em> // 通过UIAbilityContext获取沙箱地址filesDir，以Stage模型为例。</em>
+  // 通过UIAbilityContext获取沙箱地址filesDir，以Stage模型为例。
   let path = this.context.filesDir + '/output.wav';
-<em>  // 打开相应的资源文件地址获取fd，并为url赋值触发initialized状态机上报。</em>
+  // 打开相应的资源文件地址获取fd，并为url赋值触发initialized状态机上报。
   let file = await fs.open(path);
   fdPath = fdPath + '' + file.fd;
   this.avPlayer.url = fdPath;
@@ -146,14 +146,14 @@ import { fileIo as fs } from '@kit.CoreFileKit';
 
 let audioRenderer: audio.AudioRenderer;
 let audioStreamInfo: audio.AudioStreamInfo = {
-  samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_8000,<em> </em><em>// 采样率。</em>
-  channels: audio.AudioChannel.CHANNEL_1,<em> </em><em>// 通道。</em>
-  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE,<em> </em><em>// 采样格式。</em>
-  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW <em>// </em><em>编码格式。</em>
+  samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_8000, // 采样率。
+  channels: audio.AudioChannel.CHANNEL_1, // 通道。
+  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE, // 采样格式。
+  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW // 编码格式。
 };
 let audioRendererInfo: audio.AudioRendererInfo = {
-  usage: audio.StreamUsage.STREAM_USAGE_MUSIC, <em>// </em><em>音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。</em>
-  rendererFlags: 0<em> </em><em>// 音频渲染器标志。</em>
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC, // 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。
+  rendererFlags: 0 // 音频渲染器标志。
 };
 let audioRendererOptions: audio.AudioRendererOptions = {
   streamInfo: audioStreamInfo,
@@ -164,14 +164,14 @@ let audioRendererOptions: audio.AudioRendererOptions = {
 @Component
 struct PlayPcmDataDemo {
   context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  audioData: Uint8Array = generateTestPCM();<em> </em><em>// 测试PCM数据，按需替换为其他音频数据源</em>
+  audioData: Uint8Array = generateTestPCM(); // 测试PCM数据，按需替换为其他音频数据源
   writeOffset = 0;
   private transcoder = new pcmTranscoder(this.context);
   private avplayer = new AVPlayerDemo(this.context);
 
   async aboutToAppear(): Promise<void> {
     audioRenderer = await audio.createAudioRenderer(audioRendererOptions);
-    await this.init(); <em>// 初始化</em>
+    await this.init(); // 初始化
     this.writePCMData();
   }
 
@@ -258,15 +258,15 @@ function generateTestPCM(): Uint8Array {
   const amplitude = 0.35;
 
   const freqMap: Record<number, number> = {
-    1: 523.25,<em> </em><em>// C5</em>
-    2: 587.33, <em>// D5</em>
-    3: 659.25, <em>// E5</em>
-    4: 698.46, <em>// F5</em>
-    5: 783.99, <em>// G5</em>
-    6: 880.00,<em> </em><em>// A6</em>
-    7: 987,<em> </em><em>// B6</em>
-    8: 392,<em> </em><em>// A5</em>
-    9: 439, <em>// B5</em>
+    1: 523.25, // C5
+    2: 587.33, // D5
+    3: 659.25, // E5
+    4: 698.46, // F5
+    5: 783.99, // G5
+    6: 880.00, // A6
+    7: 987, // B6
+    8: 392, // A5
+    9: 439, // B5
   };
 
   const melody = [
@@ -276,9 +276,9 @@ function generateTestPCM(): Uint8Array {
     1, 9, 1, 9, 1, 1, 3, 3, 2, 2, 2, 0
   ];
 
-  const samplesPerNote = Math.floor(sampleRate * noteDuration);<em> </em><em>// 4000</em>
-  const totalSamples = samplesPerNote * melody.length; <em>// 96,000</em>
-  const buffer = new ArrayBuffer(totalSamples * 2); <em>// 192,000 bytes</em>
+  const samplesPerNote = Math.floor(sampleRate * noteDuration); // 4000
+  const totalSamples = samplesPerNote * melody.length; // 96,000
+  const buffer = new ArrayBuffer(totalSamples * 2); // 192,000 bytes
   const view = new DataView(buffer);
 
   let idx = 0;
@@ -320,19 +320,19 @@ class pcmTranscoder {
   }
 
   waveHeader: WavHeader = {
-    riff: 'RIFF', <em>// "RIFF"</em>
-    fileSize: 0, <em>// 文件大小减去8</em>
-    wave: 'WAVE', <em>// ”WAVE“</em>
-    fmtChunkMarker: 'fmt ', <em>// "fmt "</em>
-    fmtSize: 16,<em> </em><em>// 16</em>
-    formatType: 1, <em>// 1（表示PCM）</em>
-    channels: 1, <em>// 声道数</em>
-    sampleRate: 8000, <em>// </em><em>采样率</em>
-    byteRate: 8000 * 2 * 2, <em>// </em><em>每秒字节数(SampleRate * Channels * BitsPerSample / 8)</em>
-    blockAlign: 2 * 2, <em>// 帧大小(channels * BitsPerSample / 8)</em>
-    bitsPerSample: 16, <em>// </em><em>采样位数</em>
+    riff: 'RIFF', // "RIFF"
+    fileSize: 0, // 文件大小减去8
+    wave: 'WAVE', // ”WAVE“
+    fmtChunkMarker: 'fmt ', // "fmt "
+    fmtSize: 16, // 16
+    formatType: 1, // 1（表示PCM）
+    channels: 1, // 声道数
+    sampleRate: 8000, // 采样率
+    byteRate: 8000 * 2 * 2, // 每秒字节数(SampleRate * Channels * BitsPerSample / 8)
+    blockAlign: 2 * 2, // 帧大小(channels * BitsPerSample / 8)
+    bitsPerSample: 16, // 采样位数
     dataChunkMarker: 'data', // ”data“
-    dataSize: 0,<em> </em><em>// 数据大小</em>
+    dataSize: 0, // 数据大小
   };
 
   setString(idx: number, str: string, view: DataView) {
@@ -341,10 +341,10 @@ class pcmTranscoder {
     }
   }
 
-<em>  /**</em>
-<em>   * 为pcm文件封装wav头</em>
-<em>   * @param pcmFilePath 保存录制的pcm数据的沙箱文件路径</em>
-<em>   */</em>
+  /**
+   * 为pcm文件封装wav头
+   * @param pcmFilePath 保存录制的pcm数据的沙箱文件路径
+   */
   async pcmToWav(pcmFilePath: string) {
     let fileSize = 0;
     try {
@@ -358,54 +358,54 @@ class pcmTranscoder {
     let idx: number = 0;
     let buffer: ArrayBuffer = new ArrayBuffer(44);
     let bufferView: DataView = new DataView(buffer);
-   <em> // riff</em>
+    // riff
     this.setString(idx, this.waveHeader.riff, bufferView);
     idx += 4;
-   <em> // file size</em>
+    // file size
     bufferView.setInt32(idx, this.waveHeader.fileSize, true);
     idx += 4;
-   <em> // wave</em>
+    // wave
     this.setString(idx, this.waveHeader.wave, bufferView);
     idx += 4;
-  <em>  // fmt</em>
+    // fmt
     this.setString(idx, this.waveHeader.fmtChunkMarker, bufferView);
     idx += 4;
-   <em> // fmt size</em>
+    // fmt size
     bufferView.setInt32(idx, this.waveHeader.fmtSize, true);
     idx += 4;
-   <em> // format type</em>
+    // format type
     bufferView.setInt16(idx, this.waveHeader.formatType, true);
     idx += 2;
-    <em>// channels</em>
+    // channels
     bufferView.setInt16(idx, this.waveHeader.channels, true);
     idx += 2;
-   <em> // sample rate</em>
+    // sample rate
     bufferView.setInt32(idx, this.waveHeader.sampleRate, true);
     idx += 4;
-   <em> // byte rate</em>
+    // byte rate
     bufferView.setInt32(idx, this.waveHeader.byteRate, true);
     idx += 4;
-    <em>// block align</em>
+    // block align
     bufferView.setInt16(idx, this.waveHeader.blockAlign, true);
     idx += 2;
-   <em> // bits per sample</em>
+    // bits per sample
     bufferView.setInt16(idx, this.waveHeader.bitsPerSample, true);
     idx += 2;
-   <em> // data</em>
+    // data
     this.setString(idx, this.waveHeader.dataChunkMarker, bufferView);
     idx += 4;
-  <em>  // data size</em>
+    // data size
     bufferView.setInt32(idx, this.waveHeader.dataSize, true);
 
-    let path = this.context.filesDir + '/output.wav';<em> </em><em>// output wav file path</em>
+    let path = this.context.filesDir + '/output.wav'; // output wav file path
     let inputFile: fileIo.File | undefined;
     let outputFile: fileIo.File | undefined;
     try {
       inputFile = fileIo.openSync(pcmFilePath, fileIo.OpenMode.READ_ONLY);
       outputFile = fileIo.openSync(path, fileIo.OpenMode.CREATE | fileIo.OpenMode.TRUNC | fileIo.OpenMode.WRITE_ONLY);
-     <em> // write wav header</em>
+      // write wav header
       fileIo.writeSync(outputFile.fd, buffer);
-  <em>    // write pcm data</em>
+      // write pcm data
       let readSize = 0;
       let readBuf = new ArrayBuffer(1024 * 1024);
       do {
@@ -441,52 +441,52 @@ class AVPlayerDemo {
     });
   }
 
-  <em>// 注册avplayer回调函数</em>
+  // 注册avplayer回调函数
   setAVPlayerCallback(avPlayer: media.AVPlayer) {
-   <em> // seek操作结果回调函数</em>
+    // seek操作结果回调函数
     avPlayer.on('seekDone', (seekDoneTime: number) => {
       console.info(`AVPlayer seek succeeded, seek time is ${seekDoneTime}`);
     });
-   <em> // error回调监听函数,当avPlayer在操作过程中出现错误时调用 reset接口触发重置流程</em>
+    // error回调监听函数,当avPlayer在操作过程中出现错误时调用 reset接口触发重置流程
     avPlayer.on('error', (err: BusinessError) => {
       console.error(`Invoke avPlayer failed, code is ${err.code}, message is ${err.message}`);
-      avPlayer.reset(); <em>// 调用reset重置资源，触发idle状态</em>
+      avPlayer.reset(); // 调用reset重置资源，触发idle状态
     });
-   <em> // 状态机变化回调函数</em>
+    // 状态机变化回调函数
     avPlayer.on('stateChange', async (state: string, reason: media.StateChangeReason) => {
       switch (state) {
-        case 'idle': <em>// 成功调用reset接口后触发该状态机上报</em>
+        case 'idle': // 成功调用reset接口后触发该状态机上报
           console.info('AVPlayer state idle called.');
           console.info(`${reason}`);
-          avPlayer.release(); <em>// </em><em>调用release接口销毁实例对象</em>
+          avPlayer.release(); // 调用release接口销毁实例对象
           break;
-        case 'initialized':<em> </em><em>// avplayer 设置播放源后触发该状态上报</em>
+        case 'initialized': // avplayer 设置播放源后触发该状态上报
           console.info('AVPlayer state initialized called.');
           let rendererInfo: audio.AudioRendererInfo = {
-            usage: audio.StreamUsage.STREAM_USAGE_VOICE_COMMUNICATION, <em>// </em><em>音频流使用类型</em>
-            rendererFlags: 0 <em>// 音频渲染器标志</em>
+            usage: audio.StreamUsage.STREAM_USAGE_VOICE_COMMUNICATION, // 音频流使用类型
+            rendererFlags: 0 // 音频渲染器标志
           };
           this.avPlayer!.audioRendererInfo = rendererInfo;
           avPlayer.prepare();
           break;
-        case 'prepared': <em>// prepare调用成功后上报该状态机</em>
+        case 'prepared': // prepare调用成功后上报该状态机
           console.info('AVPlayer state prepared called.');
-          avPlayer.play();<em> </em><em>// 调用播放接口开始播放</em>
+          avPlayer.play(); // 调用播放接口开始播放
           break;
-        case 'playing': <em>// play</em><em>成功调用后触发该状态机上报</em>
+        case 'playing': // play成功调用后触发该状态机上报
           console.info('AVPlayer state playing called.');
           break;
-        case 'paused': <em>// pause成功调用后触发该状态机上报</em>
+        case 'paused': // pause成功调用后触发该状态机上报
           console.info('AVPlayer state paused called.');
-         <em> // avPlayer.play(); // 再次播放接口开始播放</em>
+          // avPlayer.play(); // 再次播放接口开始播放
           break;
-        case 'completed': <em>// </em><em>播放结束后触发该状态机上报</em>
+        case 'completed': // 播放结束后触发该状态机上报
           console.info('AVPlayer state completed called.');
-         <em> // avPlayer.stop(); // 调用播放结束接口</em>
+          // avPlayer.stop(); // 调用播放结束接口
           break;
-        case 'stopped':<em> </em><em>// stop接口成功调用后触发该状态机上报</em>
+        case 'stopped': // stop接口成功调用后触发该状态机上报
           console.info('AVPlayer state stopped called.');
-         <em> // avPlayer.reset(); // 调用reset接口初始化avplayer状态</em>
+          // avPlayer.reset(); // 调用reset接口初始化avplayer状态
           break;
         case 'released':
           console.info('AVPlayer state released called.');
@@ -502,12 +502,12 @@ class AVPlayerDemo {
 
   async avPlayerUrlDemo() {
     this.avPlayer = await media.createAVPlayer();
-  <em>  // 创建状态机变化回调函数</em>
+    // 创建状态机变化回调函数
     this.setAVPlayerCallback(this.avPlayer!);
     let fdPath = 'fd://';
-   <em> // 通过UIAbilityContext获取沙箱地址filesDir，以Stage模型为例。</em>
+    // 通过UIAbilityContext获取沙箱地址filesDir，以Stage模型为例。
     let path = this.context.filesDir + '/output.wav';
-   <em> // 打开相应的资源文件地址获取fd，并为url赋值触发initialized状态机上报。</em>
+    // 打开相应的资源文件地址获取fd，并为url赋值触发initialized状态机上报。
     let file = await fs.open(path);
     fdPath = fdPath + '' + file.fd;
     this.avPlayer.url = fdPath;

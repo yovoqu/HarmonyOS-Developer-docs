@@ -18,11 +18,11 @@
 ```text
 import { hvigor, getHvigorNode } from "@ohos/hvigor"
 import { hapTasks} from '@ohos/hvigor-ohos-plugin';
-<em>// Problem Code</em>
+// Problem Code
 getHvigorNode(__filename).getTaskByName('XXX').setEnabled(false);
 export default {
-    system: hapTasks, <em>/* Built-in plugin of Hvigor. It cannot be modified. */</em>
-    plugins: []         <em>/* Custom plugin to extend the functionality of Hvigor. */</em>
+    system: hapTasks, /* Built-in plugin of Hvigor. It cannot be modified. */
+    plugins: []         /* Custom plugin to extend the functionality of Hvigor. */
 }
 ```
  **解决措施**
@@ -58,8 +58,8 @@ export default {
 import { harTasks } from '@ohos/hvigor-ohos-plugin';
 
 export default {
-    system: harTasks,  <em>/* Built-in plugin of Hvigor. It cannot be modified. */</em>
-    plugins:[]         <em>/* Custom plugin to extend the functionality of Hvigor. */</em>
+    system: harTasks,  /* Built-in plugin of Hvigor. It cannot be modified. */
+    plugins:[]         /* Custom plugin to extend the functionality of Hvigor. */
 }
 ```
 
@@ -101,7 +101,7 @@ export default {
 
   
 ```text
-<em>// Incorrect writing: empty array</em> 
+// Incorrect writing: empty array 
 class w {
   public a: [][] = []
   test() {
@@ -111,7 +111,7 @@ class w {
 ```
  
 ```text
-<em>// Correct writing</em>
+// Correct writing
 class w {
   public a: string[][] = []
   test() {
@@ -140,7 +140,7 @@ class w {
 {
   "debugging": {
     "stacktrace": true
-    <em>/* Disable stacktrace compilation. Value: [ true | false ]. Default: false */</em>
+    /* Disable stacktrace compilation. Value: [ true | false ]. Default: false */
   },
 }
 ```
@@ -181,7 +181,7 @@ class w {
 {
   "debugging": {
     "stacktrace": true
-    <em>/* Disable stacktrace compilation. Value: [ true | false ]. Default: false */</em>
+    /* Disable stacktrace compilation. Value: [ true | false ]. Default: false */
   },
 }
 ```

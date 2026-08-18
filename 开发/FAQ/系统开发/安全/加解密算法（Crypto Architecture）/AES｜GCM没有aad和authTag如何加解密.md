@@ -50,7 +50,7 @@ export class AESGCMHelper {
   }
 
   genGcmParamsByUint8Array(iv: Uint8Array, aad: Uint8Array, authTag: Uint8Array): cryptoFramework.GcmParamsSpec {
-   <em> // GCM的authTag在加密时从doFinal结果中获取，在解密时填入init函数的params参数中。</em>
+    // GCM的authTag在加密时从doFinal结果中获取，在解密时填入init函数的params参数中。
     let gcmParamsSpec: cryptoFramework.GcmParamsSpec = {
       iv: { data: iv },
       aad: { data: aad },
@@ -68,7 +68,7 @@ export class AESGCMHelper {
     return symKey;
   }
 
- <em> // 加密消息</em>
+  // 加密消息
   async encryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob,
     gcmParams: cryptoFramework.GcmParamsSpec) {
     let cipher = cryptoFramework.createCipher(this.transformation);
@@ -76,21 +76,21 @@ export class AESGCMHelper {
     return await cipher.doFinal(plainText);
   }
 
-<em>  // 解密消息</em>
+  // 解密消息
   async decryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob,
     gcmParams: cryptoFramework.GcmParamsSpec) {
     let cipher = cryptoFramework.createCipher(this.transformation);
     let cipherData = plainText.data;
-    let actualCipher = cipherData.slice(0, cipherData.length - 16);<em> </em><em>// 取出数据</em>
+    let actualCipher = cipherData.slice(0, cipherData.length - 16); // 取出数据
 
- <em>  </em><em> // 初始化解密模式</em>
+    // 初始化解密模式
     await cipher.init(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, gcmParams);
     return await cipher.doFinal({ data: actualCipher });
   }
 
   getAuthTag(plainText: cryptoFramework.DataBlob) {
     let cipherData = plainText.data;
-    return cipherData.subarray(cipherData.length - 16, cipherData.length);<em> </em><em>// 取出authTag</em>
+    return cipherData.subarray(cipherData.length - 16, cipherData.length); // 取出authTag
   }
 
   str2Uint8Array(str: string) {
@@ -120,11 +120,11 @@ export struct TestPage {
           .height('80%')
           .onClick(async () => {
             try {
-              let keyData = aesGCMHelper.str2Uint8Array('1234567890abcdef1234567890abcdef'); <em>// </em><em>秘钥key</em>
+              let keyData = aesGCMHelper.str2Uint8Array('1234567890abcdef1234567890abcdef'); // 秘钥key
               let symKey = await aesGCMHelper.genSymKeyByData(keyData);
-              let iv = '123456789012'; <em>// iv</em>
-              let aad = ''; <em>// aad赋空值</em>
-              let authTag = ''; <em>// authTag</em><em>赋空值</em>
+              let iv = '123456789012'; // iv
+              let aad = ''; // aad赋空值
+              let authTag = ''; // authTag赋空值
 
               let gcmParams =
                 aesGCMHelper.genGcmParamsByUint8Array(aesGCMHelper.str2Uint8Array(iv), aesGCMHelper.str2Uint8Array(aad),
@@ -143,10 +143,10 @@ export struct TestPage {
 
         Column({ space: 10 }) {
           TextArea({ placeholder: '待加密内容', text: $$this.msg2encrypt })
-            .height(60); <em>// </em><em>待加密的信息</em>
+            .height(60); // 待加密的信息
           Text(`加密base64:`)
           Text(this.msgEncryptBase64)
-            .copyOption(CopyOptions.LocalDevice); <em>// 加密后的信息</em>
+            .copyOption(CopyOptions.LocalDevice); // 加密后的信息
         }
         .height('90%')
         .width('90%')
@@ -160,12 +160,12 @@ export struct TestPage {
         Button('解密')
           .onClick(async () => {
             try {
-              let keyData = aesGCMHelper.str2Uint8Array('1234567890abcdef1234567890abcdef'); <em>// </em><em>秘钥key</em>
+              let keyData = aesGCMHelper.str2Uint8Array('1234567890abcdef1234567890abcdef'); // 秘钥key
               let symKey = await aesGCMHelper.genSymKeyByData(keyData);
-              let iv = '123456789012';<em> </em><em>// iv</em>
-              let aad = ''; <em>// aad赋空值</em>
-              let encryptMsg = base64Helper.decodeSync(this.msg2Decrypt); <em>// </em><em>待解密的数据密文</em>
-              let authTag = aesGCMHelper.getAuthTag({ data: encryptMsg });<em> </em><em>// authTag取密文的最后16个字节</em>
+              let iv = '123456789012'; // iv
+              let aad = ''; // aad赋空值
+              let encryptMsg = base64Helper.decodeSync(this.msg2Decrypt); // 待解密的数据密文
+              let authTag = aesGCMHelper.getAuthTag({ data: encryptMsg }); // authTag取密文的最后16个字节
               let gcmParams =
                 aesGCMHelper.genGcmParamsByUint8Array(aesGCMHelper.str2Uint8Array(iv), aesGCMHelper.str2Uint8Array(aad),
                   authTag);
@@ -181,10 +181,10 @@ export struct TestPage {
 
         Column({ space: 10 }) {
           TextArea({ placeholder: '待解密内容', text: $$this.msg2Decrypt })
-            .height(60); <em>// </em><em>待加密的信息</em>
+            .height(60); // 待加密的信息
           Text(`解密的base64:`)
           Text(this.msgDecrypted)
-            .copyOption(CopyOptions.LocalDevice); <em>// </em><em>加密后的信息</em>
+            .copyOption(CopyOptions.LocalDevice); // 加密后的信息
         }
         .height('90%')
         .width('90%')

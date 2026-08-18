@@ -7,7 +7,7 @@
 可以通过以下命令来查看CPU信息：
  
 ```bash
-<em>// 查看CPU信息</em>  
+// 查看CPU信息  
 hdc shell param get const.product.cpu.abilist
 ```
  

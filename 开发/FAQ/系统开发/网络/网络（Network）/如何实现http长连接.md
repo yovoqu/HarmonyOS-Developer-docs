@@ -10,7 +10,7 @@
 import { http } from '@kit.NetworkKit';
 
 let httpRequest = http.createHttp();
-<em>// 设置5秒轮询一次</em>
+// 设置5秒轮询一次
 setInterval(() => {
   httpRequest.request("EXAMPLE_URL", {
     method: http.RequestMethod.GET,

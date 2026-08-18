@@ -13,7 +13,7 @@ Web组件支持加载网络页面、本地页面和HTML文本数据。详情及�
 可参考以下示例代码：
  1. 加载网络页面。
 ```ArkTS
-<em>// xxx.ets</em>
+// xxx.ets
 import { webview } from '@kit.ArkWeb';
 
 @Entry
@@ -24,13 +24,13 @@ struct WebComponent {
   build() {
     Column() {
       Button('loadUrl').onClick(() => {
-        try { <em>// When the button is clicked, it redirects to www.example1.com via loadUrl</em>
+        try { // When the button is clicked, it redirects to www.example1.com via loadUrl
           this.webviewController.loadUrl('www.example1.com');
         } catch (error) {
           console.error(`ErrorCode: ${error.code},  Message: ${error.message}`);
         }
       })
-    <em>  // When the component is created, load www.example.com </em>
+      // When the component is created, load www.example.com 
       Web({ src: 'www.example.com', controller: this.webviewController })
     }
   }
@@ -51,13 +51,13 @@ struct WebComponent {
       Button('loadUrl')
         .onClick(() => {
           try {
-          <em>  // When the button is clicked, load the local1.html file from the resources/rawfile directory via resource</em>
+            // When the button is clicked, load the local1.html file from the resources/rawfile directory via resource
             this.webviewController.loadUrl('resource://rawfile/local1.html');
           } catch (error) {
             console.error(`ErrorCode: ${error.code},  Message: ${error.message}`);
           }
         })
-    <em>  // When creating the component, use the resource protocol to load the local file local.html</em>
+      // When creating the component, use the resource protocol to load the local file local.html
       Web({ src: 'resource://rawfile/local.html', controller: this.webviewController })
     }
   }
@@ -100,7 +100,7 @@ struct WebComponent {
       Button('loadData')
         .onClick(() => {
           try {
-          <em>  // When the button is clicked, load HTML-formatted text data using loadData</em>
+            // When the button is clicked, load HTML-formatted text data using loadData
             this.controller.loadData(
               "<html><body bgcolor=\"white\">Source:<pre>source</pre></body></html>",
               "text/html",
@@ -110,7 +110,7 @@ struct WebComponent {
             console.error(`ErrorCode: ${error.code},  Message: ${error.message}`);
           }
         })
-     <em> // When the component is created, load www.example.com</em>
+      // When the component is created, load www.example.com
       Web({ src: 'www.example.com', controller: this.controller })
     }
   }

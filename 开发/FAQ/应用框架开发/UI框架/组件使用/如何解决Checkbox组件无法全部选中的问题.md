@@ -69,7 +69,7 @@ struct SelectAllCheckBoxSample {
           Text('Select All').fontSize(20);
         }.margin({ right: 40 })
 
-        Scroll() { <em>// 在外面套一层scroll</em>
+        Scroll() { // 在外面套一层scroll
           List() {
             ForEach(this.dataArray,
               (item: string, index: number) => {

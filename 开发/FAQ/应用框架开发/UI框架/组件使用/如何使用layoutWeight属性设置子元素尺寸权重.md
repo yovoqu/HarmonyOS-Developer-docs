@@ -37,16 +37,16 @@ struct BottomWithBar {
           Text('左侧');
         }
         .justifyContent(FlexAlign.Center)
-        .height('50%') <em>// 因为是Row()组件。所以设置高度以便观察</em>
+        .height('50%') // 因为是Row()组件。所以设置高度以便观察
         .backgroundColor('#F1F3F5')
-        .layoutWeight(2);<em> // 占据2/3宽度</em>
+        .layoutWeight(2); // 占据2/3宽度
         Row() {
           Text('右侧');
         }
         .justifyContent(FlexAlign.Center)
-        .height('50%') <em>// 因为是Row()组件。所以设置高度以便观察</em>
+        .height('50%') // 因为是Row()组件。所以设置高度以便观察
         .backgroundColor('#E5E5EA')
-        .layoutWeight(1);<em> // 占据1/3宽度</em>
+        .layoutWeight(1); // 占据1/3宽度
       };
     }
     .width('100%')
@@ -71,16 +71,16 @@ struct BottomWithBar2 {
           Text('顶部');
         }
         .justifyContent(FlexAlign.Center)
-        .width('50%') <em>// 因为是Column()组件。所以设置宽度以便观察</em>
+        .width('50%') // 因为是Column()组件。所以设置宽度以便观察
         .backgroundColor('#F1F3F5')
-        .layoutWeight(1);<em> // 占据1/2高度</em>
+        .layoutWeight(1); // 占据1/2高度
         Row() {
           Text('底部');
         }
         .justifyContent(FlexAlign.Center)
-        .width('50%') <em>// 因为是Column()组件。所以设置宽度以便观察</em>
+        .width('50%') // 因为是Column()组件。所以设置宽度以便观察
         .backgroundColor('#E5E5EA')
-        .layoutWeight(1); <em>// 占据1/2高度</em>
+        .layoutWeight(1); // 占据1/2高度
       };
     }
     .width('100%')

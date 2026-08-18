@@ -15,8 +15,8 @@ struct IndexFalse {
   build() {
     Column() {
       Text('识别为错误规范的代码行')
-        .onClick(async () => { <em>// 这一行被检测出识别为错误规范的代码行</em>
-        <em>  // ...</em>
+        .onClick(async () => { // 这一行被检测出识别为错误规范的代码行
+          // ...
         })
     }
     .justifyContent(FlexAlign.Center)
@@ -54,14 +54,14 @@ struct Index {
       Text('修改方式1')
         .onClick(() => {
           void (async () => {
-           <em> // ...</em>
+            // ...
           })();
         });
 
       Text('修改方式2')
-      <em>// eslint-disable-next-line @typescript-eslint/no-misused-promises</em>
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
         .onClick(async () => {
-        <em> </em><em> // ...</em>
+          // ...
         });
     }
     .justifyContent(FlexAlign.Center)

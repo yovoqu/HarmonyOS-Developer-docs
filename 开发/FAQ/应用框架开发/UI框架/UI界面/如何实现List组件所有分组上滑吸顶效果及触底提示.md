@@ -31,7 +31,7 @@
 - 在最后一个列表分组之后，增加动态调整高度的空白占位块。
 空白占位块的高度=列表高度－最后一个列表组高度。
 ```text
-<em>// </em><em>列表空白Item填充</em>
+// 列表空白Item填充
 ListItem().height(this.listHeight - this.lastEmptyItemHeight - 2 * this.spaceHeight)
 ```
 
@@ -42,7 +42,7 @@ ListItem().height(this.listHeight - this.lastEmptyItemHeight - 2 * this.spaceHei
 - 在空白占位块之后，增加动态调整高度的触底块。
 触底块高度默认0，即默认不展示。
 ```text
-<em>// 列表底部触底提示Item</em>
+// 列表底部触底提示Item
 ListItem() {
   Text('到底啦~~~')
     .width('100%')
@@ -57,18 +57,18 @@ ListItem() {
 .onTouch((event) => {
   switch (event.type) {
     case TouchType.Down:
-      <em>// 记录手指初始触摸点，用于计算上滑期间触底提示块的高度</em>
+      // 记录手指初始触摸点，用于计算上滑期间触底提示块的高度
       this.startTouchY = event.touches[0].y;
       break;
     case TouchType.Move:
-      <em>// 手指上滑期间，动态计算触底提示块高度</em>
+      // 手指上滑期间，动态计算触底提示块高度
       if (this.bottomTipHeight < MAX_BOTTOM_TIP_HEIGHT) {
         this.bottomTipHeight = Math.min(MAX_BOTTOM_TIP_HEIGHT, this.startTouchY - event.touches[0].y);
         console.log(`event.touches[0].y: ${event.touches[0].y.toFixed(2)}, this.currentOffsetY: ${this.startTouchY.toFixed(2)}, tipsHeight: ${this.bottomTipHeight.toFixed(2)}`);
       }
       break;
     case TouchType.Up:
-      <em>// 手指抬起后，触底提示块高度重置为0</em>
+      // 手指抬起后，触底提示块高度重置为0
       this.getUIContext()?.animateTo({ curve: curves.springMotion() }, () => {
         this.bottomTipHeight = 0;
       });
@@ -82,20 +82,20 @@ ListItem() {
 ```text
 import { curves } from '@kit.ArkUI';
 
-<em>// 底部提示块最大高度</em>
+// 底部提示块最大高度
 const MAX_BOTTOM_TIP_HEIGHT = 70;
 
-<em>/**</em>
-<em> * 列表吸顶</em>
-<em> */</em>
+/**
+ * 列表吸顶
+ */
 @Entry
 @ComponentV2
 struct Index {
-  @Local bottomTipHeight: number = 0; <em>// 底部提示高度</em>
-  @Local lastEmptyItemHeight: number = 0; <em>// 最后的空白块高度</em>
-  private listHeight: number = 0; <em>// 列表高度</em>
-  private startTouchY: number = 0; <em>// 手指触摸屏幕初始纵轴坐标</em>
-  private spaceHeight: number = 20; <em>// 列表组间距</em>
+  @Local bottomTipHeight: number = 0; // 底部提示高度
+  @Local lastEmptyItemHeight: number = 0; // 最后的空白块高度
+  private listHeight: number = 0; // 列表高度
+  private startTouchY: number = 0; // 手指触摸屏幕初始纵轴坐标
+  private spaceHeight: number = 20; // 列表组间距
   private timeTable: TimeTable[] = [
     {
       title: '周一',
@@ -140,7 +140,7 @@ struct Index {
   build() {
     Column() {
       List({ space: this.spaceHeight }) {
-        <em>// 内容列表组</em>
+        // 内容列表组
         ForEach(this.timeTable, (item: TimeTable, index: number) => {
           ListItemGroup({ header: this.itemHead(item.title), footer: this.itemFoot(item.projects.length) }) {
             ForEach(item.projects, (project: string) => {
@@ -156,17 +156,17 @@ struct Index {
           }
           .divider({ strokeWidth: 1, color: Color.Blue })
           .onSizeChange((_oldV, newV) => {
-            <em>// 获取最后一个ListItemGroup高度</em>
+            // 获取最后一个ListItemGroup高度
             if (index === this.timeTable.length - 1) {
               this.lastEmptyItemHeight = newV.height?.valueOf() as number;
             }
           });
         });
 
-        <em>// 列表空白Item填充</em>
+        // 列表空白Item填充
         ListItem().height(this.listHeight - this.lastEmptyItemHeight - 2 * this.spaceHeight)
 
-        <em>// 列表底部触底提示Item</em>
+        // 列表底部触底提示Item
         ListItem() {
           Text('到底啦~~~')
             .width('100%')
@@ -178,18 +178,18 @@ struct Index {
       .onTouch((event) => {
         switch (event.type) {
           case TouchType.Down:
-            <em>// 记录手指初始触摸点，用于计算上滑期间触底提示块的高度</em>
+            // 记录手指初始触摸点，用于计算上滑期间触底提示块的高度
             this.startTouchY = event.touches[0].y;
             break;
           case TouchType.Move:
-            <em>// 手指上滑期间，动态计算触底提示块高度</em>
+            // 手指上滑期间，动态计算触底提示块高度
             if (this.bottomTipHeight < MAX_BOTTOM_TIP_HEIGHT) {
               this.bottomTipHeight = Math.min(MAX_BOTTOM_TIP_HEIGHT, this.startTouchY - event.touches[0].y);
               console.log(`event.touches[0].y: ${event.touches[0].y.toFixed(2)}, this.currentOffsetY: ${this.startTouchY.toFixed(2)}, tipsHeight: ${this.bottomTipHeight.toFixed(2)}`);
             }
             break;
           case TouchType.Up:
-            <em>// 手指抬起后，触底提示块高度重置为0</em>
+            // 手指抬起后，触底提示块高度重置为0
             this.getUIContext()?.animateTo({ curve: curves.springMotion() }, () => {
               this.bottomTipHeight = 0;
             });

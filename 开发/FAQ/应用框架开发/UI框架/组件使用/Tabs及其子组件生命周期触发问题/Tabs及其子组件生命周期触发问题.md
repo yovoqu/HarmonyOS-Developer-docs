@@ -48,7 +48,7 @@
 
   
 ```text
-<em>// 使用onChange监听页面切换</em>
+// 使用onChange监听页面切换
 .onChange((index: number) => {
   try {
     this.getUIContext().getPromptAction().showToast({
@@ -71,7 +71,7 @@
 
   
 ```text
-<em>// 使用onAnimationStart监听切换动画开始</em>
+// 使用onAnimationStart监听切换动画开始
 .onAnimationStart((index: number, targetIndex: number) => {
   if (index === targetIndex) {
     return;
@@ -98,7 +98,7 @@
 
   
 ```text
-<em>// 通过onWillShow</em>
+// 通过onWillShow
 .onWillShow(() => {
   try {
     this.getUIContext().getPromptAction().showToast({
@@ -135,7 +135,7 @@
 
   
 ```text
-<em>// 通过onVisibleAreaChange实现监控当前页面是否占据了屏幕至少一半的部分</em>
+// 通过onVisibleAreaChange实现监控当前页面是否占据了屏幕至少一半的部分
 .onVisibleAreaChange([0.0, 1.0], (isExpanding: boolean, currentRatio: number) => {
   console.info(`Test Text isExpanding: ${isExpanding}, currentRatio: ${currentRatio}`);
   if (isExpanding && currentRatio >= 0.5) {
@@ -200,7 +200,7 @@ struct TabsLifeCycle {
           .height('100%');
         }
         .tabBar(this.tabBuilder(0, '首页'))
-      <em>  // 通过onWillShow</em>
+        // 通过onWillShow
         .onWillShow(() => {
           try {
             this.getUIContext().getPromptAction().showToast({
@@ -235,7 +235,7 @@ struct TabsLifeCycle {
             .height('100%');
         }
         .tabBar(this.tabBuilder(1, '商城'))
-      <em>  // 通过onVisibleAreaChange实现监控当前页面是否占据了屏幕至少一半的部分</em>
+        // 通过onVisibleAreaChange实现监控当前页面是否占据了屏幕至少一半的部分
         .onVisibleAreaChange([0.0, 1.0], (isExpanding: boolean, currentRatio: number) => {
           console.info(`Test Text isExpanding: ${isExpanding}, currentRatio: ${currentRatio}`);
           if (isExpanding && currentRatio >= 0.5) {
@@ -275,7 +275,7 @@ struct TabsLifeCycle {
           console.error(`showToast args error code is ${code}, message is ${message}`);
         }
       })
-   <em>   // 使用onChange监听页面切换</em>
+      // 使用onChange监听页面切换
       .onChange((index: number) => {
         try {
           this.getUIContext().getPromptAction().showToast({
@@ -290,7 +290,7 @@ struct TabsLifeCycle {
           console.error(`showToast args error code is ${code}, message is ${message}`);
         }
       })
-     <em> // 使用onAnimationStart监听切换动画开始</em>
+      // 使用onAnimationStart监听切换动画开始
       .onAnimationStart((index: number, targetIndex: number) => {
         if (index === targetIndex) {
           return;

@@ -95,7 +95,7 @@ export struct VideoComponent {
         .fontSize(30)
         .margin({ bottom: 30 });
       Video({
-     <em>   // 此处地址实际使用过程中替换为真实地址</em>
+        // 此处地址实际使用过程中替换为真实地址
         src: 'xx.xx.xx',
         controller: this.controller
       })
@@ -258,7 +258,7 @@ A：每个TabContent的生命周期相互独立，系统优先处理新页面显
  
 ```text
 TabContent() {
-  <em>// TabContent内容</em>
+  // TabContent内容
 }
 .onWillShow(() => {
   setTimeout(() => {

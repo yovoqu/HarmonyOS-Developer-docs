@@ -99,7 +99,7 @@ struct RichEditorDemo {
       RichEditor({ controller: this.richEditorController })
         .backgroundColor('#ffffff')
         .width('100%')
-      <em>  // 添加constraintSize属性，将高度限制为50，子组件高度相加不超过100（父组件高度限制）</em>
+        // 添加constraintSize属性，将高度限制为50，子组件高度相加不超过100（父组件高度限制）
         .constraintSize({ maxHeight: 50 })
         .borderRadius(16)
     }
@@ -108,7 +108,7 @@ struct RichEditorDemo {
     .padding(16)
     .backgroundColor('#f1f3f5')
     .margin({ top: 40 })
-  <em>  // 添加constraintSize属性，将高度限制为148(50+50+32+16)，子组件高度相加不超过100（父组件高度限制）</em>
+    // 添加constraintSize属性，将高度限制为148(50+50+32+16)，子组件高度相加不超过100（父组件高度限制）
     .constraintSize({ maxHeight: 148 })
   }
 }

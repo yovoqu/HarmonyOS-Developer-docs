@@ -69,7 +69,7 @@ class CustomDialogController {
 function dialogBuilder(controller?: CustomDialogController) {
   Column() {
     Row() {
-  <em>    // 实际使用时可替换为实际图片</em>
+      // 实际使用时可替换为实际图片
       Image($r('app.media.img'))
         .width(80)
         .height(80);
@@ -85,7 +85,7 @@ function dialogBuilder(controller?: CustomDialogController) {
           .fontSize(10)
           .margin({ right: 15 });
         Row() {
-      <em>    // 实际使用时可替换为实际图片</em>
+          // 实际使用时可替换为实际图片
           Image($r('app.media.img_2'))
             .backgroundColor('#f1f3f5')
             .onClick(() => {
@@ -98,7 +98,7 @@ function dialogBuilder(controller?: CustomDialogController) {
             .height(20);
           Text(`${controller!.params?.content}`)
             .margin({ left: 10 });
-     <em>     // 实际使用时可替换为实际图片</em>
+          // 实际使用时可替换为实际图片
           Image($r('app.media.img_1'))
             .backgroundColor('#f1f3f5')
             .margin({ left: 10 })
@@ -245,7 +245,7 @@ struct CustomDialogPageExample {
 function dialogBuilder(controller?: CustomDialogController) {
   Column() {
     Row() {
-   <em>   // 实际使用时可替换为实际图片</em>
+      // 实际使用时可替换为实际图片
       Image($r('app.media.img'))
         .width(80)
         .height(80);
@@ -261,7 +261,7 @@ function dialogBuilder(controller?: CustomDialogController) {
           .fontSize(10)
           .margin({ right: 15 });
         Row() {
-      <em>    // 实际使用时可替换为实际图片</em>
+          // 实际使用时可替换为实际图片
           Image($r('app.media.img_2'))
             .backgroundColor('#f1f3f5')
             .onClick(() => {
@@ -274,7 +274,7 @@ function dialogBuilder(controller?: CustomDialogController) {
             .height(20);
           Text(`${controller!.params?.content}`)
             .margin({ left: 10 });
-       <em>   // 实际使用时可替换为实际图片</em>
+          // 实际使用时可替换为实际图片
           Image($r('app.media.img_1'))
             .backgroundColor('#f1f3f5')
             .margin({ left: 10 })

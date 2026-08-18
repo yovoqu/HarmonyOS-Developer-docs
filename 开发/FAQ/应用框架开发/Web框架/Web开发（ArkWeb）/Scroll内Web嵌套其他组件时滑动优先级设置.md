@@ -44,21 +44,21 @@ struct ScrollerDemo {
             .width('90%')
         }
         .width('100%').alignItems(HorizontalAlign.Start).margin({ top: 20, bottom: 24 })
-     <em>   // 判断可见区域变化</em>
+        // 判断可见区域变化
         .onVisibleAreaChange([0.0, 1.0], (isExpanding: boolean, currentRatio: number) => {
           if (isExpanding && currentRatio > 0.0) {
-          <em>  // 可见时，设置Web的滑动优先级为父组件先滚动</em>
+            // 可见时，设置Web的滑动优先级为父组件先滚动
             this.scrollMode = NestedScrollMode.PARENT_FIRST;
           }
 
           if (!isExpanding && currentRatio <= 0.0) {
-           <em> // 不可见时，设置Web的滑动优先级为自身先滚动</em>
+            // 不可见时，设置Web的滑动优先级为自身先滚动
             this.scrollMode = NestedScrollMode.SELF_FIRST;
           }
         })
 
         Web({
-      <em>    // 此处'www.example.com'仅作示例。</em>
+          // 此处'www.example.com'仅作示例。
           src: 'www.example.com',
           controller: this.controller
         })
@@ -76,15 +76,15 @@ struct ScrollerDemo {
         Row() {
           Text(`阅读量：  12345`).textAlign(TextAlign.End)
         }.height(40).alignItems(VerticalAlign.Center)
-        <em>// 判断可见区域变化</em>
+        // 判断可见区域变化
         .onVisibleAreaChange([0.0, 1.0], (isExpanding: boolean, currentRatio: number) => {
           if (isExpanding && currentRatio > 0.0) {
-       <em>     // 可见时，设置Web的滑动优先级为父组件先滚动</em>
+            // 可见时，设置Web的滑动优先级为父组件先滚动
             this.scrollMode = NestedScrollMode.PARENT_FIRST;
           }
 
           if (!isExpanding && currentRatio <= 0.0) {
-         <em>   // 不可见时，设置Web的滑动优先级为自身先滚动</em>
+            // 不可见时，设置Web的滑动优先级为自身先滚动
             this.scrollMode = NestedScrollMode.SELF_FIRST;
           }
         })

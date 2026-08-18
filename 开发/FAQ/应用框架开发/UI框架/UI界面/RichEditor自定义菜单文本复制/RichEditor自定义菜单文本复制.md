@@ -59,7 +59,7 @@ struct RichEditorExample {
   }
 
 
-  <em>// 自定义菜单</em>
+  // 自定义菜单
   @Builder
   LongPressTextCustomMenu() {
     Row() {
@@ -83,10 +83,10 @@ struct RichEditorExample {
                 }
               });
               let pasteboardData = pasteboard.createData(pasteboard.MIMETYPE_TEXT_PLAIN, this.textContent);
-            <em>  // 获取系统剪贴板对象</em>
+              // 获取系统剪贴板对象
               let systemPasteboard = pasteboard.getSystemPasteboard();
-              systemPasteboard.setData(pasteboardData); <em>// 将数据放入剪贴板</em>
-              systemPasteboard.getData().then((data) => { <em>// 读取剪贴板内容</em>
+              systemPasteboard.setData(pasteboardData); // 将数据放入剪贴板
+              systemPasteboard.getData().then((data) => { // 读取剪贴板内容
                 if (data) {
                   this.getUIContext().getPromptAction().showToast({ message: '复制成功' });
                 } else {
@@ -94,13 +94,13 @@ struct RichEditorExample {
                 }
               });
             }
-            <em>// 取消选中</em>
+            // 取消选中
             this.start = -1;
             this.end = -1;
-            <em>// 关闭自定义菜单</em>
+            // 关闭自定义菜单
             this.controller.closeSelectionMenu();
           });
-     <em>   // 设置间隔</em>
+        // 设置间隔
         if (index < this.optionsPopup.length - 1) {
           Divider().height(10).vertical(true);
         }
@@ -126,7 +126,7 @@ struct RichEditorExample {
         .width('100%')
         .copyOptions(CopyOptions.LocalDevice)
         .bindSelectionMenu(RichEditorSpanType.DEFAULT, this.LongPressTextCustomMenu,
-          RichEditorResponseType.DEFAULT) <em>// 自定义菜单</em>
+          RichEditorResponseType.DEFAULT) // 自定义菜单
         .onSelect((value: RichEditorSelection) => {
           this.start = value.selection[0];
           this.end = value.selection[1];
@@ -141,7 +141,7 @@ struct RichEditorExample {
                 fontSize: 30
               }
             });
-         <em> // 在实际使用时可替换为需要的图片</em>
+          // 在实际使用时可替换为需要的图片
           this.controller.addImageSpan($r('app.media.startIcon'),
             {
               imageStyle:

@@ -32,7 +32,7 @@ httpRequest.request('https://xxxxxx', option, (err: BusinessError, res: http.Htt
     httpRequest.destroy();
   } else {
     console.error(`HttpCache error:${err}`);
- <em>   // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。</em>
+    // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
     httpRequest.destroy();
   }
 })

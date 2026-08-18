@@ -31,7 +31,7 @@ import { BusinessError } from "@kit.BasicServicesKit";
 @Entry
 @Component
 struct Index {
-<em>  // 获取context</em>
+  // 获取context
   private context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
 
   build() {
@@ -68,19 +68,19 @@ struct Index {
   }
 }
 
-<em>/**</em>
-<em> * 保存文件至沙箱目录</em>
-<em> * @param context 上下文</em>
-<em> */</em>
+/**
+ * 保存文件至沙箱目录
+ * @param context 上下文
+ */
 export async function saveFile(context: common.UIAbilityContext) {
   const fileName = 'test.txt';
- <em> // 构建沙箱路径</em>
+  // 构建沙箱路径
   const sandboxPath = context.filesDir + '/' + fileName;
   let resource = context.resourceManager;
   try {
-<em>    // 从rawfile中读取原始文件</em>
+    // 从rawfile中读取原始文件
     const rawContent = resource.getRawFileContentSync(fileName);
-    <em>// </em><em>写入沙箱</em>
+    // 写入沙箱
     const file = fs.openSync(sandboxPath, fs.OpenMode.CREATE | fs.OpenMode.READ_WRITE);
     fs.writeSync(file.fd, rawContent.buffer);
     fs.closeSync(file);
@@ -89,44 +89,44 @@ export async function saveFile(context: common.UIAbilityContext) {
   }
 }
 
-<em>/**</em>
-<em> * 上传文件</em>
-<em> * @param context 上下文</em>
-<em> * @returns 返回上传文件后的ArrayBuffer</em>
-<em> */</em>
+/**
+ * 上传文件
+ * @param context 上下文
+ * @returns 返回上传文件后的ArrayBuffer
+ */
 export async function uploadFileSync(context: common.UIAbilityContext): Promise<ArrayBuffer> {
-<em>  // 文件的沙箱目录</em>
+  // 文件的沙箱目录
   const sandboxPath = context.filesDir + '/' + "test.txt";
   try {
 
- <em>   // 定义uploadFromFile</em>
+    // 定义uploadFromFile
     let uploadFromFile: rcp.UploadFromFile = {
       fileOrPath: sandboxPath
     };
     const session = rcp.createSession();
-  <em>  // 此处URL:XX.XX.XX需要更换为实际的URL</em>
+    // 此处URL:XX.XX.XX需要更换为实际的URL
     session.uploadFromFile("XX.XX.XX", uploadFromFile).then((response) => {
       console.info(`Succeeded in getting the response ${response}`);
-     <em> // 由于是测试URL并不会返回文件内容且存在访问返回403的情况，此处需要自行处理逻辑。例：data=response.body</em>
+      // 由于是测试URL并不会返回文件内容且存在访问返回403的情况，此处需要自行处理逻辑。例：data=response.body
     }).catch((err: BusinessError) => {
       console.error(`err: err code is ${err.code}, err message is ${JSON.stringify(err)}`);
     });
-    <em>// </em><em>此处构造上传文件成功后的ArrayBuffer</em>
+    // 此处构造上传文件成功后的ArrayBuffer
     return getArrayBuffer(sandboxPath);
   } catch (err) {
     console.error(`err: err code is ${err.code}, err message is ${JSON.stringify(err)}`);
-  <em>  // 此处构造上传文件成功后的ArrayBuffer</em>
+    // 此处构造上传文件成功后的ArrayBuffer
     return getArrayBuffer(sandboxPath);
   } finally {
     console.info(`Method uploadFileSync run finished.`);
   }
 }
 
-<em>/**</em>
-<em> * 获取文件的ArrayBuffer</em>
-<em> * @param fileUri 文件路径</em>
-<em> * @returns ArrayBuffer</em>
-<em> */</em>
+/**
+ * 获取文件的ArrayBuffer
+ * @param fileUri 文件路径
+ * @returns ArrayBuffer
+ */
 async function getArrayBuffer(fileUri: string): Promise<ArrayBuffer> {
   let data: ArrayBuffer = new ArrayBuffer(0);
   try {
@@ -160,25 +160,25 @@ export default function IndexTest() {
   describe('IndexTest', () => {
 
     it('assertEqual', 0, async () => {
-      <em>// </em><em>获取当前ability</em>
+      // 获取当前ability
       const ability: UIAbility = await delegator.getCurrentTopAbility();
       console.info("get top ability");
-     <em> // 定义本地文件保存到沙箱目录的位置</em>
+      // 定义本地文件保存到沙箱目录的位置
       let filePath = ability.context.filesDir + "/test.txt"
-     <em> // 保存本地文件至沙箱目录，此处从rawfile保存至沙箱</em>
+      // 保存本地文件至沙箱目录，此处从rawfile保存至沙箱
       await saveFile(ability.context)
-      <em>// 返回rcp流程上传后的结果arraybuffer</em>
+      // 返回rcp流程上传后的结果arraybuffer
       let upLoadRes = await uploadFileSync(ability.context);
-      <em>// 在沙箱目录下创建新的文件用于文件内容比对</em>
+      // 在沙箱目录下创建新的文件用于文件内容比对
       let upLoadFilePath = ability.context.filesDir + "/uploadResult.txt";
-     <em> // 将ArrayBuffer写入至新的文件</em>
+      // 将ArrayBuffer写入至新的文件
       let file = fs.openSync(upLoadFilePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
       fs.writeSync(file.fd, upLoadRes);
       fs.closeSync(file);
-     <em> // 获取两个文件的hash值</em>
+      // 获取两个文件的hash值
       const localHash = await hash.hash(filePath, 'sha256');
       const resultHash = await hash.hash(upLoadFilePath, 'sha256');
-  <em>    // hash值比对</em>
+      // hash值比对
       expect(localHash).assertEqual(resultHash)
     })
   })

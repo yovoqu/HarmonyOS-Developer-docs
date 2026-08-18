@@ -17,14 +17,14 @@ struct Page1 {
   build() {
     Column() {
       Swiper() {
-        Image($r('app.media.backgroundImage'))<em> // 图片请自行选择尺寸不同的两张图片</em>
+        Image($r('app.media.backgroundImage')) // 图片请自行选择尺寸不同的两张图片
           .width('100%')
           .height('100%')
           .interpolation(ImageInterpolation.High)
           .fitOriginalSize(true)
           .objectFit(ImageFit.Cover)
           .draggable(false)
-          .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM]); <em>// 沉浸式</em>
+          .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM]); // 沉浸式
         Image($r('app.media.backgroundImage'))
           .width('100%')
           .interpolation(ImageInterpolation.High)
@@ -32,7 +32,7 @@ struct Page1 {
           .objectFit(ImageFit.Cover)
           .draggable(false);
       }
-      .indicator(false) <em>// 去掉点的显示</em>
+      .indicator(false) // 去掉点的显示
       .clip(true)
       .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM]);
     }
@@ -82,14 +82,14 @@ struct Page2 {
     Column() {
       Swiper() {
         Column() {
-          Image($r('app.media.backgroundImage')) <em>// 图片请自行选择尺寸不同的两张图片</em>
+          Image($r('app.media.backgroundImage')) // 图片请自行选择尺寸不同的两张图片
             .width('100%')
             .height('100%')
             .interpolation(ImageInterpolation.High)
             .fitOriginalSize(true)
             .objectFit(ImageFit.Cover)
             .draggable(false)
-            .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM]); <em>// 沉浸式</em>
+            .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM]); // 沉浸式
         }
         .justifyContent(FlexAlign.Center)
         .width('100%')
@@ -109,7 +109,7 @@ struct Page2 {
         .height('100%')
         .backgroundColor(Color.White);
       }
-      .indicator(false) <em>// 去掉点的显示</em>
+      .indicator(false) // 去掉点的显示
       .clip(true)
       .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM]);
     }

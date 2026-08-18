@@ -13,7 +13,7 @@ let buf1 = buffer.from("1234");
 let buf2 = buffer.from("abcd");
 let buf = buffer.concat([buf1, buf2]);
 console.info(buf.toString('hex'));
-<em>// Output result:3132333461626364</em>
+// Output result:3132333461626364
 ```
  
 **参考链接**

@@ -17,7 +17,7 @@
 在 OH_JSVM_Init 中传入 max-semi-space-size 和 max-old-space-size（单位均为 MB）的设置参数，以扩大 V8 的内存上限。观察扩大 V8 内存上限后，应用是否仍然崩溃。如果应用仍然崩溃，则需要使用内存泄漏检测工具来排查应用中是否存在内存泄漏问题。
  
 ```text
-<em>// ...</em>
+// ...
 JSVM_InitOptions init_options;
 init_options.argc = (int*)malloc(sizeof(int));
 *init_options.argc = 3;
@@ -30,9 +30,9 @@ init_options.externalReferences = nullptr;
 JSVM_Status status = OH_JSVM_Init(&init_options);
 
 if (status != JSVM_OK)  {
-  <em>// If the status is not JSVM-OK, it indicates that OH_JSVM_Init execution failed and init_options was not successfully set.</em>
+  // If the status is not JSVM-OK, it indicates that OH_JSVM_Init execution failed and init_options was not successfully set.
 }
-<em>// ...</em>
+// ...
 ```
  
 JSVM中的内存默认值如下：

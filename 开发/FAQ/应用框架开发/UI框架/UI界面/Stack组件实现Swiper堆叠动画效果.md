@@ -49,7 +49,7 @@ export struct SwiperStackComponent {
     this.currentIndex = 0;
   }
 
-  <em>// </em><em>修改堆叠方向系数计算</em>
+  // 修改堆叠方向系数计算
   getImgCoefficients(index: number): number {
     const coefficient = this.currentIndex - index;
     const tempCoefficient = Math.abs(coefficient);
@@ -64,7 +64,7 @@ export struct SwiperStackComponent {
     return 0;
   }
 
-  <em>// 修改堆叠方向偏移量计算</em>
+  // 修改堆叠方向偏移量计算
   getOffSet(index: number): number {
     let offsetIndex = this.getImgCoefficients(index);
     const tempOffset = Math.abs(offsetIndex);
@@ -101,7 +101,7 @@ export struct SwiperStackComponent {
         .backgroundColor(Color.White)
         .borderRadius(8)
         .blur(index !== this.currentIndex ? 12 : 0)
-      <em>  // 通过animateTo实现动画并且同时改变currentIndex数据中间值来判断组件zIndex实现切换动画</em>
+        // 通过animateTo实现动画并且同时改变currentIndex数据中间值来判断组件zIndex实现切换动画
         .zIndex(index !== this.currentIndex && this.getImgCoefficients(index) === 0 ?
           0 : 2 - Math.abs(this.getImgCoefficients(index)))
         .width(310)
@@ -129,7 +129,7 @@ export struct SwiperStackComponent {
 @Component
 struct StackSwiperDemo {
   @State currentIndex: number = 0;
- <em> // 图片资源需自行配置</em>
+  // 图片资源需自行配置
   @State swiperData: SwiperData[] = [
     new SwiperData($r('app.media.img1')),
     new SwiperData($r('app.media.img2')),
@@ -164,17 +164,17 @@ Stack({ alignContent: Alignment.Bottom }) {
     .height('100%')
     .borderRadius(8);
 }
-.offset({ x: this.getOffSet(index), y: 0 }) <em>// </em><em>偏移改为X方向上的偏移</em>
+.offset({ x: this.getOffSet(index), y: 0 }) // 偏移改为X方向上的偏移
 ```
 
 
 2. 外层Stack的滑动手势改为左右滑动，动画效果改为X方向上的判断。
 ```text
 .gesture(
-<em>  // 滑动手势改为左右滑动</em>
+  // 滑动手势改为左右滑动
   PanGesture({ direction: PanDirection.Horizontal })
     .onActionStart((event: GestureEvent) => {
-   <em>   // 改成X轴方向判定</em>
+      // 改成X轴方向判定
       this.startAnimation(event.offsetX < 0, this.automaticSlidingDuration);
     })
 )
@@ -183,7 +183,7 @@ Stack({ alignContent: Alignment.Bottom }) {
 
 3. 由于屏幕X方向比Y方向要窄，可以修改getOffSet函数改变偏移的距离。
 ```text
-offset = 20 * offsetIndex; <em>// </em><em>改变偏移的距离</em>
+offset = 20 * offsetIndex; // 改变偏移的距离
 ```
 
 

@@ -34,7 +34,7 @@ Map Kit地图中，我的位置当前可以通过设置mapCommon.MyLocationDispl
 let style: mapCommon.MyLocationStyle = {
   anchorU: 0.5,
   anchorV: 0.5,
-  icon: $r('app.media.startIcon'), <em>// </em><em>此处替换为自定义的我的位置图标</em>
+  icon: $r('app.media.startIcon'), // 此处替换为自定义的我的位置图标
   displayType: mapCommon.MyLocationDisplayType.FOLLOW
 };
 await this.mapController.setMyLocationStyle(style);
@@ -81,7 +81,7 @@ struct MyLocationDirection {
   private mapController?: map.MapComponentController;
 
   aboutToAppear(): void {
-   <em> // 地图初始化参数，设置地图中心点坐标及层级</em>
+    // 地图初始化参数，设置地图中心点坐标及层级
     this.mapOptions = {
       position: {
         target: {
@@ -92,15 +92,15 @@ struct MyLocationDirection {
       }
     };
 
-   <em> // 地图初始化的回调</em>
+    // 地图初始化的回调
     this.callback = async (err, mapController) => {
       if (!err) {
-     <em>   // 获取地图的控制器类，用来操作地图</em>
+        // 获取地图的控制器类，用来操作地图
         this.mapController = mapController;
         let style: mapCommon.MyLocationStyle = {
           anchorU: 0.5,
           anchorV: 0.5,
-          icon: $r('app.media.startIcon'),<em> </em><em>// </em><em>此处替换为自定义的我的位置图标</em>
+          icon: $r('app.media.startIcon'), // 此处替换为自定义的我的位置图标
           displayType: mapCommon.MyLocationDisplayType.FOLLOW
         };
         await this.mapController.setMyLocationStyle(style);
@@ -128,7 +128,7 @@ struct MyLocationDirection {
 
   build() {
     Stack() {
-    <em>  // 调用MapComponent组件初始化地图</em>
+      // 调用MapComponent组件初始化地图
       MapComponent({
         mapOptions: this.mapOptions,
         mapCallback: this.callback,

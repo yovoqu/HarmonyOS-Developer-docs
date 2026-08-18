@@ -27,21 +27,21 @@ HarmonyOS目前采用“多段式注释”策略来记录ArkTS API的变更历�
 ```text
 declare namespace inputMethodEngine {
     interface InputClient {
-<em>        /**</em>
-<em>         * Get input attachOptions.</em>
-<em>         *</em>
-<em>         * @returns { AttachOptions } return attach options.</em>
-<em>         * @throws { BusinessError } 801 - Capability not supported.</em>
-<em>         * @syscap SystemCapability.MiscServices.InputMethodFramework</em>
-<em>         * @since 19</em>
-<em>         */</em>
-<em>        /**</em>
-<em>         * Get input attachOptions.</em>
-<em>         *</em>
-<em>         * @returns { AttachOptions } return attach options.</em>
-<em>         * @syscap SystemCapability.MiscServices.InputMethodFramework</em>
-<em>         * @since 20</em>
-<em>         */</em>
+        /**
+         * Get input attachOptions.
+         *
+         * @returns { AttachOptions } return attach options.
+         * @throws { BusinessError } 801 - Capability not supported.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 19
+         */
+        /**
+         * Get input attachOptions.
+         *
+         * @returns { AttachOptions } return attach options.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 20
+         */
         getAttachOptions(): AttachOptions;
     }
 }

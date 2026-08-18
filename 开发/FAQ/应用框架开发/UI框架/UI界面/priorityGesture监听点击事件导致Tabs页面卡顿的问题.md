@@ -101,7 +101,7 @@ struct TabsExample {
         if (index === targetIndex) {
           return;
         }
-      <em>  // selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
+        // selectedIndex控制自定义TabBar内Image和Text颜色切换
         this.selectedIndex = targetIndex;
       })
       .width('90%')
@@ -161,7 +161,7 @@ struct TabsExample {
 
   @Builder
   tabBuilder(index: number, name: string) {
- <em>   // 优先判定单击跳转事件，只有当前页面才可监听双击事件</em>
+    // 优先判定单击跳转事件，只有当前页面才可监听双击事件
     if (this.selectedIndex === index) {
       Column() {
         Text(name)
@@ -258,7 +258,7 @@ struct TabsExample {
         if (index === targetIndex) {
           return;
         }
-      <em>  // selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
+        // selectedIndex控制自定义TabBar内Image和Text颜色切换
         this.selectedIndex = targetIndex;
         console.info(JSON.stringify(event));
       })

@@ -50,18 +50,18 @@ struct TabsDialogDemo {
       Text('是否跳转').margin({ top: 16, bottom: 16 });
       Row() {
         Button('取消', { buttonStyle: ButtonStyleMode.TEXTUAL }).width('40%').onClick(() => {
-          <em>// </em><em>关闭自定义对话框</em>
+          // 关闭自定义对话框
           this.getUIContext().getPromptAction().closeCustomDialog(this.customDialogComponentId);
-         <em> // 设置当前索引为上一次索引，不进行跳转操作</em>
+          // 设置当前索引为上一次索引，不进行跳转操作
           this.currentIndex = this.lastIndex;
         });
         Divider().vertical(true).height('20');
         Button('跳转', { buttonStyle: ButtonStyleMode.TEXTUAL }).width('40%').onClick(() => {
-       <em>   // 关闭自定义对话框</em>
+          // 关闭自定义对话框
           this.getUIContext().getPromptAction().closeCustomDialog(this.customDialogComponentId);
-        <em>  // 设置当前索引和上次索引</em>
+          // 设置当前索引和上次索引
           this.lastIndex = this.currentIndex = this.selectIndex;
-       <em>   // 调用控制器改变索引</em>
+          // 调用控制器改变索引
           this.controller.changeIndex(this.currentIndex);
         });
       }.width('80%')
@@ -81,15 +81,15 @@ struct TabsDialogDemo {
     .width('100')
     .height(60)
     .onClick(() => {
-     <em> // 如果当前索引等于标签索引，则不执行任何操作</em>
+      // 如果当前索引等于标签索引，则不执行任何操作
       if (this.currentIndex === tabIndex) {
         return;
       }
-     <em> // 设置上一次索引为当前索引</em>
+      // 设置上一次索引为当前索引
       this.currentIndex = this.lastIndex;
-      <em>// </em><em>设置选择的索引为新标签索引</em>
+      // 设置选择的索引为新标签索引
       this.selectIndex = tabIndex;
-    <em>  // 打开自定义对话框</em>
+      // 打开自定义对话框
       this.getUIContext().getPromptAction().openCustomDialog({
         builder: () => {
           this.customDialogComponent();
@@ -103,7 +103,7 @@ struct TabsDialogDemo {
 
   build() {
     Column() {
-     <em> // 自定义标签栏</em>
+      // 自定义标签栏
       Row() {
         Scroll() {
           Row() {

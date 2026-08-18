@@ -62,7 +62,7 @@ struct ImageOverlay {
 
 
   aboutToAppear(): void {
-  <em>  // 地图初始化参数，设置地图中心点坐标及层级</em>
+    // 地图初始化参数，设置地图中心点坐标及层级
     this.mapOption = {
       position: {
         target: {
@@ -76,20 +76,20 @@ struct ImageOverlay {
     };
 
 
- <em>   // 地图初始化的回调</em>
+    // 地图初始化的回调
     this.callback = async (err, mapController) => {
       if (!err) {
-      <em>  // 获取地图的控制器类，用来操作地图</em>
+        // 获取地图的控制器类，用来操作地图
         this.mapController = mapController;
-       <em> // 启用我的位置图层</em>
+        // 启用我的位置图层
         this.mapController?.setMyLocationEnabled(true);
 
 
-     <em>   // 增加图片点聚合</em>
+        // 增加图片点聚合
         let imageOverlay = await this.mapController?.addImageOverlay(this.imageOverlayParams);
 
 
-        <em>// 5秒后更换点图片，先删除老的点，再增加更换图片后新的点，达到更新图片效果</em>
+        // 5秒后更换点图片，先删除老的点，再增加更换图片后新的点，达到更新图片效果
         setTimeout(async () => {
           this.imageOverlayParams.image = $r('app.media.emoji_happy');
           this.imageOverlayParams.width = 80;
@@ -99,7 +99,7 @@ struct ImageOverlay {
         }, 5000);
 
 
-        <em>// 使用点击事件直接更新点图片</em>
+        // 使用点击事件直接更新点图片
         let imageOverlayCallback: Callback<map.ImageOverlay> = (imageOverlay: map.ImageOverlay) => {
           imageOverlay.setImage($r('app.media.startIcon'));
         };

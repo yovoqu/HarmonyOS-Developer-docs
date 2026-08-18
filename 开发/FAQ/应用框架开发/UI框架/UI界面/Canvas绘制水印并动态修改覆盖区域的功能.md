@@ -42,19 +42,19 @@
 export struct DrawWatermarkDemo {
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
   private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
-<em>  // 画布宽高</em>
+  // 画布宽高
   @State markWidth: string = '100%';
   @State markHeight: string = '100%';
- <em> // 水印间距</em>
+  // 水印间距
   watermarkWidth: number = 100;
   watermarkHeight: number = 100;
- <em> // 水印标识</em>
+  // 水印标识
   watermarkText: string = '默认水印';
- <em> // 旋转角度</em>
+  // 旋转角度
   rotationAngle: number = -30;
- <em> // 水印颜色</em>
+  // 水印颜色
   @State fillColor: string | number | CanvasGradient | CanvasPattern = '#10000000';
- <em> // 水印字体大小</em>
+  // 水印字体大小
   font: string = '16vp';
 
   draw() {
@@ -92,8 +92,8 @@ export struct DrawWatermarkDemo {
       };
 
       Canvas(this.context)
-        .width(this.markWidth) <em>// 动态赋予宽度</em>
-        .height(this.markHeight) <em>// 动态赋予高度</em>
+        .width(this.markWidth) // 动态赋予宽度
+        .height(this.markHeight) // 动态赋予高度
         .backgroundColor('#12bab8b8')
         .hitTestBehavior(HitTestMode.Transparent)
         .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM])

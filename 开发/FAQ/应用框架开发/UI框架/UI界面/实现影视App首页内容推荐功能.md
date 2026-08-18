@@ -57,7 +57,7 @@ class ZonesItem {
 
 const defaultList: ZonesItem[] = [
   {
-    thumbnail: $r('app.media.startIcon'), <em>// </em><em>此处仅为样例，请开发者更换为可用图片</em>
+    thumbnail: $r('app.media.startIcon'), // 此处仅为样例，请开发者更换为可用图片
   },
   {
     thumbnail: $r('app.media.startIcon'),
@@ -109,7 +109,7 @@ struct SegmentButton {
       });
   }
 
- <em> // 构建项目</em>
+  // 构建项目
   build() {
     Row() {
       this.overItem();

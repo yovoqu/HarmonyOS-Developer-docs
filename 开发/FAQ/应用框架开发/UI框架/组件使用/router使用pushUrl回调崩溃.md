@@ -55,8 +55,8 @@ Error code:100001
 @Component
 struct RouterDemo {
   aboutToAppear(): void {
-    <em>// </em><em>获取UIContext，保存在AppStorage中</em>
-<em>    // 也可以在EntryAbility.ets的onWindowStageCreate方法中保存UIContext</em>
+    // 获取UIContext，保存在AppStorage中
+    // 也可以在EntryAbility.ets的onWindowStageCreate方法中保存UIContext
     AppStorage.setOrCreate('UIContext', this.getUIContext());
   }
 
@@ -71,13 +71,13 @@ struct RouterDemo {
 }
 
 class Auth {
- <em> // 跳转到登录页</em>
+  // 跳转到登录页
   static gotoLoginPage() {
-    <em>// 通过AppStorage获取UIContext</em>
+    // 通过AppStorage获取UIContext
     const uiContext = AppStorage.get<UIContext>('UIContext');
     if (uiContext) {
       uiContext.getRouter().pushUrl({
-        url: 'pages/Index' <em>// </em><em>需自行创建一个Index页面</em>
+        url: 'pages/Index' // 需自行创建一个Index页面
       });
     }
   }

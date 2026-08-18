@@ -20,7 +20,7 @@ struct HidePDFToolbar {
 
   build() {
     Column() {
-     <em> // Hide the toolbar (toolbar=0) and navigation pane (navpanes=0) through URL parameters</em>
+      // Hide the toolbar (toolbar=0) and navigation pane (navpanes=0) through URL parameters
       Web({ src: 'resource://rawfile/test.pdf#toolbar=0&navpanes=0', controller: this.controller })
         .domStorageAccess(true)
         .width('100%')

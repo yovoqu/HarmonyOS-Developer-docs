@@ -58,7 +58,7 @@ onDrawWrong(context: DrawContext, drawInfo: CustomSpanDrawInfo): void {
   drawing.TextBlob.makeFromString(this.originText, localFont, drawing.TextEncoding.TEXT_ENCODING_UTF8);
   canvas.attachBrush(textBrush);
   hilog.info(0x00, 'MyCustomSpan', `drawInfo.baseline: ${drawInfo.baseline}`);
- <em> // 绘制</em>
+  // 绘制
   canvas.drawTextBlob(textBlob, drawInfo.x, drawInfo.baseline);
   canvas.detachBrush();
 }
@@ -103,21 +103,21 @@ class MyCustomSpan extends CustomSpan {
         textContent: this.originText,
         fontSize: measureInfo.fontSize,
       })),
-      height: undefined <em>// 高度设置为undefined自适应文本</em>
+      height: undefined // 高度设置为undefined自适应文本
     };
   }
 
   onDraw(context: DrawContext, drawInfo: CustomSpanDrawInfo): void {
     const canvas = context.canvas;
-    const textBrush = new drawing.Brush();<em> </em><em>// 设置文本绘制画刷</em>
+    const textBrush = new drawing.Brush(); // 设置文本绘制画刷
     const localFont = new drawing.Font();
     localFont.setSize(gUIContext.vp2px(this.fontSize));
     const textBlob =
-      drawing.TextBlob.makeFromString(this.originText, localFont, drawing.TextEncoding.TEXT_ENCODING_UTF8); <em>// 设置绘制文本</em>
+      drawing.TextBlob.makeFromString(this.originText, localFont, drawing.TextEncoding.TEXT_ENCODING_UTF8); // 设置绘制文本
     canvas.attachBrush(textBrush);
     hilog.info(0x00, 'MyCustomSpan', `drawInfo.baseline: ${drawInfo.baseline}`);
-    let bounds = textBlob.bounds(); <em>// 获取文本实际边距</em>
-   <em> // 修改text的坐标并绘制</em>
+    let bounds = textBlob.bounds(); // 获取文本实际边距
+    // 修改text的坐标并绘制
     canvas.drawTextBlob(textBlob, drawInfo.x - bounds.left, drawInfo.lineTop - bounds.top);
     canvas.detachBrush();
   }
@@ -131,7 +131,7 @@ class MyCustomSpan extends CustomSpan {
       drawing.TextBlob.makeFromString(this.originText, localFont, drawing.TextEncoding.TEXT_ENCODING_UTF8);
     canvas.attachBrush(textBrush);
     hilog.info(0x00, 'MyCustomSpan', `drawInfo.baseline: ${drawInfo.baseline}`);
-  <em>  // 绘制</em>
+    // 绘制
     canvas.drawTextBlob(textBlob, drawInfo.x, drawInfo.baseline);
     canvas.detachBrush();
   }
@@ -152,7 +152,7 @@ struct DrawText {
     this.textController1.setStyledString(style1);
 
     const style2 = new MutableStyledString(new MyCustomSpan('危乎高哉'));
-    style2.appendStyledString(new StyledString('哉')); <em>// 绘制文字后在末尾处添加</em>
+    style2.appendStyledString(new StyledString('哉')); // 绘制文字后在末尾处添加
     this.textController2.setStyledString(style2);
   }
 

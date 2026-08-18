@@ -93,7 +93,7 @@ function genIvParamsSpec() {
 let iv = genIvParamsSpec();
 
 
-<em>// 加密消息。</em>
+// 加密消息。
 function encryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob) {
   let cipher = cryptoFramework.createCipher('AES128|CBC|NoPadding');
   cipher.initSync(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, iv);
@@ -102,7 +102,7 @@ function encryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramewo
 }
 
 
-<em>// 解密消息。</em>
+// 解密消息。
 function decryptMessage(symKey: cryptoFramework.SymKey, cipherText: cryptoFramework.DataBlob) {
   let decoder = cryptoFramework.createCipher('AES128|CBC|NoPadding');
   decoder.initSync(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, iv);
@@ -121,9 +121,9 @@ function genSymKeyByData(symKeyData: Uint8Array) {
 
 
 function stringPadding(str: string) {
- <em> // 获取字符串长度</em>
+  // 获取字符串长度
   let len = str.length;
- <em> // 填充字符串到128位的整数倍</em>
+  // 填充字符串到128位的整数倍
   if (len % 16 !== 0) {
     str = str.padEnd(len + 16 - (len % 16), '0');
   }
@@ -191,7 +191,7 @@ struct Index {
             .type(InputType.Normal)
             .borderRadius('8')
             .onChange((value: string) => {
-             <em> // ZeroPadding不支持输入中文文本，请输入英文格式文本</em>
+              // ZeroPadding不支持输入中文文本，请输入英文格式文本
               this.inputMessage = value;
             })
             .onDidDelete((info: DeleteValue) => {

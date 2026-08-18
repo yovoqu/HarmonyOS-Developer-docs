@@ -11,7 +11,7 @@
 ```json
 uploadimgWrong() {
   let uploadConfig: request.UploadConfig = {
-   <em> // 此处修改为正确的服务器url</em>
+    // 此处修改为正确的服务器url
     url: "",
     header: { 'Content-Type': 'multipart/form-data', "Accept": "*/*" },
     method: "POST",
@@ -89,7 +89,7 @@ uploadimgRight() {
     });
   }
   let uploadConfig: request.UploadConfig = {
-   <em> // 此处修改为正确的服务器url</em>
+    // 此处修改为正确的服务器url
     url: "",
     header: { 'Content-Type': 'multipart/form-data', "Accept": "*/*" },
     method: "POST",
@@ -165,7 +165,7 @@ export struct AskQuestion {
       });
     }
     let uploadConfig: request.UploadConfig = {
-     <em> // 此处修改为正确的服务器url</em>
+      // 此处修改为正确的服务器url
       url: "",
       header: { 'Content-Type': 'multipart/form-data', "Accept": "*/*" },
       method: "POST",
@@ -206,7 +206,7 @@ export struct AskQuestion {
 
   uploadimgWrong() {
     let uploadConfig: request.UploadConfig = {
-     <em> // 此处修改为正确的服务器url</em>
+      // 此处修改为正确的服务器url
       url: "",
       header: { 'Content-Type': 'multipart/form-data', "Accept": "*/*" },
       method: "POST",
@@ -284,7 +284,7 @@ export struct AskQuestion {
 
         Image("file://" + this.getUIContext().getHostContext()?.cacheDir + "IMG_20250704_102801.jpg")
           .width(40)
-          .height(40); <em>//只有当有file的时候才能展示图片，使用internal://cache/ 无法展示</em>
+          .height(40); //只有当有file的时候才能展示图片，使用internal://cache/ 无法展示
       }.padding({ left: 10, right: 10 });
     }.height("100%");
 
@@ -330,20 +330,20 @@ export async function example(config: ExampleConfig, cacheDir?: string) {
       const uris = photoSelectResult.photoUris;
       const fileList: Datafile[] = [];
 
-     <em> // 使用Promise.all处理多个文件</em>
+      // 使用Promise.all处理多个文件
       await Promise.all(uris.map(async (item) => {
 
         const filename = item.split('/').pop() || "";
         const lastDotIndex = filename.lastIndexOf('.');
         const name = lastDotIndex === -1 ? filename : filename.substring(0, lastDotIndex);
 
-      <em>  // 只对图片进行压缩处理</em>
+        // 只对图片进行压缩处理
         if (photoSelectOptions.MIMEType === photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE ||
           photoSelectOptions.MIMEType === photoAccessHelper.PhotoViewMIMETypes.IMAGE_VIDEO_TYPE) {
           const compressedFile = await processImage(item, filename, name, cacheDir);
           fileList.push(compressedFile);
         } else {
-        <em>  // 非图片文件直接复制</em>
+          // 非图片文件直接复制
           try {
             const fileHandle = fs.openSync(item, fs.OpenMode.READ_ONLY);
             fs.copyFileSync(fileHandle.fd, `${cacheDir}/${filename}`);
@@ -373,7 +373,7 @@ export async function example(config: ExampleConfig, cacheDir?: string) {
 
 async function processImage(uri: string, filename: string, name: string, cacheDir?: string): Promise<Datafile> {
   const outputPath = `${cacheDir}/${filename}`;
-<em>  // 1. 获取原始图片信息</em>
+  // 1. 获取原始图片信息
   const fileHandle = fs.openSync(uri, fs.OpenMode.READ_ONLY);
   const imageSource = image.createImageSource(fileHandle.fd);
   const imageInfo = await imageSource.getImageInfo();
@@ -381,18 +381,18 @@ async function processImage(uri: string, filename: string, name: string, cacheDi
   let width = imageInfo.size.width;
   let height = imageInfo.size.height;
 
- <em> // 2. 计算缩放比例</em>
+  // 2. 计算缩放比例
   if (width > MAX_SIZE || height > MAX_SIZE) {
     const scaleRatio = Math.min(MAX_SIZE / width, MAX_SIZE / height);
     width = Math.floor(width * scaleRatio);
     height = Math.floor(height * scaleRatio);
 
 
- <em>   // 3. 重新打开文件进行压缩</em>
+    // 3. 重新打开文件进行压缩
     const fileHandleForProcess = fs.openSync(uri, fs.OpenMode.READ_ONLY);
     const imageSourceForProcess = image.createImageSource(fileHandleForProcess.fd);
 
-   <em> // 4. 创建压缩选项</em>
+    // 4. 创建压缩选项
     const decodingOptions: ESObject = {
       desiredSize: ({ width: MAX_SIZE, height: MAX_SIZE } as desiredSize),
       rotateDegrees: 0,
@@ -400,31 +400,31 @@ async function processImage(uri: string, filename: string, name: string, cacheDi
       desiredPixelFormat: image.PixelMapFormat.RGBA_8888,
     };
 
-   <em> // 5. 创建像素图并压缩</em>
+    // 5. 创建像素图并压缩
     const pixelMap = await imageSourceForProcess.createPixelMap(decodingOptions);
     const imagePacker = image.createImagePacker();
     const packOptions: ESObject = {
-      format: 'image/jpeg', <em>// 可根据需要调整格式</em>
-      quality: 80,<em> // 压缩质量 (0-100)</em>
+      format: 'image/jpeg', // 可根据需要调整格式
+      quality: 80, // 压缩质量 (0-100)
     };
 
-    <em>// 6. 保存压缩后的图片</em>
+    // 6. 保存压缩后的图片
     const arrayBuffer = await imagePacker.packToData(pixelMap, packOptions);
     const uint8Array = new Uint8Array(arrayBuffer);
 
-  <em>  // 3. 写入文件（严格正确的写法）</em>
+    // 3. 写入文件（严格正确的写法）
     const fd = fs.openSync(outputPath, fs.OpenMode.CREATE | fs.OpenMode.READ_WRITE);
     fs.writeSync(fd.fd, uint8Array.buffer, {
-      length: uint8Array.byteLength  <em>// 必须指定长度！</em>
+      length: uint8Array.byteLength  // 必须指定长度！
     });
     fs.closeSync(fd);
 
-   <em> // 7. 释放资源</em>
+    // 7. 释放资源
     pixelMap.release();
     imageSourceForProcess.release();
     fs.closeSync(fileHandleForProcess);
   } else {
-   <em> // 无需压缩，直接复制</em>
+    // 无需压缩，直接复制
     const fileHandle = fs.openSync(uri, fs.OpenMode.READ_ONLY);
     fs.copyFileSync(fileHandle.fd, outputPath);
     fs.closeSync(fileHandle);
@@ -455,7 +455,7 @@ interface select {
 type SuccessCallback = (uris: Datafile[]) => void;
 type ErrorCallback = (error: BusinessError) => void;
 
-<em>// 处理图片压缩</em>
+// 处理图片压缩
 interface desiredSize {
   width: number;
   height: number;

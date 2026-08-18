@@ -59,7 +59,7 @@ Span组件本身是行内元素，默认情况下它的宽度是由其内容自�
 代码如下：
  
 ```text
-<em>// @Extend(Text)可以支持Text的私有属性minFontSize</em>
+// @Extend(Text)可以支持Text的私有属性minFontSize
 @Extend(Text)
 function fancy() {
   .maxLines(1)

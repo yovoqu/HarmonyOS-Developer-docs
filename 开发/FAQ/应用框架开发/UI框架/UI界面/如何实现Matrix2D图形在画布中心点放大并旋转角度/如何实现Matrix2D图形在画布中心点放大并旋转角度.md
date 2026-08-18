@@ -33,13 +33,13 @@ struct MatrixChange {
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
   private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
   private matrix: Matrix2D = new Matrix2D();
-  x: number = 50; <em>// 图形大小</em>
-  y: number = 50; <em>// 图形大小</em>
-  canvasWidth: number = 200;<em> </em><em>// 画布大小</em>
-  canvasHeight: number = 200; <em>// </em><em>画布大小</em>
-  scaleTimesX: number = 2; <em>// </em><em>缩放设置</em>
-  scaleTimesY: number = 2; <em>// </em><em>缩放设置</em>
-  angle: number = -30; <em>// 旋转角度</em>
+  x: number = 50; // 图形大小
+  y: number = 50; // 图形大小
+  canvasWidth: number = 200; // 画布大小
+  canvasHeight: number = 200; // 画布大小
+  scaleTimesX: number = 2; // 缩放设置
+  scaleTimesY: number = 2; // 缩放设置
+  angle: number = -30; // 旋转角度
 
   build() {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {

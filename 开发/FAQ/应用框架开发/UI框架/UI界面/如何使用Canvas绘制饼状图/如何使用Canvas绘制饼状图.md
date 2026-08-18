@@ -27,276 +27,276 @@
 使用Canvas，根据各个分类对应的占比，绘制扇形，最后组成饼状图。具体步骤如下：
  1. 根据指定数组填装数据，并且计算出总量。
 ```text
-class <span style="color: rgb(0,0,255);">SectorInfo </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">名称</span></em>
-  <span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">数据</span></em>
-  <span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">颜色</span></em>
-  <span style="color: rgb(255,255,255);">fontSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">14</span><span style="color: rgb(181,106,1);">;</span><strong style="color: rgb(181,106,1);"> </strong><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">字体大小</span></em>
-  <span style="color: rgb(255,255,255);">radius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">40</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">半径</span></em>
-<span style="color: rgb(181,106,1);">}</span>
+class SectorInfo {
+  name: string = ''; // 名称
+  data: number = 0; // 数据
+  color: string = ''; // 颜色
+  fontSize: number = 14;<strong style="color: rgb(181,106,1);"> </strong>// 字体大小
+  radius: number = 40; // 半径
+}
 ```
  
 ```text
-<span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span>void <span style="color: rgb(181,106,1);">{</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">装载模拟数据</span></em>
-  <span style="color: rgb(255,255,255);">const categories </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">视频广告</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">搜索引擎</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">直接访问</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">邮件营销</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">联盟广告</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">const dataCount </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">3</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">const colorArr </span><span style="color: rgb(181,106,1);">=</span>
-  <span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">'#4f81bd'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#c0504d'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#9bbb59'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#8064a2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#4bacc6 '</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">for </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">let index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">categories</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">let sectorInfo </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">SectorInfo</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">categories</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">data </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">dataCount</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">color </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">colorArr</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">this</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">allData </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(255,255,255);">dataCount</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">this</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sectorInfoArr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">if </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">this</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxData </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">dataCount</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">this</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">dataCount</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">minData </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,255,255);">dataCount</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]) </span><span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">minData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">dataCount</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
-<span style="color: rgb(181,106,1);">}</span>
+aboutToAppear(): void {
+  // 装载模拟数据
+  const categories = ['视频广告', '搜索引擎', '直接访问', '邮件营销', '联盟广告'];
+  const dataCount = [1, 2, 1, 3, 1];
+  const colorArr =
+  ['#4f81bd', '#c0504d', '#9bbb59', '#8064a2', '#4bacc6 '];
+  for (let index = 0; index < categories.length; index++) {
+    let sectorInfo = new SectorInfo();
+    sectorInfo.name = categories[index];
+    sectorInfo.data = dataCount[index];
+    sectorInfo.color = colorArr[index];
+    this.allData += dataCount[index];
+    this.sectorInfoArr.push(sectorInfo);
+    if (this.maxData < dataCount[index]) {
+      this.maxData = dataCount[index];
+    }
+    if (this.minData > dataCount[index]) {
+      this.minData = dataCount[index];
+    }
+  }
+}
 ```
 
 2. 根据当前分类的数据和总数据占比，计算出扇形的起始角度和终点角度。
 ```text
-<span style="color: rgb(0,0,255);">drawChart</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">clearRect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">centerX </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">centerY </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">上一个扇形的结束角度</span></em>
-  let <span style="color: rgb(255,255,255);">lastEndAngle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PI </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
-  for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);"><</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sectorInfoArr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    const <span style="color: rgb(255,255,255);">element </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sectorInfoArr</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">计算当前扇形的起始角度和终点角度</span></em>
-    let <span style="color: rgb(255,255,255);">startAngle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">lastEndAngle</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">endAngle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">lastEndAngle </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">element</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">data </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">allData </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">2 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PI</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isTypeChange</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">element</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radius </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radius </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0.5 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">element</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">data </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">minData</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxData </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">element</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radius </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radius</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawSector</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startAngle</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">endAngle</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">element</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawBrokenLineAndText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startAngle</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">endAngle</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">element</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">lastEndAngle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">endAngle</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+drawChart() {
+  this.context.clearRect(0, 0, this.centerX * 2, this.centerY * 2);
+  // 上一个扇形的结束角度
+  let lastEndAngle: number = -Math.PI / 2;
+  for (let index = 0; index < this.sectorInfoArr.length; index++) {
+    const element = this.sectorInfoArr[index];
+    // 计算当前扇形的起始角度和终点角度
+    let startAngle: number = lastEndAngle;
+    let endAngle: number = lastEndAngle + element.data / this.allData * 2 * Math.PI;
+    if (this.isTypeChange) {
+      element.radius = this.radius * (0.5 + (element.data - this.minData) / this.maxData / 2);
+    } else {
+      element.radius = this.radius;
+    }
+    this.drawSector(startAngle, endAngle, element);
+    this.drawBrokenLineAndText(startAngle, endAngle, element);
+    lastEndAngle = endAngle;
+  }
+}
 ```
 
 3. 根据扇形的起始角度和终点角度，以及对应的数据信息绘制扇形。
 ```text
-<span style="color: rgb(0,0,255);">drawSector</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startAngle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">endAngle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">SectorInfo</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">beginPath</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">arc</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">centerX</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">centerY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radius</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startAngle</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">endAngle</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">lineWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radius </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">strokeStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">restore</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+drawSector(startAngle: number, endAngle: number, sectorInfo: SectorInfo) {
+  this.context.beginPath();
+  this.context.arc(this.centerX, this.centerY, sectorInfo.radius, startAngle, endAngle);
+  this.context.lineWidth = sectorInfo.radius * 2;
+  this.context.strokeStyle = sectorInfo.color;
+  this.context.stroke();
+  this.context.restore();
+}
 ```
 
 4. 根据扇形的起始角度和终点角度，以及对应的数据信息绘制折线和文字。
 ```text
-<span style="color: rgb(0,0,255);">drawBrokenLineAndText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startAngle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">endAngle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">SectorInfo</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-  let <span style="color: rgb(255,255,255);">angle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">endAngle </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">startAngle</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">brokenLineLength</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">brokenLineLengthTemp</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">15</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">计算扇形中心角度</span></em>
-  let <span style="color: rgb(255,255,255);">centerAngle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">startAngle </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">angle </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">r </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radius </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">2 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">brokenLineLength </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">计算折线起始点</span></em>
-  let <span style="color: rgb(255,255,255);">startX </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">centerX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">r </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">brokenLineLength</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cos</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">centerAngle</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">startY </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">centerY </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">r </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">brokenLineLength</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">centerAngle</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">计算折线转折点</span></em>
-  let <span style="color: rgb(255,255,255);">brokenX </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">centerX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">r </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cos</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">centerAngle</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">brokenY </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">centerY </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">r </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">centerAngle</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">endX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">brokenX</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">endY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">brokenY</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">添加文字属性</span></em>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textBaseline </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'middle'</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fillStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">font </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fp2px</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fontSize</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">'px sans-serif'</span><span style="color: rgb(181,106,1);">;</span>
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取文本</span></em>
-  let <span style="color: rgb(255,255,255);">textWidth </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">measureText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">textHeight </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">measureText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">textX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">endX</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">textY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">endY </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">textHeight </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">lastX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据文字计算折线终点，根据角度单位判断折线左右方向，以及文字的起点</span></em>
-  if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">centerAngle </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PI </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textAlign </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'right'</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">endX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">brokenX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">brokenLineLengthTemp </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">textWidth</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">textX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">brokenX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">brokenLineLengthTemp </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">textWidth</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">lastX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">endX </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">27</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textAlign </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'left'</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">endX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">brokenX </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">brokenLineLengthTemp </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">textWidth</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">textX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">endX</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">lastX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">endX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">27</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">绘制折线</span></em>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">beginPath</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">lineWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">strokeStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">moveTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">brokenX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">brokenY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">lastX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">endY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">填充文字</span></em>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">textX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">textY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+drawBrokenLineAndText(startAngle: number, endAngle: number, sectorInfo: SectorInfo) {
+  let angle = endAngle - startAngle;
+  let brokenLineLength: number = 20;
+  let brokenLineLengthTemp: number = 15;
+  // 计算扇形中心角度
+  let centerAngle = startAngle + angle / 2;
+  let r = sectorInfo.radius * 2 + brokenLineLength / 2;
+  // 计算折线起始点
+  let startX = this.centerX + (r - brokenLineLength) * Math.cos(centerAngle);
+  let startY = this.centerY + (r - brokenLineLength) * Math.sin(centerAngle);
+  // 计算折线转折点
+  let brokenX = this.centerX + r * Math.cos(centerAngle);
+  let brokenY = this.centerY + r * Math.sin(centerAngle);
+  let endX = brokenX;
+  let endY = brokenY;
+  // 添加文字属性
+  this.context.textBaseline = 'middle';
+  this.context.fillStyle = sectorInfo.color;
+  this.context.font = this.getUIContext().fp2px(sectorInfo.fontSize) + 'px sans-serif';
+  // 获取文本
+  let textWidth = this.context.measureText(sectorInfo.name).width;
+  let textHeight = this.context.measureText(sectorInfo.name).height;
+  let textX = endX;
+  let textY = endY - textHeight + 5;
+  let lastX = 0;
+  // 根据文字计算折线终点，根据角度单位判断折线左右方向，以及文字的起点
+  if (centerAngle < Math.PI / 2) {
+    this.context.textAlign = 'right';
+    endX = brokenX + brokenLineLengthTemp + textWidth;
+    textX = brokenX + brokenLineLengthTemp + textWidth;
+    lastX = endX - 27;
+  } else {
+    this.context.textAlign = 'left';
+    endX = brokenX - brokenLineLengthTemp - textWidth;
+    textX = endX;
+    lastX = endX + 27;
+  }
+  // 绘制折线
+  this.context.beginPath();
+  this.context.lineWidth = 2;
+  this.context.strokeStyle = sectorInfo.color;
+  this.context.moveTo(startX, startY);
+  this.context.lineTo(brokenX, brokenY);
+  this.context.lineTo(lastX, endY);
+  // 填充文字
+  this.context.fillText(sectorInfo.name, textX, textY);
+  this.context.stroke();
+}
 ```
 
 5. 完整示例参考如下：
 ```text
-class <span style="color: rgb(0,0,255);">SectorInfo </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">名称</span></em>
-  <span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">数据</span></em>
-  <span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">颜色</span></em>
-  <span style="color: rgb(255,255,255);">fontSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">14</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">字体大小</span></em>
-  <span style="color: rgb(255,255,255);">radius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">40</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">半径</span></em>
-<span style="color: rgb(181,106,1);">}</span>
+class SectorInfo {
+  name: string = ''; // 名称
+  data: number = 0; // 数据
+  color: string = ''; // 颜色
+  fontSize: number = 14; // 字体大小
+  radius: number = 40; // 半径
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">drawPieChart </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">sectorInfoArr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">SectorInfo</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State @Watch</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'drawChart'</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(255,255,255);">isTypeChange</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">用来配置</span><span style="color: rgb(128,128,128);">CanvasRenderingContext2D</span><span style="color: rgb(128,128,128);">对象的参数，包括是否开启抗锯齿，</span><span style="color: rgb(128,128,128);">true</span><span style="color: rgb(128,128,128);">表明开启抗锯齿。</span></em>
-  private <span style="color: rgb(255,255,255);">settings</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">RenderingContextSettings </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RenderingContextSettings</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">用来创建</span><span style="color: rgb(128,128,128);">CanvasRenderingContext2D</span><span style="color: rgb(128,128,128);">对象，通过在</span><span style="color: rgb(128,128,128);">canvas</span><span style="color: rgb(128,128,128);">中调用</span><span style="color: rgb(128,128,128);">CanvasRenderingContext2D</span><span style="color: rgb(128,128,128);">对象来绘制。</span></em>
-  private <span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">CanvasRenderingContext2D </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CanvasRenderingContext2D</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">settings</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">centerX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">centerY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">radius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">40</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">allData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">总数</span></em>
-  private <span style="color: rgb(255,255,255);">maxData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">40</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">最大值</span></em>
-  private <span style="color: rgb(255,255,255);">minData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">最小值</span></em>
+@Entry
+@Component
+struct drawPieChart {
+  @State sectorInfoArr: Array<SectorInfo> = [];
+  @State @Watch('drawChart') isTypeChange: boolean = false;
+  // 用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿，true表明开启抗锯齿。
+  private settings: RenderingContextSettings = new RenderingContextSettings(true);
+  // 用来创建CanvasRenderingContext2D对象，通过在canvas中调用CanvasRenderingContext2D对象来绘制。
+  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
+  private centerX: number = 0;
+  private centerY: number = 0;
+  private radius: number = 40;
+  private allData: number = 0; // 总数
+  private maxData: number = 40; // 最大值
+  private minData: number = 20; // 最小值
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">绘制扇形</span></em>
-  <span style="color: rgb(0,0,255);">drawSector</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startAngle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">endAngle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">SectorInfo</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">beginPath</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">arc</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">centerX</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">centerY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radius</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startAngle</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">endAngle</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">lineWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radius </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">strokeStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">restore</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  // 绘制扇形
+  drawSector(startAngle: number, endAngle: number, sectorInfo: SectorInfo) {
+    this.context.beginPath();
+    this.context.arc(this.centerX, this.centerY, sectorInfo.radius, startAngle, endAngle);
+    this.context.lineWidth = sectorInfo.radius * 2;
+    this.context.strokeStyle = sectorInfo.color;
+    this.context.stroke();
+    this.context.restore();
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">绘制折线和文字</span></em>
-  <span style="color: rgb(0,0,255);">drawBrokenLineAndText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startAngle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">endAngle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">SectorInfo</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">angle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">endAngle </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">startAngle</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">brokenLineLength</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">brokenLineLengthTemp</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">15</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">计算扇形中心角度</span></em>
-    let <span style="color: rgb(255,255,255);">centerAngle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">startAngle </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">angle </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">r </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radius </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">2 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">brokenLineLength </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">计算折线起始点</span></em>
-    let <span style="color: rgb(255,255,255);">startX </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">centerX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">r </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">brokenLineLength</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cos</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">centerAngle</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">startY </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">centerY </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">r </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">brokenLineLength</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">centerAngle</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">计算折线转折点</span></em>
-    let <span style="color: rgb(255,255,255);">brokenX </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">centerX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">r </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cos</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">centerAngle</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">brokenY </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">centerY </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">r </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">centerAngle</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">endX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">brokenX</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">endY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">brokenY</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">添加文字属性</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textBaseline </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'middle'</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fillStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">font </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fp2px</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fontSize</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">'px sans-serif'</span><span style="color: rgb(181,106,1);">;</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取文本</span></em>
-    let <span style="color: rgb(255,255,255);">textWidth </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">measureText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">textHeight </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">measureText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">textX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">endX</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">textY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">endY </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">textHeight </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">lastX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据文字计算折线终点，根据角度单位判断折线左右方向，以及文字的起点</span></em>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">centerAngle </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PI </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textAlign </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'right'</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">endX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">brokenX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">brokenLineLengthTemp </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">textWidth</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">textX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">brokenX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">brokenLineLengthTemp </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">textWidth</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">lastX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">endX </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">27</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textAlign </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'left'</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">endX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">brokenX </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">brokenLineLengthTemp </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">textWidth</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">textX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">endX</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">lastX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">endX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">27</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">绘制折线</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">beginPath</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">lineWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">strokeStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">moveTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">brokenX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">brokenY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">lastX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">endY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
- <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">填充文字</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">textX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">textY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  // 绘制折线和文字
+  drawBrokenLineAndText(startAngle: number, endAngle: number, sectorInfo: SectorInfo) {
+    let angle = endAngle - startAngle;
+    let brokenLineLength: number = 20;
+    let brokenLineLengthTemp: number = 15;
+    // 计算扇形中心角度
+    let centerAngle = startAngle + angle / 2;
+    let r = sectorInfo.radius * 2 + brokenLineLength / 2;
+    // 计算折线起始点
+    let startX = this.centerX + (r - brokenLineLength) * Math.cos(centerAngle);
+    let startY = this.centerY + (r - brokenLineLength) * Math.sin(centerAngle);
+    // 计算折线转折点
+    let brokenX = this.centerX + r * Math.cos(centerAngle);
+    let brokenY = this.centerY + r * Math.sin(centerAngle);
+    let endX = brokenX;
+    let endY = brokenY;
+    // 添加文字属性
+    this.context.textBaseline = 'middle';
+    this.context.fillStyle = sectorInfo.color;
+    this.context.font = this.getUIContext().fp2px(sectorInfo.fontSize) + 'px sans-serif';
+    // 获取文本
+    let textWidth = this.context.measureText(sectorInfo.name).width;
+    let textHeight = this.context.measureText(sectorInfo.name).height;
+    let textX = endX;
+    let textY = endY - textHeight + 5;
+    let lastX = 0;
+    // 根据文字计算折线终点，根据角度单位判断折线左右方向，以及文字的起点
+    if (centerAngle < Math.PI / 2) {
+      this.context.textAlign = 'right';
+      endX = brokenX + brokenLineLengthTemp + textWidth;
+      textX = brokenX + brokenLineLengthTemp + textWidth;
+      lastX = endX - 27;
+    } else {
+      this.context.textAlign = 'left';
+      endX = brokenX - brokenLineLengthTemp - textWidth;
+      textX = endX;
+      lastX = endX + 27;
+    }
+    // 绘制折线
+    this.context.beginPath();
+    this.context.lineWidth = 2;
+    this.context.strokeStyle = sectorInfo.color;
+    this.context.moveTo(startX, startY);
+    this.context.lineTo(brokenX, brokenY);
+    this.context.lineTo(lastX, endY);
+    // 填充文字
+    this.context.fillText(sectorInfo.name, textX, textY);
+    this.context.stroke();
+  }
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">装载模拟数据</span></em>
-    const <span style="color: rgb(255,255,255);">categories </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">视频广告</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">搜索引擎</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">直接访问</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">邮件营销</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">联盟广告</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(255,255,255);">dataCount </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">3</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(255,255,255);">colorArr </span><span style="color: rgb(181,106,1);">=</span>
-      <span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">'#4f81bd'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#c0504d'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#9bbb59'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#8064a2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#4bacc6 '</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">categories</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      let <span style="color: rgb(255,255,255);">sectorInfo </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">SectorInfo</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">categories</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">data </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">dataCount</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">color </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">colorArr</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">allData </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(255,255,255);">dataCount</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sectorInfoArr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sectorInfo</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxData </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">dataCount</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]) </span><span style="color: rgb(181,106,1);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">dataCount</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">minData </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,255,255);">dataCount</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]) </span><span style="color: rgb(181,106,1);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">minData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">dataCount</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  aboutToAppear(): void {
+    // 装载模拟数据
+    const categories = ['视频广告', '搜索引擎', '直接访问', '邮件营销', '联盟广告'];
+    const dataCount = [1, 2, 1, 3, 1];
+    const colorArr =
+      ['#4f81bd', '#c0504d', '#9bbb59', '#8064a2', '#4bacc6 '];
+    for (let index = 0; index < categories.length; index++) {
+      let sectorInfo = new SectorInfo();
+      sectorInfo.name = categories[index];
+      sectorInfo.data = dataCount[index];
+      sectorInfo.color = colorArr[index];
+      this.allData += dataCount[index];
+      this.sectorInfoArr.push(sectorInfo);
+      if (this.maxData < dataCount[index]) {
+        this.maxData = dataCount[index];
+      }
+      if (this.minData > dataCount[index]) {
+        this.minData = dataCount[index];
+      }
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">drawChart</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">clearRect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">centerX </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">centerY </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">上一个扇形的结束角度</span></em>
-    let <span style="color: rgb(255,255,255);">lastEndAngle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PI </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);"><</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sectorInfoArr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      const <span style="color: rgb(255,255,255);">element </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sectorInfoArr</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">计算当前扇形的起始角度和终点角度</span></em>
-      let <span style="color: rgb(255,255,255);">startAngle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">lastEndAngle</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">endAngle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">lastEndAngle </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">element</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">data </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">allData </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">2 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PI</span><span style="color: rgb(181,106,1);">;</span>
-      if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isTypeChange</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">element</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radius </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radius </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0.5 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">element</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">data </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">minData</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxData </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">element</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radius </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">radius</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawSector</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startAngle</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">endAngle</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">element</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawBrokenLineAndText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startAngle</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">endAngle</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">element</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">lastEndAngle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">endAngle</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  drawChart() {
+    this.context.clearRect(0, 0, this.centerX * 2, this.centerY * 2);
+    // 上一个扇形的结束角度
+    let lastEndAngle: number = -Math.PI / 2;
+    for (let index = 0; index < this.sectorInfoArr.length; index++) {
+      const element = this.sectorInfoArr[index];
+      // 计算当前扇形的起始角度和终点角度
+      let startAngle: number = lastEndAngle;
+      let endAngle: number = lastEndAngle + element.data / this.allData * 2 * Math.PI;
+      if (this.isTypeChange) {
+        element.radius = this.radius * (0.5 + (element.data - this.minData) / this.maxData / 2);
+      } else {
+        element.radius = this.radius;
+      }
+      this.drawSector(startAngle, endAngle, element);
+      this.drawBrokenLineAndText(startAngle, endAngle, element);
+      lastEndAngle = endAngle;
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Canvas</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'90%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'40%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#fff5f5f1'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAreaChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">oldArea</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Area</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">newArea</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Area</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-       <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">计算饼图的中心点</span></em>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">centerX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Number</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">newArea</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">centerY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Number</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">newArea</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawChart</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'onReady'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">切换状态</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isTypeChange </span><span style="color: rgb(181,106,1);">= !</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">isTypeChange</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column() {
+      Canvas(this.context)
+        .width('90%')
+        .height('40%')
+        .backgroundColor('#fff5f5f1')
+        .onAreaChange((oldArea: Area, newArea: Area) => {
+          // 计算饼图的中心点
+          this.centerX = Number(newArea.width) / 2;
+          this.centerY = Number(newArea.height) / 2;
+          this.drawChart();
+        })
+        .onReady(() => {
+          console.info('onReady');
+        })
+      Button('切换状态')
+        .onClick(() => {
+          this.isTypeChange = !this.isTypeChange;
+        })
+    }
+    .height('100%')
+    .width('100%')
+  }
+}
 ```

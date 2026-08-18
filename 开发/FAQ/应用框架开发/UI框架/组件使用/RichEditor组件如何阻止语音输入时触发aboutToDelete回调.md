@@ -54,7 +54,7 @@ struct DisableRichEditor {
         .backgroundColor(Color.Yellow)
         .margin({ left: 10, right: 10 })
         .aboutToDelete((value: RichEditorDeleteValue) => {
-        <em>  // 在语音输入过程中，光标位置不变，所以可以以此作为判断条件，证明当前正在进行语音输入。</em>
+          // 在语音输入过程中，光标位置不变，所以可以以此作为判断条件，证明当前正在进行语音输入。
           if (this.controller.getCaretOffset() === value.offset) {
             return false;
           }

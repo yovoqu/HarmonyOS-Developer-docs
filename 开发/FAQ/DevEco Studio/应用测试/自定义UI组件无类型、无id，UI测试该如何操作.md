@@ -32,7 +32,7 @@ UiTest API文档：[UI Test](https://developer.huawei.com/consumer/cn/doc/harmon
 ```text
 async function test() {
   let driver: Driver = Driver.create();
-  let on: On = ON.text('456').isBefore(ON.text('123')); <em>// 查找text为123之前的第一个text为456的组件</em>
+  let on: On = ON.text('456').isBefore(ON.text('123')); // 查找text为123之前的第一个text为456的组件
   let button: Component = await driver.findComponent(on);
   await button.click()
 }

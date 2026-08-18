@@ -95,7 +95,7 @@ struct ListItemExample {
           .zIndex(this.dragItem === item ? 1 : 0)
           .translate(this.dragItem === item ? { y: this.offsetY } : { y: 0 })
           .gesture(
-         <em>   // 以下组合手势为顺序识别，当长按手势事件未正常触发时则不会触发拖动手势事件</em>
+            // 以下组合手势为顺序识别，当长按手势事件未正常触发时则不会触发拖动手势事件
             GestureGroup(GestureMode.Sequence,
               LongPressGesture({ repeat: true })
                 .onAction((event?: GestureEvent) => {
@@ -120,7 +120,7 @@ struct ListItemExample {
                   let index = this.arr.indexOf(item);
                   let curveValue = Curves.initCurve(Curve.Sharp);
                   let value: number = 0;
-               <em>   // 根据位移计算相邻项的缩放</em>
+                  // 根据位移计算相邻项的缩放
                   if (this.offsetY < 0) {
                     value = curveValue.interpolate(-this.offsetY / this.ITEM_INTV);
                     this.neighborItem = this.arr[index-1];
@@ -131,7 +131,7 @@ struct ListItemExample {
                     this.neighborItem = this.arr[index+1];
                     this.neighborScale = 1 - value / 20;
                   }
-            <em>      // 根据位移交换排序</em>
+                  // 根据位移交换排序
                   if (this.offsetY > this.ITEM_INTV / 2) {
                     this.getUIContext().animateTo({ curve: curves.interpolatingSpring(0, 1, 400, 38) }, () => {
                       this.offsetY -= this.ITEM_INTV;

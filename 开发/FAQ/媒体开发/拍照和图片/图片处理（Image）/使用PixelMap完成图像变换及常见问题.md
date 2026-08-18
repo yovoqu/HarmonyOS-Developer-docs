@@ -37,11 +37,11 @@ struct Index {
     this.imagePixelMap = pixelMap;
   }
 
- <em> // 获取pixelMap</em>
+  // 获取pixelMap
   getPixelMap() {
-    let context = this.getUIContext().getHostContext() as common.UIAbilityContext; <em>// 获取resourceManager资源管理</em>
-    const resourceManager = context.resourceManager; <em>// 获取图片数据</em>
-    const fileData = resourceManager.getMediaContentSync($r('app.media.startIcon').id); <em>// startIcon</em><em>为测试图片，开发者需要替换为实际图片</em>
+    let context = this.getUIContext().getHostContext() as common.UIAbilityContext; // 获取resourceManager资源管理
+    const resourceManager = context.resourceManager; // 获取图片数据
+    const fileData = resourceManager.getMediaContentSync($r('app.media.startIcon').id); // startIcon为测试图片，开发者需要替换为实际图片
     const buffer = fileData.buffer;
     const imageSource = image.createImageSource(buffer);
     const pixelMap = imageSource.createPixelMapSync({
@@ -51,7 +51,7 @@ struct Index {
     return pixelMap;
   }
 
- <em> // 对pixelMap进行缩放</em>
+  // 对pixelMap进行缩放
   scalePixelMap(pixelMap: PixelMap, scaleCount: number) {
     pixelMap.scaleSync(scaleCount, scaleCount);
     return pixelMap;
@@ -68,7 +68,7 @@ struct Index {
           .onClick(() => {
             if (this.imagePixelMap) {
               this.scaleCount = this.scaleCount - 0.1;
-           <em>   // 获取图片基本信息，如果宽高大于300，继续缩小</em>
+              // 获取图片基本信息，如果宽高大于300，继续缩小
               let imageInfo = this.imagePixelMap.getImageInfoSync();
               if (imageInfo.size.width > 300 || imageInfo.size.width > 300) {
                 this.imagePixelMap = this.scalePixelMap(this.imagePixelMap, this.scaleCount);

@@ -40,11 +40,11 @@ import { SelectDialog } from '@kit.ArkUI';
 @Entry
 @Component
 struct SelectDialogDemo {
- <em> // title数组</em>
+  // title数组
   titleList: string[] = [];
- <em> // SelectDialog的radioContent进行初始化</em>
+  // SelectDialog的radioContent进行初始化
   radioContent: Array<SheetInfo> = [];
-<em>  // 设置默认选中radio的index</em>
+  // 设置默认选中radio的index
   radioIndex = 0;
   dialogControllerList: CustomDialogController = new CustomDialogController({
     builder: SelectDialog({
@@ -55,7 +55,7 @@ struct SelectDialogDemo {
         action: () => {
         },
       },
-   <em>   // 将初始化后的radioContent赋值给SelectDialog的radioContent属性</em>
+      // 将初始化后的radioContent赋值给SelectDialog的radioContent属性
       radioContent: this.radioContent
     }),
   });
@@ -75,7 +75,7 @@ struct SelectDialogDemo {
               this.titleList.push('文本文本文本文本文本');
               this.titleList.push('文本文本文本文本文本文本');
 
-          <em>    // 赋值给radioContent</em>
+              // 赋值给radioContent
               this.titleList.forEach((value: string, index: number) => {
                 let sheetInfo: SheetInfo = {
                   title: value,

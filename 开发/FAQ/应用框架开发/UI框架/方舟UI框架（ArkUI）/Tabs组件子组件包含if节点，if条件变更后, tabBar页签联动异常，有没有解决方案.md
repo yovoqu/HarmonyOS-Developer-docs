@@ -97,7 +97,7 @@ struct Index {
           .tabBar(this.tabBuilder(4, 'Page Five'))
           .backgroundColor('#ff02e7c4')
         }
-      <em>  // When the page is hidden, it is necessary to ensure that the first parameter Index of the TabContent page is continuous</em>
+        // When the page is hidden, it is necessary to ensure that the first parameter Index of the TabContent page is continuous
         else {
           TabContent() {
             Text('Page Four')

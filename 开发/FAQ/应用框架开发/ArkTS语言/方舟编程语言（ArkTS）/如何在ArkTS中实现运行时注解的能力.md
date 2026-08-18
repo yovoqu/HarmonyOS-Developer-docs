@@ -11,12 +11,12 @@ reflect-metadata提供的装饰器允许对类、属性和方法进行标记，�
 ```text
 import "reflect-metadata";
 
-<em>// The ability of third-party packaging is exposed in Reflect</em>
+// The ability of third-party packaging is exposed in Reflect
 @Reflect.metadata("TargetClass", 'classData')
- <em> // Tag class, key is "targetClass", data is classData</em>
+  // Tag class, key is "targetClass", data is classData
 class MyClass {
   @Reflect.metadata("TargetMethod", 'methodData')
- <em> // Tag method, key is' Target Method ', data is' methodData'</em>
+  // Tag method, key is' Target Method ', data is' methodData'
   myMethod() {
   }
 
@@ -25,8 +25,8 @@ class MyClass {
   }
 }
 
-<em>// Retrieve tag information at runtime</em>
-console.info(Reflect.getMetadata("TargetClass", MyClass));<em> //classData</em>
-console.info(Reflect.getMetadata("TargetMethod", new MyClass(), "myMethod")); <em>//methodData</em>
-console.info(Reflect.getMetadata("Static", MyClass, "invoke"));<em> // staticData</em>
+// Retrieve tag information at runtime
+console.info(Reflect.getMetadata("TargetClass", MyClass)); //classData
+console.info(Reflect.getMetadata("TargetMethod", new MyClass(), "myMethod")); //methodData
+console.info(Reflect.getMetadata("Static", MyClass, "invoke")); // staticData
 ```

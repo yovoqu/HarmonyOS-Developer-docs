@@ -29,9 +29,9 @@
 2. [配置项目NAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-compiling-the-napi)：
 引入CANNKit/hiai_helper.h头文件，实现判断设备NPU的方法IsNpuDevice。工程目录“\entry\src\main\cpp\napi_init.cpp”文件示例参考如下：
 ```text
-<em>/*</em>
-<em> * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.</em>
-<em> */</em>
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ */
 
 #include "napi/native_api.h"
 #include <hilog/log.h>
@@ -43,10 +43,10 @@ static napi_value IsNpuDevice(napi_env env, napi_callback_info info)
     const char *hiaiVersion = HMS_HiAI_GetVersion();
     napi_value result;
     napi_get_boolean(env, true, &result);
-    if (hiaiVersion == nullptr || strlen(hiaiVersion) != 15) { <em>/* 15: hiaiVersion返回的字符串长度 */</em>
+    if (hiaiVersion == nullptr || strlen(hiaiVersion) != 15) { /* 15: hiaiVersion返回的字符串长度 */
         OH_LOG_ERROR(LOG_APP, "HiAI version is null or not supported");
         napi_get_boolean(env, false, &result);
-    } else if (hiaiVersion[4] == '0') {<em> /* 返回的hiaiVersion字符串A1A2A3.X1X2X3.Y1Y2Y3.Z1Z2Z3中X1为0表示不支持NPU */</em>
+    } else if (hiaiVersion[4] == '0') { /* 返回的hiaiVersion字符串A1A2A3.X1X2X3.Y1Y2Y3.Z1Z2Z3中X1为0表示不支持NPU */
         OH_LOG_INFO(LOG_APP, "NPU is not supported");
         napi_get_boolean(env, false, &result);
     }
@@ -124,7 +124,7 @@ struct Index {
       Column() {
         Button('请点击检查是否支持NPU')
           .onClick(() => {
-            this.isNpuDevice = testNapi.isNpuDevice(); <em>// 调用接口检查是否支持NPU</em>
+            this.isNpuDevice = testNapi.isNpuDevice(); // 调用接口检查是否支持NPU
             hilog.info(DOMAIN, 'testTag', 'If support NPU: %{public}s', this.isNpuDevice);
             this.text = this.isNpuDevice ? '支持' : '不支持';
           })

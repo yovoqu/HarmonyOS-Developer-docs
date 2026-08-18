@@ -95,7 +95,7 @@ struct StickyNestedScroll {
     Stack() {
       Scroll() {
         Column() {
-          Image($r('app.media.scrollTopbg')) <em>// 图片资源需自行替换</em>
+          Image($r('app.media.scrollTopbg')) // 图片资源需自行替换
             .width('100%')
             .height(300);
           Tabs({ barPosition: BarPosition.Start }) {
@@ -135,9 +135,9 @@ struct StickyNestedScroll {
       .width('100%')
       .height('100%')
       .onDidScroll((xOffset: number, yOffset: number, scrollState: ScrollState): void => {
-       <em> // 累计计算当前父组件滚动在Y轴方向的偏移量</em>
+        // 累计计算当前父组件滚动在Y轴方向的偏移量
         this.curYOffset += yOffset;
-      <em>  // 根据父组件一共可以滚动的距离计算当前每帧的当前透明度</em>
+        // 根据父组件一共可以滚动的距离计算当前每帧的当前透明度
         let opacity = this.curYOffset / 220;
         if (opacity >= 1) {
           opacity = 1;
@@ -150,7 +150,7 @@ struct StickyNestedScroll {
       });
 
 
-     <em> // 悬浮标题栏</em>
+      // 悬浮标题栏
       Text('工作台')
         .fontSize(24)
         .fontColor('#000')

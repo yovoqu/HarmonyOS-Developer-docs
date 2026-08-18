@@ -39,20 +39,20 @@ struct Index {
   private conditionalQueryCalendarEvents: string = 'ConditionalQueryCalendarEvents';
   private deleteCalendarEvents: string = 'DeleteCalendarEvent';
   private updateCalendarEvents: string = 'UpdateCalendarEvent';
-  <em>// 1.配置日历账户信息</em>
+  // 1.配置日历账户信息
   private calendarAccount: calendarManager.CalendarAccount = {
-    <em>// 日历账户名称（面向开发者）</em>
+    // 日历账户名称（面向开发者）
     name: 'HarmonyOSCalendar',
-    <em>// 日历账户类型（LOCAL，本地账号；EMAIL，邮箱账号；BIRTHDAY，生日账号；BIRTHDAY，支持CalDAV协议账户；SUBSCRIBED，订阅账户）</em>
+    // 日历账户类型（LOCAL，本地账号；EMAIL，邮箱账号；BIRTHDAY，生日账号；BIRTHDAY，支持CalDAV协议账户；SUBSCRIBED，订阅账户）
     type: calendarManager.CalendarType.LOCAL,
-    <em>// 日历账户显示名称，该字段如果不填，创建的日历账户在界面显示为空字符串。</em>
+    // 日历账户显示名称，该字段如果不填，创建的日历账户在界面显示为空字符串。
     displayName: 'MyCalendar'
   };
-  <em>// 2.配置日历配置信息</em>
+  // 2.配置日历配置信息
   private calendarConfig: calendarManager.CalendarConfig = {
-    <em>// 是否打开Calendar下所有Event提醒能力</em>
+    // 是否打开Calendar下所有Event提醒能力
     enableReminder: true,
-    <em>// 设置日历账户颜色</em>
+    // 设置日历账户颜色
     color: '#aabbcc'
   };
   async requestPermission() {
@@ -70,11 +70,11 @@ struct Index {
         }
       }
       if (isPermitted) {
-        <em>// 有权限，获取日历管理对象</em>
+        // 有权限，获取日历管理对象
         this.calendarMgr = calendarManager.getCalendarManager(context);
         console.info(`get CalendarManager success.`);
       } else {
-        <em>// 没有权限，无法获取日历管理对象</em>
+        // 没有权限，无法获取日历管理对象
         console.error(`Get Permissions failed.`);
       }
     } catch (error) {
@@ -83,11 +83,11 @@ struct Index {
   }
   async aboutToAppear(): Promise<void> {
     await this.requestPermission();
-    <em>// 3.创建日历账户</em>
+    // 3.创建日历账户
     this.calendarMgr?.createCalendar(this.calendarAccount).then((data: calendarManager.Calendar) => {
       console.info(`Succeeded in creating calendar data->${JSON.stringify(data)}`);
       this.calendar = data;
-      <em>// 设置日历配置信息</em>
+      // 设置日历配置信息
       this.calendar.setConfig(this.calendarConfig).then(() => {
         console.info(`Succeeded in setting config, data->${JSON.stringify(this.calendarConfig)}`);
       }).catch((err: BusinessError) => {
@@ -103,7 +103,7 @@ struct Index {
       Button() {
         Text(this.queryCalendarByAccount).fontSize(30)
       }
-      .onClick(() => { <em>// 查询日历账号信息</em>
+      .onClick(() => { // 查询日历账号信息
         this.calendarMgr?.getCalendar(this.calendarAccount).then((data: calendarManager.Calendar) => {
           console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
         }).catch((err: BusinessError) => {
@@ -114,49 +114,49 @@ struct Index {
       Button() {
         Text(this.addCalendarEvent).fontSize(30)
       }
-      .onClick(() => { <em>// 添加日历提醒信息</em>
+      .onClick(() => { // 添加日历提醒信息
         const date = new Date();
 
-        <em>// 日历提醒信息，可根据需要自定义配置</em>
+        // 日历提醒信息，可根据需要自定义配置
         const event: calendarManager.Event = {
-          <em>// 日程标题</em>
+          // 日程标题
           title: '我的日历',
-          <em>// 日程类型，不推荐三方开发者使用calendarManager.EventType.IMPORTANT，重要日程类型不支持一键服务跳转功能及无法自定义提醒时间</em>
+          // 日程类型，不推荐三方开发者使用calendarManager.EventType.IMPORTANT，重要日程类型不支持一键服务跳转功能及无法自定义提醒时间
           type: calendarManager.EventType.NORMAL,
-          <em>// 日程开始时间</em>
+          // 日程开始时间
           startTime: date.getTime(),
-          <em>// 日程结束时间</em>
+          // 日程结束时间
           endTime: date.getTime() + 60 * 60 * 1000,
-          <em>// 距开始时间提前10分钟提醒</em>
+          // 距开始时间提前10分钟提醒
           reminderTime: [10],
-          <em>// 日程重复规则，可选属性。如果日程为周期性日程需要填写该属性。</em>
+          // 日程重复规则，可选属性。如果日程为周期性日程需要填写该属性。
           recurrenceRule: {
-            <em>// 日程重复规则类型，支持按天、按周、按月、按年重复</em>
+            // 日程重复规则类型，支持按天、按周、按月、按年重复
             recurrenceFrequency: calendarManager.RecurrenceFrequency.DAILY,
-            <em>// 日程重复次数，该字段和expire属性只需要填写一个，如果两个都填写按照count属性计算。</em>
+            // 日程重复次数，该字段和expire属性只需要填写一个，如果两个都填写按照count属性计算。
             count: 10,
-            <em>// 重复日程间隔时间，与recurrenceFrequency相关，此示例表示日程每隔2天进行重复。</em>
+            // 重复日程间隔时间，与recurrenceFrequency相关，此示例表示日程每隔2天进行重复。
             interval: 2,
-            <em>// 日程过期时间，该字段和count属性只需要填写一个，如果两个都填写按照count属性计算。</em>
+            // 日程过期时间，该字段和count属性只需要填写一个，如果两个都填写按照count属性计算。
             expire: date.getTime() + 60 * 60 * 1000 * 3,
-            <em>// 日程排除日期，将该日期从重复日程中排除掉</em>
+            // 日程排除日期，将该日期从重复日程中排除掉
             excludedDates: [date.getTime() + 60 * 60 * 1000 * 2]
           },
-          <em>// 日程服务，可选字段，需要一键服务功能的日程，填写该属性。</em>
+          // 日程服务，可选字段，需要一键服务功能的日程，填写该属性。
           service: {
-            <em>// 服务类型，比如一键查看、一键入会、一键追剧等。</em>
+            // 服务类型，比如一键查看、一键入会、一键追剧等。
             type: calendarManager.ServiceType.TRIP,
-            <em>// 服务的uri。可以跳转到三方应用相应界面，格式为deeplink。使用deeplink方式需要在华为HAG云侧进行注册，注册提供的信息为应用包名、应用的服务类型。</em>
-            <em>// deeplink包括scheme、host、path以及参数（不包含参数值）</em>
+            // 服务的uri。可以跳转到三方应用相应界面，格式为deeplink。使用deeplink方式需要在华为HAG云侧进行注册，注册提供的信息为应用包名、应用的服务类型。
+            // deeplink包括scheme、host、path以及参数（不包含参数值）
             uri: 'weixin://',
-            <em>// 服务辅助描述信息，可选字段</em>
+            // 服务辅助描述信息，可选字段
             description: '一键服务'
           }
         };
 
-        this.calendar?.addEvent(event).then((data: number) => { <em>// 日历提醒添加成功</em>
+        this.calendar?.addEvent(event).then((data: number) => { // 日历提醒添加成功
           console.info(`Succeeded in adding event, id -> ${data}`);
-        }).catch((err: BusinessError) => { <em>// 日历提醒添加失败</em>
+        }).catch((err: BusinessError) => { // 日历提醒添加失败
           console.error(`Failed to addEvent. Code: ${err.code}, message: ${err.message}`);
         });
       })
@@ -164,10 +164,10 @@ struct Index {
       Button() {
         Text(this.queryCalendarEvents).fontSize(30)
       }
-      .onClick(() => { <em>// 查询日历提醒信息</em>
+      .onClick(() => { // 查询日历提醒信息
         this.calendar?.getEvents().then((data: calendarManager.Event[]) => {
           console.info(`Succeeded in getting events, data -> ${JSON.stringify(data)}`);
-        }).catch((err: BusinessError) => { <em>// 查询日历提醒失败</em>
+        }).catch((err: BusinessError) => { // 查询日历提醒失败
           console.error(`Failed to get events. Code: ${err.code}, message: ${err.message}`);
 
         });
@@ -176,11 +176,11 @@ struct Index {
       Button() {
         Text(this.conditionalQueryCalendarEvents).fontSize(30)
       }
-      .onClick(() => { <em>// 条件查询日历提醒信息，可根据title（模糊查询），startTime和endTime以及id进行条件查询</em>
+      .onClick(() => { // 条件查询日历提醒信息，可根据title（模糊查询），startTime和endTime以及id进行条件查询
         const filter = calendarManager.EventFilter.filterByTitle('我');
         this.calendar?.getEvents(filter).then((data: calendarManager.Event[]) => {
           console.info(`Succeeded in getting events, data -> ${JSON.stringify(data)}`);
-        }).catch((err: BusinessError) => { <em>// 查询日历提醒失败</em>
+        }).catch((err: BusinessError) => { // 查询日历提醒失败
           console.error(`Failed to get events. Code: ${err.code}, message: ${err.message}`);
         });
       });
@@ -188,12 +188,12 @@ struct Index {
       Button() {
         Text(this.deleteCalendarEvents).fontSize(30)
       }
-      .onClick(() => { <em>// 删除日历提醒信息</em>
+      .onClick(() => { // 删除日历提醒信息
         this.calendar?.getEvents().then((data: calendarManager.Event[]) => {
-          if (data.length === 0) { <em>// 如果没有日历提醒，返回</em>
+          if (data.length === 0) { // 如果没有日历提醒，返回
             return;
           }
-          <em>// 如果有多个日历提醒内容，删除第一个</em>
+          // 如果有多个日历提醒内容，删除第一个
           this.calendar?.deleteEvent(data[0].id, (err: BusinessError) => {
             if (err) {
               console.error(`Failed to delete event. Code: ${err.code}, message: ${err.message}`);
@@ -209,14 +209,14 @@ struct Index {
       Button() {
         Text(this.updateCalendarEvents).fontSize(30)
       }
-      .onClick(() => { <em>// 更新日历提醒信息</em>
+      .onClick(() => { // 更新日历提醒信息
         this.calendar?.getEvents().then((data: calendarManager.Event[]) => {
-          if (data.length === 0) { <em>// 如果没有日历提醒，返回</em>
+          if (data.length === 0) { // 如果没有日历提醒，返回
             return;
           }
           let newEvent = data[0];
           newEvent.title = 'MyEvent';
-          <em>// 如果有多个日历提醒内容，更新第一个</em>
+          // 如果有多个日历提醒内容，更新第一个
           this.calendar?.updateEvent(newEvent, (err: BusinessError) => {
             if (err) {
               console.error(`Failed to update event. Code: ${err.code}, message: ${err.message}`);

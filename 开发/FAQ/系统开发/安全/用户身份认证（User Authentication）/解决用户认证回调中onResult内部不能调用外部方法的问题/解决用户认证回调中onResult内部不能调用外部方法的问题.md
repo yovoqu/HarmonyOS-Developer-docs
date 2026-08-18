@@ -11,9 +11,9 @@
 ```text
 this.userAuthInstance.on('result', {
   onResult(result) {
-<em>  // 判断用户认证是否成功</em>
+  // 判断用户认证是否成功
     if (result.result === 12500000) {
-    <em>  // 此处不能通过`this.func()`调用组件内的自定义方法</em>
+      // 此处不能通过`this.func()`调用组件内的自定义方法
     } else {
       console.error(result.result.toString())
     }
@@ -58,7 +58,7 @@ struct Biometric {
       Button('指纹认证调用')
         .fontSize(12)
         .onClick(() => {
-        <em>  // 订阅监听事件</em>
+          // 订阅监听事件
           emitter.on('getAuthFingerprintResult', (emitterData: emitter.EventData) => {
             if (emitterData.data !== undefined && emitterData.data.data !== undefined) {
               let data = emitterData.data.data as string;
@@ -68,7 +68,7 @@ struct Biometric {
               emitter.off('getAuthFingerprintResult');
             }
           });
-        <em>  // 执行指纹验证方法</em>
+          // 执行指纹验证方法
           new BiometricUtil().startAuthFingerprint();
         });
     }.width('100%')
@@ -77,7 +77,7 @@ struct Biometric {
 }
 
 class BiometricUtil {
- <em> // 用于定义初始化方法中转站</em>
+  // 用于定义初始化方法中转站
   constructor() {
     emitter.on('onAuthFingerprint', (emitterData: emitter.EventData) => {
       if (emitterData.data !== undefined && emitterData.data.data !== undefined) {
@@ -102,15 +102,15 @@ class BiometricUtil {
           title: '请使用指纹认证',
         };
         let userAuthInstance = userAuth.getUserAuthInstance(authParam, widgetParam);
-      <em>  // 需要调用UserAuthInstance的start()接口，启动认证后，才能通过onResult获取到认证结果。</em>
+        // 需要调用UserAuthInstance的start()接口，启动认证后，才能通过onResult获取到认证结果。
         userAuthInstance.on('result', {
           onResult(result) {
-          <em>  // 判断用户认证是否成功</em>
+            // 判断用户认证是否成功
             if (result.result === userAuth.UserAuthResultCode.SUCCESS) {
               let eventData: emitter.EventData = {
                 data: { 'data': '认证成功' }
               };
-           <em>   // 成功后调用中转站方法</em>
+              // 成功后调用中转站方法
               emitter.emit('onAuthFingerprint', eventData);
             } else {
               console.error(`Authentication failed: ${result.result}`);
@@ -124,7 +124,7 @@ class BiometricUtil {
       let eventData: emitter.EventData = {
         data: { 'data': this.getErrorMsg(error.code) }
       };
-     <em> // 成功后调用中转站方法</em>
+      // 成功后调用中转站方法
       emitter.emit('onAuthFingerprint', eventData);
     }
   }

@@ -31,7 +31,7 @@
 2. 在Stack组件中，首先设置背景色为rgba(0,0,0,0.1)，然后通过linearGradient设置组件的颜色渐变效果，并结合animation方法设置动画的持续时间和循环次数。
  
 ```text
-<em>// </em><em>用户自定义数据源</em>
+// 用户自定义数据源
 class MyDataSourceLOne implements IDataSource {
   private list: number[] = [];
 
@@ -75,7 +75,7 @@ struct BackGroundColorGradualChange {
         LazyForEach(this.arr, () => {
           ListItem() {
             Stack() {
-           <em>   // 设置组件的背景色</em>
+              // 设置组件的背景色
               Text()
                 .width('100%')
                 .height(100)
@@ -88,12 +88,12 @@ struct BackGroundColorGradualChange {
                 .onAppear(() => {
                   this.translateX = '100%';
                 })
-             <em>   // 设置动画的持续时间和循环次数</em>
+                // 设置动画的持续时间和循环次数
                 .animation({
                   duration: 1500,
                   iterations: -1
                 })
-              <em>  // 设置颜色渐变效果</em>
+                // 设置颜色渐变效果
                 .linearGradient({
                   angle: 90,
                   colors: [

@@ -18,18 +18,18 @@ struct PageOne {
   build() {
     NavDestination() {
       Column() {
-        Web({ src: 'https://www.XXX.com/', controller: this.controller }) <em>// It needs to be manually replaced with the actual website</em>
+        Web({ src: 'https://www.XXX.com/', controller: this.controller }) // It needs to be manually replaced with the actual website
       }
       .width('100%')
       .height('100%')
     }
     .title('pageOne')
     .onBackPressed(() => {
-      if (this.controller.accessBackward()) { <em>// Determine whether the web page can be navigated back</em>
-        this.controller.backward() <em>// Navigate back to the previous webpage</em>
+      if (this.controller.accessBackward()) { // Determine whether the web page can be navigated back
+        this.controller.backward() // Navigate back to the previous webpage
         return true
       } else {
-        const popDestinationInfo = this.pageInfos.pop(); <em>// Pop the top element of the routing stack </em>
+        const popDestinationInfo = this.pageInfos.pop(); // Pop the top element of the routing stack 
         return true;
       }
     }).onReady((context: NavDestinationContext) => {

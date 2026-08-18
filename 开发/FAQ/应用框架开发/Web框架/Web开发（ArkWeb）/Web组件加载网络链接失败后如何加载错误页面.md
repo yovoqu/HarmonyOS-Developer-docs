@@ -47,7 +47,7 @@ Hidden：隐藏，但参与布局进行占位。
 ```text
 import { webview } from '@kit.ArkWeb';
 
-<em>// </em><em>请换成实际应用的在线地址</em>
+// 请换成实际应用的在线地址
 const WEB_URL: string | Resource = 'www.example.com';
 
 @Entry
@@ -58,7 +58,7 @@ struct WebLoadErrorPage1 {
 
   build() {
     Stack() {
-      Column() { <em>// </em><em>缺省页</em>
+      Column() { // 缺省页
         Button('重新加载')
           .onClick(() => {
             this.successLoad = 0;
@@ -70,7 +70,7 @@ struct WebLoadErrorPage1 {
       .justifyContent(FlexAlign.Center)
       .visibility(this.successLoad !== 0 ? Visibility.Visible : Visibility.None);
 
-      Web({ src: WEB_URL, controller: this.webController }) <em>// Web</em><em>页面</em>
+      Web({ src: WEB_URL, controller: this.webController }) // Web页面
         .width('100%')
         .height('100%')
         .domStorageAccess(true)
@@ -95,7 +95,7 @@ struct WebLoadErrorPage1 {
 ```text
 import { webview } from '@kit.ArkWeb';
 
-<em>// </em><em>请换成实际应用的在线地址</em>
+// 请换成实际应用的在线地址
 const WEB_URL: string | Resource = 'www.example.com';
 
 class WebManager {
@@ -148,7 +148,7 @@ struct WebLoadErrorPage2 {
 
   
 ```text
-<em><!-- index.html --></em>
+<!-- index.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -158,12 +158,12 @@ struct WebLoadErrorPage2 {
         body {
           height: 100vh;
           display: flex;
-          justify-content: center;<em>  /* 水平居中 */</em>
-          align-items: center; <em>     /* 垂直居中 */</em>
+          justify-content: center;  /* 水平居中 */
+          align-items: center;      /* 垂直居中 */
         }
         .btn {
-          border: none;  <em> /* 移除边框 */</em>
-          border-radius: 30px; <em> /* 添加圆角 */</em>
+          border: none;   /* 移除边框 */
+          border-radius: 30px;  /* 添加圆角 */
           padding: 12px 30px;
           font-size: 16px;
           background-color: #0A59F7;
@@ -190,7 +190,7 @@ struct WebLoadErrorPage2 {
 ```text
 import { webview } from '@kit.ArkWeb';
 
-<em>// </em><em>请换成实际应用的在线地址</em>
+// 请换成实际应用的在线地址
 const WEB_URL: string | Resource = 'www.example.com';
 
 class WebManager {
@@ -262,8 +262,8 @@ struct WebLoadErrorPage3 {
                 '</script>',
               'text/html',
               'UTF-8',
-              ' ',<em> </em><em>// baseUrl设置为空格</em>
-              ' ' <em>// historyUrl设置为空格</em>
+              ' ', // baseUrl设置为空格
+              ' ' // historyUrl设置为空格
             );
           }
         });
@@ -276,7 +276,7 @@ struct WebLoadErrorPage3 {
 ```text
 import { webview } from '@kit.ArkWeb';
 
-<em>// </em><em>请换成实际应用的在线地址</em>
+// 请换成实际应用的在线地址
 const WEB_URL: string | Resource = 'www.baidu.com';
 
 class WebManager {

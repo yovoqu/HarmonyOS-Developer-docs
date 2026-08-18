@@ -180,7 +180,7 @@ struct FlexSolution1 {
         .borderRadius(24)
         .id('2')
         .onAreaChange((oldValue, newValue) => {
-         <em> // 监听内层Flex组件的高度</em>
+          // 监听内层Flex组件的高度
           this.flexHeight = newValue.height as number;
           console.info(`The height of the inner Flex before the change is ${oldValue.height}.`);
         });
@@ -188,7 +188,7 @@ struct FlexSolution1 {
       .width('92%')
       .backgroundColor('#E5E5EA')
       .margin({ top: 48 })
-     <em> // 动态改变外层Flex组件的高度</em>
+      // 动态改变外层Flex组件的高度
       .height(this.flexHeight)
       .id('1');
     }
@@ -202,11 +202,11 @@ struct FlexSolution2 {
 
   build() {
     NavDestination() {
-    <em>  // 外层Flex参数wrap缺省或设置为NoWrap</em>
+      // 外层Flex参数wrap缺省或设置为NoWrap
       Flex({
         direction: FlexDirection.Column,
         justifyContent: FlexAlign.Start,
-       <em> // 由于wrap缺省，alignContent不生效，交叉轴对齐方式使用alignItems参数</em>
+        // 由于wrap缺省，alignContent不生效，交叉轴对齐方式使用alignItems参数
         alignItems: ItemAlign.Center
       }) {
         Flex({
@@ -248,7 +248,7 @@ struct FlexSolution3 {
 
   build() {
     NavDestination() {
-     <em> // 使用Column、Row组件</em>
+      // 使用Column、Row组件
       Column() {
         Row({ space: 24 }) {
           Button('按钮1')
@@ -307,7 +307,7 @@ struct FlexSolution4 {
             .fontColor('#0A59F7');
         }
         .width('88%')
-      <em>  // 内层使用百分比填充</em>
+        // 内层使用百分比填充
         .height('100%')
         .backgroundColor('#D1D1D6')
         .padding(12)
@@ -315,7 +315,7 @@ struct FlexSolution4 {
         .id('2');
       }
       .width('92%')
-     <em> // 外层设置高度固定</em>
+      // 外层设置高度固定
       .height(65)
       .backgroundColor('#E5E5EA')
       .id('1')
@@ -354,7 +354,7 @@ struct FlexSolution5 {
             .fontColor('#0A59F7');
         }
         .width('88%')
-       <em> // 通过flexGrow设置组件在父容器的剩余空间所占比例</em>
+        // 通过flexGrow设置组件在父容器的剩余空间所占比例
         .flexGrow(1)
         .backgroundColor('#D1D1D6')
         .padding(12)
@@ -362,7 +362,7 @@ struct FlexSolution5 {
         .id('2');
       }
       .width('92%')
-     <em> // 父容器提供有效的高度基准</em>
+      // 父容器提供有效的高度基准
       .height(65)
       .backgroundColor('#E5E5EA')
       .id('1')

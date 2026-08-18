@@ -97,7 +97,7 @@ struct TabBarUnderLine {
       .barHeight(56)
       .animationDuration(400)
       .onChange((index: number) => {
-    <em>    // currentIndex控制TabContent显示页签</em>
+        // currentIndex控制TabContent显示页签
         this.currentIndex = index;
         this.selectedIndex = index;
       })
@@ -106,7 +106,7 @@ struct TabBarUnderLine {
         if (index === targetIndex) {
           return;
         }
-    <em>    // selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
+        // selectedIndex控制自定义TabBar内Image和Text颜色切换
         this.selectedIndex = targetIndex;
       })
       .width(360)

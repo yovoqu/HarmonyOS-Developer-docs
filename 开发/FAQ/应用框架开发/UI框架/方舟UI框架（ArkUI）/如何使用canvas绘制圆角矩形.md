@@ -22,25 +22,25 @@ struct CanvasDrawRoundedRectangle {
     lineDash = lineDash || [];
     this.ctx.beginPath();
     this.ctx.setLineDash(lineDash);
-  <em>  // Draw the first arc path</em>
+    // Draw the first arc path
     this.ctx.arc(x + radius, y + radius, radius, Math.PI, Math.PI * 3 / 2);
-   <em> // Draw the first straight path</em>
+    // Draw the first straight path
     this.ctx.lineTo(width - radius + x, y);
-   <em> // Draw the second arc path</em>
+    // Draw the second arc path
     this.ctx.arc(width - radius + x, radius + y, radius, Math.PI * 3 / 2, Math.PI * 2);
-  <em>  // Draw the second straight path</em>
+    // Draw the second straight path
     this.ctx.lineTo(width + x, height + y - radius);
-<em>    // Draw the third arc path</em>
+    // Draw the third arc path
     this.ctx.arc(width - radius + x, height - radius + y, radius, 0, Math.PI / 2);
-  <em>  // Draw the third straight path</em>
+    // Draw the third straight path
     this.ctx.lineTo(radius + x, height + y);
-    <em>// Draw the fourth arc path</em>
+    // Draw the fourth arc path
     this.ctx.arc(radius + x, height - radius + y, radius, Math.PI / 2, Math.PI);
-   <em> // Draw the fourth straight path</em>
+    // Draw the fourth straight path
     this.ctx.lineTo(x, y + radius);
-    <em>// Set brush color</em>
+    // Set brush color
     this.ctx.strokeStyle = strokeColor;
-  <em>  // Stroke drawing</em>
+    // Stroke drawing
     this.ctx.stroke();
     if (fillColor) {
       this.ctx.fillStyle = fillColor;

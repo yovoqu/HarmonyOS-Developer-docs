@@ -29,13 +29,13 @@ const AV_AIGC_METADATA =
   '{"Label":"value1","ContentProducer":"value2","ProduceID":"value3","ReservedCode1":"value4","ContentPropagator":"value5","PropagateID":"value6","ReservedCode2":"value7"}';
 
 
-<em>/**</em>
-<em> *</em>
-<em> * @param inputPath 输入音视频文件的沙箱路径（无隐式标识）</em>
-<em> * @param outputPath 输出文件的沙箱路径（添加隐式标识）</em>
-<em> * @param aigcMetadata 需要写入的AIGC文件元数据</em>
-<em> * @returns</em>
-<em> */</em>
+/**
+ *
+ * @param inputPath 输入音视频文件的沙箱路径（无隐式标识）
+ * @param outputPath 输出文件的沙箱路径（添加隐式标识）
+ * @param aigcMetadata 需要写入的AIGC文件元数据
+ * @returns
+ */
 async function addAIGC4AVFile(inputPath: string, outputPath: string, aigcMetadata: string): Promise<void> {
   let callback: ICallBack = {
     callBackResult: (code: number) => {
@@ -58,11 +58,11 @@ const IMAGE_AIGC_METADATA =
   '{"AIGC":{"Label":"value1","ContentProducer":"value2","ProduceID":"value3","ReservedCode1":"value4","ContentPropagator":"value5","PropagateID":"value6","ReservedCode2":"value7"}}';
 
 
-<em>/**</em>
-<em> *</em>
-<em> * @param imageFilePath 输入图片文件的沙箱路径</em>
-<em> * @param aigcMetadata 需要写入的AIGC文件元数据</em>
-<em> */</em>
+/**
+ *
+ * @param imageFilePath 输入图片文件的沙箱路径
+ * @param aigcMetadata 需要写入的AIGC文件元数据
+ */
 async function addAIGC4ImageFile(imageFilePath: string, aigcMetadata: string) {
   let imageSource: image.ImageSource | undefined;
   try {
@@ -91,13 +91,13 @@ const AV_AIGC_METADATA =
   '{"Label":"value1","ContentProducer":"value2","ProduceID":"value3","ReservedCode1":"value4","ContentPropagator":"value5","PropagateID":"value6","ReservedCode2":"value7"}';
 
 
-<em>/**</em>
-<em> *</em>
-<em> * @param inputPath 输入音视频文件的沙箱路径（无隐式标识）</em>
-<em> * @param outputPath 输出文件的沙箱路径（添加隐式标识）</em>
-<em> * @param aigcMetadata 需要写入的AIGC文件元数据</em>
-<em> * @returns</em>
-<em> */</em>
+/**
+ *
+ * @param inputPath 输入音视频文件的沙箱路径（无隐式标识）
+ * @param outputPath 输出文件的沙箱路径（添加隐式标识）
+ * @param aigcMetadata 需要写入的AIGC文件元数据
+ * @returns
+ */
 async function addAIGC4AVFile(inputPath: string, outputPath: string, aigcMetadata: string): Promise<void> {
   let callback: ICallBack = {
     callBackResult: (code: number) => {
@@ -118,11 +118,11 @@ const IMAGE_AIGC_METADATA =
   '{"AIGC":{"Label":"value1","ContentProducer":"value2","ProduceID":"value3","ReservedCode1":"value4","ContentPropagator":"value5","PropagateID":"value6","ReservedCode2":"value7"}}';
 
 
-<em>/**</em>
-<em> *</em>
-<em> * @param imageFilePath 输入图片文件的沙箱路径</em>
-<em> * @param aigcMetadata 需要写入的AIGC文件元数据</em>
-<em> */</em>
+/**
+ *
+ * @param imageFilePath 输入图片文件的沙箱路径
+ * @param aigcMetadata 需要写入的AIGC文件元数据
+ */
 async function addAIGC4ImageFile(imageFilePath: string, aigcMetadata: string) {
   let imageSource: image.ImageSource | undefined;
   try {
@@ -165,7 +165,7 @@ struct Index {
           let context = this.getUIContext().getHostContext() as Context;
           const inputPath = context.filesDir + '/input.mp4';
           const outputPath = context.filesDir + '/output.mp4';
-          await copyFile2Sandbox('input.mp4', inputPath, context); <em>// input.mp4为rawfile文件，根据实际使用的文件替换</em>
+          await copyFile2Sandbox('input.mp4', inputPath, context); // input.mp4为rawfile文件，根据实际使用的文件替换
           await addAIGC4AVFile(inputPath, outputPath, AV_AIGC_METADATA);
         });
 
@@ -177,7 +177,7 @@ struct Index {
           let context = this.getUIContext().getHostContext() as Context;
           const inputPath = context.filesDir + '/input.m4a';
           const outputPath = context.filesDir + '/output.m4a';
-          await copyFile2Sandbox('input.m4a', inputPath, context); <em>// input.m4a为rawfile文件，根据实际使用的文件替换</em>
+          await copyFile2Sandbox('input.m4a', inputPath, context); // input.m4a为rawfile文件，根据实际使用的文件替换
           await addAIGC4AVFile(inputPath, outputPath, AV_AIGC_METADATA);
         });
 
@@ -188,7 +188,7 @@ struct Index {
         .onClick(async () => {
           let context = this.getUIContext().getHostContext() as Context;
           const inputPath = context.filesDir + '/image.jpg';
-          await copyFile2Sandbox('image.jpg', inputPath, context);<em> // image.jpg为rawfile文件，根据实际使用的文件替换</em>
+          await copyFile2Sandbox('image.jpg', inputPath, context); // image.jpg为rawfile文件，根据实际使用的文件替换
           await addAIGC4ImageFile(inputPath, IMAGE_AIGC_METADATA);
         });
     }

@@ -13,7 +13,7 @@
 可以通过在List组件中使用ListItemGroup组件来展示ListItem分组，并单独设置ListItemGroup中的header参数以自定义每组的头部组件样式。参考代码如下：
  
 ```ArkTS
-<em>// xxx.ets</em>
+// xxx.ets
 @Entry
 @Component
 struct ListItemGroupExample {
@@ -70,7 +70,7 @@ struct ListItemGroupExample {
               }
             }, (item: string) => item)
           }
-          .divider({ strokeWidth: 1, color: Color.Blue }) <em>// The boundary line between each row</em>
+          .divider({ strokeWidth: 1, color: Color.Blue }) // The boundary line between each row
         })
       }
       .width('90%')

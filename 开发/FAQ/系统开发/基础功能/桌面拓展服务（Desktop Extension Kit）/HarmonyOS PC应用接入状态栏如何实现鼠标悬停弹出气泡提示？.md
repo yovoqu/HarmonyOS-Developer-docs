@@ -25,7 +25,7 @@ HarmonyOS PC应用接入状态栏后应该如何配置才能实现在鼠标悬�
 #### 解决方案
 1. 参考应用接入状态栏[开发步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/statusbar-extension-guide#section1697015212156)，先调用[statusBarManager.QuickOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-manager#section1139214183436)构建左键业务弹窗信息，以下为关键代码：
 ```text
-<em>// 构建点击状态栏图标时弹出的快捷操作窗口</em>
+// 构建点击状态栏图标时弹出的快捷操作窗口
 let operation: statusBarManager.QuickOperation = {
   abilityName: 'MyStatusBarViewAbility',
   title: 'Test Demo',

@@ -43,9 +43,9 @@ struct GridDragIconsTest {
   private scroller2: Scroller = new Scroller();
 
   @Builder
-  dragItem(item: string) { <em>// 拖拽过程样式</em>
+  dragItem(item: string) { // 拖拽过程样式
     Column() {
-   <em>   // 图片替换为已有资源</em>
+      // 图片替换为已有资源
       Image($r('app.media.img1'))
         .width(44)
         .height(44)
@@ -58,19 +58,19 @@ struct GridDragIconsTest {
     .height('auto');
   }
 
-  <em>// 拖动时图片变化</em>
+  // 拖动时图片变化
   @State scaleValue: number = 1;
   @State opacityValue: number = 1;
   private angle: number = 0;
- <em> // 是否在拖动</em>
+  // 是否在拖动
   @State isDrag1: boolean = false;
   @State isDrag2: boolean = false;
-<em>  // 落点是否在另外一个grid</em>
+  // 落点是否在另外一个grid
   @State isDropIn1: boolean = false;
   @State isDropIn2: boolean = false;
- <em> // 设置抖动</em>
+  // 设置抖动
   @State rotateZ: number = 0;
-<em>  // 记录拖拽的图标起点和落点索引（无论上下哪个grid）</em>
+  // 记录拖拽的图标起点和落点索引（无论上下哪个grid）
   @State indexUp: number = 0;
   @State indexDown: number = 0;
 
@@ -111,12 +111,12 @@ struct GridDragIconsTest {
         ForEach(this.addedItems1, (item: string) => {
           GridItem() {
             Column() {
-            <em>  // 图片替换为已有资源</em>
+              // 图片替换为已有资源
               Image($r('app.media.startIcon'))
                 .width(44)
                 .height(44)
                 .objectFit(ImageFit.Contain)
-                .draggable(false) <em>// 设置为false</em>
+                .draggable(false) // 设置为false
                 .scale({ x: this.scaleValue, y: this.scaleValue })
                 .opacity(this.opacityValue)
                 .rotate({
@@ -147,26 +147,26 @@ struct GridDragIconsTest {
         top: 30
       })
       .backgroundColor(0xFAEEE0)
-      .editMode(true) <em>// 设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem</em>
-      .onItemDragStart(((event: ItemDragInfo, index: number) => {<em> // 第一次拖拽此事件绑定的组件时，触发回调。</em>
+      .editMode(true) // 设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem
+      .onItemDragStart(((event: ItemDragInfo, index: number) => { // 第一次拖拽此事件绑定的组件时，触发回调。
         console.info(`kevin1---onItemDragStart1---index:${index}`);
         this.indexUp = index;
 
-      <em>  // 1、触发震动</em>
+        // 1、触发震动
         this.vibrator1();
 
-     <em>   // 2、按住旋转</em>
+        // 2、按住旋转
         this.isDrag1 = true;
         this.jumpWithSpeed(5, this.isDrag1);
-        this.scaleValue = 0.9; <em>// 缩小至90%</em>
-        this.opacityValue = 0.8; <em>// 透明度80%</em>
-        return this.dragItem(this.addedItems1[index]);<em> // 设置拖拽过程中显示的图片。</em>
+        this.scaleValue = 0.9; // 缩小至90%
+        this.opacityValue = 0.8; // 透明度80%
+        return this.dragItem(this.addedItems1[index]); // 设置拖拽过程中显示的图片。
       }))
-      .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number) => { <em>// 绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。</em>
+      .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number) => { // 绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。
         this.indexDown = insertIndex;
         this.isDropIn1 = true;
         console.info('kevin1', 'onItemDrop1');
-        console.info(`itemIndex---itemIndex:${insertIndex}`); <em>// itemIndex拖拽起始位置，insertIndex拖拽插入位置</em>
+        console.info(`itemIndex---itemIndex:${insertIndex}`); // itemIndex拖拽起始位置，insertIndex拖拽插入位置
         this.changeIndex1();
         this.stopJump();
         this.scaleValue = 1;
@@ -174,17 +174,17 @@ struct GridDragIconsTest {
         this.init();
       });
 
-     <em> // grid2</em>
+      // grid2
       Grid(this.scroller2) {
         ForEach(this.addedItems2, (item: string) => {
           GridItem() {
             Column() {
-             <em> // 图片替换为已有资源</em>
+              // 图片替换为已有资源
               Image($r('app.media.startIcon'))
                 .width(44)
                 .height(44)
                 .objectFit(ImageFit.Contain)
-                .draggable(false)<em> // 设置为false</em>
+                .draggable(false) // 设置为false
                 .scale({ x: this.scaleValue, y: this.scaleValue })
                 .opacity(this.opacityValue)
                 .rotate({
@@ -216,29 +216,29 @@ struct GridDragIconsTest {
         top: 30
       })
       .backgroundColor(0xFAEEE0)
-      .editMode(true)<em> // 设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem</em>
-      .onItemDragStart(((event: ItemDragInfo, index: number) => {<em> // 第一次拖拽此事件绑定的组件时，触发回调。</em>
+      .editMode(true) // 设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem
+      .onItemDragStart(((event: ItemDragInfo, index: number) => { // 第一次拖拽此事件绑定的组件时，触发回调。
         console.info(`kevin2---onItemDragStart2---index:${index}`);
         this.indexUp = index;
 
-       <em> // 1、触发震动</em>
+        // 1、触发震动
         this.vibrator1();
 
-      <em>  // 2、按住旋转</em>
+        // 2、按住旋转
         this.isDrag2 = true;
 
         this.jumpWithSpeed(5, this.isDrag2);
 
-        this.scaleValue = 0.9; <em>// 缩小至90%</em>
-        this.opacityValue = 0.8; <em>// 透明度80%</em>
-        return this.dragItem(this.addedItems2[index]); <em>// 设置拖拽过程中显示的图片。</em>
+        this.scaleValue = 0.9; // 缩小至90%
+        this.opacityValue = 0.8; // 透明度80%
+        return this.dragItem(this.addedItems2[index]); // 设置拖拽过程中显示的图片。
       }))
-      .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number) => { <em>// 绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。</em>
+      .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number) => { // 绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。
         this.indexDown = insertIndex;
         this.isDropIn2 = true;
         this.stopJump();
         console.info('kevin2', 'onItemDrop2');
-        console.info(`itemIndex---itemIndex:${insertIndex}`); <em>// itemIndex拖拽起始位置，insertIndex拖拽插入位置</em>
+        console.info(`itemIndex---itemIndex:${insertIndex}`); // itemIndex拖拽起始位置，insertIndex拖拽插入位置
         this.changeIndex2();
         this.scaleValue = 1;
         this.opacityValue = 1;
@@ -250,7 +250,7 @@ struct GridDragIconsTest {
     .width('100%');
   }
 
-<em>  // 初始化长按拖拽状态</em>
+  // 初始化长按拖拽状态
   init() {
     this.isDropIn2 = false;
     this.isDrag2 = false;
@@ -258,10 +258,10 @@ struct GridDragIconsTest {
     this.isDrag1 = false;
   }
 
-<em>  // 触发马达振动</em>
+  // 触发马达振动
   vibrator1() {
     try {
-   <em>   // 触发马达振动</em>
+      // 触发马达振动
       if (canIUse('SystemCapability.Sensors.MiscDevice')) {
         vibrator.startVibration({
           type: 'time',
@@ -277,7 +277,7 @@ struct GridDragIconsTest {
           console.info('Succeed in starting vibration');
         });
       } else {
-    <em>    // Fallback for unsupported SystemCapability</em>
+        // Fallback for unsupported SystemCapability
       }
     } catch (err) {
       let e: BusinessError = err as BusinessError;
@@ -285,19 +285,19 @@ struct GridDragIconsTest {
     }
   }
 
- <em> // 交换数组位置</em>
-<em>  // 拖入1中</em>
+  // 交换数组位置
+  // 拖入1中
   changeIndex1() {
     const index1 = this.indexUp;
     const index2 = this.indexDown;
-  <em>  // 从2拖到1：在2中按住，然后从1中落地</em>
+    // 从2拖到1：在2中按住，然后从1中落地
     if (this.isDrag2 && this.isDropIn1) {
       let temp: string;
       temp = this.addedItems2[index1];
       this.addedItems2.splice(index1, 1);
       this.addedItems1.splice(index2, 0, temp);
     } else if (this.isDrag1 && this.isDropIn1 && !this.isDropIn2) {
-   <em>   // 从1拖到1：在1按住，然后在1中落地</em>
+      // 从1拖到1：在1按住，然后在1中落地
       let temp: string;
       temp = this.addedItems1[index1];
       this.addedItems1[index1] = this.addedItems1[index2];
@@ -305,18 +305,18 @@ struct GridDragIconsTest {
     }
   }
 
- <em> // 拖入2中</em>
+  // 拖入2中
   changeIndex2() {
     const index1 = this.indexUp;
     const index2 = this.indexDown;
-  <em>  // 从1拖到2：在1中按住，然后从2中落地</em>
+    // 从1拖到2：在1中按住，然后从2中落地
     if (this.isDrag1 && this.isDropIn2) {
       let temp: string;
       temp = this.addedItems1[index1];
       this.addedItems1.splice(index1, 1);
       this.addedItems2.splice(index2, 0, temp);
     } else if (this.isDrag2 && this.isDropIn2 && !this.isDropIn1) {
-   <em>   // 从2拖到2：在2按住，然后在2中落地</em>
+      // 从2拖到2：在2按住，然后在2中落地
       let temp: string;
       temp = this.addedItems2[index1];
       this.addedItems2[index1] = this.addedItems2[index2];

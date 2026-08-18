@@ -65,12 +65,12 @@ struct BindContextMenuIndex {
         .onClick(() => {
           this.promptAction.showToast({ message: '第三层的兄弟层1' });
         })
-        <em>// 长按手势，将控制菜单显隐的值修改为true</em>
+        // 长按手势，将控制菜单显隐的值修改为true
         .gesture(LongPressGesture().onAction(() => {
           this.menuShow = true;
           this.flag = true;
         }))
-        <em>// 绑定菜单</em>
+        // 绑定菜单
         .bindContextMenu(!!this.menuShow, this.menu(), {
           onDisappear: () => {
             this.menuShow = false;
@@ -105,7 +105,7 @@ struct BindContextMenuIndex {
       }
       this.promptAction.showToast({ message: '第一层' });
     })
-   <em> // 阻止事件穿透</em>
+    // 阻止事件穿透
     .hitTestBehavior(
       this.menuShow ?
       HitTestMode.Block :

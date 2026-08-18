@@ -99,19 +99,19 @@ struct IndexDemo {
     }
   }
 
- <em> // 记录事件触发的队列，按索引排序</em>
+  // 记录事件触发的队列，按索引排序
   private eventQueue: Array<DateBase> = [];
 
- <em> // 处理事件的统一方法（按索引顺序执行）</em>
+  // 处理事件的统一方法（按索引顺序执行）
   private processEvents() {
-  <em>  // 按索引排序</em>
+    // 按索引排序
     this.eventQueue.sort((a, b) => a.key - b.key);
-   <em> // 依次处理</em>
+    // 依次处理
     this.eventQueue.forEach(item => {
-    <em>  // 执行实际业务逻辑（如更新UI、加载数据等）</em>
+      // 执行实际业务逻辑（如更新UI、加载数据等）
       console.info(`处理Item${item.key}，可见性: ${item.visible}`);
     });
-   <em> // 清空队列</em>
+    // 清空队列
     this.eventQueue = [];
   }
 
@@ -131,7 +131,7 @@ struct IndexDemo {
           .height('10%')
           .backgroundColor(Color.Red)
           .onVisibleAreaChange([0.0, 1.0], (visible: boolean, currentRatio: number) => {
-          <em>  // 不直接处理，先加入队列</em>
+            // 不直接处理，先加入队列
             if (visible && currentRatio === 1.0) {
               let timeoutId: boolean = false;
               this.eventQueue.push(new DateBase(index, visible));

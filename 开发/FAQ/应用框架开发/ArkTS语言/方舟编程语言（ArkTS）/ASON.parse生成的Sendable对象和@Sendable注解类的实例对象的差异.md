@@ -59,34 +59,34 @@ struct Index {
           let jsonText = '{"name": "John", "age": 30, "city": "ct"}';
           let obj = ArkTSUtils.ASON.parse(jsonText) as ISendable;
 
-        <em>  // 在线程中传递</em>
+          // 在线程中传递
           try {
             let task = new taskpool.Task(method, (obj as TestClass));
             await taskpool.execute(task);
-            console.info((obj as TestClass).name);<em> </em><em>// 打印Cici</em>
+            console.info((obj as TestClass).name); // 打印Cici
           } catch (e) {
             let err: BusinessError = e as BusinessError;
             console.error(`执行失败，${err.code}, ${err.message}`);
           }
 
-         <em> // 获取和修改属性值</em>
+          // 获取和修改属性值
           try {
             (obj as TestClass).name = 'Alice';
-            console.info((obj as TestClass).name); <em>// 打印Alice</em>
+            console.info((obj as TestClass).name); // 打印Alice
             jsonText = ArkTSUtils.ASON.stringify(obj);
-            console.info(`${jsonText}`); <em>// 打印{"name":"Alice","age":30,"city":"ct"}</em>
+            console.info(`${jsonText}`); // 打印{"name":"Alice","age":30,"city":"ct"}
           } catch (e) {
             let err: BusinessError = e as BusinessError;
             console.error(`修改失败，${err.code}, ${err.message}`);
           }
 
-          <em>// </em><em>无法调用类成员方法</em>
+          // 无法调用类成员方法
           try {
             (obj as TestClass).info();
             console.info('调用成功');
           } catch (e) {
             let err: BusinessError = e as BusinessError;
-            console.error(`调用失败，${err.code}, ${err.message}`);<em> </em><em>// 无法调用，打印：调用失败，undefined, undefined is not callable</em>
+            console.error(`调用失败，${err.code}, ${err.message}`); // 无法调用，打印：调用失败，undefined, undefined is not callable
           }
         });
     }

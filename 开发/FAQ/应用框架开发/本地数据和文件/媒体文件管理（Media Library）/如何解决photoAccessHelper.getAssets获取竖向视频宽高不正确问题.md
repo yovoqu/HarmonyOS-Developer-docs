@@ -80,11 +80,11 @@ struct PhAccessHelperGetAssets {
 
   async testMethod() {
     const photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
-    photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_VIDEO_TYPE; <em>// 过滤选择媒体文件类型为IMAGE</em>
-    photoSelectOptions.maxSelectNumber = 1;<em> </em><em>// 选择媒体文件的最大数目</em>
+    photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_VIDEO_TYPE; // 过滤选择媒体文件类型为IMAGE
+    photoSelectOptions.maxSelectNumber = 1; // 选择媒体文件的最大数目
     let uris: Array<string> = [];
     const photoViewPicker = new photoAccessHelper.PhotoViewPicker();
-   <em> // 拉起相册</em>
+    // 拉起相册
     photoViewPicker.select(photoSelectOptions).then(async (photoSelectResult: photoAccessHelper.PhotoSelectResult) => {
       uris = photoSelectResult.photoUris;
       console.info('photoViewPicker.select to file succeed and uris are:' + uris);
@@ -94,18 +94,18 @@ struct PhAccessHelperGetAssets {
       let context: Context = this.getUIContext().getHostContext() as common.UIAbilityContext;
       let phAccessHelper = photoAccessHelper.getPhotoAccessHelper(context);
       let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
-      let uri = uris[0];<em> </em><em>// 需保证此uri已存在</em>
+      let uri = uris[0]; // 需保证此uri已存在
       predicates.equalTo(photoAccessHelper.PhotoKeys.URI, uri.toString());
       let fetchOptions: photoAccessHelper.FetchOptions = {
         fetchColumns: [
           'title',
-          photoAccessHelper.PhotoKeys.WIDTH,<em> </em><em>// 图片宽度</em>
-          photoAccessHelper.PhotoKeys.HEIGHT, <em>// 图片高度</em>
-          photoAccessHelper.PhotoKeys.DURATION,<em> </em><em>// 持续时间</em>
-          photoAccessHelper.PhotoKeys.SIZE, <em>// </em><em>文件大小</em>
-          photoAccessHelper.PhotoKeys.DISPLAY_NAME, <em>// 显示名字</em>
-          photoAccessHelper.PhotoKeys.ORIENTATION, <em>// </em><em>图片文件的方向</em>
-          photoAccessHelper.PhotoKeys.PHOTO_SUBTYPE], <em>// </em><em>媒体文件的子类型</em>
+          photoAccessHelper.PhotoKeys.WIDTH, // 图片宽度
+          photoAccessHelper.PhotoKeys.HEIGHT, // 图片高度
+          photoAccessHelper.PhotoKeys.DURATION, // 持续时间
+          photoAccessHelper.PhotoKeys.SIZE, // 文件大小
+          photoAccessHelper.PhotoKeys.DISPLAY_NAME, // 显示名字
+          photoAccessHelper.PhotoKeys.ORIENTATION, // 图片文件的方向
+          photoAccessHelper.PhotoKeys.PHOTO_SUBTYPE], // 媒体文件的子类型
         predicates: predicates
       };
       let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
@@ -114,7 +114,7 @@ struct PhAccessHelperGetAssets {
       let title: photoAccessHelper.PhotoKeys = photoAccessHelper.PhotoKeys.TITLE;
       let paTitle = photoAsset.get(title.toString());
       this.phName = paTitle.toString();
-      this.phOrientation = photoAsset.get('orientation') as number; <em>// 获取旋转角度</em>
+      this.phOrientation = photoAsset.get('orientation') as number; // 获取旋转角度
       if (this.phOrientation % 180 == 90) {
         this.phName = paTitle.toString();
         this.phWidth = photoAsset.get('height') as number;
@@ -124,7 +124,7 @@ struct PhAccessHelperGetAssets {
         this.phWidth = photoAsset.get('width') as number;
         this.phHeight = photoAsset.get('height') as number;
       }
-     <em> // 释放FetchResult实例并使其失效</em>
+      // 释放FetchResult实例并使其失效
       fetchResult.close();
       return photoAsset;
     }).catch((err: BusinessError) => {

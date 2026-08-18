@@ -23,48 +23,48 @@
 ```json
 #include "curl/curl.h"
 
-<em>// ...</em>
+// ...
 
-<em>// Get request and post request data response functions</em>
+// Get request and post request data response functions
 size_t ReqReply(void *ptr, size_t size, size_t nmemb, void *userdata) {
     string *str = reinterpret_cast<string *>(userdata);
     (*str).append((char *)ptr, size * nmemb);
     return size * nmemb;
 }
 
-<em>// http GET Request configuration</em>
+// http GET Request configuration
 CURLcode CurlGetReq(const std::string &url, std::string &response) {
-   <em> // Curl initialization</em>
+    // Curl initialization
     CURL *curl = curl_easy_init();
-   <em> // Curl return value</em>
+    // Curl return value
     CURLcode res;
     if (curl) {
-       <em> // Set the request header for Curl</em>
+        // Set the request header for Curl
         struct curl_slist *headers = NULL;
         headers = curl_slist_append(headers, "Content-Type:application/json");
         curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
 
-       <em> // Set the URL address for the request</em>
+        // Set the URL address for the request
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
 
-      <em>  // Receive response header data, 0 represents not receiving, 1 represents receiving</em>
+        // Receive response header data, 0 represents not receiving, 1 represents receiving
         curl_easy_setopt(curl, CURLOPT_HEADER, 1);
 
-      <em>  // Set data receiving function</em>
+        // Set data receiving function
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, ReqReply);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&response);
 
-      <em>  // Set to not use any signal/alarm handlers</em>
+        // Set to not use any signal/alarm handlers
         curl_easy_setopt(curl, CURLOPT_NOSIGNAL, 1);
 
-      <em>  // Set timeout period</em>
+        // Set timeout period
         curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 10);
         curl_easy_setopt(curl, CURLOPT_TIMEOUT, 10);
 
-       <em> // Open request</em>
+        // Open request
         res = curl_easy_perform(curl);
     }
-   <em> // Release curl</em>
+    // Release curl
     curl_easy_cleanup(curl);
     return res;
 }
@@ -77,7 +77,7 @@ static napi_value NatReq(napi_env env, napi_callback_info info) {
         OH_LOG_Print(LOG_APP, LOG_INFO, 0xFF00, "pure", "response: \n%{public}s", getResponseStr.c_str());
     }
 
-  <em>  // ...</em>
+    // ...
 }
 ```
 

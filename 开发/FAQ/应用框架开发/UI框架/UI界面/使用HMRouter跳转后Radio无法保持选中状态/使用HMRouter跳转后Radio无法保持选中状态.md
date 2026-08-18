@@ -17,14 +17,14 @@ ohpm install @hadss/hmrouter
 ```json
 {
   "dependencies": {
-    "@hadss/hmrouter-plugin": "^1.2.0"  <em>// 使用npm仓版本号</em>
+    "@hadss/hmrouter-plugin": "^1.2.0"  // 使用npm仓版本号
   },
 }
 ```
 
 - 修改工程根目录下的hvigorfile.ts，使用路由编译插件。
 ```text
-<em>// 工程根目录/hvigorfile.ts</em>
+// 工程根目录/hvigorfile.ts
 import { appTasks } from '@ohos/hvigor-ohos-plugin';
 import { appPlugin } from '@hadss/hmrouter-plugin';
 
@@ -38,7 +38,7 @@ export default {
 ```text
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
-    <em>// 日志开启需在init之前调用，否则会丢失初始化日志</em>
+    // 日志开启需在init之前调用，否则会丢失初始化日志
     HMRouterMgr.openLog('INFO')
     HMRouterMgr.init({
       context: this.context
@@ -50,7 +50,7 @@ export default class EntryAbility extends UIAbility {
 
  
 ```ArkTS
-<em>// Index.ets</em>
+// Index.ets
 import { HMDefaultGlobalAnimator, HMNavigation, HMRouterMgr } from '@hadss/hmrouter';
 import { AttributeUpdater } from '@kit.ArkUI';
 
@@ -116,7 +116,7 @@ class NavModifier extends AttributeUpdater<NavigationAttribute> {
 ```
  
 ```ArkTS
-<em>// TwoPage.ets</em>
+// TwoPage.ets
 import { HMRouter, HMRouterMgr } from '@hadss/hmrouter'
 
 @HMRouter({ pageUrl: 'TwoPage' })

@@ -35,7 +35,7 @@
 @Component
 struct CustomDialogUser1 {
   @State isToggleOn: boolean = false;
- <em> // 创建自定义弹窗控制器对象</em>
+  // 创建自定义弹窗控制器对象
   dialogController: CustomDialogController = new CustomDialogController({
     builder: CustomDialogExample1({
       confirm: () => {
@@ -48,18 +48,18 @@ struct CustomDialogUser1 {
   });
 
   onAccept() {
-   <em> // 弹窗中点击确定执行的操作</em>
+    // 弹窗中点击确定执行的操作
     this.isToggleOn = !this.isToggleOn;
   }
 
   reject() {
-   <em> // 弹窗中点击取消执行的操作</em>
+    // 弹窗中点击取消执行的操作
   }
 
   build() {
     Column() {
       Toggle({ type: ToggleType.Switch, isOn: this.isToggleOn })
-   <em>   // 调用onTouchIntercept修改该组件的HitTestMode属性</em>
+      // 调用onTouchIntercept修改该组件的HitTestMode属性
         .onTouchIntercept(() => {
           this.dialogController.open();
           return HitTestMode.None;
@@ -67,7 +67,7 @@ struct CustomDialogUser1 {
         .onChange((isOn: boolean) => {
           console.info(`isOn:${isOn}`);
           if (isOn) {
-        <em>    // 需要执行的操作</em>
+            // 需要执行的操作
           }
         })
         .margin({ top: 16 })
@@ -77,7 +77,7 @@ struct CustomDialogUser1 {
   }
 }
 
-<em>// </em><em>自定义弹窗</em>
+// 自定义弹窗
 @CustomDialog
 struct CustomDialogExample1 {
   controller?: CustomDialogController;

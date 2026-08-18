@@ -139,10 +139,10 @@ com.hx.example	12448	1618	328359	1418	dev/ashmem/gralloc_shared_attr	4096	4096	3
 ---------------------------------------------------------------------------------
 
 ************ endl ************
-<em>// 两次jemalloc的申请情况（两次记录间隔5min），系统会根据两次NMD信息抓取内存栈。</em>
-<em>// NMD：堆内存布局的快照</em>
-<em>// Size：用户申请的内存经过对齐后的大小，jemalloc对齐size的分割是按照一个特定算法算的，8字节是最小单位，从第二个size开始，最小step是16，一个size到它的两倍size之间有4个分档。用户态传入的申请大小会向下对齐到离它最近的size中。</em>
-<em>// Allocated：size申请的总内存。</em>
+// 两次jemalloc的申请情况（两次记录间隔5min），系统会根据两次NMD信息抓取内存栈。
+// NMD：堆内存布局的快照
+// Size：用户申请的内存经过对齐后的大小，jemalloc对齐size的分割是按照一个特定算法算的，8字节是最小单位，从第二个size开始，最小step是16，一个size到它的两倍size之间有4个分档。用户态传入的申请大小会向下对齐到离它最近的size中。
+// Allocated：size申请的总内存。
 ******************************
 LOGGER_MEMCHECK_SAMPLE_NMD_INFO <- 第一次jemalloc的申请情况
 size       allocated         nmalloc         ndalloc

@@ -33,13 +33,13 @@ const tag = '[SliderVolumeDemo]';
 @Entry
 @Component
 export struct SliderVolumeDemo {
-  @State volumeLevel: number = 0; <em>// 音量值和滑块值使用同一个变量</em>
+  @State volumeLevel: number = 0; // 音量值和滑块值使用同一个变量
 
   aboutToAppear(): void {
     console.info(`${tag} volume min:${volumeMin} max:${volumeMax}`);
 
     this.volumeLevel = audioVolumeManager.getVolumeByStream(streamUsage);
-   <em> // 监听音量变化，同时改变滑块值</em>
+    // 监听音量变化，同时改变滑块值
     audioVolumeManager.on('streamVolumeChange', streamUsage, (streamVolumeEvent: audio.StreamVolumeEvent) => {
       console.info(`${tag} volumeLevel:${streamVolumeEvent.volume}`);
       this.volumeLevel = streamVolumeEvent.volume;
@@ -61,12 +61,12 @@ export struct SliderVolumeDemo {
       .width('100%');
 
       Row() {
-      <em>  // 音量面板</em>
+        // 音量面板
         AVVolumePanel({
           volumeLevel: this.volumeLevel,
           volumeParameter: {
             position: {
-              x: 1100, <em>// 音量面板位置，当不需要显示面板时，position的x，y值可设置负数</em>
+              x: 1100, // 音量面板位置，当不需要显示面板时，position的x，y值可设置负数
               y: 300
             }
           }

@@ -14,9 +14,9 @@
       {
         "name": "default",
         "signingConfig": "default",
-        "compatibleSdkVersion": "4.0.0(10)", <em>// Specify the minimum version compatible with HarmonyOS applications/services. The version number needs to be changed to "4.0.0 (10)", please use English carefully And ()</em>
-        "targetSdkVersion": "4.0.0(10)",     <em>// Specify the target version for HarmonyOS applications/services. If not set, the default is compatibleSdkVersion</em>
-        "runtimeOS": "HarmonyOS",            <em>// Designated as HarmonyOS/OpenHarmony</em>
+        "compatibleSdkVersion": "4.0.0(10)", // Specify the minimum version compatible with HarmonyOS applications/services. The version number needs to be changed to "4.0.0 (10)", please use English carefully And ()
+        "targetSdkVersion": "4.0.0(10)",     // Specify the target version for HarmonyOS applications/services. If not set, the default is compatibleSdkVersion
+        "runtimeOS": "HarmonyOS",            // Designated as HarmonyOS/OpenHarmony
       }
     ],
     // ...

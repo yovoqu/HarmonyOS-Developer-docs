@@ -15,5 +15,5 @@
 由于OpenGL渲染要求宽度16字节对齐，高度2字节对齐。如果不需要按照此规格对齐，在渲染时需要添加以下代码：
  
 ```text
-cpp glPixelStorei(GL_UNPACK_ALIGNMENT, 1); <em>// 禁用纹理字节对齐限制</em>
+cpp glPixelStorei(GL_UNPACK_ALIGNMENT, 1); // 禁用纹理字节对齐限制
 ```

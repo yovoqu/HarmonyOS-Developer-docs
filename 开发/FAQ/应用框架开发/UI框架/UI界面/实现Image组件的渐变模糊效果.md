@@ -37,7 +37,7 @@ struct demo {
       Column() {
         Text('原始图片')
           .fontSize(30);
-      <em>  // 本地资源，需自行替换</em>
+        // 本地资源，需自行替换
         Image($r('app.media.startIcon'))
           .width('100%')
           .height(300)
@@ -48,7 +48,7 @@ struct demo {
       Text('渐变图片')
         .fontSize(30);
       Stack() {
-        <em>// 本地资源，需自行替换</em>
+        // 本地资源，需自行替换
         Image($r('app.media.startIcon'))
           .width('100%')
           .height(300)

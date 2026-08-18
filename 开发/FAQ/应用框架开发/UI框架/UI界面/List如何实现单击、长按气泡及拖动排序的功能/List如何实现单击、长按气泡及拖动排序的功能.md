@@ -28,12 +28,12 @@ List组件下使用ForEach，通过设置onMove事件可以实现列表拖拽排
 - **方案一（API20及以上）：**1. 使用onTouch事件判断单击。
 ```text
 .onTouch((e) => {
-  <em>// 获取当前按下的时间戳</em>
+  // 获取当前按下的时间戳
   if (e.type === TouchType.Down) {
     this.startTime = Date.now();
     console.info(`按下时的时间：${this.startTime}`);
   }
-  <em>// 超过500ms当作长按</em>
+  // 超过500ms当作长按
   if (e.type === TouchType.Up && Date.now() - this.startTime < 500) {
     this.prompt.openToast({ message: `你点击了${item.id}` });
     console.info(`触发单击${(Date.now() - this.startTime) / 1000}s`);
@@ -50,7 +50,7 @@ List组件下使用ForEach，通过设置onMove事件可以实现列表拖拽排
   let tmp = this.list.splice(from, 1);
   this.list.splice(to, 0, tmp[0]);
 }, {
-  <em>// 长按显示气泡</em>
+  // 长按显示气泡
   onLongPress: (index: number) => {
     if (this.list[index].showPopup === true) {
       this.list[index].showPopup = false;
@@ -59,7 +59,7 @@ List组件下使用ForEach，通过设置onMove事件可以实现列表拖拽排
       this.list[index].showPopup = true;
     }
   },
-  <em>// 列表项开始拖拽，隐藏气泡</em>
+  // 列表项开始拖拽，隐藏气泡
   onDragStart: (index: number) => {
     this.list[index].showPopup = false;
   }
@@ -76,7 +76,7 @@ import { PromptAction } from '@ohos.arkui.UIContext';
 @Observed
 export class Item {
   id: number = 0;
-  showPopup: boolean = false; <em>// 气泡是否展示</em>
+  showPopup: boolean = false; // 气泡是否展示
 
   constructor(id: number, showPopup: boolean) {
     this.id = id;
@@ -111,12 +111,12 @@ struct Page1 {
           .borderRadius(20)
           .backgroundColor('#f1f3f5')
           .onTouch((e) => {
-            <em>// 获取当前按下的时间戳</em>
+            // 获取当前按下的时间戳
             if (e.type === TouchType.Down) {
               this.startTime = Date.now();
               console.info(`按下时的时间：${this.startTime}`);
             }
-            <em>// 超过500ms当作长按</em>
+            // 超过500ms当作长按
             if (e.type === TouchType.Up && Date.now() - this.startTime < 500) {
               this.prompt.openToast({ message: `你点击了${item.id}` });
               console.info(`触发单击${(Date.now() - this.startTime) / 1000}s`);
@@ -130,7 +130,7 @@ struct Page1 {
             let tmp = this.list.splice(from, 1);
             this.list.splice(to, 0, tmp[0]);
           }, {
-            <em>// 长按显示气泡</em>
+            // 长按显示气泡
             onLongPress: (index: number) => {
               if (this.list[index].showPopup === true) {
                 this.list[index].showPopup = false;
@@ -139,7 +139,7 @@ struct Page1 {
                 this.list[index].showPopup = true;
               }
             },
-            <em>// 列表项开始拖拽，隐藏气泡</em>
+            // 列表项开始拖拽，隐藏气泡
             onDragStart: (index: number) => {
               this.list[index].showPopup = false;
             }
@@ -228,12 +228,12 @@ struct Demo {
           .borderRadius(20)
           .backgroundColor('#f1f3f5')
           .onTouch((e) => {
-            <em>// 获取当前按下的时间戳</em>
+            // 获取当前按下的时间戳
             if (e.type === TouchType.Down) {
               this.isMove = false;
               this.startTime = Date.now();
               this.startY = e.touches[0].y;
-             <em> // 定时器，按下后500ms显示气泡</em>
+              // 定时器，按下后500ms显示气泡
               this.pressId = setTimeout(() => {
                 if (this.list[index].showPopup === true) {
                   this.list[index].showPopup = false;
@@ -244,11 +244,11 @@ struct Demo {
                 }
               }, 500);
             }
-            <em>// 低于500ms当作点击</em>
+            // 低于500ms当作点击
             if (e.type === TouchType.Up) {
               let time = Date.now();
               if (time - this.startTime < 500) {
-                <em>// 清掉显示气泡的定时器</em>
+                // 清掉显示气泡的定时器
                 clearTimeout(this.pressId);
                 if (this.isMove === false) {
                   this.prompt.openToast({ message: `你点击了${item.id}` });
@@ -256,7 +256,7 @@ struct Demo {
                 }
               }
             }
-            <em>// 滑动不显示气泡，y方向滑动距离超过10当作滑动</em>
+            // 滑动不显示气泡，y方向滑动距离超过10当作滑动
             if (e.type === TouchType.Move && Math.abs(e.touches[0].y - this.startY) > 10) {
               this.isMove = true;
               console.info('触发滑动');

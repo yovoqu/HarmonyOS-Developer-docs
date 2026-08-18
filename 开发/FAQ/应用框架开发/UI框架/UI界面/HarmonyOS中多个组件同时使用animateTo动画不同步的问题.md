@@ -130,7 +130,7 @@ struct AnimationOutOfSync {
       .backgroundColor('#f1f3f5')
       .translate({ x: this.translateX })
       .opacity(1)
-    <em>  // 通过onAreaChange来获取当前组件的宽度</em>
+      // 通过onAreaChange来获取当前组件的宽度
       .onAreaChange((oldValue: Area, newValue: Area) => {
         this.newValue = newValue.width as number;
         this.translateX = newValue.width as number;

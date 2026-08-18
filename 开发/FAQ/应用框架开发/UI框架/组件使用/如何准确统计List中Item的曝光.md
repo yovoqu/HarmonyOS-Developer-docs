@@ -35,20 +35,20 @@
  1. 实时记录可视索引：在List的onScrollIndex中更新startIndex和endIndex，确保这两个状态变量始终反映当前可视区域的首尾Item索引。
 ```text
 .onScrollIndex((firstIndex: number, lastIndex: number) => {
-  this.startIndex = firstIndex; <em>// 实时更新可视区域起始索引</em>
-  this.endIndex = lastIndex; <em>// 实时更新可视区域结束索引</em>
+  this.startIndex = firstIndex; // 实时更新可视区域起始索引
+  this.endIndex = lastIndex; // 实时更新可视区域结束索引
 })
 ```
 
 2. 滚动停止后启动延迟验证：在外层Scroll的onScrollStop中，保存当前的startIndex和endIndex作为快照（如upStartIndex），并设置一个500ms的定时器验证是否发生新滚动。
 ```text
 .onScrollStop(() => {
-  let upStartIndex = this.startIndex; <em>// 滚动停止时保存当前索引快照</em>
+  let upStartIndex = this.startIndex; // 滚动停止时保存当前索引快照
   setTimeout(() => {
     console.info('输出：upStartIndex', upStartIndex);
-    console.info('输出：this.startIndex', this.startIndex); <em>// onScrollStop只在滚动停止时回调</em>
+    console.info('输出：this.startIndex', this.startIndex); // onScrollStop只在滚动停止时回调
     if (upStartIndex !== this.startIndex) {
-     <em> // 若在此期间发生了新滚动，则不执行曝光上报</em>
+      // 若在此期间发生了新滚动，则不执行曝光上报
       this.getUIContext().showAlertDialog({
         message: '输出：不上报',
         autoCancel: true,
@@ -56,7 +56,7 @@
         offset: { dx: 0, dy: -20 },
       });
     } else {
-    <em>  // 若索引一致，说明可视区域稳定，可执行曝光上报</em>
+      // 若索引一致，说明可视区域稳定，可执行曝光上报
       this.getUIContext().showAlertDialog({
         message: '输出：上报',
         autoCancel: true,
@@ -64,7 +64,7 @@
         offset: { dx: 0, dy: -20 },
       });
     }
-  }, 3000); <em>// 延迟时间可根据实际需求调整为500ms</em>
+  }, 3000); // 延迟时间可根据实际需求调整为500ms
 })
 .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM]);
 ```
@@ -78,8 +78,8 @@ struct NestedScroll {
   private arr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   private scrollerForScroll: Scroller = new Scroller();
   private scrollerForList: Scroller = new Scroller();
-  @State startIndex: number = 0; <em>// 当前可视区域起始索引</em>
-  @State endIndex: number = 0; <em>// 当前可视区域结束索引</em>
+  @State startIndex: number = 0; // 当前可视区域起始索引
+  @State endIndex: number = 0; // 当前可视区域结束索引
 
 
   build() {
@@ -100,19 +100,19 @@ struct NestedScroll {
     }
     .scrollBar(BarState.Off)
     .alignListItem(ListItemAlign.Center)
-    .edgeEffect(EdgeEffect.None) <em>// 禁用边缘效果以确保onScrollStop正确触发</em>
+    .edgeEffect(EdgeEffect.None) // 禁用边缘效果以确保onScrollStop正确触发
     .friction(0.6)
     .onScrollIndex((firstIndex: number, lastIndex: number) => {
-      this.startIndex = firstIndex; <em>// 实时更新可视区域起始索引</em>
-      this.endIndex = lastIndex; <em>// 实时更新可视区域结束索引</em>
+      this.startIndex = firstIndex; // 实时更新可视区域起始索引
+      this.endIndex = lastIndex; // 实时更新可视区域结束索引
     })
     .onScrollStop(() => {
-      let upStartIndex = this.startIndex; <em>// 滚动停止时保存当前索引快照</em>
+      let upStartIndex = this.startIndex; // 滚动停止时保存当前索引快照
       setTimeout(() => {
         console.info('输出：upStartIndex', upStartIndex);
-        console.info('输出：this.startIndex', this.startIndex); <em>// onScrollStop只在滚动停止时回调</em>
+        console.info('输出：this.startIndex', this.startIndex); // onScrollStop只在滚动停止时回调
         if (upStartIndex !== this.startIndex) {
-         <em> // 若在此期间发生了新滚动，则不执行曝光上报</em>
+          // 若在此期间发生了新滚动，则不执行曝光上报
           this.getUIContext().showAlertDialog({
             message: '输出：不上报',
             autoCancel: true,
@@ -120,7 +120,7 @@ struct NestedScroll {
             offset: { dx: 0, dy: -20 },
           });
         } else {
-         <em> // 若索引一致，说明可视区域稳定，可执行曝光上报</em>
+          // 若索引一致，说明可视区域稳定，可执行曝光上报
           this.getUIContext().showAlertDialog({
             message: '输出：上报',
             autoCancel: true,
@@ -128,7 +128,7 @@ struct NestedScroll {
             offset: { dx: 0, dy: -20 },
           });
         }
-      }, 3000); <em>// 延迟时间可根据实际需求调整为500ms</em>
+      }, 3000); // 延迟时间可根据实际需求调整为500ms
     })
     .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM]);
   }

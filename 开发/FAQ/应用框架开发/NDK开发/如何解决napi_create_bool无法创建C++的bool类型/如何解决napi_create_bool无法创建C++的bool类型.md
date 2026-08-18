@@ -37,9 +37,9 @@ Node-API提供了专用接口napi_get_boolean用于将bool类型的值转换为n
 使用napi_get_boolean即实现将C++中的bool类型转换为napi，参考代码如下：
  
 ```text
-<em>/*</em>
-<em> * Copyright (c) Huawei Technologies Co., Ltd. 2026-2026. All rights reserved.</em>
-<em> */</em>
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026-2026. All rights reserved.
+ */
 #include "napi/native_api.h"
 
 bool  GetExcuteResult()

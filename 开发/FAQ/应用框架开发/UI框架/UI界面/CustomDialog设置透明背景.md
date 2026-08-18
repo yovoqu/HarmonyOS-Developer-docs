@@ -52,7 +52,7 @@ struct CustomDialogContent {
 struct Index {
   dialogController: CustomDialogController = new CustomDialogController({
     builder: CustomDialogContent(),
-   <em> // 设置弹窗背景色为透明</em>
+    // 设置弹窗背景色为透明
     backgroundColor: Color.Transparent,
     backgroundBlurStyle: BlurStyle.NONE
   });
@@ -96,7 +96,7 @@ struct CustomDialogContent1 {
 struct Index1 {
   dialogController: CustomDialogController = new CustomDialogController({
     builder: CustomDialogContent1(),
-    customStyle: true, <em>// 设置弹窗背景色为透明</em>
+    customStyle: true, // 设置弹窗背景色为透明
   });
 
   build() {
@@ -104,7 +104,7 @@ struct Index1 {
       Button('弹窗').onClick(() => {
         this.dialogController.open();
       })
-        .backgroundColor('#0a59f7') <em>// 按钮颜色</em>
+        .backgroundColor('#0a59f7') // 按钮颜色
         .margin({ top: 100 });
     }
     .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM])
@@ -112,7 +112,7 @@ struct Index1 {
     .justifyContent(FlexAlign.Center)
     .height('100%')
     .width('100%')
-    .backgroundColor(0xF1F3F5); <em>// 主页面背景色</em>
+    .backgroundColor(0xF1F3F5); // 主页面背景色
   }
 }
 ```
@@ -138,7 +138,7 @@ struct CustomDialogContent2 {
 struct Index2 {
   dialogController: CustomDialogController = new CustomDialogController({
     builder: CustomDialogContent2(),
-    customStyle: true, <em>// 设置弹窗背景色为透明</em>
+    customStyle: true, // 设置弹窗背景色为透明
     isModal: false
   });
 

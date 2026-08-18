@@ -51,14 +51,14 @@ struct CustomDialogUser {
   dialogController: CustomDialogController | null = null;
 
   aboutToAppear(): void {
-    this.createDialogCtl(300);<em> // 创建CustomDialogController对象，宽度300</em>
+    this.createDialogCtl(300); // 创建CustomDialogController对象，宽度300
   }
 
   aboutToDisappear() {
-    this.dialogController = null; <em>// 将dialogController置空</em>
+    this.dialogController = null; // 将dialogController置空
   }
 
- <em> // 创建宽度不同的新弹窗</em>
+  // 创建宽度不同的新弹窗
   createDialogCtl(width: number): void {
     this.dialogController = new CustomDialogController({
       builder: CustomDialogExample(),
@@ -82,7 +82,7 @@ struct CustomDialogUser {
         });
       Button('change')
         .onClick(() => {
-          this.createDialogCtl(150);<em> // 创建新的CustomDialogController对象，宽度150</em>
+          this.createDialogCtl(150); // 创建新的CustomDialogController对象，宽度150
         });
     }.width('100%').margin({ top: 16 });
   }
@@ -123,13 +123,13 @@ struct ComponentContentDemo {
         .onClick(() => {
           let uiContext = this.getUIContext();
           let promptAction = uiContext.getPromptAction();
-        <em>  // 自定义弹窗的内容</em>
+          // 自定义弹窗的内容
           let contentNode = new ComponentContent<ParamsInterface>(uiContext, wrapBuilder<[ParamsInterface]>(buildText),
             { text: 'old style' });
           promptAction.openCustomDialog(contentNode);
           setTimeout(() => {
             contentNode.update({ text: 'new style' });
-          }, 2000);<em> // 2秒后自动更新弹窗内容文本</em>
+          }, 2000); // 2秒后自动更新弹窗内容文本
         });
     }.width('100%').height('100%').margin({ top: 16 });
   }

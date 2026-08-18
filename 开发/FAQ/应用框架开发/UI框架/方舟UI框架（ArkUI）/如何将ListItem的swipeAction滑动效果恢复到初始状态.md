@@ -18,7 +18,7 @@ export struct SwiperActionRecover {
       Button('Delete')
       Button('Set')
         .onClick(() => {
-          this.scrollerForList.closeAllSwipeActions();<em> // This is the key line of code</em>
+          this.scrollerForList.closeAllSwipeActions(); // This is the key line of code
         })
     }
     .justifyContent(FlexAlign.SpaceEvenly)

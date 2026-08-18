@@ -110,7 +110,7 @@ struct ProblematicTabBarAnimationDemo {
                 duration: 2000,
                 curve: Curve.Ease
               }, () => {
-                this.tabBarHeight = 1;<em> </em><em>// tabBarHeight结束数值需要设置大于0</em>
+                this.tabBarHeight = 1; // tabBarHeight结束数值需要设置大于0
                 this.controller.setTabBarTranslate({ y: 60 });
               });
             });

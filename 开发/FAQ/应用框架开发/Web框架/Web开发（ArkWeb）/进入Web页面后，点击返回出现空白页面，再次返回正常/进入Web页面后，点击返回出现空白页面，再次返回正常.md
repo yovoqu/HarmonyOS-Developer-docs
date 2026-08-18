@@ -53,7 +53,7 @@ build() {
       .onLoadIntercept((event) => {
         let url = event.data.getRequestUrl();
         if (url.includes(`xx.com`)) {
-      <em>    // 加载最终的url</em>
+          // 加载最终的url
           this.controller.loadUrl('');
         }
         return false;
@@ -148,7 +148,7 @@ export struct JumpInterceptCase {
           .verticalScrollBarAccess(false)
           .copyOptions(CopyOptions.LocalDevice)
           .onControllerAttached(() => {
-            this.controller.loadUrl($rawfile('audio.html'));<em> // 替换成开发者自己的HTML</em>
+            this.controller.loadUrl($rawfile('audio.html')); // 替换成开发者自己的HTML
           })
           .onInterceptRequest((event) => {
             if (!event) {
@@ -158,9 +158,9 @@ export struct JumpInterceptCase {
           })
           .onLoadIntercept((event) => {
             let url = event.data.getRequestUrl();
-            if (url.includes(`resource://rawfile/audio.html`)) { <em>// 替换成开发者自己的HTML</em>
-             <em> // 加载最终的url</em>
-              this.controller.loadUrl($rawfile('webBlock.html')); <em>// 替换成开发者自己的HTML</em>
+            if (url.includes(`resource://rawfile/audio.html`)) { // 替换成开发者自己的HTML
+              // 加载最终的url
+              this.controller.loadUrl($rawfile('webBlock.html')); // 替换成开发者自己的HTML
               return true;
             }
             return false;
@@ -204,16 +204,16 @@ audio.html示例代码如下：
 <audio id="audioPlayer" muted="" controls></audio>
 <script>
     function playAudio(hexInput) {
-       <em> // 将16进制字符串转换为二进制字节数组</em>
+        // 将16进制字符串转换为二进制字节数组
         const binaryData = Uint8Array.from(hexInput.match(/.{1,2}/g), byte => parseInt(byte, 16));
-       <em> // 创建一个Blob对象</em>
+        // 创建一个Blob对象
         const blob = new Blob([binaryData], { type: 'audio/mpeg' });
-        <em>// 创建一个url对应于该Blob</em>
+        // 创建一个url对应于该Blob
         const url = URL.createObjectURL(blob);
-     <em>   // 设置音频元素的src属性</em>
+        // 设置音频元素的src属性
         const audioPlayer = document.getElementById('audioPlayer');
         audioPlayer.src = url;
-    <em>    // 播放音频</em>
+        // 播放音频
         audioPlayer.play().catch(error => {
         });
     }

@@ -49,11 +49,11 @@ struct ScalingComponent {
   build() {
     Refresh({ refreshing: $$this.isRefreshing }) {
       List({ space: 5, scroller: this.scroller }) {
-        <em>// 可展开收起的ListItem</em>
+        // 可展开收起的ListItem
         ListItem() {
           Text('Scaling component');
         }
-        .height(this.isExpand ? this.maxHeight : this.minHeight) <em>// 通过状态变量的变化改变组件高度</em>
+        .height(this.isExpand ? this.maxHeight : this.minHeight) // 通过状态变量的变化改变组件高度
         .width('100%')
         .align(Alignment.Top);
 
@@ -73,7 +73,7 @@ struct ScalingComponent {
       .height('100%')
       .width('100%')
       .onWillScroll((offset, state, source) => {
-       <em> // 当List处于开始边缘时，手势向下拉，回调结果为偏移量offset=0，滚动状态state=1，此时展开ListItem；其他情况收起ListItem</em>
+        // 当List处于开始边缘时，手势向下拉，回调结果为偏移量offset=0，滚动状态state=1，此时展开ListItem；其他情况收起ListItem
         console.info(`source: ${source}`);
         if (offset === 0 && state === 1) {
           this.isExpand = true;
@@ -86,7 +86,7 @@ struct ScalingComponent {
     .height('100%')
     .width('100%')
 
-    <em>// 当ListItem未展开时，Refresh组件不随手势下拉</em>
+    // 当ListItem未展开时，Refresh组件不随手势下拉
     .pullDownRatio(this.isExpand ? undefined : 0)
     .onRefreshing(() => {
       setTimeout(() => {

@@ -40,17 +40,17 @@ struct TextInputExample {
         .showUnderline(true)
         .borderRadius(0)
         .backgroundColor(Color.White)
-      <em>  // 设置下划线</em>
+        // 设置下划线
         .outline({
           width: { bottom: 1 },
           color: this.bottomLineColor
         })
         .onFocus(() => {
-        <em>  // 获焦设置蓝色</em>
+          // 获焦设置蓝色
           this.bottomLineColor = '#0A59F7';
         })
         .onBlur(() => {
-       <em>   // 失焦设置灰</em>
+          // 失焦设置灰
           this.bottomLineColor = '#F1F3F5';
         })
       TextInput({ placeholder: '提示文本内容' })

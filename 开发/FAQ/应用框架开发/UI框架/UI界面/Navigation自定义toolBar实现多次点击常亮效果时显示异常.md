@@ -121,7 +121,7 @@ Tabs的TabBar和Navigation工具栏点击效果区分：
 ```text
 public static GetDefaultMenuNavBarList(currentIndex: number,
   menuOnClick?: (index: number) => void): Array<ToolbarItem> {
-  console.info('GetDefaultMenuNavBarList执行了一次。') <em>// </em><em>监听函数执行。</em>
+  console.info('GetDefaultMenuNavBarList执行了一次。') // 监听函数执行。
   let toolbarList: Array<ToolbarItem> = [];
   for (let i = 0; i < MenuList.GetDefaultMenuList().length; i++) {
     let menuEntity: MenuEntity = MenuList.GetDefaultMenuList()[i];
@@ -131,7 +131,7 @@ public static GetDefaultMenuNavBarList(currentIndex: number,
       activeIcon: menuEntity.focusMenuIcon,
       status: currentIndex === i ? ToolbarItemStatus.ACTIVE : ToolbarItemStatus.NORMAL,
       action: () => {
-        console.info('点击了一次。') <em>// </em><em>监听点击次数。</em>
+        console.info('点击了一次。') // 监听点击次数。
         menuOnClick ? menuOnClick(menuEntity.index) : undefined
       }
     })
@@ -259,7 +259,7 @@ class MenuEntity {
 @Component
 struct MethodTwo {
   @State currentTabIndex: number = 0;
-  <em>// </em><em>标签信息。</em>
+  // 标签信息。
   @State toolList: Array<Array<string>> = [
     ['menuItem1', 'app.media.background', 'app.media.startIcon'],
     ['menuItem2', 'app.media.background', 'app.media.startIcon'],
@@ -267,7 +267,7 @@ struct MethodTwo {
     ['menuItem4', 'app.media.background', 'app.media.startIcon'],
   ];
 
-  <em>// 设置函数遍历标签信息并返回Array<ToolbarItem>类型数组。</em>
+  // 设置函数遍历标签信息并返回Array<ToolbarItem>类型数组。
   GetDefaultMenuNavBarList(currentIndex: number,
     menuOnClick?: (index: number) => void): Array<ToolbarItem> {
     let toolbarList: Array<ToolbarItem> = [];

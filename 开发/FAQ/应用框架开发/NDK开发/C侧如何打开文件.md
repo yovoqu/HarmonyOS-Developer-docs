@@ -23,8 +23,8 @@ struct Index {
 
   async open() {
     const photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
-    photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE; <em>// Filter and select media file type as IMAGE</em>
-    photoSelectOptions.maxSelectNumber = 5; <em>// Select the maximum number of media files</em>
+    photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE; // Filter and select media file type as IMAGE
+    photoSelectOptions.maxSelectNumber = 5; // Select the maximum number of media files
     let uris: Array<string> = [];
     const photoViewPicker = new photoAccessHelper.PhotoViewPicker();
     await photoViewPicker.select(photoSelectOptions).then((photoSelectResult: photoAccessHelper.PhotoSelectResult) => {
@@ -75,11 +75,11 @@ static napi_value OpenFile(unsigned int fd, unsigned int fd2) {
     if (fd != -1) { 
         char buffer[4096]; 
         ssize_t bytesRead; 
-      <em>  // Read the file content into the buffer </em>
+        // Read the file content into the buffer 
         bytesRead = read(fd, buffer, sizeof(buffer)); 
         if (bytesRead == -1) { 
             OH_LOG_INFO(LOG_APP, "fail to read file"); 
-            close(fd);<em> // Close file descriptor </em>
+            close(fd); // Close file descriptor 
             return nullptr; 
         } 
         while (bytesRead != 0) { 
@@ -91,14 +91,14 @@ static napi_value OpenFile(unsigned int fd, unsigned int fd2) {
             bytesWrite = write(fd2, pData1, bytesRead); 
             if (bytesWrite == -1) { 
                 OH_LOG_INFO(LOG_APP, "Writing file failed"); 
-                close(fd2); <em>// Close file descriptor </em>
+                close(fd2); // Close file descriptor 
                 return nullptr; 
             } 
             bytesRead = read(fd, buffer, sizeof(buffer)); 
         } 
-       <em> // Close file descriptor </em>
+        // Close file descriptor 
         close(fd); 
-        close(fd2);<em> // Close file descriptor </em>
+        close(fd2); // Close file descriptor 
     } 
     return nullptr; 
 } 

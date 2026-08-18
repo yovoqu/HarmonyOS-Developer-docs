@@ -35,172 +35,172 @@
 #### 解决方案
 1. 在PatternLock手势路径经过的地方使用current存储。
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">最高层</span></em>
-<span style="color: rgb(0,0,255);">PatternLock</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">patternLockController</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">activateCircleStyle</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'#331D9CDF'</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">radius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">unit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">LengthUnit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">VP </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">enableWaveEffect</span><span style="color: rgb(181,106,1);">: </span>true
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sideLength</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">320</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">circleRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStrokeWidth</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">5</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">regularColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#ffbebebe'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">activeColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#FF1D9CDF'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#FF1D9CDF'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#cc05a9f7'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDotConnect</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">查看手势路径</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">current</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+// 最高层
+PatternLock(this.patternLockController)
+  .activateCircleStyle({
+    color: '#331D9CDF',
+    radius: { value: 30, unit: LengthUnit.VP },
+    enableWaveEffect: true
+  })
+  .sideLength(320)
+  .circleRadius(8)
+  .pathStrokeWidth(5)
+  .regularColor('#ffbebebe')
+  .activeColor('#FF1D9CDF')
+  .selectedColor('#FF1D9CDF')
+  .pathColor('#cc05a9f7')
+  .onDotConnect((index: number) => {
+    console.info(`${index}查看手势路径`);
+    this.current.push(index);
+  })
 ```
 
 2. 定义小九宫格时，判断当前的位置是否在current中来确认展示对应的样式。
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">手势路径：小九宫格</span></em>
-<span style="color: rgb(0,0,255);">Grid</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">circularItems</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">GridItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-<span style="color: rgb(255,0,170);">      }</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">current</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">includes</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Black </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Grey</span><span style="color: rgb(0,0,255);">) </span><em>// </em><em><span style="color: rgb(128,128,128);">根据当前选中的点进行改色</span></em>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'11%'</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">columnsTemplate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'1fr 1fr 1fr'</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">maxCount</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">columnsGap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">6</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rowsGap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+// 手势路径：小九宫格
+Grid() {
+  ForEach(this.circularItems, (item: string, index) => {
+    GridItem() {
+      Row() {
+      }
+      .width(10)
+      .height(10)
+      .backgroundColor(this.current.includes(index) ? Color.Black : Color.Grey) // 根据当前选中的点进行改色
+      .borderRadius(10);
+    };
+  }, (item: string) => item);
+}
+.width('11%')
+.columnsTemplate('1fr 1fr 1fr')
+.maxCount(3)
+.columnsGap(6)
+.rowsGap(4);
 ```
 
  
 完整示例参考如下：
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">LengthUnit </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
+import { LengthUnit } from '@kit.ArkUI';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">PatternLockExample </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">passwords</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Number</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">请输入不小于</span><span style="color: rgb(255,0,170);">5</span><span style="color: rgb(255,0,170);">位数的手势密码！</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">circularItems</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">5</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">6</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">7</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">current</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">当前手势密码所选点</span></em>
-  private <span style="color: rgb(0,0,255);">patternLockController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PatternLockController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">PatternLockController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct PatternLockExample {
+  @State passwords: Number[] = [];
+  @State message: string = '请输入不小于5位数的手势密码！';
+  @State circularItems: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  @State current: number[] = []; // 当前手势密码所选点
+  private patternLockController: PatternLockController = new PatternLockController();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">手势路径：小九宫格</span></em>
-      <span style="color: rgb(0,0,255);">Grid</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">circularItems</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">GridItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-<span style="color: rgb(255,0,170);">            }</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">current</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">includes</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Black </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Grey</span><span style="color: rgb(0,0,255);">) </span><em>// </em><em><span style="color: rgb(128,128,128);">根据当前选中的点进行改色</span></em>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'11%'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">columnsTemplate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'1fr 1fr 1fr'</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">maxCount</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">columnsGap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">6</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rowsGap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Column() {
+      // 手势路径：小九宫格
+      Grid() {
+        ForEach(this.circularItems, (item: string, index) => {
+          GridItem() {
+            Row() {
+            }
+            .width(10)
+            .height(10)
+            .backgroundColor(this.current.includes(index) ? Color.Black : Color.Grey) // 根据当前选中的点进行改色
+            .borderRadius(10);
+          };
+        }, (item: string) => item);
+      }
+      .width('11%')
+      .columnsTemplate('1fr 1fr 1fr')
+      .maxCount(3)
+      .columnsGap(6)
+      .rowsGap(4);
 
 
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">最底层</span></em>
-        <span style="color: rgb(0,0,255);">PatternLock</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">patternLockController</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">activateCircleStyle</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'#661D9CDF'</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">radius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">unit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">LengthUnit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">VP </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">enableWaveEffect</span><span style="color: rgb(181,106,1);">: </span>true
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sideLength</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">320</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">circleRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStrokeWidth</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">5</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">regularColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#ffe0e0e0'</span><span style="color: rgb(0,0,255);">) </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置未选择时颜色</span></em>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">activeColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#661D9CDF'</span><span style="color: rgb(0,0,255);">) </span><em>// </em><em><span style="color: rgb(128,128,128);">设置经过还未离开时颜色</span></em>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#661D9CDF'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">设置已选择后颜色</span></em>
-     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">中间层</span></em>
-        <span style="color: rgb(0,0,255);">PatternLock</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">patternLockController</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">activateCircleStyle</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'#B3FFFFFF'</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">radius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">unit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">LengthUnit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">VP </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">enableWaveEffect</span><span style="color: rgb(181,106,1);">: </span>true
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sideLength</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">320</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">circleRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">28</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStrokeWidth</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">5</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">regularColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">White</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">activeColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#B3FFFFFF'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#B3FFFFFF'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#cc05a9f7'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">最高层</span></em>
-        <span style="color: rgb(0,0,255);">PatternLock</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">patternLockController</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">activateCircleStyle</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'#331D9CDF'</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">radius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">unit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">LengthUnit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">VP </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">enableWaveEffect</span><span style="color: rgb(181,106,1);">: </span>true
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sideLength</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">320</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">circleRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathStrokeWidth</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">5</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">regularColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#ffbebebe'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">activeColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#FF1D9CDF'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#FF1D9CDF'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pathColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#cc05a9f7'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDotConnect</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">查看手势路径</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">current</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      Text(this.message).textAlign(TextAlign.Center).margin(20).fontSize(20);
+      Stack() {
+        // 最底层
+        PatternLock(this.patternLockController)
+          .activateCircleStyle({
+            color: '#661D9CDF',
+            radius: { value: 30, unit: LengthUnit.VP },
+            enableWaveEffect: true
+          })
+          .sideLength(320)
+          .circleRadius(30)
+          .pathStrokeWidth(5)
+          .regularColor('#ffe0e0e0') // 设置未选择时颜色
+          .activeColor('#661D9CDF') // 设置经过还未离开时颜色
+          .selectedColor('#661D9CDF'); // 设置已选择后颜色
+        // 中间层
+        PatternLock(this.patternLockController)
+          .activateCircleStyle({
+            color: '#B3FFFFFF',
+            radius: { value: 30, unit: LengthUnit.VP },
+            enableWaveEffect: true
+          })
+          .sideLength(320)
+          .circleRadius(28)
+          .pathStrokeWidth(5)
+          .regularColor(Color.White)
+          .activeColor('#B3FFFFFF')
+          .selectedColor('#B3FFFFFF')
+          .pathColor('#cc05a9f7');
+        // 最高层
+        PatternLock(this.patternLockController)
+          .activateCircleStyle({
+            color: '#331D9CDF',
+            radius: { value: 30, unit: LengthUnit.VP },
+            enableWaveEffect: true
+          })
+          .sideLength(320)
+          .circleRadius(8)
+          .pathStrokeWidth(5)
+          .regularColor('#ffbebebe')
+          .activeColor('#FF1D9CDF')
+          .selectedColor('#FF1D9CDF')
+          .pathColor('#cc05a9f7')
+          .onDotConnect((index: number) => {
+            console.info(`${index}查看手势路径`);
+            this.current.push(index);
+          })
 
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onPatternComplete</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">input</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            <em>// </em><em><span style="color: rgb(128,128,128);">输入的密码长度小于</span><span style="color: rgb(128,128,128);">5</span><span style="color: rgb(128,128,128);">时，提示重新输入</span></em>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">input</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,0,0);">5</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">current </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">密码需要超过五位</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">;</span>
-              return<span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-           <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">判断密码长度是否大于</span><span style="color: rgb(128,128,128);">0</span></em>
-            if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">passwords</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-             <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">判断两次输入的密码是否相同，相同则提示密码设置成功，否则提示重新输入</span></em>
-              if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">passwords</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">input</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()) </span><span style="color: rgb(255,0,170);">{</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">current </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">passwords </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">input</span><span style="color: rgb(181,106,1);">;</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">设置密码成功</span><span style="color: rgb(255,0,170);">: ' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">passwords</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">patternLockController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setChallengeResult</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">PatternLockChallengeResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CORRECT</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">current </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">密码不一致，请重新输入。</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">;</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">patternLockController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setChallengeResult</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">PatternLockChallengeResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WRONG</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">            } </span>else <span style="color: rgb(255,0,170);">{</span>
-             <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">提示第二次输入密码</span></em>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">passwords </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">input</span><span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">请再次输入</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">current </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+          .onPatternComplete((input: Array<number>) => {
+            // 输入的密码长度小于5时，提示重新输入
+            if (input.length < 5) {
+              this.current = [];
+              this.message = '密码需要超过五位';
+              return;
+            }
+            // 判断密码长度是否大于0
+            if (this.passwords.length > 0) {
+              // 判断两次输入的密码是否相同，相同则提示密码设置成功，否则提示重新输入
+              if (this.passwords.toString() === input.toString()) {
+                this.current = [];
+                this.passwords = input;
+                this.message = '设置密码成功: ' + this.passwords.toString();
+                this.patternLockController.setChallengeResult(PatternLockChallengeResult.CORRECT);
+              } else {
+                this.current = [];
+                this.message = '密码不一致，请重新输入。';
+                this.patternLockController.setChallengeResult(PatternLockChallengeResult.WRONG);
+              }
+            } else {
+              // 提示第二次输入密码
+              this.passwords = input;
+              this.message = '请再次输入';
+              this.current = [];
+            }
+          });
+      };
 
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">重置</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-       <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">重置密码锁</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">patternLockController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">reset</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">passwords </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">请输入不小于</span><span style="color: rgb(255,0,170);">5</span><span style="color: rgb(255,0,170);">位数的手势密码！</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+      Button('重置').margin(30).onClick(() => {
+        // 重置密码锁
+        this.patternLockController.reset();
+        this.passwords = [];
+        this.message = '请输入不小于5位数的手势密码！';
+      });
+    }
+    .width('100%')
+    .height('100%')
+    .justifyContent(FlexAlign.Center);
+  }
+}
 ```

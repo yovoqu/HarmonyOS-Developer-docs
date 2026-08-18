@@ -83,7 +83,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  private uploadUrl: string = 'http://127.0.0.1:9588/'; <em>//替换为实际服务器URL。</em>
+  private uploadUrl: string = 'http://127.0.0.1:9588/'; //替换为实际服务器URL。
 
 
 
@@ -91,10 +91,10 @@ struct Index {
     let httpRequest = http.createHttp();
     let requestMultipart: http.MultiFormData[] = [];
     let formData: http.MultiFormData = {
-      name: 'share.txt', <em>//数据名称。</em>
-      contentType: 'text/plain', <em>//数据类型，自API 11开始支持该属性。</em>
-      filePath: filePath, <em>//</em><em>替换为实际文件路径。</em>
-      remoteFileName: 'share.txt', <em>//上传到服务器保存为文件的名称。</em>
+      name: 'share.txt', //数据名称。
+      contentType: 'text/plain', //数据类型，自API 11开始支持该属性。
+      filePath: filePath, //替换为实际文件路径。
+      remoteFileName: 'share.txt', //上传到服务器保存为文件的名称。
     };
     requestMultipart.push(formData);
 
@@ -122,7 +122,7 @@ struct Index {
         if (!context) {
           return;
         }
-        let filePath = context.filesDir + '/' + 'share.txt';<em> </em><em>//文件沙箱路径，使用时替换实际文件路径。</em>
+        let filePath = context.filesDir + '/' + 'share.txt'; //文件沙箱路径，使用时替换实际文件路径。
         this.uploadFile(filePath);
       });
     }

@@ -37,31 +37,31 @@ import { access, ble, connection, constant } from '@kit.ConnectivityKit';
 struct Reconnect {
   @State gattClient: ble.GattClientDevice | undefined = undefined;
 
- <em> // 方案一</em>
+  // 方案一
   ReconnectOne() {
-    <em>// </em><em>先查询已配对设备列表，判断需要连接的设备是否在已配对设备列表中存在。</em>
+    // 先查询已配对设备列表，判断需要连接的设备是否在已配对设备列表中存在。
     let devices = connection.getPairedDevices();
     for (let index = 0; index < devices.length; index++) {
       let name = connection.getRemoteDeviceName(devices[index]);
-     <em> // 需要连接的设备在已配对设备列表中存在，无需发起扫描，直接创建实例进行连接。</em>
+      // 需要连接的设备在已配对设备列表中存在，无需发起扫描，直接创建实例进行连接。
       if (name === 'name') {
-      <em>  // 创建ble蓝牙client实例</em>
+        // 创建ble蓝牙client实例
         this.gattClient = ble.createGattClientDevice(devices[index]);
-      <em>  // 连接前先创建连接状态回调监听</em>
+        // 连接前先创建连接状态回调监听
         this.onBLEConnectionStateChangeOne();
-    <em>    // 连接ble蓝牙</em>
+        // 连接ble蓝牙
         this.gattClient.connect();
         return;
       }
     }
-<em>    // 需要连接的设备在已配对设备列表中不存在，开启常规ble蓝牙连接流程。</em>
-<em>    // 订阅BLE设备发现</em>
+    // 需要连接的设备在已配对设备列表中不存在，开启常规ble蓝牙连接流程。
+    // 订阅BLE设备发现
     this.onBLEDeviceFindOne();
- <em>   // 过滤参数可根据实际场景进行设置</em>
+    // 过滤参数可根据实际场景进行设置
     let scanFilter: ble.ScanFilter = {
       name: 'name'
     };
- <em>   // 扫描参数可根据实际场景配置</em>
+    // 扫描参数可根据实际场景配置
     let scanOptions: ble.ScanOptions = {
       interval: 500,
       dutyMode: ble.ScanDuty.SCAN_MODE_LOW_POWER,
@@ -72,14 +72,14 @@ struct Reconnect {
 
   onBLEDeviceFindOne() {
     ble.on('BLEDeviceFind', (data: Array<ble.ScanResult>) => {
-   <em>   // 发现设备，创建实例进行连接</em>
+      // 发现设备，创建实例进行连接
       this.gattClient = ble.createGattClientDevice(data[0].deviceId);
- <em>     // 连接前先创建连接状态回调监听</em>
+      // 连接前先创建连接状态回调监听
       this.onBLEConnectionStateChangeOne();
-  <em>    // 连接ble蓝牙</em>
+      // 连接ble蓝牙
       this.gattClient.connect();
-   <em>   // 连接成功后，将已连接设备加入配对列表。</em>
-<em>      // 注意：加入配对列表时机并不固定，可根据实际场景来进行变更。</em>
+      // 连接成功后，将已连接设备加入配对列表。
+      // 注意：加入配对列表时机并不固定，可根据实际场景来进行变更。
       connection.pairDevice(data[0].deviceId, () => {
         console.info('pairDevice err');
       });
@@ -89,39 +89,39 @@ struct Reconnect {
   onBLEConnectionStateChangeOne() {
     this.gattClient?.on('BLEConnectionStateChange', (state: ble.BLEConnectionChangeState) => {
       if (state.state === constant.ProfileConnectionState.STATE_DISCONNECTED) {
-       <em> // 如果蓝牙意外断开了连接，可以在此处重新发起连接，以达到意外断连快速回连能力。</em>
-<em>        // 不过需要保证此时this.gattClient实例没有被销毁。</em>
+        // 如果蓝牙意外断开了连接，可以在此处重新发起连接，以达到意外断连快速回连能力。
+        // 不过需要保证此时this.gattClient实例没有被销毁。
         this.gattClient?.connect();
       }
     });
   }
 
- <em> // 方案二</em>
+  // 方案二
   ReconnectTwo() {
- <em>   // 先查询已固化设备列表，判断需要连接的设备是否在已固化设备列表中存在。</em>
+    // 先查询已固化设备列表，判断需要连接的设备是否在已固化设备列表中存在。
     let devices = access.getPersistentDeviceIds();
     for (let index = 0; index < devices.length; index++) {
       let name = connection.getRemoteDeviceName(devices[index]);
       let isValid = access.isValidRandomDeviceId(devices[index]);
-      <em>// </em><em>需要连接的设备在已固化设备列表中存在，同时该地址有效，无需发起扫描，直接创建实例进行连接。</em>
+      // 需要连接的设备在已固化设备列表中存在，同时该地址有效，无需发起扫描，直接创建实例进行连接。
       if (isValid && name === 'name') {
-       <em> // 创建ble蓝牙client实例</em>
+        // 创建ble蓝牙client实例
         this.gattClient = ble.createGattClientDevice(devices[index]);
-        <em>// 连接前先创建连接状态回调监听</em>
+        // 连接前先创建连接状态回调监听
         this.onBLEConnectionStateChangeTwo();
-      <em>  // 连接ble蓝牙</em>
+        // 连接ble蓝牙
         this.gattClient.connect();
         return;
       }
     }
-   <em> // 需要连接的设备在已固化设备列表中不存在，开启常规ble蓝牙连接流程。</em>
-<em>    // 订阅BLE设备发现</em>
+    // 需要连接的设备在已固化设备列表中不存在，开启常规ble蓝牙连接流程。
+    // 订阅BLE设备发现
     this.onBLEDeviceFindTwo();
-   <em> // 过滤参数可根据实际场景进行设置</em>
+    // 过滤参数可根据实际场景进行设置
     let scanFilter: ble.ScanFilter = {
       name: 'name'
     };
-   <em> // 扫描参数可根据实际场景配置</em>
+    // 扫描参数可根据实际场景配置
     let scanOptions: ble.ScanOptions = {
       interval: 500,
       dutyMode: ble.ScanDuty.SCAN_MODE_LOW_POWER,
@@ -132,14 +132,14 @@ struct Reconnect {
 
   onBLEDeviceFindTwo() {
     ble.on('BLEDeviceFind', (data: Array<ble.ScanResult>) => {
-   <em>   // 发现设备，创建实例进行连接。</em>
+      // 发现设备，创建实例进行连接。
       this.gattClient = ble.createGattClientDevice(data[0].deviceId);
-     <em> // 连接前先创建连接状态回调监听</em>
+      // 连接前先创建连接状态回调监听
       this.onBLEConnectionStateChangeTwo();
-    <em>  // 连接ble蓝牙</em>
+      // 连接ble蓝牙
       this.gattClient.connect();
-   <em>   // 连接成功后，将已连接设备加入固化列表。</em>
-<em>      // 注意：加入固化列表时机并不固定，可根据实际场景来进行变更。</em>
+      // 连接成功后，将已连接设备加入固化列表。
+      // 注意：加入固化列表时机并不固定，可根据实际场景来进行变更。
       access.addPersistentDeviceId(data[0].deviceId);
     });
   }
@@ -147,8 +147,8 @@ struct Reconnect {
   onBLEConnectionStateChangeTwo() {
     this.gattClient?.on('BLEConnectionStateChange', (state: ble.BLEConnectionChangeState) => {
       if (state.state === constant.ProfileConnectionState.STATE_DISCONNECTED) {
-     <em>   // 如果蓝牙意外断开了连接，可以在此处重新发起连接，以达到意外断连快速回连能力。</em>
-<em>        // 不过需要保证此时this.gattClient实例没有被销毁。</em>
+        // 如果蓝牙意外断开了连接，可以在此处重新发起连接，以达到意外断连快速回连能力。
+        // 不过需要保证此时this.gattClient实例没有被销毁。
         this.gattClient?.connect();
       }
     });
@@ -157,11 +157,11 @@ struct Reconnect {
   build() {
     Column() {
       Button('ble蓝牙连接/支持快速回连(方案1)').onClick(() => {
-    <em>    // 发起连接</em>
+        // 发起连接
         this.ReconnectOne();
       });
       Button('ble蓝牙连接/支持快速回连(方案2)').onClick(() => {
-       <em> // 发起连接</em>
+        // 发起连接
         this.ReconnectTwo();
       });
     }.height('100%')

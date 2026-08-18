@@ -15,12 +15,12 @@
 struct SceneOne {
   @State @Watch('changeOne') @Watch('changeTwo') num: number = 0;
 
- <em> // 监听不生效</em>
+  // 监听不生效
   changeOne() {
     console.info('changeOne');
   }
 
- <em> // 监听生效</em>
+  // 监听生效
   changeTwo() {
     console.info('changeTwo');
   }
@@ -71,7 +71,7 @@ struct SceneTwo {
           }
         });
       Button('设置为null').onClick(() => {
-        AppStorage.setOrCreate('num', null);<em> // 无法触发@Watch监听</em>
+        AppStorage.setOrCreate('num', null); // 无法触发@Watch监听
       });
     }.width('100%');
   }
@@ -107,7 +107,7 @@ struct SceneThree {
 struct SceneThreeChild {
   @Prop @Watch('onValueChange') value: string;
 
- <em> // 父组件中修改了两次，但是子组件中onValueChange()函数只执行了一次。</em>
+  // 父组件中修改了两次，但是子组件中onValueChange()函数只执行了一次。
   private onValueChange() {
     console.info('SceneThreeChild onValueChange %s', JSON.stringify(this.value));
   }
@@ -133,7 +133,7 @@ struct SceneFour {
 
   build() {
     Column() {
-    <em>  // @Watch无法监听value属性的修改</em>
+      // @Watch无法监听value属性的修改
       Button('修改value属性')
         .onClick(() => {
           this.test.testChild.value += '1';
@@ -190,7 +190,7 @@ struct SceneOne {
   @State @Watch('changeOne') num: number = 0;
 
   changeOne() {
-   <em> // 将多个需要被@Watch执行的函数合并为一个函数</em>
+    // 将多个需要被@Watch执行的函数合并为一个函数
     console.info('changeOne');
     console.info('changeTwo');
   }
@@ -316,7 +316,7 @@ struct SceneThree {
 struct SceneThreeChild {
   @Link @Watch('onValueChange') value: string;
 
- <em> // 父组件中修改了两次，但是子组件中onValueChange()函数也可以执行两次</em>
+  // 父组件中修改了两次，但是子组件中onValueChange()函数也可以执行两次
   private onValueChange() {
     console.info('SceneThreeChild onValueChange %s', JSON.stringify(this.value));
   }
@@ -361,7 +361,7 @@ struct SceneFourChild {
 
   build() {
     Column() {
-   <em>   // @Watch在子组件中监听深层属性变化</em>
+      // @Watch在子组件中监听深层属性变化
       Button('SceneFourChild 修改value属性')
         .onClick(() => {
           this.testChild.value += '1';

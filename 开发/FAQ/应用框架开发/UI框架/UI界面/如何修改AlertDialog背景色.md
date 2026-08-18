@@ -83,18 +83,18 @@ struct AlertDialogBackgroundColor {
           const uiContext: UIContext = this.getUIContext();
           uiContext.showAlertDialog(
             {
-             <em> // 弹窗标题</em>
+              // 弹窗标题
               title: 'title',
-             <em> // 弹窗内容</em>
+              // 弹窗内容
               message: '弹窗内容',
               autoCancel: true,
               alignment: DialogAlignment.Bottom,
-             <em> // 设置偏移量</em>
+              // 设置偏移量
               offset: { dx: 0, dy: -20 },
               gridCount: 3,
-            <em>  // 设置背景色</em>
+              // 设置背景色
               backgroundColor: 'rgba(10,89,247,0.4)',
-           <em>   // 关闭背景虚化，backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则颜色显示将不符合预期效果。</em>
+              // 关闭背景虚化，backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则颜色显示将不符合预期效果。
               backgroundBlurStyle: BlurStyle.NONE,
               confirm: {
                 value: 'button',

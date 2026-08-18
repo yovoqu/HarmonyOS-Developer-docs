@@ -92,7 +92,7 @@ struct LeftTabBar {
   }
 
   aboutToAppear(): void {
-   <em> // 设置TabBar页签居左显示</em>
+    // 设置TabBar页签居左显示
     this.tabBarModifier.align(Alignment.Start);
   }
 
@@ -113,7 +113,7 @@ struct LeftTabBar {
       }, (item: number) => item.toString());
     }
     .width('100%')
-  <em>  // 必须设置barMode为BarMode.Scrollable，barModifier参数才能生效</em>
+    // 必须设置barMode为BarMode.Scrollable，barModifier参数才能生效
     .barMode(BarMode.Scrollable)
     .onChange((index: number) => {
       this.currentIndex = index;
@@ -343,7 +343,7 @@ struct LeftTabBar4 {
   private controller: TabsController = new TabsController();
   @State currentIndex: number = 0;
   private tabList: string[] = ['首页', '发现', '消息', '我的'];
-  private tabWidth: number = 60; <em>// 每个页签的固定宽度</em>
+  private tabWidth: number = 60; // 每个页签的固定宽度
 
   @Builder
   tabBuilder(title: string, targetIndex: number) {
@@ -360,7 +360,7 @@ struct LeftTabBar4 {
         .backgroundColor(this.currentIndex === targetIndex ? Color.White : '#00000000')
         .borderRadius('50vp');
     }
-    .position({ x: targetIndex * this.tabWidth + 26, y: 16 })<em> // 按索引计算left值</em>
+    .position({ x: targetIndex * this.tabWidth + 26, y: 16 }) // 按索引计算left值
     .width(this.tabWidth)
     .height(40)
     .onClick(() => {
@@ -370,7 +370,7 @@ struct LeftTabBar4 {
 
   build() {
     Column() {
-     <em> // 自定义TabBar容器</em>
+      // 自定义TabBar容器
       Stack({ alignContent: Alignment.TopStart }) {
         Column()
           .width(`${this.tabWidth * this.tabList.length + 20}`)
@@ -384,7 +384,7 @@ struct LeftTabBar4 {
             bottomRight: 50
           })
           .position({ x: 16, y: 14 });
-       <em> // 页签容器（宽度=页签数量*单个宽度）</em>
+        // 页签容器（宽度=页签数量*单个宽度）
         Row() {
           ForEach(this.tabList, (item: string, index: number) => {
             this.tabBuilder(item, index);
@@ -451,11 +451,11 @@ Tabs({
   barModifier: new CommonModifier().align(Alignment.Start).margin({ left: 16 })
 }) {
   TabContent() {
-    <em>// TabContent内容</em>
+    // TabContent内容
   }
   .tabBar(BottomTabBarStyle.of('', `页签1`).labelStyle({ font: { size: 16 } }).padding({ left: 16 }));
-  <em>// 其他TabContent</em>
-<em>  // ...</em>
+  // 其他TabContent
+  // ...
 }
 .width('100%')
 .barMode(BarMode.Scrollable);

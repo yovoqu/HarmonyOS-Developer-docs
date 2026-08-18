@@ -35,12 +35,12 @@ bindSheet通过isShow参数决定是否显示半模态页面。使用[@State装�
 @Entry
 @Component
 struct BindSheetDemo {
- <em> // 半模态转场显示隐藏控制</em>
+  // 半模态转场显示隐藏控制
   @State isShowSheet: boolean = false;
   @State isShowDetailSheet: boolean = false;
   private menuList: string[] = ['内容1', '内容2', '内容3', '内容4', '内容5', '内容6', '内容7', '内容8', '内容9'];
   private detailList: string[] = ['详细内容1', '详细内容2', '更多'];
- <em> // 通过@Builder构建半模态展示界面</em>
+  // 通过@Builder构建半模态展示界面
   @Builder
   mySheet() {
     Column() {
@@ -158,11 +158,11 @@ struct BindSheetDemo {
 @Entry
 @Component
 struct BindSheetDemo1 {
- <em> // 半模态转场显示隐藏控制</em>
+  // 半模态转场显示隐藏控制
   @State isShowSheet: boolean = false;
   private menuList: string[] = ['内容1', '内容2', '内容3', '内容4', '内容5', '内容6', '内容7', '内容8', '内容9'];
   @State isShowDetailSheet: boolean[] = new Array(this.menuList.length).fill(false);
- <em> // 通过@Builder构建半模态展示界面</em>
+  // 通过@Builder构建半模态展示界面
   @Builder
   mySheet() {
     Column() {
@@ -279,11 +279,11 @@ struct BindSheetDemo1 {
 @Entry
 @Component
 struct BindSheetDemo2 {
-  <em>// 半模态转场显示隐藏控制</em>
+  // 半模态转场显示隐藏控制
   @State isShowSheet: boolean = false;
   private menuList: string[] = ['内容1', '内容2', '内容3', '内容4', '内容5', '内容6', '内容7', '内容8', '内容9'];
   private detailList: string[] = ['详细内容1', '详细内容2', '更多'];
- <em> // 通过@Builder构建半模态展示界面</em>
+  // 通过@Builder构建半模态展示界面
   @Builder
   mySheet() {
     Column() {

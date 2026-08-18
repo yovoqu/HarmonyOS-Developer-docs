@@ -102,9 +102,9 @@ export struct BindSheetAnimateDemo {
           showClose: false,
           mode: SheetMode.EMBEDDED,
           preferType: SheetType.BOTTOM,
-          scrollSizeMode: ScrollSizeMode.CONTINUOUS, <em>// 半模态面板在滑动过程中持续更新内容显示区域。</em>
+          scrollSizeMode: ScrollSizeMode.CONTINUOUS, // 半模态面板在滑动过程中持续更新内容显示区域。
           onHeightDidChange: (height) => {
-          <em>  // 手动调整半模态高度时，保持跟随</em>
+            // 手动调整半模态高度时，保持跟随
             this.marginVal = this.getUIContext().px2vp(height);
           }
         })

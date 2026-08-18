@@ -37,7 +37,7 @@ buildOption: { nativeLib: { headerPath: "src/main/cpp/include" } }
 
 2. 调用方依赖HAR或HSP包。
 ```json
-<em>// oh-package.json dependencies: { curl: "1.0.0" }</em>
+// oh-package.json dependencies: { curl: "1.0.0" }
 ```
 
 3. 调用方配置CMake链接SO，格式为 packageName::soName。

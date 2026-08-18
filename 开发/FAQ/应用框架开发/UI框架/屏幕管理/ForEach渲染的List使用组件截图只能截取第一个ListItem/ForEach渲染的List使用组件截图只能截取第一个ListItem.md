@@ -16,31 +16,31 @@ import { common } from '@kit.AbilityKit';
 @Entry
 @Component
 struct ListScreenshot {
-  @State imageUrl: Resource = $r('app.media.img_1');<em> // 替换已有图片资源</em>
-  @State studyPath: Resource = $r('app.media.img_2');<em> // 替换已有图片资源</em>
+  @State imageUrl: Resource = $r('app.media.img_1'); // 替换已有图片资源
+  @State studyPath: Resource = $r('app.media.img_2'); // 替换已有图片资源
   @State currentImage: string = '1';
   @State currentIndex: number = 0;
   @State secondImageUrl: string = '';
   @State secondStudyPath: string = '';
 
   async screenshot() {
-    <em>// 1.截图</em>
+    // 1.截图
     const pixelMap = await this.getUIContext().getComponentSnapshot().get(this.currentImage);
-    <em>// 2.获取图片二进制数据</em>
+    // 2.获取图片二进制数据
     const imagePacker = image.createImagePacker();
-   <em> // format图片类型quality图片质量，原图100</em>
+    // format图片类型quality图片质量，原图100
     const arrayBuffer = await imagePacker.packToData(pixelMap, { format: 'image/png', quality: 98 });
-    <em>// 3.存储在应用下</em>
+    // 3.存储在应用下
     const ctx = this.getUIContext().getHostContext() as common.UIAbilityContext;
     const path = ctx.cacheDir + '/' + Date.now() + '.jpg';
-    <em>// 打开一个未创建的图片，让它具备创建和读写能力</em>
+    // 打开一个未创建的图片，让它具备创建和读写能力
     const file = fileIo.openSync(path, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
     if (this.currentImage == '0') {
       this.secondImageUrl = fileUri.getUriFromPath(path);
     } else {
       this.secondStudyPath = fileUri.getUriFromPath(path);
     }
-    <em>// 写入沙箱</em>
+    // 写入沙箱
     fileIo.writeSync(file.fd, arrayBuffer);
     fileIo.closeSync(file.fd);
   }
@@ -50,7 +50,7 @@ struct ListScreenshot {
       List() {
         ForEach([this.imageUrl, this.studyPath], (item: string, index: number) => {
           ListItem() {
-            <em>// 上部分</em>
+            // 上部分
             Column() {
               Image(item)
                 .width(240)
@@ -82,10 +82,10 @@ struct ListScreenshot {
 
       Button('截图')
         .onClick(() => {
-          <em>// 截图方法</em>
+          // 截图方法
           this.screenshot();
         });
-      <em>// 展示保存在沙箱图片</em>
+      // 展示保存在沙箱图片
       Row() {
         Image(this.secondImageUrl)
           .width(100)
@@ -134,7 +134,7 @@ struct ListScreenshot {
 1. 根据ForEach的创建规律，每个ListItem组件的索引是唯一的，所以将ListItem组件id修改为索引值：
 ```text
 ListItem() {
-  <em>// 上部分</em>
+  // 上部分
   Column() {
     Image(item)
       .width(240)
@@ -147,13 +147,13 @@ ListItem() {
   .width(240)
   .backgroundColor(Color.White);
 }
-.id(index.toString()) <em>// 用变量控制</em>
+.id(index.toString()) // 用变量控制
 .margin({ right: 20 });
 ```
 
 2. 重写截图方法，当显示当前ListItem时，截取对应的图片：
 ```text
-<em>// 根据对应的id截图，此处根据滚动的索引this.currentIndex为截图id</em>
+// 根据对应的id截图，此处根据滚动的索引this.currentIndex为截图id
 const pixelMap = await this.getUIContext().getComponentSnapshot().get(this.currentIndex.toString());
 ```
 
@@ -168,31 +168,31 @@ import { common } from '@kit.AbilityKit';
 @Entry
 @Component
 struct ListScreenshot {
-  @State imageUrl: Resource = $r('app.media.startIcon'); <em>// 可替换为其它图片</em>
-  @State studyPath: Resource = $r('app.media.background'); <em>// 可替换为其它图片</em>
+  @State imageUrl: Resource = $r('app.media.startIcon'); // 可替换为其它图片
+  @State studyPath: Resource = $r('app.media.background'); // 可替换为其它图片
   @State currentImage: string = '1';
   @State currentIndex: number = 0;
   @State secondImageUrl: string = '';
   @State secondStudyPath: string = '';
 
   async screenshot() {
-    <em>// 根据对应的id截图，此处根据滚动的索引this.currentIndex为截图id</em>
+    // 根据对应的id截图，此处根据滚动的索引this.currentIndex为截图id
     const pixelMap = await this.getUIContext().getComponentSnapshot().get(this.currentIndex.toString());
-    <em>// 2.获取图片二进制数据</em>
+    // 2.获取图片二进制数据
     const imagePacker = image.createImagePacker();
-    <em>// format图片类型quality图片质量，原图100</em>
+    // format图片类型quality图片质量，原图100
     const arrayBuffer = await imagePacker.packToData(pixelMap, { format: 'image/png', quality: 98 });
-    <em>// 3.存储在应用下</em>
+    // 3.存储在应用下
     const ctx = this.getUIContext().getHostContext() as common.UIAbilityContext;
     const path = ctx.cacheDir + '/' + Date.now() + '.jpg';
-    <em>// 打开一个未创建的图片，让它具备创建和读写能力</em>
+    // 打开一个未创建的图片，让它具备创建和读写能力
     const file = fileIo.openSync(path, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
     if (this.currentImage == '0') {
       this.secondImageUrl = fileUri.getUriFromPath(path);
     } else {
       this.secondStudyPath = fileUri.getUriFromPath(path);
     }
-    <em>// 写入沙箱</em>
+    // 写入沙箱
     fileIo.writeSync(file.fd, arrayBuffer);
     fileIo.closeSync(file.fd);
   }
@@ -202,7 +202,7 @@ struct ListScreenshot {
       List() {
         ForEach([this.imageUrl, this.studyPath], (item: string, index: number) => {
           ListItem() {
-            <em>// 上部分</em>
+            // 上部分
             Column() {
               Image(item)
                 .width(240)
@@ -215,7 +215,7 @@ struct ListScreenshot {
             .width(240)
             .backgroundColor(Color.White);
           }
-          .id(index.toString()) <em>// 用变量控制</em>
+          .id(index.toString()) // 用变量控制
           .margin({ right: 20 });
         });
       }
@@ -234,10 +234,10 @@ struct ListScreenshot {
 
       Button('截图')
         .onClick(() => {
-          <em>// 截图方法</em>
+          // 截图方法
           this.screenshot();
         });
-      <em>// 展示保存在沙箱图片</em>
+      // 展示保存在沙箱图片
       Row() {
         Image(this.secondImageUrl)
           .width(100)

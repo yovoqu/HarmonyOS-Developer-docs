@@ -14,11 +14,11 @@
   
 ```text
 if (anyObject instanceof TargetClass) {
- <em> // Safely use anyObject as an instance of TargetClass</em>
+  // Safely use anyObject as an instance of TargetClass
   const targetObject = anyObject as TargetClass;
-  <em>// Now it is safe to call the methods of TargetClass</em>
+  // Now it is safe to call the methods of TargetClass
 } else {
-  <em>// Handling cases where the object is not a targetClass instance</em>
+  // Handling cases where the object is not a targetClass instance
 }
 ```
 
@@ -31,9 +31,9 @@ function isTargetClass(obj: object): boolean {
 }
 
 if (isTargetClass(anyObject)) {
- <em> // Now it is safe to use anyObject as an instance of TargetClass</em>
+  // Now it is safe to use anyObject as an instance of TargetClass
 } else {
-  <em>// Dealing with objects that do not conform to the TargetClass</em>
+  // Dealing with objects that do not conform to the TargetClass
 }
 ```
 
@@ -44,10 +44,10 @@ if (isTargetClass(anyObject)) {
 function testFn2(anyObject: object): void {
   try {
     const targetObject = anyObject as TargetClass;
-  <em>  // Attempt to call a method that is only available for the targetClass</em>
+    // Attempt to call a method that is only available for the targetClass
     targetObject.someMethod();
   } catch (error) {
-    <em>// Dealing with situations where type conversion fails or method calls are incorrect</em>
+    // Dealing with situations where type conversion fails or method calls are incorrect
   }
 }
 ```
@@ -64,8 +64,8 @@ function assertIsTargetClass(obj: object): void {
 
 try {
   assertIsTargetClass(anyObject);
-<em>  // Now it is safe to use anyObject as an instance of TargetClass</em>
+  // Now it is safe to use anyObject as an instance of TargetClass
 } catch (error) {
-  <em>// Failure to handle type assertion</em>
+  // Failure to handle type assertion
 }
 ```

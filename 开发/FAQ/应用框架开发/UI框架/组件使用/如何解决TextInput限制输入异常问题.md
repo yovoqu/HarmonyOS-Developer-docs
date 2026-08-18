@@ -21,12 +21,12 @@ struct TextInputPage {
   build() {
     Column() {
       TextInput({
-        text: this.inputValue, <em>// </em><em>加上双向绑定符号$$之后就无法再输入小数点</em>
+        text: this.inputValue, // 加上双向绑定符号$$之后就无法再输入小数点
         placeholder: '请输入-50~150之间的数字'
       })
         .type(InputType.NUMBER_DECIMAL)
         .onChange((value: string) => {
-        <em>  // 转换为数字进行范围判断</em>
+          // 转换为数字进行范围判断
           let numValue = parseFloat(value) ;
           if (numValue <= -50) {
             console.info('numValue小于50')
@@ -99,7 +99,7 @@ struct TextInputPage {
         placeholder: '请输入-50~150之间的数字'
       })
         .onChange((value: string) => {
-       <em>   // 转换为数字进行范围判断</em>
+          // 转换为数字进行范围判断
           let numValue = parseFloat(value);
           if (numValue <= -50) {
             console.info('numValue小于50');
@@ -111,7 +111,7 @@ struct TextInputPage {
             this.inputValue = value;
           }
         })
-        .inputFilter('^-?\\d*\\.?\\d{0,2}$', (val) => {<em> </em><em>// 使用正则表达式对输入内容进行限制</em>
+        .inputFilter('^-?\\d*\\.?\\d{0,2}$', (val) => { // 使用正则表达式对输入内容进行限制
           console.info(`限制输入两位小数 ： ${val}`);
           return 0;
         })

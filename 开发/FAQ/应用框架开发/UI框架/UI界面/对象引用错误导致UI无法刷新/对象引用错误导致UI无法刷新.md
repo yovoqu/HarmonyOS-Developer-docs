@@ -97,7 +97,7 @@ this所指向的对象错误，实际需要调用的方法没有被调用。
 @Component
 struct ContainerView {
   @BuilderParam child: () => void;
-<em>  // 实际调用的onTouchDown方法</em>
+  // 实际调用的onTouchDown方法
   onTouchDown = () => {
   };
   onTouchUp = () => {
@@ -127,7 +127,7 @@ struct TouchDownCustom {
     Column() {
       ContainerView(
         {
-      <em>    // 修改后的代码</em>
+          // 修改后的代码
           onTouchDown: (): void => this.onTouchDown(),
           onTouchUp: () => {
             this.title = 'onTouchUp';

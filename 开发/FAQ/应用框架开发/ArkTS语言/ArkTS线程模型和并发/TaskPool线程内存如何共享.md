@@ -22,7 +22,7 @@ function producer(ArrayBuffer: Int32Array): void {
     for (let i = 1; i < length; i++) {
       i32a[i] = Math.random() * length;
     }
-    Atomics.notify(i32a, 0, 1); <em>// notify customer</em>
+    Atomics.notify(i32a, 0, 1); // notify customer
   }, 2000);
 }
 
@@ -45,7 +45,7 @@ function ArrayBufferShared(ArrayBuffer: Int32Array): void {
   group.addTask(consumer, ArrayBuffer);
   group.addTask(producer, ArrayBuffer);
   taskpool.execute(group, taskpool.Priority.HIGH).then((res: Object) => {
-  <em>  // Result array summary processing</em>
+    // Result array summary processing
   })
 }
 

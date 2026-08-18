@@ -40,7 +40,7 @@ struct TextPage3 {
             for (let i = 0; i < lineCount - 1; i++) {
               if (layoutManager.getLineMetrics(i + 1).startIndex !==
               layoutManager.getLineMetrics(i).endIndex) {
-             <em>   // 获取第i行的endIndex与第i+1行的startIndex相比较，如果不相同，则说明此文本存在换行行为</em>
+                // 获取第i行的endIndex与第i+1行的startIndex相比较，如果不相同，则说明此文本存在换行行为
                 console.info(util.format("第%s行存在使用换行符进行换行的行为", i + 1));
               } else {
                 console.info(util.format("第%s行不存在使用换行符进行换行的行为", i + 1));

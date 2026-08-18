@@ -50,16 +50,16 @@ Canvas：使用[CanvasRenderingContext2D](https://developer.huawei.com/consumer/
           .layoutWeight(1)
           .onReady(() => {
             this.context.globalCompositeOperation = 'xor'
-            <em>// 计算画布尺寸</em>
+            // 计算画布尺寸
             const canvasWidth = this.getUIContext().px2vp(display.getDefaultDisplaySync().width);
             const canvasHeight = this.getUIContext().px2vp(display.getDefaultDisplaySync().height-150);
-            <em>// 计算图片绘制的位置，使其居中显示</em>
+            // 计算图片绘制的位置，使其居中显示
             const imgWidth = 360;
             const imgHeight = 230;
             const x = (canvasWidth - imgWidth) / 2;
             const y = (canvasHeight - imgHeight) / 2;
 
-            <em>// 绘制背景矩形（半透明蒙层）</em>
+            // 绘制背景矩形（半透明蒙层）
             this.context.beginPath();
             this.context.rect(0, 0, canvasWidth, canvasHeight);
             this.context.closePath();
@@ -73,10 +73,10 @@ Canvas：使用[CanvasRenderingContext2D](https://developer.huawei.com/consumer/
                 height: 540
               }
             }
-            <em>// 保存当前画布状态</em>
+            // 保存当前画布状态
             this.context.save();
-            <em>// 图片内部区域</em>
-            <em>// 圆角半径</em>
+            // 图片内部区域
+            // 圆角半径
             const radius = 18;
             this.context.beginPath();
             this.context.moveTo(x + radius, y);
@@ -89,15 +89,15 @@ Canvas：使用[CanvasRenderingContext2D](https://developer.huawei.com/consumer/
             this.context.lineTo(x, y + radius);
             this.context.arc(x + radius, y + radius, radius, Math.PI, 1.5 * Math.PI);
             this.context.closePath();
-            <em>// 将图片内部区域设置为裁剪区域</em>
+            // 将图片内部区域设置为裁剪区域
             this.context.clip();
-            <em>// 在裁剪区域内清除蒙层</em>
+            // 在裁剪区域内清除蒙层
             this.context.clearRect(x, y, imgWidth, imgHeight);
-            <em>// 恢复默认的裁剪区域</em>
+            // 恢复默认的裁剪区域
             this.context.restore();
-            <em>// 将ImageBitmap绘制到主画布上，指定图片的宽度和高度</em>
+            // 将ImageBitmap绘制到主画布上，指定图片的宽度和高度
             this.context.drawImage(this.img, x, y, imgWidth, imgHeight);
-            <em>// 使画布重绘</em>
+            // 使画布重绘
             this.context.canvas.invalidate();
           })
       }
@@ -157,7 +157,7 @@ struct Index {
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
   private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
   private cardFrontPhoto: ImageBitmap =
-    new ImageBitmap('/common/images/id_card_bg.png'); <em>// id_card_bg.png仅供参考使用，开发者可替换为实际使用图片</em>
+    new ImageBitmap('/common/images/id_card_bg.png'); // id_card_bg.png仅供参考使用，开发者可替换为实际使用图片
 
   aboutToAppear() {
     let displayDefaultInfo = display.getDefaultDisplaySync();
@@ -181,7 +181,7 @@ struct Index {
             });
 
             setTimeout(async () => {
-              <em>// 启动相机</em>
+              // 启动相机
             }, 500);
 
           })
@@ -193,15 +193,15 @@ struct Index {
           .layoutWeight(1)
           .onReady(() => {
             this.context.globalCompositeOperation = 'xor';
-            <em>// 计算画布尺寸</em>
+            // 计算画布尺寸
             const canvasWidth = this.getUIContext().px2vp(display.getDefaultDisplaySync().width);
             const canvasHeight = this.getUIContext().px2vp(display.getDefaultDisplaySync().height);
-            <em>// 计算图片绘制的位置，使其居中显示</em>
+            // 计算图片绘制的位置，使其居中显示
             const imgWidth = 360;
             const imgHeight = 230;
             const x = (canvasWidth - imgWidth) / 2;
             const y = (canvasHeight - imgHeight) / 2;
-            <em>// 绘制背景矩形（半透明蒙层）</em>
+            // 绘制背景矩形（半透明蒙层）
             this.context.beginPath();
             this.context.rect(0, 0, canvasWidth, canvasHeight);
             this.context.closePath();
@@ -215,13 +215,13 @@ struct Index {
                 height: 540
               }
             };
-            <em>// 保存当前画布状态</em>
+            // 保存当前画布状态
             this.context.save();
-            <em>// 将坐标系平移至画布中心</em>
-            this.context.translate(canvasWidth / 2, canvasHeight / 2); <em>// 假设画布宽高均为300，中心点(150,150)</em>
-            <em>// 旋转90度（顺时针，Math.PI/2弧度）</em>
+            // 将坐标系平移至画布中心
+            this.context.translate(canvasWidth / 2, canvasHeight / 2); // 假设画布宽高均为300，中心点(150,150)
+            // 旋转90度（顺时针，Math.PI/2弧度）
             this.context.rotate(Math.PI / 2);
-            <em>// 绘制背景矩形（半透明蒙层）</em>
+            // 绘制背景矩形（半透明蒙层）
             const radius = 18;
             this.context.beginPath();
             this.context.moveTo(-imgWidth / 2 + radius, -imgHeight / 2);
@@ -237,30 +237,30 @@ struct Index {
             this.context.lineTo(-imgWidth / 2, -imgHeight / 2 + radius);
             this.context.arc(-imgWidth / 2 + radius, -imgHeight / 2 + radius, radius, Math.PI, 1.5 * Math.PI);
             this.context.closePath();
-            <em>// 将图片内部区域设置为裁剪区域</em>
+            // 将图片内部区域设置为裁剪区域
             this.context.clip();
-            <em>// 在裁剪区域内清除蒙层</em>
+            // 在裁剪区域内清除蒙层
             this.context.clearRect(-imgWidth / 2,
               -imgHeight / 2, imgWidth, imgHeight);
-            <em>// 恢复默认的裁剪区域</em>
+            // 恢复默认的裁剪区域
             this.context.restore();
-            <em>// 保存当前画布状态</em>
+            // 保存当前画布状态
             this.context.save();
-            <em>// 将坐标系平移至画布中心</em>
-            this.context.translate(canvasWidth / 2, canvasHeight / 2);<em> // 假设画布宽高均为300，中心点(150,150)</em>
-            <em>// 旋转90度（顺时针，Math.PI/2弧度）</em>
+            // 将坐标系平移至画布中心
+            this.context.translate(canvasWidth / 2, canvasHeight / 2); // 假设画布宽高均为300，中心点(150,150)
+            // 旋转90度（顺时针，Math.PI/2弧度）
             this.context.rotate(Math.PI / 2);
-            <em>// 绘制图片（旋转后坐标已变化，需调整绘制位置）</em>
+            // 绘制图片（旋转后坐标已变化，需调整绘制位置）
             this.context.drawImage(
               this.cardFrontPhoto,
               -imgWidth / 2,
-              -imgHeight / 2, <em>// x坐标：旋转后原高度变为宽度，取负半值居中</em>
-              <em>// y坐标：同理</em>
-              imgWidth, <em>// 绘制宽度（旋转后原高度作为新宽度）</em>
+              -imgHeight / 2, // x坐标：旋转后原高度变为宽度，取负半值居中
+              // y坐标：同理
+              imgWidth, // 绘制宽度（旋转后原高度作为新宽度）
               imgHeight
             );
-            this.context.restore(); <em>// 恢复之前保存的绘图状态</em>
-            <em>// 使画布重绘</em>
+            this.context.restore(); // 恢复之前保存的绘图状态
+            // 使画布重绘
             this.context.canvas.invalidate();
           })
       }

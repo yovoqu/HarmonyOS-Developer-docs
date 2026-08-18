@@ -26,7 +26,7 @@ rawfile目录会存放项目资源，那么如何读取rawfile目录下的文件
 - 资源文件（例如string、color、plural等json文件，通过$rawfile访问，返回Resource类型对象，适用于界面控件绑定资源文件情形等，通常不涉及写操作）：需要注意的是资源文件需要通过指定文件路径和文件名来访问。
 单Hap/Hsp包内访问：通过\$rawfile('filename')形式访问，其中，filename为rawfile目录下文件的相对路径，文件名需要包含后缀，路径开头不可以“/”开头。格式示例如下：
 ```text
-Image($rawfile('testPic.png')); <em>// 需要替换为实际项目中的文件名</em>
+Image($rawfile('testPic.png')); // 需要替换为实际项目中的文件名
 ```
 
 - 跨Hap/Hsp访问：（由于Har包是随模块编译的，直接对应的模块中引用即可，不涉及跨包访问，这里不再赘述。）需要先在entry中oh-package.json5中添加module依赖；使用格式为\$rawfile('[Hsp].filename')，其中[Hsp]为Hsp模块名，filename仍为rawfile目录下文件的相对路径。除此之外，和其他目录下访问资源文件一致，详情请见[资源访问](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-categories-and-access#资源访问)。
@@ -43,18 +43,18 @@ Image($rawfile('testPic.png')); <em>// 需要替换为实际项目中的文件�
   
 文件内容小的文件，进行访问（以文本文件，举例说明）：
 ```text
-<em>// 小文件读取</em>
+// 小文件读取
 Button('读取小文件').onClick(() => {
   let context = this.getUIContext().getHostContext();
-  let fileName: string = 'testTxt.txt'; <em>// 需要替换为实际项目中的文件名</em>
- <em> // 获取文件内容</em>
-<em>  // 确保在工程目录src/main/resources/rawfile里存在需要读取的文件</em>
+  let fileName: string = 'testTxt.txt'; // 需要替换为实际项目中的文件名
+  // 获取文件内容
+  // 确保在工程目录src/main/resources/rawfile里存在需要读取的文件
   context?.resourceManager.getRawFileContent(fileName, (error, value) => {
     if (error) {
       hilog.error(LogDomain, 'TestShow-', `error Code: ${error.code} error Msg: ${error.message}`);
       return;
     }
-  <em>  // 这里读取到文件内容可以进行下一步操作</em>
+    // 这里读取到文件内容可以进行下一步操作
     let myBuffer: ArrayBufferLike = value.buffer;
     hilog.info(LogDomain, 'TestShow-', `buffer length: ${myBuffer.byteLength}`);
   });
@@ -71,21 +71,21 @@ Button('读取小文件').onClick(() => {
 
   
 ```text
-<em>// 大文件读取，以数据库db文件为例</em>
+// 大文件读取，以数据库db文件为例
 Button('读取大文件').onClick(() => {
   let context = this.getUIContext().getHostContext();
   try {
     let dirPath = context?.getApplicationContext().databaseDir + '/entry';
     fs.mkdirSync(dirPath);
-    let filePath: string = '/rdb'; <em>//待创建的沙箱目录名 需要替换为项目中的实际待创建的沙箱目录名</em>
+    let filePath: string = '/rdb'; //待创建的沙箱目录名 需要替换为项目中的实际待创建的沙箱目录名
     dirPath = dirPath + filePath;
     fs.mkdirSync(dirPath);
   } catch (error) {
     hilog.error(LogDomain, 'TestShow-', 'initDataBaseDir err');
   }
-  let dbFileName: string = 'test.db'; <em>// 项目中实际的db文件名</em>
+  let dbFileName: string = 'test.db'; // 项目中实际的db文件名
   try {
-    let dbFilePath = 'rdb/';<em> // 替换为项目中实际文件路径</em>
+    let dbFilePath = 'rdb/'; // 替换为项目中实际文件路径
     context?.resourceManager.getRawFd(dbFilePath + dbFileName, (error, value) => {
       if (error != null) {
         hilog.error(LogDomain, 'TestShow-', `error Code: ${error.code} error Msg: ${error.message}`);
@@ -104,39 +104,39 @@ Button('读取大文件').onClick(() => {
 
   
 ```text
-<em>/**</em>
-<em> * 保存文件到沙箱里</em>
-<em> * @param file 文件的信息</em>
-<em> * @param dbFileName 文件名</em>
-<em> */</em>
+/**
+ * 保存文件到沙箱里
+ * @param file 文件的信息
+ * @param dbFileName 文件名
+ */
 saveFileToSandbox(file: resourceManager.RawFileDescriptor, dbFileName: string) {
   let context = this.getUIContext().getHostContext();
   if (!context) {
     hilog.error(LogDomain, 'TestShow-', `error: context 为空`);
     return;
   }
- <em> // 创建缓存文件(当前是覆盖式创建)</em>
+  // 创建缓存文件(当前是覆盖式创建)
   let filePath: string =
-    context.getApplicationContext().databaseDir + '/entry/rdb/' + dbFileName; <em>// 引号中的内容需要替换为待读取文件在项目中的实际路径</em>
+    context.getApplicationContext().databaseDir + '/entry/rdb/' + dbFileName; // 引号中的内容需要替换为待读取文件在项目中的实际路径
   let cacheFile = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
-  <em>// 读取缓冲区大小</em>
+  // 读取缓冲区大小
   let bufferSize = 30000;
-  let buffer = new ArrayBuffer(bufferSize);<em> // 创建buffer缓冲区</em>
- <em> // 要copy的文件的offset和length</em>
+  let buffer = new ArrayBuffer(bufferSize); // 创建buffer缓冲区
+  // 要copy的文件的offset和length
   let currentOffset = file.offset;
   let readOption: ReadOptions = {
-    offset: currentOffset, <em>// 期望读取文件的位置。可选，默认从当前位置开始读</em>
-    length: bufferSize<em> // 每次期望读取数据的长度。可选，默认缓冲区长度</em>
+    offset: currentOffset, // 期望读取文件的位置。可选，默认从当前位置开始读
+    length: bufferSize // 每次期望读取数据的长度。可选，默认缓冲区长度
   };
- <em> // 后面len会一直减，直到没有</em>
+  // 后面len会一直减，直到没有
   while (true) {
-  <em>  // 读取buffer容量的内容</em>
+    // 读取buffer容量的内容
     let readLength = fs.readSync(file.fd, buffer, readOption);
-   <em> // 写入buffer容量的内容</em>
-<em>    // 写到cacheFile里</em>
+    // 写入buffer容量的内容
+    // 写到cacheFile里
     fs.writeSync(cacheFile.fd, buffer, { length: readLength });
-   <em> // 判断后续内容，修改读文件的参数</em>
-<em>    // buffer没读满代表文件读完了</em>
+    // 判断后续内容，修改读文件的参数
+    // buffer没读满代表文件读完了
     if (readLength < bufferSize) {
       break;
     }
@@ -167,53 +167,53 @@ const LogDomain = 0x0000;
 struct rwRawFile {
   build() {
     Column() {
-      Image($rawfile('testPic.png')); <em>// 需要替换为实际项目中的文件名</em>
+      Image($rawfile('testPic.png')); // 需要替换为实际项目中的文件名
 
       Button('读取文件').onClick(() => {
         let context = this.getUIContext().getHostContext();
-        let fileName: string = 'testTxt.txt';<em> // 需要替换为实际项目中的文件名</em>
+        let fileName: string = 'testTxt.txt'; // 需要替换为实际项目中的文件名
         context?.resourceManager.getRawFileContent(fileName, (error, readRes) => {
           if (error) {
             hilog.error(LogDomain, 'TestShow-', `error code: ${error.code} , error msg: ${error.message}`);
             return;
           }
-       <em>   // 这里可以对读取结果进行后续处理。</em>
+          // 这里可以对读取结果进行后续处理。
           hilog.info(LogDomain, 'TestShow-', `readRes length: ${readRes.byteLength}`);
         });
       });
 
-   <em>   // 小文件读取</em>
+      // 小文件读取
       Button('读取小文件').onClick(() => {
         let context = this.getUIContext().getHostContext();
-        let fileName: string = 'testTxt.txt'; <em>// 需要替换为实际项目中的文件名</em>
-        <em>// 获取文件内容</em>
-<em>        // 确保在工程目录src/main/resources/rawfile里存在需要读取的文件</em>
+        let fileName: string = 'testTxt.txt'; // 需要替换为实际项目中的文件名
+        // 获取文件内容
+        // 确保在工程目录src/main/resources/rawfile里存在需要读取的文件
         context?.resourceManager.getRawFileContent(fileName, (error, value) => {
           if (error) {
             hilog.error(LogDomain, 'TestShow-', `error Code: ${error.code} error Msg: ${error.message}`);
             return;
           }
-      <em>    // 这里读取到文件内容可以进行下一步操作</em>
+          // 这里读取到文件内容可以进行下一步操作
           let myBuffer: ArrayBufferLike = value.buffer;
           hilog.info(LogDomain, 'TestShow-', `buffer length: ${myBuffer.byteLength}`);
         });
       });
 
-   <em>   // 大文件读取，以数据库db文件为例</em>
+      // 大文件读取，以数据库db文件为例
       Button('读取大文件').onClick(() => {
         let context = this.getUIContext().getHostContext();
         try {
           let dirPath = context?.getApplicationContext().databaseDir + '/entry';
           fs.mkdirSync(dirPath);
-          let filePath: string = '/rdb';<em> //待创建的沙箱目录名 需要替换为项目中的实际待创建的沙箱目录名</em>
+          let filePath: string = '/rdb'; //待创建的沙箱目录名 需要替换为项目中的实际待创建的沙箱目录名
           dirPath = dirPath + filePath;
           fs.mkdirSync(dirPath);
         } catch (error) {
           hilog.error(LogDomain, 'TestShow-', 'initDataBaseDir err');
         }
-        let dbFileName: string = 'test.db';<em> // 项目中实际的db文件名</em>
+        let dbFileName: string = 'test.db'; // 项目中实际的db文件名
         try {
-          let dbFilePath = 'rdb/'; <em>// 替换为项目中实际文件路径</em>
+          let dbFilePath = 'rdb/'; // 替换为项目中实际文件路径
           context?.resourceManager.getRawFd(dbFilePath + dbFileName, (error, value) => {
             if (error != null) {
               hilog.error(LogDomain, 'TestShow-', `error Code: ${error.code} error Msg: ${error.message}`);
@@ -230,39 +230,39 @@ struct rwRawFile {
     };
   }
 
-<em>  /**</em>
-<em>   * 保存文件到沙箱里</em>
-<em>   * @param file 文件的信息</em>
-<em>   * @param dbFileName 文件名</em>
-<em>   */</em>
+  /**
+   * 保存文件到沙箱里
+   * @param file 文件的信息
+   * @param dbFileName 文件名
+   */
   saveFileToSandbox(file: resourceManager.RawFileDescriptor, dbFileName: string) {
     let context = this.getUIContext().getHostContext();
     if (!context) {
       hilog.error(LogDomain, 'TestShow-', `error: context 为空`);
       return;
     }
-  <em>  // 创建缓存文件(当前是覆盖式创建)</em>
+    // 创建缓存文件(当前是覆盖式创建)
     let filePath: string =
-      context.getApplicationContext().databaseDir + '/entry/rdb/' + dbFileName; <em>// 引号中的内容需要替换为待读取文件在项目中的实际路径</em>
+      context.getApplicationContext().databaseDir + '/entry/rdb/' + dbFileName; // 引号中的内容需要替换为待读取文件在项目中的实际路径
     let cacheFile = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
-   <em> // 读取缓冲区大小</em>
+    // 读取缓冲区大小
     let bufferSize = 30000;
-    let buffer = new ArrayBuffer(bufferSize);<em> // 创建buffer缓冲区</em>
-  <em>  // 要copy的文件的offset和length</em>
+    let buffer = new ArrayBuffer(bufferSize); // 创建buffer缓冲区
+    // 要copy的文件的offset和length
     let currentOffset = file.offset;
     let readOption: ReadOptions = {
-      offset: currentOffset,<em> // 期望读取文件的位置。可选，默认从当前位置开始读</em>
-      length: bufferSize<em> // 每次期望读取数据的长度。可选，默认缓冲区长度</em>
+      offset: currentOffset, // 期望读取文件的位置。可选，默认从当前位置开始读
+      length: bufferSize // 每次期望读取数据的长度。可选，默认缓冲区长度
     };
-  <em>  // 后面len会一直减，直到没有</em>
+    // 后面len会一直减，直到没有
     while (true) {
-   <em>   // 读取buffer容量的内容</em>
+      // 读取buffer容量的内容
       let readLength = fs.readSync(file.fd, buffer, readOption);
-   <em>   // 写入buffer容量的内容</em>
-<em>      // 写到cacheFile里</em>
+      // 写入buffer容量的内容
+      // 写到cacheFile里
       fs.writeSync(cacheFile.fd, buffer, { length: readLength });
-    <em>  // 判断后续内容，修改读文件的参数</em>
-<em>      // buffer没读满代表文件读完了</em>
+      // 判断后续内容，修改读文件的参数
+      // buffer没读满代表文件读完了
       if (readLength < bufferSize) {
         break;
       }
@@ -274,19 +274,19 @@ struct rwRawFile {
     fs.close(cacheFile);
   }
 
- <em> /**</em>
-<em>   * 读取Hap/Hsp包内文件</em>
-<em>   * @param packageName 包名</em>
-<em>   * @param fileName 文件名</em>
-<em>   */</em>
+  /**
+   * 读取Hap/Hsp包内文件
+   * @param packageName 包名
+   * @param fileName 文件名
+   */
   readPackageFile(packageName: string, fileName: string) {
     let moduleContext: common.Context;
     let context = this.getUIContext().getHostContext();
     application.createModuleContext(context, packageName).then((data: Context) => {
-  <em>    // 文件读取</em>
+      // 文件读取
       moduleContext = data;
       moduleContext.resourceManager.getRawFd(fileName).then((res) => {
-    <em>    // 对读取结果进行其他处理</em>
+        // 对读取结果进行其他处理
         hilog.info(LogDomain, 'TestShow-', `show file fd: ${res.fd}`);
       }).catch((error: BusinessError) => {
         hilog.error(LogDomain, 'TestShow-', `error Code: ${error.code} error Msg: ${error.message}`);
@@ -315,19 +315,19 @@ Q：官网对于getRawFd接口官网API说明是访问Hap包目录的下的文�
 A：对于跨Hap/Hsp的模块需要createModuleContext接口，先获取对应模块的context，再使用该context调用getRawFd获取文件句柄。
  
 ```text
-<em>/**</em>
-<em> * 读取Hap/Hsp包内文件</em>
-<em> * @param packageName 包名</em>
-<em> * @param fileName 文件名</em>
-<em> */</em>
+/**
+ * 读取Hap/Hsp包内文件
+ * @param packageName 包名
+ * @param fileName 文件名
+ */
 readPackageFile(packageName: string, fileName: string) {
   let moduleContext: common.Context;
   let context = this.getUIContext().getHostContext();
   application.createModuleContext(context, packageName).then((data: Context) => {
-   <em> // 文件读取</em>
+    // 文件读取
     moduleContext = data;
     moduleContext.resourceManager.getRawFd(fileName).then((res) => {
-  <em>    // 对读取结果进行其他处理</em>
+      // 对读取结果进行其他处理
       hilog.info(LogDomain, 'TestShow-', `show file fd: ${res.fd}`);
     }).catch((error: BusinessError) => {
       hilog.error(LogDomain, 'TestShow-', `error Code: ${error.code} error Msg: ${error.message}`);

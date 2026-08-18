@@ -59,13 +59,13 @@ export default class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage): void {
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
     let windowClass: window.Window = windowStage.getMainWindowSync();
-   <em> // 1.设置窗口全屏</em>
+    // 1.设置窗口全屏
     let isLayoutFullScreen = true;
     windowClass.setWindowLayoutFullScreen(isLayoutFullScreen)
       .then(() => {
         console.info('Succeeded in setting the window layout to full-screen mode.');
       });
-   <em> // 2.设置状态栏和导航条隐藏</em>
+    // 2.设置状态栏和导航条隐藏
     windowClass.setSpecificSystemBarEnabled('status', false)
       .then(() => {
         console.info('Succeeded in setting the status bar to be invisible.');
@@ -84,17 +84,17 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageDestroy(): void {
-<em>    // Main window is destroyed, release UI related resources</em>
+    // Main window is destroyed, release UI related resources
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
-   <em> // Ability has brought to foreground</em>
+    // Ability has brought to foreground
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground(): void {
-   <em> // Ability has back to background</em>
+    // Ability has back to background
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 };

@@ -11,14 +11,14 @@ ArkWeb提供mixedMode(mixedMode: MixedMode)接口，用于设置是否允许加�
 参考代码如下：
  
 ```ArkTS
-<em>// xxx.ets</em>
+// xxx.ets
 import { webview } from '@kit.ArkWeb';
 
 @Entry
 @Component
 struct WebComponent {
   controller: webview.WebviewController = new webview.WebviewController();
- <em> // MixedMode.All indicates that all mixed content is allowed to be loaded (HTTP/HTTPS)</em>
+  // MixedMode.All indicates that all mixed content is allowed to be loaded (HTTP/HTTPS)
   @State mixedMode: MixedMode = MixedMode.All;
   build() {
     Column() {

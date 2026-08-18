@@ -53,7 +53,7 @@ popupBuilder() {
   .alignItems(VerticalAlign.Center)
   .justifyContent(FlexAlign.Center)
   .width('100%')
-  .height('100%') <em>// popup显示时占用整个窗口</em>
+  .height('100%') // popup显示时占用整个窗口
   .padding(5);
 }
 ```
@@ -73,13 +73,13 @@ build() {
         builder: this.popupBuilder,
         placement: Placement.Bottom,
         mask: { color: '#33000000' },
-        backgroundBlurStyle: BlurStyle.NONE,<em> </em><em>// 去除模糊背景填充效果</em>
-        enableArrow: false, <em>// </em><em>隐藏箭头</em>
+        backgroundBlurStyle: BlurStyle.NONE, // 去除模糊背景填充效果
+        enableArrow: false, // 隐藏箭头
         autoCancel: true,
         showInSubWindow: false,
         onStateChange: (e) => {
           if (!e.isVisible) {
-            this.customPopup = false; <em>// </em><em>点击了弹出框外部的区域，及时地将@State变量同步更新为false</em>
+            this.customPopup = false; // 点击了弹出框外部的区域，及时地将@State变量同步更新为false
           }
         }
       })
@@ -97,11 +97,11 @@ build() {
         }
       })
       .onEditChange((isEditing: boolean) => {
-      <em>  // isEditing为true表示输入框获得了焦点</em>
-        if (isEditing) { <em>// </em><em>只有获得焦点才显示</em>
+        // isEditing为true表示输入框获得了焦点
+        if (isEditing) { // 只有获得焦点才显示
           this.customPopup = true;
         } else {
-          this.customPopup = false; <em>// 输入框失去焦点时隐藏</em>
+          this.customPopup = false; // 输入框失去焦点时隐藏
         }
       });
   }
@@ -129,7 +129,7 @@ struct BindPopUpDemo {
     .alignItems(VerticalAlign.Center)
     .justifyContent(FlexAlign.Center)
     .width('100%')
-    .height('100%')<em> </em><em>// popup显示时占用整个窗口</em>
+    .height('100%') // popup显示时占用整个窗口
     .padding(5);
   }
 
@@ -146,13 +146,13 @@ struct BindPopUpDemo {
           builder: this.popupBuilder,
           placement: Placement.Bottom,
           mask: { color: '#33000000' },
-          backgroundBlurStyle: BlurStyle.NONE, <em>// 去除模糊背景填充效果</em>
-          enableArrow: false,<em> </em><em>// 隐藏箭头</em>
+          backgroundBlurStyle: BlurStyle.NONE, // 去除模糊背景填充效果
+          enableArrow: false, // 隐藏箭头
           autoCancel: true,
           showInSubWindow: false,
           onStateChange: (e) => {
             if (!e.isVisible) {
-              this.customPopup = false; <em>// </em><em>点击了弹出框外部的区域，及时地将@State变量同步更新为false</em>
+              this.customPopup = false; // 点击了弹出框外部的区域，及时地将@State变量同步更新为false
             }
           }
         })
@@ -170,11 +170,11 @@ struct BindPopUpDemo {
           }
         })
         .onEditChange((isEditing: boolean) => {
-        <em>  // isEditing为true表示输入框获得了焦点</em>
-          if (isEditing) {<em> </em><em>// 只有获得焦点才显示</em>
+          // isEditing为true表示输入框获得了焦点
+          if (isEditing) { // 只有获得焦点才显示
             this.customPopup = true;
           } else {
-            this.customPopup = false; <em>// </em><em>输入框失去焦点时隐藏</em>
+            this.customPopup = false; // 输入框失去焦点时隐藏
           }
         });
     }

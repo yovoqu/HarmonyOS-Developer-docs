@@ -64,7 +64,7 @@ struct Index {
   aboutToAppear(): void {
     let context = this.uiContext.getHostContext() as common.UIAbilityContext;
     let dir: string = context.filesDir;
-  <em>  // 确保在工程目录src/main/resources/rawfile里存在test.pdf文档</em>
+    // 确保在工程目录src/main/resources/rawfile里存在test.pdf文档
     this.filePath = dir + '/test.pdf';
     let res = fs.accessSync(this.filePath);
     if (!res) {
@@ -109,7 +109,7 @@ struct Index {
               let packOpts: image.PackingOption = { format: 'image/png', quality: 100 };
               const imagePacker: image.ImagePacker = image.createImagePacker();
               await imagePacker.packToFile(this.pixelMap, file.fd, packOpts).finally(() => {
-                imagePacker.release();<em> // 释放</em>
+                imagePacker.release(); // 释放
               });
             } catch (e) {
               console.error('fs.openSync failed error is : ', JSON.stringify(e));
@@ -138,7 +138,7 @@ struct Index {
               let packOpts: image.PackingOption = { format: 'image/png', quality: 100 };
               const imagePacker: image.ImagePacker = image.createImagePacker();
               await imagePacker.packToFile(this.pixelMap, file.fd, packOpts).finally(() => {
-                imagePacker.release();<em> // 释放</em>
+                imagePacker.release(); // 释放
               });
             } catch (e) {
               console.error('fs.openSync failed error is : ', JSON.stringify(e));
@@ -173,7 +173,7 @@ struct Index {
               let packOpts: image.PackingOption = { format: 'image/png', quality: 100 };
               const imagePacker: image.ImagePacker = image.createImagePacker();
               await imagePacker.packToFile(this.pixelMap, file.fd, packOpts).finally(() => {
-                imagePacker.release();<em> // 释放</em>
+                imagePacker.release(); // 释放
               });
             } catch (e) {
               console.error('fs.openSync failed error is : ', JSON.stringify(e));
@@ -223,7 +223,7 @@ struct Index {
               let packOpts: image.PackingOption = { format: 'image/png', quality: 100 };
               const imagePacker: image.ImagePacker = image.createImagePacker();
               await imagePacker.packToFile(this.pixelMap, file.fd, packOpts).finally(() => {
-                imagePacker.release();<em> // 释放</em>
+                imagePacker.release(); // 释放
               });
             } catch (e) {
               console.error('fs.openSync failed error is : ', JSON.stringify(e));
@@ -251,7 +251,7 @@ struct Index {
               let packOpts: image.PackingOption = { format: 'image/png', quality: 100 };
               const imagePacker: image.ImagePacker = image.createImagePacker();
               await imagePacker.packToFile(this.pixelMap, file.fd, packOpts).finally(() => {
-                imagePacker.release(); <em>// 释放</em>
+                imagePacker.release(); // 释放
               });
             } catch (e) {
               console.error('fs.openSync failed error is : ', JSON.stringify(e));

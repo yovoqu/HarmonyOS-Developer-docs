@@ -56,8 +56,8 @@ struct PopupWidth {
         .bindPopup(this.handlePopup, {
           width: '100%',
           builder: this.popupBuilder,
-          arrowPointPosition: ArrowPointPosition.START, <em>// </em><em>设置箭头的位置</em>
-          backgroundBlurStyle: BlurStyle.NONE, <em>// </em><em>关闭气泡的模糊背景</em>
+          arrowPointPosition: ArrowPointPosition.START, // 设置箭头的位置
+          backgroundBlurStyle: BlurStyle.NONE, // 关闭气泡的模糊背景
           autoCancel: true,
         });
     }
@@ -76,7 +76,7 @@ Q：使用Popup时，创建监听，会导致崩溃，是什么原因？
 ```text
 aboutToAppear(): void {
   this.listener.on('draw', () => {
-    this.pageMainContentHeight = componentUtils.getRectangleById('pageMainContent').size.height<em> </em><em>// 单位是px</em>
+    this.pageMainContentHeight = componentUtils.getRectangleById('pageMainContent').size.height // 单位是px
   })
 }
 ```
@@ -85,7 +85,7 @@ A：使用Popup时要手动取消监听。
  
 ```text
 aboutToDisappear() {
- <em> // Unregister callback before destruction</em>
+  // Unregister callback before destruction
   this.listener.off('draw', () => {});
 }
 ```

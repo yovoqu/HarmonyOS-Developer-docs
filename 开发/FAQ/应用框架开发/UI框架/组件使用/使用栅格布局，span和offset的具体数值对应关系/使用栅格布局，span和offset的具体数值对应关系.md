@@ -45,7 +45,7 @@ struct GridRowExample {
   build() {
     Column() {
       GridRow({
-     <em>   // 默认个数为12</em>
+        // 默认个数为12
         columns: 12,
         gutter: { x: 5, y: 10 },
         breakpoints: {
@@ -55,7 +55,7 @@ struct GridRowExample {
         direction: GridRowDirection.Row
       }) {
         ForEach(this.bgColors, (color: Color) => {
-       <em>   // 设置span为8，offset为3</em>
+          // 设置span为8，offset为3
           GridCol({ span: 8, offset: 3, order: 0 }) {
             Row().width('100%').height('20vp');
           }.borderColor(color).borderWidth(2);

@@ -76,8 +76,8 @@ struct BindPopupOffset {
             }
           })
 
-    <em>  // index.html It should include elements that trigger the contextmenu event.</em>
-      Web({ src: $rawfile('index.html'), controller: this.controller })<em>//Trigger custom pop ups</em>
+      // index.html It should include elements that trigger the contextmenu event.
+      Web({ src: $rawfile('index.html'), controller: this.controller })//Trigger custom pop ups
         .onContextMenuShow((event) => {
           if (event) {
             this.result = event.result;

@@ -60,7 +60,7 @@ struct Index {
       abilityName: 'com.huawei.hmos.settings.MainAbility',
       uri: 'privacy_settings',
       parameters: {
-<em>        // 传对应应用的包名</em>
+        // 传对应应用的包名
         pushParams: 'com.example.myapplication'
       }
     };
@@ -68,7 +68,7 @@ struct Index {
   }
 
   requestOAIDTrackingConsentPermissions(context: common.Context): void {
-  <em>  // 进入页面时，向用户请求授权广告跨应用关联访问权限</em>
+    // 进入页面时，向用户请求授权广告跨应用关联访问权限
     const atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
     try {
       atManager.requestPermissionsFromUser(context, ['ohos.permission.APP_TRACKING_CONSENT']).then((data) => {

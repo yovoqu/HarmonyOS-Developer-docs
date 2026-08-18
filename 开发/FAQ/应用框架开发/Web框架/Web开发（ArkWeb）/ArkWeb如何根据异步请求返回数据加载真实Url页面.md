@@ -40,10 +40,10 @@ struct WebComponent {
         .geolocationAccess(false)
         .onControllerAttached(() => {
           let httpRequest = http.createHttp();
-          httpRequest.request('EXAMPLE_URL', (err: Error, data: http.HttpResponse) => { <em>// 需要替换网址才可运行</em>
+          httpRequest.request('EXAMPLE_URL', (err: Error, data: http.HttpResponse) => { // 需要替换网址才可运行
             if (!err) {
               try {
-                this.controller.loadUrl(data.result.toString()); <em>// 根据请求返回类型自行处理数据, 接口返回URL链接, 需要替换网址才可运行</em>
+                this.controller.loadUrl(data.result.toString()); // 根据请求返回类型自行处理数据, 接口返回URL链接, 需要替换网址才可运行
               } catch (error) {
                 console.error(`err${JSON.stringify(err)}`);
               }

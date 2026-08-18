@@ -8,8 +8,8 @@
 1. 开发者模式已打开“开启蓝牙hci信息收集日志”开关。
 2. 通过如下hdc命令，未获取到蓝牙hci日志，获取日志数量为0：
 ```text
-<span style="color: rgb(0,0,255);">hdc file recv </span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">bt </span><span style="color: rgb(181,106,1);">./</span>
-<span style="color: rgb(0,0,255);">FileTransfer finish</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Size </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">File count </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">time</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">ms </span><span style="color: rgb(181,106,1);">rate</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">0.00</span><span style="color: rgb(0,0,255);">kB</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">s</span>
+hdc file recv /data/log/bt ./
+FileTransfer finish, Size 0, File count = 0, time:1ms rate:0.00kB/s
 ```
 
  
@@ -50,13 +50,13 @@
 蓝牙hci日志：
  
 ```text
-<span style="color: rgb(0,0,255);">hdc file recv </span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">bt</span>
+hdc file recv /data/log/bt
 ```
  
 hilog日志：
  
 ```text
-<span style="color: rgb(0,0,255);">hdc file recv </span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(181,106,1);">/</span><span style="color: rgb(0,0,255);">hilog</span>
+hdc file recv /data/log/hilog
 ```
  
 日志默认下载位置为执行该hdc命令的当前目录下。

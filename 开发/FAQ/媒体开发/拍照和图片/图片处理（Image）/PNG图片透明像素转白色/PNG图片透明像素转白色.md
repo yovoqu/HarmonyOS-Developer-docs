@@ -46,33 +46,33 @@ struct PngWhiteBgDemo {
     let origPixelMap: image.PixelMap | undefined;
     let outputFile: fileIo.File | undefined;
     try {
-   <em>   // 解码PNG图片生成PixelMap</em>
+      // 解码PNG图片生成PixelMap
       const imgData = context.resourceManager.getRawFileContentSync(rawFilePath);
       imageSource = image.createImageSource(imgData.buffer.slice(0));
       origPixelMap = await imageSource.createPixelMap();
-   <em>   // 读取PixelMap图像像素数据</em>
+      // 读取PixelMap图像像素数据
       const pixelsBytesCnt = origPixelMap.getPixelBytesNumber();
       const pixelsBuffer = new ArrayBuffer(pixelsBytesCnt);
       await origPixelMap.readPixelsToBuffer(pixelsBuffer);
-     <em> // 将透明像素修改为白色像素</em>
+      // 将透明像素修改为白色像素
       const pixelsBufferView = new Uint8Array(pixelsBuffer);
       for (let idx = 0; idx < pixelsBytesCnt; idx += 4) {
         const alpha = pixelsBufferView[idx + 3];
         if (alpha === 0) {
-          pixelsBufferView[idx] = 255;<em> // R</em>
-          pixelsBufferView[idx + 1] = 255;<em> // G</em>
-          pixelsBufferView[idx + 2] = 255;<em> // B</em>
-          pixelsBufferView[idx + 3] = 255; <em>// A</em>
+          pixelsBufferView[idx] = 255; // R
+          pixelsBufferView[idx + 1] = 255; // G
+          pixelsBufferView[idx + 2] = 255; // B
+          pixelsBufferView[idx + 3] = 255; // A
         }
       }
-     <em> // 生成白色背景的PixelMap</em>
+      // 生成白色背景的PixelMap
       const imgSize = (await origPixelMap.getImageInfo()).size;
       const initOpts: image.InitializationOptions = {
         size: imgSize,
         srcPixelFormat: image.PixelMapFormat.RGBA_8888,
       };
       this.whiteBgPixelMap = await image.createPixelMap(pixelsBuffer, initOpts);
-    <em>  // 重新编码PixelMap生成图片文件，并保存入沙箱路径</em>
+      // 重新编码PixelMap生成图片文件，并保存入沙箱路径
       imagePacker = image.createImagePacker();
       const packOpts: image.PackingOption = {
         format: 'image/png',
@@ -102,12 +102,12 @@ struct PngWhiteBgDemo {
 
   build() {
     Column({ space: 20 }) {
-  <em>    // 原始透明背景的Png图片</em>
+      // 原始透明背景的Png图片
       Image($rawfile('startIcon.png'))
         .width('50%')
         .aspectRatio(1)
         .backgroundColor(Color.Black);
-    <em>  // 修改背景颜色为白色后的PixelMap</em>
+      // 修改背景颜色为白色后的PixelMap
       Image(this.whiteBgPixelMap)
         .width('50%')
         .aspectRatio(1)

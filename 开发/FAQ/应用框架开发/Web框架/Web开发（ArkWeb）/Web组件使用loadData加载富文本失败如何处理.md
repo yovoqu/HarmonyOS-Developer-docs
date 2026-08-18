@@ -28,7 +28,7 @@ struct WebComponent {
       Button('loadData')
         .onClick(() => {
           try {
-           <em> // 点击按钮时，通过loadData，加载HTML格式的文本数据</em>
+            // 点击按钮时，通过loadData，加载HTML格式的文本数据
            this.controller.loadData(
               '<body>\n' +
                 '<div">\n' +
@@ -93,7 +93,7 @@ struct WebComponent {
       Button('loadData')
         .onClick(() => {
           try {
-          <em>  // 点击按钮时，通过loadData，加载HTML格式的文本数据</em>
+            // 点击按钮时，通过loadData，加载HTML格式的文本数据
             this.controller.loadData(
               '<body>\n' +
                 '<div">\n' +
@@ -109,8 +109,8 @@ struct WebComponent {
                 '</body>',
               'text/html',
               'UTF-8',
-              ' ', <em>// baseUrl设置为空格</em>
-              ' ' <em>// historyUrl设置为空格</em>
+              ' ', // baseUrl设置为空格
+              ' ' // historyUrl设置为空格
             );
           } catch (error) {
             console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
@@ -154,10 +154,10 @@ struct WebComponent1 {
             '</p>\n' +
             '</div>\n' +
             '</body>';
-         <em> // 对html进行编码转义</em>
+          // 对html进行编码转义
           let encodeHtml = encodeURIComponent(htmlStr);
           try {
-          <em>  // 点击按钮时，通过loadData，加载HTML格式的文本数据</em>
+            // 点击按钮时，通过loadData，加载HTML格式的文本数据
             this.controller.loadData(
               encodeHtml,
               'text/html',

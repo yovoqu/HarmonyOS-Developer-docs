@@ -27,21 +27,21 @@
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 
-const BUNDLE_NAME: string = 'com.example.jumphap'; <em>// 在应用app.json5文件中"bundleName"节点获得</em>
-const ABILITY_NAME: string = 'TargetHapAbility'; <em>// 在HAP包的对应Ability文件中获得</em>
+const BUNDLE_NAME: string = 'com.example.jumphap'; // 在应用app.json5文件中"bundleName"节点获得
+const ABILITY_NAME: string = 'TargetHapAbility'; // 在HAP包的对应Ability文件中获得
 
 @Entry
 @Component
 struct Index {
-  private context?: common.UIAbilityContext; <em>// 创建context实例</em>
+  private context?: common.UIAbilityContext; // 创建context实例
 
   aboutToAppear(): void {
-    this.context = this.getUIContext().getHostContext() as common.UIAbilityContext; <em>// 获取当前页面关联的UIAbilityContext</em>
+    this.context = this.getUIContext().getHostContext() as common.UIAbilityContext; // 获取当前页面关联的UIAbilityContext
   }
 
   jumpHap() {
     if (this.context) {
-      <em>// 启动Ability，拉起HAP模块的UIAbility实例</em>
+      // 启动Ability，拉起HAP模块的UIAbility实例
       this.context.startAbility({
         bundleName: BUNDLE_NAME,
         abilityName: ABILITY_NAME
@@ -64,7 +64,7 @@ struct Index {
           middle: { anchor: '__container__', align: HorizontalAlign.Center }
         })
         .onClick(() => {
-          this.jumpHap(); <em>// 点击跳转</em>
+          this.jumpHap(); // 点击跳转
         });
     };
   }

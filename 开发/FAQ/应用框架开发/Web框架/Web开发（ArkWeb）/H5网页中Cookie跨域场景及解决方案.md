@@ -62,7 +62,7 @@ import { webview } from '@kit.ArkWeb';
 @Component
 struct Page1 {
   private controller: WebviewController = new webview.WebviewController();
- <em> // url使用时请替换为真实地址，此示例***.test.com为子域名，test.com为主域名</em>
+  // url使用时请替换为真实地址，此示例***.test.com为子域名，test.com为主域名
   url: string = 'https://***.test.com';
 
   build() {
@@ -72,7 +72,7 @@ struct Page1 {
         .geolocationAccess(false)
         .onControllerAttached(() => {
           try {
-           <em> // 为了子域名跨域时可以正常访问Cookie，需要将Domain属性值设置为主域名</em>
+            // 为了子域名跨域时可以正常访问Cookie，需要将Domain属性值设置为主域名
             webview.WebCookieManager.configCookieSync(this.url, 'cookie_key=cookie_value;Domain=.test.com');
           } catch (error) {
             console.error(`excute configCookieSync failed. error is ${error}`);
@@ -94,7 +94,7 @@ struct Page1 {
     <title>Hello World</title>
     <script type="text/javascript">
         window.onload = function() {
-          <em>  // 使用时，Domain的值请替换为真实主域名</em>
+            // 使用时，Domain的值请替换为真实主域名
             document.cookie = "cookie_key=cookie_value; Domain=.test.com";
         };
     </script>
@@ -125,7 +125,7 @@ struct Page2 {
   uiContext: UIContext = this.getUIContext();
 
   aboutToAppear(): void {
-  <em>  // 设置WebCookieManager实例拥有发送和接收第三方cookie的权限</em>
+    // 设置WebCookieManager实例拥有发送和接收第三方cookie的权限
     webview.WebCookieManager.putAcceptThirdPartyCookieEnabled(true);
   }
 
@@ -137,11 +137,11 @@ struct Page2 {
           .geolocationAccess(false)
           .onControllerAttached(() => {
             try {
-            <em>  // 设置允许可以跨域访问的路径列表</em>
+              // 设置允许可以跨域访问的路径列表
               this.controller.setPathAllowingUniversalAccess([
                 this.uiContext.getHostContext()!.resourceDir
               ]);
-            <em>  // 访问本地资源页面</em>
+              // 访问本地资源页面
               this.controller.loadUrl('file://' + this.uiContext.getHostContext()!.resourceDir + '/index.html');
             } catch (error) {
               console.error(
@@ -149,7 +149,7 @@ struct Page2 {
             }
 
             try {
-           <em>   // 为服务端请求设置Cookie，使用时请替换为真实地址</em>
+              // 为服务端请求设置Cookie，使用时请替换为真实地址
               webview.WebCookieManager.configCookieSync('www.example.com',
                 'cookie_key=cookie_value;Domain=.example.com;SameSite=None;Secure=true;HttpOnly');
             } catch (error) {
@@ -177,10 +177,10 @@ struct Page2 {
 
 <script>
     function sendRequest() {
-     <em> // 使用时请替换成真实网址</em>
+      // 使用时请替换成真实网址
       fetch('https://www.example.com', {
         method: 'GET',
-        credentials: 'include'<em> // 设置无论是否跨域，始终在请求中携带凭据</em>
+        credentials: 'include' // 设置无论是否跨域，始终在请求中携带凭据
       })
       .then(res => res.json())
       .then(data => console.info('成功:', data))

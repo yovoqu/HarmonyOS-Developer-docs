@@ -58,7 +58,7 @@ onDrawWrong(context: DrawContext, drawInfo: CustomSpanDrawInfo): void {
   drawing.TextBlob.makeFromString(this.originText, localFont, drawing.TextEncoding.TEXT_ENCODING_UTF8);
   canvas.attachBrush(textBrush);
   hilog.info(0x00, 'MyCustomSpan', `drawInfo.baseline: ${drawInfo.baseline}`);
- <em> // 绘制</em>
+  // 绘制
   canvas.drawTextBlob(textBlob, drawInfo.x, drawInfo.baseline);
   canvas.detachBrush();
 }
@@ -81,95 +81,95 @@ onDrawWrong(context: DrawContext, drawInfo: CustomSpanDrawInfo): void {
 
   
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">drawing </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkGraphics2D'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,255,255);">hilog </span>from <span style="color: rgb(132,63,161);">'@ohos.hilog'</span><span style="color: rgb(181,106,1);">;</span>
+import { drawing } from '@kit.ArkGraphics2D';
+import hilog from '@ohos.hilog';
 
-let <span style="color: rgb(255,255,255);">gUIContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">UIContext</span><span style="color: rgb(181,106,1);">;</span>
+let gUIContext: UIContext;
 
-class <span style="color: rgb(0,0,255);">MyCustomSpan </span>extends <span style="color: rgb(0,0,255);">CustomSpan </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">originText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">fontSize</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">;</span>
+class MyCustomSpan extends CustomSpan {
+  originText: string;
+  fontSize?: number;
 
-  constructor<span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">originText</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    super<span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">originText </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">originText</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  constructor(originText: string) {
+    super();
+    this.originText = originText;
+  }
 
-  <span style="color: rgb(0,0,255);">onMeasure</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">measureInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">CustomSpanMeasureInfo</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">CustomSpanMetrics </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fontSize </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">measureInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fontSize</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">measureUtils </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">gUIContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getMeasureUtils</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">gUIContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">measureUtils</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">measureText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">textContent</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">originText</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">fontSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">measureInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fontSize</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span>undefined <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">高度设置为</span><span style="color: rgb(128,128,128);">undefined</span><span style="color: rgb(128,128,128);">自适应文本</span></em>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  onMeasure(measureInfo: CustomSpanMeasureInfo): CustomSpanMetrics {
+    this.fontSize = measureInfo.fontSize;
+    let measureUtils = gUIContext.getMeasureUtils();
+    return {
+      width: gUIContext.px2vp(measureUtils.measureText({
+        textContent: this.originText,
+        fontSize: measureInfo.fontSize,
+      })),
+      height: undefined // 高度设置为undefined自适应文本
+    };
+  }
 
-  <span style="color: rgb(0,0,255);">onDraw</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DrawContext</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">drawInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">CustomSpanDrawInfo</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    const <span style="color: rgb(255,255,255);">canvas </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(255,255,255);">textBrush </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Brush</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置文本绘制画刷</span></em>
-    const <span style="color: rgb(255,255,255);">localFont </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Font</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">localFont</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">gUIContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">vp2px</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fontSize</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(255,255,255);">textBlob </span><span style="color: rgb(181,106,1);">=</span>
-      <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TextBlob</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">makeFromString</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">originText</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">localFont</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TextEncoding</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TEXT_ENCODING_UTF8</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置绘制文本</span></em>
-    <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">attachBrush</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">textBrush</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(0x00</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'MyCustomSpan'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">`drawInfo.baseline: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">drawInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">baseline</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">bounds </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">textBlob</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">bounds</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取文本实际边距</span></em>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">修改</span><span style="color: rgb(128,128,128);">text</span><span style="color: rgb(128,128,128);">的坐标并绘制</span></em>
-    <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawTextBlob</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">textBlob</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">drawInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">x </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">bounds</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">drawInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">lineTop </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">bounds</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">detachBrush</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  onDraw(context: DrawContext, drawInfo: CustomSpanDrawInfo): void {
+    const canvas = context.canvas;
+    const textBrush = new drawing.Brush(); // 设置文本绘制画刷
+    const localFont = new drawing.Font();
+    localFont.setSize(gUIContext.vp2px(this.fontSize));
+    const textBlob =
+      drawing.TextBlob.makeFromString(this.originText, localFont, drawing.TextEncoding.TEXT_ENCODING_UTF8); // 设置绘制文本
+    canvas.attachBrush(textBrush);
+    hilog.info(0x00, 'MyCustomSpan', `drawInfo.baseline: ${drawInfo.baseline}`);
+    let bounds = textBlob.bounds(); // 获取文本实际边距
+    // 修改text的坐标并绘制
+    canvas.drawTextBlob(textBlob, drawInfo.x - bounds.left, drawInfo.lineTop - bounds.top);
+    canvas.detachBrush();
+  }
 
-  <span style="color: rgb(0,0,255);">onDrawWrong</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">DrawContext</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">drawInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">CustomSpanDrawInfo</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    const <span style="color: rgb(255,255,255);">canvas </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(255,255,255);">textBrush </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Brush</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(255,255,255);">localFont </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Font</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">localFont</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">gUIContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">vp2px</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fontSize</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(255,255,255);">textBlob </span><span style="color: rgb(181,106,1);">=</span>
-      <span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TextBlob</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">makeFromString</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">originText</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">localFont</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">drawing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TextEncoding</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TEXT_ENCODING_UTF8</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">attachBrush</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">textBrush</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(0x00</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'MyCustomSpan'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">`drawInfo.baseline: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">drawInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">baseline</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">绘制</span></em>
-    <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawTextBlob</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">textBlob</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">drawInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">drawInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">baseline</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">canvas</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">detachBrush</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  onDrawWrong(context: DrawContext, drawInfo: CustomSpanDrawInfo): void {
+    const canvas = context.canvas;
+    const textBrush = new drawing.Brush();
+    const localFont = new drawing.Font();
+    localFont.setSize(gUIContext.vp2px(this.fontSize));
+    const textBlob =
+      drawing.TextBlob.makeFromString(this.originText, localFont, drawing.TextEncoding.TEXT_ENCODING_UTF8);
+    canvas.attachBrush(textBrush);
+    hilog.info(0x00, 'MyCustomSpan', `drawInfo.baseline: ${drawInfo.baseline}`);
+    // 绘制
+    canvas.drawTextBlob(textBlob, drawInfo.x, drawInfo.baseline);
+    canvas.detachBrush();
+  }
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@ComponentV2</span>
-struct <span style="color: rgb(0,0,255);">DrawText </span><span style="color: rgb(181,106,1);">{</span>
-  private <span style="color: rgb(255,255,255);">textController1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TextController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TextController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">textController2</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TextController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TextController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@ComponentV2
+struct DrawText {
+  private textController1: TextController = new TextController();
+  private textController2: TextController = new TextController();
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">gUIContext </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  aboutToAppear() {
+    gUIContext = this.getUIContext();
+  }
 
-  <span style="color: rgb(0,0,255);">onDidBuild</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    const <span style="color: rgb(255,255,255);">style1 </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">MutableStyledString</span><span style="color: rgb(255,0,170);">(</span>new <span style="color: rgb(0,0,255);">MyCustomSpan</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">危乎高哉</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textController1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setStyledString</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">style1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  onDidBuild(): void {
+    const style1 = new MutableStyledString(new MyCustomSpan('危乎高哉'));
+    this.textController1.setStyledString(style1);
 
-    const <span style="color: rgb(255,255,255);">style2 </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">MutableStyledString</span><span style="color: rgb(255,0,170);">(</span>new <span style="color: rgb(0,0,255);">MyCustomSpan</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">危乎高哉</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">style2</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">appendStyledString</span><span style="color: rgb(255,0,170);">(</span>new <span style="color: rgb(0,0,255);">StyledString</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">哉</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">绘制文字后在末尾处添加</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textController2</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setStyledString</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">style2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+    const style2 = new MutableStyledString(new MyCustomSpan('危乎高哉'));
+    style2.appendStyledString(new StyledString('哉')); // 绘制文字后在末尾处添加
+    this.textController2.setStyledString(style2);
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">危乎高哉</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span>undefined<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textController1 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span>undefined<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textController2 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Row() {
+      Text('危乎高哉')
+        .margin(5);
+      Text(undefined, { controller: this.textController1 })
+        .margin(5);
+      Text(undefined, { controller: this.textController2 })
+        .margin(5);
+    }
+    .alignItems(VerticalAlign.Center)
+    .height('100%')
+    .width('100%');
+  }
+}
 ```
  效果预览：
 

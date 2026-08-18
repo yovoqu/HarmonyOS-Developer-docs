@@ -32,7 +32,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct WebComponent {
-<em>  // url需替换为真实路径</em>
+  // url需替换为真实路径
   url: string | Resource = 'xxxx';
   mode: CacheMode = CacheMode.None;
   controller: webview.WebviewController = new webview.WebviewController();
@@ -42,7 +42,7 @@ struct WebComponent {
       Button('removeCache')
         .onClick(() => {
           try {
-          <em>  // 设置为true时同时清除ROM和RAM中的缓存，设置为false时只清除RAM中的缓存</em>
+            // 设置为true时同时清除ROM和RAM中的缓存，设置为false时只清除RAM中的缓存
             this.controller.removeCache(true);
           } catch (error) {
             console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
@@ -59,14 +59,14 @@ struct WebComponent {
 
 2. 方法二：API18及以上版本可以使用静态接口removeAllCache，清除应用中data/storage/el2/base/cache/web目录中所有的缓存文件，Web组件未初始化时也可调用。
 ```ArkTS
-<em>// xxx.ets</em>
+// xxx.ets
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct WebComponent {
-<em>  // url需替换为真实路径</em>
+  // url需替换为真实路径
   url: string | Resource = 'xxxx';
   controller: webview.WebviewController = new webview.WebviewController();
 
@@ -97,7 +97,7 @@ import { webview } from '@kit.ArkWeb';
 @Entry
 @Component
 struct WebComponent {
-<em>  // url需替换为真实路径</em>
+  // url需替换为真实路径
   url: string | Resource = 'xxxx';
   controller: webview.WebviewController = new webview.WebviewController();
 
@@ -128,7 +128,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct WebComponent {
-<em>  // url需替换为真实路径</em>
+  // url需替换为真实路径
   url: string | Resource = 'xxxx';
   controller: webview.WebviewController = new webview.WebviewController();
 
@@ -160,7 +160,7 @@ import { fileIo as fs } from '@kit.CoreFileKit';
 @Entry
 @Component
 struct Index {
-<em>  // url需替换为真实路径</em>
+  // url需替换为真实路径
   url: string | Resource = 'xxxx';
   controller: webview.WebviewController = new webview.WebviewController();
 

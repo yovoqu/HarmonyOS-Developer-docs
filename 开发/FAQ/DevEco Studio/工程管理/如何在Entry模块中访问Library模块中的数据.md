@@ -24,7 +24,7 @@
  1. 创建共享模块：新建工程时选择API 10及以上的Stage模型，工程创建完成后，新建'Static Library'模块。模块创建方法可参考在工程中[添加Module](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-har#section643521083015)。此案例中通过添加模块方式，创建名为'library'的模块。
 1. 在Library模块中定义函数、常量类；
 ```ArkTS
-<em>// ets/constants/SharedLibraryConstants.ets</em>
+// ets/constants/SharedLibraryConstants.ets
 export class SharedLibraryConstants {
   static readonly ENGLISH: string = 'Hello';
   static readonly CHINESE: string = '你好';

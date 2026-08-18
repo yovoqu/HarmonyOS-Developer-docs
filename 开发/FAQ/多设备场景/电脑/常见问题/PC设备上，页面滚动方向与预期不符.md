@@ -68,16 +68,16 @@ PC设备上，触摸屏双指滑动，页面滚动方向与预期不符。
 ```text
 PanGesture(this.panOption)
    .onActionStart((event: GestureEvent) => {
-     <em>// PanGesture手势识别成功处理逻辑</em>
-     <em>// ...</em>
+     // PanGesture手势识别成功处理逻辑
+     // ...
    })
    .onActionUpdate((event: GestureEvent) => {
-     <em>// PanGesture手势移动过程中处理逻辑</em>
-     <em>// ...</em>
+     // PanGesture手势移动过程中处理逻辑
+     // ...
    })
    .onActionEnd((event: GestureEvent) => {
-     <em>// PanGesture手势识别成功，手指抬起后处理逻辑</em>
-     <em>// 抬起后页面滚动方向计算错误</em>
+     // PanGesture手势识别成功，手指抬起后处理逻辑
+     // 抬起后页面滚动方向计算错误
    })
 ```
 
@@ -116,8 +116,8 @@ struct PanGestureExample {
       .padding(20)
       .border({ width: 3 })
       .margin(50)
-      .translate({ x: this.offsetX, y: this.offsetY, z: 0 }) <em>// 以组件左上角为坐标原点进行移动</em>
-      <em>// 双指拖动触发该手势事件</em>
+      .translate({ x: this.offsetX, y: this.offsetY, z: 0 }) // 以组件左上角为坐标原点进行移动
+      // 双指拖动触发该手势事件
       .gesture(
         PanGesture(this.panOption)
           .onActionStart((event: GestureEvent) => {

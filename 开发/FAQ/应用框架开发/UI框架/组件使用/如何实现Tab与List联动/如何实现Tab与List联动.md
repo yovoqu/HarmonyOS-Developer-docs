@@ -37,141 +37,141 @@
 因为Tab的位置是固定不变的，可以在滚动事件[onDidScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#ondidscroll12)中，使用ListScroll的[getVisibleListContentInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#getvisiblelistcontentinfo14)方法，根据a线的坐标获取该位置List的ListItem的索引信息。
  
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">CommonModifier</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">LengthUnit </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
+import { CommonModifier, LengthUnit } from '@kit.ArkUI';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">ListFollowTab </span><span style="color: rgb(181,106,1);">{</span>
-  private <span style="color: rgb(255,255,255);">LIST_GROUP_NUM </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">TAB_BAR_HEIGHT</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">56</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">arrayList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[][]</span> <span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">LIST_GROUP_NUM</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">currentIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">tabOpacity</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TabsController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TabsController</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">listScroller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ListScroller </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ListScroller</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">tabBarModifier</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">CommonModifier </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CommonModifier</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">toEnd</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct ListFollowTab {
+  private LIST_GROUP_NUM = 4;
+  private TAB_BAR_HEIGHT: number = 56;
+  @State arrayList: number[][] = new Array<number[]>(this.LIST_GROUP_NUM);
+  @State currentIndex: number = 0;
+  @State tabOpacity: boolean = false;
+  private controller: TabsController = new TabsController();
+  private listScroller: ListScroller = new ListScroller();
+  @State tabBarModifier: CommonModifier = new CommonModifier();
+  @State toEnd: boolean = false;
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fill</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">arrayList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fill</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabBarModifier</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Start</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  aboutToAppear(): void {
+    let item: number[] = new Array(10);
+    item.fill(0);
+    this.arrayList.fill(item);
+    this.tabBarModifier.align(Alignment.Start);
+  }
 
-  <span style="color: rgb(181,106,1);">@Builder</span>
-  <span style="color: rgb(0,0,255);">tabBuilder</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">ButtonType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ROUNDED_RECTANGLE</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">8</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">8</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span><span style="color: rgb(255,255,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(132,63,161);">'#0A59F7' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#0D000000'</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">White </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Black</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过页签切换，避免</span><span style="color: rgb(128,128,128);">item</span><span style="color: rgb(128,128,128);">被页签栏挡住</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listScroller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollToIndex</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">ScrollAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">START</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">extraOffset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">* </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TAB_BAR_HEIGHT</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">unit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">LengthUnit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">VP </span><span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  @Builder
+  tabBuilder(index: number, name: string) {
+    Button(name)
+      .type(ButtonType.ROUNDED_RECTANGLE)
+      .padding({
+        left: 16,
+        right: 16,
+        top: 8,
+        bottom: 8
+      })
+      .margin({right: 4, left: 4})
+      .backgroundColor(this.currentIndex === index ? '#0A59F7' : '#0D000000')
+      .fontColor(this.currentIndex === index ? Color.White : Color.Black)
+      .onClick(() => {
+        // 通过页签切换，避免item被页签栏挡住
+        this.listScroller.scrollToIndex(index, true, ScrollAlign.START, {
+          extraOffset: { value: -1 * this.TAB_BAR_HEIGHT, unit: LengthUnit.VP }
+        });
+      })
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">scroller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listScroller </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">arrayList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">group</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(0,0,255);">ListItemGroup</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">style</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ListItemGroupStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CARD </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">group</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">itemIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-                <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">style</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ListItemStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CARD </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-                  <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">第</span><span style="color: rgb(132,63,161);">' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">个</span><span style="color: rgb(132,63,161);">Group</span><span style="color: rgb(132,63,161);">中第</span><span style="color: rgb(132,63,161);">' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">itemIndex </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">个</span><span style="color: rgb(132,63,161);">item'</span><span style="color: rgb(255,0,170);">)</span>
-                    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-                    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-                <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">              }</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">16 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">}</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDidScroll</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">offset</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">scrollState</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-       <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">滑动至底部时，继续下滑和惯性回弹操作不影响页签</span></em>
-          if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">toEnd</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-            if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">offset </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">offset </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(255,255,255);">scrollState </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">ScrollState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Fling</span><span style="color: rgb(255,0,170);">)) </span><span style="color: rgb(181,106,1);">{</span>
-              return<span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">          }</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">toEnd </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-    <em>      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取当前</span><span style="color: rgb(128,128,128);">Tab</span><span style="color: rgb(128,128,128);">位置的</span><span style="color: rgb(128,128,128);">item</span><span style="color: rgb(128,128,128);">索引，判断是否切换页签</span></em>
-          let <span style="color: rgb(255,255,255);">currentItem </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">listScroller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getVisibleListContentInfo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TAB_BAR_HEIGHT</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">;</span>
-          if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">currentItem </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(255,255,255);">currentItem</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">currentItem</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReachEnd</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-         <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">如果最后一个页签对应的</span><span style="color: rgb(128,128,128);">item</span><span style="color: rgb(128,128,128);">高度小于</span><span style="color: rgb(128,128,128);">List</span><span style="color: rgb(128,128,128);">区域高度，</span><span style="color: rgb(128,128,128);">List</span><span style="color: rgb(128,128,128);">滑动到底时切换至最后一个页签</span></em>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">toEnd </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">LIST_GROUP_NUM </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onScrollIndex</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">start</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">start </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabOpacity </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabOpacity </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">)</span>
+  build() {
+    Column() {
+      Stack() {
+        List({ space: 16, scroller: this.listScroller }) {
+          ForEach(this.arrayList, (group: number[], index: number) => {
+            ListItemGroup({ style: ListItemGroupStyle.CARD }) {
+              ForEach(group, (item: number, itemIndex: number) => {
+                ListItem({ style: ListItemStyle.CARD }) {
+                  Text('第' + (index + 1) + '个Group中第' + (itemIndex + 1) + '个item')
+                    .width('100%')
+                    .textAlign(TextAlign.Center)
+                }
+              })
+            }.margin({ left: 16, right: 16 })
+          })
+        }
+        .onDidScroll((offset, scrollState) => {
+          // 滑动至底部时，继续下滑和惯性回弹操作不影响页签
+          if (this.toEnd) {
+            if (offset > 0 || (offset < 0 && scrollState === ScrollState.Fling)) {
+              return;
+            }
+          }
+          this.toEnd = false;
+          // 获取当前Tab位置的item索引，判断是否切换页签
+          let currentItem = this.listScroller.getVisibleListContentInfo(50, this.TAB_BAR_HEIGHT).index;
+          if (currentItem > 0 && this.currentIndex !== currentItem) {
+            this.currentIndex = currentItem;
+          }
+        })
+        .onReachEnd(() => {
+          // 如果最后一个页签对应的item高度小于List区域高度，List滑动到底时切换至最后一个页签
+          this.toEnd = true;
+          this.currentIndex = this.LIST_GROUP_NUM - 1;
+        })
+        .onScrollIndex((start: number) => {
+          if (start > 0) {
+            this.tabOpacity = true;
+          } else {
+            this.tabOpacity = false;
+          }
+        })
 
-        <span style="color: rgb(0,0,255);">Tabs</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">barPosition</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">BarPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Start</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(255,255,255);">barModifier</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabBarModifier</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">TabContent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">          }</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBar</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBuilder</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Title1'</span><span style="color: rgb(255,0,170);">))</span>
+        Tabs({
+          barPosition: BarPosition.Start,
+          index: this.currentIndex,
+          controller: this.controller,
+          barModifier: this.tabBarModifier
+        }) {
+          TabContent() {
+          }
+          .tabBar(this.tabBuilder(0, 'Title1'))
 
-          <span style="color: rgb(0,0,255);">TabContent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBar</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBuilder</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Title2'</span><span style="color: rgb(255,0,170);">))</span>
+          TabContent() {
+          }.tabBar(this.tabBuilder(1, 'Title2'))
 
-          <span style="color: rgb(0,0,255);">TabContent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBar</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBuilder</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Title3'</span><span style="color: rgb(255,0,170);">))</span>
+          TabContent() {
+          }.tabBar(this.tabBuilder(2, 'Title3'))
 
-          <span style="color: rgb(0,0,255);">TabContent</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBar</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tabBuilder</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">3</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Title4'</span><span style="color: rgb(255,0,170);">))</span>
-        <span style="color: rgb(181,106,1);">}</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">vertical</span><span style="color: rgb(255,0,170);">(</span>false<span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">barMode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BarMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Scrollable</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">margin</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">12 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">barHeight</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TAB_BAR_HEIGHT</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animationDuration</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">400</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onChange</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-       <em>   <span style="color: rgb(128,128,128);">// currentIndex</span><span style="color: rgb(128,128,128);">控制</span><span style="color: rgb(128,128,128);">TabContent</span><span style="color: rgb(128,128,128);">显示页签</span></em>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">currentIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#E5E5EA'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">expandSafeArea</span><span style="color: rgb(255,0,170);">([</span><span style="color: rgb(255,255,255);">SafeAreaType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SYSTEM</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">SafeAreaEdge</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TOP</span><span style="color: rgb(255,0,170);">])</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'auto'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">visibility</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tabOpacity </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Visible </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Hidden</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Alignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Top</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'90%'</span><span style="color: rgb(255,0,170);">)</span>
+          TabContent() {
+          }.tabBar(this.tabBuilder(3, 'Title4'))
+        }
+        .vertical(false)
+        .barMode(BarMode.Scrollable, { margin: 12 })
+        .barHeight(this.TAB_BAR_HEIGHT)
+        .animationDuration(400)
+        .onChange((index: number) => {
+          // currentIndex控制TabContent显示页签
+          this.currentIndex = index;
+        })
+        .backgroundColor('#E5E5EA')
+        .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP])
+        .width('100%')
+        .height('auto')
+        .visibility(this.tabOpacity ? Visibility.Visible : Visibility.Hidden)
+      }
+      .alignContent(Alignment.Top)
+      .height('90%')
 
-      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">底边栏</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#E5E5EA'</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'10%'</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">expandSafeArea</span><span style="color: rgb(255,0,170);">([</span><span style="color: rgb(255,255,255);">SafeAreaType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SYSTEM</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">SafeAreaEdge</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">BOTTOM</span><span style="color: rgb(255,0,170);">])</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#F1F3F5'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">expandSafeArea</span><span style="color: rgb(255,0,170);">([</span><span style="color: rgb(255,255,255);">SafeAreaType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SYSTEM</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">SafeAreaEdge</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TOP</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">SafeAreaEdge</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">BOTTOM</span><span style="color: rgb(255,0,170);">])</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+      Row() {
+        Text('底边栏')
+      }
+      .justifyContent(FlexAlign.Center)
+      .backgroundColor('#E5E5EA')
+      .height('10%')
+      .width('100%')
+      .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.BOTTOM])
+    }
+    .backgroundColor('#F1F3F5')
+    .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM])
+    .width('100%')
+    .height('100%')
+  }
+}
 ```

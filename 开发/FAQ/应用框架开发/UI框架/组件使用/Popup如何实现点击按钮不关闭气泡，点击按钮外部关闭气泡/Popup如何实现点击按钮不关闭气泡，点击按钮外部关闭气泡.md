@@ -47,11 +47,11 @@ struct PopupForClickButtonNotClose {
         })
         .onTouch((e) => {
           e.stopPropagation();
-        }) <em>// 阻止事件传递,避免气泡有关闭再打开的效果</em>
+        }) // 阻止事件传递,避免气泡有关闭再打开的效果
         .bindPopup(this.handlePopup, {
           builder: this.popupBuilder,
           placement: Placement.Bottom,
-          enableArrow: false, <em>// 气泡弹出时不显示箭头</em>
+          enableArrow: false, // 气泡弹出时不显示箭头
           targetSpace: '15vp',
           mask: false,
           autoCancel: false,

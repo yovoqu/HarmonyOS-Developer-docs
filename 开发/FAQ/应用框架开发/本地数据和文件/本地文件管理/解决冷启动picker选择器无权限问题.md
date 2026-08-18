@@ -21,7 +21,7 @@ struct ColdStartPickerSelector {
   @State imagePath: string = '';
   private context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 
- <em> // When loading the page, attempt to read the last saved draft (cold start recovery logic).</em>
+  // When loading the page, attempt to read the last saved draft (cold start recovery logic).
   async aboutToAppear() {
     try {
       let pref = await preferences.getPreferences(this.context, PREF_NAME);
@@ -36,7 +36,7 @@ struct ColdStartPickerSelector {
     }
   }
 
-  <em>// Select image and save draft.</em>
+  // Select image and save draft.
   async pickAndSaveDraft() {
     try {
       let photoPicker = new photoAccessHelper.PhotoViewPicker();
@@ -45,26 +45,26 @@ struct ColdStartPickerSelector {
       if (result.photoUris.length > 0) {
         const tempUri = result.photoUris[0];
 
-      <em>  // Open the temporary URI returned by Picker in read-only mode.</em>
+        // Open the temporary URI returned by Picker in read-only mode.
         let srcFile = fs.openSync(tempUri, fs.OpenMode.READ_ONLY);
 
-      <em>  // Define the target save path in the sandbox.</em>
+        // Define the target save path in the sandbox.
         let destPath = `${this.context.cacheDir}/draft_image_${Date.now()}.jpg`;
         let destFile = fs.openSync(destPath, fs.OpenMode.CREATE | fs.OpenMode.WRITE_ONLY);
 
-      <em>  // Execute file copying.</em>
+        // Execute file copying.
         fs.copyFileSync(srcFile.fd, destFile.fd);
 
-    <em>    // Close file descriptor to free up resources.</em>
+        // Close file descriptor to free up resources.
         fs.closeSync(srcFile);
         fs.closeSync(destFile);
 
-       <em> // Persist the sandbox path locally.</em>
+        // Persist the sandbox path locally.
         let pref = await preferences.getPreferences(this.context, PREF_NAME);
         await pref.put(KEY_IMAGE_PATH, destPath);
         await pref.flush();
 
-      <em>  // Convert the file path in the application sandbox to a system recognizable file URI.</em>
+        // Convert the file path in the application sandbox to a system recognizable file URI.
         this.imagePath = fileUri.getUriFromPath(destPath);
         console.info('Draft saved successfully, cache path: ' + destPath);
       }
@@ -79,7 +79,7 @@ struct ColdStartPickerSelector {
         .fontSize(24)
         .fontWeight(FontWeight.Bold)
 
-     <em> // Cold start read: directly render sandbox path.</em>
+      // Cold start read: directly render sandbox path.
       if (this.imagePath) {
         Image(this.imagePath)
           .width('100%')

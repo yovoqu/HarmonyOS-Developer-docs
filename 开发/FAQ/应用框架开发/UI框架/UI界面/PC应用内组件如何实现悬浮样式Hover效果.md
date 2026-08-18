@@ -31,7 +31,7 @@ PC应用如何实现鼠标悬停在组件上时，组件UI效果变更？
 例如按钮的默认状态、按下状态、禁用状态可以将@Styles与stateStyles组合使用来实现对应效果，悬浮状态还需要结合[onHover](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-hover)事件来实现。
  
 ```text
-<em>// </em><em>定义在全局的Button样式</em>
+// 定义在全局的Button样式
 @Styles
 function globalButtonStyle() {
   .width(160)
@@ -44,26 +44,26 @@ function globalButtonStyle() {
 struct CustomerButton {
   @State isHover: boolean = false;
 
-  <em>// </em><em>定义在组件内的@Styles封装的样式</em>
-<em>  // Disable</em>
+  // 定义在组件内的@Styles封装的样式
+  // Disable
   @Styles
   disabledStyle(){
     .backgroundColor('#A8B8F7');
   }
 
-  <em>// normal</em>
+  // normal
   @Styles
   normalStyle() {
     .backgroundColor('#0A59F7');
   }
 
- <em> // pressed</em>
+  // pressed
   @Styles
   pressedStyle() {
     .backgroundColor('#0950DE');
   }
 
-  <em>// hover</em>
+  // hover
   @Styles
   hoverStyle() {
     .backgroundColor(this.isHover ? '#0954EA' : '#0A59F7');

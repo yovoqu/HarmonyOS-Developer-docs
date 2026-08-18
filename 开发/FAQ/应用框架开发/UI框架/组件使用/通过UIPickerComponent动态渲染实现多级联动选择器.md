@@ -33,41 +33,41 @@
 @Entry
 @Component
 struct UIPickerComponentExample1 {
-  yearList: number[] = []; <em>// 年选择器数据</em>
-  monthList: number[] = []; <em>// 月选择器数据</em>
-  dayList31: number[] = []; <em>// 31日数据</em>
-  @State dayList: number[] = []; <em>// 日选择器数据(会根据年月进行设置)</em>
-  @State yearIndex: number = 0; <em>// 年选择器索引</em>
-  @State monthIndex: number = 0; <em>// 月选择器索引</em>
-  @State dayIndex: number = 0;<em> // 日选择器索引</em>
-  @State showDay: boolean = true; <em>// 是否展示日</em>
-  @State @Watch('dateChange') dateText: string = ''; <em>// 选中的日期信息</em>
-  @State isLoop: boolean = true; <em>// 是否循环滚动</em>
+  yearList: number[] = []; // 年选择器数据
+  monthList: number[] = []; // 月选择器数据
+  dayList31: number[] = []; // 31日数据
+  @State dayList: number[] = []; // 日选择器数据(会根据年月进行设置)
+  @State yearIndex: number = 0; // 年选择器索引
+  @State monthIndex: number = 0; // 月选择器索引
+  @State dayIndex: number = 0; // 日选择器索引
+  @State showDay: boolean = true; // 是否展示日
+  @State @Watch('dateChange') dateText: string = ''; // 选中的日期信息
+  @State isLoop: boolean = true; // 是否循环滚动
 
- <em> // 日期值变化时触发</em>
+  // 日期值变化时触发
   dateChange() {
-    console.info(this.dateText);<em> // 打印选择器日期</em>
+    console.info(this.dateText); // 打印选择器日期
   }
 
- <em> // 当年月发生改变时修改日选择器数据</em>
+  // 当年月发生改变时修改日选择器数据
   updateDayList() {
     let month = this.monthList[this.monthIndex];
     let year = this.yearList[this.yearIndex];
     let list: number[] = [];
     if (month === 1 || month === 3 || month === 5 || month === 7 || month === 8 || month === 10 || month === 12) {
-      list = this.dayList31;<em> // 大月时选择器数据</em>
+      list = this.dayList31; // 大月时选择器数据
     } else if (month === 4 || month === 6 || month === 9 || month === 11) {
-      list = this.dayList31.slice(0, 30); <em>// 小月时选择器数据</em>
+      list = this.dayList31.slice(0, 30); // 小月时选择器数据
     } else if ((year % 4 === 0) && (year % 100 !== 0) || (year % 400 === 0)) {
-      list = this.dayList31.slice(0, 29); <em>// 闰年2月选择器数据</em>
+      list = this.dayList31.slice(0, 29); // 闰年2月选择器数据
     } else {
-      list = this.dayList31.slice(0, 28); <em>// 平年2月选择器数据</em>
+      list = this.dayList31.slice(0, 28); // 平年2月选择器数据
     }
-    this.dayIndex = (this.dayIndex <= list.length - 1) ? this.dayIndex : (list.length - 1);<em> // 日超出当月时，设置为当月最后一天</em>
-    this.dayList = list; <em>// 修改选择器日选择器数据</em>
+    this.dayIndex = (this.dayIndex <= list.length - 1) ? this.dayIndex : (list.length - 1); // 日超出当月时，设置为当月最后一天
+    this.dayList = list; // 修改选择器日选择器数据
   }
 
- <em> // 初始化年月日列表</em>
+  // 初始化年月日列表
   setList() {
     for (let year = 1900; year <= 2100; year++) {
       this.yearList.push(year);
@@ -80,7 +80,7 @@ struct UIPickerComponentExample1 {
     }
   }
 
- <em> // 初始化日期</em>
+  // 初始化日期
   setDate(date: Date) {
     this.yearIndex = this.yearList.findIndex((year) => {
       return year === date.getFullYear();
@@ -94,9 +94,9 @@ struct UIPickerComponentExample1 {
   }
 
   aboutToAppear(): void {
-    this.setList(); <em>// 初始化年月日的列表数据</em>
-    this.setDate(new Date());<em> // 初始化选择器日期为当天日期</em>
-    this.updateDayList(); <em>// 更新当月的日列表</em>
+    this.setList(); // 初始化年月日的列表数据
+    this.setDate(new Date()); // 初始化选择器日期为当天日期
+    this.updateDayList(); // 更新当月的日列表
     this.dateText = `${this.yearList[this.yearIndex]}年${this.monthList[this.monthIndex]}月` +
       (this.showDay ? `${this.dayList[this.dayIndex]}日` : ``);
   }
@@ -117,7 +117,7 @@ struct UIPickerComponentExample1 {
         })
         .selectionIndicator({ type: PickerIndicatorType.DIVIDER })
         .width('25%')
-        .canLoop(this.isLoop);<em> // 是否循环</em>
+        .canLoop(this.isLoop); // 是否循环
 
         UIPickerComponent({ selectedIndex: this.monthIndex }) {
           ForEach(this.monthList, (month: number) => {
@@ -132,9 +132,9 @@ struct UIPickerComponentExample1 {
         })
         .selectionIndicator({ type: PickerIndicatorType.DIVIDER })
         .width('25%')
-        .canLoop(this.isLoop); <em>// 是否循环</em>
+        .canLoop(this.isLoop); // 是否循环
 
-        if (this.showDay) {<em> // 是否展示日选择器</em>
+        if (this.showDay) { // 是否展示日选择器
           UIPickerComponent({ selectedIndex: this.dayIndex }) {
             ForEach(this.dayList, (day: number) => {
               Text(`${day}日`);
@@ -147,7 +147,7 @@ struct UIPickerComponentExample1 {
           })
           .selectionIndicator({ type: PickerIndicatorType.DIVIDER })
           .width('25%')
-          .canLoop(this.isLoop);<em> // 是否循环</em>
+          .canLoop(this.isLoop); // 是否循环
         }
       };
 
@@ -176,14 +176,14 @@ struct UIPickerComponentExample1 {
 @Entry
 @Component
 struct UIPickerComponentExample2 {
-  startYear: number = 2020;<em> // 选择器开始年</em>
-  startMonth: number = 4;<em> // 选择器第一年的开始月</em>
-  endYear: number = new Date().getFullYear(); <em>// 选择器结束年</em>
-  endMonth: number = new Date().getMonth() + 1;<em> // 选择器最后一年的结束月</em>
-  yearList: number[] = [];<em> // 年选择器数据</em>
+  startYear: number = 2020; // 选择器开始年
+  startMonth: number = 4; // 选择器第一年的开始月
+  endYear: number = new Date().getFullYear(); // 选择器结束年
+  endMonth: number = new Date().getMonth() + 1; // 选择器最后一年的结束月
+  yearList: number[] = []; // 年选择器数据
   monthList12: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   @State yearIndex: number = 0;
-  @State monthList: number[] = [];<em> // 月选择器数据</em>
+  @State monthList: number[] = []; // 月选择器数据
   @State monthIndex: number = 0;
 
   aboutToAppear(): void {
@@ -204,13 +204,13 @@ struct UIPickerComponentExample2 {
           });
         }
         .onChange((selectIndex) => {
-          this.monthIndex = 0;<em> // 年变动时月索引设置为0</em>
+          this.monthIndex = 0; // 年变动时月索引设置为0
           if (selectIndex === 0) {
-            this.monthList = this.monthList12.slice(this.startMonth - 1);<em> // 第一年月列表</em>
+            this.monthList = this.monthList12.slice(this.startMonth - 1); // 第一年月列表
           } else if (selectIndex === this.yearList.length - 1) {
-            this.monthList = this.monthList12.slice(0, this.endMonth);<em> // 最后一年月列表</em>
+            this.monthList = this.monthList12.slice(0, this.endMonth); // 最后一年月列表
           } else {
-            this.monthList = this.monthList12; <em>// 正常的12个月</em>
+            this.monthList = this.monthList12; // 正常的12个月
           }
         })
         .selectionIndicator({ type: PickerIndicatorType.DIVIDER })

@@ -40,7 +40,7 @@ struct demoExample {
             .textAlign(TextAlign.Center)
             .fontSize(20);
           Video({
-          <em>  // 此处'www.xxx.com/yyy.mp4'仅作为示例</em>
+            // 此处'www.xxx.com/yyy.mp4'仅作为示例
             src: 'www.xxx.com/yyy.mp4',
             controller: this.controllerList[item]
           })

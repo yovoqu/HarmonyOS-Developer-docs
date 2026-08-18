@@ -106,7 +106,7 @@ import { pdfService, PdfView, pdfViewManager } from '@kit.PDFKit';
 @Entry
 @Component
 struct PDFPage {
- <em> // pdf文件沙箱路径</em>
+  // pdf文件沙箱路径
   @State message: string = '';
   @State addSandBoxMsg: string = 'Hello World';
   private context: Context = this.getUIContext().getHostContext() as common.UIAbilityContext;
@@ -151,7 +151,7 @@ struct PDFPage {
   copyTempFile() {
     let tempDir = this.context.tempDir;
 
-   <em> // 临时文件</em>
+    // 临时文件
     this.tempFilePath = tempDir + `/temp222.pdf`;
     try {
       fs.copyFileSync(this.message, this.tempFilePath);
@@ -174,10 +174,10 @@ struct PDFPage {
       aInfo.bottom = 140;
       aInfo.right = 180;
       aInfo.top = 75;
-     <em> // lineColor，fillColor组合为边框颜色</em>
+      // lineColor，fillColor组合为边框颜色
       aInfo.lineColor = 0xFF0000;
       aInfo.fillColor = 0x00ff00;
-    <em>  // 边框区域内填充颜色</em>
+      // 边框区域内填充颜色
       let a: pdfService.PdfBorder = new pdfService.PdfBorder();
       a.borderColor = 0xFFFFFF;
       a.borderWidth = 4;
@@ -208,7 +208,7 @@ struct PDFPage {
       aInfo.endY = 75;
       aInfo.startPointStyle = pdfService.LineEndStyle.STYLE_NONE;
       aInfo.endPointStyle = pdfService.LineEndStyle.STYLE_NONE;
-    <em>  // 注意注意，lineColor的规格是BGR，0xFF0000是蓝色而非红色</em>
+      // 注意注意，lineColor的规格是BGR，0xFF0000是蓝色而非红色
       aInfo.lineColor = 0xFF0000;
 
       let a: pdfService.PdfBorder = new pdfService.PdfBorder();
@@ -277,10 +277,10 @@ struct PDFPage {
   }
 
   saveToSandBox() {
-  <em>  /**</em>
-<em>     * 通过fd来进行拷贝，避免文件过大的内存占用问题</em>
-<em>     * data.fd是hap包的fd，data.offset表示目标文件在hap包中的偏移，data.length表示目标文件的长度</em>
-<em>     */</em>
+    /**
+     * 通过fd来进行拷贝，避免文件过大的内存占用问题
+     * data.fd是hap包的fd，data.offset表示目标文件在hap包中的偏移，data.length表示目标文件的长度
+     */
     this.context.resourceManager.getRawFd('123.pdf', (err, data) => {
       if (err != null) {
         console.error(err.message);
@@ -295,7 +295,7 @@ struct PDFPage {
         let bufsize = 4096;
         let buf = new ArrayBuffer(bufsize);
         let off = 0, len = 0, readedLength = 0;
-      <em>  // 通过buffer将rawfile文件内容copy到沙箱路径</em>
+        // 通过buffer将rawfile文件内容copy到沙箱路径
         len = fs.readSync(data.fd, buf, { offset: data.offset + off, length: bufsize });
         while (len) {
           readedLength += len;

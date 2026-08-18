@@ -93,18 +93,18 @@ struct LongText {
 
   build() {
     Column() {
-      <em>// 关键修改1：使用Flex替代Row，明确弹性规则</em>
+      // 关键修改1：使用Flex替代Row，明确弹性规则
       Flex({
         direction: FlexDirection.Row,
         alignItems: ItemAlign.Center,
-        justifyContent: FlexAlign.Start <em>// </em><em>左对齐</em>
+        justifyContent: FlexAlign.Start // 左对齐
       }) {
         Text(this.title)
           .fontSize(17)
           .fontWeight(500)
           .maxLines(1)
           .textOverflow({ overflow: TextOverflow.Ellipsis })
-          .flexShrink(1)<em> </em><em>// 关键修改2：允许压缩</em>
+          .flexShrink(1) // 关键修改2：允许压缩
           .onClick(() => {
             this.title += '追加文本';
           })
@@ -112,7 +112,7 @@ struct LongText {
         Text('(99)')
           .fontSize(17)
           .fontWeight(500)
-          .flexShrink(0) <em>// 关键修改3：禁止压缩</em>
+          .flexShrink(0) // 关键修改3：禁止压缩
       }
       .width('100%')
       .margin({ top: 280 })

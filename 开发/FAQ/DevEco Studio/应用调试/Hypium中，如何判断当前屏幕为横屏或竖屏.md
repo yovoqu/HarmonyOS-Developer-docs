@@ -28,7 +28,7 @@ Hypium中，执行视频类应用的全屏或者游戏类应用横屏时，应�
 #### 解决方案
 
 ```text
-<em># -*- coding: utf-8 -*-</em>
+# -*- coding: utf-8 -*-
 from devicetest.core.test_case import TestCase, Step
 from hypium import UiDriver
 class TC_001(TestCase):
@@ -41,20 +41,20 @@ class TC_001(TestCase):
         Step("预制条件")
     def process(self):
         Step("方法一：使用driver.get_display_size()方法获取当前屏幕的宽和高，当宽>高时，即为横屏，反之为竖屏。")
-     <em>   # 获取当前屏幕尺寸</em>
+        # 获取当前屏幕尺寸
         display = self.driver.get_display_size()
-      <em>  # 屏幕宽度（像素）</em>
+        # 屏幕宽度（像素）
         width = display[0]
-     <em>   # 屏幕高度（像素）</em>
+        # 屏幕高度（像素）
         height = display[1]
-     <em>   # 当屏幕宽度>屏幕高度，表示当前为横屏观看,否则为竖屏</em>
+        # 当屏幕宽度>屏幕高度，表示当前为横屏观看,否则为竖屏
         if width > height:
             current_orientation = "landscape"
         else:
             current_orientation = "portrait"
         print(f"当前屏幕方向: {current_orientation}")
         Step("方法二：使用driver.get_display_rotation()方法获取当前手机方向")
-       <em> # 获取当前屏幕方向，正常横屏值为：DisplayRotation.ROTATION_270、DisplayRotation.ROTATION_90，竖屏为：DisplayRotation.ROTATION_0</em>
+        # 获取当前屏幕方向，正常横屏值为：DisplayRotation.ROTATION_270、DisplayRotation.ROTATION_90，竖屏为：DisplayRotation.ROTATION_0
         current_orientation = self.driver.get_display_rotation()
         print(f"当前屏幕方向: {current_orientation}")
     def teardown(self):

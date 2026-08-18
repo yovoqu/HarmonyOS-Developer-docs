@@ -27,7 +27,7 @@ let markerOptions: mapCommon.MarkerOptions = {
     longitude: 118.788765
   },
   clickable: true,
- <em> // 设置信息窗标题，点击标记后可展示信息窗</em>
+  // 设置信息窗标题，点击标记后可展示信息窗
   title: '☆点击收藏'
 };
 await this.mapController?.addMarker(markerOptions);
@@ -35,11 +35,11 @@ await this.mapController?.addMarker(markerOptions);
 
 2. 设置自定义信息窗UI样式，通过[getTitle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker#gettitle)和[setTitle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker#settitle)可以获取和设置当前Marker信息窗的标题。在UI中添加onClick点击事件，进行相关点击的响应和操作。
 ```text
-<em>// 自定义信息窗BuilderParam</em>
+// 自定义信息窗BuilderParam
 @BuilderParam customInfoWindow: ($$: map.MarkerDelegate) => void = this.customInfoWindowBuilder;
 
 
-<em>// 自定义信息窗Builder</em>
+// 自定义信息窗Builder
 @Builder
 customInfoWindowBuilder($$: map.MarkerDelegate) {
   if ($$.marker) {
@@ -69,7 +69,7 @@ build() {
       MapComponent({
         mapOptions: this.mapOptions,
         mapCallback: this.callback,
-    <em>    // 自定义信息窗</em>
+        // 自定义信息窗
         customInfoWindow: this.customInfoWindow
       })
         .height(this.mapHeight);
@@ -122,7 +122,7 @@ struct MarkerDemo {
             longitude: 118.788765
           },
           clickable: true,
-         <em> // 设置信息窗标题，点击标记后可展示信息窗</em>
+          // 设置信息窗标题，点击标记后可展示信息窗
           title: '☆点击收藏'
         };
         await this.mapController?.addMarker(markerOptions);
@@ -139,7 +139,7 @@ struct MarkerDemo {
         MapComponent({
           mapOptions: this.mapOptions,
           mapCallback: this.callback,
-        <em>  // 自定义信息窗</em>
+          // 自定义信息窗
           customInfoWindow: this.customInfoWindow
         })
           .height(this.mapHeight);
@@ -150,11 +150,11 @@ struct MarkerDemo {
 
 
 
-  <em>// 自定义信息窗BuilderParam</em>
+  // 自定义信息窗BuilderParam
   @BuilderParam customInfoWindow: ($$: map.MarkerDelegate) => void = this.customInfoWindowBuilder;
 
 
- <em> // 自定义信息窗Builder</em>
+  // 自定义信息窗Builder
   @Builder
   customInfoWindowBuilder($$: map.MarkerDelegate) {
     if ($$.marker) {

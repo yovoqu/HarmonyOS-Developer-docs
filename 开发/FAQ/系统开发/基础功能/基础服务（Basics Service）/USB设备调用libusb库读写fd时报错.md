@@ -9,7 +9,7 @@
 USB设备调用libusb库的ioctl函数进行设备读写时失败，返回错误码16，提示“文件已存在”或“资源已被占用”。
  
 ```text
-ioctl(hpriv - > fd, IOCTL_USBFS_SUBMITURB, urb);<em> </em><em>// 失败，errno=16</em>
+ioctl(hpriv - > fd, IOCTL_USBFS_SUBMITURB, urb); // 失败，errno=16
 ```
  
 涉及到接口占用部分的问题代码示例参考如下：
@@ -31,13 +31,13 @@ initUUBar(device: usbManager.USBDevice){
 
 - C++侧调用libusb库的ioctl函数进行设备读写。
 ```text
-r = ioctl(hpriv->fd, IOCTL_USBFS_SUBMITURB, urb); <em>// 这里返回错误码16</em>
+r = ioctl(hpriv->fd, IOCTL_USBFS_SUBMITURB, urb); // 这里返回错误码16
 if (r < 0) {
   free(urb);
   tpriv->urbs = NULL;
   if (errno == ENODEV)
     return LIBUSB_ERROR_NO_DEVICE;
-  usbi_err(TRANSFER_CTX(transfer), "submiturb failed, errno=%d", errno);<em> </em><em>// 这里返回错误码16</em>
+  usbi_err(TRANSFER_CTX(transfer), "submiturb failed, errno=%d", errno); // 这里返回错误码16
   return LIBUSB_ERROR_IO;
 }
 ```

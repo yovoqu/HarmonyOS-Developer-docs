@@ -8,7 +8,7 @@
 
   
 ```ArkTS
-<em>// xxx.ets</em>
+// xxx.ets
 @Entry
 @Component
 struct TextInputExample {
@@ -17,7 +17,7 @@ struct TextInputExample {
       Column() {
         Button('The second focus acquisition')
           .onClick(() => {
-            focusControl.requestFocus('BBB'); <em>// Get focus on the second input box</em>
+            focusControl.requestFocus('BBB'); // Get focus on the second input box
           })
 
 
@@ -43,7 +43,7 @@ struct TextInputExample {
 
   
 ```ArkTS
-<em>// xxx.ets</em>
+// xxx.ets
 @Entry
 @Component
 struct TextInputExample {
@@ -58,7 +58,7 @@ struct TextInputExample {
 
         TextInput({ placeholder: 'Please enter the content.' })
           .showUnderline(true)
-          .defaultFocus(true) <em>// When the page is first opened, this TextInput gets focus</em>
+          .defaultFocus(true) // When the page is first opened, this TextInput gets focus
           .width(380)
           .height(60)
       }
@@ -73,7 +73,7 @@ struct TextInputExample {
 
   
 ```ArkTS
-<em>// xxx.ets</em>
+// xxx.ets
 @Entry
 @Component
 struct TextInputExample {
@@ -81,8 +81,8 @@ struct TextInputExample {
     Row() {
       Column() {
         TextInput({ placeholder: 'Please enter the content.' })
-          .defaultFocus(true) <em>// When the page is first opened, this TextInput gets focus</em>
-          .enableKeyboardOnFocus(false) <em>// Is TextInput bound to an input method when focusing through methods other than clicking.</em>
+          .defaultFocus(true) // When the page is first opened, this TextInput gets focus
+          .enableKeyboardOnFocus(false) // Is TextInput bound to an input method when focusing through methods other than clicking.
           .placeholderColor(Color.Grey)
           .placeholderFont({ size: 14, weight: 400 })
           .caretColor(Color.Blue)
@@ -101,7 +101,7 @@ struct TextInputExample {
 
   
 ```ArkTS
-<em>// xxx.ets</em>
+// xxx.ets
 @Entry
 @Component
 struct TextInputExample {

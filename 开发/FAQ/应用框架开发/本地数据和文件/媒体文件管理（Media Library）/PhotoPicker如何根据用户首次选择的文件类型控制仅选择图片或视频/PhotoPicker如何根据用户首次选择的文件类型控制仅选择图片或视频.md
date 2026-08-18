@@ -20,78 +20,78 @@
 
 - 需要在展示所有相册文件（即MIMETYPE设置为IMAGE_VIDEO_TYPE）的场景下，根据用户首次选择的文件类型，实现图片与视频分开选择。在官网[示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent)的基础上，规定最大图片数量maxPhotoSelectNumber与最大视频数量maxVideoSelectNumber。
 ```text
-this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MIMEType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoViewMIMETypes</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">IMAGE_VIDEO_TYPE</span><span style="color: rgb(181,106,1);">;</span>
-this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">maxVideoSelectNumber </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">9</span><span style="color: rgb(181,106,1);">;</span>
-this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">maxPhotoSelectNumber </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">9</span><span style="color: rgb(181,106,1);">;</span>
-this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">maxSelectNumber </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">9</span><span style="color: rgb(181,106,1);">;</span>
+this.pickerOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_VIDEO_TYPE;
+this.pickerOptions.maxVideoSelectNumber = 9;
+this.pickerOptions.maxPhotoSelectNumber = 9;
+this.pickerOptions.maxSelectNumber = 9;
 ```
 
 - 当选择一张图片或视频时，通过在onItemClicked回调中，根据选择图片或者视频的[ItemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#iteminfo).mimeType判断文件类型（如mimeType为"video/mp4"是视频文件、mimeType为"image/jpeg"或"image/png"时为图片文件，根据业务需求自行配置），并设置判断条件（如当已选择文件为视频文件时选择图片文件返回false）以实现图片视频的分开选择，示例代码如下。
 ```json
-<span style="color: rgb(0,0,255);">private </span><span style="color: rgb(0,0,255);">onItemClicked</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">itemInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ItemInfo</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">clickType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ClickType</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(255,0,170);">{</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">itemInfo</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    return false<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  let <span style="color: rgb(0,0,255);">mimeType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">itemInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mimeType</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ItemType </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">itemInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">itemType</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">itemInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(181,106,1);">;</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">type </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">ItemType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CAMERA</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">点击相机</span><span style="color: rgb(128,128,128);">item</span><span style="color: rgb(128,128,128);">。</span>
-    return true<span style="color: rgb(181,106,1);">; </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">返回</span><span style="color: rgb(128,128,128);">true</span><span style="color: rgb(128,128,128);">则拉起系统相机，若应用需要自行处理则返回</span><span style="color: rgb(128,128,128);">false</span><span style="color: rgb(128,128,128);">。</span>
-  <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">clickType </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">ClickType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SELECTED</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">videoMimeType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">some</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">videoType </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">videoType </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">mimeType</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedMimeType </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageMimeType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">some</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">imageType </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">imageType </span><span style="color: rgb(181,106,1);">=== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedMimeType</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
-            try <span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">只能选择图片</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`failed to show toast: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            return false<span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedUris</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedMimeType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">mimeType</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">preselectedUris </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(181,106,1);">...</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedUris</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-            return true<span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        } </span>else if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageMimeType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">some</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">imageType </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">imageType </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">mimeType</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedMimeType </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">videoMimeType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">some</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">videoType </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">videoType </span><span style="color: rgb(181,106,1);">=== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedMimeType</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
-            try <span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">只能选择视频</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`failed to show toast: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            return false<span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedUris</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedMimeType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">mimeType</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">preselectedUris </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(181,106,1);">...</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedUris</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-            return true<span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        } </span>else <span style="color: rgb(255,0,170);">{</span>
-          try <span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">未知的图片或视频类型</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`failed to show toast: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-          return false<span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">      }</span>
-<span style="color: rgb(255,0,170);">    } </span>else <span style="color: rgb(255,0,170);">{</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedUris </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedUris</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filter</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          return <span style="color: rgb(0,0,255);">item </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedUris</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedMimeType </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">preselectedUris </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(181,106,1);">...</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedUris</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span>
-    return true<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+private onItemClicked(itemInfo: ItemInfo, clickType: ClickType): boolean {
+  if (!itemInfo) {
+    return false;
+  }
+  let mimeType: string | undefined = itemInfo.mimeType;
+  let type: ItemType | undefined = itemInfo.itemType;
+  let uri: string | undefined = itemInfo.uri;
+  if (type === ItemType.CAMERA) {
+    // 点击相机item。
+    return true; // 返回true则拉起系统相机，若应用需要自行处理则返回false。
+  } else {
+    if (clickType === ClickType.SELECTED) {
+      if (uri) {
+        if (this.videoMimeType.some(videoType => videoType === mimeType)) {
+          if (this.selectedMimeType && this.imageMimeType.some(imageType => imageType === this.selectedMimeType)) {
+            try {
+              this.getUIContext().getPromptAction().showToast({ message: `只能选择图片` });
+            } catch (error) {
+              console.error(`failed to show toast: ${JSON.stringify(error)}`);
+            }
+            return false;
+          } else {
+            this.selectedUris.push(uri);
+            this.selectedMimeType = mimeType;
+            this.pickerOptions.preselectedUris = [...this.selectedUris];
+            return true;
+          }
+        } else if (this.imageMimeType.some(imageType => imageType === mimeType)) {
+          if (this.selectedMimeType && this.videoMimeType.some(videoType => videoType === this.selectedMimeType)) {
+            try {
+              this.getUIContext().getPromptAction().showToast({ message: `只能选择视频` });
+            } catch (error) {
+              console.error(`failed to show toast: ${JSON.stringify(error)}`);
+            }
+            return false;
+          } else {
+            this.selectedUris.push(uri);
+            this.selectedMimeType = mimeType;
+            this.pickerOptions.preselectedUris = [...this.selectedUris];
+            return true;
+          }
+        } else {
+          try {
+            this.getUIContext().getPromptAction().showToast({ message: `未知的图片或视频类型` });
+          } catch (error) {
+            console.error(`failed to show toast: ${JSON.stringify(error)}`);
+          }
+          return false;
+        }
+      }
+    } else {
+      if (uri) {
+        this.selectedUris = this.selectedUris.filter((item: string) => {
+          return item != uri;
+        });
+        if (this.selectedUris.length <= 0) {
+          this.selectedMimeType = undefined;
+        }
+        this.pickerOptions.preselectedUris = [...this.selectedUris];
+      }
+    }
+    return true;
+  }
+}
 ```
 
 
@@ -99,114 +99,114 @@ this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255
 完整示例参考如下：
  
 ```json
-import <span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">ClickType</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">ItemInfo</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">ItemType</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">PhotoPickerComponent</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">PickerController</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">PickerOptions</span><span style="color: rgb(181,106,1);">,</span>
-<span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@ohos.file.PhotoPickerComponent'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(0,0,255);">photoAccessHelper </span>from <span style="color: rgb(255,0,170);">'@ohos.file.photoAccessHelper'</span><span style="color: rgb(181,106,1);">;</span>
+import {
+  ClickType,
+  ItemInfo,
+  ItemType,
+  PhotoPickerComponent,
+  PickerController,
+  PickerOptions,
+} from '@ohos.file.PhotoPickerComponent';
+import photoAccessHelper from '@ohos.file.photoAccessHelper';
 
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">PickerDemo </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">pickerController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PickerController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">PickerController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PickerOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">PickerOptions</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">selectedMimeType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(0,0,255);">selectedUris</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span>new <span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">videoMimeType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'video/mp4'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">视频类型的</span><span style="color: rgb(128,128,128);">mimetype</span><span style="color: rgb(128,128,128);">，根据需要设置</span>
-  private <span style="color: rgb(0,0,255);">imageMimeType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'image/jpeg'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'image/png'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片类型的</span><span style="color: rgb(128,128,128);">mimetype</span><span style="color: rgb(128,128,128);">，根据需要设置</span>
+@Entry
+@Component
+struct PickerDemo {
+  @State pickerController: PickerController = new PickerController();
+  pickerOptions: PickerOptions = new PickerOptions();
+  selectedMimeType: string | undefined = undefined;
+  selectedUris: Array<string> = new Array<string>();
+  private videoMimeType: Array<string> = ['video/mp4']; // 视频类型的mimetype，根据需要设置
+  private imageMimeType: Array<string> = ['image/jpeg', 'image/png']; // 图片类型的mimetype，根据需要设置
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MIMEType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoViewMIMETypes</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">IMAGE_VIDEO_TYPE</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">maxVideoSelectNumber </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">9</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">maxPhotoSelectNumber </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">9</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">maxSelectNumber </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">9</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  aboutToAppear() {
+    this.pickerOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_VIDEO_TYPE;
+    this.pickerOptions.maxVideoSelectNumber = 9;
+    this.pickerOptions.maxPhotoSelectNumber = 9;
+    this.pickerOptions.maxSelectNumber = 9;
+  }
 
-  private <span style="color: rgb(0,0,255);">onItemClicked</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">itemInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ItemInfo</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">clickType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ClickType</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(255,0,170);">{</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">itemInfo</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      return false<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    let <span style="color: rgb(0,0,255);">mimeType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">itemInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mimeType</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ItemType </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">itemInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">itemType</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">itemInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">type </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">ItemType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CAMERA</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">点击相机</span><span style="color: rgb(128,128,128);">item</span><span style="color: rgb(128,128,128);">。</span>
-      return true<span style="color: rgb(181,106,1);">; </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">返回</span><span style="color: rgb(128,128,128);">true</span><span style="color: rgb(128,128,128);">则拉起系统相机，若应用需要自行处理则返回</span><span style="color: rgb(128,128,128);">false</span><span style="color: rgb(128,128,128);">。</span>
-    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">clickType </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">ClickType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SELECTED</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">videoMimeType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">some</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">videoType </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">videoType </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">mimeType</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
-            if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedMimeType </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageMimeType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">some</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">imageType </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">imageType </span><span style="color: rgb(181,106,1);">=== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedMimeType</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
-              try <span style="color: rgb(255,0,170);">{</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">只能选择图片</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`failed to show toast: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span>
-              return false<span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedUris</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedMimeType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">mimeType</span><span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">preselectedUris </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(181,106,1);">...</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedUris</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-              return true<span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">          } </span>else if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">imageMimeType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">some</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">imageType </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">imageType </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">mimeType</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
-            if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedMimeType </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">videoMimeType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">some</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">videoType </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">videoType </span><span style="color: rgb(181,106,1);">=== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedMimeType</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
-              try <span style="color: rgb(255,0,170);">{</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">只能选择视频</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-                <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`failed to show toast: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              <span style="color: rgb(255,0,170);">}</span>
-              return false<span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedUris</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedMimeType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">mimeType</span><span style="color: rgb(181,106,1);">;</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">preselectedUris </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(181,106,1);">...</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedUris</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-              return true<span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">          } </span>else <span style="color: rgb(255,0,170);">{</span>
-            try <span style="color: rgb(255,0,170);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">未知的图片或视频类型</span><span style="color: rgb(255,0,170);">` </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`failed to show toast: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-            return false<span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span>
-<span style="color: rgb(255,0,170);">      } </span>else <span style="color: rgb(255,0,170);">{</span>
-        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedUris </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedUris</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filter</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            return <span style="color: rgb(0,0,255);">item </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedUris</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedMimeType </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">preselectedUris </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(181,106,1);">...</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">selectedUris</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">      }</span>
-      return true<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span>
+  private onItemClicked(itemInfo: ItemInfo, clickType: ClickType): boolean {
+    if (!itemInfo) {
+      return false;
+    }
+    let mimeType: string | undefined = itemInfo.mimeType;
+    let type: ItemType | undefined = itemInfo.itemType;
+    let uri: string | undefined = itemInfo.uri;
+    if (type === ItemType.CAMERA) {
+      // 点击相机item。
+      return true; // 返回true则拉起系统相机，若应用需要自行处理则返回false。
+    } else {
+      if (clickType === ClickType.SELECTED) {
+        if (uri) {
+          if (this.videoMimeType.some(videoType => videoType === mimeType)) {
+            if (this.selectedMimeType && this.imageMimeType.some(imageType => imageType === this.selectedMimeType)) {
+              try {
+                this.getUIContext().getPromptAction().showToast({ message: `只能选择图片` });
+              } catch (error) {
+                console.error(`failed to show toast: ${JSON.stringify(error)}`);
+              }
+              return false;
+            } else {
+              this.selectedUris.push(uri);
+              this.selectedMimeType = mimeType;
+              this.pickerOptions.preselectedUris = [...this.selectedUris];
+              return true;
+            }
+          } else if (this.imageMimeType.some(imageType => imageType === mimeType)) {
+            if (this.selectedMimeType && this.videoMimeType.some(videoType => videoType === this.selectedMimeType)) {
+              try {
+                this.getUIContext().getPromptAction().showToast({ message: `只能选择视频` });
+              } catch (error) {
+                console.error(`failed to show toast: ${JSON.stringify(error)}`);
+              }
+              return false;
+            } else {
+              this.selectedUris.push(uri);
+              this.selectedMimeType = mimeType;
+              this.pickerOptions.preselectedUris = [...this.selectedUris];
+              return true;
+            }
+          } else {
+            try {
+              this.getUIContext().getPromptAction().showToast({ message: `未知的图片或视频类型` });
+            } catch (error) {
+              console.error(`failed to show toast: ${JSON.stringify(error)}`);
+            }
+            return false;
+          }
+        }
+      } else {
+        if (uri) {
+          this.selectedUris = this.selectedUris.filter((item: string) => {
+            return item != uri;
+          });
+          if (this.selectedUris.length <= 0) {
+            this.selectedMimeType = undefined;
+          }
+          this.pickerOptions.preselectedUris = [...this.selectedUris];
+        }
+      }
+      return true;
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Flex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">direction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FlexDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ItemAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">PhotoPickerComponent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pickerOptions</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">pickerController</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pickerController</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">onItemClicked</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">itemInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ItemInfo</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">clickType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ClickType</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onItemClicked</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">itemInfo</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(0,0,255);">clickType</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Flex({ direction: FlexDirection.Column, justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {
+      Column() {
+        PhotoPickerComponent({
+          pickerOptions: this.pickerOptions,
+          pickerController: this.pickerController,
+          onItemClicked: (itemInfo: ItemInfo, clickType: ClickType): boolean => this.onItemClicked(itemInfo,
+            clickType),
+        })
+          .width('100%')
+          .height('100%');
+      };
+    };
+  }
+}
 ```
  
  

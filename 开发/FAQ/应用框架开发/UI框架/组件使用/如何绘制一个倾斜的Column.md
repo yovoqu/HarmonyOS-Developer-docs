@@ -37,16 +37,16 @@ struct Index {
   private matrix1: matrix4.Matrix4Transit | undefined = undefined;
 
   aboutToAppear(): void {
-   <em> // 将角度转换为弧度（Math.tan需要弧度制）</em>
+    // 将角度转换为弧度（Math.tan需要弧度制）
     const angleRad = -14 * Math.PI / 180;
- <em>   // 计算倾斜角度对应的tan值</em>
+    // 计算倾斜角度对应的tan值
     const tanValue = Math.tan(angleRad);
- <em>   // 使用matrix4.init创建一个4x4的变换矩阵</em>
+    // 使用matrix4.init创建一个4x4的变换矩阵
     this.matrix1 = matrix4.init([
-      1, tanValue, 0, 0, <em>// 第一行：x方向倾斜</em>
-      0, 1, 0, 0, <em>// 第二行：保持y不变</em>
-      0, 0, 1, 0, <em>// 第三行：z不变</em>
-      0, 0, 0, 1<em> // </em><em>第四行：齐次坐标</em>
+      1, tanValue, 0, 0, // 第一行：x方向倾斜
+      0, 1, 0, 0, // 第二行：保持y不变
+      0, 0, 1, 0, // 第三行：z不变
+      0, 0, 0, 1 // 第四行：齐次坐标
     ]);
   }
 

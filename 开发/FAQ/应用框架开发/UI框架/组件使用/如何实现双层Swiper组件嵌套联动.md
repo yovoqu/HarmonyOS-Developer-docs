@@ -35,13 +35,13 @@ Swiper组件嵌套Swiper，当子组件滑动到首页或尾页边界时，如�
 @Component
 struct NestedSwiperExample {
   private swiperController: SwiperController = new SwiperController();
- <em> // 外层Swiper的数据</em>
+  // 外层Swiper的数据
   private outerSwiperData: string[] = ['Page 1', 'Page 2', 'Page 3'];
- <em> // 内层Swiper的数据</em>
+  // 内层Swiper的数据
   private innerSwiperData: string[] = ['Image 1', 'Image 2', 'Image 3'];
- <em> // 外层Swiper的索引</em>
+  // 外层Swiper的索引
   @State outerIndex: number = 0;
-  <em>// 内层Swiper的索引</em>
+  // 内层Swiper的索引
   @State innerIndex: number = 0;
 
   build() {
@@ -74,7 +74,7 @@ struct NestedSwiperExample {
             this.innerIndex = targetIndex;
           })
           .onGestureRecognizerJudgeBegin((event: BaseGestureEvent, current: GestureRecognizer,
-            others: Array<GestureRecognizer>): GestureJudgeResult => {<em> </em><em>// 在识别器即将要成功时，根据当前组件状态，设置识别器使能状态</em>
+            others: Array<GestureRecognizer>): GestureJudgeResult => { // 在识别器即将要成功时，根据当前组件状态，设置识别器使能状态
             console.info('others', others);
             console.info('ets onGestureRecognizerJudgeBegin child');
             if (current) {
@@ -82,12 +82,12 @@ struct NestedSwiperExample {
               if (target && current.isBuiltIn() && current.getType() === GestureControl.GestureType.PAN_GESTURE) {
                 console.info('ets onGestureRecognizerJudgeBegin child PAN_GESTURE');
                 let panEvent = event as PanGestureEvent;
-                if (panEvent && panEvent.velocityX < 0 && this.innerIndex === 2) {<em> </em><em>// 内层Swiper滑动到尾页</em>
+                if (panEvent && panEvent.velocityX < 0 && this.innerIndex === 2) { // 内层Swiper滑动到尾页
                   this.innerIndex = 0;
                   console.info('ets onGestureRecognizerJudgeBegin child reject end');
                   return GestureJudgeResult.REJECT;
                 }
-                if (panEvent && panEvent.velocityX > 0 && this.innerIndex === 0) {<em> </em><em>// 内层Swiper滑动到首页</em>
+                if (panEvent && panEvent.velocityX > 0 && this.innerIndex === 0) { // 内层Swiper滑动到首页
                   console.info('ets onGestureRecognizerJudgeBegin child reject begin');
                   this.innerIndex = 0;
                   return GestureJudgeResult.REJECT;
@@ -121,13 +121,13 @@ struct NestedSwiperExample {
 @Component
 struct SwiperExample {
   private swiperController: SwiperController = new SwiperController();
- <em> // 外层Swiper的数据</em>
+  // 外层Swiper的数据
   private outerSwiperData: string[] = ['Page 1', 'Page 2', 'Page 3'];
-  <em>// 内层Swiper的数据</em>
+  // 内层Swiper的数据
   private innerSwiperData: string[] = ['Image 1', 'Image 2', 'Image 3'];
- <em> // 外层Swiper的索引</em>
+  // 外层Swiper的索引
   @State outerIndex: number = 0;
-  <em>// 内层Swiper的索引</em>
+  // 内层Swiper的索引
   @State innerIndex: number = 0;
 
   build() {
@@ -162,14 +162,14 @@ struct SwiperExample {
           .parallelGesture(
             PanGesture()
               .onActionEnd((e) => {
-                let velocityX = e.velocityX || 0;<em> </em><em>// 手势结束，获取当前的速度</em>
+                let velocityX = e.velocityX || 0; // 手势结束，获取当前的速度
                 if (velocityX < 0 && this.innerIndex === 2) {
                   this.innerIndex = 0;
-                  this.swiperController.showNext();<em> </em><em>// x轴方向速度小于0时，向左移动</em>
+                  this.swiperController.showNext(); // x轴方向速度小于0时，向左移动
                 }
                 if (velocityX > 0 && this.innerIndex === 0) {
                   this.innerIndex = 0;
-                  this.swiperController.showPrevious();<em> </em><em>// x轴方向速度大于0时，向右移动</em>
+                  this.swiperController.showPrevious(); // x轴方向速度大于0时，向右移动
                 }
               })
           )

@@ -25,7 +25,7 @@
 ```text
 @Builder
 TabItem(tabName: string, tabIndex: number) {
-<em>  // 标签页项的布局</em>
+  // 标签页项的布局
   Column({ space: 10 }) {
     Column() {
       Image($r('app.media.startIcon'))
@@ -46,7 +46,7 @@ TabItem(tabName: string, tabIndex: number) {
   .width('12%')
   .padding({ bottom: 10 })
   .backgroundColor(Color.White)
-  .position( <em>// 设置TabItem的相对位置</em>
+  .position( // 设置TabItem的相对位置
     tabIndex === 1 ? { left: 80 } :
       tabIndex === 2 ? { right: 90 } :
         tabIndex === 3 ? { right: 0 } : {});
@@ -55,7 +55,7 @@ TabItem(tabName: string, tabIndex: number) {
 
 2. 最后用Row组件和ForEach方法依序为TabItem赋Index值。则可实现TabItem在TabBar中不均匀分布的效果。
 ```text
-<em>// 用Row组件实现TabBar效果</em>
+// 用Row组件实现TabBar效果
 Row() {
   ForEach(this.tabArray, (item: number, index: number) => {
     this.TabItem('页签 ' + item, index);
@@ -80,7 +80,7 @@ export struct CusTab2 {
 
   @Builder
   TabItem(tabName: string, tabIndex: number) {
-   <em> // 标签页项的布局</em>
+    // 标签页项的布局
     Column({ space: 10 }) {
       Column() {
         Image($r('app.media.startIcon'))
@@ -101,7 +101,7 @@ export struct CusTab2 {
     .width('12%')
     .padding({ bottom: 10 })
     .backgroundColor(Color.White)
-    .position( <em>// 设置TabItem的相对位置</em>
+    .position( // 设置TabItem的相对位置
       tabIndex === 1 ? { left: 80 } :
         tabIndex === 2 ? { right: 90 } :
           tabIndex === 3 ? { right: 0 } : {});
@@ -110,7 +110,7 @@ export struct CusTab2 {
   build() {
     Column() {
       Stack({ alignContent: Alignment.BottomStart }) {
-       <em> // Tabs</em>
+        // Tabs
         Tabs({ barPosition: BarPosition.End, controller: this.controller }) {
           ForEach(this.tabArray, (item: number) => {
             TabContent() {
@@ -130,7 +130,7 @@ export struct CusTab2 {
           this.focusIndex = index;
         });
 
-       <em> // 用Row组件实现TabBar效果</em>
+        // 用Row组件实现TabBar效果
         Row() {
           ForEach(this.tabArray, (item: number, index: number) => {
             this.TabItem('页签 ' + item, index);
@@ -178,7 +178,7 @@ Tab(tabName: string, tabIndex: number) {
     this.focusIndex = tabIndex;
   })
   .width(tabIndex === 2 ? '28%' : '18%')
- <em> // 左右四栏设置宽度占比18%，中间构造异形导航宽度占比28%</em>
+  // 左右四栏设置宽度占比18%，中间构造异形导航宽度占比28%
   .padding({ top: 10, bottom: 10 })
   .backgroundColor(Color.White)
   .borderRadius(tabIndex === 2 ? { topLeft: '50%', topRight: '50%' } : {});
@@ -218,7 +218,7 @@ export struct CusTab2 {
       this.focusIndex = tabIndex;
     })
     .width(tabIndex === 2 ? '28%' : '18%')
-   <em> // 左右四栏设置宽度占比18%，中间构造异形导航宽度占比28%</em>
+    // 左右四栏设置宽度占比18%，中间构造异形导航宽度占比28%
     .padding({ top: 10, bottom: 10 })
     .backgroundColor(Color.White)
     .borderRadius(tabIndex === 2 ? { topLeft: '50%', topRight: '50%' } : {});
@@ -227,7 +227,7 @@ export struct CusTab2 {
   build() {
     Column() {
       Stack({ alignContent: Alignment.BottomStart }) {
-       <em> // tabs</em>
+        // tabs
         Tabs({ barPosition: BarPosition.End, controller: this.controller }) {
           ForEach(this.tabArray, (item: number) => {
             TabContent() {
@@ -245,7 +245,7 @@ export struct CusTab2 {
         .onChange((index: number) => {
           console.info('foo change');
           this.focusIndex = index;
-        }); <em>// 页签</em>
+        }); // 页签
 
         Row() {
           ForEach(this.tabArray, (item: number, index: number) => {

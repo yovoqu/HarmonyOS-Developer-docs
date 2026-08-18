@@ -39,7 +39,7 @@ export class IMTask {
   }
 }
 
-<em>// socketManager.ets</em>
+// socketManager.ets
 private seqNum: number = 0
 getSeqNum() {
   return this.seqNum++
@@ -113,22 +113,22 @@ export struct SocketManager {
     let imWorkStage = new worker.ThreadWorker("entry/ets/workers/Worker.ets");
     try {
       imWorkStage.postMessage(byteArray);
-     <em> // 宿主线程接收worker线程信息</em>
+      // 宿主线程接收worker线程信息
       imWorkStage.onmessage = (e: MessageEvents): void => {
-       <em> // data：worker线程发送的信息</em>
+        // data：worker线程发送的信息
         let textDecoder = util.TextDecoder.create('utf-8');
         let uint8Array = new Uint8Array(e.data);
         let decodeResult:string = textDecoder.decodeToString(uint8Array);
         console.info("main thread data is  " + decodeResult);
         this.message=decodeResult;
-       <em> // 销毁Worker对象</em>
+        // 销毁Worker对象
         imWorkStage.terminate();
       };
-     <em> // 在调用terminate后，执行onexit</em>
+      // 在调用terminate后，执行onexit
       imWorkStage.onexit = () => {
         console.info("main thread terminate");
       };
-     <em> // 监听Worker错误</em>
+      // 监听Worker错误
       imWorkStage.onAllErrors = (err: ErrorEvent) => {
         console.error("main error message " + err.message);
       };

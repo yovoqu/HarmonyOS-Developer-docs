@@ -8,13 +8,13 @@ napi_module结构体包含模块注册所需的信息，具体定义如下：
  
 ```text
 static napi_module demoModule = {
-  .nm_version = 1, <em>// Nm version number, default value is 1, type is int</em>
-  .nm_flags = 0, <em>// Nm identifier, type unsigned int</em>
-  .nm_filename = nullptr,<em> // File name, not currently paid attention to, use default value, type is char*</em>
-  .nm_register_func = Init, <em>// Specify the entry function for nm, type napi_addon_register_func</em>
-  .nm_modname = "entry",<em> // Specify the module name for TS page import, type char*</em>
-  .nm_priv = ((void*)0),  <em>// Not paying attention for now, just use the default, type is void*</em>
-  .reserved = { 0 } <em>// Not paying attention for now, just use the default value, type is void*</em>
+  .nm_version = 1, // Nm version number, default value is 1, type is int
+  .nm_flags = 0, // Nm identifier, type unsigned int
+  .nm_filename = nullptr, // File name, not currently paid attention to, use default value, type is char*
+  .nm_register_func = Init, // Specify the entry function for nm, type napi_addon_register_func
+  .nm_modname = "entry", // Specify the module name for TS page import, type char*
+  .nm_priv = ((void*)0),  // Not paying attention for now, just use the default, type is void*
+  .reserved = { 0 } // Not paying attention for now, just use the default value, type is void*
 };
 ```
  

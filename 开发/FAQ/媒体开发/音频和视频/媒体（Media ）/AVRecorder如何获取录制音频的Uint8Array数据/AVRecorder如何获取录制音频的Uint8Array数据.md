@@ -39,16 +39,16 @@ struct Index {
   private avRecorder: media.AVRecorder | undefined = undefined;
   private curFile: fileIo.File | undefined = undefined;
   private avProfile: media.AVRecorderProfile = {
-    audioBitrate: 100000, <em>// 音频比特率</em>
-    audioChannels: 2, <em>// </em><em>音频声道数</em>
-    audioCodec: media.CodecMimeType.AUDIO_AAC,<em> </em><em>// 音频编码格式，当前只支持aac</em>
-    audioSampleRate: 48000, <em>// 音频采样率</em>
-    fileFormat: media.ContainerFormatType.CFT_MPEG_4A, <em>// 封装格式，当前只支持m4a</em>
+    audioBitrate: 100000, // 音频比特率
+    audioChannels: 2, // 音频声道数
+    audioCodec: media.CodecMimeType.AUDIO_AAC, // 音频编码格式，当前只支持aac
+    audioSampleRate: 48000, // 音频采样率
+    fileFormat: media.ContainerFormatType.CFT_MPEG_4A, // 封装格式，当前只支持m4a
   };
   private avConfig: media.AVRecorderConfig = {
-    audioSourceType: media.AudioSourceType.AUDIO_SOURCE_TYPE_MIC, <em>// </em><em>音频输入源，这里设置为麦克风</em>
+    audioSourceType: media.AudioSourceType.AUDIO_SOURCE_TYPE_MIC, // 音频输入源，这里设置为麦克风
     profile: this.avProfile,
-    url: '',<em> </em><em>// 参考应用文件访问与管理开发示例新建并读写一个文件</em>
+    url: '', // 参考应用文件访问与管理开发示例新建并读写一个文件
   };
   textTimerController: TextTimerController = new TextTimerController();
 
@@ -62,14 +62,14 @@ struct Index {
           .height(40)
           .textAlign(TextAlign.Center)
           .backgroundColor(Color.Orange)
-          .border({ radius: 20 }) <em>// </em><em>单指长按文本触发该手势事件</em>
+          .border({ radius: 20 }) // 单指长按文本触发该手势事件
           .gesture(
             LongPressGesture({ repeat: false })
               .onAction(async (event?: GestureEvent) => {
                 console.info(`LongPressGesture onAction.${JSON.stringify(event)}`);
-               <em> // 长按录音</em>
+                // 长按录音
                 await this.startRecordingProcess();
-              }) <em>// </em><em>长按动作一结束触发</em>
+              }) // 长按动作一结束触发
               .onActionEnd(async () => {
                 console.info(`LongPressGesture onActionEnd.`);
                 await this.stopRecordingProcess();
@@ -81,21 +81,21 @@ struct Index {
     .height('100%');
   }
 
- <em> // 开始录制对应的流程</em>
+  // 开始录制对应的流程
   async startRecordingProcess() {
     try {
       if (this.avRecorder == undefined) {
-        <em>// 1.创建录制实例</em>
+        // 1.创建录制实例
         this.avRecorder = await media.createAVRecorder();
       }
       this.setAudioRecorderCallback();
-     <em> // 2.获取录制文件fd赋予avConfig里的url；参考FilePicker文档</em>
+      // 2.获取录制文件fd赋予avConfig里的url；参考FilePicker文档
       this.curFile = fileIo.openSync(this.filesDir + '/Audio_' + new Date().getTime() + '.mp4',
         fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);
       this.avConfig.url = 'fd://' + this.curFile.fd;
-    <em>  // 3.配置录制参数完成准备工作</em>
+      // 3.配置录制参数完成准备工作
       await this.avRecorder.prepare(this.avConfig);
-      <em>// 4.开始录制</em>
+      // 4.开始录制
       this.textTimerController.start();
       await this.avRecorder.start();
 
@@ -104,36 +104,36 @@ struct Index {
     }
   }
 
-  <em>// </em><em>停止录制对应的流程</em>
+  // 停止录制对应的流程
   async stopRecordingProcess() {
     if (this.avRecorder != undefined) {
-     <em> // 1. 停止录制</em>
+      // 1. 停止录制
       if (this.avRecorder.state === 'started'
-        || this.avRecorder.state === 'paused') {<em> </em><em>// 仅在started或者paused状态下调用stop为合理状态切换</em>
+        || this.avRecorder.state === 'paused') { // 仅在started或者paused状态下调用stop为合理状态切换
         await this.avRecorder.stop();
       }
       await this.avRecorder.reset();
       this.textTimerController.reset();
-    <em>  // 3.释放录制实例</em>
+      // 3.释放录制实例
       await this.avRecorder.release();
-     <em> // 转Uint8Array</em>
+      // 转Uint8Array
       let bytes: Uint8Array = this.stringToUint8Array(this.avConfig.url);
       console.info(`${bytes}`);
-     <em> // 4.关闭录制文件fd</em>
+      // 4.关闭录制文件fd
       fileIo.closeSync(this.curFile);
       this.avRecorder = undefined;
     }
   }
 
-  <em>// </em><em>注册audioRecorder回调函数</em>
+  // 注册audioRecorder回调函数
   setAudioRecorderCallback() {
     if (this.avRecorder != undefined) {
-     <em> // 状态机变化回调函数</em>
+      // 状态机变化回调函数
       this.avRecorder.on('stateChange', (state: media.AVRecorderState, reason: media.StateChangeReason) => {
         console.info(`AudioRecorder current state is ${state}`);
         console.info(`${reason}`);
       });
-     <em> // 错误上报回调函数</em>
+      // 错误上报回调函数
       this.avRecorder.on('error', (err: BusinessError) => {
         console.error(`AudioRecorder failed, code is ${err.code}, message is ${err.message}`);
       });

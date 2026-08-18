@@ -50,7 +50,7 @@ static async cropImage(pixelMap: image.PixelMap, x: number, y: number, width: nu
 
   const opts: image.InitializationOptions = {
     editable: true,
-    <em>// readPixelsSync使用的是BGRA_8888,转换时设置RGBA_8888</em>
+    // readPixelsSync使用的是BGRA_8888,转换时设置RGBA_8888
     pixelFormat: image.PixelMapFormat.RGBA_8888,
     size: { height: height, width: width }
   };
@@ -82,7 +82,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 const MAX_PICK_COUNT = 1;
 
-<em>// 图片选择类</em>
+// 图片选择类
 export class PickerUtil {
   static async photoSelect(): Promise<image.PixelMap | null> {
     return PickerUtil.photoSelectWithLimit(MAX_PICK_COUNT);
@@ -110,7 +110,7 @@ export class PickerUtil {
     }
   }
 
- <em> // 压缩图片</em>
+  // 压缩图片
   private static async readImageToCache(path: string): Promise<image.PixelMap> {
     let readFile = fs.openSync(path, fs.OpenMode.READ_ONLY);
     try {
@@ -125,9 +125,9 @@ export class PickerUtil {
   }
 }
 
-<em>// 图片裁剪类</em>
+// 图片裁剪类
 export class ImageUtil {
-  <em>// 像素读取方式实现裁剪</em>
+  // 像素读取方式实现裁剪
   static async cropImage(pixelMap: image.PixelMap, x: number, y: number, width: number,
     height: number): Promise<PixelMap> {
     let region: image.Region = { x: x, y: y, size: { height: height, width: width } };
@@ -141,7 +141,7 @@ export class ImageUtil {
 
     const opts: image.InitializationOptions = {
       editable: true,
-      <em>// readPixelsSync使用的是BGRA_8888,转换时设置RGBA_8888</em>
+      // readPixelsSync使用的是BGRA_8888,转换时设置RGBA_8888
       pixelFormat: image.PixelMapFormat.RGBA_8888,
       size: { height: height, width: width }
     };
@@ -163,7 +163,7 @@ export class ImageUtil {
     return snapshot;
   }
 
- <em> // copy方式实现裁剪</em>
+  // copy方式实现裁剪
   static async cropImageWithCopy(pixelMap: image.PixelMap, x: number, y: number, width: number,
     height: number): Promise<PixelMap> {
     let region: image.Region = { x: x, y: y, size: { height: height, width: width } };

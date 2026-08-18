@@ -37,21 +37,21 @@
 
 - 场景一：调用createAsyKeyGenerator接口通过DH字符串参数生成DH密钥对.
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">cryptoFramework </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.CryptoArchitectureKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
-<em>// </em><em><span style="color: rgb(128,128,128);">使用字符串参数生成</span><span style="color: rgb(128,128,128);">DH</span></em><em>密钥</em><span style="color: rgb(128,128,128);">对</span>
-export function <span style="color: rgb(0,0,255);">getDHKeyFromStringParams</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-  try <span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// 1</span><span style="color: rgb(128,128,128);">、生成密钥对</span></em>
-    let <span style="color: rgb(0,0,255);">spec </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createAsyKeyGenerator</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'DH_modp2048'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">pubKey </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">spec</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateKeyPairSync</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pubKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getEncoded</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">priKey </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">spec</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateKeyPairSync</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">priKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getEncoded</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`getDHKeyFromStringparams success, DH public key = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">pubKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`getDHKeyFromStringparams success, DH priKey key = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">priKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`failed`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+// 使用字符串参数生成DH密钥对
+export function getDHKeyFromStringParams() {
+  try {
+    // 1、生成密钥对
+    let spec = cryptoFramework.createAsyKeyGenerator('DH_modp2048');
+    let pubKey = spec.generateKeyPairSync().pubKey.getEncoded().data;
+    let priKey = spec.generateKeyPairSync().priKey.getEncoded().data;
+    console.info(`getDHKeyFromStringparams success, DH public key = ${pubKey.toString()}`);
+    console.info(`getDHKeyFromStringparams success, DH priKey key = ${priKey.toString()}`);
+  } catch (error) {
+    console.error(`failed`);
+  }
+}
 ```
 
 - 场景二：使用密钥参数生成DH密钥。1. 调用DHCommonParamsSpec接口通过p、g、l参数生成密钥公共参数DHCommonParamsSpec。
@@ -60,37 +60,37 @@ export function <span style="color: rgb(0,0,255);">getDHKeyFromStringParams</spa
 
 3. 调用createAsyKeyGeneratorBySpec接口通过DH密钥参数生成DH密钥对。
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">使用密钥参数生成</span><span style="color: rgb(128,128,128);">DH</span><span style="color: rgb(128,128,128);">密钥对</span></em>
-export function <span style="color: rgb(0,0,255);">getDHKeyFromParams</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-  try <span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// 1</span><span style="color: rgb(128,128,128);">、生成公共参数</span></em>
-    let <span style="color: rgb(0,0,255);">dHCommonParamsSpec</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DHCommonParamsSpec </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">参数仅用于示例，按照实际填写</span></em>
-      <span style="color: rgb(0,0,255);">p</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BigInt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'0xb70e0cbd6bb4bf7f321390b94a03c1d356c21122343280d6115c1d21'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">g</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BigInt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'0xbd376388b5f723fb4c22dfe6cd4375a05a07476444d5819985007e34'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">l</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">192</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">algName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'DH'</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">specType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AsyKeySpecType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">COMMON_PARAMS_SPEC</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-   <em> <span style="color: rgb(128,128,128);">// 2</span><span style="color: rgb(128,128,128);">、生成密钥对参数</span></em>
-    let <span style="color: rgb(0,0,255);">dHKeyPairSpec</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DHKeyPairSpec </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">参数仅用于示例，按照实际填写</span></em>
-      <span style="color: rgb(0,0,255);">sk</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BigInt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'0xfffffffffffffffffffffffffffffffefffffffffffffffffffffffe'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">pk</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BigInt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'0xb4050a850c04b3abf54132565044b0b7d7bfd8ba270b39432355ffb4'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">params</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">dHCommonParamsSpec</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">algName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'DH'</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">specType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AsyKeySpecType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">KEY_PAIR_SPEC</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// 3</span><span style="color: rgb(128,128,128);">、生成密钥对</span></em>
-    let <span style="color: rgb(0,0,255);">spec </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createAsyKeyGeneratorBySpec</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">dHKeyPairSpec</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">pubKey </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">spec</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateKeyPairSync</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pubKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getEncoded</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">priKey </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">spec</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateKeyPairSync</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">priKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getEncoded</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`getDHKeyFromparams success, DH public key = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">pubKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`getDHKeyFromparams success, DH priKey key = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">priKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`getDHKeyFromparams failed`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+// 使用密钥参数生成DH密钥对
+export function getDHKeyFromParams() {
+  try {
+    // 1、生成公共参数
+    let dHCommonParamsSpec: cryptoFramework.DHCommonParamsSpec = {
+      // 参数仅用于示例，按照实际填写
+      p: BigInt('0xb70e0cbd6bb4bf7f321390b94a03c1d356c21122343280d6115c1d21'),
+      g: BigInt('0xbd376388b5f723fb4c22dfe6cd4375a05a07476444d5819985007e34'),
+      l: 192,
+      algName: 'DH',
+      specType: cryptoFramework.AsyKeySpecType.COMMON_PARAMS_SPEC
+    };
+    // 2、生成密钥对参数
+    let dHKeyPairSpec: cryptoFramework.DHKeyPairSpec = {
+      // 参数仅用于示例，按照实际填写
+      sk: BigInt('0xfffffffffffffffffffffffffffffffefffffffffffffffffffffffe'),
+      pk: BigInt('0xb4050a850c04b3abf54132565044b0b7d7bfd8ba270b39432355ffb4'),
+      params: dHCommonParamsSpec,
+      algName: 'DH',
+      specType: cryptoFramework.AsyKeySpecType.KEY_PAIR_SPEC
+    };
+    // 3、生成密钥对
+    let spec = cryptoFramework.createAsyKeyGeneratorBySpec(dHKeyPairSpec);
+    let pubKey = spec.generateKeyPairSync().pubKey.getEncoded().data;
+    let priKey = spec.generateKeyPairSync().priKey.getEncoded().data;
+    console.info(`getDHKeyFromparams success, DH public key = ${pubKey.toString()}`);
+    console.info(`getDHKeyFromparams success, DH priKey key = ${priKey.toString()}`);
+  } catch (error) {
+    console.error(`getDHKeyFromparams failed`);
+  }
+}
 ```
 
 
@@ -98,76 +98,76 @@ export function <span style="color: rgb(0,0,255);">getDHKeyFromParams</span><spa
 
   
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">cryptoFramework </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.CryptoArchitectureKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
-<em>// </em><em><span style="color: rgb(128,128,128);">使用字符串参数生成</span><span style="color: rgb(128,128,128);">DH</span><span style="color: rgb(128,128,128);">密钥对</span></em>
-export function <span style="color: rgb(0,0,255);">getDHKeyFromStringParams</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-  try <span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// 1</span><span style="color: rgb(128,128,128);">、生成密钥对</span></em>
-    let <span style="color: rgb(0,0,255);">spec </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createAsyKeyGenerator</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'DH_modp2048'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">pubKey </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">spec</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateKeyPairSync</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pubKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getEncoded</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">priKey </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">spec</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateKeyPairSync</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">priKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getEncoded</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`getDHKeyFromStringparams success, DH public key = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">pubKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`getDHKeyFromStringparams success, DH priKey key = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">priKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`failed`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+// 使用字符串参数生成DH密钥对
+export function getDHKeyFromStringParams() {
+  try {
+    // 1、生成密钥对
+    let spec = cryptoFramework.createAsyKeyGenerator('DH_modp2048');
+    let pubKey = spec.generateKeyPairSync().pubKey.getEncoded().data;
+    let priKey = spec.generateKeyPairSync().priKey.getEncoded().data;
+    console.info(`getDHKeyFromStringparams success, DH public key = ${pubKey.toString()}`);
+    console.info(`getDHKeyFromStringparams success, DH priKey key = ${priKey.toString()}`);
+  } catch (error) {
+    console.error(`failed`);
+  }
+}
 
-<em>// </em><em><span style="color: rgb(128,128,128);">使用密钥参数生成</span><span style="color: rgb(128,128,128);">DH</span><span style="color: rgb(128,128,128);">密钥对</span></em>
-export function <span style="color: rgb(0,0,255);">getDHKeyFromParams</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-  try <span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// 1</span><span style="color: rgb(128,128,128);">、生成公共参数</span></em>
-    let <span style="color: rgb(0,0,255);">dHCommonParamsSpec</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DHCommonParamsSpec </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-      <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">参数仅用于示例，按照实际填写</span></em>
-      <span style="color: rgb(0,0,255);">p</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BigInt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'0xb70e0cbd6bb4bf7f321390b94a03c1d356c21122343280d6115c1d21'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">g</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BigInt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'0xbd376388b5f723fb4c22dfe6cd4375a05a07476444d5819985007e34'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">l</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">192</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">algName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'DH'</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">specType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AsyKeySpecType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">COMMON_PARAMS_SPEC</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-    <em>// 2</em><em><span style="color: rgb(128,128,128);">、生成密钥对参数</span></em>
-    let <span style="color: rgb(0,0,255);">dHKeyPairSpec</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DHKeyPairSpec </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-      <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">参数仅用于示例，按照实际填写</span></em>
-      <span style="color: rgb(0,0,255);">sk</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BigInt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'0xfffffffffffffffffffffffffffffffefffffffffffffffffffffffe'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">pk</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BigInt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'0xb4050a850c04b3abf54132565044b0b7d7bfd8ba270b39432355ffb4'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">params</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">dHCommonParamsSpec</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">algName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'DH'</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(0,0,255);">specType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AsyKeySpecType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">KEY_PAIR_SPEC</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-   <em> <span style="color: rgb(128,128,128);">// 3</span><span style="color: rgb(128,128,128);">、生成密钥对</span></em>
-    let <span style="color: rgb(0,0,255);">spec </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createAsyKeyGeneratorBySpec</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">dHKeyPairSpec</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">pubKey </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">spec</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateKeyPairSync</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pubKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getEncoded</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">priKey </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">spec</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generateKeyPairSync</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">priKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getEncoded</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`getDHKeyFromparams success, DH public key = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">pubKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`getDHKeyFromparams success, DH priKey key = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">priKey</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`getDHKeyFromparams failed`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+// 使用密钥参数生成DH密钥对
+export function getDHKeyFromParams() {
+  try {
+    // 1、生成公共参数
+    let dHCommonParamsSpec: cryptoFramework.DHCommonParamsSpec = {
+      // 参数仅用于示例，按照实际填写
+      p: BigInt('0xb70e0cbd6bb4bf7f321390b94a03c1d356c21122343280d6115c1d21'),
+      g: BigInt('0xbd376388b5f723fb4c22dfe6cd4375a05a07476444d5819985007e34'),
+      l: 192,
+      algName: 'DH',
+      specType: cryptoFramework.AsyKeySpecType.COMMON_PARAMS_SPEC
+    };
+    // 2、生成密钥对参数
+    let dHKeyPairSpec: cryptoFramework.DHKeyPairSpec = {
+      // 参数仅用于示例，按照实际填写
+      sk: BigInt('0xfffffffffffffffffffffffffffffffefffffffffffffffffffffffe'),
+      pk: BigInt('0xb4050a850c04b3abf54132565044b0b7d7bfd8ba270b39432355ffb4'),
+      params: dHCommonParamsSpec,
+      algName: 'DH',
+      specType: cryptoFramework.AsyKeySpecType.KEY_PAIR_SPEC
+    };
+    // 3、生成密钥对
+    let spec = cryptoFramework.createAsyKeyGeneratorBySpec(dHKeyPairSpec);
+    let pubKey = spec.generateKeyPairSync().pubKey.getEncoded().data;
+    let priKey = spec.generateKeyPairSync().priKey.getEncoded().data;
+    console.info(`getDHKeyFromparams success, DH public key = ${pubKey.toString()}`);
+    console.info(`getDHKeyFromparams success, DH priKey key = ${priKey.toString()}`);
+  } catch (error) {
+    console.error(`getDHKeyFromparams failed`);
+  }
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Hello World'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'HelloWorld'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.float.page_text_font_size'</span><span style="color: rgb(0,0,255);">))</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">getDHKeyFromStringParams</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">getDHKeyFromParams</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+@Entry
+@Component
+struct Index {
+  build() {
+    RelativeContainer() {
+      Text('Hello World')
+        .id('HelloWorld')
+        .fontSize($r('app.float.page_text_font_size'))
+        .fontWeight(FontWeight.Bold)
+        .alignRules({
+          center: { anchor: '__container__', align: VerticalAlign.Center },
+          middle: { anchor: '__container__', align: HorizontalAlign.Center }
+        })
+        .onClick(() => {
+          getDHKeyFromStringParams();
+          getDHKeyFromParams();
+        });
+    }
+    .height('100%')
+    .width('100%');
+  }
+}
 ```
 
 

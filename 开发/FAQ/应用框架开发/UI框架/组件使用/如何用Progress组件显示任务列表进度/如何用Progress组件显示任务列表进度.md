@@ -14,17 +14,17 @@
 @Entry
 @Component
 struct TaskListPage1 {
-  @State finishedTask: number = 0; <em>// 已完成任务数</em>
-  @State totalTask: number = 0; <em>// 总任务数</em>
-  @State tasks: TaskInfo[] = []; <em>// 任务列表</em>
-  @State deleteButtonBgcolor: string | Color = '#E84026'; <em>// 删除按钮的颜色</em>
+  @State finishedTask: number = 0; // 已完成任务数
+  @State totalTask: number = 0; // 总任务数
+  @State tasks: TaskInfo[] = []; // 任务列表
+  @State deleteButtonBgcolor: string | Color = '#E84026'; // 删除按钮的颜色
 
 
- <em> // 删除任务按钮</em>
+  // 删除任务按钮
   @Builder
   DeleteTask(index: number) {
     Stack() {
-      Image($r('app.media.ic_public_trash'))<em> // 删除图标，可以更换其他资源</em>
+      Image($r('app.media.ic_public_trash')) // 删除图标，可以更换其他资源
         .draggable(false)
         .width(20);
     }
@@ -36,31 +36,31 @@ struct TaskListPage1 {
     .onTouch((event?: TouchEvent) => {
       if (event) {
         if (event.type === TouchType.Down) {
-          this.deleteButtonBgcolor = '#AAE84026'; <em>// 按下时图标背景颜色</em>
+          this.deleteButtonBgcolor = '#AAE84026'; // 按下时图标背景颜色
         } else if (event.type === TouchType.Up || event.type === TouchType.Cancel) {
-          this.deleteButtonBgcolor = '#E84026'; <em>// 取消或抬起恢复图标背景颜色</em>
+          this.deleteButtonBgcolor = '#E84026'; // 取消或抬起恢复图标背景颜色
         }
       }
     })
     .onClick(() => {
-      this.tasks.splice(index, 1); <em>// 任务列表删除当前索引的任务</em>
-      this.finishedTask = this.tasks.filter((item): boolean => item.isFinished).length; <em>// 重新获取已完成任务数</em>
-      this.totalTask = this.tasks.length; /<em>/ 获取总任务数</em>
+      this.tasks.splice(index, 1); // 任务列表删除当前索引的任务
+      this.finishedTask = this.tasks.filter((item): boolean => item.isFinished).length; // 重新获取已完成任务数
+      this.totalTask = this.tasks.length; // 获取总任务数
     });
   }
 
 
   build() {
     Column() {
-  <em>    // 任务进度以及新增任务按钮</em>
+      // 任务进度以及新增任务按钮
       TaskProgress({ finishedTask: this.finishedTask, totalTask: this.totalTask, tasks: this.tasks }).margin(16);
-      //<em> 任务列表</em>
+      // 任务列表
       List({ space: 8 }) {
         ForEach(this.tasks, (item: TaskInfo, index: number) => {
           ListItem() {
             TaskItem({ item: item, finishedTask: this.finishedTask, tasks: this.tasks });
           }.padding({ left: 16, right: 16 })
-          .swipeAction({ end: this.DeleteTask(index), edgeEffect: SwipeEdgeEffect.None }); // <em>左滑出现删除按钮</em>
+          .swipeAction({ end: this.DeleteTask(index), edgeEffect: SwipeEdgeEffect.None }); // 左滑出现删除按钮
         });
       }
       .layoutWeight(1)
@@ -75,7 +75,7 @@ struct TaskListPage1 {
 }
 
 
-// <em>任务进度组件</em>
+// 任务进度组件
 @Component
 export struct TaskProgress {
   @Link finishedTask: number;
@@ -90,15 +90,15 @@ export struct TaskProgress {
         Text('任务进度：')
           .fontSize(25)
           .fontWeight(FontWeight.Bold);
-      <em>  // 使用Stack堆叠容器，将进度条和进度展示层叠显示</em>
+        // 使用Stack堆叠容器，将进度条和进度展示层叠显示
         Stack() {
-        <em>  // Start solution1</em>
+          // Start solution1
           Progress({
-            value: this.finishedTask, <em>// 进度值，已完成数</em>
-            total: this.totalTask, <em>// 进度总长，总任务数</em>
-            type: ProgressType.Ring, <em>// 环形</em>
+            value: this.finishedTask, // 进度值，已完成数
+            total: this.totalTask, // 进度总长，总任务数
+            type: ProgressType.Ring, // 环形
           }).width(90);
-          <em>// End solution1</em>
+          // End solution1
           Text(`${this.finishedTask} / ${this.totalTask}`).fontSize(25);
         };
       }
@@ -120,7 +120,7 @@ export struct TaskProgress {
 }
 
 
-<em>// 任务项组件</em>
+// 任务项组件
 @Component
 export struct TaskItem {
   @State item: TaskInfo = new TaskInfo(0, false);
@@ -154,7 +154,7 @@ export struct TaskItem {
 }
 
 
-<em>// 任务信息，id和完成情况</em>
+// 任务信息，id和完成情况
 export class TaskInfo {
   id: number;
   isFinished: boolean;
@@ -194,9 +194,9 @@ export class TaskInfo {
   
 ```text
 Progress({
-  value: this.totalTask === 0 ? 0 : (this.finishedTask / this.totalTask) * 100, <em>// 当前进度值占总进度百分比</em>
-  total: 100, /<em>/ 进度总长设置固定值100</em>
-  type: ProgressType.Ring, //<em> 环形</em>
+  value: this.totalTask === 0 ? 0 : (this.finishedTask / this.totalTask) * 100, // 当前进度值占总进度百分比
+  total: 100, // 进度总长设置固定值100
+  type: ProgressType.Ring, // 环形
 }).width(90);
 ```
  完整代码如下：
@@ -206,17 +206,17 @@ Progress({
 @Entry
 @Component
 struct TaskListPage1 {
-  @State finishedTask: number = 0; <em>// 已完成任务数</em>
-  @State totalTask: number = 0; <em>// 总任务数</em>
-  @State tasks: TaskInfo[] = []; <em>// 任务列表</em>
-  @State deleteButtonBgcolor: string | Color = '#E84026'; <em>// 删除按钮的颜色</em>
+  @State finishedTask: number = 0; // 已完成任务数
+  @State totalTask: number = 0; // 总任务数
+  @State tasks: TaskInfo[] = []; // 任务列表
+  @State deleteButtonBgcolor: string | Color = '#E84026'; // 删除按钮的颜色
 
 
-  <em>// 删除任务按钮</em>
+  // 删除任务按钮
   @Builder
   DeleteTask(index: number) {
     Stack() {
-      Image($r('app.media.ic_public_trash')) <em>// 删除图标，可以更换其他资源</em>
+      Image($r('app.media.ic_public_trash')) // 删除图标，可以更换其他资源
         .draggable(false)
         .width(20);
     }
@@ -228,31 +228,31 @@ struct TaskListPage1 {
     .onTouch((event?: TouchEvent) => {
       if (event) {
         if (event.type === TouchType.Down) {
-          this.deleteButtonBgcolor = '#AAE84026'; <em>// 按下时图标背景颜色</em>
+          this.deleteButtonBgcolor = '#AAE84026'; // 按下时图标背景颜色
         } else if (event.type === TouchType.Up || event.type === TouchType.Cancel) {
-          this.deleteButtonBgcolor = '#E84026'; <em>// 取消或抬起恢复图标背景颜色</em>
+          this.deleteButtonBgcolor = '#E84026'; // 取消或抬起恢复图标背景颜色
         }
       }
     })
     .onClick(() => {
-      this.tasks.splice(index, 1);<em> // 任务列表删除当前索引的任务</em>
-      this.finishedTask = this.tasks.filter((item): boolean => item.isFinished).length; <em>// 重新获取已完成任务数</em>
-      this.totalTask = this.tasks.length; <em>// 获取总任务数</em>
+      this.tasks.splice(index, 1); // 任务列表删除当前索引的任务
+      this.finishedTask = this.tasks.filter((item): boolean => item.isFinished).length; // 重新获取已完成任务数
+      this.totalTask = this.tasks.length; // 获取总任务数
     });
   }
 
 
   build() {
     Column() {
-    <em>  // 任务进度以及新增任务按钮</em>
+      // 任务进度以及新增任务按钮
       TaskProgress({ finishedTask: this.finishedTask, totalTask: this.totalTask, tasks: this.tasks }).margin(16);
-      <em>// 任务列表</em>
+      // 任务列表
       List({ space: 8 }) {
         ForEach(this.tasks, (item: TaskInfo, index: number) => {
           ListItem() {
             TaskItem({ item: item, finishedTask: this.finishedTask, tasks: this.tasks });
           }.padding({ left: 16, right: 16 })
-          .swipeAction({ end: this.DeleteTask(index), edgeEffect: SwipeEdgeEffect.None }); <em>// 左滑出现删除按钮</em>
+          .swipeAction({ end: this.DeleteTask(index), edgeEffect: SwipeEdgeEffect.None }); // 左滑出现删除按钮
         });
       }
       .layoutWeight(1)
@@ -267,7 +267,7 @@ struct TaskListPage1 {
 }
 
 
-<em>// 任务进度组件</em>
+// 任务进度组件
 @Component
 export struct TaskProgress {
   @Link finishedTask: number;
@@ -282,12 +282,12 @@ export struct TaskProgress {
         Text('任务进度：')
           .fontSize(25)
           .fontWeight(FontWeight.Bold);
-      <em>  // 使用Stack堆叠容器，将进度条和进度展示层叠显示</em>
+        // 使用Stack堆叠容器，将进度条和进度展示层叠显示
         Stack() {
           Progress({
-            value: this.totalTask === 0 ? 0 : (this.finishedTask / this.totalTask) * 100, <em>// 当前进度值占总进度百分比</em>
-            total: 100,<em> // 进度总长设置固定值100</em>
-            type: ProgressType.Ring, <em>// 环形</em>
+            value: this.totalTask === 0 ? 0 : (this.finishedTask / this.totalTask) * 100, // 当前进度值占总进度百分比
+            total: 100, // 进度总长设置固定值100
+            type: ProgressType.Ring, // 环形
           }).width(90);
           Text(`${this.finishedTask} / ${this.totalTask}`).fontSize(25);
         };
@@ -310,7 +310,7 @@ export struct TaskProgress {
 }
 
 
-<em>// 任务项组件</em>
+// 任务项组件
 @Component
 export struct TaskItem {
   @State item: TaskInfo = new TaskInfo(0, false);
@@ -344,7 +344,7 @@ export struct TaskItem {
 }
 
 
-/<em>/ 任务信息，id和完成情况</em>
+// 任务信息，id和完成情况
 export class TaskInfo {
   id: number;
   isFinished: boolean;
@@ -370,11 +370,11 @@ export class TaskInfo {
   
 ```text
 .onClick(() => {
-  this.tasks.splice(index, 1);<em> // 任务列表删除当前索引的任务</em>
-  this.finishedTask = 0; <em>// 删除后先把进度设为0</em>
-  this.totalTask = this.tasks.length; <em>// 获取总任务数</em>
-  this.uiContext.animateTo({}, () => { <em>// 展示0到当前进度的动画</em>
-    this.finishedTask = this.tasks.filter((item): boolean => item.isFinished).length; <em>// 重新获取已完成任务数</em>
+  this.tasks.splice(index, 1); // 任务列表删除当前索引的任务
+  this.finishedTask = 0; // 删除后先把进度设为0
+  this.totalTask = this.tasks.length; // 获取总任务数
+  this.uiContext.animateTo({}, () => { // 展示0到当前进度的动画
+    this.finishedTask = this.tasks.filter((item): boolean => item.isFinished).length; // 重新获取已完成任务数
   });
 });
 ```
@@ -385,18 +385,18 @@ export class TaskInfo {
 @Entry
 @Component
 struct TaskListPage2 {
-  @State finishedTask: number = 0; /<em>/ 已完成任务数</em>
-  @State totalTask: number = 0; /<em>/ 总任务数</em>
-  @State tasks: TaskInfo[] = []; <em>// 任务列表</em>
-  @State deleteButtonBgcolor: string | Color = '#E84026'; <em>// 删除按钮的颜色</em>
+  @State finishedTask: number = 0; // 已完成任务数
+  @State totalTask: number = 0; // 总任务数
+  @State tasks: TaskInfo[] = []; // 任务列表
+  @State deleteButtonBgcolor: string | Color = '#E84026'; // 删除按钮的颜色
   uiContext: UIContext = this.getUIContext();
 
 
- <em> // 删除任务按钮</em>
+  // 删除任务按钮
   @Builder
   DeleteTask(index: number) {
     Stack() {
-      Image($r('app.media.ic_public_trash')) <em>// 删除图标，可以更换其他资源</em>
+      Image($r('app.media.ic_public_trash')) // 删除图标，可以更换其他资源
         .draggable(false)
         .width(20);
     }
@@ -408,18 +408,18 @@ struct TaskListPage2 {
     .onTouch((event?: TouchEvent) => {
       if (event) {
         if (event.type === TouchType.Down) {
-          this.deleteButtonBgcolor = '#AAE84026'; /<em>/ 按下时图标背景颜色</em>
+          this.deleteButtonBgcolor = '#AAE84026'; // 按下时图标背景颜色
         } else if (event.type === TouchType.Up || event.type === TouchType.Cancel) {
-          this.deleteButtonBgcolor = '#E84026'; //<em> 取消或抬起恢复图标背景颜色</em>
+          this.deleteButtonBgcolor = '#E84026'; // 取消或抬起恢复图标背景颜色
         }
       }
     })
     .onClick(() => {
-      this.tasks.splice(index, 1); // <em>任务列表删除当前索引的任务</em>
-      this.finishedTask = 0; //<em> 删除后先把进度设为0</em>
-      this.totalTask = this.tasks.length; // <em>获取总任务数</em>
-      this.uiContext.animateTo({}, () => { // <em>展示0到当前进度的动画</em>
-        this.finishedTask = this.tasks.filter((item): boolean => item.isFinished).length; //<em> 重新获取已完成任务数</em>
+      this.tasks.splice(index, 1); // 任务列表删除当前索引的任务
+      this.finishedTask = 0; // 删除后先把进度设为0
+      this.totalTask = this.tasks.length; // 获取总任务数
+      this.uiContext.animateTo({}, () => { // 展示0到当前进度的动画
+        this.finishedTask = this.tasks.filter((item): boolean => item.isFinished).length; // 重新获取已完成任务数
       });
     });
   }
@@ -427,15 +427,15 @@ struct TaskListPage2 {
 
   build() {
     Column() {
-     <em> // 任务进度以及新增任务按钮</em>
+      // 任务进度以及新增任务按钮
       TaskProgress({ finishedTask: this.finishedTask, totalTask: this.totalTask, tasks: this.tasks }).margin(16);
-    <em>  // 任务列表</em>
+      // 任务列表
       List({ space: 8 }) {
         ForEach(this.tasks, (item: TaskInfo, index: number) => {
           ListItem() {
             TaskItem({ item: item, finishedTask: this.finishedTask, tasks: this.tasks });
           }.padding({ left: 16, right: 16 })
-          .swipeAction({ end: this.DeleteTask(index), edgeEffect: SwipeEdgeEffect.None }); <em>// 左滑出现删除按钮</em>
+          .swipeAction({ end: this.DeleteTask(index), edgeEffect: SwipeEdgeEffect.None }); // 左滑出现删除按钮
         });
       }
       .layoutWeight(1)
@@ -450,7 +450,7 @@ struct TaskListPage2 {
 }
 
 
-<em>// 任务进度组件</em>
+// 任务进度组件
 @Component
 export struct TaskProgress {
   @Link finishedTask: number;
@@ -465,13 +465,13 @@ export struct TaskProgress {
         Text('任务进度：')
           .fontSize(25)
           .fontWeight(FontWeight.Bold);
-     <em>   // 使用Stack堆叠容器，将进度条和进度展示层叠显示</em>
+        // 使用Stack堆叠容器，将进度条和进度展示层叠显示
         Stack() {
           Progress({
-            value: this.finishedTask, <em>// 进度值，已完成数</em>
-            total: this.totalTask, <em>// 进度总长，总任务数</em>
-            type: ProgressType.Ring, /<em>/ 环形</em>
-          }).style({ enableSmoothEffect: false }) <em>// 禁用进度条动画</em>
+            value: this.finishedTask, // 进度值，已完成数
+            total: this.totalTask, // 进度总长，总任务数
+            type: ProgressType.Ring, // 环形
+          }).style({ enableSmoothEffect: false }) // 禁用进度条动画
             .width(90);
           Text(`${this.finishedTask} / ${this.totalTask}`).fontSize(25);
         };
@@ -494,7 +494,7 @@ export struct TaskProgress {
 }
 
 
-<em>// 任务项组件</em>
+// 任务项组件
 @Component
 export struct TaskItem {
   @State item: TaskInfo = new TaskInfo(0, false);
@@ -531,7 +531,7 @@ export struct TaskItem {
 }
 
 
-<em>// 任务信息，id和完成情况</em>
+// 任务信息，id和完成情况
 export class TaskInfo {
   id: number;
   isFinished: boolean;

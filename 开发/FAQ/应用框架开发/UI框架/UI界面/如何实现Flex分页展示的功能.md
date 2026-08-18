@@ -41,9 +41,9 @@ import { LengthMetrics, MeasureUtils, UIContext, window } from '@kit.ArkUI';
 
 class TextInfo {
   text: string = '';
-  width: number = 0; <em>// 文本框占用的宽</em>
-  line: number = 0; <em>// 原本文本框所在行</em>
-  remainWidth: number = 0; <em>// 添加文本框后本行剩下的宽</em>
+  width: number = 0; // 文本框占用的宽
+  line: number = 0; // 原本文本框所在行
+  remainWidth: number = 0; // 添加文本框后本行剩下的宽
 
   constructor(text: string, width: number, line: number, remainWidth: number) {
     this.text = text;
@@ -67,7 +67,7 @@ struct TextItem {
         top: 5,
         bottom: 5
       })
-      .constraintSize({ minWidth: 70 }) <em>// 文本框的最小宽度</em>
+      .constraintSize({ minWidth: 70 }) // 文本框的最小宽度
       .border({ width: 1, color: '#ffececec' })
       .borderRadius(5);
   }
@@ -78,31 +78,31 @@ struct TextItem {
 struct FlexPage {
   uiContext: UIContext = this.getUIContext();
   measureUtils: MeasureUtils = this.uiContext.getMeasureUtils();
-  lineWidth: number = 0; <em>// 每行的可用宽度，aboutToAppear中获取</em>
+  lineWidth: number = 0; // 每行的可用宽度，aboutToAppear中获取
   allData: string[] =
     ['1234567', '2222222', '333', '44444', '555555', '666', '7777', '88888888888', '99', '3434', '5656', '7878',
       '12131415', '68681', '7777', '8888888888888', '99', '3434', '5656', '7878', '141414141', '68681'];
-  textInfos: TextInfo[] = []; <em>// 文本框信息</em>
-  maxLine: number = 0; <em>// 文本框原本能占用的最大行数</em>
-  @State swiperList: TextInfo[][] = []; <em>// 轮播图数据</em>
+  textInfos: TextInfo[] = []; // 文本框信息
+  maxLine: number = 0; // 文本框原本能占用的最大行数
+  @State swiperList: TextInfo[][] = []; // 轮播图数据
 
   getTextInfos() {
     let line = 1;
-    let remainWidth = this.lineWidth + 5; <em>// +5是因为首行添加第一个文本框不会出现间距，方便后面计算</em>
+    let remainWidth = this.lineWidth + 5; // +5是因为首行添加第一个文本框不会出现间距，方便后面计算
     this.allData.forEach((str) => {
-      <em>// 文字占用的宽度，单位px</em>
+      // 文字占用的宽度，单位px
       let value = this.measureUtils.measureText({
         textContent: str,
         fontSize: '16fp'
       });
-      <em>// 文本框占用的宽度</em>
+      // 文本框占用的宽度
       let width = this.uiContext.px2vp(value) + 10;
       if (width <= 70) {
-        if (remainWidth - 70 - 5 >= 0) { <em>// 本行是否能放下当前文本框</em>
-          remainWidth = remainWidth - 70 - 5; <em>// 计算剩余宽度，减去文本框宽度和间距</em>
+        if (remainWidth - 70 - 5 >= 0) { // 本行是否能放下当前文本框
+          remainWidth = remainWidth - 70 - 5; // 计算剩余宽度，减去文本框宽度和间距
           this.textInfos.push(new TextInfo(str, 70, line, remainWidth));
         } else {
-          line++; <em>// 换行</em>
+          line++; // 换行
           remainWidth = this.lineWidth - 70;
           this.textInfos.push(new TextInfo(str, 70, line, remainWidth));
         }
@@ -112,17 +112,17 @@ struct FlexPage {
           this.textInfos.push(new TextInfo(str, width, line, remainWidth));
         } else {
           remainWidth = this.lineWidth - width;
-          line++; <em>// 换行</em>
+          line++; // 换行
           this.textInfos.push(new TextInfo(str, width, line, remainWidth));
         }
       }
     });
     console.info(JSON.stringify(this.textInfos));
-    this.maxLine = line; <em>// 得到原本能占用的最大行数</em>
+    this.maxLine = line; // 得到原本能占用的最大行数
   }
 
   getSwiperList() {
-    let maxIndex = Math.ceil(this.maxLine / 2); <em>// 轮播图需要的页数</em>
+    let maxIndex = Math.ceil(this.maxLine / 2); // 轮播图需要的页数
     for (let index = 1; index <= maxIndex; index++) {
       this.swiperList[index - 1] = this.textInfos.filter((item: TextInfo) => {
         return item.line === index * 2 - 1 || item.line === index * 2;
@@ -134,11 +134,11 @@ struct FlexPage {
   aboutToAppear(): void {
     window.getLastWindow(this.uiContext.getHostContext()).then((win) => {
       let winWidth = win.getWindowProperties().windowRect.width;
-      <em>// 计算行宽，40是因为左右内边距20</em>
+      // 计算行宽，40是因为左右内边距20
       this.lineWidth = this.uiContext.px2vp(winWidth) - 40 > 0 ? this.uiContext.px2vp(winWidth) - 40 : 320;
       console.info(`每行可用宽度：${this.lineWidth}`);
-      this.getTextInfos(); <em>// 获取文本框信息</em>
-      this.getSwiperList(); <em>// 获取轮播图页数</em>
+      this.getTextInfos(); // 获取文本框信息
+      this.getSwiperList(); // 获取轮播图页数
     });
   }
 

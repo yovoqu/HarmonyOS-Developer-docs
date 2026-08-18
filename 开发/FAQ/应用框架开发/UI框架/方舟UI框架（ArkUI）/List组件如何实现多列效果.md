@@ -7,7 +7,7 @@
 设置[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)组件的lanes属性，以实现交叉轴上的多列布局。示例代码如下：
  
 ```ArkTS
-<em>// xxx.ets</em>
+// xxx.ets
 @Entry
 @Component
 struct ListExample {

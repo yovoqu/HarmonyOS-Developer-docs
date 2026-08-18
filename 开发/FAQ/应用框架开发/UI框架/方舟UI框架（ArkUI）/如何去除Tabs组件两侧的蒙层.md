@@ -7,13 +7,13 @@
 Tabs组件的fadingEdge属性表示页签超过容器宽度时是否渐隐消失，默认值为true，设置为false时则直接截断显示，不产生任何渐变效果。
  
 ```ArkTS
-<em>// xxx.ets</em>
+// xxx.ets
 @Entry
 @Component
 struct TabsOpaque {
   @State message: string = 'Hello World';
   private controller: TabsController = new TabsController();
-  @State selfFadingFade: boolean = false; <em>// Does the tab gradually disappear when it exceeds the width of the container? The default value is true.</em>
+  @State selfFadingFade: boolean = false; // Does the tab gradually disappear when it exceeds the width of the container? The default value is true.
 
 
   build() {

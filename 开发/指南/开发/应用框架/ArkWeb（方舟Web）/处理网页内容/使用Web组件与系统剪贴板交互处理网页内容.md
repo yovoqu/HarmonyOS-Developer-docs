@@ -121,7 +121,7 @@ struct WebComponent {
 
 <script>
     const textContent = "这是一些文本内容";
-    const htmlContent = `<strong><em>这是一些 HTML 内容</em></strong>`;
+    const htmlContent = `<strong>这是一些 HTML 内容</strong>`;
 
     // writeText()接口
     async function copyText() {

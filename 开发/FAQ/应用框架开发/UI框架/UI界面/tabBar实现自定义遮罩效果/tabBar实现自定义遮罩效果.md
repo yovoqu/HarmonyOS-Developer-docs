@@ -64,9 +64,9 @@ struct TabsMask {
       .height('100%')
       .width('100%')
       .linearGradient({
-      <em>  // 渐变方向</em>
+        // 渐变方向
         direction: GradientDirection.Left,
-       <em> // 数组末尾元素占比小于1时满足重复着色效果</em>
+        // 数组末尾元素占比小于1时满足重复着色效果
         colors: [['#40ffffff', 0.0], ['#26ffffff', 0.1]]
       })
       .hitTestBehavior(HitTestMode.None)
@@ -75,9 +75,9 @@ struct TabsMask {
       .height('100%')
       .width('100%')
       .linearGradient({
-      <em>  // 渐变方向</em>
+        // 渐变方向
         direction: GradientDirection.Right,
-       <em> // 数组末尾元素占比小于1时满足重复着色效果</em>
+        // 数组末尾元素占比小于1时满足重复着色效果
         colors: [['#40ffffff', 0.0], ['#26ffffff', 0.1]]
       })
       .hitTestBehavior(HitTestMode.None)

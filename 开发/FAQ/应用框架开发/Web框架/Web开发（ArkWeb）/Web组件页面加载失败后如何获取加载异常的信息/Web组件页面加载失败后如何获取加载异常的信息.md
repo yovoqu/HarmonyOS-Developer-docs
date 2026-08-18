@@ -29,53 +29,53 @@ Web组件加载页面时可能会出现加载异常的情况，此时如何获�
 
   
 ```text
-<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onErrorReceive</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <em>// </em><em><span style="color: rgb(128,128,128);">部分打印，其他打印可参考</span><span style="color: rgb(128,128,128);">onErrorReceive</span><span style="color: rgb(128,128,128);">接口</span></em>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'getErrorInfo:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getErrorInfo</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'getErrorCode:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getErrorCode</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'url:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRequestUrl</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据</span><span style="color: rgb(128,128,128);">isMainFrame</span><span style="color: rgb(128,128,128);">判断是主资源还是子资源报错</span></em>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'isMainFrame:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isMainFrame</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+.onErrorReceive((event) => {
+  if (event) {
+    // 部分打印，其他打印可参考onErrorReceive接口
+    console.info('getErrorInfo:' + event.error.getErrorInfo());
+    console.info('getErrorCode:' + event.error.getErrorCode());
+    console.info('url:' + event.request.getRequestUrl());
+    // 根据isMainFrame判断是主资源还是子资源报错
+    console.info('isMainFrame:' + event.request.isMainFrame());
+  }
+})
 ```
 
 - 场景二：如果只想获取到网络请求和响应的错误信息可以使用onHttpErrorReceive回调，根据错误码可以通过ArkWeb网络协议栈错误列表确定具体问题。通过onErrorReceive回调也可以获取到。示例代码如下：
 
   
 ```text
-<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onHttpErrorReceive</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">部分打印，其他打印可参考</span><span style="color: rgb(128,128,128);">onHttpErrorReceive</span><span style="color: rgb(128,128,128);">接口</span></em>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'url:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRequestUrl</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-    <em>// </em><em><span style="color: rgb(128,128,128);">根据</span><span style="color: rgb(128,128,128);">isMainFrame</span><span style="color: rgb(128,128,128);">判断是主资源还是子资源报错</span></em>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'isMainFrame:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isMainFrame</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'getResponseCode:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">response</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getResponseCode</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'getReasonMessage:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">response</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getReasonMessage</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+.onHttpErrorReceive((event) => {
+  if (event) {
+    // 部分打印，其他打印可参考onHttpErrorReceive接口
+    console.info('url:' + event.request.getRequestUrl());
+    // 根据isMainFrame判断是主资源还是子资源报错
+    console.info('isMainFrame:' + event.request.isMainFrame());
+    console.info('getResponseCode:' + event.response.getResponseCode());
+    console.info('getReasonMessage:' + event.response.getReasonMessage());
+  }
+})
 ```
 
 - 场景三：如果只加载主资源可以使用onSslErrorEventReceive监听SSL校验错误。如果加载的资源有主资源和子资源需要使用onSslErrorEvent监听SSL校验错误。SSL校验出错时推荐使用[handleCancel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-sslerrorhandler#handlecancel9)通知Web取消此请求，[避免在SSL校验出错时继续加载页面](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-harmony-application-security#section1256314434316)，以避免中间人攻击风险。示例代码如下：
 
   
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">只加载主资源时通过此方法监听</span><span style="color: rgb(128,128,128);">SSL</span><span style="color: rgb(128,128,128);">校验错误</span></em>
-<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onSslErrorEventReceive</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'ssl check failed,error is : ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handler</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handleCancel</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">加载的资源有主资源和子资源时使用此方法监听</span><span style="color: rgb(128,128,128);">SSL</span><span style="color: rgb(128,128,128);">校验错误</span></em>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onSslErrorEvent</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">SslErrorEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据</span><span style="color: rgb(128,128,128);">isMainFrame</span><span style="color: rgb(128,128,128);">判断是主资源还是子资源报错</span></em>
-      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'onSslErrorEvent isMainFrame: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isMainFrame</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handler</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handleCancel</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+// 只加载主资源时通过此方法监听SSL校验错误
+.onSslErrorEventReceive((event) => {
+  if (event) {
+    console.error('ssl check failed,error is : ' + event.error.toString());
+    event.handler.handleCancel();
+  }
+})
+  // 加载的资源有主资源和子资源时使用此方法监听SSL校验错误
+  .onSslErrorEvent((event: SslErrorEvent) => {
+    if (event) {
+      // 根据isMainFrame判断是主资源还是子资源报错
+      console.info('onSslErrorEvent isMainFrame: ' + event.isMainFrame);
+      event.handler.handleCancel();
+    }
+  });
 ```
 
 
@@ -83,59 +83,59 @@ Web组件加载页面时可能会出现加载异常的情况，此时如何获�
 完整参考代码如下：
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">webview </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkWeb'</span><span style="color: rgb(181,106,1);">;</span>
+import { webview } from '@kit.ArkWeb';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">WebComponent </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct WebComponent {
+  controller: webview.WebviewController = new webview.WebviewController();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <em>  <span style="color: rgb(128,128,128);">// src</span><span style="color: rgb(128,128,128);">可更换为自己业务地址</span></em>
-      <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'www.example.com'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">geolocationAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onErrorReceive</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">部分打印，其他打印可参考</span><span style="color: rgb(128,128,128);">onErrorReceive</span><span style="color: rgb(128,128,128);">接口</span></em>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'getErrorInfo:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getErrorInfo</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'getErrorCode:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getErrorCode</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'url:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRequestUrl</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-           <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据</span><span style="color: rgb(128,128,128);">isMainFrame</span><span style="color: rgb(128,128,128);">判断是主资源还是子资源报错</span></em>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'isMainFrame:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isMainFrame</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
+  build() {
+    Column() {
+      // src可更换为自己业务地址
+      Web({ src: 'www.example.com', controller: this.controller })
+        .fileAccess(false)
+        .geolocationAccess(false)
+        .onErrorReceive((event) => {
+          if (event) {
+            // 部分打印，其他打印可参考onErrorReceive接口
+            console.info('getErrorInfo:' + event.error.getErrorInfo());
+            console.info('getErrorCode:' + event.error.getErrorCode());
+            console.info('url:' + event.request.getRequestUrl());
+            // 根据isMainFrame判断是主资源还是子资源报错
+            console.info('isMainFrame:' + event.request.isMainFrame());
+          }
+        })
 
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onHttpErrorReceive</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-          <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">部分打印，其他打印可参考</span><span style="color: rgb(128,128,128);">onHttpErrorReceive</span><span style="color: rgb(128,128,128);">接口</span></em>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'url:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRequestUrl</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-          <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据</span><span style="color: rgb(128,128,128);">isMainFrame</span><span style="color: rgb(128,128,128);">判断是主资源还是子资源报错</span></em>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'isMainFrame:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isMainFrame</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'getResponseCode:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">response</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getResponseCode</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'getReasonMessage:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">response</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getReasonMessage</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
+        .onHttpErrorReceive((event) => {
+          if (event) {
+            // 部分打印，其他打印可参考onHttpErrorReceive接口
+            console.info('url:' + event.request.getRequestUrl());
+            // 根据isMainFrame判断是主资源还是子资源报错
+            console.info('isMainFrame:' + event.request.isMainFrame());
+            console.info('getResponseCode:' + event.response.getResponseCode());
+            console.info('getReasonMessage:' + event.response.getReasonMessage());
+          }
+        })
 
-          <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">只加载主资源时通过此方法监听</span><span style="color: rgb(128,128,128);">SSL</span><span style="color: rgb(128,128,128);">校验错误</span></em>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onSslErrorEventReceive</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'ssl check failed,error is : ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handler</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handleCancel</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
-        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">加载的资源有主资源和子资源时使用此方法监听</span><span style="color: rgb(128,128,128);">SSL</span><span style="color: rgb(128,128,128);">校验错误</span></em>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onSslErrorEvent</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">SslErrorEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-            <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据</span><span style="color: rgb(128,128,128);">isMainFrame</span><span style="color: rgb(128,128,128);">判断是主资源还是子资源报错</span></em>
-            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'onSslErrorEvent isMainFrame: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isMainFrame</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handler</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handleCancel</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+          // 只加载主资源时通过此方法监听SSL校验错误
+        .onSslErrorEventReceive((event) => {
+          if (event) {
+            console.error('ssl check failed,error is : ' + event.error.toString());
+            event.handler.handleCancel();
+          }
+        })
+          // 加载的资源有主资源和子资源时使用此方法监听SSL校验错误
+        .onSslErrorEvent((event: SslErrorEvent) => {
+          if (event) {
+            // 根据isMainFrame判断是主资源还是子资源报错
+            console.info('onSslErrorEvent isMainFrame: ' + event.isMainFrame);
+            event.handler.handleCancel();
+          }
+        });
+    };
+  }
+}
 ```
  
  

@@ -53,7 +53,7 @@ struct AllListItemHeight {
 struct GetLastItem {
   private itemHeightArr = [100, 150, 200, 130, 120, 110.130];
   private listHeight = 700;
- <em> // Scroll controller for obtaining the position information of list items</em>
+  // Scroll controller for obtaining the position information of list items
   scroller = new ListScroller();
 
 
@@ -97,7 +97,7 @@ struct GetLastGroup {
     [[30, 50, 60, 40, 90, 80.60],
       [50, 40, 50, 55, 77, 88.44],];
   private listHeight = 700;
-  <em>// Scroll controller for obtaining the position information of list items</em>
+  // Scroll controller for obtaining the position information of list items
   scroller = new ListScroller();
 
   build() {

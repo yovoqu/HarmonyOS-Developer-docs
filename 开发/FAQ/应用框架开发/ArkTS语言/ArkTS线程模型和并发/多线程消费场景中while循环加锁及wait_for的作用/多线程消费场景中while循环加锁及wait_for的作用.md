@@ -23,7 +23,7 @@ std::mutex mtx;
 std::condition_variable cond;
 bool finished = false;
 
-<em>// 编码器回调线程（生产者）</em>
+// 编码器回调线程（生产者）
 void callbackThread() {
     for (int i = 0; i < 10; i++) {
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
@@ -36,7 +36,7 @@ void callbackThread() {
     cond.notify_one();
 }
 
-<em>// 喂入线程（消费者）</em>
+// 喂入线程（消费者）
 void feedThread() {
     while (true) {
         std::unique_lock<std::mutex> lock(mtx);
@@ -50,7 +50,7 @@ void feedThread() {
             int buffer = bufferQueue.front();
             bufferQueue.pop();
             lock.unlock();
-        <em>    // 处理buffer，填入数据，推给编码器</em>
+            // 处理buffer，填入数据，推给编码器
             std::cout << "Processing buffer: " << buffer << std::endl;
         }
     }

@@ -26,131 +26,131 @@
 对于灰度图像效果，也可以使用[图像效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect)中的[grayscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#grayscale18)为组件添加灰度效果，示例如下。
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">image </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ImageKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { image } from '@kit.ImageKit';
+import { common } from '@kit.AbilityKit';
 
-<span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取图片</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">（示例函数）</span>
-async function <span style="color: rgb(0,0,255);">getImageArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Context</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">这里以资源文件为例，实际可以是网络或沙箱路径</span>
-  const <span style="color: rgb(0,0,255);">resourceManager </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resourceManager</span><span style="color: rgb(181,106,1);">;</span>
-  const <span style="color: rgb(0,0,255);">imageData </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getMediaContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.example'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  return <span style="color: rgb(0,0,255);">imageData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+// 获取图片ArrayBuffer（示例函数）
+async function getImageArrayBuffer(context: common.Context): Promise<ArrayBuffer> {
+  // 这里以资源文件为例，实际可以是网络或沙箱路径
+  const resourceManager = context.resourceManager;
+  const imageData = await resourceManager.getMediaContent($r('app.media.example').id);
+  return imageData.buffer;
+}
 
-<span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">像素处理函数</span>
-async function <span style="color: rgb(0,0,255);">processImageData</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">mode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'gray' </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(255,0,170);">'bw'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PixelMap</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(128,128,128);">// 1.</span><span style="color: rgb(128,128,128);">获取原始</span><span style="color: rgb(128,128,128);">ArrayBuffer</span>
-  const <span style="color: rgb(0,0,255);">arrayBuffer </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">getImageArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+// 像素处理函数
+async function processImageData(context: common.Context, mode: 'gray' | 'bw'): Promise<image.PixelMap> {
+  // 1.获取原始ArrayBuffer
+  const arrayBuffer = await getImageArrayBuffer(context);
 
-  <span style="color: rgb(128,128,128);">// 2.</span><span style="color: rgb(128,128,128);">创建</span><span style="color: rgb(128,128,128);">ImageSource</span>
-  const <span style="color: rgb(0,0,255);">imageSource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createImageSource</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">arrayBuffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  // 2.创建ImageSource
+  const imageSource = image.createImageSource(arrayBuffer);
 
-  <span style="color: rgb(128,128,128);">// 3.</span><span style="color: rgb(128,128,128);">创建解码选项</span>
-  const <span style="color: rgb(0,0,255);">decodingOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DecodingOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">desiredSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">500</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">500 </span><span style="color: rgb(255,0,170);">} </span><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">按需调整尺寸</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  // 3.创建解码选项
+  const decodingOptions: image.DecodingOptions = {
+    desiredSize: { width: 500, height: 500 } // 按需调整尺寸
+  };
 
-  <span style="color: rgb(128,128,128);">// 4.</span><span style="color: rgb(128,128,128);">解码获取</span><span style="color: rgb(128,128,128);">PixelMap</span>
-  const <span style="color: rgb(0,0,255);">pixelMap </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">imageSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createPixelMap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">decodingOptions</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  const <span style="color: rgb(0,0,255);">imageInfo </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">pixelMap</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getImageInfo</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  // 4.解码获取PixelMap
+  const pixelMap = await imageSource.createPixelMap(decodingOptions);
+  const imageInfo = await pixelMap.getImageInfo();
 
-  <span style="color: rgb(128,128,128);">// 5.</span><span style="color: rgb(128,128,128);">读取像素数据</span>
-  const <span style="color: rgb(0,0,255);">buffer </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1024000</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  await <span style="color: rgb(0,0,255);">pixelMap</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readPixelsToBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  const <span style="color: rgb(0,0,255);">data </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  // 5.读取像素数据
+  const buffer = new ArrayBuffer(1024000);
+  await pixelMap.readPixelsToBuffer(buffer);
+  const data = new Uint8Array(buffer);
 
-  <span style="color: rgb(128,128,128);">// 6.</span><span style="color: rgb(128,128,128);">处理像素数据</span>
-  const <span style="color: rgb(0,0,255);">processPixel </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    switch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">mode</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      case <span style="color: rgb(255,0,170);">'gray'</span><span style="color: rgb(181,106,1);">:</span>
-        return <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">r</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">g</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">b</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          const <span style="color: rgb(0,0,255);">gray </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0.299 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">0.587 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">g </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">0.114 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">b</span><span style="color: rgb(181,106,1);">;</span>
-          return <span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">gray</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">gray</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">gray</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-      case <span style="color: rgb(255,0,170);">'bw'</span><span style="color: rgb(181,106,1);">:</span>
-        return <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">r</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">g</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">b</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          const <span style="color: rgb(0,0,255);">gray </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0.299 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">0.587 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">g </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">0.114 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">b</span><span style="color: rgb(181,106,1);">;</span>
-          const <span style="color: rgb(0,0,255);">bw </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">gray </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">128 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,0);">255 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-          return <span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">bw</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">bw</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">bw</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-      default<span style="color: rgb(181,106,1);">:</span>
-        return <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">r</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">g</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">b</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">r</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">g</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">b</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(0,0,255);">)()</span><span style="color: rgb(181,106,1);">;</span>
+  // 6.处理像素数据
+  const processPixel = (() => {
+    switch (mode) {
+      case 'gray':
+        return (r: number, g: number, b: number) => {
+          const gray = 0.299 * r + 0.587 * g + 0.114 * b;
+          return [gray, gray, gray];
+        };
+      case 'bw':
+        return (r: number, g: number, b: number) => {
+          const gray = 0.299 * r + 0.587 * g + 0.114 * b;
+          const bw = gray > 128 ? 255 : 0;
+          return [bw, bw, bw];
+        };
+      default:
+        return (r: number, g: number, b: number) => [r, g, b];
+    }
+  })();
 
-  <span style="color: rgb(128,128,128);">// 7.</span><span style="color: rgb(128,128,128);">遍历并修改像素</span>
-  for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    const <span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(0,0,255);">g </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(0,0,255);">b </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+  // 7.遍历并修改像素
+  for (let i = 0; i < data.length; i += 4) {
+    const r = data[i];
+    const g = data[i + 1];
+    const b = data[i + 2];
 
-    const <span style="color: rgb(0,0,255);">result </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">processPixel</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">r</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">g</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">b</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(0,0,255);">nr </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(0,0,255);">ng </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(0,0,255);">nb </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+    const result = processPixel(r, g, b);
+    const nr = result[0];
+    const ng = result[1];
+    const nb = result[2];
 
-    <span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nr</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(128,128,128);">// R</span>
-    <span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">ng</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(128,128,128);">// G</span>
-    <span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">nb</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(128,128,128);">// B</span>
-<span style="color: rgb(128,128,128);">    // Alpha</span><span style="color: rgb(128,128,128);">通道保持不变</span><span style="color: rgb(128,128,128);">(data[i+3])</span>
-  <span style="color: rgb(255,0,170);">}</span>
+    data[i] = nr; // R
+    data[i + 1] = ng; // G
+    data[i + 2] = nb; // B
+    // Alpha通道保持不变(data[i+3])
+  }
 
-  <span style="color: rgb(128,128,128);">// 8.</span><span style="color: rgb(128,128,128);">创建新</span><span style="color: rgb(128,128,128);">PixelMap</span>
-  return <span style="color: rgb(0,0,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createPixelMap</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">size</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">imageInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">imageInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">size</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">pixelFormat</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PixelMapFormat</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RGBA_8888</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">alphaType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AlphaType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PREMUL</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+  // 8.创建新PixelMap
+  return image.createPixelMap(data.buffer, {
+    size: { width: imageInfo.size.width, height: imageInfo.size.height },
+    pixelFormat: image.PixelMapFormat.RGBA_8888,
+    alphaType: image.AlphaType.PREMUL
+  });
+}
 
-<span style="color: rgb(128,128,128);">// UI</span><span style="color: rgb(128,128,128);">组件使用示例</span>
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">ImageToGrayOrBlack </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">grayImage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PixelMap </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">bwImage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PixelMap </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
+// UI组件使用示例
+@Entry
+@Component
+struct ImageToGrayOrBlack {
+  @State grayImage: PixelMap | null = null;
+  @State bwImage: PixelMap | null = null;
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+  aboutToAppear() {
+    let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 
-    <span style="color: rgb(0,0,255);">processImageData</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'gray'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">gray</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">grayImage </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">gray</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    processImageData(context, 'gray').then((gray) => {
+      this.grayImage = gray;
+    });
 
-    <span style="color: rgb(0,0,255);">processImageData</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'bw'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">bw</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">bwImage </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">bw</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+    processImageData(context, 'bw').then((bw) => {
+      this.bwImage = bw;
+    });
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">彩色图片</span>
-      <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.example'</span><span style="color: rgb(0,0,255);">))</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Column() {
+      // 彩色图片
+      Image($r('app.media.example'))
+        .width(200)
+        .height(200)
+        .margin(10);
 
-      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">灰度图片</span>
-      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">grayImage</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.example'</span><span style="color: rgb(0,0,255);">))</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">grayscale</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+      // 灰度图片
+      Row() {
+        Image(this.grayImage)
+          .width(200)
+          .height(200)
+          .margin(10);
+        Image($r('app.media.example'))
+          .width(200)
+          .height(200)
+          .margin(10)
+          .grayscale(1);
+      };
 
-      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">黑白图片</span>
-      <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">bwImage</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+      // 黑白图片
+      Image(this.bwImage)
+        .width(200)
+        .height(200)
+        .margin(10);
+    };
+  }
+}
 ```
  
  
@@ -160,15 +160,15 @@ struct <span style="color: rgb(0,0,255);">ImageToGrayOrBlack </span><span style=
 - 原始图片数据通常为RGBA格式，即每个像素由4个字节组成（红、绿、蓝、透明度）。
 - 灰度效果通常使用加权平均法（心理学公式）将RGB转换为灰度值：
 ```text
-const <span style="color: rgb(0,0,255);">gray </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0.299 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">0.587 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">g </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">0.114 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">b</span><span style="color: rgb(181,106,1);">;</span>
-return <span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">gray</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">gray</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">gray</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+const gray = 0.299 * r + 0.587 * g + 0.114 * b;
+return [gray, gray, gray];
 ```
 
 
  
 - 黑白效果需要将灰度值与一个阈值比较，大于阈值则为白色（RGB值皆为255），小于等于阈值则为黑色（RGB值皆为0）。阈值可以取固定值（如128）或根据图片动态计算：
 ```text
-const <span style="color: rgb(0,0,255);">gray </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0.299 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">r </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">0.587 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">g </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">0.114 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">b</span><span style="color: rgb(181,106,1);">;</span>
-const <span style="color: rgb(0,0,255);">bw </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">gray </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">128 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,0);">255 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
-return <span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">bw</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">bw</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">bw</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+const gray = 0.299 * r + 0.587 * g + 0.114 * b;
+const bw = gray > 128 ? 255 : 0;
+return [bw, bw, bw];
 ```

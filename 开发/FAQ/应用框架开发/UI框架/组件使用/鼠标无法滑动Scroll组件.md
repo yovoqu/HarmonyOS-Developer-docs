@@ -53,7 +53,7 @@ struct MousePage {
   scrollers: Scroller[] = [];
 
   aboutToAppear(): void {
-    <em>// 循环调用10次，初始化用于循环渲染ListItem的数组及用于控制Scroll组件的控制器数组</em>
+    // 循环调用10次，初始化用于循环渲染ListItem的数组及用于控制Scroll组件的控制器数组
     for (let i = 0; i < 10; i++) {
       this.arr.push(i);
       this.scrollers.push(new Scroller());
@@ -103,16 +103,16 @@ struct MousePage {
       }
       .borderRadius(12)
       .margin({ right: 16 })
-      .scrollable(ScrollDirection.Horizontal) <em>// 设置Scroll组件横向滚动</em>
-      .scrollBar(BarState.Off) <em>// 设置Scroll组件隐藏滚动条</em>
-      .gesture( <em>// 给Scroll组件绑定PanGesture滑动手势事件</em>
-        PanGesture(new PanGestureOptions({ direction: PanDirection.Horizontal })) <em>// 设置只响应水平方向的滑动手势事件</em>
-          .onActionUpdate((event: GestureEvent) => { <em>// 监听手势移动</em>
+      .scrollable(ScrollDirection.Horizontal) // 设置Scroll组件横向滚动
+      .scrollBar(BarState.Off) // 设置Scroll组件隐藏滚动条
+      .gesture( // 给Scroll组件绑定PanGesture滑动手势事件
+        PanGesture(new PanGestureOptions({ direction: PanDirection.Horizontal })) // 设置只响应水平方向的滑动手势事件
+          .onActionUpdate((event: GestureEvent) => { // 监听手势移动
             if (event) {
               scroller.scrollTo({
-                <em>// 监听到Scroll组件上水平方向的滑动手势事件时，让Scroll组件滚动对应距离</em>
+                // 监听到Scroll组件上水平方向的滑动手势事件时，让Scroll组件滚动对应距离
                 xOffset: scroller.currentOffset().xOffset -
-                event.offsetX, <em>// 在Scroll组件当前的水平滚动偏移量基础上，偏移该次手势移动的距离，当向右滑动时event.offsetX为正值否则为负值</em>
+                event.offsetX, // 在Scroll组件当前的水平滚动偏移量基础上，偏移该次手势移动的距离，当向右滑动时event.offsetX为正值否则为负值
                 yOffset: 0
               });
             }

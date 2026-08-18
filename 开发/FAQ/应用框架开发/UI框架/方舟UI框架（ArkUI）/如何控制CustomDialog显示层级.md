@@ -39,10 +39,10 @@ struct PrivacyDetailPage {
 @Entry
 @Component
 struct CustomDialogDisplayLevel {
-  <em>// Used for navigation stack management</em>
+  // Used for navigation stack management
   @Provide('pageInfos') pageInfos: NavPathStack = new NavPathStack();
   @State textValue: string = 'Input';
- <em> // Visible and hidden control is set to not occupied</em>
+  // Visible and hidden control is set to not occupied
   @State visible: Visibility = Visibility.None;
 
   @Builder
@@ -91,7 +91,7 @@ struct CustomDialogDisplayLevel {
             })
             .width('100%')
             .height('100%')
-         <em>   // set opacity</em>
+            // set opacity
             .opacity(0.5)
             .backgroundColor(Color.Black)
             .visibility(this.visible)
@@ -164,7 +164,7 @@ struct CustomDialogDisplayLevel {
               }
             }
           }
-       <em>   // set dialog width</em>
+          // set dialog width
           .width('100%')
         }
       }

@@ -17,12 +17,12 @@
 DevEco Studio 3.1 Beta2 Release版本默认启用模块化编译。如果应用中存在re-export语法，将会触发告警。反例如下：
  
 ```ArkTS
-<em>// index.ets</em>
+// index.ets
   import {test} from "./test"
   export {test}
   let b : test = {a : 'index'}
 
-  <em>// test.ets</em>
+  // test.ets
   export interface test {
     a: string
   }
@@ -34,13 +34,13 @@ DevEco Studio 3.1 Beta2 Release版本默认启用模块化编译。如果应用�
 如编译构建期间提示上述告警信息，请根据提示信息进行以下修改：添加type显式声明类型符号的引用，以使编译转换后的JS模块能够消除类型符号的引用。
  
 ```text
-import type {test} from "./test"  <em>// Here, add a type declaration</em>
+import type {test} from "./test"  // Here, add a type declaration
 export {test}
 let b : test = {a : 'index'}
 ```
  
 ```ArkTS
-<em>// test.ets</em>
+// test.ets
 export interface test {
   a: string
 }

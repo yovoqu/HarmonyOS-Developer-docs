@@ -54,7 +54,7 @@ struct Index {
         .alignRules({
           top: { anchor: '__container__', align: VerticalAlign.Top }
         });
-     <em> // 期望自定义的控制组件在全屏状态下保持可见</em>
+      // 期望自定义的控制组件在全屏状态下保持可见
       Text('这是一个全屏按钮')
         .fontColor(Color.White)
         .onClick(() => {
@@ -74,7 +74,7 @@ struct Index {
     .aspectRatio(16 / 9);
   }
 
- <em> // 更改屏幕方向landscape为true横屏，false竖屏</em>
+  // 更改屏幕方向landscape为true横屏，false竖屏
   changeOrientation(landscape: boolean) {
     window.getLastWindow(this.getUIContext().getHostContext()).then((lastWindow) => {
       lastWindow.setPreferredOrientation(landscape ? window.Orientation.LANDSCAPE : window.Orientation.PORTRAIT);
@@ -126,14 +126,14 @@ import { window } from '@kit.ArkUI';
 @Component
 struct Index {
   @State private isFullScreen: boolean = false;
-  @State videoSrc: Resource = $rawfile('videoTest.mp4'); <em>// 视频文件资源需要替换为本地资源</em>
-  @State previewUri: Resource = $r('app.media.img_1'); <em>// 视频封面资源需要替换为本地资源</em>
+  @State videoSrc: Resource = $rawfile('videoTest.mp4'); // 视频文件资源需要替换为本地资源
+  @State previewUri: Resource = $r('app.media.img_1'); // 视频封面资源需要替换为本地资源
   private controller = new VideoController();
   @State curRate: PlaybackSpeed = PlaybackSpeed.Speed_Forward_1_00_X;
 
   aboutToAppear(): void {
     window.getLastWindow(this.getUIContext().getHostContext(), (err, data) => {
-      data?.setWindowLayoutFullScreen(true); <em>// 设置沉浸式布局</em>
+      data?.setWindowLayoutFullScreen(true); // 设置沉浸式布局
     });
   }
 
@@ -151,24 +151,24 @@ struct Index {
           .objectFit(ImageFit.Contain)
           .autoPlay(false)
           .id('video_news_detail');
-      <em>  // 自定义的控制器</em>
+        // 自定义的控制器
         Row() {
           Text('start').onClick(() => {
-            this.controller.start(); <em>// 开始播放</em>
+            this.controller.start(); // 开始播放
           }).margin(5).fontColor(Color.White);
           Text('pause').onClick(() => {
-            this.controller.pause();<em> // 暂停播放</em>
+            this.controller.pause(); // 暂停播放
           }).margin(5).fontColor(Color.White);
           Text('0.75').onClick(() => {
-            this.curRate = PlaybackSpeed.Speed_Forward_0_75_X; <em>// 0.75倍速播放</em>
+            this.curRate = PlaybackSpeed.Speed_Forward_0_75_X; // 0.75倍速播放
           }).margin(5).fontColor(Color.White);
           Text('1').onClick(() => {
-            this.curRate = PlaybackSpeed.Speed_Forward_1_00_X;<em> // 原倍速播放</em>
+            this.curRate = PlaybackSpeed.Speed_Forward_1_00_X; // 原倍速播放
           }).margin(5).fontColor(Color.White);
           Text('2').onClick(() => {
-            this.curRate = PlaybackSpeed.Speed_Forward_2_00_X; <em>// 2倍速播放</em>
+            this.curRate = PlaybackSpeed.Speed_Forward_2_00_X; // 2倍速播放
           }).margin(5).fontColor(Color.White);
-        <em>  // 修改全屏控制方法，同时删除原问题代码中Video组件的onFullscreenChange判断条件</em>
+          // 修改全屏控制方法，同时删除原问题代码中Video组件的onFullscreenChange判断条件
           Text(this.isFullScreen ? '退出全屏' : '全屏')
             .onClick(() => {
               this.isFullScreen = !this.isFullScreen;
@@ -187,7 +187,7 @@ struct Index {
     .justifyContent(FlexAlign.Center);
   }
 
- <em> // 更改屏幕方向landscape为true横屏，false竖屏</em>
+  // 更改屏幕方向landscape为true横屏，false竖屏
   changeOrientation(landscape: boolean) {
     window.getLastWindow(this.getUIContext().getHostContext()).then((lastWindow) => {
       lastWindow.setPreferredOrientation(landscape ? window.Orientation.LANDSCAPE : window.Orientation.PORTRAIT);

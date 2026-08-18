@@ -20,7 +20,7 @@ struct Index {
   build() {
     Column() {
       Tabs({ controller: this.controller }) {
-       <em> // Home</em>
+        // Home
         TabContent() {
           Text('首页');
         }.tabBar('首页')
@@ -31,7 +31,7 @@ struct Index {
           console.info('MinePage onPause');
         });
 
-      <em>  // mine</em>
+        // mine
         TabContent() {
           Text('我的');
         }.tabBar('我的');
@@ -40,7 +40,7 @@ struct Index {
         this.currentPageId = index;
         this.controller.changeIndex(index);
       })
-      .animationMode(AnimationMode.NO_ANIMATION) <em>// </em><em>关闭切换动画</em>
+      .animationMode(AnimationMode.NO_ANIMATION) // 关闭切换动画
       .edgeEffect(EdgeEffect.None)
       .scrollable(false);
     }.height('100%').width('100%');

@@ -7,7 +7,7 @@
 通过将对象Sendable化来使用对象中的方法。具体可参考如下示例代码：
  
 ```ArkTS
-<em>// TestClass.ets</em>
+// TestClass.ets
 @Sendable
 export class TestClass {
   value: number = 888;
@@ -23,24 +23,24 @@ export class TestClass {
 ```
  
 ```ArkTS
-<em>// xxx.ets:</em>
+// xxx.ets:
 import { taskpool } from '@kit.ArkTS';
 import { TestClass } from './TestClass';
 
-<em>// Step 1: Define concurrent functions and internally call synchronization methods</em>
+// Step 1: Define concurrent functions and internally call synchronization methods
 @Concurrent
 function func(num: number): number {
- <em> // Call synchronous wait call implemented in static class objects</em>
+  // Call synchronous wait call implemented in static class objects
   let testClass = new TestClass();
   let sum = testClass.GetValue() + num;
   return sum;
 }
 
-<em>// Step 2: Create a task and execute it</em>
+// Step 2: Create a task and execute it
 function asyncGet(): void {
-  <em>// Create a task and pass it in the function func</em>
+  // Create a task and pass it in the function func
   let task: taskpool.Task = new taskpool.Task(func, 1);
- <em> // Execute task and operate on the synchronized logic results</em>
+  // Execute task and operate on the synchronized logic results
   taskpool.execute(task).then((result: object) => {
     console.info('testTag result:' + result);
   });
@@ -58,7 +58,7 @@ struct Index {
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
           .onClick(() => {
-           <em> // Step 3: Perform concurrent operations</em>
+            // Step 3: Perform concurrent operations
             asyncGet();
           })
       }

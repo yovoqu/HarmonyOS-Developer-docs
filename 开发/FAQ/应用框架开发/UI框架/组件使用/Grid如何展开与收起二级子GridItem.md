@@ -38,42 +38,42 @@ CollapseMenu.ets:
  
 ```text
 export class CollapseMenu {
-  columns: number = 4; <em>// 列</em>
-  isExpanded: boolean = false; <em>// 是否展开</em>
+  columns: number = 4; // 列
+  isExpanded: boolean = false; // 是否展开
   layoutOptions: GridLayoutOptions = {
-   <em> // Grid布局选项</em>
+    // Grid布局选项
     regularSize: [1, 1]
   };
-  index: number = 0; <em>// 数组索引 0</em>
-  firstMenu: Array<ESObject> = []; <em>// 一级菜单</em>
-  secondMenu: Array<ESObject> = []; <em>// 二级菜单</em>
-  targetIndex: number = -1; <em>// 追加数据索引,从0开始</em>
-  clickIndex: number = -1; <em>// 选中索引</em>
-  expandedRow: number = -1; <em>// 展开行数</em>
-  totalRows: number = 0; <em>// 计算总行数 从1开始</em>
-  rowIndex: number = 0; <em>// 点击行数 从0开始</em>
-  isLastRow: boolean = false; <em>// 是否是最后一行</em>
+  index: number = 0; // 数组索引 0
+  firstMenu: Array<ESObject> = []; // 一级菜单
+  secondMenu: Array<ESObject> = []; // 二级菜单
+  targetIndex: number = -1; // 追加数据索引,从0开始
+  clickIndex: number = -1; // 选中索引
+  expandedRow: number = -1; // 展开行数
+  totalRows: number = 0; // 计算总行数 从1开始
+  rowIndex: number = 0; // 点击行数 从0开始
+  isLastRow: boolean = false; // 是否是最后一行
 
 
-  <em>// 初始化一级数据</em>
+  // 初始化一级数据
   public setFirstMenu(arr: Array<ESObject>) {
     this.firstMenu = arr;
   };
 
 
-  <em>// 初始化二级数据</em>
+  // 初始化二级数据
   public setSecondMenu(arr: Array<ESObject>) {
     this.secondMenu = arr;
   };
 
 
-  <em>// 初始化列</em>
+  // 初始化列
   public setColumns(column: number) {
     this.columns = column;
   };
 
 
- <em> // 设置网格布局</em>
+  // 设置网格布局
   public setLayoutOptions(gridLayoutOptions: GridLayoutOptions) {
     this.layoutOptions = gridLayoutOptions;
   };
@@ -81,21 +81,21 @@ export class CollapseMenu {
 
   public addSecondMenu(index: number) {
     if (!this.isExpanded) {
-      this.totalRows = Math.ceil(this.firstMenu.length / this.columns);<em> // 计算总行数 从1开始</em>
-      this.rowIndex = Math.floor(index / this.columns);<em> // 计算所在行 从0开始</em>
+      this.totalRows = Math.ceil(this.firstMenu.length / this.columns); // 计算总行数 从1开始
+      this.rowIndex = Math.floor(index / this.columns); // 计算所在行 从0开始
       this.firstMenu.splice(index + (this.columns - index % this.columns), 0,
-        this.secondMenu); <em>//  向当前点击menu的下一行(获取当前行最末端的索引)添加一条数据到一级grid中，用于展示二级grid</em>
-      this.isLastRow = this.rowIndex === this.totalRows - 1; <em>// 是否是最后一行</em>
+        this.secondMenu); //  向当前点击menu的下一行(获取当前行最末端的索引)添加一条数据到一级grid中，用于展示二级grid
+      this.isLastRow = this.rowIndex === this.totalRows - 1; // 是否是最后一行
       this.targetIndex = this.isLastRow ? this.firstMenu.length - 1 : (this.rowIndex + 1) * 4;
       this.layoutOptions = {
-        regularSize: [1, 1], <em>// 追加数据独占一行</em>
-        irregularIndexes: [this.targetIndex] <em> // 当前点击item的下一行添加一个GridItem，独占一行 从0开始</em>
+        regularSize: [1, 1], // 追加数据独占一行
+        irregularIndexes: [this.targetIndex]  // 当前点击item的下一行添加一个GridItem，独占一行 从0开始
       };
       this.isExpanded = true;
       this.clickIndex = index;
     } else {
       this.firstMenu.splice(this.targetIndex, 1);
-   <em>   // 点击同一个元素</em>
+      // 点击同一个元素
       if (this.clickIndex === index) {
         this.isExpanded = false;
         this.layoutOptions = {
@@ -142,7 +142,7 @@ struct Index {
 
   @Builder
   commonBuilder(param: string) {
-   <em> // 自定义菜单样式</em>
+    // 自定义菜单样式
     Column() {
       Image($r('app.media.startIcon'))
         .width(60)
@@ -163,7 +163,7 @@ struct Index {
       Grid(undefined, this.collapseMenu.layoutOptions) {
         ForEach(this.collapseMenu.firstMenu, (item: ESObject, index: number) => {
           if (this.collapseMenu.isExpanded && this.collapseMenu.targetIndex === index) {
-          <em>  // 二级</em>
+            // 二级
             GridItem() {
               Column() {
                 Grid() {
@@ -178,12 +178,12 @@ struct Index {
             }
             .backgroundColor('#f1f1f1');
           } else {
-           <em> // 一级</em>
+            // 一级
             GridItem() {
               Stack({ alignContent: Alignment.Bottom }) {
                 this.commonBuilder(item);
                 if (this.collapseMenu.isExpanded && this.collapseMenu.clickIndex === index) {
-               <em>   // 当一级菜单被点击，对应的一级item添加倒三角形</em>
+                  // 当一级菜单被点击，对应的一级item添加倒三角形
                   Row()
                     .width(0)
                     .height(0)
@@ -205,7 +205,7 @@ struct Index {
           }
         });
       }
-      .columnsTemplate('1fr '.repeat(this.collapseMenu.columns)); <em>// 分为四列</em>
+      .columnsTemplate('1fr '.repeat(this.collapseMenu.columns)); // 分为四列
     };
   };
 };

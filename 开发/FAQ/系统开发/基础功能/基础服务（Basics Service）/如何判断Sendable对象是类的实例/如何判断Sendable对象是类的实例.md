@@ -15,92 +15,92 @@
 使用instanceof需要在导出Sendable类的文件里加上"use shared"，把文件标记成共享的，示例代码如下：
  
 ```text
-<span style="color: rgb(132,63,161);">"use shared"</span><span style="color: rgb(181,106,1);">;</span>
+"use shared";
 
-<span style="color: rgb(181,106,1);">@Sendable</span>
-export class <span style="color: rgb(0,0,255);">Per </span><span style="color: rgb(181,106,1);">{</span>
-  static <span style="color: rgb(255,255,255);">staticString</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">commonString</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'111'</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+@Sendable
+export class Per {
+  static staticString: string = '';
+  commonString: string = '111';
+}
 
-<span style="color: rgb(181,106,1);">@Sendable</span>
-export class <span style="color: rgb(0,0,255);">Per1 </span><span style="color: rgb(181,106,1);">{</span>
-  static <span style="color: rgb(255,255,255);">staticString</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">commonString</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'222'</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+@Sendable
+export class Per1 {
+  static staticString: string = '';
+  commonString: string = '222';
+}
 
-<span style="color: rgb(181,106,1);">@Sendable</span>
-export class <span style="color: rgb(0,0,255);">Per2 </span><span style="color: rgb(181,106,1);">{</span>
-  static <span style="color: rgb(255,255,255);">staticString</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">commonString</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'333'</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+@Sendable
+export class Per2 {
+  static staticString: string = '';
+  commonString: string = '333';
+}
 
-<span style="color: rgb(181,106,1);">@Sendable</span>
-export class <span style="color: rgb(0,0,255);">Per3 </span><span style="color: rgb(181,106,1);">{</span>
-  static <span style="color: rgb(255,255,255);">staticString</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">commonString</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'444'</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+@Sendable
+export class Per3 {
+  static staticString: string = '';
+  commonString: string = '444';
+}
 ```
  
 创建Per类对象，并通过instanceof判断其是否为Sendable类的实例。
  
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">Per</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">Per1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">Per2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">Per3 </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'./Per'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">lang</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">taskpool </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
+import { Per, Per1, Per2, Per3 } from './Per';
+import { lang, taskpool } from '@kit.ArkTS';
 
-<span style="color: rgb(181,106,1);">@Concurrent</span>
-function <span style="color: rgb(0,0,255);">init</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Object </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">lang</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ISendable</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-  let <span style="color: rgb(255,255,255);">constructorName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">constructor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过</span><span style="color: rgb(128,128,128);">instanceof</span><span style="color: rgb(128,128,128);">进行判断</span>
-  if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data </span>instanceof <span style="color: rgb(255,255,255);">Per</span>
-    <span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,255,255);">data </span>instanceof <span style="color: rgb(255,255,255);">Per1</span>
-    <span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,255,255);">data </span>instanceof <span style="color: rgb(255,255,255);">Per2</span>
-    <span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,255,255);">data </span>instanceof <span style="color: rgb(255,255,255);">Per3</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(132,63,161);">通过</span><span style="color: rgb(132,63,161);">instanceof</span><span style="color: rgb(132,63,161);">进行判断</span><span style="color: rgb(132,63,161);">:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">constructorName</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">对象是</span><span style="color: rgb(132,63,161);">Sendable Class</span><span style="color: rgb(132,63,161);">的实例</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>else if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data </span>instanceof <span style="color: rgb(255,255,255);">Object</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">处理普通</span><span style="color: rgb(128,128,128);">Object</span><span style="color: rgb(128,128,128);">类型</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(132,63,161);">通过</span><span style="color: rgb(132,63,161);">instanceof</span><span style="color: rgb(132,63,161);">进行判断</span><span style="color: rgb(132,63,161);">:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">constructorName</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">对象是</span><span style="color: rgb(132,63,161);">Object Class</span><span style="color: rgb(132,63,161);">的实例</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+@Concurrent
+function init(data: Object | lang.ISendable): void {
+  let constructorName = data.constructor.name;
+  // 通过instanceof进行判断
+  if (data instanceof Per
+    || data instanceof Per1
+    || data instanceof Per2
+    || data instanceof Per3) {
+    console.info(`通过instanceof进行判断:${constructorName}对象是Sendable Class的实例`);
+  } else if (data instanceof Object) {
+    // 处理普通Object类型
+    console.info(`通过instanceof进行判断:${constructorName}对象是Object Class的实例`);
+  }
 
-  let <span style="color: rgb(255,255,255);">sendableNames</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">'Per'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Per1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Per2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'Per3'</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过类名进行判断</span>
-  let <span style="color: rgb(255,255,255);">isExist </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">sendableNames</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">includes</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">constructorName</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">isExist</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(132,63,161);">通过类名进行判断</span><span style="color: rgb(132,63,161);">:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">constructorName</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">对象是</span><span style="color: rgb(132,63,161);">Sendable Class</span><span style="color: rgb(132,63,161);">的实例</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>else if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data </span>instanceof <span style="color: rgb(255,255,255);">Object</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">处理普通</span><span style="color: rgb(128,128,128);">Object</span><span style="color: rgb(128,128,128);">类型</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(132,63,161);">通过类名进行判断</span><span style="color: rgb(132,63,161);">:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">constructorName</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">对象是</span><span style="color: rgb(132,63,161);">Object Class</span><span style="color: rgb(132,63,161);">的实例</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  let sendableNames: string[] = ['Per', 'Per1', 'Per2', 'Per3'];
+  // 通过类名进行判断
+  let isExist = sendableNames.includes(constructorName);
+  if (isExist) {
+    console.info(`通过类名进行判断:${constructorName}对象是Sendable Class的实例`);
+  } else if (data instanceof Object) {
+    // 处理普通Object类型
+    console.info(`通过类名进行判断:${constructorName}对象是Object Class的实例`);
+  }
+}
 
-async function <span style="color: rgb(0,0,255);">concurrentFunc</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">void</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-  try <span style="color: rgb(181,106,1);">{</span>
-    const <span style="color: rgb(255,255,255);">task</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">taskpool</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Task </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">taskpool</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Task</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">init</span><span style="color: rgb(181,106,1);">, </span>new <span style="color: rgb(0,0,255);">Per</span><span style="color: rgb(255,0,170);">())</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">taskpool</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">execute</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">task</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`taskpool execute success`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`taskpool execute error is: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">}`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+async function concurrentFunc(): Promise<void> {
+  try {
+    const task: taskpool.Task = new taskpool.Task(init, new Per());
+    taskpool.execute(task);
+    console.info(`taskpool execute success`);
+  } catch (e) {
+    console.error(`taskpool execute error is: ${e}}`);
+  }
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">SendableCheckerDemo </span><span style="color: rgb(181,106,1);">{</span>
-  private <span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'Hello World'</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct SendableCheckerDemo {
+  private message: string = 'Hello World';
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Bold</span><span style="color: rgb(255,0,170);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(0,0,255);">concurrentFunc</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Row() {
+      Column() {
+        Text(this.message)
+          .fontSize(50)
+          .fontWeight(FontWeight.Bold)
+          .onClick(() => {
+            concurrentFunc();
+          });
+      }
+      .width('100%');
+    }
+    .height('100%');
+  }
+}
 ```

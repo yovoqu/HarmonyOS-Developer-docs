@@ -49,24 +49,24 @@ struct Clip {
         .width('100%')
         .onReady(() => {
           this.context.moveTo(50, 0);
-          this.context.quadraticCurveTo(55, 5, 55, 25); <em>// </em><em>左上角向右下的弧线</em>
-          this.context.lineTo(55, 40); <em>// 竖直向下的竖线</em>
-          this.context.arc(60, 40, 5, Math.PI, Math.PI / 2, true); <em>// 左下角的半圆弧线</em>
-          this.context.lineTo(75, 45); <em>// 绘制水平横线</em>
-          this.context.quadraticCurveTo(95, 45, 100, 50); <em>// </em><em>右下角的弧线</em>
+          this.context.quadraticCurveTo(55, 5, 55, 25); // 左上角向右下的弧线
+          this.context.lineTo(55, 40); // 竖直向下的竖线
+          this.context.arc(60, 40, 5, Math.PI, Math.PI / 2, true); // 左下角的半圆弧线
+          this.context.lineTo(75, 45); // 绘制水平横线
+          this.context.quadraticCurveTo(95, 45, 100, 50); // 右下角的弧线
           this.context.lineTo(50, 0);
           let gradient = this.context.createLinearGradient(50, 50, 75, 75);
           gradient.addColorStop(0, '#ccc');
           gradient.addColorStop(0.7, '#111');
           gradient.addColorStop(1, '#000');
           this.context.fillStyle = gradient;
-          this.context.fill(); <em>// </em><em>对封闭的路径进行填充</em>
-          this.context.beginPath(); <em>// </em><em>新建路径</em>
+          this.context.fill(); // 对封闭的路径进行填充
+          this.context.beginPath(); // 新建路径
           this.context.moveTo(50, 0);
           this.context.lineTo(100, 50);
           this.context.lineTo(100, 0);
           this.context.lineTo(50, 0);
-          this.context.closePath(); <em>// 闭合路径</em>
+          this.context.closePath(); // 闭合路径
           this.context.fillStyle = '#ff6600';
           this.context.fill();
         });

@@ -38,7 +38,7 @@ struct Index {
               return false;
             }
             const url = event.data.getRequestUrl();
-          <em>  // 自定义协议跳转HarmonyOS页面</em>
+            // 自定义协议跳转HarmonyOS页面
             if (url.startsWith('detail:xxxx')) {
               this.pageStack.pushPathByName('TargetPage', null);
             }
@@ -48,7 +48,7 @@ struct Index {
           .geolocationAccess(false)
       }
     }.navDestination(this.pageMap)
-   <em> // 隐藏标题栏</em>
+    // 隐藏标题栏
     .hideTitleBar(true);
   }
 }
@@ -108,9 +108,9 @@ struct Index {
               return false;
             }
             const url = event.data.getRequestUrl();
-          <em>  // 自定义协议跳转HarmonyOS页面</em>
+            // 自定义协议跳转HarmonyOS页面
             if (url.startsWith('detail:xxxx')) {
-              this.pageStack.pushPathByName('TargetPage', null);<em> // 跳转目标页面</em>
+              this.pageStack.pushPathByName('TargetPage', null); // 跳转目标页面
               return true;
             }
             return false;
@@ -119,7 +119,7 @@ struct Index {
           .geolocationAccess(false);
       };
     }.navDestination(this.pageMap)
-<em>    // 隐藏标题栏</em>
+    // 隐藏标题栏
     .hideTitleBar(true);
   }
 }
@@ -128,7 +128,7 @@ struct Index {
 HTML页面如下：
  
 ```text
-<em><!-- 文件路径：src/main/resources/rawfile/index.html --></em>
+<!-- 文件路径：src/main/resources/rawfile/index.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -153,7 +153,7 @@ HTML页面如下：
 <body>
 <h1>Web组件示例</h1>
 <p>点击下方链接触发路由跳转：</p>
-<em><!-- 自定义协议跳转链接 --></em>
+<!-- 自定义协议跳转链接 -->
 <a href="detail:xxxx">点击跳转HarmonyOS原生页面</a>
 </body>
 </html>
@@ -162,7 +162,7 @@ HTML页面如下：
 跳转页面TargetPage（用于验证跳转后的返回功能）如下：
  
 ```text
-<em>// 跳转的目标页面</em>
+// 跳转的目标页面
 @Component
 export struct TargetPage {
   build() {

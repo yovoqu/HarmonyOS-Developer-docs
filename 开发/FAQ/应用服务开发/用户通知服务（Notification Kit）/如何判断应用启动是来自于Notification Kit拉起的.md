@@ -32,14 +32,14 @@ onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onCreate');
 
   if (launchParam.launchReasonMessage === 'ReasonMessage_Notification') {
- <em>   // 识别为被通知拉起</em>
+    // 识别为被通知拉起
     console.info('被拉起原因：通知');
   }
 }
 
 onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void {
   if (launchParam.launchReasonMessage === 'ReasonMessage_Notification') {
-   <em> // 识别为被通知拉起</em>
+    // 识别为被通知拉起
     console.info('被拉起原因：通知');
   }
 }
@@ -66,14 +66,14 @@ export default class EntryAbility extends UIAbility {
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onCreate');
 
     if (launchParam.launchReasonMessage === 'ReasonMessage_Notification') {
-   <em>   // 识别为被通知拉起</em>
+      // 识别为被通知拉起
       console.info('被拉起原因：通知');
     }
   }
 
   onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     if (launchParam.launchReasonMessage === 'ReasonMessage_Notification') {
-    <em>  // 识别为被通知拉起</em>
+      // 识别为被通知拉起
       console.info('被拉起原因：通知');
     }
   }
@@ -83,7 +83,7 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-  <em>  // Main window is created, set main page for this ability</em>
+    // Main window is created, set main page for this ability
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
     windowStage.loadContent('pages/Index', (err) => {
@@ -96,17 +96,17 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageDestroy(): void {
- <em>   // Main window is destroyed, release UI related resources</em>
+    // Main window is destroyed, release UI related resources
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
- <em>   // Ability has brought to foreground</em>
+    // Ability has brought to foreground
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground(): void {
-  <em>  // Ability has back to background</em>
+    // Ability has back to background
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 }
@@ -156,10 +156,10 @@ struct Index {
     let wantAgentInfo: wantAgent.WantAgentInfo = {
       wants: [
         {
-          bundleName: 'com.example.notificationtest', <em>// 自己项目的包名</em>
+          bundleName: 'com.example.notificationtest', // 自己项目的包名
           abilityName: 'EntryAbility',
           parameters: {
-            targetPage: 'Index'<em> // 添加目标页面参数</em>
+            targetPage: 'Index' // 添加目标页面参数
           }
         }
       ],
@@ -175,7 +175,7 @@ struct Index {
       hilog.info(DOMAIN_NUMBER, TAG, 'Succeeded in getting want agent.');
       wantAgentObj = data;
 
-  <em>    // 构造NotificationRequest对象</em>
+      // 构造NotificationRequest对象
       let notificationRequest: notificationManager.NotificationRequest = {
         id: this.notificationId,
         notificationSlotType: notificationManager.SlotType.SOCIAL_COMMUNICATION,

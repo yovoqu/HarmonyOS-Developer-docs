@@ -9,7 +9,7 @@
 调用Telephony Kit（蜂窝通信服务）的[call.makeCall](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-call#callmakecall7)方法会有编译告警：
  
 ```text
-<span style="color: rgb(0,0,255);">The API is not supported on all devices</span><span style="color: rgb(181,106,1);">. </span><span style="color: rgb(0,0,255);">Use the canIUse condition to determine whether the API is supported</span><span style="color: rgb(181,106,1);">. </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">ArkTSCheck</span><span style="color: rgb(181,106,1);">></span>
+The API is not supported on all devices. Use the canIUse condition to determine whether the API is supported. <ArkTSCheck>
 ```
  
  
@@ -28,31 +28,31 @@
  
 - **方案一**：调用系统API之前可以先判断是否具备系统能力，可以防止运行时报错。
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">call </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.TelephonyKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { call } from '@kit.TelephonyKit';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">CallPhoneTest </span><span style="color: rgb(255,0,170);">{</span>
+@Entry
+@Component
+struct CallPhoneTest {
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Call Phone'</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-            let <span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">call</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hasVoiceCapability</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-              <span style="color: rgb(0,0,255);">call</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">makeCall</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'135****1234'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-<span style="color: rgb(255,0,170);">              }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Row() {
+      Column() {
+        Button('Call Phone')
+          .fontSize(50)
+          .fontWeight(FontWeight.Bold)
+          .onClick(() => {
+            let result: boolean = call.hasVoiceCapability();
+            if (result) {
+              call.makeCall('135****1234', () => {
+              });
+            }
+          });
+      }
+      .width('100%');
+    }
+    .height('100%');
+  }
+}
 ```
 
 - **方案二**：在module.json5可以移除未使用的设备类型。由于DevEco Studio默认创建的项目会包含phone，tablet，2in1三种设备类型。

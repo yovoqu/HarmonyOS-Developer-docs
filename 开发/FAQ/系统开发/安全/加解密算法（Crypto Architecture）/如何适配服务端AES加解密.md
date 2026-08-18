@@ -34,7 +34,7 @@ public class AESUtil {
 
     public static void main(String[] args) {
         try {
-           <em> // 16字节密钥（128位）</em>
+            // 16字节密钥（128位）
             String key = "1234567890123456";
             String text = "这是一条测试密文";
 
@@ -70,20 +70,20 @@ import { buffer, util } from '@kit.ArkTS';
 
 const base64 = new util.Base64Helper();
 
-<em>// 加密消息。</em>
+// 加密消息。
 function encryptMessage(symKey: cryptoFramework.SymKey, message: string) {
   let plainText: cryptoFramework.DataBlob = { data: new Uint8Array(buffer.from(message, 'utf-8').buffer) };
   let cipher = cryptoFramework.createCipher('AES128|ECB|PKCS5');
-  cipher.initSync(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, null); <em>// ECB模式params为null。</em>
+  cipher.initSync(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, null); // ECB模式params为null。
   let cipherData = cipher.doFinalSync(plainText);
   return base64.encodeToStringSync(cipherData.data);
 }
 
-<em>// 解密消息。</em>
+// 解密消息。
 function decryptMessage(symKey: cryptoFramework.SymKey, encryptText: string) {
   let cipherText: cryptoFramework.DataBlob = { data: base64.decodeSync(encryptText) };
   let decoder = cryptoFramework.createCipher('AES128|ECB|PKCS5');
-  decoder.initSync(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, null); <em>// ECB模式params为null。</em>
+  decoder.initSync(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, null); // ECB模式params为null。
   let decryptData = decoder.doFinalSync(cipherText);
   return buffer.from(decryptData.data).toString('utf-8');
 }

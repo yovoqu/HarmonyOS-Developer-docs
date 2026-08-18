@@ -46,7 +46,7 @@ struct ImageSpanExample {
         Span("\n" + this.content)
           .fontSize(20)
         Span('  11  ')
-        ImageSpan($r('app.media.startIcon'))  <em>// 需开发者换成镂空的图</em>
+        ImageSpan($r('app.media.startIcon'))  // 需开发者换成镂空的图
           .width('26vp')
           .height('26vp')
           .margin({ left: -27, bottom: -2 })

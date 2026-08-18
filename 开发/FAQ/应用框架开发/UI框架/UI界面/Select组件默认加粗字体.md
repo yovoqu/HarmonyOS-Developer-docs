@@ -19,7 +19,7 @@ struct SelectExample {
 
   build() {
     Column({ space: 10 }) {
-    <em>  // icon可以使用其他有效资源</em>
+      // icon可以使用其他有效资源
       Select([{ value: 'aaa', icon: $r('app.media.startIcon') }])
         .selected(this.index)
         .value(this.text)
@@ -95,7 +95,7 @@ struct SelectBold {
 
   build() {
     Column({ space: 10 }) {
-    <em>  // icon可以使用其他有效资源</em>
+      // icon可以使用其他有效资源
       Select([{ value: 'aaa', icon: $r('app.media.startIcon') }])
         .selected(this.index)
         .value(this.text)

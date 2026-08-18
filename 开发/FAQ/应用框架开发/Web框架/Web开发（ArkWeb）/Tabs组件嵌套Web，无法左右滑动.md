@@ -143,7 +143,7 @@ struct CommonWeb {
         scrollBackward: NestedScrollMode.SELF_FIRST
       })
       .onPageEnd(() => {
-     <em>   // 通过runJavaScript注入样式</em>
+        // 通过runJavaScript注入样式
         this.controller.runJavaScript(`
                     const head = document.head;
                     console.info(head);
@@ -159,7 +159,7 @@ struct CommonWeb {
 fit_content.html示例代码如下：
  
 ```text
-<em><!DOCTYPE html></em>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">

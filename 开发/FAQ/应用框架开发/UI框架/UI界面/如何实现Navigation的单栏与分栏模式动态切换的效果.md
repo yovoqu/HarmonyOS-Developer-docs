@@ -31,7 +31,7 @@ struct MainPage {
   @StorageLink('isSplit') isSplit: boolean = true;
 
 
-  <em>// 跳转回主页时重新修改为分栏模式，根据实际需求设置</em>
+  // 跳转回主页时重新修改为分栏模式，根据实际需求设置
   aboutToAppear(): void {
     AppStorage.set('isSplit', true);
   }
@@ -70,7 +70,7 @@ struct NavPageOne {
   @State message: string = '放大';
 
 
-<em>  // 跳转回该页面时重新修改为分栏模式，根据实际需求设置</em>
+  // 跳转回该页面时重新修改为分栏模式，根据实际需求设置
   aboutToAppear(): void {
     AppStorage.set('isSplit', true);
   }
@@ -118,7 +118,7 @@ struct NavPageTwo {
   @State message: string = '缩小';
 
 
-  <em>// 其它页面跳转该页面时，会先重置为单栏模式</em>
+  // 其它页面跳转该页面时，会先重置为单栏模式
   aboutToAppear(): void {
     AppStorage.set('isSplit', false);
     this.message = '缩小';

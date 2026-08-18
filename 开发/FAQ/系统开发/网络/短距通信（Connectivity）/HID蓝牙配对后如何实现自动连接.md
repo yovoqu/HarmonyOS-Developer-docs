@@ -29,20 +29,20 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Component
 struct connectAllowedProfiles {
   connectAllowedProfiles() {
-    <em>// 发起蓝牙配对请求，此处的mac需要提前获取</em>
+    // 发起蓝牙配对请求，此处的mac需要提前获取
     connection.pairDevice('xx.xx.xx.xx', (err: BusinessError) => {
       console.info(`pairDevice, device name err:${err}`);
     });
 
-   <em> // 订阅蓝牙配对状态变化事件</em>
+    // 订阅蓝牙配对状态变化事件
     connection.on('bondStateChange', (data: connection.BondStateParam) => {
-   <em>   // 蓝牙已配对</em>
+      // 蓝牙已配对
       if (data.state === connection.BondState.BOND_STATE_BONDED) {
-      <em>  // 调用getRemoteProfileUuids接口获取对端蓝牙支持的Profile类型</em>
+        // 调用getRemoteProfileUuids接口获取对端蓝牙支持的Profile类型
         connection.getRemoteProfileUuids(data.deviceId,
           (err: BusinessError, dataArray: Array<connection.ProfileUuids>) => {
             console.error(`getRemoteProfileUuids errCode: ${(err as BusinessError).code}, errMessage: ${(err as BusinessError).message}, dataArray: ${dataArray}`);
-           <em> // 当dataArray中支持类型包含A2DP、HFP和HID其中的一种，可调用connectAllowedProfiles接口发起连接</em>
+            // 当dataArray中支持类型包含A2DP、HFP和HID其中的一种，可调用connectAllowedProfiles接口发起连接
             connection.connectAllowedProfiles(data.deviceId, (err: BusinessError) => {
               if (err) {
                 console.error(`connectAllowedProfiles errCode: ${(err as BusinessError).code}, errMessage: ${(err as BusinessError).message}`);
@@ -59,7 +59,7 @@ struct connectAllowedProfiles {
     Column() {
       Button('connect Allowed Profiles')
         .onClick(() => {
-         <em> // 创建蓝牙配对状态变化监听，发起蓝牙配对，连接蓝牙</em>
+          // 创建蓝牙配对状态变化监听，发起蓝牙配对，连接蓝牙
           this.connectAllowedProfiles();
         });
     };

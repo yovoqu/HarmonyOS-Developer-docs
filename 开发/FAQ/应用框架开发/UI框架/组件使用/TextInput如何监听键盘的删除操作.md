@@ -25,9 +25,9 @@ TextInput监听onKeyEvent时，收不到回调，如何实现监听键盘的删�
 @Entry
 @Component
 struct TextInputCodeView {
- <em> // 验证码</em>
+  // 验证码
   @State code: string = '';
-  <em>// 验证码位数</em>
+  // 验证码位数
   someArrayLength: number = 4;
   someArray: number[] = [];
 
@@ -40,27 +40,27 @@ struct TextInputCodeView {
       Stack() {
         Row() {
           ForEach(this.someArray, (item: number, index: number) => {
-        <em>    // 加间隙</em>
+            // 加间隙
             if (index !== 0) {
               Blank();
               if (item) {
-              } <em>// </em><em>此处仅仅展示item</em>
+              } // 此处仅仅展示item
             }
-          <em>  // index+1：表示输入框的位置。</em>
-<em>            // 填写验证码</em>
+            // index+1：表示输入框的位置。
+            // 填写验证码
             if (this.code.length >= index + 1) {
               this.OneText({
                 str: this.code.substring(index, index + 1),
                 isBorder: index + 1 === this.someArray.length,
               });
             } else {
-             <em> // 没有验证码</em>
+              // 没有验证码
               this.OneText({
                 str: '',
                 isBorder: this.code.length + 1 === index + 1
               });
             }
-          }, (item: number, index: number) => JSON.stringify(index + 1) + item); <em>// 键值标识</em>
+          }, (item: number, index: number) => JSON.stringify(index + 1) + item); // 键值标识
         }
         .width('100%');
 
@@ -82,10 +82,10 @@ struct TextInputCodeView {
     .padding({ right: 24, left: 24, top: 50 });
   }
 
- <em> // 参数：验证码内容，是否显示边框</em>
+  // 参数：验证码内容，是否显示边框
   @Builder
   OneText(item: codeOne) {
- <em>   // 判断，是否选中当前的输入框，是否有内容。是当前选中的，没有内容，显示|</em>
+    // 判断，是否选中当前的输入框，是否有内容。是当前选中的，没有内容，显示|
     Text(item.isBorder && !item.str ? '|' : item.str as string)
       .width(50)
       .height(50)
@@ -97,7 +97,7 @@ struct TextInputCodeView {
   }
 }
 
-<em>// </em><em>验证码输入框</em>
+// 验证码输入框
 interface codeOne {
   str: string,
   isBorder: boolean

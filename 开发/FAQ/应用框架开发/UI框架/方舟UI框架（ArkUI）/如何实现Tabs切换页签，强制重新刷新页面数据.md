@@ -70,11 +70,11 @@ export struct TabContentExample {
         this.currentIndex = index
         this.selectedIndex = index
         if (index === 0) {
-         <em> // 事件携带的数据</em>
+          // 事件携带的数据
           let eventData: emitter.EventData = {
             data: {}
           };
-         <em> // 通过emitter.emit('refreshTable')发送指定的事件</em>
+          // 通过emitter.emit('refreshTable')发送指定的事件
           emitter.emit("refreshTable", eventData);
         }
       })
@@ -82,7 +82,7 @@ export struct TabContentExample {
         if (index === targetIndex) {
           return
         }
-        <em>// selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
+        // selectedIndex控制自定义TabBar内Image和Text颜色切换
         this.selectedIndex = targetIndex
       })
       .width('100%')
@@ -111,7 +111,7 @@ export struct SubTabContent {
   @State counter: number = 0
 
   aboutToAppear(): void {
-   <em> // Tabs子组件通过emitter.on('refreshTable')持续订阅该事件去刷新数据</em>
+    // Tabs子组件通过emitter.on('refreshTable')持续订阅该事件去刷新数据
     emitter.on("refreshTable", () => {
       this.counter += 1
     });

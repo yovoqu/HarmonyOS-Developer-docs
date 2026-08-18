@@ -62,7 +62,7 @@ mdListener: mediaquery.MediaQueryListener =
   this.getUIContext().getMediaQuery().matchMediaSync('(520vp<=width<840vp)');
 lgListener: mediaquery.MediaQueryListener = this.getUIContext().getMediaQuery().matchMediaSync('(840vp<=width)');
 
-<em>// 注册媒体属性变更回调事件，监听屏幕尺寸在页面初始化的时候完成注册。</em>
+// 注册媒体属性变更回调事件，监听屏幕尺寸在页面初始化的时候完成注册。
 public register() {
   this.smListener = this.getUIContext().getMediaQuery().matchMediaSync('(320vp<=width<520vp)');
   this.smListener.on('change', this.isBreakpointSM);
@@ -72,7 +72,7 @@ public register() {
   this.lgListener.on('change', this.isBreakpointLG);
 }
 
-<em>// 保存屏幕尺寸的断点</em>
+// 保存屏幕尺寸的断点
 private updateCurrentBreakpoint(breakpoint: string) {
   if (this.currentBreakpoint !== breakpoint) {
     this.currentBreakpoint = breakpoint;
@@ -101,14 +101,14 @@ private isBreakpointLG = (mediaQueryResult: mediaquery.MediaQueryResult) => {
 
 3. 通过判断断点，刷新UI页面。以下代码片段以tab元素为例。
 ```text
-@StorageProp('currentBreakpoint') currentBreakpoint: string = 'sm';<em> // 初始化默认为手机</em>
+@StorageProp('currentBreakpoint') currentBreakpoint: string = 'sm'; // 初始化默认为手机
 
 build() {
   Column() {
     Tabs({
       barPosition: this.currentBreakpoint === BreakpointConstants.BREAKPOINT_LG ? BarPosition.Start : BarPosition.End,
     }) {
-    <em>  // tab内容</em>
+      // tab内容
 
     }
     .barWidth(this.currentBreakpoint === 'lg' ?

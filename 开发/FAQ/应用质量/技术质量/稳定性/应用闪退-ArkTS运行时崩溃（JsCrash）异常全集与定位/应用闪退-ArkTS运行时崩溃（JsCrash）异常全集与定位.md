@@ -11,7 +11,7 @@
 以下是一段最小化的.ets代码，通过访问undefined对象的属性来触发典型的TypeError类型JsCrash：
  
 ```ArkTS
-<em>// 文件名：JsCrashDemo.ets</em>
+// 文件名：JsCrashDemo.ets
 @Entry
 @Component
 struct JsCrashDemo {
@@ -24,9 +24,9 @@ struct JsCrashDemo {
           .fontSize(20)
           .fontWeight(FontWeight.Bold)
           .onClick(() => {
-          <em>  // 模拟场景：尝试读取undefined变量的属性</em>
+            // 模拟场景：尝试读取undefined变量的属性
             let emptyVar: object | undefined = undefined;
-           <em> // 下一行代码将抛出TypeError:Cannot read property 'x' of undefined</em>
+            // 下一行代码将抛出TypeError:Cannot read property 'x' of undefined
             console.info(emptyVar.x);
           })
           .width('100%')

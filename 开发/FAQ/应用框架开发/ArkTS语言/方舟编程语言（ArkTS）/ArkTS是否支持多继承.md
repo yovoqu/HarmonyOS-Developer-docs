@@ -15,9 +15,9 @@ class TestClassB {
   name: string = '';
 }
 
-<em>// report errors：Classes can only extend a single class.</em>
-<em>// class TestClassC extends TestClassA, TestClassB {</em>
-<em>// }</em>
+// report errors：Classes can only extend a single class.
+// class TestClassC extends TestClassA, TestClassB {
+// }
 
 interface AreaSize {
   calculateAreaSize(): number;

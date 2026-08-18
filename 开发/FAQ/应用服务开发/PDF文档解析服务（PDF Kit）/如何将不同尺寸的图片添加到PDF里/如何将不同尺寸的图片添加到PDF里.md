@@ -76,7 +76,7 @@ export class ImgInfo {
 以所有图片中的最大宽高创建PDF文件。
 ```text
 Button('根据所有图片中的最大宽高值创建PDF文件').onClick(async () => {
-  <em>// 获取目录下所有图片中的最大宽高值，并记录每张图片的路径、宽高（保证该沙箱目录下有对应格式图片）</em>
+  // 获取目录下所有图片中的最大宽高值，并记录每张图片的路径、宽高（保证该沙箱目录下有对应格式图片）
   let dir: string = this.context.filesDir;
   let listFileOption: ListFileOptions = {
     recursion: false,
@@ -93,18 +93,18 @@ Button('根据所有图片中的最大宽高值创建PDF文件').onClick(async (
     console.info('no file be found');
     return;
   }
-  <em>// 遍历出目录下的图片文件</em>
+  // 遍历出目录下的图片文件
   for (let i = 0; i < filenames.length; i++) {
     console.info('filename: %s', filenames[i]);
     let imageSource = image.createImageSource(dir + '/' + filenames[i]);
     let imageInfo = imageSource.getImageInfoSync(0);
-   <em> // 记录图片路径、宽高信息</em>
+    // 记录图片路径、宽高信息
     let img = new ImgInfo();
     img.path = dir + '/' + filenames[i];
     img.width = imageInfo.size.width;
     img.height = imageInfo.size.height;
     imgInfoList.add(img);
-  <em>  // 更新宽高最大值</em>
+    // 更新宽高最大值
     if (imageInfo.size.height > maxImgHeightNum) {
       maxImgHeightNum = imageInfo.size.height;
     }
@@ -113,27 +113,27 @@ Button('根据所有图片中的最大宽高值创建PDF文件').onClick(async (
     }
   }
 
- <em> // 创建PDF文件时以获取到的图片最大宽高值作为PDF文件的宽高，根据记录下来的图片信息调用addImageObject将图片添加到PDF中，并保存PDF文件</em>
+  // 创建PDF文件时以获取到的图片最大宽高值作为PDF文件的宽高，根据记录下来的图片信息调用addImageObject将图片添加到PDF中，并保存PDF文件
   let pdfDocument = new pdfService.PdfDocument();
- <em> // 创建PDF文件，宽高为获取到的图片最大宽高值</em>
+  // 创建PDF文件，宽高为获取到的图片最大宽高值
   pdfDocument.createDocument(maxImgWidthNum, maxImgHeightNum);
   for (let index = 0; index < imgInfoList.length; index++) {
     let pdfPage: pdfService.PdfPage | undefined;
     if (index > 0) {
-     <em> // 插入空白页</em>
+      // 插入空白页
       pdfDocument.insertBlankPage(index, maxImgWidthNum, maxImgHeightNum);
     }
     pdfPage = pdfDocument.getPage(index);
-  <em>  // 将图片添加到PDF中</em>
+    // 将图片添加到PDF中
     pdfPage.addImageObject(imgInfoList[index].path, 0, 0, imgInfoList[index].width,
       imgInfoList[index].height);
   }
   let pdfFileName = systemDateTime.getTime().toString();
   let pdfFilePath = this.context.tempDir + `/${pdfFileName}.pdf`;
- <em> // 保存PDF文件</em>
+  // 保存PDF文件
   pdfDocument.saveDocument(pdfFilePath);
   this.controller.releaseDocument();
- <em> // 将PDF文件加载到PdfView组件中</em>
+  // 将PDF文件加载到PdfView组件中
   let loadResult: pdfService.ParseResult = await this.controller.loadDocument(pdfFilePath, '');
   if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
     this.controller.setPageZoom(1.5);
@@ -144,7 +144,7 @@ Button('根据所有图片中的最大宽高值创建PDF文件').onClick(async (
 6. 创建PDF文件每页PDF的宽高跟随图片宽高。
 ```text
 Button('创建PDF文件每页PDF的宽高跟随图片宽高').onClick(async () => {
- <em> // 记录每张图片的路径、宽高（保证该沙箱目录下有对应格式图片）</em>
+  // 记录每张图片的路径、宽高（保证该沙箱目录下有对应格式图片）
   let dir: string = this.context.filesDir;
   let listFileOption: ListFileOptions = {
     recursion: false,
@@ -159,12 +159,12 @@ Button('创建PDF文件每页PDF的宽高跟随图片宽高').onClick(async () =
     console.info('no file be found');
     return;
   }
- <em> // 遍历出目录下的图片文件</em>
+  // 遍历出目录下的图片文件
   for (let i = 0; i < filenames.length; i++) {
     console.info('filename: %s', filenames[i]);
     let imageSource = image.createImageSource(dir + '/' + filenames[i]);
     let imageInfo = imageSource.getImageInfoSync(0);
-   <em> // 记录图片路径、宽高信息</em>
+    // 记录图片路径、宽高信息
     let img = new ImgInfo();
     img.path = dir + '/' + filenames[i];
     img.width = imageInfo.size.width;
@@ -172,27 +172,27 @@ Button('创建PDF文件每页PDF的宽高跟随图片宽高').onClick(async () =
     imgInfoList.add(img);
   }
 
- <em> // 创建PDF文件时每一页宽高跟随添加到该页的图片的宽高，根据记录下来的图片信息调用addImageObject将图片添加到PDF中，并保存PDF文件</em>
+  // 创建PDF文件时每一页宽高跟随添加到该页的图片的宽高，根据记录下来的图片信息调用addImageObject将图片添加到PDF中，并保存PDF文件
   let pdfDocument = new pdfService.PdfDocument();
- <em> // 创建PDF文件，第一页宽高跟随第一张图片宽高。</em>
+  // 创建PDF文件，第一页宽高跟随第一张图片宽高。
   pdfDocument.createDocument(imgInfoList[0].width, imgInfoList[0].height);
   for (let index = 0; index < imgInfoList.length; index++) {
     let pdfPage: pdfService.PdfPage | undefined;
     if (index > 0) {
-     <em> // 插入空白页，每一页宽高跟随图片宽高。</em>
+      // 插入空白页，每一页宽高跟随图片宽高。
       pdfDocument.insertBlankPage(index, imgInfoList[index].width, imgInfoList[index].height);
     }
     pdfPage = pdfDocument.getPage(index);
-  <em>  // 将图片添加到pdf中</em>
+    // 将图片添加到pdf中
     pdfPage.addImageObject(imgInfoList[index].path, 0, 0, imgInfoList[index].width,
       imgInfoList[index].height);
   }
   let pdfFileName = systemDateTime.getTime().toString();
   let pdfFilePath = this.context.tempDir + `/${pdfFileName}.pdf`;
- <em> // 保存pdf文件</em>
+  // 保存pdf文件
   pdfDocument.saveDocument(pdfFilePath);
   this.controller.releaseDocument();
- <em> // 将PDF文件加载到PdfView组件中</em>
+  // 将PDF文件加载到PdfView组件中
   let loadResult: pdfService.ParseResult = await this.controller.loadDocument(pdfFilePath, '');
   if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
     this.controller.setPageZoom(1.5);

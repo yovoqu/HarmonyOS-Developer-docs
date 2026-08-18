@@ -93,7 +93,7 @@ vector-store调试工具支持的命令如下表所示：
 | --- | --- |
 | .help | 显示帮助信息。 |
 | .q \| .quit | 退出数据库交互模式。 |
-| .mode <table\|print> | 设置输出模式， 默认是table。 |
+| .mode &lt;table\|print&gt; | 设置输出模式， 默认是table。 |
 | .table | 列出所有表名。 |
 | .index | 列出所有索引名称。 |
 | .schema | 列出表的schemas。 |

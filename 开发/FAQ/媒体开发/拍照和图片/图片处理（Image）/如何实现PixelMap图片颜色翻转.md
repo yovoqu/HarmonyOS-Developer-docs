@@ -29,9 +29,9 @@
 ```text
 const imageInfo: image.ImageInfo = await pixelMap.getImageInfo();
 const buffer: ArrayBuffer = new ArrayBuffer(pixelMap.getPixelBytesNumber());
-<em>// 通过readPixelsToBuffer实现PixelMap的深拷贝，其中readPixelsToBuffer输出为BGRA_8888</em>
+// 通过readPixelsToBuffer实现PixelMap的深拷贝，其中readPixelsToBuffer输出为BGRA_8888
 await pixelMap.readPixelsToBuffer(buffer);
-<em>// readPixelsToBuffer输出为BGRA_8888,此处createPixelMap需转为RGBA_8888</em>
+// readPixelsToBuffer输出为BGRA_8888,此处createPixelMap需转为RGBA_8888
 const opts: image.InitializationOptions = {
   editable: true,
   pixelFormat: image.PixelMapFormat.RGBA_8888,
@@ -42,18 +42,18 @@ const pixelData = new Uint32Array(buffer);
 
 2. 遍历像素数组，改变颜色。再通过[image.createPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmap8)创建新的PixelMap对象，按照PixelMap的像素格式，读取缓冲区中的图像像素数据，并写入新PixelMap。
 ```text
-<em>// 遍历像素数组，将白色变为透明，深色主题下黑色变成白色</em>
+// 遍历像素数组，将白色变为透明，深色主题下黑色变成白色
 const length = pixelData.length;
 for (let i = 0; i < length; i++) {
-  if (pixelData[i] === 0xFFFFFFFF) { <em>// 检查是否为白色</em>
-    pixelData[i] = 0xFF000000; <em>// 为了方便展示，背景先改成深色</em>
+  if (pixelData[i] === 0xFFFFFFFF) { // 检查是否为白色
+    pixelData[i] = 0xFF000000; // 为了方便展示，背景先改成深色
   } else {
-    if (dark) { <em>// 如果是深色</em>
-      pixelData[i] = 0xFFffffff; <em>// 改为白色</em>
+    if (dark) { // 如果是深色
+      pixelData[i] = 0xFFffffff; // 改为白色
     }
   }
 }
-<em>// 重新将修改像素写入</em>
+// 重新将修改像素写入
 const newPixelMap = await image.createPixelMap(buffer, opts);
 await newPixelMap.writeBufferToPixels(buffer);
 this.changeImgPixelMap = newPixelMap;
@@ -75,9 +75,9 @@ struct TurnImageColorDemo {
   async handleLightAndDarkPixelMap(pixelMap: image.PixelMap, dark: boolean) {
     const imageInfo: image.ImageInfo = await pixelMap.getImageInfo();
     const buffer: ArrayBuffer = new ArrayBuffer(pixelMap.getPixelBytesNumber());
-    <em>// 通过readPixelsToBuffer实现PixelMap的深拷贝，其中readPixelsToBuffer输出为BGRA_8888</em>
+    // 通过readPixelsToBuffer实现PixelMap的深拷贝，其中readPixelsToBuffer输出为BGRA_8888
     await pixelMap.readPixelsToBuffer(buffer);
-   <em> // readPixelsToBuffer输出为BGRA_8888,此处createPixelMap需转为RGBA_8888</em>
+    // readPixelsToBuffer输出为BGRA_8888,此处createPixelMap需转为RGBA_8888
     const opts: image.InitializationOptions = {
       editable: true,
       pixelFormat: image.PixelMapFormat.RGBA_8888,
@@ -85,18 +85,18 @@ struct TurnImageColorDemo {
     };
     const pixelData = new Uint32Array(buffer);
 
-   <em> // 遍历像素数组，将白色变为透明，深色主题下黑色变成白色</em>
+    // 遍历像素数组，将白色变为透明，深色主题下黑色变成白色
     const length = pixelData.length;
     for (let i = 0; i < length; i++) {
-      if (pixelData[i] === 0xFFFFFFFF) {<em> // 检查是否为白色</em>
-        pixelData[i] = 0xFF000000; <em>// 为了方便展示，背景先改成深色</em>
+      if (pixelData[i] === 0xFFFFFFFF) { // 检查是否为白色
+        pixelData[i] = 0xFF000000; // 为了方便展示，背景先改成深色
       } else {
-        if (dark) { <em>// 如果是深色</em>
-          pixelData[i] = 0xFFffffff;<em> // 改为白色</em>
+        if (dark) { // 如果是深色
+          pixelData[i] = 0xFFffffff; // 改为白色
         }
       }
     }
-   <em> // 重新将修改像素写入</em>
+    // 重新将修改像素写入
     const newPixelMap = await image.createPixelMap(buffer, opts);
     await newPixelMap.writeBufferToPixels(buffer);
     this.changeImgPixelMap = newPixelMap;
@@ -104,17 +104,17 @@ struct TurnImageColorDemo {
 
   async aboutToAppear() {
     let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-   <em> // 获取resourceManager资源管理</em>
+    // 获取resourceManager资源管理
     const resourceManager = context.resourceManager;
-   <em> // 获取图片数据，代码中图片仅作示例，实际请按开发环境图片为准</em>
+    // 获取图片数据，代码中图片仅作示例，实际请按开发环境图片为准
     const fileData = await resourceManager.getMediaContent($r('app.media.turn_color').id);
-   <em> // 创建imageSource</em>
+    // 创建imageSource
     const imageSource = image.createImageSource(fileData.buffer);
     let decodingOptions: image.DecodingOptions = {
       editable: true,
       desiredPixelFormat: 3,
     };
-  <em>  // 创建PixelMap</em>
+    // 创建PixelMap
     this.pixelMap = await imageSource.createPixelMap(decodingOptions);
   }
 

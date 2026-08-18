@@ -22,7 +22,7 @@ struct Index {
   scroller: Scroller = new Scroller()
 
   aboutToAppear(): void {
-  <em>  // 初始化进度条进度参数</em>
+    // 初始化进度条进度参数
     for (let i = 0; i < this.dataArr.length; i++) {
       this.sliderNum[i] = 0
     }
@@ -40,7 +40,7 @@ struct Index {
                 max: 100,
                 style: SliderStyle.OutSet
               })
-                .enabled(true)<em> // 取消进度条交互，防止消费拖拽事件</em>
+                .enabled(true) // 取消进度条交互，防止消费拖拽事件
             }
           }
           .height(100)
@@ -96,7 +96,7 @@ struct ScrollSlider {
   scroller: Scroller = new Scroller();
 
   aboutToAppear(): void {
-   <em> // 初始化进度条进度参数</em>
+    // 初始化进度条进度参数
     for (let i = 0; i < this.dataArr.length; i++) {
       this.sliderNum[i] = 0;
     }
@@ -115,7 +115,7 @@ struct ScrollSlider {
                 style: SliderStyle.OutSet
               })
                 .margin(16)
-                .enabled(false);<em> // 取消进度条交互，防止消费拖拽事件</em>
+                .enabled(false); // 取消进度条交互，防止消费拖拽事件
             }
             .hitTestBehavior(HitTestMode.Block)
             .gesture(
@@ -124,7 +124,7 @@ struct ScrollSlider {
                   this.offsetX = 0;
                   this.offsetY = 0;
                 })
-                .onActionUpdate((event: GestureEvent) => { <em>// 拖动为实时拖动，因此每次拖动的参数需要用当前拖动距离与上次拖动距离做减法</em>
+                .onActionUpdate((event: GestureEvent) => { // 拖动为实时拖动，因此每次拖动的参数需要用当前拖动距离与上次拖动距离做减法
                   if (event) {
                     if (event.offsetY !== 0) {
                       this.scroller.scrollBy(0, -this.getUIContext().px2vp(event.offsetY - this.offsetY));

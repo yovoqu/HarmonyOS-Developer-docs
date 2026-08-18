@@ -60,7 +60,7 @@ struct HttpRootCerPage {
       }, (err: BusinessError, data) => {
         console.info(`1---- url: ${JSON.stringify(url)}`);
         if (!err) {
-       <em>   // data.result为HTTP响应内容，可根据业务需要进行解析</em>
+          // data.result为HTTP响应内容，可根据业务需要进行解析
           console.info(`1---- arrResult: ${JSON.stringify(data.result)}`);
           console.info(`1---- code: ${JSON.stringify(data.responseCode)}`);
           console.info(`1---- type: ${JSON.stringify(data.resultType)}`);

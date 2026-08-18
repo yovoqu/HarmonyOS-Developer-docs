@@ -92,7 +92,7 @@ export struct virtrulScroll {
         Button('scroll to top')
           .fontSize(13)
           .onClick(() => {
-            <em>// 用currentOffset().yOffset获取当前滑动偏移量除以单项高度获得index做判断，离目标位置超过200项则以关闭动效先滚动到目标位置附近</em>
+            // 用currentOffset().yOffset获取当前滑动偏移量除以单项高度获得index做判断，离目标位置超过200项则以关闭动效先滚动到目标位置附近
             if (this.scroller.currentOffset().yOffset / this.itemHeight >= 200) {
               this.scroller.scrollToIndex(200, false);
             }

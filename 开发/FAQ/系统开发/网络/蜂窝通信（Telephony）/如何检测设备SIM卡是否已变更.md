@@ -31,17 +31,17 @@ import { sim } from '@kit.TelephonyKit';
 @Entry
 @Component
 struct Index {
-<em> </em><em> // 先获取首次存储PLMN号</em>
+  // 先获取首次存储PLMN号
   plmn: string = 'xxxxxxxxxxx';
 
   getSimOperatorNumeric() {
-   <em> // 获取SIM卡PLMN号</em>
+    // 获取SIM卡PLMN号
     sim.getSimOperatorNumeric(0, (err: BusinessError, data: string) => {
       console.info(`err: ${err.code} ,PLMN号: ${data}`);
       if (data === this.plmn) {
-       <em> // SIM卡未变更</em>
+        // SIM卡未变更
       } else {
-       <em> </em><em>// SIM卡已变更</em>
+        // SIM卡已变更
       }
     });
   }

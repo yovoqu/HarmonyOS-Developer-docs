@@ -36,7 +36,7 @@
  1. 在entry/src/main/ets/entryability/EntryAbility.ets文件的onWindowStageCreate中存储下windowStage。
 ```json
 onWindowStageCreate(windowStage: window.WindowStage): void {
-  <em>// onWindowStageCreate中存储下windowStage</em>
+  // onWindowStageCreate中存储下windowStage
   AppStorage.setOrCreate('windowStage', windowStage);
 
   windowStage.loadContent('pages/Index', (err) => {
@@ -66,7 +66,7 @@ export  const uiContext = (AppStorage.get('windowStage') as window.WindowStage).
 export  const contentNode = new ComponentContent(uiContext, wrapBuilder(buildText), new Params('这是一个弹框'));
 export  const promptAction = uiContext.getPromptAction();
 AppStorage.setOrCreate('isHide',false);
-<em>// </em><em>可复用的弹窗组件，弹窗包含文本和关闭按钮，通过promptAction控制显示/隐藏，通过Params类传递弹窗内容。</em>
+// 可复用的弹窗组件，弹窗包含文本和关闭按钮，通过promptAction控制显示/隐藏，通过Params类传递弹窗内容。
 @Builder
 function buildText(params: Params) {
   Column() {
@@ -108,7 +108,7 @@ export struct MyMenuComponent {
       .bindContextMenu(this.isHide, this.customMenu,
         {
           placement: Placement.BottomRight,
-      <em>    // 根据点击屏幕位置设置菜单偏移</em>
+          // 根据点击屏幕位置设置菜单偏移
           offset: {
             x: this.positionX,
             y: this.positionY
@@ -124,7 +124,7 @@ export struct MyMenuComponent {
       .width('100%')
       .height('100%')
       .onClick((event?: ClickEvent) => {
-       <em> // 修改位置信息</em>
+        // 修改位置信息
         if (!this.isHide) {
           this.positionX = event!.displayX;
           this.positionY = event!.displayY;

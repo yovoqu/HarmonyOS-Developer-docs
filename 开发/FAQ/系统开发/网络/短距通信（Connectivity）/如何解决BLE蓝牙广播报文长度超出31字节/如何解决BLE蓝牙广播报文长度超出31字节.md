@@ -11,88 +11,88 @@ BLE蓝牙广播，如果设置携带设备名就发不了13条serviceUuids数据
 问题代码示例参考如下：
  
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">ble </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ConnectivityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BusinessError </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { ble } from '@kit.ConnectivityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 
-const <span style="color: rgb(255,255,255);">TAG</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'BleAdvertisingManager'</span><span style="color: rgb(181,106,1);">;</span>
+const TAG: string = 'BleAdvertisingManager';
 
-export class <span style="color: rgb(0,0,255);">BleAdvertisingManager </span><span style="color: rgb(181,106,1);">{</span>
-  private <span style="color: rgb(255,255,255);">advHandle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">0xFF</span><span style="color: rgb(181,106,1);">;</span>
+export class BleAdvertisingManager {
+  private advHandle: number = 0xFF;
 
- <em> <span style="color: rgb(128,128,128);">// 1.</span><span style="color: rgb(128,128,128);">定义广播状态上报事件</span></em>
-  <span style="color: rgb(255,255,255);">onReceiveEvent </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AdvertisingStateChangeInfo</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setOrCreate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'advertiserState'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">state</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  // 1.定义广播状态上报事件
+  onReceiveEvent = (data: ble.AdvertisingStateChangeInfo) => {
+    AppStorage.setOrCreate('advertiserState', data.state);
+  };
 
- <em> <span style="color: rgb(128,128,128);">// 2.</span><span style="color: rgb(128,128,128);">首次启动广播</span></em>
-  public async <span style="color: rgb(0,0,255);">startAdvertising</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <em><span style="color: rgb(128,128,128);">// 2.1</span><span style="color: rgb(128,128,128);">设置广播发送的参数</span></em>
-    let <span style="color: rgb(255,255,255);">setting</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AdvertiseSetting </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">interval</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">160</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">txPower</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">connectable</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
- <em>   <span style="color: rgb(128,128,128);">// 2.2</span><span style="color: rgb(128,128,128);">构造广播数据</span></em>
-    let <span style="color: rgb(255,255,255);">manufactureValueBuffer </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">manufactureValueBuffer</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">manufactureValueBuffer</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">manufactureValueBuffer</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">3</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">manufactureValueBuffer</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">3</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">;</span>
+  // 2.首次启动广播
+  public async startAdvertising() {
+    // 2.1设置广播发送的参数
+    let setting: ble.AdvertiseSetting = {
+      interval: 160,
+      txPower: 0,
+      connectable: true,
+    };
+    // 2.2构造广播数据
+    let manufactureValueBuffer = new Uint8Array();
+    manufactureValueBuffer[0] = 1;
+    manufactureValueBuffer[1] = 2;
+    manufactureValueBuffer[2] = 3;
+    manufactureValueBuffer[3] = 4;
 
 
-    let <span style="color: rgb(255,255,255);">serviceValueBuffer </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">serviceValueBuffer</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">serviceValueBuffer</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">6</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">serviceValueBuffer</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">7</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">serviceValueBuffer</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">3</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">8</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">manufactureDataUnit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ManufactureData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">manufactureId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">4567</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">manufactureValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">manufactureValueBuffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">serviceDataUnit1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ServiceData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">serviceUuid</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">"0000181A-0000-1000-8000-00805F9B34FB"</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">serviceValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">serviceValueBuffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">serviceDataUnit2</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ServiceData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">serviceUuid</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">"19991999-0000-1000-8000-00805f9b34fb"</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">serviceValue</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">serviceValueBuffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">advData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AdvertiseData </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">serviceUuids</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[</span>
-        <span style="color: rgb(132,63,161);">"000008F0-0000-1000-8000-00805F9B34FB"</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(132,63,161);">"00000810-0000-1000-8000-00805F9B34FB"</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(132,63,161);">"00009D13-0000-1000-8000-00805F9B34FB"</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(132,63,161);">"0000950E-0000-1000-8000-00805F9B34FB"</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(132,63,161);">"00004E2D-0000-1000-8000-00805F9B34FB"</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(132,63,161);">"000041F0-0000-1000-8000-00805F9B34FB"</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(132,63,161);">"00001DE1-0000-1000-8000-00805F9B34FB"</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(132,63,161);">"00007EB9-0000-1000-8000-00805F9B34FB"</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(132,63,161);">"0000F59C-0000-1000-8000-00805F9B34FB"</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(132,63,161);">"00002D98-0000-1000-8000-00805F9B34FB"</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(132,63,161);">"0000343D-0000-1000-8000-00805F9B34FB"</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(132,63,161);">"00002B0B-0000-1000-8000-00805F9B34FB"</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(132,63,161);">"00002D89-0000-1000-8000-00805F9B34FB"</span>
-      <span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">manufactureData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">serviceData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+    let serviceValueBuffer = new Uint8Array(4);
+    serviceValueBuffer[0] = 5;
+    serviceValueBuffer[1] = 6;
+    serviceValueBuffer[2] = 7;
+    serviceValueBuffer[3] = 8;
+    let manufactureDataUnit: ble.ManufactureData = {
+      manufactureId: 4567,
+      manufactureValue: manufactureValueBuffer.buffer
+    };
+    let serviceDataUnit1: ble.ServiceData = {
+      serviceUuid: "0000181A-0000-1000-8000-00805F9B34FB",
+      serviceValue: serviceValueBuffer.buffer
+    };
+    let serviceDataUnit2: ble.ServiceData = {
+      serviceUuid: "19991999-0000-1000-8000-00805f9b34fb",
+      serviceValue: serviceValueBuffer.buffer
+    };
+    let advData: ble.AdvertiseData = {
+      serviceUuids: [
+        "000008F0-0000-1000-8000-00805F9B34FB",
+        "00000810-0000-1000-8000-00805F9B34FB",
+        "00009D13-0000-1000-8000-00805F9B34FB",
+        "0000950E-0000-1000-8000-00805F9B34FB",
+        "00004E2D-0000-1000-8000-00805F9B34FB",
+        "000041F0-0000-1000-8000-00805F9B34FB",
+        "00001DE1-0000-1000-8000-00805F9B34FB",
+        "00007EB9-0000-1000-8000-00805F9B34FB",
+        "0000F59C-0000-1000-8000-00805F9B34FB",
+        "00002D98-0000-1000-8000-00805F9B34FB",
+        "0000343D-0000-1000-8000-00805F9B34FB",
+        "00002B0B-0000-1000-8000-00805F9B34FB",
+        "00002D89-0000-1000-8000-00805F9B34FB"
+      ],
+      manufactureData: [],
+      serviceData: [],
+    };
 
-   <em> <span style="color: rgb(128,128,128);">// 2.3</span><span style="color: rgb(128,128,128);">构造广播启动完整参数</span><span style="color: rgb(128,128,128);">AdvertisingParams</span></em>
-    let <span style="color: rgb(255,255,255);">advertisingParams</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">AdvertisingParams </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">advertisingSettings</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">setting</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">advertisingData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">advData</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">注意</span><span style="color: rgb(128,128,128);">:</span><span style="color: rgb(128,128,128);">广播报文长度不能超过</span><span style="color: rgb(128,128,128);">31</span><span style="color: rgb(128,128,128);">个字节</span></em>
-      <span style="color: rgb(255,255,255);">advertisingResponse</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">advData</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">注意</span><span style="color: rgb(128,128,128);">:</span><span style="color: rgb(128,128,128);">广播报文长度不能超过</span><span style="color: rgb(128,128,128);">31</span><span style="color: rgb(128,128,128);">个字节</span></em>
-      <span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0 </span><em>// </em><em><span style="color: rgb(128,128,128);">可选参数，若参数大于</span><span style="color: rgb(128,128,128);">0</span><span style="color: rgb(128,128,128);">，则广播发送一段时间后会停止，但分配的广播资源还在，可重新启动发送</span></em>
-    <span style="color: rgb(181,106,1);">}</span>
+    // 2.3构造广播启动完整参数AdvertisingParams
+    let advertisingParams: ble.AdvertisingParams = {
+      advertisingSettings: setting,
+      advertisingData: advData, // 注意:广播报文长度不能超过31个字节
+      advertisingResponse: advData, // 注意:广播报文长度不能超过31个字节
+      duration: 0 // 可选参数，若参数大于0，则广播发送一段时间后会停止，但分配的广播资源还在，可重新启动发送
+    }
 
-   <em> <span style="color: rgb(128,128,128);">// 2.4</span><span style="color: rgb(128,128,128);">首次启动广播，蓝牙子系统会分配相关资源，包括应用获取到的广播标识</span><span style="color: rgb(128,128,128);">ID</span></em>
-    try <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'advertisingStateChange'</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">onReceiveEvent</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">advHandle </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">ble</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startAdvertising</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">advertisingParams</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'err'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+    // 2.4首次启动广播，蓝牙子系统会分配相关资源，包括应用获取到的广播标识ID
+    try {
+      ble.on('advertisingStateChange', this.onReceiveEvent);
+      this.advHandle = await ble.startAdvertising(advertisingParams);
+    } catch (err) {
+      console.error(TAG, 'err');
+    }
+  }
 ```
  
  

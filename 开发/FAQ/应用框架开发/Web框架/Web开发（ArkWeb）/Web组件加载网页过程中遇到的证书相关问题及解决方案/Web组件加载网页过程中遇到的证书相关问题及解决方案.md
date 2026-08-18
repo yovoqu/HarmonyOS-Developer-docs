@@ -86,7 +86,7 @@ struct Index1 {
 
   build() {
     Column() {
-      <em>// 使用时请替换为真实url</em>
+      // 使用时请替换为真实url
       Web({ src: '*****', controller: this.controller })
         .onSslErrorEvent((event: SslErrorEvent) => {
           console.info('onSslErrorEvent url: ' + event.url);
@@ -157,7 +157,7 @@ struct Index1 {
 
   示例代码：
 ```ArkTS
-<em>// xxx.ets</em>
+// xxx.ets
 import { webview } from '@kit.ArkWeb';
 import { common } from '@kit.AbilityKit';
 import { certificateManager } from '@kit.DeviceCertificateKit';
@@ -178,9 +178,9 @@ struct Index2 {
           return;
         }
 
-        <em>// ****指证书名称，使用时请提前替换为真实证书，需提前预置在rawfile目录下</em>
+        // ****指证书名称，使用时请提前替换为真实证书，需提前预置在rawfile目录下
         let value: Uint8Array = this.context.resourceManager.getRawFileContentSync('****');
-        <em>// keystorePwd指证书凭据密码，certAlias指证书凭据别名，使用时请替换成证书真实密码、别名</em>
+        // keystorePwd指证书凭据密码，certAlias指证书凭据别名，使用时请替换成证书真实密码、别名
         certificateManager.installPrivateCertificate(value, 'keystorePwd', 'certAlias',
           async (err: BusinessError, data: certificateManager.CMResult) => {
             console.info(`installPrivateCertificate, uri==========${JSON.stringify(data.uri)}`);
@@ -191,11 +191,11 @@ struct Index2 {
       });
       Button('加载需要客户端SSL证书的网站')
         .onClick(() => {
-          <em>// 使用时，请替代真实网址</em>
+          // 使用时，请替代真实网址
           this.controller.loadUrl('****');
         });
       Web({
-        <em>// 使用时，请替代真实网址</em>
+        // 使用时，请替代真实网址
         src: 'www.example.com',
         controller: this.controller,
       })
@@ -303,7 +303,7 @@ export default class CertManagerService {
       console.error('getBundleInfoForSelf failed: %{public}s', message);
     }
 
-    <em>// 注：需要在EntryAbility.ets文件的onCreate函数里添加GlobalContext.getContext().setObject("AbilityContext", this.context)</em>
+    // 注：需要在EntryAbility.ets文件的onCreate函数里添加GlobalContext.getContext().setObject("AbilityContext", this.context)
     let abilityContext = GlobalContext.getContext().getObject('AbilityContext') as common.UIAbilityContext;
     await abilityContext.startAbilityForResult(
       {
@@ -311,13 +311,13 @@ export default class CertManagerService {
         abilityName: 'MainAbility',
         uri: 'requestAuthorize',
         parameters: {
-          appUid: this.appUid, <em>// 传入申请应用的appUid</em>
+          appUid: this.appUid, // 传入申请应用的appUid
         }
       } as Want)
       .then((data: common.AbilityResult) => {
         if (!data.resultCode && data.want) {
           if (data.want.parameters) {
-            this.authUri = data.want.parameters.authUri as string; <em>// 授权成功后获取返回的authUri</em>
+            this.authUri = data.want.parameters.authUri as string; // 授权成功后获取返回的authUri
           }
         }
       });
@@ -334,7 +334,7 @@ onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     hilog.info(DOMAIN, 'testTag',
       `want ${want ? 'not' : ''} empty, launchParam ${launchParam ? 'not' : ''} empty`);
     this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
-    <em>// 将当前Ability的上下文存储到GlobalContext中</em>
+    // 将当前Ability的上下文存储到GlobalContext中
     GlobalContext.getContext().setObject('AbilityContext', this.context);
   } catch (err) {
     hilog.error(DOMAIN, 'testTag', 'Failed to set colorMode. Cause: %{public}s', JSON.stringify(err));
@@ -363,11 +363,11 @@ struct Index {
     Column() {
       Button('加载需要客户端SSL证书的网站')
         .onClick(() => {
-          <em>// 使用时请替换真实网址</em>
+          // 使用时请替换真实网址
           this.controller.loadUrl('***');
         });
       Web({
-        <em>// 使用时请替换真实网址</em>
+        // 使用时请替换真实网址
         src: 'www.example.com',
         controller: this.controller,
       })

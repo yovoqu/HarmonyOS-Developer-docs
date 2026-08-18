@@ -21,18 +21,18 @@ import { buffer } from '@kit.ArkTS';
 @Entry
 @Component
 struct HMACFailed {
-  <em>// ...</em>
+  // ...
   ConvertKeySync() {
-    <em>// The symmetric key length is 28 bytes, 224 bits</em>
-    let keyMessage = '87654321abcdefgh87654321abcd'; <em>// Execution successful</em>
-    <em>// Execution successful. key encoded data：</em>56,55,54,53,52,51,50,49,97,98,99,100,101,102,103,104,56,55,54,53,52,51,50,49,97,98,99,100
-    <em>// The symmetric key length is 26 bytes, 208 bits</em>
-    <em>// let keyMessage = '87654321abcdefgh87654321ab'; // Execution failed</em>
-    <em>// Execution failed,error message: convertSymKey key failed! </em>
+    // The symmetric key length is 28 bytes, 224 bits
+    let keyMessage = '87654321abcdefgh87654321abcd'; // Execution successful
+    // Execution successful. key encoded data：56,55,54,53,52,51,50,49,97,98,99,100,101,102,103,104,56,55,54,53,52,51,50,49,97,98,99,100
+    // The symmetric key length is 26 bytes, 208 bits
+    // let keyMessage = '87654321abcdefgh87654321ab'; // Execution failed
+    // Execution failed,error message: convertSymKey key failed! 
     let keyBlob: cryptoFramework.DataBlob = {
       data: new Uint8Array(buffer.from(keyMessage, 'utf-8').buffer)
     }
-    <em>// Message Authentication Code Algorithm: HMAC, Digest Algorithm: SHA224, Key Length (bits): 224, String Parameter: HMAC|SHA224</em> 
+    // Message Authentication Code Algorithm: HMAC, Digest Algorithm: SHA224, Key Length (bits): 224, String Parameter: HMAC|SHA224 
     let symKeyGenerator = cryptoFramework.createSymKeyGenerator('HMAC|SHA224');
     let key = symKeyGenerator.convertKeySync(keyBlob);
     let encodedKey = key.getEncoded();

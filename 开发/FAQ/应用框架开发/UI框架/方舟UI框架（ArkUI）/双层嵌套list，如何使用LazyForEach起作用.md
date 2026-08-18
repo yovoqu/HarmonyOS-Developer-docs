@@ -50,29 +50,29 @@ export class BaseDataSource<T> implements IDataSource {
     return this.dataset[index];
   }
 
- <em> /**</em>
-<em>   * Notify LazyForEach component to reload all child components</em>
-<em>   */</em>
+  /**
+   * Notify LazyForEach component to reload all child components
+   */
   notifyDataReload(): void {
     this.listeners.forEach(listener => {
       listener.onDataReloaded();
     })
   }
 
-<em>  /**</em>
-<em>   * Notify LazyForEach component to add a sub component at the index corresponding to the index</em>
-<em>   * @param index</em>
-<em>   */</em>
+  /**
+   * Notify LazyForEach component to add a sub component at the index corresponding to the index
+   * @param index
+   */
   notifyDataAdd(index: number): void {
     this.listeners.forEach(listener => {
       listener.onDataAdd(index);
     })
   }
 
-  <em>/**</em>
-<em>   * Notify LazyForEach component that there is a change in data at the index corresponding to the index, and that the sub component needs to be rebuilt</em>
-<em>   * @param index</em>
-<em>   */</em>
+  /**
+   * Notify LazyForEach component that there is a change in data at the index corresponding to the index, and that the sub component needs to be rebuilt
+   * @param index
+   */
   notifyDataChange(index: number): void {
     this.listeners.forEach(listener => {
       listener.onDataChange(index);
@@ -89,26 +89,26 @@ export class BaseDataSource<T> implements IDataSource {
     })
   }
 
- <em> /**</em>
-<em>   * Notify LazyForEach component to swap the subcomponents at the from index and to index</em>
-<em>   * @param from</em>
-<em>   * @param to</em>
-<em>   */</em>
+  /**
+   * Notify LazyForEach component to swap the subcomponents at the from index and to index
+   * @param from
+   * @param to
+   */
   notifyDataMove(from: number, to: number): void {
     this.listeners.forEach(listener => {
       listener.onDataMove(from, to);
     })
   }
 
- <em> //----------------------------------------------------------------------------------------------------</em>
-<em>  // This method is called on the framework side to add listener listening to the LazyForEach component at its data source</em>
+  //----------------------------------------------------------------------------------------------------
+  // This method is called on the framework side to add listener listening to the LazyForEach component at its data source
   registerDataChangeListener(listener: DataChangeListener): void {
     if (this.listeners.indexOf(listener) < 0) {
       this.listeners.push(listener);
     }
   }
 
-<em>  // This method is called on the framework side to remove listener listening for the corresponding LazyForEach component at the data source</em>
+  // This method is called on the framework side to remove listener listening for the corresponding LazyForEach component at the data source
   unregisterDataChangeListener(listener: DataChangeListener): void {
     const pos = this.listeners.indexOf(listener);
     if (pos >= 0) {
@@ -139,10 +139,10 @@ class NestedListItemDataSource extends BaseDataSource<string> {
   }
 }
 
-<em>/*</em>
-<em> * Header component for nested list items</em>
-<em> * @param title - Display text for header</em>
-<em> */</em>
+/*
+ * Header component for nested list items
+ * @param title - Display text for header
+ */
 @Component
 struct header {
   title: string = '';

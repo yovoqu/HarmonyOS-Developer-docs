@@ -8,20 +8,20 @@
 
 - **场景一：** 使用as类型断言不能转换JSON.parse()方法解析的JSON字符串中成员属性的数据类型。举例说明：
 ```json
-<em>// </em><em>用ItemModel类接收responseData中JSON字符串的内容</em>
-let responseData = `{"id":123,"name":"Example","price":200}` <em>// </em><em>在responseData中的price值为number类型的200</em>
+// 用ItemModel类接收responseData中JSON字符串的内容
+let responseData = `{"id":123,"name":"Example","price":200}` // 在responseData中的price值为number类型的200
 
 class ItemModel {
   id?: number;
   name?: string;
-  price?: string; <em>// 作为接收类的ItemModel中price类型为string</em>
+  price?: string; // 作为接收类的ItemModel中price类型为string
 }
 
-<em>// </em><em>调用JSON.parse()解析JSON字符串，并用as得到ItemModel类型实例</em>
+// 调用JSON.parse()解析JSON字符串，并用as得到ItemModel类型实例
 let item = JSON.parse(responseData) as ItemModel;
 
-<em>// </em><em>此时得到item.price类型为number而非定义的string</em>
-console.info(`typeofprice: ${typeof item.price}`); <em>// 输出为typeofprice:number</em>
+// 此时得到item.price类型为number而非定义的string
+console.info(`typeofprice: ${typeof item.price}`); // 输出为typeofprice:number
 ```
 
 - **场景二：** 使用params为options赋值，但是as number未生效，options接收到的依旧是带引号的string类型。
@@ -88,7 +88,7 @@ class ItemModel {
   name?: string;
   price?: string;
 
- <em> // 这里定义构造函数，将输入的price转为string类型</em>
+  // 这里定义构造函数，将输入的price转为string类型
   constructor(id: number, name: string, price: number) {
     this.id = id;
     this.name = name;
@@ -96,14 +96,14 @@ class ItemModel {
   }
 }
 
-<em>// </em><em>获取JSON字符串数据</em>
+// 获取JSON字符串数据
 let responseData = `{"id":123,"name":"Example","price":200}`;
 let obj = JSON.parse(responseData);
 
 @Component
 struct solution1 {
   public message: string = 'Click to test';
-<em>  // 用new调用构造函数，构造新的ItemModel</em>
+  // 用new调用构造函数，构造新的ItemModel
   public item: ItemModel =
     new ItemModel((obj as object)?.['id'], (obj as object)?.['name'], (obj as object)?.['price']);
 
@@ -119,11 +119,11 @@ struct solution1 {
             middle: { anchor: '__container__', align: HorizontalAlign.Center }
           })
           .onClick(() => {
-          <em>  // 使用模型数据</em>
-            console.info(`Item ID:${this.item.id}`); <em>// 输出:Item ID:123</em>
-            console.info(`Item Name:${this.item.name}`);<em> </em><em>// 输出:Item Name:Example</em>
-            console.info(`Item Price:${this.item.price}`); <em>// </em><em>输出:Item Price:200</em>
-            console.info(`typeof Price:${typeof this.item.price}`);<em> </em><em>// 验证输出typeof Price:string</em>
+            // 使用模型数据
+            console.info(`Item ID:${this.item.id}`); // 输出:Item ID:123
+            console.info(`Item Name:${this.item.name}`); // 输出:Item Name:Example
+            console.info(`Item Price:${this.item.price}`); // 输出:Item Price:200
+            console.info(`typeof Price:${typeof this.item.price}`); // 验证输出typeof Price:string
           });
       }
       .height('100%')
@@ -137,8 +137,8 @@ struct solution1 {
  
 - 方案二：利用JSON.parse的reviver参数，手动转换key为price时value的类型。示例代码如下：
 ```text
-<em>// </em><em>新建ts文件，写入类型转换逻辑</em>
-<em>// entry/src/main/ets/pages/test.ts</em>
+// 新建ts文件，写入类型转换逻辑
+// entry/src/main/ets/pages/test.ts
 export function reviverFunc(key, value) :string {
   if (key === "price") {
     let num_price = String(value)
@@ -150,7 +150,7 @@ export function reviverFunc(key, value) :string {
  
 ```json
 import { JSON } from '@kit.ArkTS';
-import { reviverFunc } from './test';<em> </em><em>// 导入reviverFunc</em>
+import { reviverFunc } from './test'; // 导入reviverFunc
 
 @Builder
 export function solution2Builder() {
@@ -163,13 +163,13 @@ class ItemModel {
   price?: string;
 }
 
-<em>// </em><em>获取JSON字符串数据</em>
+// 获取JSON字符串数据
 let responseData = `{"id":123,"name":"Example","price":200}`;
 
 @Component
 struct solution2 {
   public message: string = 'Click to test';
-  <em>// 调用JSON.parse和reviverFunc参数，创建item实例</em>
+  // 调用JSON.parse和reviverFunc参数，创建item实例
   public item = JSON.parse(responseData, reviverFunc) as ItemModel;
 
   build() {
@@ -184,11 +184,11 @@ struct solution2 {
             middle: { anchor: '__container__', align: HorizontalAlign.Center }
           })
           .onClick(() => {
-         <em>   // 使用模型数据</em>
-            console.info(`Item ID:${this.item.id}`); <em>// 输出:Item ID:123</em>
-            console.info(`Item Name:${this.item.name}`); <em>// 输出:Item Name:Example</em>
-            console.info(`Item Price:${this.item.price}`);<em> </em><em>// 输出:Item Price:200</em>
-            console.info(`typeof Price:${typeof this.item.price}`);<em> </em><em>// 验证输出typeof Price:string</em>
+            // 使用模型数据
+            console.info(`Item ID:${this.item.id}`); // 输出:Item ID:123
+            console.info(`Item Name:${this.item.name}`); // 输出:Item Name:Example
+            console.info(`Item Price:${this.item.price}`); // 输出:Item Price:200
+            console.info(`typeof Price:${typeof this.item.price}`); // 验证输出typeof Price:string
           });
       }
       .height('100%')

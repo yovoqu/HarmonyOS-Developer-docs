@@ -55,12 +55,12 @@ CTR_DRBG（Counter-based Deterministic Random Bit Generator）是一种基于计
 import { util } from '@kit.ArkTS'
 
 class ConstantUtils {
- <em> // 调用此函数会生成两个UUID，其中一个UUID进行缓存，一个UUID用于输出</em>
-<em>  // 首次调用时，参数是true或false无区别；下次调用时，如果参数是true，依旧缓存上次UUID，并生成新的UUID；如果参数是false，将生成两个UUID，其中一个UUID进行缓存，一个UUID进行输出</em>
-<em>  // 默认true</em>
+  // 调用此函数会生成两个UUID，其中一个UUID进行缓存，一个UUID用于输出
+  // 首次调用时，参数是true或false无区别；下次调用时，如果参数是true，依旧缓存上次UUID，并生成新的UUID；如果参数是false，将生成两个UUID，其中一个UUID进行缓存，一个UUID进行输出
+  // 默认true
   uuid1: string = util.generateRandomUUID(false);
   uuid2: string = util.generateRandomUUID(true);
-  <em>// </em><em>返回Uint8Array类型，参数同generateRandomUUID</em>
+  // 返回Uint8Array类型，参数同generateRandomUUID
   uuid3: Uint8Array = util.generateRandomBinaryUUID(true);
   uuid4: string = JSON.stringify(util.generateRandomBinaryUUID(true));
 }
@@ -77,10 +77,10 @@ class ConstantUtils {
 import cryptoFramework from '@ohos.security.cryptoFramework';
 import { BusinessError } from '@ohos.base';
 
-<em>// Generate a random number in promise mode</em>
+// Generate a random number in promise mode
 function doRandByPromise() {
   let rand = cryptoFramework.createRandom();
-  let len = 4; <em>// Generate a 4-byte random number</em>
+  let len = 4; // Generate a 4-byte random number
   let promiseGenerateRand = rand.generateRandom(len);
   promiseGenerateRand.then(randData => {
     console.info('[Promise]: rand result: ' + randData.data);
@@ -95,10 +95,10 @@ function doRandByPromise() {
   });
 }
 
-<em>// Generate a random number in callback mode</em>
+// Generate a random number in callback mode
 function doRandByCallback() {
   let rand = cryptoFramework.createRandom();
-  let len = 4; <em>// Generate a 4-byte random number</em>
+  let len = 4; // Generate a 4-byte random number
   rand.generateRandom(len, (err, randData) => {
     if (err) {
       console.error('[Callback]: err: ' + err.code);
@@ -114,10 +114,10 @@ function doRandByCallback() {
   });
 }
 
-<em>// Generate a random number synchronously</em>
+// Generate a random number synchronously
 function doRandBySync() {
   let rand = cryptoFramework.createRandom();
-  let len = 24;<em> </em><em>// Generate a 24-byte random number</em>
+  let len = 24; // Generate a 24-byte random number
   try {
     let randData = rand.generateRandomSync(len);
     if (randData != null) {
@@ -140,9 +140,9 @@ function doRandBySync() {
  
 ```text
 let rand = cryptoFramework.createRandom();
-<em>// </em><em>设置生成随机数的字节长度为1</em>
+// 设置生成随机数的字节长度为1
 let randData = rand.generateRandomSync(1);
-<em>// </em><em>自定义范围(0-10之内</em><em>)</em>
+// 自定义范围(0-10之内)
 let num: number = randData.data[0] * 10 / 255;
 console.info('随机数:' + num);
 ```

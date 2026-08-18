@@ -39,13 +39,13 @@
 
   
 ```text
-<em>// mm转px函数</em>
+// mm转px函数
 function mmToPx(mmValue: number, isYaxis: boolean) {
   let displayInfo = display.getDefaultDisplaySync();
   if (isYaxis) {
-    return (mmValue / 25.4) * displayInfo.yDPI; <em>// 应用标准公式</em>
+    return (mmValue / 25.4) * displayInfo.yDPI; // 应用标准公式
   } else {
-    return (mmValue / 25.4) * displayInfo.xDPI;<em> // 应用标准公式</em>
+    return (mmValue / 25.4) * displayInfo.xDPI; // 应用标准公式
   }
 }
 ```
@@ -56,13 +56,13 @@ function mmToPx(mmValue: number, isYaxis: boolean) {
 import { display, window } from '@kit.ArkUI';
 import { common } from '@kit.AbilityKit';
 
-<em>// 直尺线类</em>
+// 直尺线类
 class RulerLineInfo {
   index: number;
   height: number;
-  mmPx: number;<em> // 1毫米对应的像素值</em>
-  textWidth: number; <em>// 刻度文字宽度</em>
-  textHeight: number; <em>// 刻度文字高度</em>
+  mmPx: number; // 1毫米对应的像素值
+  textWidth: number; // 刻度文字宽度
+  textHeight: number; // 刻度文字高度
 
   constructor(index: number, height: number, mmPx: number) {
     this.index = index;
@@ -77,13 +77,13 @@ class RulerLineInfo {
   }
 }
 
-<em>// mm转px函数</em>
+// mm转px函数
 function mmToPx(mmValue: number, isYaxis: boolean) {
   let displayInfo = display.getDefaultDisplaySync();
   if (isYaxis) {
-    return (mmValue / 25.4) * displayInfo.yDPI;<em> // 应用标准公式</em>
+    return (mmValue / 25.4) * displayInfo.yDPI; // 应用标准公式
   } else {
-    return (mmValue / 25.4) * displayInfo.xDPI; <em>// 应用标准公式</em>
+    return (mmValue / 25.4) * displayInfo.xDPI; // 应用标准公式
   }
 }
 
@@ -99,7 +99,7 @@ struct RulerComponent {
       windowClass.setPreferredOrientation(window.Orientation.LANDSCAPE);
     });
 
-  <em>  // 初始化直尺线类</em>
+    // 初始化直尺线类
     for (let i = 0; i <= 10 * 10; i++) {
       let lineHeight: number = (i % 10 === 0) ? 90 : (i % 5 === 0) ? 60 : 45;
       this.rulerLines.push(new RulerLineInfo(i, lineHeight, mmPx));
@@ -110,14 +110,14 @@ struct RulerComponent {
     Column() {
       Row() {
         ForEach(this.rulerLines, (line: RulerLineInfo, index: number) => {
-        <em>  // 生成直线</em>
+          // 生成直线
           Line()
             .width(0.5)
             .height(`${line.height}px`)
             .backgroundColor(Color.Black)
             .stroke(Color.Black)
             .position({ x: `${line.mmPx * index}px`, y: 0 })
-         <em> // 生成数字</em>
+          // 生成数字
           Text(line.showNumber())
             .fontColor(Color.Black)
             .fontSize(18)

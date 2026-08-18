@@ -38,7 +38,7 @@ struct Index {
           }
         })
       }
-     <em> // 设置分割线</em>
+      // 设置分割线
       .divider({
         strokeWidth: 0.4,
         color: Color.Black,
@@ -124,12 +124,12 @@ struct demo1 {
               .padding({ left: 12, right: 12 });
 
               Column() {
-            <em>    // 最后一项不加分割线，其余都加</em>
+                // 最后一项不加分割线，其余都加
                 if (index !== (this.outBoxList.length - 1)) {
                   Divider()
                     .strokeWidth(1)
                     .color('#e5e5e5')
-                    .margin({ left: 16, right: 16 }); <em>// </em><em>与设计保持一致</em>
+                    .margin({ left: 16, right: 16 }); // 与设计保持一致
                 }
               };
             };

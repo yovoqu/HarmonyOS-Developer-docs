@@ -31,10 +31,10 @@ Swiper组件在滑动时只能一次滚动一页，在需要一次滑动多个�
 方案逻辑：向后翻动几页；如果抬手时速度小于设置的值，则保持原来每次翻一页的效果。通过以上逻辑实现快速滑动Swiper时，可以惯性向后翻几页。
  
 ```text
-.parallelGesture( <em>// 同步手势</em>
+.parallelGesture( // 同步手势
   PanGesture()
     .onActionEnd(e => {
-   <em>   // 手势结束，获取当前的速度</em>
+      // 手势结束，获取当前的速度
       let velocityX = e.velocityX || 0;
       if (velocityX > 2000) {
         this.swiperController.changeIndex(this.currentIndex - 2, SwiperAnimationMode.FAST_ANIMATION);
@@ -77,10 +77,10 @@ struct Swiper1 {
       .curve(Curve.Friction)
       .prevMargin(35, true)
       .nextMargin(35, true)
-      .parallelGesture( <em>// </em><em>同步手势</em>
+      .parallelGesture( // 同步手势
         PanGesture()
           .onActionEnd(e => {
-          <em>  // 手势结束，获取当前的速度</em>
+            // 手势结束，获取当前的速度
             let velocityX = e.velocityX || 0;
             if (velocityX > 2000) {
               this.swiperController.changeIndex(this.currentIndex - 2, SwiperAnimationMode.FAST_ANIMATION);

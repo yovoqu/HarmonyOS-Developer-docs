@@ -54,22 +54,22 @@ struct ListCustomTimePicker {
           ListItem() {
             Row() {
               Text('' + item)
-              <em>  // 判断语句,当索引位置在显示的中间时，对该时间放大处理</em>
+                // 判断语句,当索引位置在显示的中间时，对该时间放大处理
                 .fontSize(index === this.centerIndex ? 30 : 18)
                 .fontColor(index === this.centerIndex ? Color.Black : Color.Gray)
                 .textAlign(TextAlign.Center);
             }
-            .width('20%') <em>// 单行显示5个item</em>
+            .width('20%') // 单行显示5个item
             .height(50)
             .justifyContent(FlexAlign.Center);
           };
         }, (item: string) => item);
       }
-      .scrollSnapAlign(ScrollSnapAlign.CENTER)<em> </em><em>// 中间项对齐</em>
-      .listDirection(Axis.Horizontal)<em> </em><em>// List组件设置横向滚动</em>
+      .scrollSnapAlign(ScrollSnapAlign.CENTER) // 中间项对齐
+      .listDirection(Axis.Horizontal) // List组件设置横向滚动
       .scrollBar(BarState.Off)
       .onScrollIndex((firstIndex: number, lastIndex: number, centerIndex: number) => {
-        <em>// 获取屏幕中间item的索引值</em>
+        // 获取屏幕中间item的索引值
         this.centerIndex = centerIndex;
         console.info(`firstIndex：${firstIndex},lastIndex：${lastIndex}`);
       })

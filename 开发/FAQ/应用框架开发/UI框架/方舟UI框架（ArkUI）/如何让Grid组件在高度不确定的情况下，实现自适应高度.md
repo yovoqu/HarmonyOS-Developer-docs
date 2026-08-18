@@ -48,11 +48,11 @@ struct Index {
     { text: 'hhh', img: $r('app.media.app_icon') },
     { text: 'jjj', img: $r('app.media.app_icon') },
     { text: 'kkk', img: $r('app.media.app_icon') }]
- <em> // Calculate the number of rows in the grid</em>
+  // Calculate the number of rows in the grid
   getCategoryRowCount() {
     return Math.ceil(this.data.length / 4);
   }
- <em> // Calculate the height of the grid based on the height of the item</em>
+  // Calculate the height of the grid based on the height of the item
   getCategoryViewHeight() {
     return `${68.33 * this.getCategoryRowCount()}vp`;
   }

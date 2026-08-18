@@ -26,7 +26,7 @@
 #### 解决方案
 1. 在[并发函数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-introduction#并发函数中使用自定义类或函数)中使用自定义类或函数时，需将其定义在单独的文件中，否则可能被视为闭包。加解密逻辑拆分为独立文件，确保所有对象可序列化。
 ```ArkTS
-<em>// utils/Func.ets</em>
+// utils/Func.ets
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';
 
@@ -40,7 +40,7 @@ export function genIvParamsSpec() {
 }
 
 function genkey() {
- <em> // 子线程内生成密钥（避免传递非Sendable对象）</em>
+  // 子线程内生成密钥（避免传递非Sendable对象）
   let symKeyGenerator = cryptoFramework.createSymKeyGenerator('AES256');
   return symKeyGenerator.generateSymKeySync();
 }
@@ -52,12 +52,12 @@ export const CIPHER_TRANSFORMATION = 'AES256|CBC|PKCS7';
 
 2. 通过TaskPool分发任务，主函数调用并发函数并获取结果。
 ```ArkTS
-<em>// Index.ets</em>
+// Index.ets
 import { taskpool } from '@kit.ArkTS';
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { genIvParamsSpec, key, CIPHER_TRANSFORMATION } from '../utils/Func';
 
-<em>// 步骤1：定义并发函数（内部创建加密对象）</em>
+// 步骤1：定义并发函数（内部创建加密对象）
 @Concurrent
 function aesEncrypt(src: Uint8Array): Uint8Array {
   let cipher = cryptoFramework.createCipher(CIPHER_TRANSFORMATION);
@@ -67,9 +67,9 @@ function aesEncrypt(src: Uint8Array): Uint8Array {
   return cipher.doFinalSync(plaintext).data;
 }
 
-<em>// 步骤2：主线程调用taskpool</em>
+// 步骤2：主线程调用taskpool
 async function startEncryption() {
-  let task = new taskpool.Task(aesEncrypt, new Uint8Array([0x01, 0x02])); <em>// 传递原始数据</em>
+  let task = new taskpool.Task(aesEncrypt, new Uint8Array([0x01, 0x02])); // 传递原始数据
   let encryptedData = await taskpool.execute(task) as Uint8Array;
   console.info('Encryption succeeded:', encryptedData.toString());
 }

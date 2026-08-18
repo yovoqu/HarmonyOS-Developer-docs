@@ -115,7 +115,7 @@ struct Index {
 HTML示例代码如下：
  
 ```text
-<em><!DOCTYPE html></em>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8"/>

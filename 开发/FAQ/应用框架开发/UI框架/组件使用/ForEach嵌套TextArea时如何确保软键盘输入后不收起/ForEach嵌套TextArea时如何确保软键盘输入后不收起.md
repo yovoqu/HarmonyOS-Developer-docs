@@ -70,7 +70,7 @@ struct TextAreaPage {
           TextArea({ text: item })
             .width('95%')
             .onChange((val: string) => {
-              this.editContentArr.push(val); <em>// 使用editContentArr替代contentArr存入输入值</em>
+              this.editContentArr.push(val); // 使用editContentArr替代contentArr存入输入值
             })
             .textAlign(TextAlign.Start);
         })

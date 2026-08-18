@@ -39,14 +39,14 @@ import { common } from '@kit.AbilityKit';
 @Entry
 @Component
 struct PhotoPickerComponentDemo {
- <em> // 缓存选择的图片uri</em>
+  // 缓存选择的图片uri
   uri: Array<string> = [];
   private pdfDocument: pdfService.PdfDocument = new pdfService.PdfDocument();
   private context = this.getUIContext().getHostContext() as Context;
 
   async aboutToAppear(): Promise<void> {
     try {
-    <em>  //确保rawfile目录下有pdf文件</em>
+      //确保rawfile目录下有pdf文件
       await this.copyRawFileToSdcard(this.context, 'input.pdf');
       promptAction.openToast({ message: '全部拷贝完成' });
     } catch (error) {
@@ -57,7 +57,7 @@ struct PhotoPickerComponentDemo {
   private copyRawFileToSdcard(context: common.Context, pdfName: string): Promise<void> {
     return new Promise((resolve) => {
       let destRoot = context.filesDir;
- <em>     // rawfile下的文件名</em>
+      // rawfile下的文件名
       let srcFileName = pdfName;
       let destFilePath = `${destRoot}/${srcFileName}`;
       context.resourceManager.getRawFileContent(srcFileName, (error: BusinessError, data: Uint8Array) => {
@@ -82,7 +82,7 @@ struct PhotoPickerComponentDemo {
       photoSelectOptions.maxSelectNumber = 5;
       let photoPicker = new photoAccessHelper.PhotoViewPicker();
       photoPicker.select(photoSelectOptions).then((PhotoSelectResult: photoAccessHelper.PhotoSelectResult) => {
-     <em>   // select方法：在选择图片点击完成之后，PhotoSelectResult.photoUris返回选中的uri</em>
+        // select方法：在选择图片点击完成之后，PhotoSelectResult.photoUris返回选中的uri
         this.uri = PhotoSelectResult.photoUris;
         console.info(`PhotoViewPicker.select successfully, PhotoSelectResult uri: ${JSON.stringify(PhotoSelectResult)}`);
       }).catch((err: BusinessError) => {
@@ -94,15 +94,15 @@ struct PhotoPickerComponentDemo {
     }
   }
 
-<em>  // 使用fs.openSync接口，通过uri打开这个文件得到fd，拷贝到新路径</em>
+  // 使用fs.openSync接口，通过uri打开这个文件得到fd，拷贝到新路径
   getFilePath(uri: string): string {
     let file = fileIo.openSync(uri, fileIo.OpenMode.READ_ONLY);
     const dateStr = (new Date().getTime()).toString();
-  <em>  // 临时文件目录</em>
+    // 临时文件目录
     let newPath = this.context.filesDir + `/${dateStr + file.name}`;
-   <em> // 转化路径</em>
+    // 转化路径
     fileIo.copyFileSync(file.fd, newPath);
-  <em>  // 沙箱路径</em>
+    // 沙箱路径
     let realUri = newPath;
     console.info(`newPath is : ${realUri}`);
     return realUri;
@@ -113,16 +113,16 @@ struct PhotoPickerComponentDemo {
       Button('select').onClick(() => {
         this.selectPhoto();
       })
-   <em>   // 添加图片</em>
+      // 添加图片
       Button('addImage').onClick(async () => {
-     <em>   // 确保沙箱目录有input.pdf文档</em>
+        // 确保沙箱目录有input.pdf文档
         let filePath = this.context.filesDir + '/input.pdf';
         let loadResult = this.pdfDocument.loadDocument(filePath, '');
         if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
           let page: pdfService.PdfPage = this.pdfDocument.getPage(0);
           console.info(`click info>>`);
           console.info(`file path info>> ${this.getFilePath(this.uri[0])}`);
-        <em>  // 插入图片，沙箱目录已有选择后的图片</em>
+          // 插入图片，沙箱目录已有选择后的图片
           page.addImageObject(this.getFilePath(this.uri[0]), 100, 100, 100, 120);
           let outPdfPath = this.context.filesDir + '/testAddImage.pdf';
           console.info(`outPdfPath info>>${outPdfPath}`);

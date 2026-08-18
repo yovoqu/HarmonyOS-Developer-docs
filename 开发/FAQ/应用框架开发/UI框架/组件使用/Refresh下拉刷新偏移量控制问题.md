@@ -41,17 +41,17 @@ import cryptoFramework from '@ohos.security.cryptoFramework';
 @Component
 struct RefreshExample {
   @State isRefreshing: boolean = false;
- <em> // 数据源</em>
+  // 数据源
   @State arr: String[] =
     ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
-<em>  // Refresh刷新状态</em>
+  // Refresh刷新状态
   @State refreshStatus: RefreshStatus = RefreshStatus.Inactive;
-  <em>// 设置触发刷新的下拉偏移量，当下拉距离小于该属性设置值时离手不会触发刷新。</em>
+  // 设置触发刷新的下拉偏移量，当下拉距离小于该属性设置值时离手不会触发刷新。
   @State refreshOffset: number = 60;
- <em> // 设置当下拉距离超过refreshOffset时是否能触发刷新。</em>
+  // 设置当下拉距离超过refreshOffset时是否能触发刷新。
   @State isGettingData: boolean = false;
 
-<em>  // 下拉大距离的动画刷新效果</em>
+  // 下拉大距离的动画刷新效果
   getData() {
     setTimeout(() => {
       this.arr = Array(20)
@@ -97,19 +97,19 @@ struct RefreshExample {
       .backgroundColor(0x89CFF0)
       .pullToRefresh(true)
       .refreshOffset(this.refreshOffset)
-     <em> // 当前刷新状态变更时，触发回调。</em>
+      // 当前刷新状态变更时，触发回调。
       .onStateChange((refreshStatus: RefreshStatus) => {
         this.refreshStatus = refreshStatus;
-      <em>  // 通过判断刷新距离执行不同的方法</em>
+        // 通过判断刷新距离执行不同的方法
         if (refreshStatus === 4 && this.refreshOffset === 60) {
           console.info('执行方法a');
         } else if (refreshStatus === 4 && this.refreshOffset === 150) {
           console.info('执行方法b');
         }
       })
-    <em>  // 下拉距离发生变化时触发回调</em>
+      // 下拉距离发生变化时触发回调
       .onOffsetChange((value: number) => {
-     <em>   // 根据下拉距离不同，设置不同的触发刷新的下拉偏移量</em>
+        // 根据下拉距离不同，设置不同的触发刷新的下拉偏移量
         if (value > 150) {
           this.refreshOffset = 150;
         } else if (value < 150 && value > 0) {

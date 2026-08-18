@@ -13,7 +13,7 @@
 #### 解决方案
 
 ```text
-<em># -*- coding: utf-8 -*-</em>
+# -*- coding: utf-8 -*-
 from devicetest.core.test_case import TestCase, Step
 from hypium import UiDriver, KeyCode
 from hypium.model import UiParam
@@ -28,19 +28,19 @@ class TC_001(TestCase):
         self.driver.swipe_to_home()
     def process(self):
         Step('2.多种系统返回操作方法')
-       <em> # 方法一,通过swipe_to_back()方法返回</em>
+        # 方法一,通过swipe_to_back()方法返回
         self.driver.start_app("com.huawei.hmos.browser")
         self.driver.wait(3)
         self.driver.swipe_to_back()
-      <em>  # 方法二,通过go_back()方法返回</em>
+        # 方法二,通过go_back()方法返回
         self.driver.start_app("com.huawei.hmos.browser")
         self.driver.wait(3)
         self.driver.go_back()
-      <em>  # 方法三,通过press_key(KeyCode.BACK)方法返回</em>
+        # 方法三,通过press_key(KeyCode.BACK)方法返回
         self.driver.start_app("com.huawei.hmos.browser")
         self.driver.wait(3)
         self.driver.press_key(KeyCode.BACK)
-      <em>  # 方法四,通过模拟屏幕边缘向左或向右滑动手势返回，设置起点的相对坐标尽量靠近屏幕边缘，防止操作页面内的控件左滑或右滑</em>
+        # 方法四,通过模拟屏幕边缘向左或向右滑动手势返回，设置起点的相对坐标尽量靠近屏幕边缘，防止操作页面内的控件左滑或右滑
         self.driver.start_app("com.huawei.hmos.browser")
         self.driver.wait(3)
         self.driver.swipe(UiParam.RIGHT, distance=30, start_point=(0.01, 0.5))

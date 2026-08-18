@@ -48,7 +48,7 @@ Contacts Kit可以帮助开发者轻松实现联系人的增删改查等功能�
 
   
 ```json
-<em>// 1.</em><em>调用联系人接口，拉起联系人列表，用户点击对应的联系人后返回</em>
+// 1.调用联系人接口，拉起联系人列表，用户点击对应的联系人后返回
 if (canIUse('SystemCapability.Applications.Contacts')) {
   contact.selectContacts({
     isMultiSelect: false
@@ -57,7 +57,7 @@ if (canIUse('SystemCapability.Applications.Contacts')) {
       console.error('selectContact callback, errCode:' + err.code + ', errMessage:' + err.message);
       return;
     }
-  <em>  // 2.完成操作，返回想要的data数据</em>
+    // 2.完成操作，返回想要的data数据
     console.info(`selectContact callback: success data->${JSON.stringify(data)}`);
   });
 } else {
@@ -77,7 +77,7 @@ const permissions: Array<Permissions> = ['ohos.permission.READ_CONTACTS'];
 abilityAccessCtrl.createAtManager()
   .requestPermissionsFromUser(context, permissions)
   .then((result: PermissionRequestResult) => {
-    if (result.authResults[0] !== 0) { <em>// 0 表示请求权限成功，其他任何非零值表示请求失败</em>
+    if (result.authResults[0] !== 0) { // 0 表示请求权限成功，其他任何非零值表示请求失败
       console.error('request contact permissions failed');
       return;
     }
@@ -128,7 +128,7 @@ struct ContactExample {
     Column({ space: 20 }) {
       Button('使用Picker选择联系人')
         .onClick(() => {
-          <em>// 1.调用联系人接口，拉起联系人列表，用户点击对应的联系人后返回</em>
+          // 1.调用联系人接口，拉起联系人列表，用户点击对应的联系人后返回
           if (canIUse('SystemCapability.Applications.Contacts')) {
             contact.selectContacts({
               isMultiSelect: false
@@ -137,7 +137,7 @@ struct ContactExample {
                 console.error('selectContact callback, errCode:' + err.code + ', errMessage:' + err.message);
                 return;
               }
-            <em>  // 2.完成操作，返回想要的data数据</em>
+              // 2.完成操作，返回想要的data数据
               console.info(`selectContact callback: success data->${JSON.stringify(data)}`);
             });
           } else {
@@ -152,7 +152,7 @@ struct ContactExample {
           abilityAccessCtrl.createAtManager()
             .requestPermissionsFromUser(context, permissions)
             .then((result: PermissionRequestResult) => {
-              if (result.authResults[0] !== 0) { <em>// 0 表示请求权限成功，其他任何非零值表示请求失败</em>
+              if (result.authResults[0] !== 0) { // 0 表示请求权限成功，其他任何非零值表示请求失败
                 console.error('request contact permissions failed');
                 return;
               }

@@ -83,12 +83,12 @@ export function readPageBuilder() {
   ReadPage();
 }
 
-<em>// 定义常量类，存放滚动区域的高度</em>
+// 定义常量类，存放滚动区域的高度
 class CommonConstants {
   static readonly SCROLL_HEIGHT = 640;
 }
 
-<em>// 定义标题组件</em>
+// 定义标题组件
 @Component
 struct Title {
   @Prop leftIcon: Resource | undefined = undefined;
@@ -134,7 +134,7 @@ struct Title {
   }
 }
 
-<em>// 定义主页面样式</em>
+// 定义主页面样式
 @Entry
 @Component
 struct ReadPage {
@@ -239,7 +239,7 @@ struct ReadPage {
     .hideTitleBar(true)
     .backgroundColor('#F1F3F5');
   }
- <em> // 读取文本文章</em>
+  // 读取文本文章
   private readText(path: string) {
     let context = this.getUIContext().getHostContext() as Context;
     let fileName: string = path;
@@ -248,7 +248,7 @@ struct ReadPage {
       this.currentText = this.textBuffer;
     });
   }
- <em> // 解码二进制数据</em>
+  // 解码二进制数据
   private uint8ArrayToString(u8Array: Uint8Array): string {
     let desString = '';
     if (u8Array && u8Array.length > 0) {
@@ -271,12 +271,12 @@ export function readPageBuilder() {
   ReadPage();
 }
 
-<em>// 定义常量类，存放滚动区域的高度</em>
+// 定义常量类，存放滚动区域的高度
 class CommonConstants {
   static readonly SCROLL_HEIGHT = 640;
 }
 
-<em>// 定义标题组件</em>
+// 定义标题组件
 @Component
 struct Title {
   @Prop leftIcon: Resource | undefined = undefined;
@@ -322,7 +322,7 @@ struct Title {
   }
 }
 
-<em>// 定义主页面样式</em>
+// 定义主页面样式
 @Entry
 @Component
 struct ReadPage {
@@ -427,7 +427,7 @@ struct ReadPage {
     .hideTitleBar(true)
     .backgroundColor('#F1F3F5');
   }
-<em>  // 读取文本文章</em>
+  // 读取文本文章
   private readText(path: string) {
     let context = this.getUIContext().getHostContext() as Context;
     let fileName: string = path;
@@ -436,7 +436,7 @@ struct ReadPage {
       this.currentText = this.textBuffer;
     });
   }
- <em> // 解码二进制数据</em>
+  // 解码二进制数据
   private uint8ArrayToString(u8Array: Uint8Array): string {
     let desString = '';
     if (u8Array && u8Array.length > 0) {

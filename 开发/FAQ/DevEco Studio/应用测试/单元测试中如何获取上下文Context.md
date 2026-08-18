@@ -31,12 +31,12 @@ const delegator = abilityDelegatorRegistry.getAbilityDelegator()
 
 export default function OhosGetContext() {
   describe('OhosGetContextTest', () => {
-    <em>// Defines a test suite. Two parameters are supported: test suite name and test suite function.</em>
+    // Defines a test suite. Two parameters are supported: test suite name and test suite function.
     it('GetContextTest', 0, async () => {
       const STORE_CONFIG: relationalStore.StoreConfig = {
-        <em>// </em><em>数据库文件名</em>
+        // 数据库文件名
         name: 'RdbTest.db',
-        <em>// </em><em>数据库安全级别</em>
+        // 数据库安全级别
         securityLevel: relationalStore.SecurityLevel.S3,
       };
       const SQL_CREATE_TABLE =

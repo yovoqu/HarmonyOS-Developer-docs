@@ -52,9 +52,9 @@ struct LimitRichEditorPlaceholder {
           .height(300);
 
         Text(`${!this.flag && (this.controller.getSpans()).length < 1 ? this.tips : ''}`)
-          .width(250)<em> // 设置文本框宽度</em>
-          .maxLines(1)<em> // 限制显示为一行</em>
-          .textOverflow({ overflow: TextOverflow.Ellipsis })<em> // 超出部分不显示</em>
+          .width(250) // 设置文本框宽度
+          .maxLines(1) // 限制显示为一行
+          .textOverflow({ overflow: TextOverflow.Ellipsis }) // 超出部分不显示
           .border({ width: 5 })
           .hitTestBehavior(HitTestMode.Transparent)
           .fontColor(Color.Gray)

@@ -38,7 +38,7 @@ export class BleAdvertiser {
           manufactureValue: BleAdvertiser.prepareManufacturerData(sendByte)
         }
       ],
-      <em>// 使用数组而非Map</em>
+      // 使用数组而非Map
       serviceData: [],
       serviceUuids: []
     };
@@ -48,11 +48,11 @@ export class BleAdvertiser {
   static prepareManufacturerData(input: Uint8Array): Uint8Array {
     const bufferSize = 24;
     const result = new Uint8Array(bufferSize);
-    <em>// 填充默认数据（示例：i+1）</em>
+    // 填充默认数据（示例：i+1）
     for (let i = 0; i < bufferSize; i++) {
       result[i] = i + 1;
     }
-    <em>// 复制输入数据到缓冲区开头</em>
+    // 复制输入数据到缓冲区开头
     const copyLength = Math.min(input.length, bufferSize);
     for (let i = 0; i < copyLength; i++) {
       result[i] = input[i];
@@ -91,11 +91,11 @@ manufactureValue: BleAdvertiser.prepareManufacturerData(sendByte)
 static prepareManufacturerData(input: Uint8Array): Uint8Array {
   const bufferSize = 24;
   const result = new Uint8Array(bufferSize);
-  <em>// 填充默认数据（示例：i+1）</em>
+  // 填充默认数据（示例：i+1）
   for (let i = 0; i < bufferSize; i++) {
     result[i] = i + 1;
   }
-  <em>// 复制输入数据到缓冲区开头</em>
+  // 复制输入数据到缓冲区开头
   const copyLength = Math.min(input.length, bufferSize);
   for (let i = 0; i < copyLength; i++) {
     result[i] = input[i];
@@ -116,11 +116,11 @@ let advData: ble.AdvertiseData = {
   manufactureData: [
     {
       manufactureId: 0xfff0,
-      manufactureValue: manufactureValueBuffer.buffer <em>// 需要通过Uint8Array.buffer获取ArrayBuffer对象</em>
+      manufactureValue: manufactureValueBuffer.buffer // 需要通过Uint8Array.buffer获取ArrayBuffer对象
     }
   ],
   serviceData: [],
-  includeDeviceName: false <em>// 表示是否携带设备名，可选参数。注意：带上设备名时，容易导致广播报文长度超出31个字节，使得广播启动失败</em>
+  includeDeviceName: false // 表示是否携带设备名，可选参数。注意：带上设备名时，容易导致广播报文长度超出31个字节，使得广播启动失败
 };
 ```
  
@@ -139,22 +139,22 @@ import { abilityAccessCtrl, common, Permissions } from '@kit.AbilityKit';
 
 const permissions: Array<Permissions> = ['ohos.permission.ACCESS_BLUETOOTH'];
 
-<em>// 使用UIExtensionAbility：将common.UIAbilityContext替换为common.UIExtensionContext</em>
+// 使用UIExtensionAbility：将common.UIAbilityContext替换为common.UIExtensionContext
 function reqPermissionsFromUser(permissions: Array<Permissions>, context: common.UIAbilityContext): void {
   let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
-  <em>// requestPermissionsFromUser会判断权限的授权状态来决定是否唤起弹窗。</em>
+  // requestPermissionsFromUser会判断权限的授权状态来决定是否唤起弹窗。
   atManager.requestPermissionsFromUser(context, permissions).then((data) => {
     let grantStatus: Array<number> = data.authResults;
     let length: number = grantStatus.length;
     for (let i = 0; i < length; i++) {
       if (grantStatus[i] === 0) {
-        <em>// 用户授权，可以继续访问目标操作。</em>
+        // 用户授权，可以继续访问目标操作。
       } else {
-        <em>// 当用户拒绝授权时，系统应提示用户必须授予相应权限才能使用当前页面的功能，并指导用户前往系统设置开启所需权限。</em>
+        // 当用户拒绝授权时，系统应提示用户必须授予相应权限才能使用当前页面的功能，并指导用户前往系统设置开启所需权限。
         return;
       }
     }
-    <em>// 授权成功</em>
+    // 授权成功
   }).catch((err: BusinessError) => {
     console.error(`Failed to request permissions from user. Code is ${err.code}, message is ${err.message}`);
   });
@@ -164,22 +164,22 @@ function reqPermissionsFromUser(permissions: Array<Permissions>, context: common
 @Component
 struct Index {
   private message: string = '开启广播';
-  private advHandle: number = 0xFF; <em>// 初始的无效值</em>
+  private advHandle: number = 0xFF; // 初始的无效值
 
-  <em>// 1.定义广播状态上报事件</em>
+  // 1.定义广播状态上报事件
   onReceiveEvent = (data: ble.AdvertisingStateChangeInfo) => {
     console.info(`bluetooth advertising state = ${JSON.stringify(data)}`);
     AppStorage.setOrCreate('advertiserState', data.state);
   };
 
   public async startAdvertising() {
-    <em>// 2.1设置广播发送的参数</em>
+    // 2.1设置广播发送的参数
     let setting: ble.AdvertiseSetting = {
       connectable: false,
       interval: 160,
       txPower: 0,
     };
-    <em>// 2.2构造广播数据</em>
+    // 2.2构造广播数据
     let manufactureValueBuffer = new Uint8Array(4);
     manufactureValueBuffer[0] = 1;
     manufactureValueBuffer[1] = 2;
@@ -204,26 +204,26 @@ struct Index {
       manufactureData: [
         {
           manufactureId: 0xfff0,
-          manufactureValue: manufactureValueBuffer.buffer <em>// 需要通过Uint8Array.buffer获取ArrayBuffer对象</em>
+          manufactureValue: manufactureValueBuffer.buffer // 需要通过Uint8Array.buffer获取ArrayBuffer对象
         }
       ],
       serviceData: [],
-      includeDeviceName: false <em>// 表示是否携带设备名，可选参数。注意：带上设备名时，容易导致广播报文长度超出31个字节，使得广播启动失败</em>
+      includeDeviceName: false // 表示是否携带设备名，可选参数。注意：带上设备名时，容易导致广播报文长度超出31个字节，使得广播启动失败
     };
     let advResponse: ble.AdvertiseData = {
       serviceUuids: [],
       manufactureData: [],
       serviceData: [serviceDataUnit1, serviceDataUnit2]
     };
-    <em>// 2.3构造广播启动完整参数AdvertisingParams</em>
+    // 2.3构造广播启动完整参数AdvertisingParams
     let advertisingParams: ble.AdvertisingParams = {
       advertisingSettings: setting,
-      advertisingData: advData, <em>// 注意:广播报文长度不能超过31个字节</em>
-      advertisingResponse: advResponse, <em>// 注意:广播报文长度不能超过31个字节</em>
-      duration: 0 <em>// 可选参数，若参数大于0，则广播发送一段时间后会停止，但分配的广播资源还在，可重新启动发送</em>
+      advertisingData: advData, // 注意:广播报文长度不能超过31个字节
+      advertisingResponse: advResponse, // 注意:广播报文长度不能超过31个字节
+      duration: 0 // 可选参数，若参数大于0，则广播发送一段时间后会停止，但分配的广播资源还在，可重新启动发送
     };
 
-    <em>// 2.4首次启动广播，蓝牙子系统会分配相关资源，包括应用获取到的广播标识ID</em>
+    // 2.4首次启动广播，蓝牙子系统会分配相关资源，包括应用获取到的广播标识ID
     try {
       ble.on('advertisingStateChange', this.onReceiveEvent);
       this.advHandle = await ble.startAdvertising(advertisingParams);
@@ -233,7 +233,7 @@ struct Index {
   }
 
   aboutToAppear() {
-    <em>// 使用UIExtensionAbility：将common.UIAbilityContext替换为common.UIExtensionContext</em>
+    // 使用UIExtensionAbility：将common.UIAbilityContext替换为common.UIExtensionContext
     const context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
     reqPermissionsFromUser(permissions, context);
   }

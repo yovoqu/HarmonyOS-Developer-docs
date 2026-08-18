@@ -22,7 +22,7 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-  <em>  // Main window is created, set main page for this ability</em>
+    // Main window is created, set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
     windowStage.loadContent('pages/Index', (err) => {
@@ -44,7 +44,7 @@ export default class EntryAbility extends UIAbility {
         windowClass = data;
         console.info('Succeeded in obtaining the top window. Data: ' + JSON.stringify(data));
         if (windowClass) {
-      <em>    // Please ensure that the relevant Window instance, namely windowClass, has been obtained</em>
+          // Please ensure that the relevant Window instance, namely windowClass, has been obtained
           windowClass.on('avoidAreaChange', async (data) => {
             console.info('Succeeded in enabling the listener for avoid area changes. Type: ' +
             JSON.stringify(data.type) + ', area ' + JSON.stringify(data.area));
@@ -64,17 +64,17 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageDestroy(): void {
-   <em> // Main window is destroyed, release UI related resources</em>
+    // Main window is destroyed, release UI related resources
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
-  <em>  // Ability has brought to foreground</em>
+    // Ability has brought to foreground
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground(): void {
-   <em> // Ability has back to background</em>
+    // Ability has back to background
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onBackground');
   }
 }

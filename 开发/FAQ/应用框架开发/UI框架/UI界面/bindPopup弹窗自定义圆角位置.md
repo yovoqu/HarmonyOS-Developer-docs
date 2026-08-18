@@ -34,16 +34,16 @@ bindPopup弹窗如何自定义圆角位置？如只设置底部或者顶部圆�
 @Entry
 @Component
 struct BindPopupDemo {
-  @State customPopup: boolean = false;<em> </em><em>// 定义变量控制弹窗显示</em>
+  @State customPopup: boolean = false; // 定义变量控制弹窗显示
 
- <em> // popup构造器定义弹框内容</em>
+  // popup构造器定义弹框内容
   @Builder
   popupBuilder() {
     Column({ space: 2 }) {
       Text('Popup').margin({ top: 16, bottom: 16 });
     }
     .justifyContent(FlexAlign.SpaceAround)
-    .borderRadius({ topLeft: 16, bottomRight: 16 }) <em>// </em><em>设置Column左上和右下圆角</em>
+    .borderRadius({ topLeft: 16, bottomRight: 16 }) // 设置Column左上和右下圆角
     .width(100)
     .borderWidth(1);
   }
@@ -57,9 +57,9 @@ struct BindPopupDemo {
         .bindPopup(this.customPopup, {
           builder: this.popupBuilder,
           mask: false,
-          popupColor: Color.Transparent,<em> </em><em>// 气泡的背景色设为透明</em>
-          backgroundBlurStyle: BlurStyle.NONE, <em>// </em><em>关闭气泡模糊背景</em>
-          radius: 0, <em>// 设置气泡的圆角</em>
+          popupColor: Color.Transparent, // 气泡的背景色设为透明
+          backgroundBlurStyle: BlurStyle.NONE, // 关闭气泡模糊背景
+          radius: 0, // 设置气泡的圆角
           shadow: { radius: 0 },
           onStateChange: (e) => {
             this.customPopup = e.isVisible;

@@ -38,7 +38,7 @@ struct Index {
             Scroll(this.scroller) {
               Text(`滚动条${index + 1}`)
                 .fontSize(20)
-                .height(1320) <em>// 使子组件的布局尺寸超过父组件的尺寸，内容可以滚动。</em>
+                .height(1320) // 使子组件的布局尺寸超过父组件的尺寸，内容可以滚动。
                 .backgroundColor('#40000000');
             }
             .scrollBar(BarState.Off)
@@ -59,9 +59,9 @@ struct Index {
       style: {
         scrollEffectOpts: {
           enableScrollEffect: true,
-          scrollEffectType: ScrollEffectType.COMMON_BLUR, <em>// 设置模糊类型</em>
-          blurEffectiveStartOffset: LengthMetrics.vp(0), <em>// 动态样式线性过渡的起始位置</em>
-          blurEffectiveEndOffset: LengthMetrics.vp(20) <em>// 动态样式线性过渡的终点位置</em>
+          scrollEffectType: ScrollEffectType.COMMON_BLUR, // 设置模糊类型
+          blurEffectiveStartOffset: LengthMetrics.vp(0), // 动态样式线性过渡的起始位置
+          blurEffectiveEndOffset: LengthMetrics.vp(20) // 动态样式线性过渡的终点位置
         },
         blurStrategy: BlurStrategy.ADAPTIVE,
         originalStyle: { backgroundStyle: { backgroundColor: '#00ffffff' } },
@@ -153,7 +153,7 @@ struct ExtensionToolBar {
               .fontWeight(FontWeight.Medium)
               .fontColor('#ffffff')
               .backgroundColor('#40000000')
-              .height('1320'); <em>// 使子组件的布局尺寸超过父组件的尺寸，内容可以滚动。</em>
+              .height('1320'); // 使子组件的布局尺寸超过父组件的尺寸，内容可以滚动。
           }
           .justifyContent(FlexAlign.Center)
           .padding({ top: 56, bottom: 56 });
@@ -165,7 +165,7 @@ struct ExtensionToolBar {
       .height('100%')
       .width('100%');
     }
-    .bindToScrollable([this.scroller])<em> // 绑定导航组件和可滚动容器组件</em>
+    .bindToScrollable([this.scroller]) // 绑定导航组件和可滚动容器组件
     .height('100%')
     .width('100%')
     .hideBackButton(true)
@@ -173,9 +173,9 @@ struct ExtensionToolBar {
       style: {
         scrollEffectOpts: {
           enableScrollEffect: true,
-          scrollEffectType: ScrollEffectType.COMMON_BLUR, <em>// 设置模糊类型</em>
-          blurEffectiveStartOffset: LengthMetrics.vp(0), <em>// 动态样式线性过渡的起始位置</em>
-          blurEffectiveEndOffset: LengthMetrics.vp(20) <em>// 动态样式线性过渡的终点位置</em>
+          scrollEffectType: ScrollEffectType.COMMON_BLUR, // 设置模糊类型
+          blurEffectiveStartOffset: LengthMetrics.vp(0), // 动态样式线性过渡的起始位置
+          blurEffectiveEndOffset: LengthMetrics.vp(20) // 动态样式线性过渡的终点位置
         },
         blurStrategy: BlurStrategy.ADAPTIVE,
         originalStyle: { backgroundStyle: { backgroundColor: '#00ffffff' } },
@@ -192,11 +192,11 @@ struct ExtensionToolBar {
       backgroundColor: '#00ffffff',
       backgroundBlurStyle: BlurStyle.Thin,
       backgroundBlurStyleOptions: {
-        policy: BlurStyleActivePolicy.FOLLOWS_WINDOW_ACTIVE_STATE, <em>// 模糊激活策略</em>
-        inactiveColor: '#00ffffff' <em>// 模糊不生效时使用的背景色</em>
+        policy: BlurStyleActivePolicy.FOLLOWS_WINDOW_ACTIVE_STATE, // 模糊激活策略
+        inactiveColor: '#00ffffff' // 模糊不生效时使用的背景色
       },
       hideItemValue: false,
-      barStyle: BarStyle.STACK <em>// 工具栏的布局样式采用层叠布局</em>
+      barStyle: BarStyle.STACK // 工具栏的布局样式采用层叠布局
     });
   }
 }
@@ -259,7 +259,7 @@ struct Index {
   @State currentIndex: number = 0;
 
 
-  <em>// 只绑定当前显示的scroller</em>
+  // 只绑定当前显示的scroller
   getCurScroll() {
     return this.tabList[this.currentIndex].scroller;
   }
@@ -274,7 +274,7 @@ struct Index {
               Text(`滚动条${index + 1}`)
                 .padding(16)
                 .fontSize(20)
-                .height(1320) <em>// 使子组件的布局尺寸超过父组件的尺寸，内容可以滚动。</em>
+                .height(1320) // 使子组件的布局尺寸超过父组件的尺寸，内容可以滚动。
                 .backgroundColor('#40000000');
             }
             .scrollBar(BarState.Off)
@@ -283,14 +283,14 @@ struct Index {
             .height('100%');
           }
           .tabBar(item.name)
-        <em>  // 保存滚动量</em>
+          // 保存滚动量
           .onWillHide(() => {
             const offset = item.scroller.currentOffset();
             item.offsetY = offset.yOffset;
           });
         });
       }
-    <em>  // 回复滚动量</em>
+      // 回复滚动量
       .onAnimationStart((index: number, targetIndex: number) => {
         console.info(`Succeeded in getting info.Index:${index},targetIndex:${targetIndex}.`);
         this.currentIndex = targetIndex;
@@ -300,16 +300,16 @@ struct Index {
         });
       });
     }
-  <em>  // 只绑定当前页面的scroller，避免互相干扰</em>
+    // 只绑定当前页面的scroller，避免互相干扰
     .bindToScrollable([this.getCurScroll()])
     .hideBackButton(true)
     .titleBar({
       style: {
         scrollEffectOpts: {
           enableScrollEffect: true,
-          scrollEffectType: ScrollEffectType.COMMON_BLUR, <em>// 设置模糊类型</em>
-          blurEffectiveStartOffset: LengthMetrics.vp(0), <em>/</em><em>/ 动态样式线性过渡的起始位置</em>
-          blurEffectiveEndOffset: LengthMetrics.vp(20) <em>// 动态样式线性过渡的终点位置</em>
+          scrollEffectType: ScrollEffectType.COMMON_BLUR, // 设置模糊类型
+          blurEffectiveStartOffset: LengthMetrics.vp(0), // 动态样式线性过渡的起始位置
+          blurEffectiveEndOffset: LengthMetrics.vp(20) // 动态样式线性过渡的终点位置
         },
         blurStrategy: BlurStrategy.ADAPTIVE,
         originalStyle: { backgroundStyle: { backgroundColor: '#00ffffff' } },

@@ -45,7 +45,7 @@
 struct ExampleText {
   @State strArr: Array<string> = [];
   @State urlArr: Array<string> = [];
-<em>  // 示例字符串</em>
+  // 示例字符串
   text: string = '这是一个网址：https://developer.huawei.com，还有一个网址：https://developer.huawei.org';
 
   aboutToAppear(): void {

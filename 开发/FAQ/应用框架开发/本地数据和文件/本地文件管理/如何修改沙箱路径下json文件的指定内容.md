@@ -9,7 +9,7 @@
 ```json
 import { fileIo } from '@kit.CoreFileKit';
 
-<em>// In the utility class, retrieve the Context from the Entry Ability and save it to AppStore, then use AppStore to retrieve it in the utility class</em>
+// In the utility class, retrieve the Context from the Entry Ability and save it to AppStore, then use AppStore to retrieve it in the utility class
 let context = AppStorage.get("context") as UIContext;
 let filePath = context.getHostContext()!.filesDir + '/people.json';
 
@@ -19,20 +19,20 @@ class Student {
 }
 
 let student = new Student();
-<em>// 1 Create a file and write its contents</em>
+// 1 Create a file and write its contents
 let file = fileIo.openSync(filePath, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);
 fileIo.writeSync(file.fd, JSON.stringify(student))
 fileIo.close(file);
-<em>// 2 Read the contents of the JSON file through fileIo.readSync.</em>
+// 2 Read the contents of the JSON file through fileIo.readSync.
 let data = fileIo.readTextSync(filePath);
 let obj: Student = JSON.parse(data);
-<em>// 3 Change the specified content name to lisi</em>
+// 3 Change the specified content name to lisi
 obj.name = 'lisi';
-<em>// 4 Rewrite JSON file</em>
+// 4 Rewrite JSON file
 let fileModify = fileIo.openSync(filePath, fileIo.OpenMode.WRITE_ONLY | fileIo.OpenMode.TRUNC);
 fileIo.writeSync(fileModify.fd, JSON.stringify(obj));
 fileIo.close(fileModify);
-<em>// 5 Read the latest content</em>
+// 5 Read the latest content
 let content = fileIo.readTextSync(filePath);
 console.info(`ModifySanFileContent content is :${content}`);
 ```

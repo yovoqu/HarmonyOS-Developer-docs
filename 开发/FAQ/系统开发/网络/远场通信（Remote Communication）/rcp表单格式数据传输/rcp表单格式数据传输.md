@@ -40,8 +40,8 @@ let paramsObject = new url.URLParams();
 
 2. 添加表单参数。
 ```text
-paramsObject.append('fod', '3'); <em>// 开发者自行设置参数</em>
-paramsObject.append('fed', '4'); <em>// 开发者自行设置参数</em>
+paramsObject.append('fod', '3'); // 开发者自行设置参数
+paramsObject.append('fed', '4'); // 开发者自行设置参数
 ```
 
 
@@ -72,20 +72,20 @@ session.get(urlWithParam).then((response) => {
 const simpleForm = new rcp.Form({
   'key1': 'value1',
   'key2': ['valueList0', 'valueList1'],
-}); <em>// 开发者自行设置参数</em>
+}); // 开发者自行设置参数
 ```
 
 
 2. 指定表单数据的传输顺序，部分服务端校验传输参数的顺序，顺序不对可能导致传输失败。
 ```text
-simpleForm.keys = ['key2', 'key1']; <em>// 开发者自行设置参数顺序</em>
+simpleForm.keys = ['key2', 'key1']; // 开发者自行设置参数顺序
 ```
 
 
 3. 新建会话发送表单数据多部分表单数据。
 ```json
 const session = rcp.createSession();
-session.post('xxx.xxx.xxx', simpleForm).then((response) => { <em>// 开发者自行设置请求地址</em>
+session.post('xxx.xxx.xxx', simpleForm).then((response) => { // 开发者自行设置请求地址
   console.info(`Succeeded in getting the response ${response}`);
 }).catch((err: BusinessError) => {
   console.error(`err: err code is ${err.code}, err message is ${JSON.stringify(err)}`);
@@ -117,17 +117,17 @@ let multiForm = new rcp.MultipartForm({
   'key1': 'value1',
   'key2': multiFormFieldValue,
   'key3': multiFormFieldValue
-}); <em>// 开发者自行设置参数</em>
+}); // 开发者自行设置参数
 ```
 
 4. 设置keys顺序用于指定多部分表单各部分传输顺序，不设置系统会随机生成传输顺序。
 ```text
-multiForm.keys = ['key3', 'key1', 'key2']; <em>// 开发者自行设置参数顺序</em>
+multiForm.keys = ['key3', 'key1', 'key2']; // 开发者自行设置参数顺序
 ```
 
 5. 自定义表单分隔符，如果不设置，系统使用随机字符串生成分隔符。
 ```text
-multiForm.boundary = '--MULTIPARTFORM BEGIN AND END BOUNDARY'; <em>// 开发者自行设置分隔符</em>
+multiForm.boundary = '--MULTIPARTFORM BEGIN AND END BOUNDARY'; // 开发者自行设置分隔符
 ```
 
  
@@ -148,10 +148,10 @@ import { url } from '@kit.ArkTS';
 
 async function getFileAssetsFromType(): Promise<string> {
   let photoPicker = new photoAccessHelper.PhotoViewPicker();
-  const photoSelectOptions = new photoAccessHelper.PhotoSelectOptions(); <em>// 创建图片-音频类型文件-预览的图库选项实例</em>
-  <em>// 选择媒体文件类型和选择媒体文件的最大数目</em>
-  photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE; <em>// 选择媒体文件类型为Image</em>
-  photoSelectOptions.maxSelectNumber = 1; <em>// 选择媒体文件的最大数目</em>
+  const photoSelectOptions = new photoAccessHelper.PhotoSelectOptions(); // 创建图片-音频类型文件-预览的图库选项实例
+  // 选择媒体文件类型和选择媒体文件的最大数目
+  photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE; // 选择媒体文件类型为Image
+  photoSelectOptions.maxSelectNumber = 1; // 选择媒体文件的最大数目
   photoSelectOptions.isEditSupported = true;
   photoSelectOptions.isOriginalSupported = true;
   let photoSelectResult: photoAccessHelper.PhotoSelectResult = await photoPicker.select(photoSelectOptions);
@@ -168,13 +168,13 @@ async function copyFileToSandBox(sandboxDir: string): Promise<string> {
     console.info('copyFileToSandBox 没有图片选中');
     return '';
   }
-  const fileName = uri.split('/').pop() || 'default.jpg'; <em>// 提取文件名</em>
+  const fileName = uri.split('/').pop() || 'default.jpg'; // 提取文件名
   console.info('沙箱路径:' + sandboxDir);
   console.info('选择图片文件名称:' + fileName);
   console.info('uris文件路径:' + uri);
-  let sandboxFilename = `${sandboxDir}/${fileName}`; <em>// 也可以直接使用沙箱路径字符串如：/data/storage/el2/base/files</em>
+  let sandboxFilename = `${sandboxDir}/${fileName}`; // 也可以直接使用沙箱路径字符串如：/data/storage/el2/base/files
   console.info('沙箱路径图片文件名:' + sandboxFilename);
-  const srcFile = fileIo.openSync(uri, fileIo.OpenMode.READ_ONLY); <em>// 复制文件到沙箱</em>
+  const srcFile = fileIo.openSync(uri, fileIo.OpenMode.READ_ONLY); // 复制文件到沙箱
   try {
     fileIo.copyFileSync(srcFile.fd, sandboxFilename);
   } catch (error) {
@@ -190,10 +190,10 @@ struct SimpleFormData {
   formDataMsg: string = 'requestContent传输表单';
 
   urlWithParamGetData() {
-    let baseUrl: string = 'xxx.xxx.xxx'; <em>// 开发者自行设置请求地址</em>
+    let baseUrl: string = 'xxx.xxx.xxx'; // 开发者自行设置请求地址
     let paramsObject = new url.URLParams();
-    paramsObject.append('fod', '3'); <em>// 开发者自行设置参数</em>
-    paramsObject.append('fed', '4'); <em>// 开发者自行设置参数</em>
+    paramsObject.append('fod', '3'); // 开发者自行设置参数
+    paramsObject.append('fed', '4'); // 开发者自行设置参数
     console.info('param: ' + paramsObject.toString());
     let urlWithParam = url.URL.parseURL('/get?' + paramsObject.toString(), baseUrl);
     console.info('url: ' + urlWithParam.toString());
@@ -209,10 +209,10 @@ struct SimpleFormData {
     const simpleForm = new rcp.Form({
       'key1': 'value1',
       'key2': ['valueList0', 'valueList1'],
-    }); <em>// 开发者自行设置参数</em>
-    simpleForm.keys = ['key2', 'key1']; <em>// 开发者自行设置参数顺序</em>
+    }); // 开发者自行设置参数
+    simpleForm.keys = ['key2', 'key1']; // 开发者自行设置参数顺序
     const session = rcp.createSession();
-    session.post('xxx.xxx.xxx', simpleForm).then((response) => { <em>// 开发者自行设置请求地址</em>
+    session.post('xxx.xxx.xxx', simpleForm).then((response) => { // 开发者自行设置请求地址
       console.info(`Succeeded in getting the response ${response}`);
     }).catch((err: BusinessError) => {
       console.error(`err: err code is ${err.code}, err message is ${JSON.stringify(err)}`);
@@ -260,7 +260,7 @@ struct MultiPartFormData {
   }
 
   uploadMultiPartFormFileForCommon(multiForm: rcp.MultipartForm) {
-    let req = new rcp.Request('xxx.xxx.xxx'); <em>// 需开发者自行配置请求地址</em>
+    let req = new rcp.Request('xxx.xxx.xxx'); // 需开发者自行配置请求地址
     req.content = multiForm;
     req.method = 'POST';
     try {
@@ -269,12 +269,12 @@ struct MultiPartFormData {
         console.info(`Response succeeded: ${JSON.stringify(resp)}`);
         session.close();
       }).catch((err: BusinessError) => {
-        <em>// 请求错误处理。</em>
+        // 请求错误处理。
         console.error(`Response err: Code is ${JSON.stringify(err.code)}, message is ${JSON.stringify(err)}`);
         session.close();
       });
     } catch (err) {
-      <em>// 创建会话错误处理。</em>
+      // 创建会话错误处理。
       console.error(`createSession err: Code is ${JSON.stringify(err.code)}, message is ${JSON.stringify(err)}`);
     }
   }
@@ -287,9 +287,9 @@ struct MultiPartFormData {
       'key1': 'value1',
       'key2': multiFormFieldValue,
       'key3': multiFormFieldValue
-    }); <em>// 开发者自行设置参数</em>
-    multiForm.keys = ['key3', 'key1', 'key2']; <em>// 开发者自行设置参数顺序</em>
-    multiForm.boundary = '--MULTIPARTFORM BEGIN AND END BOUNDARY'; <em>// 开发者自行设置分隔符</em>
+    }); // 开发者自行设置参数
+    multiForm.keys = ['key3', 'key1', 'key2']; // 开发者自行设置参数顺序
+    multiForm.boundary = '--MULTIPARTFORM BEGIN AND END BOUNDARY'; // 开发者自行设置分隔符
     this.uploadMultiPartFormFileForCommon(multiForm);
   }
 
@@ -314,7 +314,7 @@ struct FormDataTransfer {
   selectedFontColor: string = '#0A59F7';
   @State currentIndex: number = 0;
   @State selectedIndex: number = 0;
-  @State tabSelectedIndexes: number[] = [0]; <em>// SegmentButton默认选项</em>
+  @State tabSelectedIndexes: number[] = [0]; // SegmentButton默认选项
   @State tabOptions: SegmentButtonOptions = SegmentButtonOptions.tab({
     buttons: [{ text: '简单表单传输' }, { text: '多部分表单传输' },] as ItemRestriction<SegmentButtonTextItem>,
     backgroundColor: '#0d000000',
@@ -375,7 +375,7 @@ struct FormDataTransfer {
       .barWidth(360)
       .barHeight(0)
       .onChange((index: number) => {
-        <em>// currentIndex控制TabContent显示页签</em>
+        // currentIndex控制TabContent显示页签
         this.currentIndex = index;
         this.selectedIndex = index;
       })
@@ -384,7 +384,7 @@ struct FormDataTransfer {
           return;
         }
         console.info(`event currentOffset ${event.currentOffset}`);
-        <em>// selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
+        // selectedIndex控制自定义TabBar内Image和Text颜色切换
         this.selectedIndex = targetIndex;
       })
       .width('100%')

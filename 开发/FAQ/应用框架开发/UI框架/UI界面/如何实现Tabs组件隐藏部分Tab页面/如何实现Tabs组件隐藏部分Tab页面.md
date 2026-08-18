@@ -38,7 +38,7 @@ struct Index {
   private controller: TabsController = new TabsController();
   @State change: boolean = true;
 
- <em> // tabBar组件</em>
+  // tabBar组件
   @Builder
   tabBuilder(index: number, name: string) {
     RelativeContainer() {
@@ -99,7 +99,7 @@ struct Index {
           }
           .tabBar(this.tabBuilder(4, '页面五'));
         } else {
-         <em> // 当隐藏页面后需要保证TabContent页面的第一个参数Index连续</em>
+          // 当隐藏页面后需要保证TabContent页面的第一个参数Index连续
           TabContent() {
             Text('页面四');
           }

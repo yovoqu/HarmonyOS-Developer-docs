@@ -75,7 +75,7 @@ struct TextDecorationExample {
         .textAlign(TextAlign.Center)
         .decoration({
           type: TextDecorationType.LineThrough,
-         <em> // 状态为false时，设置装饰线颜色为透明</em>
+          // 状态为false时，设置装饰线颜色为透明
           color: this.selected ? Color.Black : '#00FFFFFF',
         })
         .onClick(() => {

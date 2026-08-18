@@ -27,11 +27,11 @@ struct TabsBarUnderlineSwitching {
           Column().width('100%').height('100%').backgroundColor(Color.Pink).borderRadius('12vp')
         }.tabBar(SubTabBarStyle.of('pink')
           .indicator({
-            color: this.indicatorColor, <em>// Underline color</em>
-            height: this.indicatorHeight, <em>// Underline height</em>
-            width: this.indicatorWidth, <em>// Underline width</em>
-            borderRadius: this.indicatorBorderRadius, <em>// Underline corner radius</em>
-            marginTop: this.indicatorSpace <em>// The spacing between underline and text</em>
+            color: this.indicatorColor, // Underline color
+            height: this.indicatorHeight, // Underline height
+            width: this.indicatorWidth, // Underline width
+            borderRadius: this.indicatorBorderRadius, // Underline corner radius
+            marginTop: this.indicatorSpace // The spacing between underline and text
           })
           .selectedMode(this.selectedMode)
           .board({ borderRadius: this.subTabBorderRadius })
@@ -43,11 +43,11 @@ struct TabsBarUnderlineSwitching {
           Column().width('100%').height('100%').backgroundColor(Color.Yellow).borderRadius('12vp')
         }.tabBar(SubTabBarStyle.of('yellow')
           .indicator({
-            color: this.indicatorColor, <em>// Underline color</em>
-            height: this.indicatorHeight,<em> // Underline height</em>
-            width: this.indicatorWidth, <em>// Underline width</em>
-            borderRadius: this.indicatorBorderRadius, <em>// Underline corner radius</em>
-            marginTop: this.indicatorSpace <em>// The spacing between underline and text</em>
+            color: this.indicatorColor, // Underline color
+            height: this.indicatorHeight, // Underline height
+            width: this.indicatorWidth, // Underline width
+            borderRadius: this.indicatorBorderRadius, // Underline corner radius
+            marginTop: this.indicatorSpace // The spacing between underline and text
           })
           .selectedMode(this.selectedMode)
           .board({ borderRadius: this.subTabBorderRadius })
@@ -59,11 +59,11 @@ struct TabsBarUnderlineSwitching {
           Column().width('100%').height('100%').backgroundColor(Color.Blue).borderRadius('12vp')
         }.tabBar(SubTabBarStyle.of('blue')
           .indicator({
-            color: this.indicatorColor, <em>// Underline color</em>
-            height: this.indicatorHeight,<em> // Underline height</em>
-            width: this.indicatorWidth, <em>// Underline width</em>
-            borderRadius: this.indicatorBorderRadius, <em>// Underline corner radius</em>
-            marginTop: this.indicatorSpace <em>// The spacing between underline and text</em>
+            color: this.indicatorColor, // Underline color
+            height: this.indicatorHeight, // Underline height
+            width: this.indicatorWidth, // Underline width
+            borderRadius: this.indicatorBorderRadius, // Underline corner radius
+            marginTop: this.indicatorSpace // The spacing between underline and text
           })
           .selectedMode(this.selectedMode)
           .board({ borderRadius: this.subTabBorderRadius })
@@ -75,11 +75,11 @@ struct TabsBarUnderlineSwitching {
           Column().width('100%').height('100%').backgroundColor(Color.Green).borderRadius('12vp')
         }.tabBar(SubTabBarStyle.of('green')
           .indicator({
-            color: this.indicatorColor, <em>// Underline color</em>
-            height: this.indicatorHeight, <em>// Underline height</em>
-            width: this.indicatorWidth, <em>// Underline width</em>
-            borderRadius: this.indicatorBorderRadius,<em> // Underline corner radius</em>
-            marginTop: this.indicatorSpace <em>// The spacing between underline and text</em>
+            color: this.indicatorColor, // Underline color
+            height: this.indicatorHeight, // Underline height
+            width: this.indicatorWidth, // Underline width
+            borderRadius: this.indicatorBorderRadius, // Underline corner radius
+            marginTop: this.indicatorSpace // The spacing between underline and text
           })
           .selectedMode(this.selectedMode)
           .board({ borderRadius: this.subTabBorderRadius })
@@ -91,11 +91,11 @@ struct TabsBarUnderlineSwitching {
           Column().width('100%').height('100%').backgroundColor(Color.Gray).borderRadius('12vp')
         }.tabBar(SubTabBarStyle.of('gray')
           .indicator({
-            color: this.indicatorColor, <em>// Underline color</em>
-            height: this.indicatorHeight, <em>// Underline height</em>
-            width: this.indicatorWidth, <em>// Underline width</em>
-            borderRadius: this.indicatorBorderRadius, <em>// Underline corner radius</em>
-            marginTop: this.indicatorSpace<em> // The spacing between underline and text</em>
+            color: this.indicatorColor, // Underline color
+            height: this.indicatorHeight, // Underline height
+            width: this.indicatorWidth, // Underline width
+            borderRadius: this.indicatorBorderRadius, // Underline corner radius
+            marginTop: this.indicatorSpace // The spacing between underline and text
           })
           .selectedMode(this.selectedMode)
           .board({ borderRadius: this.subTabBorderRadius })
@@ -107,11 +107,11 @@ struct TabsBarUnderlineSwitching {
           Column().width('100%').height('100%').backgroundColor(Color.Orange).borderRadius('12vp')
         }.tabBar(SubTabBarStyle.of('orange')
           .indicator({
-            color: this.indicatorColor, <em>// Underline color</em>
-            height: this.indicatorHeight, <em>// Underline height</em>
-            width: this.indicatorWidth,<em> // Underline width</em>
-            borderRadius: this.indicatorBorderRadius, <em>// Underline corner radius</em>
-            marginTop: this.indicatorSpace <em>// The spacing between underline and text</em>
+            color: this.indicatorColor, // Underline color
+            height: this.indicatorHeight, // Underline height
+            width: this.indicatorWidth, // Underline width
+            borderRadius: this.indicatorBorderRadius, // Underline corner radius
+            marginTop: this.indicatorSpace // The spacing between underline and text
           })
           .selectedMode(this.selectedMode)
           .board({ borderRadius: this.subTabBorderRadius })

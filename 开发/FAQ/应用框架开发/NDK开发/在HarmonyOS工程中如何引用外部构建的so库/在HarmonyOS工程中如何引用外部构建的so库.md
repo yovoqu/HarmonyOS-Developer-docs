@@ -71,7 +71,7 @@ function test() {
 
   
 ```text
-<em># 配置动态库，静态库配置方式一样，将.so文件改成.a文件即可</em>
+# 配置动态库，静态库配置方式一样，将.so文件改成.a文件即可
 target_link_libraries(entry PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/mytest/${OHOS_ARCH}/lib/libmytest.so)
 ```
 

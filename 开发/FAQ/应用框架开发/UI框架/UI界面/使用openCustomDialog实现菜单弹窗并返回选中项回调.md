@@ -39,23 +39,23 @@ export class CustomerPromptAction {
   static contentNode: ComponentContent<Object>;
   static options: promptAction.BaseDialogOptions;
 
- <em> // 定义方法，从外部传入上下文。</em>
+  // 定义方法，从外部传入上下文。
   static setContext(context: UIContext) {
     CustomerPromptAction.ctx = context;
   }
 
-<em>  // 配置内容节点。</em>
+  // 配置内容节点。
   static setContentNode(context: UIContext, para: Params[]) {
     let contentNode: ComponentContent<Object> = new ComponentContent(context, wrapBuilder(buildText), para);
     CustomerPromptAction.contentNode = contentNode;
   }
 
- <em> // 弹窗配置项。</em>
+  // 弹窗配置项。
   static setOptions(options: promptAction.BaseDialogOptions) {
     CustomerPromptAction.options = options;
   }
 
- <em> // 定义弹窗打开的方法。</em>
+  // 定义弹窗打开的方法。
   static openDialog(options: promptAction.BaseDialogOptions, context: UIContext, para: Params[]) {
     CustomerPromptAction.setContext(context);
     CustomerPromptAction.setContentNode(context, para);
@@ -70,7 +70,7 @@ export class CustomerPromptAction {
     }
   }
 
- <em> // 关闭弹窗。</em>
+  // 关闭弹窗。
   static closeDialog() {
     if (CustomerPromptAction.contentNode !== null) {
       CustomerPromptAction.ctx.getPromptAction()
@@ -102,7 +102,7 @@ export class Params {
 
 5. 定义接收菜单项选中回调的函数，根据返回的index处理逻辑。
 ```text
-<em>// </em><em>点击弹窗中按钮的回调，并根据返回的index判断逻辑。</em>
+// 点击弹窗中按钮的回调，并根据返回的index判断逻辑。
 callBack = (index: number) => {
   switch (index) {
     case 0:
@@ -183,23 +183,23 @@ export class CustomerPromptAction {
   static contentNode: ComponentContent<Object>;
   static options: promptAction.BaseDialogOptions;
 
-  <em>// </em><em>定义方法，从外部传入上下文。</em>
+  // 定义方法，从外部传入上下文。
   static setContext(context: UIContext) {
     CustomerPromptAction.ctx = context;
   }
 
- <em> // 配置内容节点。</em>
+  // 配置内容节点。
   static setContentNode(context: UIContext, para: Params[]) {
     let contentNode: ComponentContent<Object> = new ComponentContent(context, wrapBuilder(buildText), para);
     CustomerPromptAction.contentNode = contentNode;
   }
 
-<em>  // 弹窗配置项。</em>
+  // 弹窗配置项。
   static setOptions(options: promptAction.BaseDialogOptions) {
     CustomerPromptAction.options = options;
   }
 
-<em>  // 定义弹窗打开的方法。</em>
+  // 定义弹窗打开的方法。
   static openDialog(options: promptAction.BaseDialogOptions, context: UIContext, para: Params[]) {
     CustomerPromptAction.setContext(context);
     CustomerPromptAction.setContentNode(context, para);
@@ -214,7 +214,7 @@ export class CustomerPromptAction {
     }
   }
 
-  <em>// 关闭弹窗。</em>
+  // 关闭弹窗。
   static closeDialog() {
     if (CustomerPromptAction.contentNode !== null) {
       CustomerPromptAction.ctx.getPromptAction()
@@ -236,7 +236,7 @@ import { CustomerPromptAction } from './CustomerPromptAction';
 @Entry
 @Component
 struct Index {
-<em>  // 点击弹窗中按钮的回调，并根据返回的index判断逻辑。</em>
+  // 点击弹窗中按钮的回调，并根据返回的index判断逻辑。
   callBack = (index: number) => {
     switch (index) {
       case 0:
@@ -259,7 +259,7 @@ struct Index {
         break;
     }
   };
-  <em>// 初始化弹窗菜单的数据源。</em>
+  // 初始化弹窗菜单的数据源。
   @State arr: Params[] = [
     new Params('关闭', $r('app.media.startIcon'), this.callBack),
     new Params('刷新', $r('app.media.startIcon'), this.callBack),

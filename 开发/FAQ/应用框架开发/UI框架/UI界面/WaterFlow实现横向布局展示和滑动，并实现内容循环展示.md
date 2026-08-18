@@ -31,7 +31,7 @@ WaterFlow瀑布流默认是纵向布局展示，本方案实现横向布局展�
 FlowItem() {
   Column() {
     Text(`N${item}`).fontSize(12).height('16')
-   <em> // 存在对应的jpg文件才会显示图片</em>
+    // 存在对应的jpg文件才会显示图片
     Image(`res/waterFlowTest(${item % 5}).jpg`)
       .objectFit(ImageFit.Fill)
       .height('100%')
@@ -77,7 +77,7 @@ struct WaterFlowDemo {
   dataSource: WaterFlowDataSource = new WaterFlowDataSource();
   private itemWidthArray: number[] = [];
 
-  <em>// </em><em>设置FlowItem的宽/高数组</em>
+  // 设置FlowItem的宽/高数组
   setItemSizeArray() {
     for (let i = 0; i < 100; i++) {
       if (i === 0) {
@@ -98,7 +98,7 @@ struct WaterFlowDemo {
           FlowItem() {
             Column() {
               Text(`N${item}`).fontSize(12).height('16')
-            <em>  // 存在对应的jpg文件才会显示图片</em>
+              // 存在对应的jpg文件才会显示图片
               Image(`res/waterFlowTest(${item % 5}).jpg`)
                 .objectFit(ImageFit.Fill)
                 .height('100%')
@@ -118,7 +118,7 @@ struct WaterFlowDemo {
       .backgroundColor(0xFAEEE0)
       .width('100%')
       .height('100%')
-     <em> // 触底加载数据</em>
+      // 触底加载数据
       .onReachEnd(() => {
         console.info('onReachEnd');
         for (let i = 0; i < 100; i++) {
@@ -143,66 +143,66 @@ export class WaterFlowDataSource implements IDataSource {
     }
   }
 
- <em> // 获取索引对应的数据</em>
+  // 获取索引对应的数据
   public getData(index: number): number {
     return this.dataArray[index];
   }
 
- <em> // 通知控制器数据重新加载</em>
+  // 通知控制器数据重新加载
   notifyDataReload(): void {
     this.listeners.forEach(listener => {
       listener.onDataReloaded();
     });
   }
 
-  <em>// 通知控制器数据增加</em>
+  // 通知控制器数据增加
   notifyDataAdd(index: number): void {
     this.listeners.forEach(listener => {
       listener.onDataAdd(index);
     });
   }
 
- <em> // 通知控制器数据变化</em>
+  // 通知控制器数据变化
   notifyDataChange(index: number): void {
     this.listeners.forEach(listener => {
       listener.onDataChange(index);
     });
   }
 
-<em>  // 通知控制器数据删除</em>
+  // 通知控制器数据删除
   notifyDataDelete(index: number): void {
     this.listeners.forEach(listener => {
       listener.onDataDelete(index);
     });
   }
 
-<em>  // 通知控制器数据位置变化</em>
+  // 通知控制器数据位置变化
   notifyDataMove(from: number, to: number): void {
     this.listeners.forEach(listener => {
       listener.onDataMove(from, to);
     });
   }
 
- <em> // 通知控制器数据批量修改</em>
+  // 通知控制器数据批量修改
   notifyDatasetChange(operations: DataOperation[]): void {
     this.listeners.forEach(listener => {
       listener.onDatasetChange(operations);
     });
   }
 
-  <em>// 获取数据总数</em>
+  // 获取数据总数
   public totalCount(): number {
     return this.dataArray.length;
   }
 
- <em> // 注册改变数据的控制器</em>
+  // 注册改变数据的控制器
   registerDataChangeListener(listener: DataChangeListener): void {
     if (this.listeners.indexOf(listener) < 0) {
       this.listeners.push(listener);
     }
   }
 
-<em>  // 注销改变数据的控制器</em>
+  // 注销改变数据的控制器
   unregisterDataChangeListener(listener: DataChangeListener): void {
     const pos = this.listeners.indexOf(listener);
     if (pos >= 0) {
@@ -210,49 +210,49 @@ export class WaterFlowDataSource implements IDataSource {
     }
   }
 
- <em> // 增加数据</em>
+  // 增加数据
   public add1stItem(): void {
     this.dataArray.splice(0, 0, this.dataArray.length);
     this.notifyDataAdd(0);
   }
 
-<em>  // 在数据尾部增加一个元素</em>
+  // 在数据尾部增加一个元素
   public addLastItem(): void {
     this.dataArray.splice(this.dataArray.length, 0, this.dataArray.length);
     this.notifyDataAdd(this.dataArray.length - 1);
   }
 
- <em> // 在指定索引位置增加一个元素</em>
+  // 在指定索引位置增加一个元素
   public addItem(index: number): void {
     this.dataArray.splice(index, 0, this.dataArray.length);
     this.notifyDataAdd(index);
   }
 
- <em> // 删除第一个元素</em>
+  // 删除第一个元素
   public delete1stItem(): void {
     this.dataArray.splice(0, 1);
     this.notifyDataDelete(0);
   }
 
- <em> // 删除第二个元素</em>
+  // 删除第二个元素
   public delete2ndItem(): void {
     this.dataArray.splice(1, 1);
     this.notifyDataDelete(1);
   }
 
-  <em>// 删除最后一个元素</em>
+  // 删除最后一个元素
   public deleteLastItem(): void {
     this.dataArray.splice(-1, 1);
     this.notifyDataDelete(this.dataArray.length);
   }
 
- <em> // 在指定索引位置删除一个元素</em>
+  // 在指定索引位置删除一个元素
   public deleteItem(index: number): void {
     this.dataArray.splice(index, 1);
     this.notifyDataDelete(index);
   }
 
- <em> // 重新加载数据</em>
+  // 重新加载数据
   public reload(): void {
     this.dataArray.splice(1, 1);
     this.dataArray.splice(3, 2);

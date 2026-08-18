@@ -47,21 +47,21 @@ import { webview } from '@kit.ArkWeb';
 @Component
 struct Index {
   private webviewController: webview.WebviewController = new webview.WebviewController();
-  <em>// 此处地址实际使用过程中替换为真实地址</em>
+  // 此处地址实际使用过程中替换为真实地址
   private url = 'xx.xx.xx';
 
   build() {
     Column() {
       Web({
         src: '',
-        <em>// 将WebviewController绑定到Web组件</em>
+        // 将WebviewController绑定到Web组件
         controller: this.webviewController
       })
         .geolocationAccess(false)
         .fileAccess(false)
         .width('100%')
         .onControllerAttached(() => {
-          <em>// 当WebviewController成功绑定到Web组件时触发该回调，然后调用loadUrl方法加载页面和设置URL的附加HTTP请求头</em>
+          // 当WebviewController成功绑定到Web组件时触发该回调，然后调用loadUrl方法加载页面和设置URL的附加HTTP请求头
           this.webviewController.loadUrl(this.url, [{ headerKey: 'headerKey', headerValue: 'headerValue' }]);
         });
     }

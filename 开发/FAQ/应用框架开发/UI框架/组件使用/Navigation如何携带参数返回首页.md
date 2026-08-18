@@ -56,7 +56,7 @@ struct NavPopSolution {
         Button('跳转到PageOne', { stateEffect: true, type: ButtonType.Capsule })
           .onClick(() => {
             this.pathStack.pushPathByName('PageOne', '', (data) => {
-         <em>     // 用于页面出栈时触发该回调处理返回结果。</em>
+              // 用于页面出栈时触发该回调处理返回结果。
               this.message = JSON.stringify(data.result);
             });
           });
@@ -105,14 +105,14 @@ struct NavMainPageExample {
   pathStack: NavPathStack = new NavPathStack();
 
   aboutToAppear() {
-  <em>  // 将MainPage设置成自定义首页</em>
+    // 将MainPage设置成自定义首页
     this.pathStack.pushPathByName('MainPage', '', false);
-   <em> // 设置Navigation页面跳转拦截回调</em>
+    // 设置Navigation页面跳转拦截回调
     this.pathStack.setInterception({
       willShow: (from: NavDestinationContext | 'navBar', to: NavDestinationContext | 'navBar',
         operation: NavigationOperation, animated: boolean) => {
         console.info(`${from} ${to} ${operation} ${animated}`);
-      <em>  // 如果要返回到首页，就push名为MainPage的子页面</em>
+        // 如果要返回到首页，就push名为MainPage的子页面
         if (to === 'navBar') {
           this.pathStack.pushPathByName('MainPage', '', false);
         }
@@ -133,12 +133,12 @@ struct NavMainPageExample {
 
   build() {
     Navigation(this.pathStack) {
-    }.hideNavBar(true) <em>// 隐藏首页</em>
+    }.hideNavBar(true) // 隐藏首页
     .navDestination(this.pageMap);
   }
 }
 
-<em>// NavDestination</em><em>作为首页</em>
+// NavDestination作为首页
 @Component
 struct MainPage {
   @State message: string = '';
@@ -189,8 +189,8 @@ struct PageTwo {
       Column() {
         Button('携带参数回退首页', { stateEffect: true, type: ButtonType.Capsule })
           .onClick(() => {
-            this.pathStack.clear(); <em>// </em><em>清除路由栈</em>
-            this.pathStack.pushPath({ name: 'MainPage', param: 'context' });<em> </em><em>// 跳转到自定义首页</em>
+            this.pathStack.clear(); // 清除路由栈
+            this.pathStack.pushPath({ name: 'MainPage', param: 'context' }); // 跳转到自定义首页
           });
       };
     }.title('PageTwo')
@@ -221,14 +221,14 @@ struct EmitterSolution {
   @State message: emitter.EventData = {};
 
   aboutToAppear() {
-  <em>  // 监听back事件，获取参数</em>
+    // 监听back事件，获取参数
     emitter.on('back', (data) => {
       this.message = data;
     });
   }
 
   aboutToDisappear() {
-    emitter.off('back'); <em>// 取消监听</em>
+    emitter.off('back'); // 取消监听
   }
 
   @Builder
@@ -284,7 +284,7 @@ struct PageTwo {
           .onClick(() => {
             this.pathStack.clear();
             let eventData: emitter.EventData = { data: { 'content': 'c', 'id': '1' } };
-            emitter.emit('back', eventData);<em> </em><em>// 传递back事件给首页</em>
+            emitter.emit('back', eventData); // 传递back事件给首页
           });
       };
     }.title('pageTwo').onReady((context: NavDestinationContext) => {

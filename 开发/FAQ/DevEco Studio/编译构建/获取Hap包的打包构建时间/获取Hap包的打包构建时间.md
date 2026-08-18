@@ -23,43 +23,43 @@ Hvigor主要提供了两种方式来实现插件：[基于hvigorfile脚本开发
 afterNodeEvaluate回调函数中将构建时间手动插入到自定义的Json文件中，并保存到rawfile目录下，后续读取该文件，Hap模块下的hvigorfile.ts参考如下：
  
 ```json
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">hapTasks </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@ohos/hvigor-ohos-plugin'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">hvigor</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">HvigorNode</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">HvigorPlugin </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@ohos/hvigor'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">* </span>as <span style="color: rgb(0,0,255);">fs </span>from <span style="color: rgb(255,0,170);">'fs'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(0,0,255);">path </span>from <span style="color: rgb(255,0,170);">'path'</span><span style="color: rgb(181,106,1);">;</span>
+import { hapTasks } from '@ohos/hvigor-ohos-plugin';
+import { hvigor, HvigorNode, HvigorPlugin } from '@ohos/hvigor';
+import * as fs from 'fs';
+import path from 'path';
 
-export function <span style="color: rgb(0,0,255);">customPlugin</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HvigorPlugin </span><span style="color: rgb(255,0,170);">{</span>
-  return <span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">pluginId</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'customPlugin'</span><span style="color: rgb(181,106,1);">,</span>
-    async <span style="color: rgb(0,0,255);">apply</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">node</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HvigorNode</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-    <em>  <span style="color: rgb(128,128,128);">// node</span><span style="color: rgb(128,128,128);">评估后的回调函数</span></em>
-      <span style="color: rgb(0,0,255);">hvigor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">afterNodeEvaluate</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">hvigorNode</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">确保目录存在</span></em>
-        const <span style="color: rgb(0,0,255);">resourcesDir </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">join</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">__dirname</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'src/main/resources/rawfile'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">existsSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">resourcesDir</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mkdirSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">resourcesDir</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">recursive</span><span style="color: rgb(181,106,1);">: </span>true <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span>
-        <em>// </em><em><span style="color: rgb(128,128,128);">写入构建时间到</span><span style="color: rgb(128,128,128);">json</span><span style="color: rgb(128,128,128);">文件</span></em>
-        const <span style="color: rgb(0,0,255);">now </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Date</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        const <span style="color: rgb(0,0,255);">year </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getFullYear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        const <span style="color: rgb(0,0,255);">month </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getMonth</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padStart</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        const <span style="color: rgb(0,0,255);">date </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDate</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padStart</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        const <span style="color: rgb(0,0,255);">hours </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHours</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padStart</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        const <span style="color: rgb(0,0,255);">minutes </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getMinutes</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padStart</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        const <span style="color: rgb(0,0,255);">seconds </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">now</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getSeconds</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padStart</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        const <span style="color: rgb(0,0,255);">buildTime </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">year</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">-</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">month</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">-</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">date</span><span style="color: rgb(255,0,170);">} ${</span><span style="color: rgb(0,0,255);">hours</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">minutes</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">seconds</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
-        const <span style="color: rgb(0,0,255);">buildInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(255,0,170);">'buildTime'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">buildTime </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeFileSync</span><span style="color: rgb(0,0,255);">(</span>
-          <span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">join</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">resourcesDir</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'build_hap_info.json'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">buildInfo</span><span style="color: rgb(181,106,1);">, </span>null<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">)</span>
-<span style="color: rgb(0,0,255);">        )</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+export function customPlugin(): HvigorPlugin {
+  return {
+    pluginId: 'customPlugin',
+    async apply(node: HvigorNode): Promise<void> {
+      // node评估后的回调函数
+      hvigor.afterNodeEvaluate((hvigorNode) => {
+        // 确保目录存在
+        const resourcesDir = path.join(__dirname, 'src/main/resources/rawfile');
+        if (!fs.existsSync(resourcesDir)) {
+          fs.mkdirSync(resourcesDir, { recursive: true });
+        }
+        // 写入构建时间到json文件
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const date = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const buildTime = `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`;
+        const buildInfo = { 'buildTime': buildTime };
+        fs.writeFileSync(
+          path.join(resourcesDir, 'build_hap_info.json'),
+          JSON.stringify(buildInfo, null, 2)
+        );
+      })
+    }
+  };
+};
 
-export default <span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">system</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">hapTasks</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(0,0,255);">plugins</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">customPlugin</span><span style="color: rgb(0,0,255);">()]</span>
-<span style="color: rgb(255,0,170);">}</span>
+export default {
+  system: hapTasks,
+  plugins: [customPlugin()]
+}
 ```

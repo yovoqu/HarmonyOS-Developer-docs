@@ -40,7 +40,7 @@ HarmonyOS如何监听不同情况窗口生命周期变化，比如窗口失焦/�
  
 ```json
 onWindowStageCreate(windowStage: window.WindowStage): void {
- <em> // Main window is created, set main page for this ability</em>
+  // Main window is created, set main page for this ability
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
 
@@ -53,23 +53,23 @@ onWindowStageCreate(windowStage: window.WindowStage): void {
   });
 
 
- <em> // 监听windowStage生命周期变化</em>
+  // 监听windowStage生命周期变化
   try {
     windowStage.on('windowStageEvent', (data) => {
       let stageEventType: window.WindowStageEventType = data;
 
 
       switch (stageEventType) {
-        case window.WindowStageEventType.ACTIVE: <em>// 获焦状态</em>
+        case window.WindowStageEventType.ACTIVE: // 获焦状态
           console.info(`windowStage active.`);
           break;
-        case window.WindowStageEventType.INACTIVE: <em>// 失焦状态</em>
+        case window.WindowStageEventType.INACTIVE: // 失焦状态
           console.info(`windowStage inactive.`);
           break;
-        case window.WindowStageEventType.SHOWN: <em>// 切到前台</em>
+        case window.WindowStageEventType.SHOWN: // 切到前台
           console.info(`windowStage foreground.`);
           break;
-        case window.WindowStageEventType.HIDDEN: <em>// 切到后台</em>
+        case window.WindowStageEventType.HIDDEN: // 切到后台
           console.info(`windowStage background.`);
           break;
         default:
@@ -81,7 +81,7 @@ onWindowStageCreate(windowStage: window.WindowStage): void {
   }
 
 
-  <em>// 监听窗口生命周期变化</em>
+  // 监听窗口生命周期变化
   window.getLastWindow(this.context, (_, data) => {
     let windowClass = data;
     windowClass.on('windowEvent', (data) => {
@@ -89,16 +89,16 @@ onWindowStageCreate(windowStage: window.WindowStage): void {
 
 
       switch (winEventType){
-        case window.WindowEventType.WINDOW_ACTIVE: <em>// 获焦状态</em>
+        case window.WindowEventType.WINDOW_ACTIVE: // 获焦状态
           console.info(`window active.`);
           break;
-        case window.WindowEventType.WINDOW_INACTIVE: <em>// 失焦状态</em>
+        case window.WindowEventType.WINDOW_INACTIVE: // 失焦状态
           console.info(`window inactive.`);
           break;
-        case window.WindowEventType.WINDOW_SHOWN: <em>// 切到前台</em>
+        case window.WindowEventType.WINDOW_SHOWN: // 切到前台
           console.info(`window foreground.`);
           break;
-        case window.WindowEventType.WINDOW_HIDDEN: <em>// 切到后台</em>
+        case window.WindowEventType.WINDOW_HIDDEN: // 切到后台
           console.info(`window background.`);
           break;
         default:

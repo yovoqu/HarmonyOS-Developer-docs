@@ -16,7 +16,7 @@ import { display } from '@kit.ArkUI'
 @ComponentV2
 @Entry
 export struct CanvasInListComponent {
- <em> // 动画</em>
+  // 动画
   @Local radianTest: number = 0
   private settings: RenderingContextSettings = new RenderingContextSettings(true)
   private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)
@@ -47,7 +47,7 @@ export struct CanvasInListComponent {
     offContext.stroke()
     let image = this.offCanvas.transferToImageBitmap()
     this.context.transferFromImageBitmap(image)
-   <em> // 使用setTimeout模拟帧刷新</em>
+    // 使用setTimeout模拟帧刷新
     setTimeout(() => {
       this.radianTest = Number(this.radianTest + 0.005)
       if (this.radianTest > 1) {
@@ -137,13 +137,13 @@ import { display } from '@kit.ArkUI';
 @ComponentV2
 @Entry
 struct DrawWithScreen {
-  <em>// </em><em>动画</em>
+  // 动画
   @Local radianTest: number = 0;
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
   private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
   private offCanvas: OffscreenCanvas = new OffscreenCanvas(600, 600);
   canvasTest = (): void => {
-   <em> // 原先的离屏绘制改为在屏绘制</em>
+    // 原先的离屏绘制改为在屏绘制
     let ctx = this.context;
     ctx.reset();
     ctx.lineCap = 'round';
@@ -168,7 +168,7 @@ struct DrawWithScreen {
     );
     ctx.strokeStyle = '#337DFF';
     ctx.stroke();
-   <em> // 使用setTimeout模拟帧刷新</em>
+    // 使用setTimeout模拟帧刷新
     setTimeout(() => {
       this.radianTest = Number(this.radianTest + 0.05);
       if (this.radianTest > 1) {

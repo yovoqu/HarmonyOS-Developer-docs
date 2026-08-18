@@ -51,14 +51,14 @@ class MyNavPathStack extends NavPathStack {
       return;
     }
     let info = remove[0];
-    info.onPop?.({ info: info, result: result }); <em>// </em><em>调用onPop回调</em>
+    info.onPop?.({ info: info, result: result }); // 调用onPop回调
   }
 }
 ```
 
 - 页面跳转逻辑代码如下：
 ```json
-<em>// </em><em>页面间传递的参数类型</em>
+// 页面间传递的参数类型
 class PageParams {
   name = '';
   remove = '';
@@ -106,7 +106,7 @@ struct PageA {
         Text(`当前页面：` + this.param.name);
         Text(`待移除id：` + (this.param.remove || '-'));
         Button('开启监听并跳转').onClick(() => {
-        <em>  // 跳转PageB页面并设置onPop回调</em>
+          // 跳转PageB页面并设置onPop回调
           this.pathStack.pushPath({
             name: 'PageB', param: new PageParams('B'), onPop: (res) => {
               console.info('A页面触发移除方法');
@@ -135,7 +135,7 @@ struct PageB {
         Text(`当前页面：` + this.param.name);
         Text(`待移除id：` + (this.param.remove || '-'));
         Button('跳转页面C').onClick(() => {
-          <em>// </em><em>跳转PageC页面并传递PageB的navDestinationId</em>
+          // 跳转PageC页面并传递PageB的navDestinationId
           this.pathStack.pushPath({ name: 'PageC', param: new PageParams('C', this.navDestinationId) });
         });
       };
@@ -159,7 +159,7 @@ struct PageC {
         Text(`待移除id：` + (this.param.remove || '-'));
         if (this.param.remove) {
           Button('移除上一页面').onClick(() => {
-       <em>     // 移除PageB页面，需要设置传递的参数，否则onPop回调不会触发</em>
+            // 移除PageB页面，需要设置传递的参数，否则onPop回调不会触发
             this.pathStack.removeByNavDestinationId(this.param.remove, new PageParams());
           });
         }

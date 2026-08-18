@@ -61,19 +61,19 @@ export class OptionTwoCommonModel {
   }
 
 
- <em> // 替换通讯录</em>
+  // 替换通讯录
   init(users: OptionTwoUsers) {
     this.users.userArr = users.userArr;
   }
 
 
-<em>  // 增加联系人</em>
+  // 增加联系人
   add(detail: OptionTwoDetail) {
     this.users.userArr.push(detail);
   }
 
 
- <em> // 返回通讯录单例</em>
+  // 返回通讯录单例
   getUser() {
     return this.users;
   }
@@ -145,13 +145,13 @@ import { OptionTwoCommonModel, OptionTwoUsers } from './OptionTwoSingleViewModel
 @Entry
 @ComponentV2
 struct OptionTwoPageB {
-  @Local user: OptionTwoUsers = OptionTwoCommonModel.instance.getUser(); <em>// 获取单例User</em>
+  @Local user: OptionTwoUsers = OptionTwoCommonModel.instance.getUser(); // 获取单例User
   @Local userIndex: number = 0;
 
 
   aboutToAppear(): void {
     let param = this.getUIContext().getRouter().getParams() as Param;
-    this.userIndex = param.index; <em>// 获取点击跳转item的索引位置</em>
+    this.userIndex = param.index; // 获取点击跳转item的索引位置
   }
 
 
@@ -170,7 +170,7 @@ struct OptionTwoPageB {
         text: this.user.userArr[this.userIndex].callNumber!!,
         placeholder: '请输入电话号码'
       })
-        .width('90%'); <em>// 未限制只能输入数字，可自行添加限制</em>
+        .width('90%'); // 未限制只能输入数字，可自行添加限制
       Button('修改完成点击返回')
         .margin({ top: 20 })
         .onClick(() => {
@@ -299,7 +299,7 @@ struct OptionThreePageB {
 
   aboutToAppear(): void {
     let param = this.getUIContext().getRouter().getParams() as Param;
-    this.userIndex = param.index; <em>// 获取点击跳转item的索引位置</em>
+    this.userIndex = param.index; // 获取点击跳转item的索引位置
   }
 
 
@@ -318,7 +318,7 @@ struct OptionThreePageB {
         text: this.user.userArr[this.userIndex].callNumber!!,
         placeholder: '请输入电话号码'
       })
-        .width('90%'); <em>// 未限制只能输入数字，可自行添加限制</em>
+        .width('90%'); // 未限制只能输入数字，可自行添加限制
       Button('修改完成点击返回')
         .margin({ top: 20 })
         .onClick(() => {

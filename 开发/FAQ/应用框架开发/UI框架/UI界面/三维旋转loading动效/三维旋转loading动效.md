@@ -68,7 +68,7 @@ struct RotatingAnimationDemo {
   onDidBuild(): void {
     this.getUIContext()?.animateTo({
       duration: 2000,
-    <em>  // 动画播放次数，设置为-1时表示无限次播放</em>
+      // 动画播放次数，设置为-1时表示无限次播放
       iterations: -1,
       curve: Curve.Linear
     }, () => {
@@ -106,13 +106,13 @@ struct RotatingAnimationDemo {
       .height(190)
       .border({ width: { bottom: 8 }, color: 'rgb(255, 65, 106)', style: BorderStyle.Solid })
       .borderRadius(90)
-     <em> // 设置组件的旋转参数</em>
+      // 设置组件的旋转参数
       .rotate({
-        x: 20, <em>// 旋转轴向量x坐标</em>
-        y: 50, <em>// 旋转轴向量y坐标</em>
+        x: 20, // 旋转轴向量x坐标
+        y: 50, // 旋转轴向量y坐标
         z: this.twonumZ,
-        angle: this.twonum, <em>// 旋转角度</em>
-        centerX: 80,<em> // 变换中心点x轴坐标</em>
+        angle: this.twonum, // 旋转角度
+        centerX: 80, // 变换中心点x轴坐标
         centerY: 80,
       });
 

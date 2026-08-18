@@ -69,42 +69,42 @@
 import { securityAudit } from '@kit.DeviceSecurityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-<em>// ...</em>
+// ...
 
 let callback = (err: BusinessError, auditEventInfo: securityAudit.AuditEventInfo) => {
   if (err) {
     console.error(`Receive audit event error, code: ${err.code}, message: ${err.message}`);
     return;
   }
-  <em>// 根据事件ID分发到不同的处理逻辑</em>
+  // 根据事件ID分发到不同的处理逻辑
   if (auditEventInfo.eventId === 'FILE_AUDIT_EVENT_ID') {
-    <em>// To do handle file audit event.</em>
+    // To do handle file audit event.
     console.info('Received file audit event.');
   } else if (auditEventInfo.eventId === 'PRINT_AUDIT_EVENT_ID') {
-    <em>// To do handle print audit event.</em>
+    // To do handle print audit event.
     console.info('Received print audit event.');
   } else {
-    <em>// To do handle other audit events.</em>
+    // To do handle other audit events.
     console.info('Received other audit event.');
   }
 };
 
 try {
-  <em>// 复用同一个client传入多个需要订阅的事件ID</em>
+  // 复用同一个client传入多个需要订阅的事件ID
   securityAudit.on('auditEvent', ['FILE_AUDIT_EVENT_ID', 'PRINT_AUDIT_EVENT_ID'], callback);
 } catch (err) {
   let error = err as BusinessError;
   console.error(`Subscribe audit event failed, code: ${error.code}, message: ${error.message}`);
 }
 
-<em>// ...</em>
+// ...
 ```
 
 - 问题三：在监听阻断类事件前，先添加一个排除其他事件的filter，再添加需要监听的事件。示例代码如下：
 ```text
 import { securityAudit } from '@kit.DeviceSecurityKit';
 
-<em>// 先添加过滤其他事件的filter</em>
+// 先添加过滤其他事件的filter
 let all_filter: securityAudit.Filter = {
   type: securityAudit.FilterType.FILE_PATH_PREFIX,
   isInclude: false,
@@ -112,7 +112,7 @@ let all_filter: securityAudit.Filter = {
 };
 securityAudit.addFilter(all_filter);
 
-<em>// 再添加需要监听的事件filter</em>
+// 再添加需要监听的事件filter
 let target_filter: securityAudit.Filter = {
   type: securityAudit.FilterType.PROCESS_NAME_EQUAL,
   isInclude: true,
@@ -127,8 +127,8 @@ securityAudit.addFilter(target_filter);
 #include "hilog/log.h"
 #undef LOG_DOMAIN
 #undef LOG_TAG
-#define LOG_DOMAIN 0x3200 <em>// Global domain macro</em>
-#define LOG_TAG "MY_TAG"  <em>// Global tag macro</em>
+#define LOG_DOMAIN 0x3200 // Global domain macro
+#define LOG_TAG "MY_TAG"  // Global tag macro
 #include "DeviceSecurityKit/security_audit.h"
 
 SecurityAudit_AuthClient* client = nullptr;
@@ -139,7 +139,7 @@ void sec_handler(const SecurityAudit_Event *events, uint64_t count) {
     }
     OH_LOG_INFO(LOG_APP, "sec_handler %{public}lu %{private}s", count, events->content);
     if (count > 0) {
-        <em>// 默认放通，如需审计敏感信息并决定是否阻断，建议另起线程处理</em>
+        // 默认放通，如需审计敏感信息并决定是否阻断，建议另起线程处理
         HMS_SecurityAudit_Auth(client, events, SECURITY_AUDIT_AUTH_RESULT_ALLOW);
     }
     return;
@@ -147,7 +147,7 @@ void sec_handler(const SecurityAudit_Event *events, uint64_t count) {
 
 void NewAuthClient(napi_env env, napi_callback_info info) {
     if (canIUse("SystemCapability.Security.SecurityAudit")) {
-        <em>// 释放已有client，避免句柄泄漏</em>
+        // 释放已有client，避免句柄泄漏
         if (client != nullptr) {
             HMS_SecurityAudit_DestroyAuthClient(client);
             client = nullptr;
@@ -201,18 +201,18 @@ void NewAuthClient(napi_env env, napi_callback_info info) {
 ```json
 {
   "content": {
-    "bundleName": "%s", <em>// 应用包名</em>
-    "callingBundleName": "%s", <em>// 调用方应用包名</em>
-    "callingUid": %d, <em>// 调用方uid</em>
-    "timestamp_utc": %d <em>// 事件发生时间戳</em>
+    "bundleName": "%s", // 应用包名
+    "callingBundleName": "%s", // 调用方应用包名
+    "callingUid": %d, // 调用方uid
+    "timestamp_utc": %d // 事件发生时间戳
   },
-  "eventId": %d, <em>// 事件id</em>
+  "eventId": %d, // 事件id
   "metadata": {
-    "version": "%s", <em>// 元数据版本（空值未指定）</em>
-    "date": "%s", <em>// 事件日期（空值未指定）</em>
-    "deviceId": "%s", <em>// 设备标识符（空值未指定）</em>
-    "userId": %d, <em>// 关联用户ID（1为系统默认）</em>
-    "eventType": %d <em>// 本事件分类（1代表阻断类事件，0代表通知类事件）</em>
+    "version": "%s", // 元数据版本（空值未指定）
+    "date": "%s", // 事件日期（空值未指定）
+    "deviceId": "%s", // 设备标识符（空值未指定）
+    "userId": %d, // 关联用户ID（1为系统默认）
+    "eventType": %d // 本事件分类（1代表阻断类事件，0代表通知类事件）
   }
 }
 ```

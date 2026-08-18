@@ -12,7 +12,7 @@
 
   
 ```text
-<em>// 代码中引入的MyDataSource在解决方案中说明</em>
+// 代码中引入的MyDataSource在解决方案中说明
 import { MyDataSource } from '../common/data';
 
 class Product {
@@ -35,7 +35,7 @@ struct KeyDemoOne {
   private data: MyDataSource<Product> = new MyDataSource<Product>();
 
   aboutToAppear(): void {
-   <em> // 请求数据模拟</em>
+    // 请求数据模拟
     for (let i = 0; i < 100; i++) {
       let str: string = (i % 2 == 0) ? '限部分商品使用' : '全场可用';
       let product: Product = new Product(i, `满${i * 10}元立减`, str, `${i}天内有效`);
@@ -96,7 +96,7 @@ struct KeyDemoOne {
 
   
 ```text
-<em>// 代码中引入的MyDataSource在解决方案中说明</em>
+// 代码中引入的MyDataSource在解决方案中说明
 import { MyDataSource } from '../common/data';
 
 class Product {
@@ -121,9 +121,9 @@ struct KeyDemoTwo {
   private data: MyDataSource<Product> = new MyDataSource<Product>();
 
   aboutToAppear(): void {
-    <em>// 请求数据模拟</em>
+    // 请求数据模拟
     for (let i = 0; i < 100; i++) {
-      let id = i.toString(); <em>// 设置一个唯一的id，实际业务中可以使用其他唯一值作为键值</em>
+      let id = i.toString(); // 设置一个唯一的id，实际业务中可以使用其他唯一值作为键值
       let str: string = (i % 2 == 0) ? '限部分商品使用' : '全场可用';
       let product: Product = new Product(i, `满${i * 10}元立减`, str, `${i}天内有效`, id);
       this.data.pushData(product);
@@ -178,7 +178,7 @@ struct KeyDemoTwo {
               .backgroundColor('#f1f2f3');
             };
           };
-        }, (item: Product) => item.id); <em>// 使用唯一值作为键值</em>
+        }, (item: Product) => item.id); // 使用唯一值作为键值
       };
     }
     .width('100%')
@@ -253,9 +253,9 @@ struct KeyDemoOne {
   private data: MyDataSource<Product> = new MyDataSource<Product>();
 
   aboutToAppear(): void {
-  <em>  // 请求数据模拟</em>
+    // 请求数据模拟
     for (let i = 0; i < 100; i++) {
-      let id = i.toString();<em> // 设置一个唯一的id，实际业务中可以使用其他唯一值作为键值</em>
+      let id = i.toString(); // 设置一个唯一的id，实际业务中可以使用其他唯一值作为键值
       let str: string = (i % 2 == 0) ? '限部分商品使用' : '全场可用';
       let product: Product = new Product(i, `满${i * 10}元立减`, str, `${i}天内有效`, id);
       this.data.pushData(product);
@@ -301,7 +301,7 @@ struct KeyDemoOne {
               .backgroundColor('#f1f2f3');
             };
           };
-        }, (item: Product) => item.id);<em> // 使用唯一值作为键值</em>
+        }, (item: Product) => item.id); // 使用唯一值作为键值
       };
     }
     .width('100%')
@@ -340,9 +340,9 @@ struct KeyDemoTwo {
   private counter: number = 0;
 
   aboutToAppear(): void {
-  <em>  // 请求数据模拟</em>
+    // 请求数据模拟
     for (let i = 0; i < 100; i++) {
-      let id = i.toString();<em> // 设置一个唯一的id，实际业务中可以使用其他唯一值作为键值</em>
+      let id = i.toString(); // 设置一个唯一的id，实际业务中可以使用其他唯一值作为键值
       let str: string = (i % 2 == 0) ? '限部分商品使用' : '全场可用';
       let product: Product = new Product(i, `满${i * 10}元立减`, str, `${i}天内有效`, id);
       this.data.pushData(product);
@@ -397,7 +397,7 @@ struct KeyDemoTwo {
               .backgroundColor('#f1f2f3');
             };
           };
-        }, (item: Product) => item.id + item.title);<em> // 可以根据实际业务设置，让键值随数据修改变化</em>
+        }, (item: Product) => item.id + item.title); // 可以根据实际业务设置，让键值随数据修改变化
       };
     }
     .width('100%')
@@ -474,7 +474,7 @@ class BasicDataSource<T> implements IDataSource {
   }
 }
 
-<em>// LazyForEach的数据源需要实现IDataSource接口</em>
+// LazyForEach的数据源需要实现IDataSource接口
 export class MyDataSource<T> extends BasicDataSource<T> {
   private dataArray: T[] = [];
 

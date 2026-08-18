@@ -86,7 +86,7 @@ struct MyComponent {
   private color: string = '';
 
   aboutToAppear(): void {
-    console.info(`aboutToAppear backgroundColor: ${this.color}`); <em>// 通过打印日志可以观察到没有加载中间页面</em>
+    console.info(`aboutToAppear backgroundColor: ${this.color}`); // 通过打印日志可以观察到没有加载中间页面
   }
 
   aboutToDisappear(): void {

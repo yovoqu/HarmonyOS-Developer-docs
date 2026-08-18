@@ -32,8 +32,8 @@ class DataBean {
 
 let json = `{"code":0,"msg":"success"}`
 let dataBean = JSON.parse(json) as DataBean
-hilog.info(0xFF, "[class-transformer]", dataBean.msg) <em>// success</em>
-hilog.info(0xFF, "[class-transformer]", `${dataBean.isOk()}`) /<em>/ 报错：Error message:undefined is not callable</em>
+hilog.info(0xFF, "[class-transformer]", dataBean.msg) // success
+hilog.info(0xFF, "[class-transformer]", `${dataBean.isOk()}`) // 报错：Error message:undefined is not callable
 ```
  这个主要是因为没有通过构造函数生成对象，用JSON.parse()获得的对象字面量没有对应的[原型链](https://developer.huawei.com/consumer/cn/forum/topic/0201271808808150103?fid=23)，调用不了类方法。
 2. 出于上述原因，有开发者开发出了[class-transformer工具库](https://ohpm.openharmony.cn/#/cn/detail/class-transformer-arkts)，并提供方法可以通过传入类的构造函数和对应的JSON数据直接构造出对应的类对象，在代码写法上比从JSON对象字面量取值后再去调用类的构造函数方便许多。class-transformer常见的转换对象用法如下：**plainToInstance**：
@@ -43,7 +43,7 @@ hilog.info(0xFF, "[class-transformer]", `${dataBean.isOk()}`) /<em>/ 报错：Er
   
 ```json
 import { plainToInstance } from 'class-transformer';
-let users = plainToInstance(User, userJson); <em>// 将用户纯对象转换为单个用户。还支持数组</em>
+let users = plainToInstance(User, userJson); // 将用户纯对象转换为单个用户。还支持数组
 ```
  **instanceToPlain**：
 
@@ -83,8 +83,8 @@ export class Data {
 
 let json = '{"data":{"name":"张三","age":18}}'
 let bean = plainToInstance(Bean, JSON.parse(json))
-<em>// bean.data就是一个实实在在的Data对象，可以调用getName()方法</em>
-hilog.info(0xFF, "[class-transformer]", `name:${bean.data?.getName()}`)<em> // name:张三</em>
+// bean.data就是一个实实在在的Data对象，可以调用getName()方法
+hilog.info(0xFF, "[class-transformer]", `name:${bean.data?.getName()}`) // name:张三
 ```
 
  
@@ -111,7 +111,7 @@ hilog.info(0xFF, "[class-transformer]", `name:${bean.data?.getName()}`)<em> // n
 ```json
 import { plainToInstance, Type as ClzTransType } from 'class-transformer';
 import { hilog } from '@kit.PerformanceAnalysisKit';
-import 'reflect-metadata'; <em>// 需要在ohpm中下载并引入该库，否则class-transformer的@Type会运行错误</em>
+import 'reflect-metadata'; // 需要在ohpm中下载并引入该库，否则class-transformer的@Type会运行错误
 
 
 class User {
@@ -133,7 +133,7 @@ class RUser {
 }
 let json = '{"sex":0,"user":{"name":"张三"}}';
 let rUser = plainToInstance(RUser, JSON.parse(json));
-hilog.info(0xFF, "[class-transformer]", `name: ${rUser.user?.getName()}`); <em>// name:张三</em>
+hilog.info(0xFF, "[class-transformer]", `name: ${rUser.user?.getName()}`); // name:张三
 ```
  
 **依赖引入：**

@@ -64,7 +64,7 @@ workerPort.onmessage = (e: MessageEvents): void => {
     for (let i = 1; i < length; i++) {
       i32a[i] = Math.random() * length;
     }
-    Atomics.notify(i32a, 0, 1); <em>// notify customer</em>
+    Atomics.notify(i32a, 0, 1); // notify customer
   }, 2000);
 }
 ```

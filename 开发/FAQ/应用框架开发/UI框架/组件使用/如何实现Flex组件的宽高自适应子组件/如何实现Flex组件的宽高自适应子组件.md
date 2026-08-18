@@ -104,7 +104,7 @@ struct FlexExample2 {
 @Entry
 @Component
 struct FlexExample3 {
-  @State flexHeight: number | string = '100%'; <em>// 默认情况主轴占满</em>
+  @State flexHeight: number | string = '100%'; // 默认情况主轴占满
 
   build() {
     Column({ space: 10 }) {
@@ -115,8 +115,8 @@ struct FlexExample3 {
           .textAlign(TextAlign.Center)
           .borderRadius(30)
           .padding(20)
-          .onSizeChange((oldSize, newSize) => { <em>// 也可以使用onAreaChange</em>
-            this.flexHeight = newSize.height as number; <em>// 获取子组件高</em>
+          .onSizeChange((oldSize, newSize) => { // 也可以使用onAreaChange
+            this.flexHeight = newSize.height as number; // 获取子组件高
           });
       }
       .backgroundColor('#f1f3f5')
@@ -140,7 +140,7 @@ struct FlexExample3 {
 @Entry
 @Component
 struct FlexExample4 {
-  @State flexWidth: number | string = '100%';<em> // 默认情况主轴占满</em>
+  @State flexWidth: number | string = '100%'; // 默认情况主轴占满
 
   build() {
     Column({ space: 10 }) {
@@ -151,8 +151,8 @@ struct FlexExample4 {
           .textAlign(TextAlign.Center)
           .borderRadius(30)
           .padding(20)
-          .onSizeChange((oldSize, newSize) => { <em>// 也可以使用onAreaChange</em>
-            this.flexWidth = newSize.width as number;<em> // 获取子组件宽</em>
+          .onSizeChange((oldSize, newSize) => { // 也可以使用onAreaChange
+            this.flexWidth = newSize.width as number; // 获取子组件宽
           });
       }
       .backgroundColor('#f1f3f5')

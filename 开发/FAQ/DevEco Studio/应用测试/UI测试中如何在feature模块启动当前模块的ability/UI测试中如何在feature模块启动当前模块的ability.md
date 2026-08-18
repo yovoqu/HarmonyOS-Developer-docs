@@ -38,37 +38,37 @@ UI测试框架（UITest）为开发者提供UI界面查找和模拟操作能力�
 
 3. 在feature\src\ohosTest\ets\test\Ability.test.ets编写测试用例启动测试页面，代码示例如下：
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">describe</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">it</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">expect </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@ohos/hypium'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">abilityDelegatorRegistry </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.TestKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">Want </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { describe, it, expect } from '@ohos/hypium';
+import { abilityDelegatorRegistry } from '@kit.TestKit';
+import { Want } from '@kit.AbilityKit';
 
-const <span style="color: rgb(0,0,255);">delegator</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">abilityDelegatorRegistry</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AbilityDelegator </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">abilityDelegatorRegistry</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getAbilityDelegator</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-const <span style="color: rgb(0,0,255);">bundleName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">abilityDelegatorRegistry</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getArguments</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">bundleName</span><span style="color: rgb(181,106,1);">;</span>
+const delegator: abilityDelegatorRegistry.AbilityDelegator = abilityDelegatorRegistry.getAbilityDelegator();
+const bundleName = abilityDelegatorRegistry.getArguments().bundleName;
 
-function <span style="color: rgb(0,0,255);">sleep</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">time</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-  return new <span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Function</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">setTimeout</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">resolve</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">time</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+function sleep(time: number) {
+  return new Promise<void>((resolve: Function) => setTimeout(resolve, time));
+}
 
-export default function <span style="color: rgb(0,0,255);">abilityTest</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">describe</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'AbilityTest'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+export default function abilityTest() {
+  describe('AbilityTest', () => {
 
-    <span style="color: rgb(0,0,255);">it</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'testStartFeatureTest'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span>async <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">done</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Function</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-      const <span style="color: rgb(0,0,255);">want</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Want </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">bundleName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">bundleName</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(0,0,255);">abilityName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'FeatureAbility'</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
-      try <span style="color: rgb(255,0,170);">{</span>
-        await <span style="color: rgb(0,0,255);">delegator</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startAbility</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">want</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        await <span style="color: rgb(0,0,255);">sleep</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1000</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    it('testStartFeatureTest', 0, async (done: Function) => {
+      const want: Want = {
+        bundleName: bundleName,
+        abilityName: 'FeatureAbility'
+      };
+      try {
+        await delegator.startAbility(want);
+        await sleep(1000);
 
-        const <span style="color: rgb(0,0,255);">ability </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">delegator</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getCurrentTopAbility</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(0,0,255);">expect</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ability</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">abilityInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">assertEqual</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'FeatureAbility'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        const ability = await delegator.getCurrentTopAbility();
+        expect(ability.context.abilityInfo.name).assertEqual('FeatureAbility');
 
-        <span style="color: rgb(0,0,255);">done</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`startAbility error. Code is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">.`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+        done();
+      } catch (error) {
+        console.error(`startAbility error. Code is ${error.code}, message is ${error.message}.`);
+      }
+    });
+  });
+}
 ```

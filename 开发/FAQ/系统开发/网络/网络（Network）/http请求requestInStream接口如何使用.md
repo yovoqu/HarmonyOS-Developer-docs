@@ -34,18 +34,18 @@ class Header {
 function createAndRequest() {
   let httpRequest = http.createHttp();
   let options: http.HttpRequestOptions = {
-    method: http.RequestMethod.POST, <em>// 可选，默认为http.RequestMethod.GET。</em>
-  <em>  // 当使用POST请求时此字段用于传递请求体内容，具体格式与服务端协商确定。</em>
+    method: http.RequestMethod.POST, // 可选，默认为http.RequestMethod.GET。
+    // 当使用POST请求时此字段用于传递请求体内容，具体格式与服务端协商确定。
     extraData: 'data to send',
-    expectDataType: http.HttpDataType.STRING, <em>// 可选，指定返回数据的类型。</em>
-    usingCache: true,<em> </em><em>// 可选，默认为true。</em>
-    priority: 1,<em> </em><em>// 可选，默认为1。</em>
-   <em> // 开发者根据自身业务需要添加header字段。</em>
+    expectDataType: http.HttpDataType.STRING, // 可选，指定返回数据的类型。
+    usingCache: true, // 可选，默认为true。
+    priority: 1, // 可选，默认为1。
+    // 开发者根据自身业务需要添加header字段。
     header: new Header('application/json'),
-    readTimeout: 60000, <em>// 可选，默认为60000ms。</em>
-    connectTimeout: 60000,<em> </em><em>// 可选，默认为60000ms。</em>
-    usingProtocol: http.HttpProtocol.HTTP1_1,<em> </em><em>// 可选，协议类型默认值由系统自动指定。</em>
-    usingProxy: false, <em>// 可选，默认不使用网络代理，自API 10开始支持该属性。</em>
+    readTimeout: 60000, // 可选，默认为60000ms。
+    connectTimeout: 60000, // 可选，默认为60000ms。
+    usingProtocol: http.HttpProtocol.HTTP1_1, // 可选，协议类型默认值由系统自动指定。
+    usingProxy: false, // 可选，默认不使用网络代理，自API 10开始支持该属性。
   };
   httpRequest.requestInStream('EXAMPLE_URL', options, (err: BusinessError<void>, data: number) => {
     if (!err) {

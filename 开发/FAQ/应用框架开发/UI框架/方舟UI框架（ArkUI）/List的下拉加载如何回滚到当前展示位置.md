@@ -18,7 +18,7 @@ List组件顶部下拉刷新时，期望数据加载后仍保持刷新前可见�
 struct RefreshDemo {
   @State isRefreshing: boolean = false;
   @State arr: String[] = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-  <em>// Used to control the scrolling position of the list and maintain consistency of the view after refreshing</em>
+  // Used to control the scrolling position of the list and maintain consistency of the view after refreshing
   private listScroller: Scroller = new Scroller();
 
   build() {

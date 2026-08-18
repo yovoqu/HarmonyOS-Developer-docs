@@ -34,7 +34,7 @@ replacePathByName的执行顺序是：先让目标页面B入栈并准备显示�
  
 Index.ets封装路由组件，更新全局数据：
 ```text
-<em>//封装路由组件</em>
+//封装路由组件
 export class routerModule {
   static stack: NavPathStack;
   static instance: routerModule;

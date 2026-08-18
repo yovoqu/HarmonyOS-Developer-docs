@@ -25,7 +25,7 @@
 查看数据修改后刷新数据的实现，修改数据后调用刷新的操作是[DataReloadOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach#datareloadoperation)，查看LazyForEach的参数keyGenerator，调用刷新操作后LazyForEach生成的键值没有变化，界面没有刷新。
  
 ```text
-<em>// 数据修改后刷新界面的实现</em>
+// 数据修改后刷新界面的实现
 notifyDataReload() {
   this.listeners.forEach(listener => {
     listener.onDatasetChange([{ type: DataOperationType.RELOAD }]);
@@ -56,7 +56,7 @@ notifyDataChange(index: number) {
 ```json
 LazyForEach(this.data2, (p: Person, index: number) => {
   Column({ space: 8 }) {
-    <em>// 人员信息</em>
+    // 人员信息
     Row({ space: 12 }) {
       Text(p.name)
         .fontSize(16)
@@ -71,10 +71,10 @@ LazyForEach(this.data2, (p: Person, index: number) => {
     .width('100%')
     .justifyContent(FlexAlign.Center);
 
-  <em>  // 按钮组</em>
-<em>    // 设置keyGenerator场景调用notifyDataReload和notifyDataChange界面均会更新</em>
+    // 按钮组
+    // 设置keyGenerator场景调用notifyDataReload和notifyDataChange界面均会更新
     Row({ space: 12 }) {
-    <em>  // RELOAD按钮</em>
+      // RELOAD按钮
       Button('RELOAD +')
         .height(36)
         .width(100)
@@ -84,7 +84,7 @@ LazyForEach(this.data2, (p: Person, index: number) => {
           this.data2.notifyDataReload();
         });
 
-    <em>  // CHANGE按钮</em>
+      // CHANGE按钮
       Button('CHANGE +')
         .height(36)
         .width(100)
@@ -99,7 +99,7 @@ LazyForEach(this.data2, (p: Person, index: number) => {
   .padding(12)
   .backgroundColor('#FAFAFA')
   .borderRadius(8);
-}, (p: Person) => JSON.stringify(p));<em> // keyGenerator</em>
+}, (p: Person) => JSON.stringify(p)); // keyGenerator
 ```
 
 
@@ -119,16 +119,16 @@ struct LazyForeachPage {
 
   build() {
     Column() {
-     <em> // 标题</em>
+      // 标题
       Text('LazyForEach 刷新机制对比')
         .fontSize(20)
         .fontWeight(FontWeight.Bold)
         .margin({ top: 16, bottom: 16 });
 
       Column() {
-       <em> // ===== 未设置keyGenerator =====</em>
+        // ===== 未设置keyGenerator =====
         Column() {
-         <em> // 卡片标题</em>
+          // 卡片标题
           Column() {
             Text('未设置 keyGenerator')
               .fontSize(18)
@@ -139,7 +139,7 @@ struct LazyForeachPage {
           .backgroundColor('#F0F7FF')
           .borderRadius({ topLeft: 12, topRight: 12 });
 
-         <em> // 说明区域 - 1,2,3点说明</em>
+          // 说明区域 - 1,2,3点说明
           Column() {
             Text('1. 数据未设置唯一key标识')
               .fontSize(14)
@@ -157,11 +157,11 @@ struct LazyForeachPage {
           .padding(12)
           .backgroundColor('#FFFFFF');
 
-        <em>  // 数据列表</em>
+          // 数据列表
           Column({ space: 12 }) {
             LazyForEach(this.data1, (p: Person, index: number) => {
               Column({ space: 8 }) {
-               <em> // 人员信息</em>
+                // 人员信息
                 Row({ space: 12 }) {
                   Text(p.name)
                     .fontSize(16)
@@ -176,10 +176,10 @@ struct LazyForeachPage {
                 .width('100%')
                 .justifyContent(FlexAlign.Center);
 
-               <em> // 按钮组</em>
+                // 按钮组
                 Row({ space: 12 }) {
-                 <em> // RELOAD按钮 - 置灰显示</em>
-<em>                  // 未设置keyGenerator场景调用notifyDataReload界面不会更新</em>
+                  // RELOAD按钮 - 置灰显示
+                  // 未设置keyGenerator场景调用notifyDataReload界面不会更新
                   Button('RELOAD +')
                     .height(36)
                     .width(100)
@@ -190,8 +190,8 @@ struct LazyForeachPage {
                       this.data1.notifyDataReload();
                     });
 
-                <em>  // CHANGE按钮</em>
-<em>                  // 未设置keyGenerator场景调用notifyDataChange界面会更新</em>
+                  // CHANGE按钮
+                  // 未设置keyGenerator场景调用notifyDataChange界面会更新
                   Button('CHANGE +')
                     .height(36)
                     .width(100)
@@ -218,9 +218,9 @@ struct LazyForeachPage {
         .borderRadius(12)
         .shadow({ radius: 4, color: '#1A000000' });
 
-     <em>   // ===== 设置keyGenerator =====</em>
+        // ===== 设置keyGenerator =====
         Column() {
-         <em> // 卡片标题</em>
+          // 卡片标题
           Column() {
             Text('设置 keyGenerator')
               .fontSize(18)
@@ -231,7 +231,7 @@ struct LazyForeachPage {
           .backgroundColor('#F0F7FF')
           .borderRadius({ topLeft: 12, topRight: 12 });
 
-        <em>  // 说明区域 - 1,2,3点说明</em>
+          // 说明区域 - 1,2,3点说明
           Column() {
             Text('1. 数据使用JSON字符串作为唯一key')
               .fontSize(14)
@@ -249,11 +249,11 @@ struct LazyForeachPage {
           .padding(12)
           .backgroundColor('#FFFFFF');
 
-         <em> // 数据列表</em>
+          // 数据列表
           Column({ space: 12 }) {
             LazyForEach(this.data2, (p: Person, index: number) => {
               Column({ space: 8 }) {
-              <em>  // 人员信息</em>
+                // 人员信息
                 Row({ space: 12 }) {
                   Text(p.name)
                     .fontSize(16)
@@ -268,10 +268,10 @@ struct LazyForeachPage {
                 .width('100%')
                 .justifyContent(FlexAlign.Center);
 
-              <em>  // 按钮组</em>
-<em>                // 设置keyGenerator场景调用notifyDataReload和notifyDataChange界面均会更新</em>
+                // 按钮组
+                // 设置keyGenerator场景调用notifyDataReload和notifyDataChange界面均会更新
                 Row({ space: 12 }) {
-                <em>  // RELOAD按钮</em>
+                  // RELOAD按钮
                   Button('RELOAD +')
                     .height(36)
                     .width(100)
@@ -281,7 +281,7 @@ struct LazyForeachPage {
                       this.data2.notifyDataReload();
                     });
 
-                <em>  // CHANGE按钮</em>
+                  // CHANGE按钮
                   Button('CHANGE +')
                     .height(36)
                     .width(100)
@@ -296,7 +296,7 @@ struct LazyForeachPage {
               .padding(12)
               .backgroundColor('#FAFAFA')
               .borderRadius(8);
-            }, (p: Person) => JSON.stringify(p));<em> // keyGenerator</em>
+            }, (p: Person) => JSON.stringify(p)); // keyGenerator
           }
           .padding(12)
           .backgroundColor('#FFFFFF')

@@ -37,27 +37,27 @@ HarmonyOS虽然能通过一多适配将一个功能发布到不同类型的设�
 ```json
 onContinue(wantParam: Record<string, Object>) {
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'EntryAbility onContinue');
-  const targetVersion = wantParam.version; <em>// 获取迁移对端应用的版本号</em>
-  <em>// 应用可根据源端版本号设置支持接续的最小兼容版本号，源端版本号可从app.json5文件中的versionCode字段获取；防止目标端版本号过低导致不兼容。</em>
-  const versionThreshold: number = 0; <em>// 替换为应用自己支持兼容的最小版本号</em>
-  <em>// 兼容性校验</em>
+  const targetVersion = wantParam.version; // 获取迁移对端应用的版本号
+  // 应用可根据源端版本号设置支持接续的最小兼容版本号，源端版本号可从app.json5文件中的versionCode字段获取；防止目标端版本号过低导致不兼容。
+  const versionThreshold: number = 0; // 替换为应用自己支持兼容的最小版本号
+  // 兼容性校验
   if (targetVersion < versionThreshold) {
-    <em>// 建议在校验版本兼容性失败后，提示用户拒绝迁移的原因</em>
+    // 建议在校验版本兼容性失败后，提示用户拒绝迁移的原因
     promptAction.openToast({
       message: '目标端应用版本号过低，不支持接续，请您升级应用版本后再试',
       duration: 2000
     });
-   <em> // 在兼容性校验不通过时返回MISMATCH</em>
+    // 在兼容性校验不通过时返回MISMATCH
     return AbilityConstant.OnContinueResult.MISMATCH;
   }
   console.info(`onContinue version = ${wantParam.version}, targetDevice: ${wantParam.targetDevice}`);
-  <em>// 迁移数据保存</em>
+  // 迁移数据保存
   const continueInput = '迁移的数据';
   if (continueInput) {
-    <em>// 将要迁移的数据保存在wantParam的自定义字段（如：data）中;</em>
+    // 将要迁移的数据保存在wantParam的自定义字段（如：data）中;
     wantParam['data'] = continueInput;
   }
-  <em>// ...</em>
+  // ...
   return AbilityConstant.OnContinueResult.AGREE;
 }
 ```
@@ -67,23 +67,23 @@ onContinue(wantParam: Record<string, Object>) {
 onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
   try {
     this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
-    <em>// 设置是否开启应用接续，可在各页面动态设置</em>
+    // 设置是否开启应用接续，可在各页面动态设置
     this.context.setMissionContinueState(AbilityConstant.ContinueState.ACTIVE, (result) => {
       hilog.info(DOMAIN, 'testTag', `setMissionContinueState: ${JSON.stringify(result)}`);
     });
-    <em>// 判断是否为应用接续场景</em>
+    // 判断是否为应用接续场景
     if (launchParam.launchReason === AbilityConstant.LaunchReason.CONTINUATION) {
-      <em>// 将上述的保存的数据取出恢复</em>
+      // 将上述的保存的数据取出恢复
       if (want.parameters !== undefined) {
         let continueInput = want.parameters.data as string;
         AppStorage.setOrCreate<string>('message', continueInput);
         console.info(`continue input ${continueInput}`);
       }
-      <em>// ...</em>
-      <em>// 触发页面恢复</em>
+      // ...
+      // 触发页面恢复
       this.context.restoreWindowStage(this.storage);
     }
-    <em>// ...</em>
+    // ...
   } catch (err) {
     hilog.error(DOMAIN, 'testTag', 'Failed to set colorMode. Cause: %{public}s', JSON.stringify(err));
   }
@@ -93,17 +93,17 @@ onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
 onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void {
   hilog.info(DOMAIN, 'testTag', '%{public}s', `EntryAbility onNewWant ${AbilityConstant.LaunchReason.CONTINUATION}`);
   if (launchParam.launchReason === AbilityConstant.LaunchReason.CONTINUATION) {
-    <em>// 将上述的保存的数据取出恢复</em>
+    // 将上述的保存的数据取出恢复
     if (want.parameters !== undefined) {
       let continueInput = want.parameters.data as string;
       AppStorage.setOrCreate<string>('message', continueInput);
       console.info(`continue input ${continueInput}`);
     }
-    <em>// ...</em>
-    <em>// 触发页面恢复</em>
+    // ...
+    // 触发页面恢复
     this.context.restoreWindowStage(this.storage);
   }
-  <em>// ...</em>
+  // ...
 }
 ```
 
@@ -123,27 +123,27 @@ onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void {
 ```json
 onContinue(wantParam: Record<string, Object>) {
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'EntryAbility onContinue');
-  const targetVersion = wantParam.version; <em>// 获取迁移对端应用的版本号</em>
-  <em>// 应用可根据源端版本号设置支持接续的最小兼容版本号，源端版本号可从app.json5文件中的versionCode字段获取；防止目标端版本号过低导致不兼容。</em>
-  const versionThreshold: number = 0; <em>// 替换为应用自己支持兼容的最小版本号</em>
-  <em>// 兼容性校验</em>
+  const targetVersion = wantParam.version; // 获取迁移对端应用的版本号
+  // 应用可根据源端版本号设置支持接续的最小兼容版本号，源端版本号可从app.json5文件中的versionCode字段获取；防止目标端版本号过低导致不兼容。
+  const versionThreshold: number = 0; // 替换为应用自己支持兼容的最小版本号
+  // 兼容性校验
   if (targetVersion < versionThreshold) {
-   <em> // 建议在校验版本兼容性失败后，提示用户拒绝迁移的原因</em>
+    // 建议在校验版本兼容性失败后，提示用户拒绝迁移的原因
     promptAction.openToast({
       message: '目标端应用版本号过低，不支持接续，请您升级应用版本后再试',
       duration: 2000
     });
-  <em>  // 在兼容性校验不通过时返回MISMATCH</em>
+    // 在兼容性校验不通过时返回MISMATCH
     return AbilityConstant.OnContinueResult.MISMATCH;
   }
   console.info(`onContinue version = ${wantParam.version}, targetDevice: ${wantParam.targetDevice}`);
- <em> // 迁移数据保存</em>
+  // 迁移数据保存
   const continueInput = '迁移的数据';
   if (continueInput) {
-   <em> // 将要迁移的数据保存在wantParam的自定义字段（如：data）中;</em>
+    // 将要迁移的数据保存在wantParam的自定义字段（如：data）中;
     wantParam['data'] = continueInput;
   }
- <em> // ...</em>
+  // ...
   return AbilityConstant.OnContinueResult.AGREE;
 }
 ```
@@ -153,23 +153,23 @@ onContinue(wantParam: Record<string, Object>) {
 onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
   try {
     this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
-   <em> // 设置是否开启应用接续，可在各页面动态设置</em>
+    // 设置是否开启应用接续，可在各页面动态设置
     this.context.setMissionContinueState(AbilityConstant.ContinueState.ACTIVE, (result) => {
       hilog.info(DOMAIN, 'testTag', `setMissionContinueState: ${JSON.stringify(result)}`);
     });
-   <em> // 判断是否为应用接续场景</em>
+    // 判断是否为应用接续场景
     if (launchParam.launchReason === AbilityConstant.LaunchReason.CONTINUATION) {
-    <em>  // 将上述的保存的数据取出恢复</em>
+      // 将上述的保存的数据取出恢复
       if (want.parameters !== undefined) {
         let continueInput = want.parameters.data as string;
         AppStorage.setOrCreate<string>('message', continueInput);
         console.info(`continue input ${continueInput}`);
       }
-     <em> // ...</em>
-<em>      // 触发页面恢复</em>
+      // ...
+      // 触发页面恢复
       this.context.restoreWindowStage(this.storage);
     }
-   <em> // ...</em>
+    // ...
   } catch (err) {
     hilog.error(DOMAIN, 'testTag', 'Failed to set colorMode. Cause: %{public}s', JSON.stringify(err));
   }
@@ -179,16 +179,16 @@ onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
 onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void {
   hilog.info(DOMAIN, 'testTag', '%{public}s', `EntryAbility onNewWant ${AbilityConstant.LaunchReason.CONTINUATION}`);
   if (launchParam.launchReason === AbilityConstant.LaunchReason.CONTINUATION) {
-   <em> // 将上述的保存的数据取出恢复</em>
+    // 将上述的保存的数据取出恢复
     if (want.parameters !== undefined) {
       let continueInput = want.parameters.data as string;
       AppStorage.setOrCreate<string>('message', continueInput);
       console.info(`continue input ${continueInput}`);
     }
-  <em>  // ...</em>
-<em>    // 触发页面恢复</em>
+    // ...
+    // 触发页面恢复
     this.context.restoreWindowStage(this.storage);
   }
- <em> // ...</em>
+  // ...
 }
 ```

@@ -23,7 +23,7 @@
 整体上来看，首先需要使用Navigation组件构建路由导航的根视图容器，然后使用NavDestination构建子页面。在子页面中，将公共组件抽离，并利用queryNavDestinationInfo方法查询组件所属的页面，进行动态调整。
  1. 使用Navigation组件构建路由导航的根视图容器。
 ```text
-<em>// </em><em>根容器</em>
+// 根容器
 Navigation(this.navPathStack) {
   Button('跳转第一个页面').onClick(() => {
     this.navPathStack.pushPath({
@@ -67,7 +67,7 @@ struct Two {
 
 3. 抽离公共组件，利用queryNavDestinationInfo方法查询组件所属的页面，进行动态调整。
 ```text
-<em>// </em><em>公共组件</em>
+// 公共组件
 @Component
 struct Common {
   navDesInfo: uiObserver.NavDestinationInfo | undefined;
@@ -85,7 +85,7 @@ struct Common {
     .border({
       width: 5
     })
-  <em>  // 根据NavDestinationInfo动态调整样式</em>
+    // 根据NavDestinationInfo动态调整样式
     .backgroundColor(this.navDesInfo?.name == 'one' ? Color.Blue : Color.Red);
   }
 }
@@ -112,7 +112,7 @@ struct DynamicallyAdjustPublicComponents {
   }
 
   build() {
-   <em> // 根容器</em>
+    // 根容器
     Navigation(this.navPathStack) {
       Button('跳转第一个页面').onClick(() => {
         this.navPathStack.pushPath({
@@ -153,7 +153,7 @@ struct Two {
   }
 }
 
-<em>// </em><em>公共组件</em>
+// 公共组件
 @Component
 struct Common {
   navDesInfo: uiObserver.NavDestinationInfo | undefined;
@@ -171,7 +171,7 @@ struct Common {
     .border({
       width: 5
     })
-   <em> // 根据NavDestinationInfo动态调整样式</em>
+    // 根据NavDestinationInfo动态调整样式
     .backgroundColor(this.navDesInfo?.name == 'one' ? Color.Blue : Color.Red);
   }
 }

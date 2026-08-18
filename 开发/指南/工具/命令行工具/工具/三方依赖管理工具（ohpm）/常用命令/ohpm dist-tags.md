@@ -10,7 +10,7 @@ tag可标记一个三方库的某个版本，在install时可用tag代替版本�
 #### 命令格式
 
 ```text
-<span style="color: rgb(106,135,89);">ohpm dist-tags [subcommand] [</span><span style="color: rgb(106,135,89);"><</span><span style="color: rgb(106,135,89);">@group</span><span style="color: rgb(106,135,89);">></span><span style="color: rgb(106,135,89);">/]</span><span style="color: rgb(106,135,89);"><</span><span style="color: rgb(106,135,89);">pkg</span><span style="color: rgb(106,135,89);">></span><span style="color: rgb(106,135,89);">[@</span><span style="color: rgb(106,135,89);"><</span><span style="color: rgb(106,135,89);">version</span><span style="color: rgb(106,135,89);">></span><span style="color: rgb(106,135,89);">] </span><span style="color: rgb(106,135,89);"><</span><span style="color: rgb(106,135,89);">tag</span><span style="color: rgb(106,135,89);">></span>
+ohpm dist-tags [subcommand] [<@group>/]<pkg>[@<version>] <tag>
 alias: dist-tags
 ```
  

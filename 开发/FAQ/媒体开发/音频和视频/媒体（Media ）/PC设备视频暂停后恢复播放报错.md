@@ -29,18 +29,18 @@ PC设备视频正常播放时，点击暂停后，再点击播放报错。
 过滤Hilog日志中media_service媒体服务的日志信息，查看播放器流程是否正常，如果播放器状态变化与实际显示不符，说明播放器状态机回调处理时出现问题。
  
 ```bash
-<em>// 媒体服务日志显示播放器状态切换为inited状态</em>
+// 媒体服务日志显示播放器状态切换为inited状态
 06-10 08:24:22.977  1737 64160 I C02B2B/media_service/PlayerServer: #1798 instance: 0xDB4240 change state to inited_state
 ```
  
 ```bash
-<em>// Callback State change说明播放器状态机回调变更，currentState is PLAYER_STATE_ERROR说明状态机切换发生错误</em>
+// Callback State change说明播放器状态机回调变更，currentState is PLAYER_STATE_ERROR说明状态机切换发生错误
 06-10 08:24:22.977  1737 64160 I C02B2B/media_service/PlayerServerTaskMgr: #212 0xDB43C0 task[preparing->prepared done] end
 06-10 08:24:22.978  1737 64160 I C02B2B/media_service/PlayerServerState: #153 0xEEA6D8 Callback State change, currentState is PLAYER_STATE_ERROR
 ```
  
 ```bash
-<em>// 播放器状态机回调错误，返回unsupport interface错误信息</em>
+// 播放器状态机回调错误，返回unsupport interface错误信息
 06-10 08:24:22.978  1737 64160 E C02B2B/media_service/HiPlayerCallbackLooper: (DoReportError(), 252): Report error, error type: 0 error value: 331350544
 06-10 08:24:22.978  1737 64160 E C02B2B/media_service/PlayerListenerProxy: #91 player callback onError, errorCode: 331350544, errorMsg: unsupport interface
 ```

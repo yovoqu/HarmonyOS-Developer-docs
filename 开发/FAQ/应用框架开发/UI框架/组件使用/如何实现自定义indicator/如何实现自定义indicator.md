@@ -61,23 +61,23 @@ struct SceneOne {
         .index(0)
         .indicator(false)
         .onChange((index: number) => {
-          this.currentIndex = index; <em>// 控制指示器。</em>
+          this.currentIndex = index; // 控制指示器。
         })
 
-    <em>    // 导航点指示器。</em>
+        // 导航点指示器。
         Row({ space: 5 }) {
           ForEach(this.arr, (item: string, index: number) => {
             Column()
-              .width(this.currentIndex === index ? 20 : 7)<em> // 控制导航点样式。</em>
+              .width(this.currentIndex === index ? 20 : 7) // 控制导航点样式。
               .height(7)
               .borderRadius(7)
-              .backgroundColor(this.currentIndex === index ? Color.Gray : Color.White) <em>// 控制导航点样式。</em>
+              .backgroundColor(this.currentIndex === index ? Color.Gray : Color.White) // 控制导航点样式。
           }, (item: string) => item)
         }
         .margin({ bottom: 5 })
       }
 
-   <em>   // 数字指示器。</em>
+      // 数字指示器。
       Row() {
         Text((this.currentIndex + 1).toString())
           .fontSize(20)
@@ -112,20 +112,20 @@ import { UIContext } from '@kit.ArkUI';
 struct DotIndicator {
   private swiperController: SwiperController = new SwiperController();
   @State arr: string[] = ['1', '2', '3', '4', '5', '6'];
-  @State widthLength: number = 7;<em> // 动效图案宽度。</em>
-  widthPoint: number = 7;<em> // 导航点宽度。</em>
-  spacePoint: number = 5;<em> // 导航点间距。</em>
-  positionArr: Array<Array<number>> = [];<em> // 动效位置数组。</em>
+  @State widthLength: number = 7; // 动效图案宽度。
+  widthPoint: number = 7; // 导航点宽度。
+  spacePoint: number = 5; // 导航点间距。
+  positionArr: Array<Array<number>> = []; // 动效位置数组。
   positionX: number = 0;
   positionY: number = 0;
-  @State currentX: number = 0;<em> // 准确的动效位置。</em>
-  currentY: number = 0; <em>// 准确的动效位置。</em>
+  @State currentX: number = 0; // 准确的动效位置。
+  currentY: number = 0; // 准确的动效位置。
   uiContext: UIContext | undefined = undefined;
   @State toggle: boolean = true;
 
   aboutToAppear(): void {
     this.uiContext = this.getUIContext();
- <em>   // 动效图案位置储存。</em>
+    // 动效图案位置储存。
     for (let i = 0; i < this.arr.length; i++) {
       this.positionArr.push([this.positionX, this.positionY]);
       this.positionX = this.positionX + this.widthPoint + this.spacePoint;
@@ -149,7 +149,7 @@ struct DotIndicator {
         .index(0)
         .indicator(false)
         .onAnimationStart((index: number, targetIndex: number, extraInfo: SwiperAnimationEvent) => {
-     <em>     // 判断是向前还是向后滑动。</em>
+          // 判断是向前还是向后滑动。
           if (extraInfo.currentOffset > 0) {
             this.toggle = true;
           } else {
@@ -163,7 +163,7 @@ struct DotIndicator {
             console.error('no uiContext, keyframe failed');
             return;
           }
-      <em>    // 设置关键帧动画整体播放1次，分前后动画样式。</em>
+          // 设置关键帧动画整体播放1次，分前后动画样式。
           if (this.toggle && index !== this.arr.length - 1) {
             this.widthLength = 19;
             this.uiContext.keyframeAnimateTo({
@@ -195,7 +195,7 @@ struct DotIndicator {
           }
         })
 
-     <em>   // 导航点指示器。</em>
+        // 导航点指示器。
         Stack() {
           Row({ space: this.spacePoint }) {
             ForEach(this.arr, () => {
@@ -207,7 +207,7 @@ struct DotIndicator {
             }, (item: string) => item)
           }
 
-       <em>   // 动效的图案。</em>
+          // 动效的图案。
           Column()
             .width(this.widthLength)
             .height(7)
@@ -235,13 +235,13 @@ import { display } from '@kit.ArkUI';
 @Component
 struct DigitIndicator {
   private swiperController: SwiperController = new SwiperController();
-  private swiperControllerTwo: SwiperController = new SwiperController(); <em>// 数字滚动控制器。</em>
+  private swiperControllerTwo: SwiperController = new SwiperController(); // 数字滚动控制器。
   @State arr: string[] = ['1', '2', '3', '4', '5', '6'];
   @State screenWidth: number = 0;
 
   aboutToAppear(): void {
     display.getAllDisplays((err, data) => {
-      this.screenWidth = this.getUIContext().px2vp(data[0].width);<em> // 获取屏幕宽度</em>
+      this.screenWidth = this.getUIContext().px2vp(data[0].width); // 获取屏幕宽度
       if (err) {
         console.info(JSON.stringify(err));
       }
@@ -265,7 +265,7 @@ struct DigitIndicator {
         .index(0)
         .indicator(false)
         .onAnimationStart((index: number, targetIndex: number, extraInfo: SwiperAnimationEvent) => {
-       <em>   // 判断是向前还是向后滑动。</em>
+          // 判断是向前还是向后滑动。
           if (index === 0 && targetIndex === this.arr.length - 1) {
             this.swiperControllerTwo.showPrevious();
           } else if (targetIndex === 0 && index === this.arr.length - 1) {
@@ -278,7 +278,7 @@ struct DigitIndicator {
           console.info(`extraInfo：${JSON.stringify(extraInfo)}`);
         });
 
-      <em>  // 数字指示器。</em>
+        // 数字指示器。
         Row() {
           Swiper(this.swiperControllerTwo) {
             ForEach(this.arr, (item: string) => {
@@ -288,7 +288,7 @@ struct DigitIndicator {
             }, (item: string) => item);
           }
           .index(0)
-          .vertical(true) <em>// 纵向滚动。</em>
+          .vertical(true) // 纵向滚动。
           .indicator(false);
 
           Text('/')
@@ -327,21 +327,21 @@ import { UIContext } from '@kit.ArkUI';
 struct SceneThree {
   private swiperController: SwiperController = new SwiperController();
   @State arr: string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'];
-  widthPoint: number = 7; <em>// 导航点宽度。</em>
-  spacePoint: number = 5; <em>// 导航点间距。</em>
-  @State widthLength: number = this.widthPoint + this.spacePoint + this.widthPoint; <em>// 动效图案宽度。</em>
-  positionArr: Array<Array<number>> = [];<em> // 动效位置数组。</em>
+  widthPoint: number = 7; // 导航点宽度。
+  spacePoint: number = 5; // 导航点间距。
+  @State widthLength: number = this.widthPoint + this.spacePoint + this.widthPoint; // 动效图案宽度。
+  positionArr: Array<Array<number>> = []; // 动效位置数组。
   positionX: number = 0;
   positionY: number = 0;
-  @State currentX: number = 0; <em>// 准确的动效位置。</em>
-  currentY: number = 0;<em> // 准确的动效位置。</em>
+  @State currentX: number = 0; // 准确的动效位置。
+  currentY: number = 0; // 准确的动效位置。
   currentIndex: number = 0;
   uiContext: UIContext | undefined = undefined;
   @State toggle: boolean = true;
 
   aboutToAppear(): void {
     this.uiContext = this.getUIContext();
-   <em> // 动效图案位置储存。</em>
+    // 动效图案位置储存。
     for (let i = 0; i < this.arr.length; i++) {
       this.positionArr.push([this.positionX, this.positionY]);
       this.positionX = this.positionX + this.widthPoint + this.spacePoint;
@@ -366,7 +366,7 @@ struct SceneThree {
         .displayCount(2, true)
         .indicator(false)
         .onAnimationStart((index: number, targetIndex: number, extraInfo: SwiperAnimationEvent) => {
-        <em>  // 判断是向前还是向后滑动。</em>
+          // 判断是向前还是向后滑动。
           if (extraInfo.currentOffset > 0) {
             this.toggle = true;
           } else {
@@ -380,10 +380,10 @@ struct SceneThree {
             console.error('no uiContext, keyframe failed');
             return;
           }
-          this.currentIndex = index; <em>// 设置滑动位置。</em>
-        <em>  // 设置关键帧动画整体播放1次,分前后动画样式。</em>
+          this.currentIndex = index; // 设置滑动位置。
+          // 设置关键帧动画整体播放1次,分前后动画样式。
           if (this.toggle && index !== this.arr.length - 1) {
-           <em> // 根据滑动位置判断动效图案长度。</em>
+            // 根据滑动位置判断动效图案长度。
             if (this.currentIndex !== this.arr.length - 1) {
               this.widthLength =
                 this.widthPoint + this.spacePoint + this.widthPoint + this.spacePoint + this.widthPoint +
@@ -398,7 +398,7 @@ struct SceneThree {
               {
                 duration: 600,
                 event: () => {
-               <em>   // 根据滑动位置判断动效图案长度。</em>
+                  // 根据滑动位置判断动效图案长度。
                   if (this.currentIndex !== this.arr.length - 1) {
                     this.widthLength = this.widthPoint + this.spacePoint + this.widthPoint;
                   } else {
@@ -409,7 +409,7 @@ struct SceneThree {
             ]);
             this.currentX = this.positionArr[index][0];
           } else {
-          <em>  // 根据滑动位置判断动效图案长度。</em>
+            // 根据滑动位置判断动效图案长度。
             if (this.currentIndex !== this.arr.length - 1) {
               this.widthLength =
                 this.widthPoint + this.spacePoint + this.widthPoint + this.spacePoint + this.widthPoint +
@@ -424,7 +424,7 @@ struct SceneThree {
               {
                 duration: 600,
                 event: () => {
-              <em>    // 根据滑动位置判断动效图案长度。</em>
+                  // 根据滑动位置判断动效图案长度。
                   if (this.currentIndex !== this.arr.length - 1) {
                     this.widthLength = this.widthPoint + this.spacePoint + this.widthPoint;
                   } else {
@@ -439,7 +439,7 @@ struct SceneThree {
           }
         })
 
-      <em>  // 导航点指示器。</em>
+        // 导航点指示器。
         Stack() {
           Row({ space: this.spacePoint }) {
             ForEach(this.arr, () => {
@@ -451,14 +451,14 @@ struct SceneThree {
             }, (item: string) => item)
           }
 
-        <em>  // 动效的图案。</em>
+          // 动效的图案。
           Column()
             .width(this.widthLength)
             .height(9)
             .borderRadius(7)
-            .opacity(0.6)<em> // 透明度设置。</em>
+            .opacity(0.6) // 透明度设置。
             .backgroundColor(Color.Blue)
-            .position({ x: this.currentX, y: this.currentY }) <em>// 动效位置。</em>
+            .position({ x: this.currentX, y: this.currentY }) // 动效位置。
         }
         .margin({ bottom: 5 })
       }
@@ -481,20 +481,20 @@ import { display, UIContext } from '@kit.ArkUI';
 struct SceneFour {
   private swiperController: SwiperController = new SwiperController();
   @State arr: string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'];
-  widthPoint: number = 7;<em> // 导航点宽度。</em>
-  spacePoint: number = 5;<em> // 导航点间距。</em>
-  @State widthLength: number = this.widthPoint + this.spacePoint + this.widthPoint;<em> // 动效图案宽度。</em>
-  positionArr: Array<Array<number>> = [];<em> // 动效位置数组。</em>
+  widthPoint: number = 7; // 导航点宽度。
+  spacePoint: number = 5; // 导航点间距。
+  @State widthLength: number = this.widthPoint + this.spacePoint + this.widthPoint; // 动效图案宽度。
+  positionArr: Array<Array<number>> = []; // 动效位置数组。
   positionX: number = 0;
   positionY: number = 0;
-  @State currentX: number = 0; <em>// 准确的动效位置。</em>
-  currentY: number = 0; <em>// 准确的动效位置。</em>
+  @State currentX: number = 0; // 准确的动效位置。
+  currentY: number = 0; // 准确的动效位置。
   currentIndex: number = 0;
   uiContext: UIContext | undefined = undefined;
   @State toggle: boolean = true;
-  @State @Watch('changeWidth') foldStatus: number = 1; <em>// 判断折叠屏状态，并监听状态修改遮罩动效初始宽度。</em>
+  @State @Watch('changeWidth') foldStatus: number = 1; // 判断折叠屏状态，并监听状态修改遮罩动效初始宽度。
 
-  <em>// 遮罩动效初始宽度的修改函数。通过Watch监听foldStatus值发生变化时，执行该函数。</em>
+  // 遮罩动效初始宽度的修改函数。通过Watch监听foldStatus值发生变化时，执行该函数。
   changeWidth() {
     if (this.foldStatus === 2) {
       this.widthLength = this.widthPoint;
@@ -505,12 +505,12 @@ struct SceneFour {
 
   aboutToAppear(): void {
     this.uiContext = this.getUIContext();
-   <em> // 动效图案位置储存。</em>
+    // 动效图案位置储存。
     for (let i = 0; i < this.arr.length; i++) {
       this.positionArr.push([this.positionX, this.positionY]);
       this.positionX = this.positionX + this.widthPoint + this.spacePoint;
     }
-  <em>  // 折叠屏状态监听。</em>
+    // 折叠屏状态监听。
     let callback: Callback<display.FoldStatus> = (data: display.FoldStatus) => {
       this.foldStatus = data;
     };
@@ -530,13 +530,13 @@ struct SceneFour {
               .fontSize(30)
           }, (item: string) => item)
         }
-        .displayCount(this.foldStatus === 2 ? 1 : 2, true) <em>// 根据折叠状态判断展示几个卡片。</em>
+        .displayCount(this.foldStatus === 2 ? 1 : 2, true) // 根据折叠状态判断展示几个卡片。
         .cachedCount(2)
         .index(0)
         .displayCount(2, true)
         .indicator(false)
         .onAnimationStart((index: number, targetIndex: number, extraInfo: SwiperAnimationEvent) => {
-       <em>   // 判断是向前还是向后滑动。</em>
+          // 判断是向前还是向后滑动。
           if (extraInfo.currentOffset > 0) {
             this.toggle = true;
           } else {
@@ -550,10 +550,10 @@ struct SceneFour {
             console.error('no uiContext, keyframe failed');
             return;
           }
-        <em>  // 根据屏幕宽度判断实现场景二或者场景三动效。</em>
+          // 根据屏幕宽度判断实现场景二或者场景三动效。
           if (this.foldStatus === 2) {
-          <em>  // 场景二动画方案。</em>
-<em>            // 设置关键帧动画整体播放1次，分前后动画样式。</em>
+            // 场景二动画方案。
+            // 设置关键帧动画整体播放1次，分前后动画样式。
             if (this.toggle && index !== this.arr.length - 1) {
               this.widthLength = 19;
               this.uiContext.keyframeAnimateTo({
@@ -584,11 +584,11 @@ struct SceneFour {
               });
             }
           } else {
-          <em>  // 场景三动画方案。</em>
-            this.currentIndex = index;<em> // 设置滑动位置。</em>
-          <em>  // 设置关键帧动画整体播放1次,分前后动画样式。</em>
+            // 场景三动画方案。
+            this.currentIndex = index; // 设置滑动位置。
+            // 设置关键帧动画整体播放1次,分前后动画样式。
             if (this.toggle && index !== this.arr.length - 1) {
-            <em>  // 根据滑动位置判断动效图案长度。</em>
+              // 根据滑动位置判断动效图案长度。
               if (this.currentIndex !== this.arr.length - 1) {
                 this.widthLength =
                   this.widthPoint + this.spacePoint + this.widthPoint + this.spacePoint + this.widthPoint +
@@ -603,7 +603,7 @@ struct SceneFour {
                 {
                   duration: 600,
                   event: () => {
-                 <em>   // 根据滑动位置判断动效图案长度。</em>
+                    // 根据滑动位置判断动效图案长度。
                     if (this.currentIndex !== this.arr.length - 1) {
                       this.widthLength = this.widthPoint + this.spacePoint + this.widthPoint;
                     } else {
@@ -614,7 +614,7 @@ struct SceneFour {
               ]);
               this.currentX = this.positionArr[index][0];
             } else {
-           <em>   // 根据滑动位置判断动效图案长度。</em>
+              // 根据滑动位置判断动效图案长度。
               if (this.currentIndex !== this.arr.length - 1) {
                 this.widthLength =
                   this.widthPoint + this.spacePoint + this.widthPoint + this.spacePoint + this.widthPoint +
@@ -629,7 +629,7 @@ struct SceneFour {
                 {
                   duration: 600,
                   event: () => {
-                 <em>   // 根据滑动位置判断动效图案长度。</em>
+                    // 根据滑动位置判断动效图案长度。
                     if (this.currentIndex !== this.arr.length - 1) {
                       this.widthLength = this.widthPoint + this.spacePoint + this.widthPoint;
                     } else {
@@ -645,7 +645,7 @@ struct SceneFour {
           }
         })
 
-     <em>   // 导航点指示器。</em>
+        // 导航点指示器。
         Stack() {
           Row({ space: this.spacePoint }) {
             ForEach(this.arr, () => {
@@ -657,14 +657,14 @@ struct SceneFour {
             }, (item: string) => item)
           }
 
-       <em>   // 动效的图案。</em>
+          // 动效的图案。
           Column()
             .width(this.widthLength)
             .height(9)
             .borderRadius(7)
-            .opacity(0.6)<em> // 透明度设置。</em>
+            .opacity(0.6) // 透明度设置。
             .backgroundColor(Color.Blue)
-            .position({ x: this.currentX, y: this.currentY })<em> // 动效位置。</em>
+            .position({ x: this.currentX, y: this.currentY }) // 动效位置。
         }
         .margin({ bottom: 5 })
       }

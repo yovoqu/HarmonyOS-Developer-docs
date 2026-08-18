@@ -138,12 +138,12 @@ struct PageTabs {
         controller: this.tabsController
       }) {
         TabContent() {
-          HomePage(); <em>// 首页内容组件，pathStack由context获取，跳转至其他页面失败</em>
+          HomePage(); // 首页内容组件，pathStack由context获取，跳转至其他页面失败
         }.tabBar(this.tabBarBuilder('首页', 0));
 
 
         TabContent() {
-          MinePage({ pathStack: this.pathStack }); <em>// 我的页面内容组件，pathStack由本页面传入，跳转其他页面成功</em>
+          MinePage({ pathStack: this.pathStack }); // 我的页面内容组件，pathStack由本页面传入，跳转其他页面成功
         }.tabBar(this.tabBarBuilder('我的', 1));
 
 
@@ -189,13 +189,13 @@ export struct MinePage {
       .width('100%')
       .height('100%')
       .onVisibleAreaChange([0.0, 1.0], (isVisible: boolean, currentRatio: number) => {
-        if (isVisible && currentRatio >= 1.0) { <em>// 由隐藏至显示时执行下面方法</em>
+        if (isVisible && currentRatio >= 1.0) { // 由隐藏至显示时执行下面方法
           this.onVisible();
         }
       })
       .onClick(() => {
         try {
-         <em> // pathStack由父组件传入，跳转至订单页面成功</em>
+          // pathStack由父组件传入，跳转至订单页面成功
           this.pathStack.pushPathByName('OrderPage', null);
         } catch (err) {
           console.error(`pushPathByName error, ${err}`);

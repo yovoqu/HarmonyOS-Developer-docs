@@ -64,9 +64,9 @@ BaseDataSource.ets：
  
 ```text
 export class BaseDataSource<T> implements IDataSource {
-<em>  // 存储实际数据的数组。</em>
+  // 存储实际数据的数组。
   private datas: Array<T> = [];
-  <em>// 存储所有已注册的数据变更监听器。</em>
+  // 存储所有已注册的数据变更监听器。
   private listeners: Array<DataChangeListener> = [];
 
   totalCount(): number {
@@ -224,7 +224,7 @@ export class StringListModel {
     return StringListModel.sInstance;
   }
 
- <em> // 设置每页加载的数量。</em>
+  // 设置每页加载的数量。
   setPageSize(pageSize: number) {
     if (pageSize >= MIN_PAGE_SIZE) {
       this.pageSize = pageSize;
@@ -235,7 +235,7 @@ export class StringListModel {
     return this.stringDataSource;
   }
 
-<em>  // 加载第一页成语数据。</em>
+  // 加载第一页成语数据。
   load() {
     this.keyword = undefined;
     this.firstLetter = undefined;
@@ -244,7 +244,7 @@ export class StringListModel {
     this.loadData(true);
   }
 
- <em> // 通过关键字来查找并加载第一页成语数据。</em>
+  // 通过关键字来查找并加载第一页成语数据。
   loadByKeyword(keyword: string) {
     if (this.keyword !== undefined && this.keyword === keyword) {
       return;
@@ -256,7 +256,7 @@ export class StringListModel {
     this.loadData(true);
   }
 
- <em> // 通过拼音首字母来查找并加载第一页成语数据。</em>
+  // 通过拼音首字母来查找并加载第一页成语数据。
   loadByFirstLetter(firstLetter: string) {
     if (this.firstLetter !== undefined && this.firstLetter === firstLetter) {
       return;
@@ -268,7 +268,7 @@ export class StringListModel {
     this.loadData(true);
   }
 
- <em> // 加载更多成语数据。</em>
+  // 加载更多成语数据。
   loadMore() {
     if (!this.hasMoreData) {
       return;
@@ -301,7 +301,7 @@ export class StringListModel {
     }
   }
 
-<em>  // 在页面销毁时调用。</em>
+  // 在页面销毁时调用。
   release() {
     this.stringDataSource.release();
     StringListModel.sInstance = null;
@@ -484,10 +484,10 @@ export class StringListModel {
     return StringListModel.sInstance;
   }
 
-  <em>/**</em>
-<em>   * 设置每页加载的数量</em>
-<em>   * @param pageSize 每页加载数量不能小于最小加载数量</em>
-<em>   */</em>
+  /**
+   * 设置每页加载的数量
+   * @param pageSize 每页加载数量不能小于最小加载数量
+   */
   setPageSize(pageSize: number) {
     if (pageSize >= MIN_PAGE_SIZE) {
       this.pageSize = pageSize;
@@ -498,9 +498,9 @@ export class StringListModel {
     return this.stringDataSource;
   }
 
- <em> /**</em>
-<em>   * 加载第一页成语数据</em>
-<em>   */</em>
+  /**
+   * 加载第一页成语数据
+   */
   load() {
     this.keyword = undefined;
     this.firstLetter = undefined;
@@ -509,10 +509,10 @@ export class StringListModel {
     this.loadData(true);
   }
 
-<em>  /**</em>
-<em>   * 通过关键字来查找并加载第一页成语数据</em>
-<em>   * @param keyword</em>
-<em>   */</em>
+  /**
+   * 通过关键字来查找并加载第一页成语数据
+   * @param keyword
+   */
   loadByKeyword(keyword: string) {
     if (this.keyword !== undefined && this.keyword === keyword) {
       return;
@@ -524,10 +524,10 @@ export class StringListModel {
     this.loadData(true);
   }
 
- <em> /**</em>
-<em>   * 通过拼音首字母来查找并加载第一页成语数据</em>
-<em>   * @param firstLetter</em>
-<em>   */</em>
+  /**
+   * 通过拼音首字母来查找并加载第一页成语数据
+   * @param firstLetter
+   */
   loadByFirstLetter(firstLetter: string) {
     if (this.firstLetter !== undefined && this.firstLetter === firstLetter) {
       return;
@@ -539,9 +539,9 @@ export class StringListModel {
     this.loadData(true);
   }
 
-  <em>/**</em>
-<em>   * 加载更多成语数据</em>
-<em>   */</em>
+  /**
+   * 加载更多成语数据
+   */
   loadMore() {
     if (!this.hasMoreData) {
       return;
@@ -576,9 +576,9 @@ export class StringListModel {
     }
   }
 
- <em> /**</em>
-<em>   * 释放。可在页面销毁时调用，如page页中的aboutToDisappear方法中</em>
-<em>   */</em>
+  /**
+   * 释放。可在页面销毁时调用，如page页中的aboutToDisappear方法中
+   */
   release() {
     this.stringDataSource.release();
     StringListModel.sInstance = null;

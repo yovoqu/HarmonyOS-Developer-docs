@@ -16,17 +16,17 @@
  
 - 获取[系统的CPU](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hidebug#hidebuggetsystemcpuusage12)资源占用情况。如当系统资源CPU占用为50%时，将返回0.5。
 ```text
-let systemCpuUsage = hidebug.getSystemCpuUsage(); <em>// </em><em>获取系统的CPU资源占用情况</em>
+let systemCpuUsage = hidebug.getSystemCpuUsage(); // 获取系统的CPU资源占用情况
 ```
 
 - 获取[进程的CPU](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hidebug#hidebuggetcpuusage9)使用率，如占用率为50%，则返回0.5。
 ```text
-let cpuUsage: number = hidebug.getCpuUsage(); <em>// 获取进程的CPU使用率</em>
+let cpuUsage: number = hidebug.getCpuUsage(); // 获取进程的CPU使用率
 ```
 
 - 获取应用[线程的CPU](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hidebug#hidebuggetappthreadcpuusage12)使用情况。返回当前应用进程下所有ThreadCpuUsage数组，数组中每个ThreadCpuUsage对象包含线程号和线程CPU使用率。
 ```text
-let appThreadCpuUsage: hidebug.ThreadCpuUsage[] = hidebug.getAppThreadCpuUsage();<em> </em><em>// 获取应用线程CPU使用情况</em>
+let appThreadCpuUsage: hidebug.ThreadCpuUsage[] = hidebug.getAppThreadCpuUsage(); // 获取应用线程CPU使用情况
 let threadCpuUsage = '';
 for (let i = 0; i < appThreadCpuUsage.length; i++) {
   threadCpuUsage =

@@ -251,7 +251,7 @@ bool GetStringArgument(napi_env env, napi_callback_info info, std::string& value
     value.assign(buffer.data(), length);
     return true;
 }
-} <em>// namespace</em>
+} // namespace
 
 static napi_value StartRecord(napi_env env, napi_callback_info info)
 {

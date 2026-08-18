@@ -12,7 +12,7 @@ List组件在无ListItemGroup时，设置onMove属性后能够正常实现拖拽
 List() {
   ForEach(this.minuteAttached, (item: string) => {
     ListItem() {
-     <em> // ...</em>
+      // ...
     };
   }, (item: string, index: number) => item + index.toString())
     .onMove((from: number, to: number) => {
@@ -26,11 +26,11 @@ List() {
   ListItemGroup({ header: this.headerTitleBuilder('分时指标设置') }) {
     ForEach(this.minuteAttached, (item: string) => {
       ListItem() {
-       <em> // ...</em>
+        // ...
       };
     }, (item: string, index: number) => item + index.toString())
       .onMove((from: number, to: number) => {
-       <em> // 不触发</em>
+        // 不触发
       });
   };
 };
@@ -68,7 +68,7 @@ struct ListItemGroupExample {
   @State offsetY: number = 0;
 
 
-  <em>// 设置Item的缩放显示</em>
+  // 设置Item的缩放显示
   scaleSelect(item: string): number {
     if (this.scaleItem === item) {
       return 1.05;
@@ -91,7 +91,7 @@ struct ListItemGroupExample {
   }
 
 
-  <em>// 列表数据交换</em>
+  // 列表数据交换
   itemMove(index: number, newIndex: number): void {
     let tmp = this.arr.splice(index, 1);
     this.arr.splice(newIndex, 0, tmp[0]);
@@ -117,18 +117,18 @@ struct ListItemGroupExample {
             .scale({ x: this.scaleSelect(item), y: this.scaleSelect(item) })
             .zIndex(this.dragItem === item ? 1 : 0)
             .translate(this.dragItem === item ? { y: this.offsetY } : { y: 0 })
-           <em> // 以下组合手势为顺序识别，当长按手势事件未正常触发时则不会触发拖动手势事件</em>
+            // 以下组合手势为顺序识别，当长按手势事件未正常触发时则不会触发拖动手势事件
             .gesture(
               GestureGroup(GestureMode.Sequence,
                 LongPressGesture({ repeat: true })
                   .onAction(() => {
                     this.getUIContext().animateTo({ curve: Curve.Friction, duration: 300 }, () => {
-                      this.scaleItem = item; <em>// 设置被拖动的Item项放大</em>
+                      this.scaleItem = item; // 设置被拖动的Item项放大
                     });
                   })
                   .onActionEnd(() => {
                     this.getUIContext().animateTo({ curve: Curve.Friction, duration: 300 }, () => {
-                      this.scaleItem = ''; <em>// 长按取消，重置</em>
+                      this.scaleItem = ''; // 长按取消，重置
                     });
                   }),
                 PanGesture({ fingers: 1, direction: null, distance: 0 })
@@ -137,7 +137,7 @@ struct ListItemGroupExample {
                     this.dragRefOffset = 0;
                   })
                   .onActionUpdate((event: GestureEvent) => {
-                   <em> // 设置拖动过程中的动画效果，与邻近Item交换，交换的判断距离由Item的高度和之间的间隔决定</em>
+                    // 设置拖动过程中的动画效果，与邻近Item交换，交换的判断距离由Item的高度和之间的间隔决定
                     this.offsetY = event.offsetY - this.dragRefOffset;
                     this.neighborItem = '';
                     let index = this.arr.indexOf(item);

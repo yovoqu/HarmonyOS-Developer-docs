@@ -47,7 +47,7 @@ struct NavigationExample {
           .height(40)
           .margin(20)
           .onClick(() => {
-            this.pageInfos.pushPath({ name: 'pageOne' }); <em>// 将name指定的NavDestination页面信息入栈</em>
+            this.pageInfos.pushPath({ name: 'pageOne' }); // 将name指定的NavDestination页面信息入栈
           });
       };
     }
@@ -74,7 +74,7 @@ export struct PageOne {
   build() {
     NavDestination() {
       Column() {
-     <em>   // 'www.xxx.com'更换为目标网址</em>
+        // 'www.xxx.com'更换为目标网址
         Web({ src: 'www.xxx.com', controller: this.controller });
       }
       .width('100%')
@@ -82,8 +82,8 @@ export struct PageOne {
     }
     .title('pageOne')
     .onBackPressed(() => {
-      if (this.controller.accessBackward()) { <em>// 判断web页面是否可以后退</em>
-        this.controller.backward(); <em>// web页面后退</em>
+      if (this.controller.accessBackward()) { // 判断web页面是否可以后退
+        this.controller.backward(); // web页面后退
         return true;
       } else {
         this.pageInfos.pop();

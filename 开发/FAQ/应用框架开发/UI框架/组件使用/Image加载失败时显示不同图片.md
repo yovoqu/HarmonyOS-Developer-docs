@@ -49,7 +49,7 @@ struct ImageComponentExample {
         .margin(15)
         .alt(this.status === 'loading' ? this.loadingImg : this.errorImg)
         .onError(() => {
-     <em>     // 通过定时器延迟3s，方便观察加载中和加载失败过程图片的切换</em>
+          // 通过定时器延迟3s，方便观察加载中和加载失败过程图片的切换
           setTimeout(() => {
             this.status = 'error';
           }, 3000);

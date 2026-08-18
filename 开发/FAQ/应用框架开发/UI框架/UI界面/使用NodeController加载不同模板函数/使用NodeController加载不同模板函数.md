@@ -77,14 +77,14 @@ function TextBuilder() {
 
 - 使用NodeController构建自定义节点：
 ```text
-<em>// 自定义节点</em>
+// 自定义节点
 export class MyNodeController extends NodeController {
   private rootNode: FrameNode | null = null;
   private adNode: BuilderNode<[Params]> | null = null;
   private uiContext ?: UIContext;
 
 
- <em> // 当NodeContainer进行绘制时，会调用makeNode()方法，将构建好的rootNode返回实现组件上树。</em>
+  // 当NodeContainer进行绘制时，会调用makeNode()方法，将构建好的rootNode返回实现组件上树。
   makeNode(): FrameNode | null {
     if (this.rootNode != null) {
       return this.rootNode;
@@ -93,7 +93,7 @@ export class MyNodeController extends NodeController {
   }
 
 
-<em>  // 初始化过程，通过判断queryById获取的Type是否为'button'来决定myBuilder调用哪种模板</em>
+  // 初始化过程，通过判断queryById获取的Type是否为'button'来决定myBuilder调用哪种模板
   init(uiContext: UIContext, id: string, Type: string) {
     this.uiContext = uiContext;
     this.rootNode = new FrameNode(this.uiContext);
@@ -109,7 +109,7 @@ export class MyNodeController extends NodeController {
 let nodeMap: Map<string, MyNodeController | undefined> = new Map();
 
 
-<em>// 在组件中执行，通过组件中获取的参数创建MyNodeController实例</em>
+// 在组件中执行，通过组件中获取的参数创建MyNodeController实例
 const getAdNodeController = (uiContext: UIContext, id: string): MyNodeController | undefined => {
   let baseNode = new MyNodeController();
   nodeMap.set(id, baseNode);
@@ -118,7 +118,7 @@ const getAdNodeController = (uiContext: UIContext, id: string): MyNodeController
 };
 
 
-<em>// 假设id能被2整除则为Button，否则为Text</em>
+// 假设id能被2整除则为Button，否则为Text
 function queryById(id: string): string {
   if (Number(id) % 2 === 0) {
     return 'button';
@@ -226,14 +226,14 @@ function TextBuilder() {
 }
 
 
-<em>// 自定义节点</em>
+// 自定义节点
 export class MyNodeController extends NodeController {
   private rootNode: FrameNode | null = null;
   private adNode: BuilderNode<[Params]> | null = null;
   private uiContext ?: UIContext;
 
 
-  <em>// 当NodeContainer进行绘制时，会调用makeNode()方法，将构建好的rootNode返回实现组件上树。</em>
+  // 当NodeContainer进行绘制时，会调用makeNode()方法，将构建好的rootNode返回实现组件上树。
   makeNode(): FrameNode | null {
     if (this.rootNode != null) {
       return this.rootNode;
@@ -242,7 +242,7 @@ export class MyNodeController extends NodeController {
   }
 
 
-<em>  // 初始化过程，通过判断queryById获取的Type是否为'button'来决定myBuilder调用哪种模板</em>
+  // 初始化过程，通过判断queryById获取的Type是否为'button'来决定myBuilder调用哪种模板
   init(uiContext: UIContext, id: string, Type: string) {
     this.uiContext = uiContext;
     this.rootNode = new FrameNode(this.uiContext);
@@ -256,7 +256,7 @@ export class MyNodeController extends NodeController {
 let nodeMap: Map<string, MyNodeController | undefined> = new Map();
 
 
-<em>// 在组件中执行，通过组件中获取的参数创建MyNodeController实例</em>
+// 在组件中执行，通过组件中获取的参数创建MyNodeController实例
 const getAdNodeController = (uiContext: UIContext, id: string): MyNodeController | undefined => {
   let baseNode = new MyNodeController();
   nodeMap.set(id, baseNode);
@@ -265,7 +265,7 @@ const getAdNodeController = (uiContext: UIContext, id: string): MyNodeController
 };
 
 
-<em>// 假设id能被2整除则为Button，否则为Text</em>
+// 假设id能被2整除则为Button，否则为Text
 function queryById(id: string): string {
   if (Number(id) % 2 === 0) {
     return 'button';

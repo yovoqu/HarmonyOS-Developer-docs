@@ -49,7 +49,7 @@ struct PdfAddBgc {
 
   aboutToAppear(): void {
     let dir: string = this.context.filesDir;
-   <em> // 确保在工程目录src/main/resources/rawfile里存在test.pdf文档</em>
+    // 确保在工程目录src/main/resources/rawfile里存在test.pdf文档
     this.filePath = dir + '/test.pdf';
     let res = fs.accessSync(this.filePath);
     if (!res) {
@@ -72,7 +72,7 @@ struct PdfAddBgc {
       console.log('loadResult is ', loadResult);
       if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
         this.controller.setPageZoom(1);
-       <em> // 监听滑动到第几页</em>
+        // 监听滑动到第几页
         this.controller.registerPageChangedListener((pageIndex: number) => {
           this.curPage = pageIndex;
         });
@@ -85,12 +85,12 @@ struct PdfAddBgc {
     Column({ space: 5 }) {
       Row() {
         Button('添加背景色').onClick(() => {
-        <em>  // pdfDocument.saveDocument不支持编辑加载的文件，拷贝一份用来编辑</em>
+          // pdfDocument.saveDocument不支持编辑加载的文件，拷贝一份用来编辑
           let tempDir = this.context.tempDir;
           let tempEditFilePath = tempDir + `/tempEdit${systemDateTime.getTime()}.pdf`;
           fs.copyFileSync(this.filePath, tempEditFilePath);
           let pdfDocument: pdfService.PdfDocument = new pdfService.PdfDocument();
-         <em> // 编辑PDF文件时使用临时文件过渡</em>
+          // 编辑PDF文件时使用临时文件过渡
           let loadResult = pdfDocument.loadDocument(tempEditFilePath);
           if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
             let pageCount = pdfDocument.getPageCount();
@@ -105,11 +105,11 @@ struct PdfAddBgc {
             bgInfo.horizontalSpace = 1;
             bgInfo.verticalSpace = 1;
             pdfDocument.addBackground(bgInfo, 0, pageCount, true, false);
-            <em>// 将添加背景色后的内容保存到源文件</em>
+            // 将添加背景色后的内容保存到源文件
             pdfDocument.saveDocument(this.filePath);
-          <em>  // 释放PdfView组件中编辑前的PDF文件</em>
+            // 释放PdfView组件中编辑前的PDF文件
             this.controller.releaseDocument();
-           <em> // 将通过pdfService编辑好的PDF文件加载到PdfView组件中</em>
+            // 将通过pdfService编辑好的PDF文件加载到PdfView组件中
             this.controller.loadDocument(this.filePath, '', this.curPage);
           }
         })

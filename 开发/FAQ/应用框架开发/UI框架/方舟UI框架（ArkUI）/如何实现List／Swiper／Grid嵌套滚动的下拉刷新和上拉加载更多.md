@@ -9,41 +9,41 @@
 ```text
 build() {
   Column() {
-   <em> // Search box at the top</em>
+    // Search box at the top
     this.searchBarBuilder()
-   <em> // Pull down refresh component</em>
+    // Pull down refresh component
     Refresh({ refreshing: $$this.isRefreshing }) {
-     <em> // List component as long list layout</em>
+      // List component as long list layout
       List({ space: 10 }) {
-       <em> // ListItem Customize the Swiper carousel module</em>
+        // ListItem Customize the Swiper carousel module
         ListItem() {
           this.bannerBuilder()
         }
-       <em> // ListItem Custom Grid Quick Access Module</em>
+        // ListItem Custom Grid Quick Access Module
         ListItem() {
           this.quickBuilder()
         }
-      <em>  // ListItem Custom Column Flash Sale Module</em>
+        // ListItem Custom Column Flash Sale Module
         ListItem() {
           this.flashBuilder()
         }
-      <em>  // ListItemGroup Product Classification List</em>
+        // ListItemGroup Product Classification List
         this.productsBuilder()
-      <em>  // 最后ListItem Customize bottom loading for more</em>
+        // 最后ListItem Customize bottom loading for more
         ListItem() {
           this.footerLoadingBuilder()
         }.height(50).width('100%').backgroundColor(0xeeeeee)
       }
       .sticky(StickyStyle.Header)
       .height('100%')
-  <em>    // List component hits bottom to simulate network requests</em>
+      // List component hits bottom to simulate network requests
       .onReachEnd(() => {
-       <em> // Load more data logic</em>
+        // Load more data logic
       })
     }
-    <em>// Pull down refresh simulation network request</em>
+    // Pull down refresh simulation network request
     .onRefreshing(() => {
-    <em>  // Data refresh logic</em>
+      // Data refresh logic
     })
     .layoutWeight(1)
     .width('100%')

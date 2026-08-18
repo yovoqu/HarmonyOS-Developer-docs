@@ -9,13 +9,13 @@ Uint8Array类型和String以及hex实现互相转换，可参考如下代码：
 ```text
 import { buffer, util } from '@kit.ArkTS';
 
-<em>// Convert string to byte stream</em>
+// Convert string to byte stream
 function stringToUint8Array(str: string) {
   console.info('Convert string to byte stream:' + new Uint8Array(buffer.from(str, 'utf-8').buffer));
   return new Uint8Array(buffer.from(str, 'utf-8').buffer);
 }
 
-<em>// Byte flow into understandable strings</em>
+// Byte flow into understandable strings
 function uint8ArrayToString(array: Uint8Array) {
   let textDecoderOptions: util.TextDecoderOptions = {
     fatal: false,
@@ -30,13 +30,13 @@ function uint8ArrayToString(array: Uint8Array) {
   return retStr;
 }
 
-<em>//Hexadecimal to Uint8Array</em>
+//Hexadecimal to Uint8Array
 function HexStrTouint8Array(data: string): Uint8Array {
   console.info('Hexadecimal to Uint8Array:' + new Uint8Array(buffer.from(data, 'hex').buffer));
   return new Uint8Array(buffer.from(data, 'hex').buffer);
 }
 
-<em>// Uint8Array to hexadecimal</em>
+// Uint8Array to hexadecimal
 function uint8ArrayToHexStr(data: Uint8Array): string {
   let hexString = '';
   let i: number;

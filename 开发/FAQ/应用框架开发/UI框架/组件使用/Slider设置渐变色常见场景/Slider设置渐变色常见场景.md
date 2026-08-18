@@ -66,8 +66,8 @@ struct PageLinearGradientOne {
   build() {
     Column() {
       Slider({ style: SliderStyle.OutSet, value: 50 })
-        .trackColor(this.trackColor) <em>// 设置滑轨背景为渐变色</em>
-        .selectedColor(Color.Transparent) <em>// 设置滑轨已滑动部分为透明色</em>
+        .trackColor(this.trackColor) // 设置滑轨背景为渐变色
+        .selectedColor(Color.Transparent) // 设置滑轨已滑动部分为透明色
         .onChange((value: number) => {
           console.info(value.toString());
         });
@@ -101,8 +101,8 @@ struct PageLinearGradientTwo {
   build() {
     Column() {
       Slider({ style: SliderStyle.OutSet, value: 50 })
-        .trackColor(this.trackColor) <em>// 设置滑轨背景为渐变色</em>
-        .selectedColor(this.selectedColor) <em>// 设置滑轨已滑动部分为渐变色</em>
+        .trackColor(this.trackColor) // 设置滑轨背景为渐变色
+        .selectedColor(this.selectedColor) // 设置滑轨已滑动部分为渐变色
         .onChange((value: number) => {
           console.info(value.toString());
         });
@@ -135,21 +135,21 @@ struct SliderExample {
           min: 0,
           max: 100,
           style: SliderStyle.OutSet,
-        <em>  // 设置滑动条取值范围为反向</em>
+          // 设置滑动条取值范围为反向
           reverse: true
         })
-       <em> // 设置滑轨的背景颜色为渐变色</em>
+        // 设置滑轨的背景颜色为渐变色
           .trackColor(this.colorGradient)
-        <em>  // 设置滑轨的已滑动部分颜色为白色，排除干扰</em>
+          // 设置滑轨的已滑动部分颜色为白色，排除干扰
           .selectedColor(Color.White)
           .onChange((value: number) => {
             this.selectValue = value;
-        <em>    // 滑动取值范围取反后，使用总体减去已选择数值为现在选择数值</em>
+            // 滑动取值范围取反后，使用总体减去已选择数值为现在选择数值
             this.value = 100 - this.selectValue;
           })
           .trackThickness(10)
           .blockSize({ width: 10, height: 10 })
-     <em>   // toFixed(0)将滑动条返回值处理为整数精度</em>
+        // toFixed(0)将滑动条返回值处理为整数精度
         Text(this.value.toFixed(0)).fontSize(12)
       }
       .width('80%')

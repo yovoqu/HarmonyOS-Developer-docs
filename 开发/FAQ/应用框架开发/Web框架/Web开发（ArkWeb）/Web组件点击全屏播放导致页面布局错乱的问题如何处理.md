@@ -57,8 +57,8 @@ import { webview } from '@kit.ArkWeb';
 @Component
 struct SolutionOne {
   controller: webview.WebviewController = new webview.WebviewController();
-  CONSTANT_HEIGHT = 150; <em>// Web</em><em>组件的高度默认值设置为150</em>
-  @State marginTop: number = this.CONSTANT_HEIGHT;<em> </em><em>// 自定义组件的margin高度属性为全局变量</em>
+  CONSTANT_HEIGHT = 150; // Web组件的高度默认值设置为150
+  @State marginTop: number = this.CONSTANT_HEIGHT; // 自定义组件的margin高度属性为全局变量
 
   build() {
     Stack({ alignContent: Alignment.TopStart }) {
@@ -67,24 +67,24 @@ struct SolutionOne {
         .height(this.CONSTANT_HEIGHT)
         .backgroundColor('#e1dede');
       Web({
-       <em> // 需替换为带有视频的网址才可达到预期效果</em>
+        // 需替换为带有视频的网址才可达到预期效果
         src: 'www.example.com',
         controller: this.controller
       })
         .onFullScreenEnter(() => {
           console.info('onFullScreenEnter');
-        <em>  // 当全屏的时候，web组件的margin属性高度设置为0</em>
+          // 当全屏的时候，web组件的margin属性高度设置为0
           this.marginTop = 0;
         })
         .onFullScreenExit(() => {
           console.info('onFullScreenExit');
-      <em>    // 当退出全屏的时候，web组件的margin属性高度恢复初始值</em>
+          // 当退出全屏的时候，web组件的margin属性高度恢复初始值
           this.marginTop = this.CONSTANT_HEIGHT;
         })
         .width('100%')
         .height('100%')
         .zIndex(10)
-         <em> // Web组件margin属性高度呈动态变化</em>
+          // Web组件margin属性高度呈动态变化
         .margin({ top: this.marginTop })
         .fileAccess(false)
         .geolocationAccess(false)
@@ -105,29 +105,29 @@ import { webview } from '@kit.ArkWeb';
 struct SolutionTwo {
   controller: webview.WebviewController = new webview.WebviewController();
   CONSTANT_HEIGHT = 100;
-  @State isVisible: boolean = true;<em> </em><em>// 自定义标志位isVisible，来控制是否需要显示组件</em>
+  @State isVisible: boolean = true; // 自定义标志位isVisible，来控制是否需要显示组件
 
   build() {
     Column() {
       Text('TextTextTextText')
         .width('100%')
         .height(this.CONSTANT_HEIGHT)
-        .backgroundColor('#e1dede')<em> </em><em>// 当isVisible标志位为true的时候，组件状态为可见，否则组件状态为不可见，不参与布局、不进行占位</em>
+        .backgroundColor('#e1dede') // 当isVisible标志位为true的时候，组件状态为可见，否则组件状态为不可见，不参与布局、不进行占位
         .visibility(this.isVisible ? Visibility.Visible :
         Visibility.None);
       Web({
-        <em>// 需替换为带有视频的网址才可达到预期效果</em>
+        // 需替换为带有视频的网址才可达到预期效果
         src: 'www.example.com',
         controller: this.controller
       })
         .onFullScreenEnter(() => {
           console.info('onFullScreenEnter');
-        <em>  // 当全屏的时候，isVisible标志位为false，组件状态为不可见，不参与布局、不进行占位</em>
+          // 当全屏的时候，isVisible标志位为false，组件状态为不可见，不参与布局、不进行占位
           this.isVisible = false;
         })
         .onFullScreenExit(() => {
           console.info('onFullScreenExit');
-        <em>  // 当退出全屏的时候，isVisible标志位为true，组件状态为可见</em>
+          // 当退出全屏的时候，isVisible标志位为true，组件状态为可见
           this.isVisible = true;
         })
         .width('100%')

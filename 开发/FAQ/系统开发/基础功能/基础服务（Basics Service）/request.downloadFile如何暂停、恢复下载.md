@@ -31,9 +31,9 @@ interface DownloadResult {
 @Entry
 @Component
 struct downloadFileCase {
- <em> // 请在组件内获取context，确保this.getUIContext().getHostContext()返回结果为UIAbilityContext</em>
+  // 请在组件内获取context，确保this.getUIContext().getHostContext()返回结果为UIAbilityContext
   context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  <em>// 需要手动将url替换为真实服务器的HTTP协议地址</em>
+  // 需要手动将url替换为真实服务器的HTTP协议地址
   downloadUrl: string =
     'http://xxx/xxx.mp4';
   @State filePath: string = '';
@@ -56,7 +56,7 @@ struct downloadFileCase {
         this.DownloadFile(this.downloadUrl, `${this.context.filesDir}/testDir`);
       });
       Button('download暂停').onClick(() => {
-       <em> // 暂停下载</em>
+        // 暂停下载
         if (!this.downloadTask) return;
         try {
           this.downloadTask.suspend();
@@ -66,7 +66,7 @@ struct downloadFileCase {
         }
       });
       Button('download继续').onClick(() => {
-       <em> // 继续下载</em>
+        // 继续下载
         if (!this.downloadTask) return;
 
         this.downloadTask.restore().then((result: boolean) => {
@@ -97,14 +97,14 @@ struct RequestAgentDemo {
   @State downloadTask: request.agent.Task | null = null;
   @State progressInfo: string = "等待开始...";
 
-  <em>// 配置对象</em>
+  // 配置对象
   config: request.agent.Config = {
     action: request.agent.Action.DOWNLOAD,
     url: 'http://xxx/xxx.mp4',
     mode: request.agent.Mode.BACKGROUND,
-    overwrite: true,<em> </em><em>// 建议设为 true，方便多次测试</em>
+    overwrite: true, // 建议设为 true，方便多次测试
     method: "GET",
-    saveas: "./"<em> </em><em>// 下载到应用私有目录</em>
+    saveas: "./" // 下载到应用私有目录
   };
 
   build() {
@@ -116,29 +116,29 @@ struct RequestAgentDemo {
           .width('90%')
 
         Row({ space: 10 }) {
-        <em>  // 1. 开始按钮</em>
+          // 1. 开始按钮
           Button('开始')
             .onClick(() => {
-             <em> // 防止重复创建</em>
+              // 防止重复创建
               if (this.downloadTask) return;
               request.agent.create(this.context, this.config)
                 .then((task: request.agent.Task) => {
                   this.downloadTask = task;
 
-               <em>   // 注册监听（为了看效果）</em>
+                  // 注册监听（为了看效果）
                   task.on('progress', (progress) => {
-                 <em>   // 进度显示</em>
+                    // 进度显示
                     this.progressInfo = `进度: ${progress.processed}/${progress.sizes[0]}`;
                   });
                   task.on('completed', () => {
                     this.progressInfo = "下载完成";
-                    this.downloadTask = null;<em> </em><em>// 下载完重置</em>
+                    this.downloadTask = null; // 下载完重置
                   });
                   task.on('failed', (err) => {
                     this.progressInfo = `失败: ${JSON.stringify(err)}`;
                   });
 
-                <em>  // 启动任务</em>
+                  // 启动任务
                   task.start((err: BusinessError) => {
                     if (err) {
                       console.error(`Start failed: ${err.message}`);
@@ -153,7 +153,7 @@ struct RequestAgentDemo {
                 });
             })
 
-        <em>  // 2. 暂停按钮</em>
+          // 2. 暂停按钮
           Button('暂停')
             .onClick(() => {
               if (!this.downloadTask) return;
@@ -168,7 +168,7 @@ struct RequestAgentDemo {
               });
             })
 
-        <em>  // 3. 重启（恢复）按钮</em>
+          // 3. 重启（恢复）按钮
           Button('恢复')
             .onClick(() => {
               if (!this.downloadTask) return;

@@ -18,7 +18,7 @@
 
   
 ```text
-<em>// 第一段画布的绘制代码</em>
+// 第一段画布的绘制代码
 Canvas(this.coordinateSystemContext)
   .width(this.canvasWidth)
   .height(this.canvasHeight)
@@ -49,7 +49,7 @@ Button('清除图形')
 
   
 ```text
-<em>// 第二段画布的绘制代码</em>
+// 第二段画布的绘制代码
 Canvas(this.incompleteAreaContext)
    .width(this.canvasWidth)
    .height(this.canvasHeight)
@@ -102,17 +102,17 @@ clearRect失效通常由以下原因导致：
 @Entry
 @Component
 struct CanvasExample1 {
-<em>  // 用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿，true表明开启抗锯齿。</em>
+  // 用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿，true表明开启抗锯齿。
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
-  <em>// 用来创建CanvasRenderingContext2D对象，通过在canvas中调用CanvasRenderingContext2D对象来绘制。</em>
+  // 用来创建CanvasRenderingContext2D对象，通过在canvas中调用CanvasRenderingContext2D对象来绘制。
   private coordinateSystemContext: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
   private canvasWidth: number = 300;
   private canvasHeight: number = 300;
 
   build() {
     Column({space:20}) {
-  <em>    // 在canvas中调用CanvasRenderingContext2D对象。</em>
-<em>      // 第一段画布的绘制代码</em>
+      // 在canvas中调用CanvasRenderingContext2D对象。
+      // 第一段画布的绘制代码
       Canvas(this.coordinateSystemContext)
         .width(this.canvasWidth)
         .height(this.canvasHeight)
@@ -129,14 +129,14 @@ struct CanvasExample1 {
         })
       Button('清除图形')
         .onClick(() => {
-        <em>  // 保存当前画布状态</em>
+          // 保存当前画布状态
           this.coordinateSystemContext.save();
-      <em>    // 重置变换矩阵（确保清除区域覆盖整个画布）</em>
+          // 重置变换矩阵（确保清除区域覆盖整个画布）
           this.coordinateSystemContext.resetTransform();
-         <em> // 清除整个画布</em>
+          // 清除整个画布
           this.coordinateSystemContext.clearRect(0, 0, this.coordinateSystemContext.width,
             this.coordinateSystemContext.height);
-         <em> // 恢复之前的画布状态（如缩放、平移等）</em>
+          // 恢复之前的画布状态（如缩放、平移等）
           this.coordinateSystemContext.restore();
         });
     }
@@ -151,19 +151,19 @@ struct CanvasExample1 {
 @Entry
 @Component
 struct CanvasExample2 {
- <em> // 用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿，true表明开启抗锯齿。</em>
+  // 用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿，true表明开启抗锯齿。
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
- <em> // 用来创建CanvasRenderingContext2D对象，通过在canvas中调用CanvasRenderingContext2D对象来绘制。</em>
+  // 用来创建CanvasRenderingContext2D对象，通过在canvas中调用CanvasRenderingContext2D对象来绘制。
   private incompleteAreaContext: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
   private canvasWidth: number = 300;
   private canvasHeight: number = 300;
-  private ratio: number = 0.3;<em> // 假设存在缩放比例变量</em>
+  private ratio: number = 0.3; // 假设存在缩放比例变量
 
   build() {
     Column({ space: 20 }) {
-      <em>// 在canvas中调用CanvasRenderingContext2D对象。</em>
-<em>      // 第二段画布的绘制代码</em>
-<em>      // 第二段画布的绘制代码</em>
+      // 在canvas中调用CanvasRenderingContext2D对象。
+      // 第二段画布的绘制代码
+      // 第二段画布的绘制代码
       Canvas(this.incompleteAreaContext)
         .width(this.canvasWidth)
         .height(this.canvasHeight)
@@ -179,7 +179,7 @@ struct CanvasExample2 {
         });
       Button('清除图形')
         .onClick(() => {
-        <em>  // 计算实际清除区域</em>
+          // 计算实际清除区域
           let clearWidth = this.incompleteAreaContext.width / this.ratio;
           let clearHeight = this.incompleteAreaContext.height / this.ratio;
           this.incompleteAreaContext.clearRect(0, 0, clearWidth, clearHeight);

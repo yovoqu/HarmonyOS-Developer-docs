@@ -51,7 +51,7 @@ setDialogButtonWithList(list: number[]): CustomAlertDialogButtonOptions[] {
       buttonIndex: index,
       action: () => {
         switch (index) {
-      <em>    // 根据index做对应的逻辑处理</em>
+          // 根据index做对应的逻辑处理
           case 0:
             this.title = '选中了第一项';
             break;
@@ -89,7 +89,7 @@ class CustomAlertDialogButtonOptions implements AlertDialogButtonOptions {
 struct AlertDialogExample {
   private list: number[] = [];
   @State title: string = '';
-<em>// 模拟数据源</em>
+// 模拟数据源
   aboutToAppear(): void {
     for (let index = 0; index < 4; index++) {
       this.list.push(index);
@@ -104,7 +104,7 @@ struct AlertDialogExample {
         buttonIndex: index,
         action: () => {
           switch (index) {
-        <em>    // 根据index做对应的逻辑处理</em>
+            // 根据index做对应的逻辑处理
             case 0:
               this.title = '选中了第一项';
               break;

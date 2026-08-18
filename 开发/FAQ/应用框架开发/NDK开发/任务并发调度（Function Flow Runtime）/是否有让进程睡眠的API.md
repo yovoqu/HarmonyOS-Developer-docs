@@ -38,7 +38,7 @@ HarmonyOS中未直接提供进程睡眠的API。
 struct SleepPage {
   @State message: string = 'Hello World';
 
-<em>  // 睡眠等待方法，time为睡眠时间，单位毫秒</em>
+  // 睡眠等待方法，time为睡眠时间，单位毫秒
   sleep(time: number): Promise<void> {
     return new Promise(resolve => setTimeout(resolve, time));
   }
@@ -65,7 +65,7 @@ struct SleepPage {
         })
       Button('Sleep修改message')
         .onClick(async () => {
-        <em>  // 等待3秒</em>
+          // 等待3秒
           await this.sleep(3000);
           this.message = 'SLEEP 3000';
         })
@@ -73,7 +73,7 @@ struct SleepPage {
 
       Button('sleepAtomics修改message')
         .onClick(async () => {
-        <em>  // 等待3秒</em>
+          // 等待3秒
           this.sleepAtomics(3000);
         })
         .margin({ top: 20 });

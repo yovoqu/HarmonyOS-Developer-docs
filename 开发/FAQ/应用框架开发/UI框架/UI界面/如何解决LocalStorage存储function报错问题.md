@@ -19,7 +19,7 @@ function openCommentsInput(title: string, hintMsg: string, clickSend: Function =
   let storage: LocalStorage = new LocalStorage();
   storage.setOrCreate('title', title)
   storage.setOrCreate('hintMsg', hintMsg)
-  storage.setOrCreate('clickSend', clickSend)<em> </em><em>// 程序崩溃，报错</em>
+  storage.setOrCreate('clickSend', clickSend) // 程序崩溃，报错
 }
 ```
  
@@ -60,13 +60,13 @@ function openCommentsInput(title: string, hintMsg: string, clickSend: object) {
   storage.setOrCreate('clickSend', clickSend);
 }
 
-<em>// </em><em>使用class对function进行一层封装</em>
+// 使用class对function进行一层封装
 class MyFunc {
   clickSend: Function = () => {
   };
 }
 
-<em>// </em><em>需要保存至LocalStorage的函数</em>
+// 需要保存至LocalStorage的函数
 function clickSend(ctx: string) {
   console.info(ctx);
 }
@@ -74,20 +74,20 @@ function clickSend(ctx: string) {
 @Entry(storage)
 @Component
 export struct LocalStorageDemo {
-  @LocalStorageLink('clickSend') myFunc: object = []; <em>// </em><em>获取LocalStorage中存储的clickSend对象</em>
+  @LocalStorageLink('clickSend') myFunc: object = []; // 获取LocalStorage中存储的clickSend对象
 
   build() {
     Column({ space: 20 }) {
       Button('向storage保存数据')
         .onClick(() => {
           let myFunc: MyFunc = new MyFunc();
-          myFunc.clickSend = clickSend; <em>// 将要保存的函数封装在class对象中</em>
-          openCommentsInput('title', 'hintMsg', myFunc); <em>// </em><em>将class对象保存至LocalStorage</em>
+          myFunc.clickSend = clickSend; // 将要保存的函数封装在class对象中
+          openCommentsInput('title', 'hintMsg', myFunc); // 将class对象保存至LocalStorage
         });
       Button('读取storage的数据')
         .onClick(() => {
-          let tmp = this.myFunc as MyFunc; <em>// 将Object对象转为MyFunc类</em>
-          tmp.clickSend('读取storage的数据成功'); <em>// </em><em>调用MyFunc中的clickSend函数</em>
+          let tmp = this.myFunc as MyFunc; // 将Object对象转为MyFunc类
+          tmp.clickSend('读取storage的数据成功'); // 调用MyFunc中的clickSend函数
         });
     };
   }

@@ -23,9 +23,9 @@ import { webview } from '@kit.ArkWeb';
 @Component
 @Entry
 struct TabWebScroll {
-  @State isScrollEnabled: boolean = true; <em>// Control the sliding page for page switching</em>
+  @State isScrollEnabled: boolean = true; // Control the sliding page for page switching
   private tabsController = new TabsController();
-  private currentIndex: number = 0;<em>// Track currently active tab index</em>
+  private currentIndex: number = 0;// Track currently active tab index
   private webviewController: webview.WebviewController = new webview.WebviewController();
 
 
@@ -34,7 +34,7 @@ struct TabWebScroll {
       TabContent() {
         Web({ src: 'https://developer.huawei.com/consumer/cn/', controller: this.webviewController })
           .nestedScroll({
-           <em> // Set nested scrolling</em>
+            // Set nested scrolling
             scrollForward: NestedScrollMode.PARENT_FIRST,
             scrollBackward: NestedScrollMode.SELF_FIRST
           })
@@ -76,11 +76,11 @@ struct TabWebScroll {
     })
     .scrollable(this.isScrollEnabled)
     .onAnimationEnd(() => {
-      <em>// Trigger this callback when the animation ends, and set the web component to slide</em>
+      // Trigger this callback when the animation ends, and set the web component to slide
       this.webviewController?.setScrollable(true);
     })
     .onGestureSwipe(() => {
-     <em> // During the sliding process on the page, this callback is triggered frame by frame. When switching between tab pages, the web page cannot slide up or down</em>
+      // During the sliding process on the page, this callback is triggered frame by frame. When switching between tab pages, the web page cannot slide up or down
       this.webviewController?.setScrollable(false);
     })
   }

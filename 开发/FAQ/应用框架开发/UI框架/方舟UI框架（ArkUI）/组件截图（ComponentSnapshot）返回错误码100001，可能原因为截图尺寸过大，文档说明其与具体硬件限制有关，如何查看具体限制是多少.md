@@ -15,7 +15,7 @@ hdc shell hidumper -s 10 -a 'vktextureLimit'
 如需实现离屏组件的长截图，可参考以下实现：
  
 ```ArkTS
-<em>// src/main/ets/utils/Utils.ets</em>
+// src/main/ets/utils/Utils.ets
 import { image } from '@kit.ImageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -24,7 +24,7 @@ export class Utils {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
- <em> // Calculate the valid screenshot area</em>
+  // Calculate the valid screenshot area
   static async getSnapshotArea(context: UIContext, pixelMap: PixelMap, scrollYOffsets: number[], listWidth: number,
     listHeight: number): Promise<image.PositionArea> {
     let stride = pixelMap.getBytesNumberPerRow();
@@ -73,7 +73,7 @@ export class Utils {
     return area;
   }
 
- <em> // Graphic splicing</em>
+  // Graphic splicing
   static async mergeImage(context: UIContext, areaArray: image.PositionArea[], lastOffsetY: number, listWidth: number,
     listHeight: number): Promise<PixelMap> {
     let opts: image.InitializationOptions = {
@@ -116,7 +116,7 @@ export class Utils {
 ```
  
 ```ArkTS
-<em>// src/main/ets/pages/Index.ets</em>
+// src/main/ets/pages/Index.ets
 import { image } from '@kit.ImageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Utils } from '../utils/Utils';
@@ -182,18 +182,18 @@ struct SnapshotExample {
 
   async snapAndMerge() {
     try {
-     <em> // Record the current scrolling position</em>
+      // Record the current scrolling position
       this.scrollYOffsets.push(this.scroller.currentOffset().yOffset);
-      <em>// Take a screenshot of the current display part of the component</em>
+      // Take a screenshot of the current display part of the component
       const pixelMap = await this.getUIContext().getComponentSnapshot().get(this.listId);
-    <em>  // Calculate the valid screenshot area</em>
+      // Calculate the valid screenshot area
       let area: image.PositionArea =
         await Utils.getSnapshotArea(this.getUIContext(), pixelMap, this.scrollYOffsets, this.listComponentWidth,
           this.listComponentHeight);
       this.areaArray.push(area);
-    <em>  // Determine whether to scroll to the bottom</em>
+      // Determine whether to scroll to the bottom
       if (!this.scroller.isAtEnd()) {
-      <em>  // Not to the bottom: Scroll down by one screen height</em>
+        // Not to the bottom: Scroll down by one screen height
         this.scroller.scrollTo({
           xOffset: 0,
           yOffset: (this.scroller.currentOffset().yOffset + this.listComponentHeight),
@@ -242,7 +242,7 @@ struct SnapshotExample {
           this.onceSnapshot();
         })
       Stack() {
-       <em> // Screenshot component</em>
+        // Screenshot component
         List({ space: 12, scroller: this.scroller }) {
           LazyForEach(this.data, (item: string) => {
             ListItem() {
@@ -264,13 +264,13 @@ struct SnapshotExample {
           this.listComponentWidth = newValue.width as number;
           this.listComponentHeight = newValue.height as number;
         })
-     <em>   // Set the Z-sequence to -1 to ensure that this component is invisible</em>
+        // Set the Z-sequence to -1 to ensure that this component is invisible
         .zIndex(-1)
 
-      <em>  // Use a mask to cover the screenshot area</em>
+        // Use a mask to cover the screenshot area
         Column()
           .width('100%').height('100%').backgroundColor(Color.White)
-       <em> // Long screenshot</em>
+        // Long screenshot
         Scroll() {
           Image(this.mergedImage)
         }

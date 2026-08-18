@@ -9,7 +9,7 @@ ArkTS不支持动态更改对象布局，也不支持全局作用域和globalThi
 ```text
 import { common } from '@kit.AbilityKit';
 
-<em>// Construct singleton objects</em>
+// Construct singleton objects
 export class GlobalThis {
   private constructor() {};
   private static instance: GlobalThis;

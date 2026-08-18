@@ -70,7 +70,7 @@ export default class EntryAbility extends UIAbility {
       hilog.info(DOMAIN, 'testTag', 'Succeeded in loading the content.');
     });
 
-  <em>  // 将上下文存储到AppGlobal中</em>
+    // 将上下文存储到AppGlobal中
     AppGlobal.mContext = this.context;
     const permissions: Permissions[] = ['ohos.permission.READ_CALENDAR', 'ohos.permission.WRITE_CALENDAR'];
     let atManager = abilityAccessCtrl.createAtManager();
@@ -78,7 +78,7 @@ export default class EntryAbility extends UIAbility {
     atManager.requestPermissionsFromUser(this.context, permissions).then((result: PermissionRequestResult) => {
       let resultStr = JSON.stringify(result);
       console.info(`get Permission success, result: ${resultStr}`);
-    <em>  // 将calendarManager存储到AppGlobal中</em>
+      // 将calendarManager存储到AppGlobal中
       AppGlobal.calendarMgr = calendarManager.getCalendarManager(this.context);
     }).catch((error: BusinessError) => {
       console.error(`get Permission error, error. Code: ${error.code}, message: ${error.message}`);

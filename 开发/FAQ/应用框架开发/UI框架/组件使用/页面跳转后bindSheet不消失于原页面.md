@@ -41,7 +41,7 @@
 @Entry
 @Component
 struct PageOne {
-<em>  // 定义状态变量isShow控制bindSheet显隐</em>
+  // 定义状态变量isShow控制bindSheet显隐
   @State isShow: Boolean = false;
   pageInfo: NavPathStack = new NavPathStack();
 

@@ -25,37 +25,37 @@ ArrayBuffer是HarmonyOS开发中经常用到的数据类型，很多接口的入
 Base64转ArrayBuffer：
  
 ```text
-<em>/**</em>
-<em><span style="color: rgb(128,128,128);"> * </span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">Base64</span><span style="color: rgb(128,128,128);">格式字符串转换为</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">类型</span></em>
-<em><span style="color: rgb(128,128,128);"> * @param src Base64</span><span style="color: rgb(128,128,128);">字符串</span></em>
-<em><span style="color: rgb(128,128,128);"> * @returns ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据</span></em>
-<em><span style="color: rgb(128,128,128);"> */</span></em>
-<span style="color: rgb(0,0,255);">public static </span><span style="color: rgb(0,0,255);">base64ToArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer </span><span style="color: rgb(255,0,170);">{</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    return new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  let <span style="color: rgb(0,0,255);">base64Helper </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">uint8Array </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">base64Helper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decodeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  return <span style="color: rgb(0,0,255);">uint8Array</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer </span>as <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+/**
+ * 将Base64格式字符串转换为ArrayBuffer类型
+ * @param src Base64字符串
+ * @returns ArrayBuffer格式数据
+ */
+public static base64ToArrayBuffer(src: string): ArrayBuffer {
+  if (src.length == 0) {
+    return new ArrayBuffer(0);
+  }
+  let base64Helper = new util.Base64Helper();
+  let uint8Array = base64Helper.decodeSync(src);
+  return uint8Array.buffer as ArrayBuffer;
+}
 ```
  
 ArrayBuffer转Base64：
  
 ```text
-<em>/**</em>
-<em><span style="color: rgb(128,128,128);"> * </span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">转换为</span><span style="color: rgb(128,128,128);">Base64</span><span style="color: rgb(128,128,128);">格式</span></em>
-<em><span style="color: rgb(128,128,128);"> * @param src ArrayBuffer</span><span style="color: rgb(128,128,128);">数据</span></em>
-<em><span style="color: rgb(128,128,128);"> * @returns Base64</span><span style="color: rgb(128,128,128);">格式字符串</span></em>
-<em><span style="color: rgb(128,128,128);"> */</span></em>
-<span style="color: rgb(0,0,255);">public static </span><span style="color: rgb(0,0,255);">arrayBufferToBase64</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(255,0,170);">{</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">byteLength </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    return <span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">转成</span><span style="color: rgb(128,128,128);">string</span><span style="color: rgb(128,128,128);">，再编码成</span><span style="color: rgb(128,128,128);">base64</span></em>
-  let <span style="color: rgb(0,0,255);">textDecoder </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TextDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">create</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  return <span style="color: rgb(0,0,255);">textDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decodeToString</span><span style="color: rgb(0,0,255);">(</span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+/**
+ * 将ArrayBuffer转换为Base64格式
+ * @param src ArrayBuffer数据
+ * @returns Base64格式字符串
+ */
+public static arrayBufferToBase64(src: ArrayBuffer): string {
+  if (src.byteLength == 0) {
+    return '';
+  }
+  // 将ArrayBuffer转成string，再编码成base64
+  let textDecoder = util.TextDecoder.create('utf-8');
+  return textDecoder.decodeToString(new Uint8Array(src));
+}
 ```
  
 **string与ArrayBuffer的互相转换**
@@ -63,34 +63,34 @@ ArrayBuffer转Base64：
 string转ArrayBuffer：
  
 ```text
-<em>/**</em>
-<em><span style="color: rgb(128,128,128);"> * </span><span style="color: rgb(128,128,128);">将字符串转换为</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">格式</span></em>
-<em><span style="color: rgb(128,128,128);"> * @param src </span><span style="color: rgb(128,128,128);">字符串</span></em>
-<em><span style="color: rgb(128,128,128);"> * @returns ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据</span></em>
-<em><span style="color: rgb(128,128,128);"> */</span></em>
-<span style="color: rgb(0,0,255);">public static </span><span style="color: rgb(0,0,255);">stringToArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer </span><span style="color: rgb(255,0,170);">{</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    return new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  let <span style="color: rgb(0,0,255);">textEncoder </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TextEncoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">create</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'UTF-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  const <span style="color: rgb(0,0,255);">uint8Array </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">textEncoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encodeInto</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  return <span style="color: rgb(0,0,255);">uint8Array</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer </span>as <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+/**
+ * 将字符串转换为ArrayBuffer格式
+ * @param src 字符串
+ * @returns ArrayBuffer格式数据
+ */
+public static stringToArrayBuffer(src: string): ArrayBuffer {
+  if (src.length == 0) {
+    return new ArrayBuffer(0);
+  }
+  let textEncoder = util.TextEncoder.create('UTF-8');
+  const uint8Array = textEncoder.encodeInto(src);
+  return uint8Array.buffer as ArrayBuffer;
+}
 ```
  
 ArrayBuffer转string：
  
 ```text
-<em>/**</em>
-<em><span style="color: rgb(128,128,128);"> * </span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">格式转换为字符串</span></em>
-<em><span style="color: rgb(128,128,128);"> * @param src ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据</span></em>
-<em><span style="color: rgb(128,128,128);"> * @returns </span><span style="color: rgb(128,128,128);">字符串</span></em>
-<em><span style="color: rgb(128,128,128);"> */</span></em>
-<span style="color: rgb(0,0,255);">public static </span><span style="color: rgb(0,0,255);">arrayBufferToString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(255,0,170);">{</span>
-  let <span style="color: rgb(0,0,255);">textDecoder </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TextDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">create</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'UTF-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">uint8Array </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  return <span style="color: rgb(0,0,255);">textDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decodeToString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uint8Array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+/**
+ * 将ArrayBuffer格式转换为字符串
+ * @param src ArrayBuffer格式数据
+ * @returns 字符串
+ */
+public static arrayBufferToString(src: ArrayBuffer): string {
+  let textDecoder = util.TextDecoder.create('UTF-8');
+  let uint8Array = new Uint8Array(src);
+  return textDecoder.decodeToString(uint8Array);
+}
 ```
  
 **collections.ArrayBuffer与ArrayBuffer的互相转换**
@@ -98,37 +98,37 @@ ArrayBuffer转string：
 collections.ArrayBuffer转ArrayBuffer：
  
 ```text
-<em>/**</em>
-<em><span style="color: rgb(128,128,128);"> * </span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">collections.ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据转换为</span><span style="color: rgb(128,128,128);">ArrayBuffer</span></em>
-<em><span style="color: rgb(128,128,128);"> * @param src collections.ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据</span></em>
-<em><span style="color: rgb(128,128,128);"> * @returns ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据</span></em>
-<em><span style="color: rgb(128,128,128);"> */</span></em>
-<span style="color: rgb(0,0,255);">public static </span><span style="color: rgb(0,0,255);">CollectionsArrayBufferToArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">collections</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer </span><span style="color: rgb(255,0,170);">{</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">byteLength </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    return new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  let <span style="color: rgb(0,0,255);">collectionsUint8Array </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">collections</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">uint8Array </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">collectionsUint8Array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  return <span style="color: rgb(0,0,255);">uint8Array</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer </span>as <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+/**
+ * 将collections.ArrayBuffer格式数据转换为ArrayBuffer
+ * @param src collections.ArrayBuffer格式数据
+ * @returns ArrayBuffer格式数据
+ */
+public static CollectionsArrayBufferToArrayBuffer(src: collections.ArrayBuffer): ArrayBuffer {
+  if (src.byteLength == 0) {
+    return new ArrayBuffer(0);
+  }
+  let collectionsUint8Array = new collections.Uint8Array(src);
+  let uint8Array = new Uint8Array(collectionsUint8Array);
+  return uint8Array.buffer as ArrayBuffer;
+}
 ```
  
 ArrayBuffer转collections.ArrayBuffer：
  
 ```text
-<em>/**</em>
-<em><span style="color: rgb(128,128,128);"> * </span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据转换为</span><span style="color: rgb(128,128,128);">collections.ArrayBuffer</span></em>
-<em><span style="color: rgb(128,128,128);"> * @param src ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据</span></em>
-<em><span style="color: rgb(128,128,128);"> * @returns collections.ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据</span></em>
-<em><span style="color: rgb(128,128,128);"> */</span></em>
-<span style="color: rgb(0,0,255);">public static </span><span style="color: rgb(0,0,255);">ArrayBufferToCollectionsArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">collections</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ArrayBuffer </span><span style="color: rgb(255,0,170);">{</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">byteLength </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    return new <span style="color: rgb(0,0,255);">collections</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-  let <span style="color: rgb(0,0,255);">uint8Array</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(0,0,255);">collectionsUint8Array</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">collections</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Uint8Array </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">collections</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uint8Array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  return <span style="color: rgb(0,0,255);">collectionsUint8Array</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer </span>as <span style="color: rgb(0,0,255);">collections</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(255,0,170);">}</span>
+/**
+ * 将ArrayBuffer格式数据转换为collections.ArrayBuffer
+ * @param src ArrayBuffer格式数据
+ * @returns collections.ArrayBuffer格式数据
+ */
+public static ArrayBufferToCollectionsArrayBuffer(src: ArrayBuffer): collections.ArrayBuffer {
+  if (src.byteLength == 0) {
+    return new collections.ArrayBuffer(0);
+  }
+  let uint8Array: Uint8Array = new Uint8Array(src);
+  let collectionsUint8Array: collections.Uint8Array = new collections.Uint8Array(uint8Array);
+  return collectionsUint8Array.buffer as collections.ArrayBuffer;
+}
 ```
  
 完整代码及测试样例如下：
@@ -136,168 +136,168 @@ ArrayBuffer转collections.ArrayBuffer：
 pages/Index.ets：
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">StringUtil</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Base64Util</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">CollectionsArrayBufferUtil </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'../utils/ArrayBufferUtil'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">collections </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
+import { StringUtil, Base64Util, CollectionsArrayBufferUtil } from '../utils/ArrayBufferUtil';
+import { collections } from '@kit.ArkTS';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Base64</span><span style="color: rgb(255,0,170);">与</span><span style="color: rgb(255,0,170);">Arraybuffer</span><span style="color: rgb(255,0,170);">互相转换</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          let <span style="color: rgb(0,0,255);">base64 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'SGVsbG8gSGFybW9ueU9TLCBIZWxsbyBXb3JsZC4='</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(0,0,255);">ret</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Base64Util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">base64ToArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">base64</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(0,0,255);">uint8Array </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ret</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uint8Array</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  build() {
+    Column() {
+      Button('Base64与Arraybuffer互相转换')
+        .onClick(() => {
+          let base64 = 'SGVsbG8gSGFybW9ueU9TLCBIZWxsbyBXb3JsZC4=';
+          let ret: ArrayBuffer = Base64Util.base64ToArrayBuffer(base64);
+          let uint8Array = new Uint8Array(ret);
+          console.info(uint8Array.toString());
 
-          <span style="color: rgb(0,0,255);">base64 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Base64Util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">arrayBufferToBase64</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ret</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">base64</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          base64 = Base64Util.arrayBufferToBase64(ret);
+          console.info(base64);
+        })
+        .margin({
+          bottom: 20
+        });
 
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'string</span><span style="color: rgb(255,0,170);">和</span><span style="color: rgb(255,0,170);">ArrayBuffer</span><span style="color: rgb(255,0,170);">互相转换</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          let <span style="color: rgb(0,0,255);">str </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Hello HarmonyOS, Hello World.'</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(0,0,255);">ret</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">StringUtil</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringToArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(0,0,255);">uint8Array </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ret</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uint8Array</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
+      Button('string和ArrayBuffer互相转换')
+        .onClick(() => {
+          let str = 'Hello HarmonyOS, Hello World.';
+          let ret: ArrayBuffer = StringUtil.stringToArrayBuffer(str);
+          let uint8Array = new Uint8Array(ret);
+          console.info(uint8Array.toString());
 
-          <span style="color: rgb(0,0,255);">str </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">StringUtil</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">arrayBufferToString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ret</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">str</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
-          <span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          str = StringUtil.arrayBufferToString(ret);
+          console.info(str);
+        })
+        .margin({
+          bottom: 20
+        });
 
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'collections.ArrayBuffer</span><span style="color: rgb(255,0,170);">与</span><span style="color: rgb(255,0,170);">ArrayBuffer</span><span style="color: rgb(255,0,170);">互相转换</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-          let <span style="color: rgb(0,0,255);">array </span><span style="color: rgb(181,106,1);">=</span>
-            <span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">72</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">101</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">108</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">108</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">111</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">32</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">72</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">97</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">114</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">109</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">111</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">110</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">121</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">79</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">83</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">44</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">32</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">72</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">101</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">108</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">108</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">111</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">32</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(255,0,0);">87</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">111</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">114</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">108</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">46</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(0,0,255);">collectionsArrayBuffer </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">collections</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(0,0,255);">ret</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">CollectionsArrayBufferUtil</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CollectionsArrayBufferToArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">collectionsArrayBuffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(0,0,255);">uint8Array </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ret</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uint8Array</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
+      Button('collections.ArrayBuffer与ArrayBuffer互相转换')
+        .onClick(() => {
+          let array =
+            [72, 101, 108, 108, 111, 32, 72, 97, 114, 109, 111, 110, 121, 79, 83, 44, 32, 72, 101, 108, 108, 111, 32,
+              87, 111, 114, 108, 100, 46];
+          let collectionsArrayBuffer = new collections.Uint8Array(array).buffer;
+          let ret: ArrayBuffer = CollectionsArrayBufferUtil.CollectionsArrayBufferToArrayBuffer(collectionsArrayBuffer);
+          let uint8Array = new Uint8Array(ret);
+          console.info(uint8Array.toString());
 
-          <span style="color: rgb(0,0,255);">collectionsArrayBuffer </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">CollectionsArrayBufferUtil</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ArrayBufferToCollectionsArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ret</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`collectionsArrayBuffer.byteLength: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">collectionsArrayBuffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">byteLength</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+          collectionsArrayBuffer = CollectionsArrayBufferUtil.ArrayBufferToCollectionsArrayBuffer(ret);
+          console.info(`collectionsArrayBuffer.byteLength: ${collectionsArrayBuffer.byteLength}`);
+        });
+    }
+    .height('100%')
+    .width('100%')
+    .justifyContent(FlexAlign.Center);
+  }
+}
 ```
  
 utils/ArrayBufferUtil.ets：
  
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">collections</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">util </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
+import { collections, util } from '@kit.ArkTS';
 
-<em>/**</em>
-<em><span style="color: rgb(128,128,128);"> * </span><span style="color: rgb(128,128,128);">提供</span><span style="color: rgb(128,128,128);">Base64</span><span style="color: rgb(128,128,128);">格式数据与</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">的互相转换能力</span></em>
-<em><span style="color: rgb(128,128,128);"> */</span></em>
-export class <span style="color: rgb(0,0,255);">Base64Util </span><span style="color: rgb(255,0,170);">{</span>
-  <em>/**</em>
-<em><span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">Base64</span><span style="color: rgb(128,128,128);">格式字符串转换为</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">类型</span></em>
-<em><span style="color: rgb(128,128,128);">   * @param src Base64</span><span style="color: rgb(128,128,128);">字符串</span></em>
-<em><span style="color: rgb(128,128,128);">   * @returns ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据</span></em>
-<em><span style="color: rgb(128,128,128);">   */</span></em>
-  public static <span style="color: rgb(0,0,255);">base64ToArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer </span><span style="color: rgb(255,0,170);">{</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      return new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    let <span style="color: rgb(0,0,255);">base64Helper </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">uint8Array </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">base64Helper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decodeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">uint8Array</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer </span>as <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-
-
-  <em>/**</em>
-<em><span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">转换为</span><span style="color: rgb(128,128,128);">Base64</span><span style="color: rgb(128,128,128);">格式</span></em>
-<em><span style="color: rgb(128,128,128);">   * @param src ArrayBuffer</span><span style="color: rgb(128,128,128);">数据</span></em>
-<em><span style="color: rgb(128,128,128);">   * @returns Base64</span><span style="color: rgb(128,128,128);">格式字符串</span></em>
-<em><span style="color: rgb(128,128,128);">   */</span></em>
-  public static <span style="color: rgb(0,0,255);">arrayBufferToBase64</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(255,0,170);">{</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">byteLength </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      return <span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <em>// </em><em><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">转成</span><span style="color: rgb(128,128,128);">string</span><span style="color: rgb(128,128,128);">，再编码成</span><span style="color: rgb(128,128,128);">base64</span></em>
-    let <span style="color: rgb(0,0,255);">textDecoder </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TextDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">create</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">textDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decodeToString</span><span style="color: rgb(0,0,255);">(</span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-
-<span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(181,106,1);">;</span>
-
-<em>/**</em>
-<em><span style="color: rgb(128,128,128);"> * </span><span style="color: rgb(128,128,128);">提供</span><span style="color: rgb(128,128,128);">string</span><span style="color: rgb(128,128,128);">格式数据与</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">的互相转换能力</span></em>
-<em><span style="color: rgb(128,128,128);"> */</span></em>
-export class <span style="color: rgb(0,0,255);">StringUtil </span><span style="color: rgb(255,0,170);">{</span>
-  <em>/**</em>
-<em><span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">将字符串转换为</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">格式</span></em>
-<em><span style="color: rgb(128,128,128);">   * @param src </span><span style="color: rgb(128,128,128);">字符串</span></em>
-<em><span style="color: rgb(128,128,128);">   * @returns ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据</span></em>
-<em><span style="color: rgb(128,128,128);">   */</span></em>
-  public static <span style="color: rgb(0,0,255);">stringToArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer </span><span style="color: rgb(255,0,170);">{</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      return new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    let <span style="color: rgb(0,0,255);">textEncoder </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TextEncoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">create</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'UTF-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(0,0,255);">uint8Array </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">textEncoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encodeInto</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">uint8Array</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer </span>as <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+/**
+ * 提供Base64格式数据与ArrayBuffer的互相转换能力
+ */
+export class Base64Util {
+  /**
+   * 将Base64格式字符串转换为ArrayBuffer类型
+   * @param src Base64字符串
+   * @returns ArrayBuffer格式数据
+   */
+  public static base64ToArrayBuffer(src: string): ArrayBuffer {
+    if (src.length == 0) {
+      return new ArrayBuffer(0);
+    }
+    let base64Helper = new util.Base64Helper();
+    let uint8Array = base64Helper.decodeSync(src);
+    return uint8Array.buffer as ArrayBuffer;
+  }
 
 
- <em> <span style="color: rgb(128,128,128);">/**</span></em>
-<em><span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">格式转换为字符串</span></em>
-<em><span style="color: rgb(128,128,128);">   * @param src ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据</span></em>
-<em><span style="color: rgb(128,128,128);">   * @returns </span><span style="color: rgb(128,128,128);">字符串</span></em>
-<em><span style="color: rgb(128,128,128);">   */</span></em>
-  public static <span style="color: rgb(0,0,255);">arrayBufferToString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(255,0,170);">{</span>
-    let <span style="color: rgb(0,0,255);">textDecoder </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TextDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">create</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'UTF-8'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">uint8Array </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">textDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decodeToString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uint8Array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  /**
+   * 将ArrayBuffer转换为Base64格式
+   * @param src ArrayBuffer数据
+   * @returns Base64格式字符串
+   */
+  public static arrayBufferToBase64(src: ArrayBuffer): string {
+    if (src.byteLength == 0) {
+      return '';
+    }
+    // 将ArrayBuffer转成string，再编码成base64
+    let textDecoder = util.TextDecoder.create('utf-8');
+    return textDecoder.decodeToString(new Uint8Array(src));
+  }
 
-<span style="color: rgb(255,0,170);">}</span>
+}
+;
 
-<em>/**</em>
-<em><span style="color: rgb(128,128,128);"> * </span><span style="color: rgb(128,128,128);">提供</span><span style="color: rgb(128,128,128);">collections.ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据与</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">的互相转换能力</span></em>
-<em><span style="color: rgb(128,128,128);"> */</span></em>
-export class <span style="color: rgb(0,0,255);">CollectionsArrayBufferUtil </span><span style="color: rgb(255,0,170);">{</span>
-<em>  <span style="color: rgb(128,128,128);">/**</span></em>
-<em><span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">collections.ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据转换为</span><span style="color: rgb(128,128,128);">ArrayBuffer</span></em>
-<em><span style="color: rgb(128,128,128);">   * @param src collections.ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据</span></em>
-<em><span style="color: rgb(128,128,128);">   * @returns ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据</span></em>
-<em><span style="color: rgb(128,128,128);">   */</span></em>
-  public static <span style="color: rgb(0,0,255);">CollectionsArrayBufferToArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">collections</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer </span><span style="color: rgb(255,0,170);">{</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">byteLength </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      return new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    let <span style="color: rgb(0,0,255);">collectionsUint8Array </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">collections</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">uint8Array </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">collectionsUint8Array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">uint8Array</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer </span>as <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+/**
+ * 提供string格式数据与ArrayBuffer的互相转换能力
+ */
+export class StringUtil {
+  /**
+   * 将字符串转换为ArrayBuffer格式
+   * @param src 字符串
+   * @returns ArrayBuffer格式数据
+   */
+  public static stringToArrayBuffer(src: string): ArrayBuffer {
+    if (src.length == 0) {
+      return new ArrayBuffer(0);
+    }
+    let textEncoder = util.TextEncoder.create('UTF-8');
+    const uint8Array = textEncoder.encodeInto(src);
+    return uint8Array.buffer as ArrayBuffer;
+  }
 
 
-  <em><span style="color: rgb(128,128,128);">/**</span></em>
-<em><span style="color: rgb(128,128,128);">   * </span><span style="color: rgb(128,128,128);">将</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据转换为</span><span style="color: rgb(128,128,128);">collections.ArrayBuffer</span></em>
-<em><span style="color: rgb(128,128,128);">   * @param src ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据</span></em>
-<em><span style="color: rgb(128,128,128);">   * @returns collections.ArrayBuffer</span><span style="color: rgb(128,128,128);">格式数据</span></em>
-<em><span style="color: rgb(128,128,128);">   */</span></em>
-  public static <span style="color: rgb(0,0,255);">ArrayBufferToCollectionsArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">collections</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ArrayBuffer </span><span style="color: rgb(255,0,170);">{</span>
-    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">byteLength </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-      return new <span style="color: rgb(0,0,255);">collections</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    let <span style="color: rgb(0,0,255);">uint8Array</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(0,0,255);">collectionsUint8Array</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">collections</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Uint8Array </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">collections</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uint8Array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(0,0,255);">collectionsUint8Array</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer </span>as <span style="color: rgb(0,0,255);">collections</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  /**
+   * 将ArrayBuffer格式转换为字符串
+   * @param src ArrayBuffer格式数据
+   * @returns 字符串
+   */
+  public static arrayBufferToString(src: ArrayBuffer): string {
+    let textDecoder = util.TextDecoder.create('UTF-8');
+    let uint8Array = new Uint8Array(src);
+    return textDecoder.decodeToString(uint8Array);
+  }
 
-<span style="color: rgb(255,0,170);">}</span>
+}
+
+/**
+ * 提供collections.ArrayBuffer格式数据与ArrayBuffer的互相转换能力
+ */
+export class CollectionsArrayBufferUtil {
+  /**
+   * 将collections.ArrayBuffer格式数据转换为ArrayBuffer
+   * @param src collections.ArrayBuffer格式数据
+   * @returns ArrayBuffer格式数据
+   */
+  public static CollectionsArrayBufferToArrayBuffer(src: collections.ArrayBuffer): ArrayBuffer {
+    if (src.byteLength == 0) {
+      return new ArrayBuffer(0);
+    }
+    let collectionsUint8Array = new collections.Uint8Array(src);
+    let uint8Array = new Uint8Array(collectionsUint8Array);
+    return uint8Array.buffer as ArrayBuffer;
+  }
+
+
+  /**
+   * 将ArrayBuffer格式数据转换为collections.ArrayBuffer
+   * @param src ArrayBuffer格式数据
+   * @returns collections.ArrayBuffer格式数据
+   */
+  public static ArrayBufferToCollectionsArrayBuffer(src: ArrayBuffer): collections.ArrayBuffer {
+    if (src.byteLength == 0) {
+      return new collections.ArrayBuffer(0);
+    }
+    let uint8Array: Uint8Array = new Uint8Array(src);
+    let collectionsUint8Array: collections.Uint8Array = new collections.Uint8Array(uint8Array);
+    return collectionsUint8Array.buffer as collections.ArrayBuffer;
+  }
+
+}
 ```

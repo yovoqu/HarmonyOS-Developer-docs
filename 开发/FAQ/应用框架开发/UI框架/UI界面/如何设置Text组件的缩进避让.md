@@ -70,7 +70,7 @@ Row() {
 })
 .onAreaChange((oldValue: Area, newValue: Area) => {
   this.sizeValue = JSON.stringify(newValue);
-  this.titleWidth = parseInt(this.sizeValue.split('width":')[1].split(',')[0]); <em>// </em><em>获取标题组件的宽度</em>
+  this.titleWidth = parseInt(this.sizeValue.split('width":')[1].split(',')[0]); // 获取标题组件的宽度
 })
 ```
 
@@ -120,7 +120,7 @@ struct ExampleTwo {
       })
       .onAreaChange((oldValue: Area, newValue: Area) => {
         this.sizeValue = JSON.stringify(newValue);
-        this.titleWidth = parseInt(this.sizeValue.split('width":')[1].split(',')[0]); <em>// </em><em>获取标题组件的宽度</em>
+        this.titleWidth = parseInt(this.sizeValue.split('width":')[1].split(',')[0]); // 获取标题组件的宽度
       })
     }
     .height('auto')

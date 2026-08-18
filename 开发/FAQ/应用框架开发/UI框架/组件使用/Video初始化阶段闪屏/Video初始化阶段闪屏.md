@@ -30,7 +30,7 @@ struct VideoPage {
     Row() {
       Column() {
         Text('before');
-     <em>   // 根据实际业务传入视频地址</em>
+        // 根据实际业务传入视频地址
         VideoComponent({ url: '' });
         Text('after');
       }

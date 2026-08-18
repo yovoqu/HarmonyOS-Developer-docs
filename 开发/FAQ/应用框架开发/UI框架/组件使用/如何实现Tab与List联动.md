@@ -73,7 +73,7 @@ struct ListFollowTab {
       .backgroundColor(this.currentIndex === index ? '#0A59F7' : '#0D000000')
       .fontColor(this.currentIndex === index ? Color.White : Color.Black)
       .onClick(() => {
-     <em>   // 通过页签切换，避免item被页签栏挡住</em>
+        // 通过页签切换，避免item被页签栏挡住
         this.listScroller.scrollToIndex(index, true, ScrollAlign.START, {
           extraOffset: { value: -1 * this.TAB_BAR_HEIGHT, unit: LengthUnit.VP }
         });
@@ -97,21 +97,21 @@ struct ListFollowTab {
           })
         }
         .onDidScroll((offset, scrollState) => {
-       <em>   // 滑动至底部时，继续下滑和惯性回弹操作不影响页签</em>
+          // 滑动至底部时，继续下滑和惯性回弹操作不影响页签
           if (this.toEnd) {
             if (offset > 0 || (offset < 0 && scrollState === ScrollState.Fling)) {
               return;
             }
           }
           this.toEnd = false;
-    <em>      // 获取当前Tab位置的item索引，判断是否切换页签</em>
+          // 获取当前Tab位置的item索引，判断是否切换页签
           let currentItem = this.listScroller.getVisibleListContentInfo(50, this.TAB_BAR_HEIGHT).index;
           if (currentItem > 0 && this.currentIndex !== currentItem) {
             this.currentIndex = currentItem;
           }
         })
         .onReachEnd(() => {
-         <em> // 如果最后一个页签对应的item高度小于List区域高度，List滑动到底时切换至最后一个页签</em>
+          // 如果最后一个页签对应的item高度小于List区域高度，List滑动到底时切换至最后一个页签
           this.toEnd = true;
           this.currentIndex = this.LIST_GROUP_NUM - 1;
         })
@@ -147,7 +147,7 @@ struct ListFollowTab {
         .barHeight(this.TAB_BAR_HEIGHT)
         .animationDuration(400)
         .onChange((index: number) => {
-       <em>   // currentIndex控制TabContent显示页签</em>
+          // currentIndex控制TabContent显示页签
           this.currentIndex = index;
         })
         .backgroundColor('#E5E5EA')

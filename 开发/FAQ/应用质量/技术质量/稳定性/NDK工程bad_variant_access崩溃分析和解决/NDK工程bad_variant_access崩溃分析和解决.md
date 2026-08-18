@@ -71,9 +71,9 @@ auto a = std::get<MyClass>(v2); // 转换错误，发生崩溃
   
 ```text
 if (std::holds_alternative<MyClass>(v)) {
-    auto s = std::get<MyClass>(v); <em>// 安全访问</em>
+    auto s = std::get<MyClass>(v); // 安全访问
 } else {
-   <em> // 处理其他类型</em>
+    // 处理其他类型
 }
 ```
 
@@ -84,7 +84,7 @@ if (std::holds_alternative<MyClass>(v)) {
 if (auto* p = std::get_if<MyClass>(&v3)) {
     p->Print();
 } else {
-   <em> // 处理其他类型</em>
+    // 处理其他类型
 }
 ```
 
@@ -95,13 +95,13 @@ if (auto* p = std::get_if<MyClass>(&v3)) {
 std::visit([](auto&& arg) {
     using T = std::decay_t<decltype(arg)>;
     if constexpr (std::is_same_v<T, MyClass>) {
-       <em> // 处理MyClass</em>
+        // 处理MyClass
         arg.Print();
     } else if constexpr (std::is_same_v<T, std::string>) {
-      <em>  // 处理String</em>
+        // 处理String
         OH_LOG_INFO(LOG_APP, "MyClass visit is String %{public}s.", arg.c_str());
     } else {
-     <em>   // 处理其他类型</em>
+        // 处理其他类型
     }
 }, v3);
 ```
@@ -111,6 +111,6 @@ std::visit([](auto&& arg) {
   
 ```text
 try {
-    std::get<MyClass>(v3).Print(); <em>// 输出: MyClass: 100</em>
+    std::get<MyClass>(v3).Print(); // 输出: MyClass: 100
 } catch (...) {}
 ```

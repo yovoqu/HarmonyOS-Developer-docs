@@ -12,14 +12,14 @@ rcp模块发起请求如需要设置超时时间，可在建立session会话前�
 import { rcp } from '@kit.RemoteCommunicationKit';
 
 const sessionConfig: rcp.SessionConfiguration = {
-  <em>// Used to specify the configuration of HTTP requests associated with the session</em>
+  // Used to specify the configuration of HTTP requests associated with the session
   requestConfiguration: {
     transfer: {
-      <em>// Timeout parameter setting</em>
+      // Timeout parameter setting
       timeout: {
-        <em>// The connection has timed out. The default value is 60,000</em>
+        // The connection has timed out. The default value is 60,000
         connectMs: 5000,
-        <em>// Transmission timeout, with the default value being 60,000</em>
+        // Transmission timeout, with the default value being 60,000
         transferMs: 10000,
       },
     }

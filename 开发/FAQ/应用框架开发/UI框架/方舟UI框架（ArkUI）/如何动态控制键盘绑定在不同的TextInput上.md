@@ -10,7 +10,7 @@
 @Entry
 @Component
 struct DynamicControlKeyboard {
- <em> // Whether focus is on "key1" TextInput</em>
+  // Whether focus is on "key1" TextInput
   private flag: boolean = true;
   @Builder
   customKeyboardBuilder() {

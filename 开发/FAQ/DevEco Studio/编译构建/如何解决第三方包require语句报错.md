@@ -15,44 +15,44 @@
 **场景1**：
  
 ```json
-<em>// Module/src/test.json</em>
+// Module/src/test.json
 {a: 1, b: 2}
-<em>// use.js</em>
+// use.js
 let test = require("Module/src/test.json")
 ```
  
 **需修改为：**
  
 ```json
-<em>// Module/src/test.json</em>
+// Module/src/test.json
 module.exports = {a: 1, b: 2}
 ```
  
 ```text
-<em>// use.js</em>
+// use.js
 let test = require("Module/src/test")
 ```
  
 **场景2：**
  
 ```json
-<em>// Module/package.json</em>
+// Module/package.json
 ...
 main: "./src"
 ...
-<em>// use.js</em>
+// use.js
 let module = require("Module")
 ```
  
 **需修改为：**
  
 ```json
-<em>// Module/package.json</em>
+// Module/package.json
 "main": "./src/index.js",
 ```
  
 ```text
-<em>// use.js</em>
+// use.js
 let module = require("Module")
 ```
  
@@ -71,7 +71,7 @@ Plugin node-resolve: preferring built-in module 'util' over local alternative at
 ```text
 plugins: [
     resolve({
-        preferBuiltins: false,   <em> // true or false</em>
+        preferBuiltins: false,    // true or false
         mainFields: ['module', 'main'],
         extensions
     })

@@ -51,7 +51,7 @@ async httpTest(): Promise<object> {
       }
     });
     httpRequest.requestInStream(
-      'xx.xx.xx/xx.json', <em>// 后台服务器地址</em>
+      'xx.xx.xx/xx.json', // 后台服务器地址
       {
         method: http.RequestMethod.GET,
         header: {
@@ -126,7 +126,7 @@ struct Index {
         }
       });
       httpRequest.requestInStream(
-        'xx.xx.xx/xx.json', <em>// 后台服务器地址</em>
+        'xx.xx.xx/xx.json', // 后台服务器地址
         {
           method: http.RequestMethod.GET,
           header: {
@@ -160,7 +160,7 @@ struct Index {
         })
       Button('读取本地JSON文件')
         .onClick(() => {
-          let fileName = 'xxx.json'; <em>// 此处填写文件名，JSON文件需要放置到resources/rawfile目录下</em>
+          let fileName = 'xxx.json'; // 此处填写文件名，JSON文件需要放置到resources/rawfile目录下
           this.jsonObj = this.readJsonFromRawFile(fileName);
         })
       Column({ space: 16 }) {

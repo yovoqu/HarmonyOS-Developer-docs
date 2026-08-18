@@ -41,21 +41,21 @@ struct DragDemoForImage {
       Column() {
         Text("This is a text.").fontSize(40).backgroundColor(Color.Green).width('100%').height('10%')
         Stack() {
-        <em>  // 背景</em>
+          // 背景
           Stack() {
-           <em> // 若背景为地图，可在这里定义MapComponent组件</em>
+            // 若背景为地图，可在这里定义MapComponent组件
           }.width('100%')
           .height('100%');
 
-        <em>  // 图片</em>
+          // 图片
           Image($r('app.media.startIcon'))
             .position({ x: this.positionX, y: this.positionY })
             .width(50)
             .height(50)
-            .draggable(false) <em>// 图片设置为不可拖拽</em>
-          <em>  // 触发长按拖动</em>
+            .draggable(false) // 图片设置为不可拖拽
+            // 触发长按拖动
             .gesture(
-            <em>  // 绑定可以重复触发的LongPressGesture</em>
+              // 绑定可以重复触发的LongPressGesture
               LongPressGesture({ duration: 500 })
                 .onAction((event: GestureEvent | undefined) => {
                   if (event) {
@@ -66,13 +66,13 @@ struct DragDemoForImage {
         }.width('100%').height('100%')
         .onTouch((event) => {
           if (this.flag) {
-           <em> // 拖动标记位为true时，图片跟随手指移动</em>
+            // 拖动标记位为true时，图片跟随手指移动
             if (event.type === TouchType.Move) {
-            <em>  // 触摸点默认是图片中心，图标默认大小50*50</em>
+              // 触摸点默认是图片中心，图标默认大小50*50
               this.positionX = event.touches[0].x - 25;
               this.positionY = event.touches[0].y - 25;
             }
-         <em>   // 手势抬起时，本次拖动结束</em>
+            // 手势抬起时，本次拖动结束
             if (event.type === TouchType.Up) {
               this.flag = false;
             }

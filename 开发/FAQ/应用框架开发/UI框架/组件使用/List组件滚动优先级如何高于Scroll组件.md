@@ -36,19 +36,19 @@ onTouch关键部分代码如下：
 ```text
 .onTouch(event => {
   if (event.type === TouchType.Down) {
-    <em>// 当手指按下或滑动时禁用Scroll滚动</em>
+    // 当手指按下或滑动时禁用Scroll滚动
     this.scrollable = false;
-    this.lastPosition = event.changedTouches[0].y; <em>// 记录手指按下的位置</em>
+    this.lastPosition = event.changedTouches[0].y; // 记录手指按下的位置
   }
   if (event.type === TouchType.Up) {
-    this.scrollable = true;<em> // 当手指抬起时允许Scroll滚动</em>
+    this.scrollable = true; // 当手指抬起时允许Scroll滚动
   }
   if (event.type === TouchType.Move) {
-   <em> // 当手指移动时，手动滚动列表</em>
+    // 当手指移动时，手动滚动列表
     this.scrollerForList.scrollBy(0, this.lastPosition - event.changedTouches[0].y);
   }
   if (this.scrollerForList.currentOffset().yOffset === 0) {
-  <em>  // 当列表滚动到顶部时，允许Scroll滚动</em>
+    // 当列表滚动到顶部时，允许Scroll滚动
     this.scrollable = true;
   }
 });
@@ -60,10 +60,10 @@ onTouch关键部分代码如下：
 @Entry
 @Component
 struct StickyNestedScroll {
-  @State arr: number[] = []; <em>// 用于存储列表项的数据</em>
-  private scrollerForList: Scroller = new Scroller(); <em>// 用于控制列表的滚动</em>
-  private scrollable: boolean = true; <em>// 判断Scroll是否可以滚动</em>
-  private lastPosition: number = 0; <em>// 记录上一次触摸的位置</em>
+  @State arr: number[] = []; // 用于存储列表项的数据
+  private scrollerForList: Scroller = new Scroller(); // 用于控制列表的滚动
+  private scrollable: boolean = true; // 判断Scroll是否可以滚动
+  private lastPosition: number = 0; // 记录上一次触摸的位置
   private fontColor: string = '#182431';
   private selectedFontColor: string = '#007DFF';
   @State selectedIndex: number = 0;
@@ -88,19 +88,19 @@ struct StickyNestedScroll {
       .lineHeight(14)
       .onTouch(event => {
         if (event.type === TouchType.Down) {
-        <em>  // 当手指按下或滑动时禁用Scroll滚动</em>
+          // 当手指按下或滑动时禁用Scroll滚动
           this.scrollable = false;
-          this.lastPosition = event.changedTouches[0].y; <em>// 记录手指按下的位置</em>
+          this.lastPosition = event.changedTouches[0].y; // 记录手指按下的位置
         }
         if (event.type === TouchType.Up) {
-          this.scrollable = true; <em>// 当手指抬起时允许Scroll滚动</em>
+          this.scrollable = true; // 当手指抬起时允许Scroll滚动
         }
         if (event.type === TouchType.Move) {
-       <em>   // 当手指移动时，手动滚动列表</em>
+          // 当手指移动时，手动滚动列表
           this.scrollerForList.scrollBy(0, this.lastPosition - event.changedTouches[0].y);
         }
         if (this.scrollerForList.currentOffset().yOffset === 0) {
-        <em>  // 当列表滚动到顶部时，允许Scroll滚动</em>
+          // 当列表滚动到顶部时，允许Scroll滚动
           this.scrollable = true;
         }
       });
@@ -134,8 +134,8 @@ struct StickyNestedScroll {
             .scrollBar(0)
             .edgeEffect(EdgeEffect.Spring)
             .nestedScroll({
-              scrollForward: NestedScrollMode.PARENT_FIRST, <em>// 设置向前滚动时的模式</em>
-              scrollBackward: NestedScrollMode.SELF_FIRST <em>// 设置向后滚动时的模式</em>
+              scrollForward: NestedScrollMode.PARENT_FIRST, // 设置向前滚动时的模式
+              scrollBackward: NestedScrollMode.SELF_FIRST // 设置向后滚动时的模式
             });
           }.tabBar(this.tabBuilder(0));
 
@@ -144,7 +144,7 @@ struct StickyNestedScroll {
           }.tabBar(this.tabBuilder(1));
         }
         .onChange((index: number) => {
-      <em>    // currentIndex控制TabContent显示页签</em>
+          // currentIndex控制TabContent显示页签
           this.currentIndex = index;
           this.selectedIndex = index;
         })
@@ -152,7 +152,7 @@ struct StickyNestedScroll {
           if (index === targetIndex) {
             return;
           }
-        <em>  // selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
+          // selectedIndex控制自定义TabBar内Image和Text颜色切换
           this.selectedIndex = targetIndex;
         })
         .vertical(false)
@@ -160,13 +160,13 @@ struct StickyNestedScroll {
       }.width('100%');
     }
     .edgeEffect(EdgeEffect.Spring)
-    .friction(0.6)<em> // 设置滚动视图的摩擦力</em>
+    .friction(0.6) // 设置滚动视图的摩擦力
     .backgroundColor('#DCDCDC')
     .scrollBar(BarState.Off)
     .width('100%')
     .height('100%')
     .onScrollFrameBegin((offset: number) => {
-   <em>   // 设置滚动视图是否可以滚动</em>
+      // 设置滚动视图是否可以滚动
       if (this.scrollable) {
         return { offsetRemain: offset };
       } else {

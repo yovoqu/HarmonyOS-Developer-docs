@@ -37,12 +37,12 @@ let sub_windowClass: window.Window | undefined = undefined;
 @Component
 struct Index {
   private createSubWindow() {
-    windowStage_ = AppStorage.get('windowStage'); <em>// 获取windowStage</em>
+    windowStage_ = AppStorage.get('windowStage'); // 获取windowStage
 
     if (windowStage_ == null) {
       console.error('Failed to create the subwindow. Cause: windowStage_ is null');
     } else {
-      windowStage_.createSubWindow('mySubWindow', (err: BusinessError, data) => { <em>// 创建应用子窗口</em>
+      windowStage_.createSubWindow('mySubWindow', (err: BusinessError, data) => { // 创建应用子窗口
         let errCode: number = err.code;
         if (errCode) {
           console.error('Failed to create the subwindow. Cause: ' + JSON.stringify(err));
@@ -54,7 +54,7 @@ struct Index {
           return;
         }
         console.info('Succeeded in creating the subwindow. Data: ' + JSON.stringify(data));
-        sub_windowClass.moveWindowTo(300, 300, (err: BusinessError) => { <em>// 子窗口创建成功后，设置子窗口的位置、大小及相关属性等</em>
+        sub_windowClass.moveWindowTo(300, 300, (err: BusinessError) => { // 子窗口创建成功后，设置子窗口的位置、大小及相关属性等
           let errCode: number = err.code;
           if (errCode) {
             console.error('Failed to move the window. Cause:' + JSON.stringify(err));
@@ -70,7 +70,7 @@ struct Index {
           }
           console.info('Succeeded in changing the window size.');
         });
-        sub_windowClass.setUIContent('pages/SubWindow', (err: BusinessError) => { <em>// 为子窗口加载对应的目标页面。</em>
+        sub_windowClass.setUIContent('pages/SubWindow', (err: BusinessError) => { // 为子窗口加载对应的目标页面。
           let errCode: number = err.code;
           if (errCode) {
             console.error('Failed to load the content. Cause:' + JSON.stringify(err));
@@ -81,7 +81,7 @@ struct Index {
             console.error('sub_windowClass is null');
             return;
           }
-          sub_windowClass.showWindow((err: BusinessError) => { <em>// 显示子窗口</em>
+          sub_windowClass.showWindow((err: BusinessError) => { // 显示子窗口
             let errCode: number = err.code;
             if (errCode) {
               console.error('Failed to show the window. Cause: ' + JSON.stringify(err));
@@ -99,7 +99,7 @@ struct Index {
       console.error('sub_windowClass is null');
       return;
     }
-    sub_windowClass.destroyWindow((err: BusinessError) => { <em>// 销毁子窗口</em>
+    sub_windowClass.destroyWindow((err: BusinessError) => { // 销毁子窗口
       let errCode: number = err.code;
       if (errCode) {
         console.error('Failed to destroy the window. Cause: ' + JSON.stringify(err));

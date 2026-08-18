@@ -27,7 +27,7 @@ static napi_value ThreadsTest(napi_env env, napi_callback_info info) {
     napi_status status; 
     status = napi_get_cb_info(env, info, &argc, &js_cb, nullptr, nullptr); 
     OH_LOG_INFO(LOG_APP, "ThreadSafeTest 0: %{public}d", status == napi_ok); 
-   <em> // Set initial_refcount to 0 for a weak reference, >0 for a strong reference. </em>
+    // Set initial_refcount to 0 for a weak reference, >0 for a strong reference. 
     status = napi_create_reference(env, js_cb, 1, &cbObj); 
     OH_LOG_INFO(LOG_APP, "napi_create_reference of js_cb to cbObj: %{public}d", status == napi_ok); 
     status = napi_create_string_utf8(env, "Work Item", NAPI_AUTO_LENGTH, &work_name); 

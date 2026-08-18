@@ -43,14 +43,14 @@ struct bindPopupDemo {
   @State message: string = '';
   @State customPopup: boolean = false;
   controller: TextInputController = new TextInputController();
- <em> // 定义一个eventId为1的事件，事件优先级为Low。</em>
+  // 定义一个eventId为1的事件，事件优先级为Low。
   private event: emitter.InnerEvent = {
     eventId: 1,
     priority: emitter.EventPriority.LOW
   };
 
   aboutToAppear(): void {
-<em>    // 收到eventId为1的事件后执行回调函数。</em>
+    // 收到eventId为1的事件后执行回调函数。
     emitter.on(this.event, data => {
       this.message = data.data!['message'];
       this.customPopup = false;
@@ -59,7 +59,7 @@ struct bindPopupDemo {
   };
 
   aboutToDisappear(): void {
-  <em>  // 取消eventId为1的事件。</em>
+    // 取消eventId为1的事件。
     emitter.off(this.event.eventId);
   };
 
@@ -74,7 +74,7 @@ struct bindPopupDemo {
               message: '内容一'
             }
           };
-       <em>   // 发送eventId为1的事件，事件内容为eventData。</em>
+          // 发送eventId为1的事件，事件内容为eventData。
           emitter.emit(this.event, eventData);
         })
         .margin({
@@ -108,7 +108,7 @@ struct bindPopupDemo {
         .layoutWeight(1)
         .enableAutoFill(false)
         .alignSelf(ItemAlign.Center)
-       <em> // 实现气泡弹窗。</em>
+        // 实现气泡弹窗。
         .bindPopup(this.customPopup, {
           builder: this.popupBuilder,
           placement: Placement.BottomLeft,
@@ -119,7 +119,7 @@ struct bindPopupDemo {
           showInSubWindow: false,
           targetSpace: 15
         })
-       <em> // 当输入框编辑态改变时，处于编辑态时气泡出现。</em>
+        // 当输入框编辑态改变时，处于编辑态时气泡出现。
         .onEditChange((isEditing: boolean) => {
           this.customPopup = isEditing;
         })

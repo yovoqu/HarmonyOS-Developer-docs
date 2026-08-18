@@ -24,7 +24,7 @@
 ```text
 @Component
 struct Chat {
-  <em>// 这个列表代表聊天内容，每次发送和接收消息时，把聊天内容加入这个列表。当监听到列表发生变化时，执行函数scrollerBottom，把list滑动到最底部。</em>
+  // 这个列表代表聊天内容，每次发送和接收消息时，把聊天内容加入这个列表。当监听到列表发生变化时，执行函数scrollerBottom，把list滑动到最底部。
   @Prop @Watch('scrollerBottom') list: string[] = [];
   scroller: Scroller = new Scroller();
 
@@ -33,7 +33,7 @@ struct Chat {
   }
 
   build() {
-    <em>// initialIndex代表列表生成时，从第几个索引值开始展示，选择最后一个索引值，就实现了显示最底部的消息。scroller代表绑定滚动事件，配合List监听，实现发送和接收消息，都能滚动到最底部。</em>
+    // initialIndex代表列表生成时，从第几个索引值开始展示，选择最后一个索引值，就实现了显示最底部的消息。scroller代表绑定滚动事件，配合List监听，实现发送和接收消息，都能滚动到最底部。
     List({ initialIndex: this.list.length - 1, scroller: this.scroller }) {
       ForEach(this.list, (item: string) => {
         ListItem() {
@@ -117,7 +117,7 @@ struct ListBottom {
       }
       .width('100%')
       .height('82%')
-      .stackFromEnd(true) <em>// 设置为true表示列表从底部开始布局</em>
+      .stackFromEnd(true) // 设置为true表示列表从底部开始布局
       .alignListItem(ListItemAlign.Center)
       .scrollBar(BarState.Off)
 
@@ -131,7 +131,7 @@ struct ListBottom {
 
         Button('回到最新位置')
           .onClick(() => {
-            this.listScroller.scrollEdge(Edge.Bottom); <em>// 将列表滚动到底部边界位置</em>
+            this.listScroller.scrollEdge(Edge.Bottom); // 将列表滚动到底部边界位置
           })
           .width('100%')
           .margin({top:8,bottom:20})

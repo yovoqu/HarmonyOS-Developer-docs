@@ -30,7 +30,7 @@ struct IncorrectCode {
 
 
   aboutToAppear(): void {
-   <em> // 地图初始化参数</em>
+    // 地图初始化参数
     this.mapOptions = {
       position: {
         target: {
@@ -76,7 +76,7 @@ struct IncorrectCode {
               };
 
 
-          <em>    // 转换经纬度坐标</em>
+              // 转换经纬度坐标
               let gcj02Position: mapCommon.LatLng =
                 map.convertCoordinateSync(mapCommon.CoordinateType.WGS84, mapCommon.CoordinateType.GCJ02,
                   wgs84Position);
@@ -84,7 +84,7 @@ struct IncorrectCode {
               this.longitudeB = gcj02Position.longitude;
 
 
-           <em>   // 添加一个红色标记点</em>
+              // 添加一个红色标记点
               const markerOptions: mapCommon.MarkerOptions = {
                 position: {
                   latitude: this.latitudeB,
@@ -133,7 +133,7 @@ let wgs84Position: mapCommon.LatLng = {
 };
 
 
-<em>// 转换经纬度坐标</em>
+// 转换经纬度坐标
 let gcj02Position: mapCommon.LatLng =
   map.convertCoordinateSync(mapCommon.CoordinateType.WGS84, mapCommon.CoordinateType.GCJ02,
     wgs84Position);
@@ -183,7 +183,7 @@ struct IncorrectCode {
 
 
   aboutToAppear(): void {
-    <em>// 地图初始化参数</em>
+    // 地图初始化参数
     this.mapOptions = {
       position: {
         target: {
@@ -223,7 +223,7 @@ struct IncorrectCode {
               this.longitudeA = latLng?.longitude as number;
 
 
-            <em>  // 添加一个红色标记点</em>
+              // 添加一个红色标记点
               const markerOptions: mapCommon.MarkerOptions = {
                 position: {
                   latitude: this.latitudeA,

@@ -123,7 +123,7 @@ struct GridHeight {
               .backgroundColor('#ACC6F6')
               .width('100%')
               .borderRadius(15)
-              .height(index === 0 ? '100%' : 80) <em>// 给第一个元素设置高度为100%，即两列的高度</em>
+              .height(index === 0 ? '100%' : 80) // 给第一个元素设置高度为100%，即两列的高度
               .textAlign(TextAlign.Center);
           };
         }, (item: string) => item);

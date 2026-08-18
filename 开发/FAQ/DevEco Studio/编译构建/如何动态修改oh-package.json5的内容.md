@@ -32,8 +32,8 @@
 import { harTasks } from '@ohos/hvigor-ohos-plugin';
 import * as fs from 'fs';
 export default {
-  system: harTasks, <em> /* Built-in plugin of Hvigor. It cannot be modified. */</em>
-  plugins: [customPluginFunction()] <em>/* Custom plugin to extend the functionality of Hvigor. */</em>
+  system: harTasks,  /* Built-in plugin of Hvigor. It cannot be modified. */
+  plugins: [customPluginFunction()] /* Custom plugin to extend the functionality of Hvigor. */
 }
 
 export function customPluginFunction(): HvigorPlugin  {
@@ -41,10 +41,10 @@ export function customPluginFunction(): HvigorPlugin  {
     pluginId: 'CustomPluginID1',
     apply(pluginContext): Promise<void> {
       pluginContext.registerTask({
-       <em> // 编写自定义任务</em>
+        // 编写自定义任务
         name: 'customTask1',
         run: (taskContext) => {
-         <em> // 读取文件内容</em>
+          // 读取文件内容
           const packageFile = taskContext.modulePath+'\\oh-package.json5';
           console.info('packageFile', packageFile)
           fs.readFile(packageFile, 'utf8', (readError, data) => {
@@ -53,13 +53,13 @@ export function customPluginFunction(): HvigorPlugin  {
               return;
             }
             try {
-            <em>  // 解析JSON数据</em>
+              // 解析JSON数据
               const jsonData = JSON.parse(data);
-             <em> // 修改main字段</em>
+              // 修改main字段
               jsonData.main = 'Index123.ets';
-            <em>  // 将修改后的 JSON 数据转换为字符串</em>
+              // 将修改后的 JSON 数据转换为字符串
               const updatedData = JSON.stringify(jsonData, null, 2);
-            <em>  // 写入文件</em>
+              // 写入文件
               fs.writeFile(packageFile, updatedData, 'utf8', (writeError) => {
                 if (writeError) {
                   console.error('Error writing file:', writeError);
@@ -72,7 +72,7 @@ export function customPluginFunction(): HvigorPlugin  {
             }
           });
         },
-       <em> // 确认自定义任务插入位置</em>
+        // 确认自定义任务插入位置
         postDependencies: ['default@ProcessOHPackageJson']
       })
     }

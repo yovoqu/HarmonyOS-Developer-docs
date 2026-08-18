@@ -20,7 +20,7 @@ struct SwiperImageDemo {
   build() {
     Column() {
       Swiper() {
-        Image($r('app.media.img1')) <em>// </em><em>图片资源需自行配置</em>
+        Image($r('app.media.img1')) // 图片资源需自行配置
           .onComplete((event) => {
             this.contentWidth = event!.contentWidth;
             console.info('this.contentWidth', this.contentWidth);
@@ -87,7 +87,7 @@ struct SwiperImageDemo {
   build() {
     Column() {
       Swiper() {
-        Image($r('app.media.img1'))<em> </em><em>// 图片资源需自行配置</em>
+        Image($r('app.media.img1')) // 图片资源需自行配置
           .onComplete((event) => {
             this.contentWidth = event!.contentWidth;
             console.info('this.contentWidth', this.contentWidth);
@@ -98,7 +98,7 @@ struct SwiperImageDemo {
           .width(this.contentWidth + 'px')
           .height(this.contentHeight + 'px');
       }.height('100%')
-      .width('100%'); <em>// </em><em>为Swiper设置宽高</em>
+      .width('100%'); // 为Swiper设置宽高
     }
     .width('100%')
     .height('100%');

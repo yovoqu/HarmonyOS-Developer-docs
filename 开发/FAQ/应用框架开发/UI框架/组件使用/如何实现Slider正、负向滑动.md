@@ -27,12 +27,12 @@
  
 - 滑轨可以通过linearGradient实现，在指定渐变色颜色时，开始和结束设置相同的颜色就能实现多段颜色效果。参考代码如下：
 ```text
-<em>// 自定义滑轨</em>
+// 自定义滑轨
 Row()
   .width('100%')
   .height(8)
   .borderRadius(4)
-  <em>// 通过渐变色实现滑轨-已滑动部分-滑轨，colors索引0滑轨颜色，索引1和索引2已滑动部分颜色，索引3滑轨颜色</em>
+  // 通过渐变色实现滑轨-已滑动部分-滑轨，colors索引0滑轨颜色，索引1和索引2已滑动部分颜色，索引3滑轨颜色
   .linearGradient({
     angle: 90,
     colors: [
@@ -48,21 +48,21 @@ Row()
 
 - 滑块可以通过设置[offset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#offset)实现，根据Slider值设置对应的偏移量，确保滑块位置和滑轨已滑部分对应。给滑块添加滑动手势，在手势回调中分别设置triggerChange触发Slider变化。参考代码如下：
 ```text
-<em>// 自定义滑块</em>
+// 自定义滑块
 Circle({ width: 20, height: 20 })
   .id('circle')
   .fill('#fff')
   .borderRadius('50%')
   .shadow({ radius: 10, color: Color.Gray })
-  .offset({ x: config.value / config.max * ((config.contentModifier as MySliderStyle).sliderWidth / 2) }) <em>// 设置滑块偏移量</em>
+  .offset({ x: config.value / config.max * ((config.contentModifier as MySliderStyle).sliderWidth / 2) }) // 设置滑块偏移量
   .gesture(
     PanGesture({ direction: PanDirection.Horizontal, distance: 1 })
       .onActionStart(() => {
-        config.triggerChange(config.value, SliderChangeMode.Begin); <em>// 按下滑块</em>
+        config.triggerChange(config.value, SliderChangeMode.Begin); // 按下滑块
         (config.contentModifier as MySliderStyle).lastOffsetX = 0;
       })
       .onActionUpdate((even) => {
-      <em>  // 根据滑动距离计算value值</em>
+        // 根据滑动距离计算value值
         config.value = config.value +
         Math.round((even.offsetX - (config.contentModifier as MySliderStyle).lastOffsetX) /
         (config.contentModifier as MySliderStyle).sliderWidth * 200);
@@ -70,7 +70,7 @@ Circle({ width: 20, height: 20 })
         (config.contentModifier as MySliderStyle).lastOffsetX = even.offsetX;
       })
       .onActionEnd(() => {
-        config.triggerChange(config.value, SliderChangeMode.End); <em>// 离开滑块</em>
+        config.triggerChange(config.value, SliderChangeMode.End); // 离开滑块
       })
   );
 ```
@@ -78,14 +78,14 @@ Circle({ width: 20, height: 20 })
 - 点击Slider内容区设置滑动条的值可以通过onTouch实现，当even.type === TouchType.Down时获取按下时的坐标进行计算即可。添加事件分发后，按下可以继续拖动滑块。
 ```text
 .onTouch((even) => {
-  <em>// 点击滑轨修改滑动条值</em>
+  // 点击滑轨修改滑动条值
   if (even.type === TouchType.Down) {
     config.value = Math.round(even.touches[0].x / (config.contentModifier as MySliderStyle).sliderWidth * 200) - 100;
     config.triggerChange(config.value, SliderChangeMode.Click);
   }
 })
 .onChildTouchTest(() => {
- <em> // 事件分发，点击滑轨后可以继续拖动滑块</em>
+  // 事件分发，点击滑轨后可以继续拖动滑块
   return { strategy: TouchTestStrategy.FORWARD_COMPETITION, id: 'circle' };
 });
 ```
@@ -107,7 +107,7 @@ struct CustomSlider {
         .contentModifier(new MySliderStyle(this.sliderWidth))
         .padding(20)
         .onSizeChange((oldSize, newSize) => {
-        <em>  // 组件宽度-padding*2就是滑动条的宽度</em>
+          // 组件宽度-padding*2就是滑动条的宽度
           this.sliderWidth = (newSize.width as number) - 40;
         });
       Text(`sliderValue:${this.sliderValue}`).fontSize(30);
@@ -155,12 +155,12 @@ class MySliderStyle implements ContentModifier<SliderConfiguration> {
 @Builder
 function buildSlider(config: SliderConfiguration) {
   Stack() {
-   <em> // 自定义滑轨</em>
+    // 自定义滑轨
     Row()
       .width('100%')
       .height(8)
       .borderRadius(4)
-     <em> // 通过渐变色实现滑轨-已滑动部分-滑轨，colors索引0滑轨颜色，索引1和索引2已滑动部分颜色，索引3滑轨颜色</em>
+      // 通过渐变色实现滑轨-已滑动部分-滑轨，colors索引0滑轨颜色，索引1和索引2已滑动部分颜色，索引3滑轨颜色
       .linearGradient({
         angle: 90,
         colors: [
@@ -172,21 +172,21 @@ function buildSlider(config: SliderConfiguration) {
             config.value >= 0 ? (0.5 + config.value / config.max / 2) : 0.5]
         ]
       });
-   <em> // 自定义滑块</em>
+    // 自定义滑块
     Circle({ width: 20, height: 20 })
       .id('circle')
       .fill('#fff')
       .borderRadius('50%')
       .shadow({ radius: 10, color: Color.Gray })
-      .offset({ x: config.value / config.max * ((config.contentModifier as MySliderStyle).sliderWidth / 2) }) <em>// 设置滑块偏移量</em>
+      .offset({ x: config.value / config.max * ((config.contentModifier as MySliderStyle).sliderWidth / 2) }) // 设置滑块偏移量
       .gesture(
         PanGesture({ direction: PanDirection.Horizontal, distance: 1 })
           .onActionStart(() => {
-            config.triggerChange(config.value, SliderChangeMode.Begin);<em> // 按下滑块</em>
+            config.triggerChange(config.value, SliderChangeMode.Begin); // 按下滑块
             (config.contentModifier as MySliderStyle).lastOffsetX = 0;
           })
           .onActionUpdate((even) => {
-           <em> // 根据滑动距离计算value值</em>
+            // 根据滑动距离计算value值
             config.value = config.value +
             Math.round((even.offsetX - (config.contentModifier as MySliderStyle).lastOffsetX) /
             (config.contentModifier as MySliderStyle).sliderWidth * 200);
@@ -194,19 +194,19 @@ function buildSlider(config: SliderConfiguration) {
             (config.contentModifier as MySliderStyle).lastOffsetX = even.offsetX;
           })
           .onActionEnd(() => {
-            config.triggerChange(config.value, SliderChangeMode.End); <em>// 离开滑块</em>
+            config.triggerChange(config.value, SliderChangeMode.End); // 离开滑块
           })
       );
   }
   .onTouch((even) => {
-   <em> // 点击滑轨修改滑动条值</em>
+    // 点击滑轨修改滑动条值
     if (even.type === TouchType.Down) {
       config.value = Math.round(even.touches[0].x / (config.contentModifier as MySliderStyle).sliderWidth * 200) - 100;
       config.triggerChange(config.value, SliderChangeMode.Click);
     }
   })
   .onChildTouchTest(() => {
-  <em>  // 事件分发，点击滑轨后可以继续拖动滑块</em>
+    // 事件分发，点击滑轨后可以继续拖动滑块
     return { strategy: TouchTestStrategy.FORWARD_COMPETITION, id: 'circle' };
   });
 }

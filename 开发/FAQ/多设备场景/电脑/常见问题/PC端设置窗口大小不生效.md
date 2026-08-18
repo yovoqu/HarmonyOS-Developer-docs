@@ -62,8 +62,8 @@ struct Index {
       let promise = window.getLastWindow(this.context);
       promise.then((data) => {
         windowClass = data;
-        this.screenWidth = windowClass.getGlobalRect().width; <em>// 获取窗口宽度</em>
-        this.screenHeight = windowClass.getGlobalRect().height;<em> // 获取窗口高度</em>
+        this.screenWidth = windowClass.getGlobalRect().width; // 获取窗口宽度
+        this.screenHeight = windowClass.getGlobalRect().height; // 获取窗口高度
       }).catch((err: BusinessError) => {
         console.error('getLastWindow error', err);
       });
@@ -110,10 +110,10 @@ struct Index {
         "label": "$string:EntryAbility_label",
         "startWindowIcon": "$media:startIcon",
         "startWindowBackground": "$color:start_window_background",
-        "maxWindowHeight": 1000, <em>// 设置最大高度</em>
-        "minWindowHeight": 1000,<em> // 设置最小高度</em>
-        "maxWindowWidth": 500,<em> // 设置最大宽度</em>
-        "minWindowWidth": 500,<em> // 设置最小宽度</em>
+        "maxWindowHeight": 1000, // 设置最大高度
+        "minWindowHeight": 1000, // 设置最小高度
+        "maxWindowWidth": 500, // 设置最大宽度
+        "minWindowWidth": 500, // 设置最小宽度
         "exported": true,
         "skills": [
           {

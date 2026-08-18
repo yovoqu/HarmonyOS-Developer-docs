@@ -17,11 +17,11 @@ struct TextEllipsisDemo {
   build() {
     RelativeContainer() {
       Text(this.text)
-        .width(200)<em>// Set maximum number of rows</em>
+        .width(200)// Set maximum number of rows
         .maxLines(1)
-        .textOverflow({ overflow: TextOverflow.Ellipsis })<em>// Long text display ellipsis</em>
-        .ellipsisMode(EllipsisMode.END)<em>// Set the line breaking rule WordBreak.BREAK_ALL and implement truncation on a letter by letter basis</em>
-        .wordBreak(WordBreak.BREAK_ALL)<em>// API11+ required, for letter-level truncation</em>
+        .textOverflow({ overflow: TextOverflow.Ellipsis })// Long text display ellipsis
+        .ellipsisMode(EllipsisMode.END)// Set the line breaking rule WordBreak.BREAK_ALL and implement truncation on a letter by letter basis
+        .wordBreak(WordBreak.BREAK_ALL)// API11+ required, for letter-level truncation
         .textAlign(TextAlign.JUSTIFY)
         .backgroundColor(Color.Green)
         .fontSize(16)

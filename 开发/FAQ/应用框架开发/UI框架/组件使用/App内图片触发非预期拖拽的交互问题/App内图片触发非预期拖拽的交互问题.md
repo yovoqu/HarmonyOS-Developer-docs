@@ -30,7 +30,7 @@
 
 2. 排查代码Image组件中draggable属性值是否为可拖拽状态。Image的draggable设置为true或者未设置，图片都是可拖动。示例代码如下：
 ```text
-Image($r('sys.media.ohos_ic_public_albums')) <em>// 本地资源，需自行替换</em>
+Image($r('sys.media.ohos_ic_public_albums')) // 本地资源，需自行替换
   .width(24)
   .height(24)
   .objectFit(ImageFit.Fill)
@@ -70,7 +70,7 @@ struct TabImageExample {
   @Builder
   tabBuilder(index: number) {
     Column() {
-      Image($r('sys.media.ohos_ic_public_albums')) <em>// 本地资源，需自行替换</em>
+      Image($r('sys.media.ohos_ic_public_albums')) // 本地资源，需自行替换
         .width(24)
         .height(24)
         .objectFit(ImageFit.Fill)

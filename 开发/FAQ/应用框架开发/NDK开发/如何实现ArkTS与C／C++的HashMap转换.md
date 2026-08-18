@@ -29,13 +29,13 @@ testNapi.tsPutMap(keysArray, valuesArray, hashMap.length);
 
   
 ```text
-<em>// Convert value to string and return</em>
+// Convert value to string and return
 std::string HashMap::value2String(napi_env env, napi_value value) {
     size_t stringSize = 0;
-    napi_get_value_string_utf8(env, value, nullptr, 0, &stringSize); <em>// 获取字符串长度</em>
+    napi_get_value_string_utf8(env, value, nullptr, 0, &stringSize); // 获取字符串长度
     std::string valueString;
     valueString.resize(stringSize + 1);
-    napi_get_value_string_utf8(env, value, &valueString[0], stringSize + 1, &stringSize);<em> // 根据长度转换成字符串</em>
+    napi_get_value_string_utf8(env, value, &valueString[0], stringSize + 1, &stringSize); // 根据长度转换成字符串
     return valueString;
 }
 napi_value HashMap::TsPutMap(napi_env env, napi_callback_info info) {
@@ -43,9 +43,9 @@ napi_value HashMap::TsPutMap(napi_env env, napi_callback_info info) {
     size_t argc = 3;
     napi_value args[3] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
-    napi_value mapKey = args[0]; <em>// key</em>
-    napi_value mapVal = args[1]; <em>// value</em>
-    napi_value mapNum = args[2]; <em>// length</em>
+    napi_value mapKey = args[0]; // key
+    napi_value mapVal = args[1]; // value
+    napi_value mapNum = args[2]; // length
 
     uint32_t mapCNum = 0;
     napi_get_value_uint32(env, mapNum, &mapCNum);
@@ -70,11 +70,11 @@ napi_value HashMap::TsPutMap(napi_env env, napi_callback_info info) {
 1. JSON.stringify不支持对HashMap操作，需要先将其转成Record
 ```text
 map2rec(map: HashMap<string, ESObject>): Record<string, ESObject> {
-<em>  // Map to Record</em>
+  // Map to Record
   let Rec: Record<string, ESObject> = {}
   map.forEach((value: ESObject, key: string) => {
     if (value instanceof HashMap) {
-     <em> //Value may be HashMap</em>
+      //Value may be HashMap
       let vRec: Record<string, ESObject> = this.map2rec(value)
       value = vRec
     }

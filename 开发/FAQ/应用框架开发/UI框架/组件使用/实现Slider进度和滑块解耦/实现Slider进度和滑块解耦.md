@@ -28,14 +28,14 @@
  
 - 在DataPanel组件中通过values属性来设置进度条的值，并绑定点击事件来更新滑块的位置selectValue。
 ```text
-<em>// 使用DataPanel模拟进度条</em>
+// 使用DataPanel模拟进度条
 DataPanel({ values: this.valueArr, max: 1000, type: DataPanelType.Line })
   .width(300)
   .height(10)
   .borderRadius('50%')
- <em> // DataPanel点击事件，将滑块重置于点击位置</em>
+  // DataPanel点击事件，将滑块重置于点击位置
   .onClick((event: ClickEvent) => {
-   <em> // 判断点击位置是否超过进度条长度，+8为滑块半径，并重新计算赋值selectValue</em>
+    // 判断点击位置是否超过进度条长度，+8为滑块半径，并重新计算赋值selectValue
     if ((event.x + 8) * 1000 / 300 > 1000) {
       this.selectValue = 1000;
     } else {
@@ -46,30 +46,30 @@ DataPanel({ values: this.valueArr, max: 1000, type: DataPanelType.Line })
 
 - 滑块Circle组件的位置与变量selectValue绑定，并在滑动手势中更新滑块位置。为了防止滑块脱离进度，对两侧边界进行判断。
 ```text
-<em>// 模拟滑块</em>
+// 模拟滑块
 Circle({ width: 16, height: 16 })
   .fill('#fff')
   .borderRadius('50%')
-<em>  // 滑块的位置为selectValue在总体的占比乘以300，减8防止滑块溢出边界</em>
+  // 滑块的位置为selectValue在总体的占比乘以300，减8防止滑块溢出边界
   .position({ left: (this.selectValue) / 1000 * 300 - 8, top: 0 })
   .shadow({ radius: 10, color: Color.Gray })
   .gesture(
     PanGesture({ direction: PanDirection.Horizontal, distance: 1 })
       .onActionStart(() => {
-     <em>   // 初始化滑块左边界坐标</em>
+        // 初始化滑块左边界坐标
         this.lastOffsetX = 0;
       })
       .onActionUpdate((even) => {
-     <em>   // 在滑动手势更新回调中，通过手势坐标减去上次左边界坐标计算偏移距离，通过偏移距离在总长度（300）占比乘以1000更新selectValue</em>
+        // 在滑动手势更新回调中，通过手势坐标减去上次左边界坐标计算偏移距离，通过偏移距离在总长度（300）占比乘以1000更新selectValue
         this.selectValue = this.selectValue + (even.offsetX - this.lastOffsetX) / 300 * 1000;
-      <em>  // 对滑块左边界进行判断</em>
+        // 对滑块左边界进行判断
         if (this.selectValue < 0) {
           this.selectValue = 0;
-     <em>     // 对滑块的右边界进行判断</em>
+          // 对滑块的右边界进行判断
         } else if (this.selectValue > 1000) {
           this.selectValue = 1000;
         }
-   <em>     // 更新滑块左边界坐标</em>
+        // 更新滑块左边界坐标
         this.lastOffsetX = even.offsetX;
       })
   )
@@ -83,7 +83,7 @@ Circle({ width: 16, height: 16 })
 @Entry
 @Component
 struct SliderDecouple {
-<em>  // 滑块位置值</em>
+  // 滑块位置值
   @State selectValue: number = 120;
   @State valueArr: number[] = [120];
   lastOffsetX: number = 0;
@@ -91,14 +91,14 @@ struct SliderDecouple {
   build() {
     Column({ space: 10 }) {
       Stack() {
-    <em>    // 使用DataPanel模拟进度条</em>
+        // 使用DataPanel模拟进度条
         DataPanel({ values: this.valueArr, max: 1000, type: DataPanelType.Line })
           .width(300)
           .height(10)
           .borderRadius('50%')
-     <em>     // DataPanel点击事件，将滑块重置于点击位置</em>
+          // DataPanel点击事件，将滑块重置于点击位置
           .onClick((event: ClickEvent) => {
-        <em>    // 判断点击位置是否超过进度条长度，+8为滑块半径，并重新计算赋值selectValue</em>
+            // 判断点击位置是否超过进度条长度，+8为滑块半径，并重新计算赋值selectValue
             if ((event.x + 8) * 1000 / 300 > 1000) {
               this.selectValue = 1000;
             } else {
@@ -106,41 +106,41 @@ struct SliderDecouple {
             }
           })
 
-   <em>     // 模拟滑块</em>
+        // 模拟滑块
         Circle({ width: 16, height: 16 })
           .fill('#fff')
           .borderRadius('50%')
-     <em>     // 滑块的位置为selectValue在总体的占比乘以300，减8防止滑块溢出边界</em>
+          // 滑块的位置为selectValue在总体的占比乘以300，减8防止滑块溢出边界
           .position({ left: (this.selectValue) / 1000 * 300 - 8, top: 0 })
           .shadow({ radius: 10, color: Color.Gray })
           .gesture(
             PanGesture({ direction: PanDirection.Horizontal, distance: 1 })
               .onActionStart(() => {
-             <em>   // 初始化滑块左边界坐标</em>
+                // 初始化滑块左边界坐标
                 this.lastOffsetX = 0;
               })
               .onActionUpdate((even) => {
-          <em>      // 在滑动手势更新回调中，通过手势坐标减去上次左边界坐标计算偏移距离，通过偏移距离在总长度（300）占比乘以1000更新selectValue</em>
+                // 在滑动手势更新回调中，通过手势坐标减去上次左边界坐标计算偏移距离，通过偏移距离在总长度（300）占比乘以1000更新selectValue
                 this.selectValue = this.selectValue + (even.offsetX - this.lastOffsetX) / 300 * 1000;
-             <em>   // 对滑块左边界进行判断</em>
+                // 对滑块左边界进行判断
                 if (this.selectValue < 0) {
                   this.selectValue = 0;
-            <em>      // 对滑块的右边界进行判断</em>
+                  // 对滑块的右边界进行判断
                 } else if (this.selectValue > 1000) {
                   this.selectValue = 1000;
                 }
-             <em>   // 更新滑块左边界坐标</em>
+                // 更新滑块左边界坐标
                 this.lastOffsetX = even.offsetX;
               })
           )
       }
 
-  <em>    // 模拟进度条变化</em>
+      // 模拟进度条变化
       Button('add')
         .onClick(() => {
-     <em>     // 模拟每次进度条增加50</em>
+          // 模拟每次进度条增加50
           this.valueArr[0] = this.valueArr[0] + 50;
-     <em>     // 进度条不能超越滑块</em>
+          // 进度条不能超越滑块
           if (this.valueArr[0] > this.selectValue) {
             this.valueArr[0] = this.selectValue;
           } else if (this.valueArr[0] < 0) {

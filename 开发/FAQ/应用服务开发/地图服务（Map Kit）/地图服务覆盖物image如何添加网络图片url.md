@@ -24,9 +24,9 @@ Map Kit地图服务开发需要添加覆盖物，ImageOverlayParams参数中imag
 [ImageOverlayParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#section12537418218)类中image参数只支持ResourceStr和image.PixelMap，无法直接添加网络图片url，可以把网络图片的url转换成[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)类型显示。
  1. 通过http的request下载网络图片资源，并把网络图片url下载的ArrayBuffer类型的图片转换为[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)类型数据。
 ```text
-<em>// </em><em>通过http的request方法从网络下载图片资源</em>
+// 通过http的request方法从网络下载图片资源
 async getPicture() {
- <em> // 请填写一个具体的网络图片地址</em>
+  // 请填写一个具体的网络图片地址
   http.createHttp().request('xx.xx.xx.xx.png',
     async (error: BusinessError, data: http.HttpResponse) => {
       if (error) {
@@ -35,7 +35,7 @@ async getPicture() {
       }
       if (200 === data.responseCode) {
         const imageData: ArrayBuffer = data.result as ArrayBuffer;
-      <em>  // 通过ArrayBuffer创建图片源实例</em>
+        // 通过ArrayBuffer创建图片源实例
         const imageSource: image.ImageSource = image.createImageSource(imageData);
         const options: image.InitializationOptions = {
           'alphaType': 0,
@@ -44,7 +44,7 @@ async getPicture() {
           'scaleMode': 1,
           'size': { height: 50, width: 50 }
         };
-      <em>  // 通过属性创建PixelMap</em>
+        // 通过属性创建PixelMap
         this.imageMap = await imageSource.createPixelMap(options);
       }
     });
@@ -55,12 +55,12 @@ async getPicture() {
 ```text
 Button('添加网络图片覆盖物').onClick(async () => {
   let imageOverlayParams: mapCommon.ImageOverlayParams = {
-   <em> // 覆盖物范围</em>
+    // 覆盖物范围
     bounds: {
       southwest: { latitude: 32, longitude: 118 },
       northeast: { latitude: 32.4, longitude: 118.4 }
     },
-  <em>  // 转换过后的PixelMap图片</em>
+    // 转换过后的PixelMap图片
     image: this.imageMap,
     transparency: 0.3,
     zIndex: 101,
@@ -70,7 +70,7 @@ Button('添加网络图片覆盖物').onClick(async () => {
     visible: true,
     bearing: 0
   };
-  <em>// </em><em>添加覆盖物</em>
+  // 添加覆盖物
   await this.mapController?.addImageOverlay(imageOverlayParams);
 })
 ```
@@ -93,9 +93,9 @@ struct Index {
   private callback?: AsyncCallback<map.MapComponentController>;
   private mapEventManager?: map.MapEventManager;
 
- <em> // 通过http的request方法从网络下载图片资源</em>
+  // 通过http的request方法从网络下载图片资源
   async getPicture() {
-<em>    // 请填写一个具体的网络图片地址</em>
+    // 请填写一个具体的网络图片地址
     http.createHttp().request('xx.xx.xx.xx.png',
       async (error: BusinessError, data: http.HttpResponse) => {
         if (error) {
@@ -104,7 +104,7 @@ struct Index {
         }
         if (200 === data.responseCode) {
           const imageData: ArrayBuffer = data.result as ArrayBuffer;
-      <em>    // 通过ArrayBuffer创建图片源实例</em>
+          // 通过ArrayBuffer创建图片源实例
           const imageSource: image.ImageSource = image.createImageSource(imageData);
           const options: image.InitializationOptions = {
             'alphaType': 0,
@@ -113,7 +113,7 @@ struct Index {
             'scaleMode': 1,
             'size': { height: 50, width: 50 }
           };
-      <em>    // 通过属性创建PixelMap</em>
+          // 通过属性创建PixelMap
           this.imageMap = await imageSource.createPixelMap(options);
         }
       });
@@ -121,7 +121,7 @@ struct Index {
 
 
   async aboutToAppear() {
-  <em>  // 设置地图属性模型</em>
+    // 设置地图属性模型
     this.mapOptions = {
       position: {
         target: {
@@ -131,7 +131,7 @@ struct Index {
         zoom: 10
       }
     };
-  <em>  // 地图回调</em>
+    // 地图回调
     this.callback = async (err, mapController) => {
       if (!err) {
         this.mapController = mapController;
@@ -148,12 +148,12 @@ struct Index {
       Column() {
         Button('添加网络图片覆盖物').onClick(async () => {
           let imageOverlayParams: mapCommon.ImageOverlayParams = {
-          <em>  // 覆盖物范围</em>
+            // 覆盖物范围
             bounds: {
               southwest: { latitude: 32, longitude: 118 },
               northeast: { latitude: 32.4, longitude: 118.4 }
             },
-       <em>     // 转换过后的PixelMap图片</em>
+            // 转换过后的PixelMap图片
             image: this.imageMap,
             transparency: 0.3,
             zIndex: 101,
@@ -163,7 +163,7 @@ struct Index {
             visible: true,
             bearing: 0
           };
-      <em>    // 添加覆盖物</em>
+          // 添加覆盖物
           await this.mapController?.addImageOverlay(imageOverlayParams);
         })
         MapComponent({

@@ -66,7 +66,7 @@ let innerEvent: emitter.InnerEvent = {
   eventId: 1
 };
 
-let callback: Callback<emitter.EventData> = (eventData: emitter.EventData) => {
+let callback: Callback = (eventData: emitter.EventData) => {
   console.info(`eventData: ${JSON.stringify(eventData)}`);
 };
 
@@ -101,7 +101,7 @@ on(eventId: string, callback: Callback&lt;EventData&gt;): void
 ```json
 import { Callback } from '@kit.BasicServicesKit';
 
-let callback: Callback<emitter.EventData> = (eventData: emitter.EventData) => {
+let callback: Callback = (eventData: emitter.EventData) => {
   console.info(`eventData: ${JSON.stringify(eventData)}`);
 };
 // 收到eventId为"eventId"的事件后执行回调处理函数
@@ -146,7 +146,7 @@ class Sample {
   count: number;
 }
 
-let callback: Callback<emitter.GenericEventData<Sample>> = (eventData: emitter.GenericEventData<Sample>): void => {
+let callback: Callback> = (eventData: emitter.GenericEventData<Sample>): void => {
   console.info(`eventData: ${JSON.stringify(eventData?.data)}`);
   if (eventData?.data instanceof Sample) {
     eventData?.data?.printCount();
@@ -187,7 +187,7 @@ let innerEvent: emitter.InnerEvent = {
   eventId: 1
 };
 
-let callback: Callback<emitter.EventData> = (eventData: emitter.EventData) => {
+let callback: Callback = (eventData: emitter.EventData) => {
   console.info(`eventData: ${JSON.stringify(eventData)}`);
 };
 // 收到eventId为1的事件后执行该回调处理函数
@@ -221,7 +221,7 @@ once(eventId: string, callback: Callback&lt;EventData&gt;): void
 ```json
 import { Callback } from '@kit.BasicServicesKit';
 
-let callback: Callback<emitter.EventData> = (eventData: emitter.EventData) => {
+let callback: Callback = (eventData: emitter.EventData) => {
   console.info(`eventData: ${JSON.stringify(eventData)}`);
 };
 // 收到eventId为"eventId"的事件后执行该回调函数
@@ -266,7 +266,7 @@ class Sample {
   count: number;
 }
 
-let callback: Callback<emitter.GenericEventData<Sample>> = (eventData: emitter.GenericEventData<Sample>): void => {
+let callback: Callback> = (eventData: emitter.GenericEventData<Sample>): void => {
   console.info(`eventData: ${JSON.stringify(eventData?.data)}`);
   if (eventData?.data instanceof Sample) {
     eventData?.data?.printCount();
@@ -365,7 +365,7 @@ off(eventId: number, callback: Callback&lt;EventData&gt;): void
 ```json
 import { Callback } from '@kit.BasicServicesKit';
 
-let callback: Callback<emitter.EventData> = (eventData: emitter.EventData) => {
+let callback: Callback = (eventData: emitter.EventData) => {
   console.info(`eventData: ${JSON.stringify(eventData)}`);
 };
 // 取消eventId为1的事件回调处理函数，callback对象应使用订阅时的对象
@@ -402,7 +402,7 @@ off(eventId: string, callback: Callback&lt;EventData&gt;): void
 ```json
 import { Callback } from '@kit.BasicServicesKit';
 
-let callback: Callback<emitter.EventData> = (eventData: emitter.EventData) => {
+let callback: Callback = (eventData: emitter.EventData) => {
   console.info(`eventData: ${JSON.stringify(eventData)}`);
 };
 // 取消eventId为"eventId1"的事件回调处理函数，callback对象应使用订阅时的对象
@@ -450,7 +450,7 @@ class Sample {
   count: number;
 }
 
-let callback: Callback<emitter.GenericEventData<Sample>> = (eventData: emitter.GenericEventData<Sample>): void => {
+let callback: Callback> = (eventData: emitter.GenericEventData<Sample>): void => {
   console.info(`eventData: ${JSON.stringify(eventData?.data)}`);
   if (eventData?.data instanceof Sample) {
     eventData?.data?.printCount();
@@ -869,7 +869,7 @@ import { Callback } from '@kit.BasicServicesKit';
 
 let emitter1: emitter.Emitter = new emitter.Emitter();
 
-let callback: Callback<emitter.EventData> = (eventData: emitter.EventData) => {
+let callback: Callback = (eventData: emitter.EventData) => {
   console.info(`eventData: ${JSON.stringify(eventData)}`);
 };
 
@@ -916,7 +916,7 @@ class Sample {
   count: number;
 }
 
-let callback: Callback<emitter.GenericEventData<Sample>> = (eventData: emitter.GenericEventData<Sample>): void => {
+let callback: Callback> = (eventData: emitter.GenericEventData<Sample>): void => {
   console.info(`eventData: ${JSON.stringify(eventData?.data)}`);
   if (eventData?.data instanceof Sample) {
     eventData?.data?.printCount();
@@ -955,7 +955,7 @@ import { Callback } from '@kit.BasicServicesKit';
 
 let emitter1: emitter.Emitter = new emitter.Emitter();
 
-let callback: Callback<emitter.EventData> = (eventData: emitter.EventData) => {
+let callback: Callback = (eventData: emitter.EventData) => {
   console.info(`eventData: ${JSON.stringify(eventData)}`);
 };
 
@@ -1002,7 +1002,7 @@ class Sample {
   count: number;
 }
 
-let callback: Callback<emitter.GenericEventData<Sample>> = (eventData: emitter.GenericEventData<Sample>): void => {
+let callback: Callback> = (eventData: emitter.GenericEventData<Sample>): void => {
   console.info(`eventData: ${JSON.stringify(eventData?.data)}`);
   if (eventData?.data instanceof Sample) {
     eventData?.data?.printCount();
@@ -1074,7 +1074,7 @@ import { Callback } from '@kit.BasicServicesKit';
 
 let emitter1: emitter.Emitter = new emitter.Emitter();
 
-let callback: Callback<emitter.EventData> = (eventData: emitter.EventData) => {
+let callback: Callback = (eventData: emitter.EventData) => {
   console.info(`eventData: ${JSON.stringify(eventData)}`);
 };
 
@@ -1123,7 +1123,7 @@ class Sample {
 
 let emitter1: emitter.Emitter = new emitter.Emitter();
 
-let callback: Callback<emitter.GenericEventData<Sample>> = (eventData: emitter.GenericEventData<Sample>): void => {
+let callback: Callback> = (eventData: emitter.GenericEventData<Sample>): void => {
   console.info(`eventData: ${JSON.stringify(eventData?.data)}`);
   if (eventData?.data instanceof Sample) {
     eventData?.data?.printCount();

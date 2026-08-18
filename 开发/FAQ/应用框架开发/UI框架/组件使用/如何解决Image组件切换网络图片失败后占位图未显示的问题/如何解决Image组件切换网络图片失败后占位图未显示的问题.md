@@ -26,20 +26,20 @@ struct Page {
       Image(this.imageUrl)
         .width(200)
         .height(200)
-       <em> // 本地资源自行替换</em>
+        // 本地资源自行替换
         .alt($r('app.media.startIcon'));
       Button('加载正常图片')
         .fontSize(20)
         .fontWeight(FontWeight.Bold)
         .onClick(() => {
-        <em>  // 网络路径需自行替换</em>
+          // 网络路径需自行替换
           this.imageUrl = 'XXX.XXX.png';
         });
       Button('加载其他图片')
         .fontSize(20)
         .fontWeight(FontWeight.Bold)
         .onClick(() => {
-        <em>  // 网络路径需自行替换</em>
+          // 网络路径需自行替换
           this.imageUrl = 'XXX.XXX.png';
         });
     }
@@ -88,21 +88,21 @@ struct Index {
         .onError((err: ImageError) => {
           console.error(`${err.message}`);
           console.error(`${err.error?.code}`);
-        <em>  // 本地资源自行替换</em>
+          // 本地资源自行替换
           this.imageUrl = $r('app.media.startIcon');
         });
       Button('加载正常图片')
         .fontSize(20)
         .fontWeight(FontWeight.Bold)
         .onClick(() => {
-        <em>  // 网络路径需自行替换</em>
+          // 网络路径需自行替换
           this.imageUrl = 'XXX.XXX.png';
         });
       Button('加载失败显示占位图')
         .fontSize(20)
         .fontWeight(FontWeight.Bold)
         .onClick(() => {
-        <em>  // 网络路径需自行替换</em>
+          // 网络路径需自行替换
           this.imageUrl = 'XXX.XXX.png';
         });
     }

@@ -42,16 +42,16 @@ struct Index {
       .nextMargin(35)
       .onGestureRecognizerJudgeBegin((event: BaseGestureEvent, current: GestureRecognizer,
         recognizers: Array<GestureRecognizer>) => {
-      <em>  // 判断手势识别器的类型</em>
+        // 判断手势识别器的类型
         if (current.getType() === GestureControl.GestureType.PAN_GESTURE) {
           let pan: PanGestureEvent = event as PanGestureEvent;
-        <em>  // 获取手势事件偏移量X</em>
+          // 获取手势事件偏移量X
           if (pan.offsetX < 0) {
             current.setEnabled(true);
             return GestureJudgeResult.CONTINUE;
           } else {
             current.setEnabled(false);
-          <em>  // 判定手势结果为失败</em>
+            // 判定手势结果为失败
             return GestureJudgeResult.REJECT;
           }
         }
@@ -110,10 +110,10 @@ struct SwiperLimitTest {
             .borderRadius(8)
             .parallelGesture(
               PanGesture().onActionEnd(e => {
-              <em>  // 手势结束，获取当前的速度</em>
+                // 手势结束，获取当前的速度
                 let velocityX = e.velocityX || 0;
                 if (velocityX < 0) {
-                 <em> // x轴方向速度小于0时，向左移动</em>
+                  // x轴方向速度小于0时，向左移动
                   this.swiperController.showNext();
                 }
               })

@@ -24,7 +24,7 @@ Argument of type 'DialogCustomV2<T>' is not assignable to parameter of type 'MAP
 ```text
 import { ComponentContent, UIContext } from '@kit.ArkUI';
 
-<em>// </em><em>定义基础接口</em>
+// 定义基础接口
 namespace Param {
   export interface BaseDialogParamV2 {
     alignment?: DialogAlignment
@@ -48,7 +48,7 @@ function simpleUUID(): string {
   });
 }
 
-<em>// </em><em>定义泛型类DialogCustomV2</em>
+// 定义泛型类DialogCustomV2
 class DialogCustomV2<T extends Param.BaseCustomDialogParam> {
   uiContext: UIContext = new UIContext;
   wrapped: WrappedBuilder<[T]>;
@@ -76,10 +76,10 @@ class DialogCustomV2<T extends Param.BaseCustomDialogParam> {
 export function showCustomV2<T extends Param.BaseCustomDialogParam>(wrapped: WrappedBuilder<[T]>, param: T,
   dialogParam?: Param.BaseDialogParamV2) {
   const dialog: DialogCustomV2<T> = new DialogCustomV2<T>(wrapped, param, dialogParam);
-  <em>// </em><em>缓存弹窗映射</em>
+  // 缓存弹窗映射
   type MAPPER_VALUE = DialogCustomV2<Param.BaseCustomDialogParam>;
   const MAPPER = new Map<string, MAPPER_VALUE>();
- <em> // 弹框堆栈</em>
+  // 弹框堆栈
   const STACK: Array<string> = [];
   MAPPER.set(dialog.id, dialog);
   STACK.push(dialog.id);
@@ -120,17 +120,17 @@ struct TestPage {
     Column() {
       Button('打开弹窗')
         .onClick(() => {
-         <em> // globalBuilder作为WrappedBuilder参数</em>
+          // globalBuilder作为WrappedBuilder参数
           const param: Param.BaseCustomDialogParam = {
             dialogFunc: () => {
-           <em>   // 这里可以加逻辑，比如提示、上报等</em>
+              // 这里可以加逻辑，比如提示、上报等
               console.info('这里可以执行自定义方法');
-             <em> // 返回true表示允许关闭</em>
+              // 返回true表示允许关闭
               return true;
             }
           };
 
-          <em>// 弹窗样式参数</em>
+          // 弹窗样式参数
           const dialogParam: Param.BaseDialogParamV2 = {
             width: 300,
             height: 200,
@@ -140,7 +140,7 @@ struct TestPage {
             alignment: DialogAlignment.Center
           };
 
-          <em>// 调用showCustomV2，传入globalBuilder和参数</em>
+          // 调用showCustomV2，传入globalBuilder和参数
           showCustomV2(globalBuilder, param, dialogParam);
         });
     }
@@ -165,10 +165,10 @@ struct TestPage {
 export function showCustomV2<T extends Param.BaseCustomDialogParam>(wrapped: WrappedBuilder<[T]>, param: T,
   dialogParam?: Param.BaseDialogParamV2) {
   const dialog: DialogCustomV2<T> = new DialogCustomV2<T>(wrapped, param, dialogParam);
- <em> // 缓存弹窗映射</em>
+  // 缓存弹窗映射
   type MAPPER_VALUE = DialogCustomV2<Param.BaseCustomDialogParam>;
   const MAPPER = new Map<string, MAPPER_VALUE>();
- <em> // 弹框堆栈</em>
+  // 弹框堆栈
   const STACK: Array<string> = [];
   MAPPER.set(dialog.id, dialog);
   STACK.push(dialog.id);
@@ -207,7 +207,7 @@ constructor(wrapped: WrappedBuilder<[T]>, param: T, dialogParam?: Param.BaseDial
 import { ComponentContent, UIContext } from '@kit.ArkUI';
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
-<em>// </em><em>定义基础接口</em>
+// 定义基础接口
 namespace Param {
   export interface BaseDialogParamV2 {
     alignment?: DialogAlignment
@@ -233,7 +233,7 @@ function simpleUUID(): string {
   });
 }
 
-<em>// </em><em>定义泛型类DialogCustomV2</em>
+// 定义泛型类DialogCustomV2
 class DialogCustomV2<T extends Param.BaseCustomDialogParam> {
   uiContext: UIContext = new UIContext;
   wrapped: WrappedBuilder<[T]>;
@@ -263,10 +263,10 @@ export function showCustomV2<T extends Param.BaseCustomDialogParam>(wrapped: Wra
   dialogParam?: Param.BaseDialogParamV2) {
   const dialog: DialogCustomV2<Param.BaseCustomDialogParam> =
     new DialogCustomV2<Param.BaseCustomDialogParam>(wrapped, param, dialogParam);
- <em> // 缓存弹窗映射</em>
+  // 缓存弹窗映射
   type MAPPER_VALUE = DialogCustomV2<Param.BaseCustomDialogParam>;
   const MAPPER = new Map<string, MAPPER_VALUE>();
- <em> // 弹框堆栈</em>
+  // 弹框堆栈
   const STACK: Array<string> = [];
   MAPPER.set(dialog.id, dialog);
   STACK.push(dialog.id);
@@ -307,17 +307,17 @@ struct TestPage {
     Column() {
       Button('打开弹窗')
         .onClick(() => {
-         <em> // globalBuilder作为WrappedBuilder参数</em>
+          // globalBuilder作为WrappedBuilder参数
           const param: Param.BaseCustomDialogParam = {
             dialogFunc: () => {
-             <em> // 这里可以加逻辑，比如提示、上报等</em>
+              // 这里可以加逻辑，比如提示、上报等
               console.info('这里可以执行自定义方法');
-           <em>   // 返回true表示允许关闭</em>
+              // 返回true表示允许关闭
               return true;
             }
           };
 
-         <em> // 弹窗样式参数</em>
+          // 弹窗样式参数
           const dialogParam: Param.BaseDialogParamV2 = {
             width: 300,
             height: 200,
@@ -327,7 +327,7 @@ struct TestPage {
             alignment: DialogAlignment.Center
           };
 
-        <em>  // 调用showCustomV2，传入globalBuilder和参数</em>
+          // 调用showCustomV2，传入globalBuilder和参数
           showCustomV2(globalBuilder, param, dialogParam);
         });
     }

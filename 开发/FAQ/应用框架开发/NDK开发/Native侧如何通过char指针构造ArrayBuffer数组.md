@@ -11,9 +11,9 @@
 napi_value CharToArrBuffer::TestCharBuf(napi_env env, napi_callback_info info) { 
     napi_value result = nullptr; 
     char *buf = nullptr; 
-   <em> // Create an Array buffer </em>
+    // Create an Array buffer 
     napi_create_arraybuffer(env, 100, reinterpret_cast<void **>(&buf), &result); 
-   <em> // Assign an ArrayBuffer </em>
+    // Assign an ArrayBuffer 
     for (int i = 0; i < 100; i++) { 
         buf[i] = i + 2; 
     } 

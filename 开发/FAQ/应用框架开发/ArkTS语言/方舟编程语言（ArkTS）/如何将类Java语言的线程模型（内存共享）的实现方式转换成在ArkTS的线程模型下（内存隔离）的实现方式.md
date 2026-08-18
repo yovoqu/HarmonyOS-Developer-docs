@@ -12,12 +12,12 @@
 ```text
 class Task {
   static run(args) {
-   <em> // Do some independent tasks</em>
+    // Do some independent tasks
   }
 }
 let thread = new Thread(() => {
   let result = Task.run(args)
- <em> // deal with result</em>
+  // deal with result
 })
 ```
  ArkTS写法：
@@ -28,11 +28,11 @@ import { taskpool } from '@kit.ArkTS';
 
 @Concurrent
 function run(args: number) {
- <em> // Do some independent tasks</em>
+  // Do some independent tasks
 }
 let task: taskpool.Task = new taskpool.Task(run, 100); // 100: test number
 taskpool.execute(task).then((res) => {
- <em> // Return result</em>
+  // Return result
 });
 ```
 
@@ -42,13 +42,13 @@ taskpool.execute(task).then((res) => {
 ```text
 class Material {
   action(args) {
-  <em>  // Do some independent tasks</em>
+    // Do some independent tasks
   }
 }
 let material = new Material()
 let thread = new Thread(() => {
   let result = material.action(args)
-  <em>// deal with result</em>
+  // deal with result
 })
 ```
  ArkTS写法：
@@ -59,17 +59,17 @@ import { taskpool } from '@kit.ArkTS';
 
 @Concurrent
 function runner(material: Material): void {
-  return material.action(100); <em>// 100: test number</em>
+  return material.action(100); // 100: test number
 }
 @Sendable
 class Material {
   action(args: number) {
-   <em> // Do some independent tasks</em>
+    // Do some independent tasks
   }
 }
 let material = new Material()
 taskpool.execute(runner, material).then((ret) => {
-<em>  // Return result</em>
+  // Return result
 })
 ```
 
@@ -79,7 +79,7 @@ taskpool.execute(runner, material).then((ret) => {
 ```text
 class Task {
     run(args) {
-       <em> // deal with result</em>
+        // deal with result
         runOnUiThread(() => {
             UpdateUI(result)
         })
@@ -88,7 +88,7 @@ class Task {
 let task = new Task()
 let thread = new Thread(() => {
     let result = task.run(args)
-  <em>  // Processing results</em>
+    // Processing results
 })
 ```
  ArkTS写法：
@@ -97,7 +97,7 @@ let thread = new Thread(() => {
 ```text
 import taskpool from '@ohos.taskpool'
 
-<em>// let result: Object[] | undefined = undefined</em>
+// let result: Object[] | undefined = undefined
 
 @Concurrent
 function runner(task:Task) {
@@ -106,7 +106,7 @@ function runner(task:Task) {
 @Sendable
 class Task {
   run(args?: Object[] | undefined) {
-   <em> // Do some independent tasks</em>
+    // Do some independent tasks
     taskpool.Task.sendData(JsResult)
   }
 }
@@ -116,7 +116,7 @@ run.onReceiveData((result?: Function | undefined) => {
   UpdateUI(result)
 })
 taskpool.execute(run).then((ret) => {
- <em> // Return result</em>
+  // Return result
 })
 ```
 
@@ -131,7 +131,7 @@ class SdkU3d {
     }
 }
 let thread = new Thread(() => {
-  <em>  // In the game thread</em>
+    // In the game thread
     let sdk = SdkU3d.getInst()
     let ret = sdk.getPropStr("xx")
 })
@@ -150,7 +150,7 @@ class SdkU3d {
 let workerInstance = new worker.ThreadWorker("xx/worker.ts");
 workerInstance.registerGlobalCallObject("instance_xx", SdkU3d.getInst());
 workerInstance.postMessage("start");
-<em>// In the game worker thread</em>
+// In the game worker thread
 const mainPort = worker.workerPort;
 mainPort.onmessage = (e: MessageEvents): void => {
   let ret = mainPort.callGlobalCallObjectMethod("instance_xx", "getPropStr", 100); // 100: test number

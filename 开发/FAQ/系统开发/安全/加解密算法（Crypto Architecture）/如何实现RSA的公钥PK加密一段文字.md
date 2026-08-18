@@ -12,14 +12,14 @@
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer, util } from '@kit.ArkTS';
 
-<em>// Convert string to byte stream </em>
+// Convert string to byte stream 
 function stringToUint8Array(str: string) {
   return new Uint8Array(buffer.from(str, 'utf-8').buffer);
 }
 
-<em>// Convert byte stream into an understandable string</em>
+// Convert byte stream into an understandable string
 function uint8ArrayToString(array: Uint8Array) {
-  <em>// Convert UTF-8 encoding to Unicode encoding</em>
+  // Convert UTF-8 encoding to Unicode encoding
   let out: string = '';
   let index: number = 0;
   let len: number = array.length;
@@ -59,8 +59,8 @@ export class KeyPair {
 export class RSA {
   private ASY_KEY_NAME_RSA_3072: string = 'RSA1024';
   private ALG_NAME_RSA_3072: string = 'RSA|PKCS1';
-  static priKey: Uint8Array = new Uint8Array(); <em>// For temporary storage</em>
-  static pubKey: Uint8Array = new Uint8Array(); <em>// For temporary storage</em>
+  static priKey: Uint8Array = new Uint8Array(); // For temporary storage
+  static pubKey: Uint8Array = new Uint8Array(); // For temporary storage
   private base: util.Base64Helper = new util.Base64Helper();
 
   public async generateRsaKeyPair(): Promise<KeyPair> {
@@ -82,9 +82,9 @@ export class RSA {
     let result = '';
     try {
       let asyKeyGenerator = cryptoFramework.createAsyKeyGenerator(this.ASY_KEY_NAME_RSA_3072);
-      <em>// Create a Cipher (decryption) object</em> 
+      // Create a Cipher (decryption) object 
       let cipher = cryptoFramework.createCipher(this.ALG_NAME_RSA_3072);
-      <em>// Introduce external public key encryption</em>
+      // Introduce external public key encryption
       let keyGenPromise: cryptoFramework.KeyPair =
         await asyKeyGenerator.convertKey({ data: this.base.decodeSync(publicKey) }, null);
       await cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, keyGenPromise.pubKey, null);

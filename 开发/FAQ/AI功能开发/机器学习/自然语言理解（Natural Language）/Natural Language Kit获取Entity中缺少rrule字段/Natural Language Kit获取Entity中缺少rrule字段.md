@@ -21,7 +21,7 @@ struct Index {
 
   build() {
     Column() {
-      <em>// 每周四晚上10点</em>
+      // 每周四晚上10点
       TextInput({ placeholder: '请输入文本' })
         .height(40)
         .fontSize(16)
@@ -38,7 +38,7 @@ struct Index {
       }
       .height('40%')
 
-     <em> // 调用实体抽取接口</em>
+      // 调用实体抽取接口
       Row() {
         Button('获取实体结果')
           .type(ButtonType.Capsule)
@@ -61,7 +61,7 @@ struct Index {
     .justifyContent(FlexAlign.Center)
   }
 
- <em> // 实体结果转义</em>
+  // 实体结果转义
   private formatEntityResult(entities: textProcessing.Entity[]): string {
     if (!entities || !entities.length) {
       return 'No entities found.';

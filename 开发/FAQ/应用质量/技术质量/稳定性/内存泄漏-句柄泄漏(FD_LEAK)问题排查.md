@@ -24,21 +24,21 @@ struct Index {
   @State leakCount: number = 0;
 
 
- <em> // 模拟泄漏：只打开不关闭</em>
+  // 模拟泄漏：只打开不关闭
   triggerLeak() {
     let context = getHostContext(this) as common.UIAbilityContext;
     let path = context.filesDir + '/test_leak.txt';
-   <em> // 创建一个文件用于测试</em>
+    // 创建一个文件用于测试
     try {
       let file = fs.openSync(path, fs.OpenMode.CREATE | fs.OpenMode.READ_WRITE);
       fs.closeSync(file);
     } catch (e) {}
 
 
-  <em>  // 循环打开文件，模拟泄漏</em>
+    // 循环打开文件，模拟泄漏
     for (let i = 0; i < 500; i++) {
       try {
-      <em>  // 错误：这里打开了文件句柄，但是没有保存引用，也没有调用close</em>
+        // 错误：这里打开了文件句柄，但是没有保存引用，也没有调用close
         let file = fs.openSync(path, fs.OpenMode.READ_WRITE);
         this.leakCount++;
         console.info(`Open fd success: ${file.fd}`);

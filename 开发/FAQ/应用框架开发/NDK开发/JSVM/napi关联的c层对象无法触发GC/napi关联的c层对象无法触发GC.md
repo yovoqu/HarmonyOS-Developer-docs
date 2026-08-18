@@ -58,9 +58,9 @@ ArkTS侧的变量大小如果没有达到GC触发水位线，此时C++侧内存�
 将napi_wrap替换为[napi_wrap_enhance](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#napi_wrap_enhance)，napi_wrap_enhance会在绑定的时候把Native对象大小传给虚拟机，实现及时回收，示例代码如下：
  
 ```text
-<em>// 通过napi_wrap将ArkTS对象jsThis与C++对象obj绑定</em>
+// 通过napi_wrap将ArkTS对象jsThis与C++对象obj绑定
 napi_status status = napi_wrap_enhance(env, jsThis, reinterpret_cast<void *>(obj), MyObject::Destructor, false,
-                                       nullptr, <em>// finalizeHint</em>
+                                       nullptr, // finalizeHint
                                        100 * 1024 * 1024, &obj->wrapper_);
 ```
  

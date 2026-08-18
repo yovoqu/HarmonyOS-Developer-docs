@@ -41,8 +41,8 @@
 @Component
 @Entry
 struct MovePage {
-  @State duration: number = 0;<em> // 视频总时长状态</em>
-  @State time: number = 0;<em> // 当前播放时间状态</em>
+  @State duration: number = 0; // 视频总时长状态
+  @State time: number = 0; // 当前播放时间状态
 
   build() {
     Column({ space: 20 }) {
@@ -79,8 +79,8 @@ struct MovePage {
 export default struct Player {
   @Prop src: string | Resource;
   @Prop isControls: boolean = true;
-  onPrepared?: (duration: number) => void; <em>// 视频准备完成时触发该事件</em>
-  onUpdate?: (time: number) => void; <em>// 播放进度变化时触发该事件</em>
+  onPrepared?: (duration: number) => void; // 视频准备完成时触发该事件
+  onUpdate?: (time: number) => void; // 播放进度变化时触发该事件
   private videoController: VideoController = new VideoController();
 
   build() {
@@ -89,14 +89,14 @@ export default struct Player {
         src: this.src,
         controller: this.videoController
       })
-        .loop(true)<em>// 循环播放</em>
-        .objectFit(ImageFit.Cover)<em>// 画面填充模式</em>
-        .controls(this.isControls)<em>// 绑定控制条</em>
+        .loop(true)// 循环播放
+        .objectFit(ImageFit.Cover)// 画面填充模式
+        .controls(this.isControls)// 绑定控制条
         .onPrepared((event) => {
-          this.onPrepared?.(event.duration);<em> // 获取到总时长后调用</em>
+          this.onPrepared?.(event.duration); // 获取到总时长后调用
         })
         .onUpdate((event) => {
-          this.onUpdate?.(event.time);<em> // 当前视频播放的进度</em>
+          this.onUpdate?.(event.time); // 当前视频播放的进度
         })
         .onError(() => {
           console.error('播放失败');

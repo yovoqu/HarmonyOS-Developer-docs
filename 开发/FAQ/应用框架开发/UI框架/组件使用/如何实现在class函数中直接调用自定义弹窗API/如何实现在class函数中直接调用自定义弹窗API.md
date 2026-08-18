@@ -65,7 +65,7 @@ function dialogStyle() {
 }
 
 export class ShowTest {
-  private static ins: ShowTest; <em>// 单例模式去调用</em>
+  private static ins: ShowTest; // 单例模式去调用
   constructor() {
     ShowTest.ins = this;
   }

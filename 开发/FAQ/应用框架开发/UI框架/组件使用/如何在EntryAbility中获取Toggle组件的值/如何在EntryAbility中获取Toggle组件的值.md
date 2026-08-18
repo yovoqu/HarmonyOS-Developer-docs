@@ -13,11 +13,11 @@
 - EntryAbility.ets中后台时执行的操作：
 ```json
 onBackground(): void {
-  <em>// Ability has back to background</em>
+  // Ability has back to background
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
-<em>  // 判断是否销毁应用</em>
+  // 判断是否销毁应用
   if (delAppValue === true) {
-    <em>// module.json5配置文件中将removeMissionAfterTerminate字段取值配置为true</em>
+    // module.json5配置文件中将removeMissionAfterTerminate字段取值配置为true
     this.context.terminateSelf();
   }
 }
@@ -28,7 +28,7 @@ onBackground(): void {
 import { preferences } from '@kit.ArkData';
 import { PromptAction } from '@kit.ArkUI';
 
-export let delAppValue: boolean = false; <em>// delAppValue初始化默认值</em>
+export let delAppValue: boolean = false; // delAppValue初始化默认值
 let preferenceDelApp: preferences.Preferences | null = null;
 
 @Entry
@@ -40,11 +40,11 @@ struct SetPage {
   promptAction: PromptAction = this.uiContext.getPromptAction();
 
   async aboutToAppear() {
-    delAppValue = await this.getPreferenceDelApp(); <em>// 获取首选项中的值，同步到全局变量</em>
+    delAppValue = await this.getPreferenceDelApp(); // 获取首选项中的值，同步到全局变量
     this.promptAction.showToast({ message: String(delAppValue) });
   }
 
- <em> // 获取首选项中DelApp的值</em>
+  // 获取首选项中DelApp的值
   async getPreferenceDelApp(): Promise<boolean> {
     let value: boolean = false;
     try {
@@ -56,7 +56,7 @@ struct SetPage {
     return value;
   }
 
-<em>  // 更新首选项中DelApp的值</em>
+  // 更新首选项中DelApp的值
   async putPreferenceDelApp(value: boolean) {
     if (preferenceDelApp !== null) {
       try {
@@ -75,7 +75,7 @@ struct SetPage {
       Toggle({ type: ToggleType.Switch, isOn: delAppValue })
         .onChange(() => {
           delAppValue = !delAppValue;
-          this.putPreferenceDelApp(delAppValue); <em>// 保存到首选项中</em>
+          this.putPreferenceDelApp(delAppValue); // 保存到首选项中
           this.promptAction.showToast({ message: String(delAppValue) });
         });
     }
@@ -120,9 +120,9 @@ struct SetPage {
 #### 修改建议
 1. 将全局变量delAppValue前的export去掉，改为导出的get方法获取值（如果需要外部修改可以添加set方法并导出）。保证EntryAbility文件中调用get方法可以随时获取delAppValue值。
 ```text
-let delAppValue: boolean = false; <em>// delAppValue初始化默认值</em>
+let delAppValue: boolean = false; // delAppValue初始化默认值
 
-<em>// 用于让EntryAbility文件获取delAppValue</em>
+// 用于让EntryAbility文件获取delAppValue
 export function getDelAppValue() {
   return delAppValue;
 }
@@ -131,8 +131,8 @@ export function getDelAppValue() {
 2. 开关中的值改为状态变量，在aboutToAppear函数中获取到首选项的值后同步修改状态变量。
 ```text
 async aboutToAppear() {
-  delAppValue = await this.getPreferenceDelApp(); <em>// 获取首选项中的值，同步到全局变量</em>
-  this.delApp = delAppValue; <em>// 全局变量和开关的值保存一致</em>
+  delAppValue = await this.getPreferenceDelApp(); // 获取首选项中的值，同步到全局变量
+  this.delApp = delAppValue; // 全局变量和开关的值保存一致
   this.promptAction.showToast({ message: String(delAppValue) });
 }
 ```
@@ -141,19 +141,19 @@ async aboutToAppear() {
 ```text
 Toggle({ type: ToggleType.Switch, isOn: $$this.delApp })
   .onChange((isOn: boolean) => {
-    delAppValue = isOn; <em>// 开关值发生变化时全局变量同步更新</em>
-    this.putPreferenceDelApp(delAppValue); <em>// 保存到首选项中</em>
+    delAppValue = isOn; // 开关值发生变化时全局变量同步更新
+    this.putPreferenceDelApp(delAppValue); // 保存到首选项中
     this.promptAction.showToast({ message: String(delAppValue) });
   });
 ```
  
 ```json
 onBackground(): void {
-  <em>// Ability has back to background</em>
+  // Ability has back to background
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
-<em>  // 判断是否销毁应用</em>
+  // 判断是否销毁应用
   if (getDelAppValue() === true) {
-  <em>  // module.json5配置文件中将removeMissionAfterTerminate字段取值配置为true</em>
+    // module.json5配置文件中将removeMissionAfterTerminate字段取值配置为true
     this.context.terminateSelf();
   }
 }
@@ -167,9 +167,9 @@ import { preferences } from '@kit.ArkData';
 import { PromptAction } from '@kit.ArkUI';
 
 let preferenceDelApp: preferences.Preferences | null = null;
-let delAppValue: boolean = false; <em>// delAppValue初始化默认值</em>
+let delAppValue: boolean = false; // delAppValue初始化默认值
 
-<em>// 用于让EntryAbility文件获取delAppValue</em>
+// 用于让EntryAbility文件获取delAppValue
 export function getDelAppValue() {
   return delAppValue;
 }
@@ -177,18 +177,18 @@ export function getDelAppValue() {
 @Entry
 @Component
 struct SetPage {
-  @State delApp: boolean = false; <em>// 开关，DelApp初始化默认值</em>
+  @State delApp: boolean = false; // 开关，DelApp初始化默认值
   uiContext: UIContext = this.getUIContext();
   context: Context = this.uiContext.getHostContext() as Context;
   promptAction: PromptAction = this.uiContext.getPromptAction();
 
   async aboutToAppear() {
-    delAppValue = await this.getPreferenceDelApp(); <em>// 获取首选项中的值，同步到全局变量</em>
-    this.delApp = delAppValue; <em>// 全局变量和开关的值保存一致</em>
+    delAppValue = await this.getPreferenceDelApp(); // 获取首选项中的值，同步到全局变量
+    this.delApp = delAppValue; // 全局变量和开关的值保存一致
     this.promptAction.showToast({ message: String(delAppValue) });
   }
 
- <em> // 获取首选项中DelApp的值</em>
+  // 获取首选项中DelApp的值
   async getPreferenceDelApp(): Promise<boolean> {
     let value: boolean = false;
     try {
@@ -200,7 +200,7 @@ struct SetPage {
     return value;
   }
 
-  <em>// 更新首选项中DelApp的值</em>
+  // 更新首选项中DelApp的值
   async putPreferenceDelApp(value: boolean) {
     if (preferenceDelApp !== null) {
       try {
@@ -218,8 +218,8 @@ struct SetPage {
         .fontSize(18);
       Toggle({ type: ToggleType.Switch, isOn: $$this.delApp })
         .onChange((isOn: boolean) => {
-          delAppValue = isOn; <em>// 开关值发生变化时全局变量同步更新</em>
-          this.putPreferenceDelApp(delAppValue); <em>// 保存到首选项中</em>
+          delAppValue = isOn; // 开关值发生变化时全局变量同步更新
+          this.putPreferenceDelApp(delAppValue); // 保存到首选项中
           this.promptAction.showToast({ message: String(delAppValue) });
         });
     }

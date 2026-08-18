@@ -25,7 +25,7 @@ Universal Keystore Kit中HMAC(ArkTS)算法是否支持添加用户身份认证�
 使用HMAC生成密钥：
  
 ```json
-<em>// GenerateKey</em>
+// GenerateKey
 async function GenerateKey(authAccess: number, challengeType: number, time: number, isFineGrained: boolean) {
   console.info('[HUKS>demo] GenerateKey begin, challengeType:' + challengeType);
   let properties = GetPropertiesDebug(authAccess, challengeType, time, isFineGrained);
@@ -57,7 +57,7 @@ async function UserAuthBeforeMac(handle: number, options: huks.HuksOptions) {
   let authTypeList: number[] = new Array();
 
 
-  authTypeList[0] = userIAM_userAuth.UserAuthType.FINGERPRINT; <em>// 指纹认证类型</em>
+  authTypeList[0] = userIAM_userAuth.UserAuthType.FINGERPRINT; // 指纹认证类型
   console.info('[HUKS] -> [IAM] auth Check START!!! userAuthType:[' + authTypeList + '] authTypeList: ' + authTypeList +
     '  challenge : ' + challengeData);
   const authParam: userIAM_userAuth.AuthParam = {
@@ -150,7 +150,7 @@ function GetPropertiesDebug(authAccess: number, challengeType: number, time: num
       huksAccessType = huks.HuksAuthAccessType.HUKS_AUTH_ACCESS_INVALID_NEW_BIO_ENROLL;
       break;
     case 3:
-      huksAccessType = 4; <em>// alwaysValid</em>
+      huksAccessType = 4; // alwaysValid
       break;
     default:
       huksAccessType = 0;
@@ -192,7 +192,7 @@ function GetPropertiesDebug(authAccess: number, challengeType: number, time: num
 }
 
 
-<em>// GenerateKey</em>
+// GenerateKey
 async function GenerateKey(authAccess: number, challengeType: number, time: number, isFineGrained: boolean) {
   console.info('[HUKS>demo] GenerateKey begin, challengeType:' + challengeType);
   let properties = GetPropertiesDebug(authAccess, challengeType, time, isFineGrained);
@@ -217,7 +217,7 @@ async function GenerateKey(authAccess: number, challengeType: number, time: numb
 }
 
 
-<em>// DeleteKey</em>
+// DeleteKey
 async function DeleteKey(isFineGrained: boolean) {
   console.info('[HUKS>demo] DeleteKey Begin');
   let emptyOption: huks.HuksOptions = {
@@ -247,7 +247,7 @@ async function UserAuthBeforeMac(handle: number, options: huks.HuksOptions) {
   let authTypeList: number[] = new Array();
 
 
-  authTypeList[0] = userIAM_userAuth.UserAuthType.FINGERPRINT; <em>// 指纹认证类型</em>
+  authTypeList[0] = userIAM_userAuth.UserAuthType.FINGERPRINT; // 指纹认证类型
   console.info('[HUKS] -> [IAM] auth Check START!!! userAuthType:[' + authTypeList + '] authTypeList: ' + authTypeList +
     '  challenge : ' + challengeData);
   const authParam: userIAM_userAuth.AuthParam = {
@@ -351,7 +351,7 @@ struct Index {
   build() {
     Column() {
       Row() {
-       <em> // AuthAccess类型</em>
+        // AuthAccess类型
         Text('AuthAccess类型:')
           .fontSize(20)
           .margin({ left: 10, top: 10 });
@@ -384,7 +384,7 @@ struct Index {
       };
 
 
-     <em> // challenge类型</em>
+      // challenge类型
       Row() {
         Text('challenge类型:')
           .fontSize(20)
@@ -429,14 +429,14 @@ struct Index {
         .backgroundColor(0x317aff)
         .onClick(() => {
           this.message += 'generate key start\n';
-          GenerateKey(accessIndex, challengeTypeIndex, this.timeout, false); <em>// 生成密钥</em>
+          GenerateKey(accessIndex, challengeTypeIndex, this.timeout, false); // 生成密钥
           this.message += 'generate key end\n';
         })
         .margin(10);
 
 
         Button({ type: ButtonType.Normal, stateEffect: true }) {
-          Text('deleteKey') <em>// 删除密钥</em>
+          Text('deleteKey') // 删除密钥
             .fontSize(20)
             .fontColor(Color.White);
         }
@@ -455,7 +455,7 @@ struct Index {
 
       Row() {
         Button({ type: ButtonType.Normal, stateEffect: true }) {
-          Text('Mac') <em>// 用户认证获取密钥</em>
+          Text('Mac') // 用户认证获取密钥
             .fontSize(20)
             .fontColor(Color.White);
         }

@@ -100,7 +100,7 @@ struct StreamDataDecodeDemo {
               console.error('requestInStream ERROR : err = ' + JSON.stringify(err));
             }
           });
-        <em>  // 放在流式请求外部，防止在流式请求中每次接收到字节序列均创建，造成缓冲字节序列丢失。</em>
+          // 放在流式请求外部，防止在流式请求中每次接收到字节序列均创建，造成缓冲字节序列丢失。
           let textDecoderOptions: util.TextDecoderOptions = {
             fatal: false,
             ignoreBOM : true

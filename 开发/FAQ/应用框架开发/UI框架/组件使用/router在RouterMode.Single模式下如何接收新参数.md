@@ -70,7 +70,7 @@ struct PageTwo {
 
   onPageShow(): void {
     let param: RouterParams = this.getUIContext().getRouter().getParams() as RouterParams;
-    <em>// 过滤返回param为空和切后台</em>
+    // 过滤返回param为空和切后台
     if (param !== undefined && !AppStorage.get('fromBackground')) {
       this.params = param;
       console.info(`${param.message}`);
@@ -131,7 +131,7 @@ onCreate(): void {
   AppStorage.setOrCreate('fromBackground', false);
 }
 onBackground(): void {
-  <em>// 切换后台，设置判断标志位true</em>
+  // 切换后台，设置判断标志位true
   AppStorage.setOrCreate('fromBackground', true);
 }
 ```

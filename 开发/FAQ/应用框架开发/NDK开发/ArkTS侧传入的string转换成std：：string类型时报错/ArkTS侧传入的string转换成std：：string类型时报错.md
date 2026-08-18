@@ -13,7 +13,7 @@
 ```text
 char *faceDetectModelDirChar;
 napi_get_value_string_utf8(env, args[0], faceDetectModelDirChar, 0, &length);
-// <em>将char*转为std::string类型</em>
+// 将char*转为std::string类型
 std::string faceDetectModelDir = faceDetectModelDirChar;
 ```
  

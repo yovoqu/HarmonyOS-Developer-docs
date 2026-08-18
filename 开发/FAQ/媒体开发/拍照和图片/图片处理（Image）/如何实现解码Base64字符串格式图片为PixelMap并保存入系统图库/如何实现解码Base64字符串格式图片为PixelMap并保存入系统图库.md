@@ -27,32 +27,32 @@
 
   
 ```json
-<span style="color: rgb(255,255,255);">async </span><span style="color: rgb(0,0,255);">base64Str2PixelMap</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  let <span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ImageSource </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-  try <span style="color: rgb(181,106,1);">{</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">判断是否以固定格式开头，如果不是则为非法</span><span style="color: rgb(128,128,128);">base64</span><span style="color: rgb(128,128,128);">字符串图片</span></em>
-    let <span style="color: rgb(255,255,255);">headerReg </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RegExp</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'data:image/</span>\\<span style="color: rgb(132,63,161);">w+;base64,'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">idx </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imageStr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">search</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">headerReg</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">idx </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Invalid image base64 string`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      return<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">去除头部固定格式字符串</span></em>
-    let <span style="color: rgb(255,255,255);">base64Str </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imageStr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replace</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">headerReg</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">解码</span><span style="color: rgb(128,128,128);">base64</span><span style="color: rgb(128,128,128);">为图片二进制数据</span></em>
-    let <span style="color: rgb(255,255,255);">base64Helper </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">imgData </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">base64Helper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">base64Str</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
- <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过图片二进制数据创建</span><span style="color: rgb(128,128,128);">ImageSource</span><span style="color: rgb(128,128,128);">，并解码为</span><span style="color: rgb(128,128,128);">PixelMap</span></em>
-    <span style="color: rgb(255,255,255);">imageSource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createImageSource</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">imgData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">slice</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pixelMap </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createPixelMap</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Failed to decode base64 string to pixelmap: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>finally <span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      await <span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">release</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
-<span style="color: rgb(181,106,1);">}</span>
+async base64Str2PixelMap() {
+  let imageSource: image.ImageSource | undefined = undefined;
+  try {
+    // 判断是否以固定格式开头，如果不是则为非法base64字符串图片
+    let headerReg = new RegExp('data:image/\\w+;base64,');
+    let idx = this.imageStr.search(headerReg);
+    if (idx !== 0) {
+      console.error(`Invalid image base64 string`);
+      return;
+    }
+    // 去除头部固定格式字符串
+    let base64Str = this.imageStr.replace(headerReg, '');
+    // 解码base64为图片二进制数据
+    let base64Helper = new util.Base64Helper();
+    let imgData = await base64Helper.decode(base64Str);
+    // 通过图片二进制数据创建ImageSource，并解码为PixelMap
+    imageSource = image.createImageSource(imgData.buffer.slice(0));
+    this.pixelMap = await imageSource.createPixelMap();
+  } catch (err) {
+    console.error(`Failed to decode base64 string to pixelmap: ${JSON.stringify(err)}`);
+  } finally {
+    if (imageSource) {
+      await imageSource.release();
+    }
+  }
+}
 ```
 
 - Base64字符串格式图片保存入系统图库：1. 使用[Base64Helper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#base64helper9)的[decode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#decode9)接口解码Base64字符串获取图片的二进制数据。
@@ -63,72 +63,72 @@
 
   
 ```json
-<span style="color: rgb(255,255,255);">async </span><span style="color: rgb(0,0,255);">saveBase64StrImage</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">匹配开头固定格式的字符串，若不存在，则为非法</span><span style="color: rgb(128,128,128);">base64</span><span style="color: rgb(128,128,128);">图片</span></em>
-  let <span style="color: rgb(255,255,255);">headerReg </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RegExp</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'data:image/</span>\\<span style="color: rgb(132,63,161);">w+;base64,'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">matchArr </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imageStr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">match</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">headerReg</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(255,255,255);">matchArr </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,255,255);">matchArr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Invalid image base64 string`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">去除头部固定格式的字符串</span></em>
-  let <span style="color: rgb(255,255,255);">base64Str </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imageStr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replace</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">headerReg</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获得图片编码格式信息</span></em>
-  let <span style="color: rgb(255,255,255);">fileNameExtension </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">matchArr</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replace</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'data:image/'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replace</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">';base64,'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">解码</span><span style="color: rgb(128,128,128);">base64</span><span style="color: rgb(128,128,128);">为图片二进制数据</span></em>
-  let <span style="color: rgb(255,255,255);">base64Helper </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">imgData </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">base64Helper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">base64Str</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">写入沙箱文件</span></em>
-  let <span style="color: rgb(255,255,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">Context</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">srcFilePath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tempDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">`/temp_img.</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">fileNameExtension</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">tmpFile</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">File </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-  try <span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">tmpFile </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">srcFilePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">WRITE_ONLY </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CREATE</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">tmpFile</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">imgData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">slice</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Failed to write image data to sandbox: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>finally <span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">tmpFile</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">tmpFile</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+async saveBase64StrImage() {
+  // 匹配开头固定格式的字符串，若不存在，则为非法base64图片
+  let headerReg = new RegExp('data:image/\\w+;base64,');
+  let matchArr = this.imageStr.match(headerReg);
+  if (!matchArr || matchArr.length === 0) {
+    console.error(`Invalid image base64 string`);
+    return;
+  }
+  // 去除头部固定格式的字符串
+  let base64Str = this.imageStr.replace(headerReg, '');
+  // 获得图片编码格式信息
+  let fileNameExtension = matchArr[0].replace('data:image/', '').replace(';base64,', '');
+  // 解码base64为图片二进制数据
+  let base64Helper = new util.Base64Helper();
+  let imgData = await base64Helper.decode(base64Str);
+  // 写入沙箱文件
+  let context = this.getUIContext().getHostContext() as Context;
+  let srcFilePath = context.tempDir + `/temp_img.${fileNameExtension}`;
+  let tmpFile: fileIo.File | undefined = undefined;
+  try {
+    tmpFile = fileIo.openSync(srcFilePath, fileIo.OpenMode.WRITE_ONLY | fileIo.OpenMode.CREATE);
+    fileIo.writeSync(tmpFile.fd, imgData.buffer.slice(0));
+  } catch (err) {
+    console.error(`Failed to write image data to sandbox: ${JSON.stringify(err)}`);
+    return;
+  } finally {
+    if (tmpFile) {
+      fileIo.closeSync(tmpFile);
+    }
+  }
 
-  let <span style="color: rgb(255,255,255);">phAccessHelper </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPhotoAccessHelper</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">srcFile</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">File </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">desFile</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">File </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-  try <span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">srcFile </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">open</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">srcFilePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">WRITE_ONLY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">srcFileUri </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fileUri</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUriFromPath</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">srcFilePath</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">srcFileUris</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[</span>
-      <span style="color: rgb(255,255,255);">srcFileUri</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">指定待保存照片的创建选项，包括文件后缀和照片类型，标题和照片子类型可选。</span></em>
-    let <span style="color: rgb(255,255,255);">photoCreationConfigs</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PhotoCreationConfig</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[</span>
-      <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">fileNameExtension</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">fileNameExtension</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(255,255,255);">photoType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PhotoType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">IMAGE</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">基于弹窗授权的方式获取媒体库的目标</span><span style="color: rgb(128,128,128);">uri</span><span style="color: rgb(128,128,128);">。</span></em>
-    let <span style="color: rgb(255,255,255);">desFileUris</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> =</span>
-      await <span style="color: rgb(255,255,255);">phAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showAssetsCreationDialog</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">srcFileUris</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">photoCreationConfigs</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将来源于应用沙箱的照片内容写入媒体库的目标</span><span style="color: rgb(128,128,128);">uri</span><span style="color: rgb(128,128,128);">。</span></em>
-    <span style="color: rgb(255,255,255);">desFile </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">open</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">desFileUris</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">WRITE_ONLY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">srcFile </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">open</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">srcFileUri</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">READ_ONLY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    await <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copyFile</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">srcFile</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">desFile</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'create asset by dialog successfully'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Error: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>finally <span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">srcFile</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      await <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">srcFile</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">desFile</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      await <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">desFile</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
-<span style="color: rgb(181,106,1);">}</span>
+  let phAccessHelper = photoAccessHelper.getPhotoAccessHelper(context);
+  let srcFile: fileIo.File | undefined = undefined;
+  let desFile: fileIo.File | undefined = undefined;
+  try {
+    srcFile = await fileIo.open(srcFilePath, fileIo.OpenMode.WRITE_ONLY);
+    let srcFileUri = fileUri.getUriFromPath(srcFilePath);
+    let srcFileUris: Array<string> = [
+      srcFileUri,
+    ];
+    // 指定待保存照片的创建选项，包括文件后缀和照片类型，标题和照片子类型可选。
+    let photoCreationConfigs: Array<photoAccessHelper.PhotoCreationConfig> = [
+      {
+        fileNameExtension: fileNameExtension,
+        photoType: photoAccessHelper.PhotoType.IMAGE,
+      },
+    ];
+    // 基于弹窗授权的方式获取媒体库的目标uri。
+    let desFileUris: Array<string> =
+      await phAccessHelper.showAssetsCreationDialog(srcFileUris, photoCreationConfigs);
+    // 将来源于应用沙箱的照片内容写入媒体库的目标uri。
+    desFile = await fileIo.open(desFileUris[0], fileIo.OpenMode.WRITE_ONLY);
+    srcFile = await fileIo.open(srcFileUri, fileIo.OpenMode.READ_ONLY);
+    await fileIo.copyFile(srcFile.fd, desFile.fd);
+    console.info('create asset by dialog successfully');
+  } catch (err) {
+    console.error(`Error: ${JSON.stringify(err)}`);
+  } finally {
+    if (srcFile) {
+      await fileIo.close(srcFile);
+    }
+    if (desFile) {
+      await fileIo.close(desFile);
+    }
+  }
+}
 ```
 
 
@@ -136,171 +136,171 @@
 完整示例参考如下：
  
 ```json
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">Context </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">util </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,255,255);">image </span>from <span style="color: rgb(132,63,161);">'@ohos.multimedia.image'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fileUri </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.CoreFileKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">photoAccessHelper </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.MediaLibraryKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { Context } from '@kit.AbilityKit';
+import { util } from '@kit.ArkTS';
+import image from '@ohos.multimedia.image';
+import { fileIo, fileUri } from '@kit.CoreFileKit';
+import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Base64ImageDemo </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">imageStr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PixelMap </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Base64ImageDemo {
+  @State imageStr: string = '';
+  @State pixelMap: image.PixelMap | undefined = undefined;
 
-  async <span style="color: rgb(0,0,255);">image2Base64Str</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ImageSource </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-    try <span style="color: rgb(181,106,1);">{</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">读取</span><span style="color: rgb(128,128,128);">rawfile</span><span style="color: rgb(128,128,128);">目录下的图片文件</span></em>
-      let <span style="color: rgb(255,255,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">Context</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">imgData </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRawFileContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'img.png'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取图片</span><span style="color: rgb(128,128,128);">mime type</span></em>
-      <span style="color: rgb(255,255,255);">imageSource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createImageSource</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">imgData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">slice</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">info </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getImageInfo</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">mime </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">info</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mimeType</span><span style="color: rgb(181,106,1);">;</span>
-   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">编码图片数据为</span><span style="color: rgb(128,128,128);">base64</span><span style="color: rgb(128,128,128);">字符串</span></em>
-      let <span style="color: rgb(255,255,255);">base64Helper </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">base64Str </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">base64Helper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encodeToString</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">imgData</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imageStr </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">`data:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">mime</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">;base64,` </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">base64Str</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Failed to encode image data to base64: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>finally <span style="color: rgb(181,106,1);">{</span>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        await <span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">release</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  async image2Base64Str() {
+    let imageSource: image.ImageSource | undefined = undefined;
+    try {
+      // 读取rawfile目录下的图片文件
+      let context = this.getUIContext().getHostContext() as Context;
+      let imgData = await context.resourceManager.getRawFileContent('img.png');
+      // 获取图片mime type
+      imageSource = image.createImageSource(imgData.buffer.slice(0));
+      let info = await imageSource.getImageInfo();
+      let mime = info.mimeType;
+      // 编码图片数据为base64字符串
+      let base64Helper = new util.Base64Helper();
+      let base64Str = await base64Helper.encodeToString(imgData);
+      this.imageStr = `data:${mime};base64,` + base64Str;
+    } catch (err) {
+      console.info(`Failed to encode image data to base64: ${JSON.stringify(err)}`);
+    } finally {
+      if (imageSource) {
+        await imageSource.release();
+      }
+    }
+  }
 
-  async <span style="color: rgb(0,0,255);">base64Str2PixelMap</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ImageSource </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-    try <span style="color: rgb(181,106,1);">{</span>
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">判断是否以固定格式开头，如果不是则为非法</span><span style="color: rgb(128,128,128);">base64</span><span style="color: rgb(128,128,128);">字符串图片</span></em>
-      let <span style="color: rgb(255,255,255);">headerReg </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RegExp</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'data:image/</span>\\<span style="color: rgb(132,63,161);">w+;base64,'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">idx </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imageStr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">search</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">headerReg</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">idx </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Invalid image base64 string`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        return<span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-   <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">去除头部固定格式字符串</span></em>
-      let <span style="color: rgb(255,255,255);">base64Str </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imageStr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replace</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">headerReg</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">解码</span><span style="color: rgb(128,128,128);">base64</span><span style="color: rgb(128,128,128);">为图片二进制数据</span></em>
-      let <span style="color: rgb(255,255,255);">base64Helper </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">imgData </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">base64Helper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">base64Str</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过图片二进制数据创建</span><span style="color: rgb(128,128,128);">ImageSource</span><span style="color: rgb(128,128,128);">，并解码为</span><span style="color: rgb(128,128,128);">PixelMap</span></em>
-      <span style="color: rgb(255,255,255);">imageSource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createImageSource</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">imgData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">slice</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pixelMap </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createPixelMap</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Failed to decode base64 string to pixelmap: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>finally <span style="color: rgb(181,106,1);">{</span>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        await <span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">release</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span>
-<span style="color: rgb(181,106,1);">  }</span>
-
-
-  async <span style="color: rgb(0,0,255);">saveBase64StrImage</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">匹配开头固定格式的字符串，若不存在，则为非法</span><span style="color: rgb(128,128,128);">base64</span><span style="color: rgb(128,128,128);">图片</span></em>
-    let <span style="color: rgb(255,255,255);">headerReg </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RegExp</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'data:image/</span>\\<span style="color: rgb(132,63,161);">w+;base64,'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">matchArr </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imageStr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">match</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">headerReg</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(255,255,255);">matchArr </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(255,255,255);">matchArr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Invalid image base64 string`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      return<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">去除头部固定格式的字符串</span></em>
-    let <span style="color: rgb(255,255,255);">base64Str </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imageStr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replace</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">headerReg</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
- <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获得图片编码格式信息</span></em>
-    let <span style="color: rgb(255,255,255);">fileNameExtension </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">matchArr</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replace</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'data:image/'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">replace</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">';base64,'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">解码</span><span style="color: rgb(128,128,128);">base64</span><span style="color: rgb(128,128,128);">为图片二进制数据</span></em>
-    let <span style="color: rgb(255,255,255);">base64Helper </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">imgData </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">base64Helper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decode</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">base64Str</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">写入沙箱文件</span></em>
-    let <span style="color: rgb(255,255,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">Context</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">srcFilePath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tempDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">`/temp_img.</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">fileNameExtension</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">tmpFile</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">File </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-    try <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">tmpFile </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">srcFilePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">WRITE_ONLY </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CREATE</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">tmpFile</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">imgData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">slice</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Failed to write image data to sandbox: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      return<span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>finally <span style="color: rgb(181,106,1);">{</span>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">tmpFile</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">tmpFile</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span>
-
-    let <span style="color: rgb(255,255,255);">phAccessHelper </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPhotoAccessHelper</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">srcFile</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">File </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">desFile</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">File </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-    try <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">srcFile </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">open</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">srcFilePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">WRITE_ONLY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">srcFileUri </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fileUri</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUriFromPath</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">srcFilePath</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">srcFileUris</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[</span>
-        <span style="color: rgb(255,255,255);">srcFileUri</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">指定待保存照片的创建选项，包括文件后缀和照片类型，标题和照片子类型可选。</span></em>
-      let <span style="color: rgb(255,255,255);">photoCreationConfigs</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PhotoCreationConfig</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[</span>
-        <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">fileNameExtension</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">fileNameExtension</span><span style="color: rgb(181,106,1);">,</span>
-          <span style="color: rgb(255,255,255);">photoType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PhotoType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">IMAGE</span><span style="color: rgb(181,106,1);">,</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">基于弹窗授权的方式获取媒体库的目标</span><span style="color: rgb(128,128,128);">uri</span><span style="color: rgb(128,128,128);">。</span></em>
-      let <span style="color: rgb(255,255,255);">desFileUris</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> =</span>
-        await <span style="color: rgb(255,255,255);">phAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showAssetsCreationDialog</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">srcFileUris</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">photoCreationConfigs</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将来源于应用沙箱的照片内容写入媒体库的目标</span><span style="color: rgb(128,128,128);">uri</span><span style="color: rgb(128,128,128);">。</span></em>
-      <span style="color: rgb(255,255,255);">desFile </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">open</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">desFileUris</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">WRITE_ONLY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">srcFile </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">open</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">srcFileUri</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">READ_ONLY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      await <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copyFile</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">srcFile</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">desFile</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'create asset by dialog successfully'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Error: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">} </span>finally <span style="color: rgb(181,106,1);">{</span>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">srcFile</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        await <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">srcFile</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">desFile</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        await <span style="color: rgb(255,255,255);">fileIo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">desFile</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">    }</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  async base64Str2PixelMap() {
+    let imageSource: image.ImageSource | undefined = undefined;
+    try {
+      // 判断是否以固定格式开头，如果不是则为非法base64字符串图片
+      let headerReg = new RegExp('data:image/\\w+;base64,');
+      let idx = this.imageStr.search(headerReg);
+      if (idx !== 0) {
+        console.error(`Invalid image base64 string`);
+        return;
+      }
+      // 去除头部固定格式字符串
+      let base64Str = this.imageStr.replace(headerReg, '');
+      // 解码base64为图片二进制数据
+      let base64Helper = new util.Base64Helper();
+      let imgData = await base64Helper.decode(base64Str);
+      // 通过图片二进制数据创建ImageSource，并解码为PixelMap
+      imageSource = image.createImageSource(imgData.buffer.slice(0));
+      this.pixelMap = await imageSource.createPixelMap();
+    } catch (err) {
+      console.error(`Failed to decode base64 string to pixelmap: ${JSON.stringify(err)}`);
+    } finally {
+      if (imageSource) {
+        await imageSource.release();
+      }
+    }
+  }
 
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Image2Base64'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(</span>async <span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">image2Base64Str</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  async saveBase64StrImage() {
+    // 匹配开头固定格式的字符串，若不存在，则为非法base64图片
+    let headerReg = new RegExp('data:image/\\w+;base64,');
+    let matchArr = this.imageStr.match(headerReg);
+    if (!matchArr || matchArr.length === 0) {
+      console.error(`Invalid image base64 string`);
+      return;
+    }
+    // 去除头部固定格式的字符串
+    let base64Str = this.imageStr.replace(headerReg, '');
+    // 获得图片编码格式信息
+    let fileNameExtension = matchArr[0].replace('data:image/', '').replace(';base64,', '');
+    // 解码base64为图片二进制数据
+    let base64Helper = new util.Base64Helper();
+    let imgData = await base64Helper.decode(base64Str);
+    // 写入沙箱文件
+    let context = this.getUIContext().getHostContext() as Context;
+    let srcFilePath = context.tempDir + `/temp_img.${fileNameExtension}`;
+    let tmpFile: fileIo.File | undefined = undefined;
+    try {
+      tmpFile = fileIo.openSync(srcFilePath, fileIo.OpenMode.WRITE_ONLY | fileIo.OpenMode.CREATE);
+      fileIo.writeSync(tmpFile.fd, imgData.buffer.slice(0));
+    } catch (err) {
+      console.error(`Failed to write image data to sandbox: ${JSON.stringify(err)}`);
+      return;
+    } finally {
+      if (tmpFile) {
+        fileIo.closeSync(tmpFile);
+      }
+    }
 
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Base64Str2PixelMap'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(</span>async <span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">base64Str2PixelMap</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let phAccessHelper = photoAccessHelper.getPhotoAccessHelper(context);
+    let srcFile: fileIo.File | undefined = undefined;
+    let desFile: fileIo.File | undefined = undefined;
+    try {
+      srcFile = await fileIo.open(srcFilePath, fileIo.OpenMode.WRITE_ONLY);
+      let srcFileUri = fileUri.getUriFromPath(srcFilePath);
+      let srcFileUris: Array<string> = [
+        srcFileUri,
+      ];
+      // 指定待保存照片的创建选项，包括文件后缀和照片类型，标题和照片子类型可选。
+      let photoCreationConfigs: Array<photoAccessHelper.PhotoCreationConfig> = [
+        {
+          fileNameExtension: fileNameExtension,
+          photoType: photoAccessHelper.PhotoType.IMAGE,
+        },
+      ];
+      // 基于弹窗授权的方式获取媒体库的目标uri。
+      let desFileUris: Array<string> =
+        await phAccessHelper.showAssetsCreationDialog(srcFileUris, photoCreationConfigs);
+      // 将来源于应用沙箱的照片内容写入媒体库的目标uri。
+      desFile = await fileIo.open(desFileUris[0], fileIo.OpenMode.WRITE_ONLY);
+      srcFile = await fileIo.open(srcFileUri, fileIo.OpenMode.READ_ONLY);
+      await fileIo.copyFile(srcFile.fd, desFile.fd);
+      console.info('create asset by dialog successfully');
+    } catch (err) {
+      console.error(`Error: ${JSON.stringify(err)}`);
+    } finally {
+      if (srcFile) {
+        await fileIo.close(srcFile);
+      }
+      if (desFile) {
+        await fileIo.close(desFile);
+      }
+    }
+  }
 
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'SaveBase64StrImage'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">30</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(</span>async <span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">saveBase64StrImage</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-      <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">imageStr</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'50%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">aspectRatio</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">objectFit</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">ImageFit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Contain</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  build() {
+    Column({ space: 20 }) {
+      Button('Image2Base64')
+        .fontSize(30)
+        .onClick(async () => {
+          await this.image2Base64Str();
+        });
 
-      <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'50%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">aspectRatio</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">objectFit</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">ImageFit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Contain</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+      Button('Base64Str2PixelMap')
+        .fontSize(30)
+        .onClick(async () => {
+          await this.base64Str2PixelMap();
+        });
+
+      Button('SaveBase64StrImage')
+        .fontSize(30)
+        .onClick(async () => {
+          await this.saveBase64StrImage();
+        });
+
+      Image(this.imageStr)
+        .width('50%')
+        .aspectRatio(1)
+        .objectFit(ImageFit.Contain);
+
+      Image(this.pixelMap)
+        .width('50%')
+        .aspectRatio(1)
+        .objectFit(ImageFit.Contain);
+    }
+    .width('100%')
+    .height('100%')
+    .justifyContent(FlexAlign.Center)
+    .alignItems(HorizontalAlign.Center);
+  }
+}
 ```

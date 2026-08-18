@@ -37,7 +37,7 @@ struct PdfPreview {
 
   aboutToAppear(): void {
     let dir: string = this.context.filesDir;
-   <em> // 确保在工程目录src/main/resources/rawfile里存在test.pdf文档</em>
+    // 确保在工程目录src/main/resources/rawfile里存在test.pdf文档
     this.filePath = dir + '/test.pdf';
     let res = fs.accessSync(this.filePath);
     if (!res) {
@@ -69,7 +69,7 @@ struct PdfPreview {
     Column({ space: 5 }) {
       Row() {
         Button('生成图片并重命名').onClick(async () => {
-        <em>  // 获取PDF文件名(不带后缀)，作为存放生成的图片的文件夹</em>
+          // 获取PDF文件名(不带后缀)，作为存放生成的图片的文件夹
           let file: fs.File | null = null;
           try {
             file = fs.openSync(this.filePath, fs.OpenMode.READ_ONLY);
@@ -82,7 +82,7 @@ struct PdfPreview {
                 fs.mkdirSync(pdfImgDir);
               }
               document.convertToImage(pdfImgDir, pdfService.ImageFormat.PNG);
-             <em> // 生成图片后遍历出路径下所有图片</em>
+              // 生成图片后遍历出路径下所有图片
               let listFileOption: ListFileOptions = {
                 recursion: false,
                 listNum: 0,
@@ -91,7 +91,7 @@ struct PdfPreview {
                 }
               };
               let filenames = fs.listFileSync(pdfImgDir, listFileOption);
-            <em>  // 获取图片原名，拼接好新名后调用fs.renameSync重命名图片</em>
+              // 获取图片原名，拼接好新名后调用fs.renameSync重命名图片
               for (let i = 0; i < filenames.length; i++) {
                 let oldDir = pdfImgDir + '/' + filenames[i];
                 let curFile: fs.File | null = null;

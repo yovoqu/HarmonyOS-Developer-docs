@@ -27,7 +27,7 @@ struct ToggleDemo {
             this.getUIContext().getHostContext()!.getApplicationContext().setColorMode(this.isDarkMode ? 0 : 1);
           })
       }
-     <em> // Set hitTestBehavior property to HitTestMode.Block to block Toggle component's event response.</em>
+      // Set hitTestBehavior property to HitTestMode.Block to block Toggle component's event response.
       .hitTestBehavior(HitTestMode.Block)
       .onClick(() => {
         this.timeoutID = setTimeout(() => {

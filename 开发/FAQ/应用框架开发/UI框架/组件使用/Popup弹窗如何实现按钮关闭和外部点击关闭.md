@@ -30,7 +30,7 @@
 struct ClosePopupExample {
   @State customPopup: boolean = false;
 
-<em>  // popup构造器定义弹框内容</em>
+  // popup构造器定义弹框内容
   @Builder
   popupBuilder() {
     Column({ space: 16 }) {

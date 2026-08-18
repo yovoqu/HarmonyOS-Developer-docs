@@ -69,7 +69,7 @@ export struct TwoLine {
                 .alignSelf(ItemAlign.Center)
                 .constraintSize({ minWidth: 30 })
             }
-            .width("24%")<em> </em><em>// 设置width固定时可以实现水平居中，不设置时listItem宽度由内容撑开，无法设置居中。</em>
+            .width("24%") // 设置width固定时可以实现水平居中，不设置时listItem宽度由内容撑开，无法设置居中。
             .height('100%')
             .justifyContent(FlexAlign.Center)
             .backgroundColor(Color.Blue)

@@ -14,14 +14,14 @@ import { UIAbility } from '@kit.AbilityKit';
 export default class EntryAbility extends UIAbility {
   onForeground() {
     this.context.eventHub.on('myEvent', this.eventFunc);
-   <em> // result：</em>
-<em>    // eventFunc is called,undefined,undefined</em>
+    // result：
+    // eventFunc is called,undefined,undefined
     this.context.eventHub.emit('myEvent');
-  <em>  // result：</em>
-<em>    // eventFunc is called,1,undefined</em>
+    // result：
+    // eventFunc is called,1,undefined
     this.context.eventHub.emit('myEvent', 1);
-  <em>  // result：</em>
-<em>    // eventFunc is called,1,2</em>
+    // result：
+    // eventFunc is called,1,2
     this.context.eventHub.emit('myEvent', 1, 2);
   }
 

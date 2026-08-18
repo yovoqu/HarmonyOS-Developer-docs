@@ -11,7 +11,7 @@
 主页代码示例参考如下：
  
 ```text
-<em>// 主页</em>
+// 主页
 @Entry
 @Component
 struct NavigationIndex {
@@ -25,7 +25,7 @@ struct NavigationIndex {
           .width('90%')
           .height(40)
           .margin({ bottom: 10 });
-       <em> // 通过List定义导航的一级界面</em>
+        // 通过List定义导航的一级界面
         List({ space: 12, initialIndex: 0 }) {
           ForEach(this.listArray, (item: string) => {
             ListItem() {
@@ -82,7 +82,7 @@ struct NavigationIndex {
       }
       .width('100%')
       .mode(NavigationMode.Auto)
-      .title('设置');<em> // 设置标题文字</em>
+      .title('设置'); // 设置标题文字
     }
     .size({ width: '100%', height: '100%' })
     .backgroundColor(0xf4f4f5);
@@ -93,7 +93,7 @@ struct NavigationIndex {
 页面一代码示例参考如下：
  
 ```text
-<em>// 页面一</em>
+// 页面一
 @Builder
 export function PageOneBuilder(name: string) {
   PageOne({ name: name });
@@ -135,7 +135,7 @@ struct PageOne {
           .height(40)
           .margin({ top: 50 })
           .onClick(() => {
-         <em>   // 弹出路由栈栈顶元素，跳转'Connect & Share'页面</em>
+            // 弹出路由栈栈顶元素，跳转'Connect & Share'页面
             this.pathInfos.pushPathByName(`Connect & Share`, '');
           });
       }
@@ -143,7 +143,7 @@ struct PageOne {
     }
     .title(`${this.name}`)
     .onReady((ctx: NavDestinationContext) => {
-   <em>   // NavDestinationContext获取当前所在的导航控制器</em>
+      // NavDestinationContext获取当前所在的导航控制器
       this.pathInfos = ctx.pathStack;
     })
     .onShown(() => {
@@ -156,7 +156,7 @@ struct PageOne {
 页面二跳转页面一代码示例参考如下：
  
 ```text
-<em>// 页面二</em>
+// 页面二
 @Builder
 export function PageTwoBuilder(name: string) {
   PageTwo({ name: name });
@@ -176,7 +176,7 @@ struct PageTwo {
           .height(40)
           .margin({ top: 5 })
           .onClick(() => {
-          <em>  // 跳转到WLAN</em>
+            // 跳转到WLAN
             this.pathInfos.pushPath({ name: 'WLAN', param: '' });
           });
       }
@@ -184,7 +184,7 @@ struct PageTwo {
     }
     .title(`${this.name}`)
     .onReady((ctx: NavDestinationContext) => {
-    <em>  // NavDestinationContext获取当前所在的导航控制器</em>
+      // NavDestinationContext获取当前所在的导航控制器
       this.pathInfos = ctx.pathStack;
     })
     .onShown(() => {
@@ -228,13 +228,13 @@ Error code: 150003, Error message: The component doesn't exist, is currently inv
  
 - 方式一：页面一跳转页面二时，跳转方法使用replacePathByName，用新页面替换旧组件所在页面。
 ```text
-<em>// 弹出路由栈栈顶元素，跳转'Connect & Share'页面</em>
+// 弹出路由栈栈顶元素，跳转'Connect & Share'页面
 this.pathInfos.replacePathByName(`Connect & Share`, '详情页面参数');
 ```
 
 - 方式二：页面二跳转页面一时，跳转模式MOVE_TO_TOP_SINGLETON或者POP_TO_SINGLETON，使用原页面。
 ```text
-<em>// 跳转到WLAN</em>
+// 跳转到WLAN
 this.pathInfos.pushPath({ name: 'WLAN', param: '' }, { launchMode: LaunchMode.MOVE_TO_TOP_SINGLETON });
 ```
 

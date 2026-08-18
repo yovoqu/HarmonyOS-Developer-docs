@@ -113,7 +113,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 struct Index {
   message: string = 'Hello World';
   swiperController: SwiperController = new SwiperController();
- <em> // www.example.com仅做示例，需要替换为有效的图片url/resource</em>
+  // www.example.com仅做示例，需要替换为有效的图片url/resource
   imageList: string[] = [
     'www.example.com',
     'www.example.com',
@@ -123,7 +123,7 @@ struct Index {
 
   build() {
     RelativeContainer() {
-    <em>  // swiper component</em>
+      // swiper component
       Swiper(this.swiperController) {
         ForEach(this.imageList, (imageUrl: string, index: number) => {
           Image(imageUrl)
@@ -195,7 +195,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 struct Index {
   @Local message: string = 'Hello World';
   swiperController: SwiperController = new SwiperController();
- <em> // www.example.com仅做示例，需要替换为有效的图片url/resource</em>
+  // www.example.com仅做示例，需要替换为有效的图片url/resource
   imageList: string[] = [
     'www.example.com',
     'www.example.com',

@@ -40,14 +40,14 @@ target_link_libraries(entry PUBLIC Aki::libjsbind)
 ```text
 #include <aki/jsbind.h> 
 #include <string>
-<em>// 1、User defined business </em>
+// 1、User defined business 
 std::string SayHello(std::string msg){  return msg + " too.";}  
  
-<em>// 2、Export business interface</em>
-<em>// Step 1: Register the AKI plugin</em>
-JSBIND_ADDON(entry)<em> // Register AKI plugin name: This is the compiled *. so name, following the same rules as Node API</em>
+// 2、Export business interface
+// Step 1: Register the AKI plugin
+JSBIND_ADDON(entry) // Register AKI plugin name: This is the compiled *. so name, following the same rules as Node API
  
-<em>// Step 2: Register FFI Features</em>
+// Step 2: Register FFI Features
 JSBIND_GLOBAL() 
 { 
   JSBIND_FUNCTION(SayHello); 
@@ -59,7 +59,7 @@ JSBIND_GLOBAL()
  1. 在“src/main/cpp/types/libentry/index.d.ts”中导出 .so 文件的接口。export const SayHello: (msg: string) => string;
 2. 在ArkTS文件中调用.so文件中的接口。
 ```text
-import aki from 'libentry.so' <em>// *. so compiled from the project</em>
+import aki from 'libentry.so' // *. so compiled from the project
 
 @Entry
 @Component
@@ -73,7 +73,7 @@ struct Index {
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
           .onClick(() => {
-            console.info(aki.SayHello("hello world")); <em>// 调用.so文件中的代码接口</em>
+            console.info(aki.SayHello("hello world")); // 调用.so文件中的代码接口
           })
       }
       .width('100%')

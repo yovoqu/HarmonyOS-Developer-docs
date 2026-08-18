@@ -98,7 +98,7 @@ export struct DialogTwo {
           .width('45%')
           .borderRadius(20)
           .onClick(() => {
-            <em>// 模拟B页面操作返回</em>
+            // 模拟B页面操作返回
             this.pageInfo.pop();
           });
       }

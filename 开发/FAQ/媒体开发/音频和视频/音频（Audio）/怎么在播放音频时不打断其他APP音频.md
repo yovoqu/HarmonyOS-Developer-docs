@@ -43,14 +43,14 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let audioRenderer: audio.AudioRenderer;
 let audioStreamInfo: audio.AudioStreamInfo = {
-  samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_8000, <em>// 采样率。</em>
-  channels: audio.AudioChannel.CHANNEL_1, <em>// 通道。</em>
-  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE, <em>// 采样格式。</em>
-  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW <em>// 编码格式。</em>
+  samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_8000, // 采样率。
+  channels: audio.AudioChannel.CHANNEL_1, // 通道。
+  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE, // 采样格式。
+  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW // 编码格式。
 };
 let audioRendererInfo: audio.AudioRendererInfo = {
-  usage: audio.StreamUsage.STREAM_USAGE_MUSIC, <em>// 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。</em>
-  rendererFlags: 0 <em>// 音频渲染器标志。</em>
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC, // 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。
+  rendererFlags: 0 // 音频渲染器标志。
 };
 let audioRendererOptions: audio.AudioRendererOptions = {
   streamInfo: audioStreamInfo,
@@ -67,12 +67,12 @@ let strategy: audio.AudioSessionStrategy = {
 @Component
 export struct AudioSessionDemo {
   context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  audioData: Uint8Array = generateTestPCM(); <em>// 测试PCM数据，按需替换为其他音频数据源</em>
+  audioData: Uint8Array = generateTestPCM(); // 测试PCM数据，按需替换为其他音频数据源
   writeOffset = 0;
 
   async aboutToAppear(): Promise<void> {
     audioRenderer = await audio.createAudioRenderer(audioRendererOptions);
-    await this.init(); <em>//初始化</em>
+    await this.init(); //初始化
   }
 
   async aboutToDisappear(): Promise<void> {
@@ -138,7 +138,7 @@ export struct AudioSessionDemo {
       let bufferView = new Uint8Array(buffer);
       let writeLen = Math.min(buffer.byteLength, this.audioData.byteLength - this.writeOffset);
       if (writeLen <= 0) {
-        this.writeOffset = 0; <em>//归零循环播放，测试用</em>
+        this.writeOffset = 0; //归零循环播放，测试用
         console.info('Play Done');
         return audio.AudioDataCallbackResult.INVALID;
       }
@@ -184,9 +184,9 @@ function generateTestPCM(): Uint8Array {
     5, 5, 4, 4, 3, 3, 2, 0
   ];
 
-  const samplesPerNote = Math.floor(sampleRate * noteDuration); <em>// 4000</em>
-  const totalSamples = samplesPerNote * melody.length;<em> // 96,000</em>
-  const buffer = new ArrayBuffer(totalSamples * 2);<em> // 192,000 bytes</em>
+  const samplesPerNote = Math.floor(sampleRate * noteDuration); // 4000
+  const totalSamples = samplesPerNote * melody.length; // 96,000
+  const buffer = new ArrayBuffer(totalSamples * 2); // 192,000 bytes
   const view = new DataView(buffer);
 
   let idx = 0;

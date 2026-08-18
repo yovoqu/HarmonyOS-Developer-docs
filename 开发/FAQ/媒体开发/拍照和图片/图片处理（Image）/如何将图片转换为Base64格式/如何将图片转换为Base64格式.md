@@ -34,109 +34,109 @@ base64编码是基于64个可打印字符来表示任意二进制数据的方法
 HarmonyOS提供[Base64Helper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#base64helper9)工具函数[encodeToStringSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#encodetostringsync9)方法将Uint8Array转换为base64编码，使用方法如下：
  
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">入参为</span><span style="color: rgb(128,128,128);">Uint8Array</span></em>
-function <span style="color: rgb(0,0,255);">uint8Array2Base64</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">uint8Array</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Uint8Array</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">{</span>
-  let <span style="color: rgb(255,255,255);">base64Helper </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  return <span style="color: rgb(255,255,255);">base64Helper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encodeToStringSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">uint8Array</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+// 入参为Uint8Array
+function uint8Array2Base64(uint8Array: Uint8Array): string {
+  let base64Helper = new util.Base64Helper();
+  return base64Helper.encodeToStringSync(uint8Array);
+}
 
-<em>// </em><em><span style="color: rgb(128,128,128);">入参为</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">，可转换为</span><span style="color: rgb(128,128,128);">Uint8Array</span><span style="color: rgb(128,128,128);">后再转</span><span style="color: rgb(128,128,128);">base64</span></em>
-function <span style="color: rgb(0,0,255);">arrayBuffer2Base64</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">arrayBuffer</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ArrayBuffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">{</span>
-  return <span style="color: rgb(0,0,255);">uint8Array2Base64</span><span style="color: rgb(255,0,170);">(</span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">arrayBuffer</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+// 入参为ArrayBuffer，可转换为Uint8Array后再转base64
+function arrayBuffer2Base64(arrayBuffer: ArrayBuffer): string {
+  return uint8Array2Base64(new Uint8Array(arrayBuffer));
+}
 ```
  
 下面列举常用的图片转换ArrayBuffer或Uint8Array的场景和方法：
  
 - **场景一**：应用resources资源文件通过[resourceManager.getMediaContentSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getmediacontentsync10)获取Uint8Array：
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">开发者根据自身需求传入</span><span style="color: rgb(128,128,128);">resource</span><span style="color: rgb(128,128,128);">目录下的文件</span></em>
-function <span style="color: rgb(0,0,255);">readResource2Uint8Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">resource</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Uint8Array </span><span style="color: rgb(181,106,1);">{</span>
-  let <span style="color: rgb(255,255,255);">resourceManager </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">uContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">;</span>
-  return <span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">!.</span><span style="color: rgb(0,0,255);">getMediaContentSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">resource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+// 开发者根据自身需求传入resource目录下的文件
+function readResource2Uint8Array(resource: Resource): Uint8Array {
+  let resourceManager = uContext.getHostContext()?.resourceManager;
+  return resourceManager!.getMediaContentSync(resource.id);
+}
 ```
 
 - **场景二**：应用沙箱文件通过[fs.readSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioreadsync)获取ArrayBuffer：
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">传入应用沙箱路径，需要保证路径存在，路径不存在会使应用崩溃</span></em>
-function <span style="color: rgb(0,0,255);">readSandFile2ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sandFilePath</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ArrayBuffer </span><span style="color: rgb(181,106,1);">{</span>
-  let <span style="color: rgb(255,255,255);">sandFile</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">File </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
-  try <span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'sandFilePath:'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">sandFilePath</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">stat </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">statSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sandFilePath</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">sandFile </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sandFilePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">READ_ONLY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">arrayBuffer </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">stat</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">size</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sandFile</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">arrayBuffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(255,255,255);">arrayBuffer</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`readSandFile2ArrayBuffer failed: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>finally <span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sandFile</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sandFile</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
-<span style="color: rgb(181,106,1);">}</span>
+// 传入应用沙箱路径，需要保证路径存在，路径不存在会使应用崩溃
+function readSandFile2ArrayBuffer(sandFilePath: string): ArrayBuffer {
+  let sandFile: fs.File | null = null;
+  try {
+    console.info('sandFilePath:', sandFilePath);
+    let stat = fs.statSync(sandFilePath);
+    let sandFile = fs.openSync(sandFilePath, fs.OpenMode.READ_ONLY);
+    let arrayBuffer = new ArrayBuffer(stat.size);
+    fs.readSync(sandFile.fd, arrayBuffer);
+    return arrayBuffer;
+  } catch (err) {
+    console.error(`readSandFile2ArrayBuffer failed: ${err.code}, message: ${err.message}`);
+    return new ArrayBuffer(0);
+  } finally {
+    if (sandFile) {
+      fs.closeSync(sandFile);
+    }
+  }
+}
 ```
 
 - **场景三**：使用[PhotoPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-guidelines-photoviewpicker)组件访问图片，用户相册文件通过fs.readSync获取ArrayBuffer：
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">调用相册管理模块选择指定图片</span></em>
-async function <span style="color: rgb(0,0,255);">readUserPhoto2ArrayBuffer</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">ArrayBuffer</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-  let <span style="color: rgb(255,255,255);">photoSelectOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoSelectOptions</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">photoSelectOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MIMEType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PhotoViewMIMETypes</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">IMAGE_TYPE</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">photoSelectOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxSelectNumber </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">photoPicker </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoViewPicker</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">photoSelectResult </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">photoPicker</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">select</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">photoSelectOptions</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">File </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
-  try <span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">file </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">photoSelectResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">photoUris</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">READ_ONLY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">stat </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">statSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">arrayBuffer </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">stat</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">size</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">arrayBuffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(255,255,255);">arrayBuffer</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`readUserPhoto2ArrayBuffer failed: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>finally <span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
-<span style="color: rgb(181,106,1);">}</span>
+// 调用相册管理模块选择指定图片
+async function readUserPhoto2ArrayBuffer(): Promise<ArrayBuffer> {
+  let photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
+  photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE;
+  photoSelectOptions.maxSelectNumber = 1;
+  let photoPicker = new photoAccessHelper.PhotoViewPicker();
+  let photoSelectResult = await photoPicker.select(photoSelectOptions);
+  let file: fs.File | null = null;
+  try {
+    let file = fs.openSync(photoSelectResult.photoUris[0], fs.OpenMode.READ_ONLY);
+    let stat = fs.statSync(file.fd);
+    let arrayBuffer = new ArrayBuffer(stat.size);
+    fs.readSync(file.fd, arrayBuffer);
+    return arrayBuffer;
+  } catch (err) {
+    console.error(`readUserPhoto2ArrayBuffer failed: ${err.code}, message: ${err.message}`);
+    return new ArrayBuffer(0);
+  } finally {
+    if (file) {
+      fs.closeSync(file);
+    }
+  }
+}
 ```
 
 - **场景四**：网络文件通过http模块[request](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#request)请求获取文件ArrayBuffer：
 ```json
-<em>// </em><em><span style="color: rgb(128,128,128);">使用网络图片需要确保</span><span style="color: rgb(128,128,128);">module.json5</span><span style="color: rgb(128,128,128);">中申请了网络权限</span><span style="color: rgb(128,128,128);">ohos.permission.INTERNET</span><span style="color: rgb(128,128,128);">，网络图片地址</span><span style="color: rgb(128,128,128);">url</span><span style="color: rgb(128,128,128);">需要实际可用</span></em>
-async function <span style="color: rgb(0,0,255);">readHttpFile2ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">url</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">ArrayBuffer</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-  try <span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">httpResponse</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">http</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">HttpResponse </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">http</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createHttp</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">url</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">http</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ResponseCode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OK </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">httpResponse</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">responseCode</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'httpResponse success'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      return <span style="color: rgb(255,255,255);">httpResponse</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">result </span>as <span style="color: rgb(181,106,1);">ArrayBuffer</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  } </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`http request failed with. Code: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-  return new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+// 使用网络图片需要确保module.json5中申请了网络权限ohos.permission.INTERNET，网络图片地址url需要实际可用
+async function readHttpFile2ArrayBuffer(url: string): Promise<ArrayBuffer> {
+  try {
+    let httpResponse: http.HttpResponse = await http.createHttp().request(url);
+    if (http.ResponseCode.OK === httpResponse.responseCode) {
+      console.info('httpResponse success');
+      return httpResponse.result as ArrayBuffer;
+    }
+  } catch (e) {
+    console.error(`http request failed with. Code: ${e.code}, message: ${e.message}`);
+  }
+  return new ArrayBuffer(0);
+}
 ```
 
 - **场景五**：[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)通过ImagePacker组件[packToData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagepacker#packtodata13)获取ArrayBuffer：
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">使用</span><span style="color: rgb(128,128,128);">packToData</span><span style="color: rgb(128,128,128);">获取</span><span style="color: rgb(128,128,128);">PixelMap</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">ArrayBuffer</span></em>
-async function <span style="color: rgb(0,0,255);">readPixelMap2ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PixelMap</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,255,255);">packOpts</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PackingOption</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">ArrayBuffer</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-  try <span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">imagePackerApi</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ImagePacker </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createImagePacker</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    return await <span style="color: rgb(255,255,255);">imagePackerApi</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">packToData</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">packOpts</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Failed to pack the image.code </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">,message is </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-  return new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+// 使用packToData获取PixelMap的ArrayBuffer
+async function readPixelMap2ArrayBuffer(pixelMap: image.PixelMap,
+  packOpts: image.PackingOption): Promise<ArrayBuffer> {
+  try {
+    let imagePackerApi: image.ImagePacker = image.createImagePacker();
+    return await imagePackerApi.packToData(pixelMap, packOpts);
+  } catch (e) {
+    console.error(`Failed to pack the image.code ${e.code},message is ${e.message}`);
+  }
+  return new ArrayBuffer(0);
+}
 ```
 
 
@@ -146,189 +146,189 @@ async function <span style="color: rgb(0,0,255);">readPixelMap2ArrayBuffer</span
 完整示例参考如下：
  
 ```json
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">util </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,255,255);">fs </span>from <span style="color: rgb(132,63,161);">'@ohos.file.fs'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">photoAccessHelper </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.MediaLibraryKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">http </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.NetworkKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">image </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ImageKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">UIContext </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
+import { util } from '@kit.ArkTS';
+import fs from '@ohos.file.fs';
+import { photoAccessHelper } from '@kit.MediaLibraryKit';
+import { http } from '@kit.NetworkKit';
+import { image } from '@kit.ImageKit';
+import { UIContext } from '@kit.ArkUI';
 
-let <span style="color: rgb(255,255,255);">uContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">UIContext</span><span style="color: rgb(181,106,1);">;</span>
+let uContext: UIContext;
 
-<em>// </em><em><span style="color: rgb(128,128,128);">入参为</span><span style="color: rgb(128,128,128);">Uint8Array</span></em>
-function <span style="color: rgb(0,0,255);">uint8Array2Base64</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">uint8Array</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Uint8Array</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">{</span>
-  let <span style="color: rgb(255,255,255);">base64Helper </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Base64Helper</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  return <span style="color: rgb(255,255,255);">base64Helper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encodeToStringSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">uint8Array</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+// 入参为Uint8Array
+function uint8Array2Base64(uint8Array: Uint8Array): string {
+  let base64Helper = new util.Base64Helper();
+  return base64Helper.encodeToStringSync(uint8Array);
+}
 
-<em>// </em><em><span style="color: rgb(128,128,128);">入参为</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">，可转换为</span><span style="color: rgb(128,128,128);">Uint8Array</span><span style="color: rgb(128,128,128);">后再转</span><span style="color: rgb(128,128,128);">base64</span></em>
-function <span style="color: rgb(0,0,255);">arrayBuffer2Base64</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">arrayBuffer</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ArrayBuffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">{</span>
-  return <span style="color: rgb(0,0,255);">uint8Array2Base64</span><span style="color: rgb(255,0,170);">(</span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">arrayBuffer</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
-
-
-<em>// </em><em><span style="color: rgb(128,128,128);">开发者根据自身需求传入</span><span style="color: rgb(128,128,128);">resource</span><span style="color: rgb(128,128,128);">目录下的文件</span></em>
-function <span style="color: rgb(0,0,255);">readResource2Uint8Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">resource</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Uint8Array </span><span style="color: rgb(181,106,1);">{</span>
-  let <span style="color: rgb(255,255,255);">resourceManager </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">uContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">;</span>
-  return <span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">!.</span><span style="color: rgb(0,0,255);">getMediaContentSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">resource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+// 入参为ArrayBuffer，可转换为Uint8Array后再转base64
+function arrayBuffer2Base64(arrayBuffer: ArrayBuffer): string {
+  return uint8Array2Base64(new Uint8Array(arrayBuffer));
+}
 
 
-<em>// </em><em><span style="color: rgb(128,128,128);">传入应用沙箱路径，需要保证路径存在，路径不存在会使应用崩溃</span></em>
-function <span style="color: rgb(0,0,255);">readSandFile2ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sandFilePath</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">ArrayBuffer </span><span style="color: rgb(181,106,1);">{</span>
-  let <span style="color: rgb(255,255,255);">sandFile</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">File </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
-  try <span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'sandFilePath:'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">sandFilePath</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">stat </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">statSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sandFilePath</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">sandFile </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sandFilePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">READ_ONLY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">arrayBuffer </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">stat</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">size</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sandFile</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">arrayBuffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(255,255,255);">arrayBuffer</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`readSandFile2ArrayBuffer failed: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>finally <span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sandFile</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sandFile</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
-<span style="color: rgb(181,106,1);">}</span>
+// 开发者根据自身需求传入resource目录下的文件
+function readResource2Uint8Array(resource: Resource): Uint8Array {
+  let resourceManager = uContext.getHostContext()?.resourceManager;
+  return resourceManager!.getMediaContentSync(resource.id);
+}
 
 
-<em>// </em><em><span style="color: rgb(128,128,128);">调用相册管理模块选择指定图片</span></em>
-async function <span style="color: rgb(0,0,255);">readUserPhoto2ArrayBuffer</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">ArrayBuffer</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-  let <span style="color: rgb(255,255,255);">photoSelectOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoSelectOptions</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">photoSelectOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MIMEType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PhotoViewMIMETypes</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">IMAGE_TYPE</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">photoSelectOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxSelectNumber </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">photoPicker </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoViewPicker</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">photoSelectResult </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">photoPicker</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">select</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">photoSelectOptions</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">File </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
-  try <span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">file </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">photoSelectResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">photoUris</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">READ_ONLY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">stat </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">statSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">arrayBuffer </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">stat</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">size</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">arrayBuffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(255,255,255);">arrayBuffer</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`readUserPhoto2ArrayBuffer failed: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>finally <span style="color: rgb(181,106,1);">{</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
-<span style="color: rgb(181,106,1);">}</span>
+// 传入应用沙箱路径，需要保证路径存在，路径不存在会使应用崩溃
+function readSandFile2ArrayBuffer(sandFilePath: string): ArrayBuffer {
+  let sandFile: fs.File | null = null;
+  try {
+    console.info('sandFilePath:', sandFilePath);
+    let stat = fs.statSync(sandFilePath);
+    let sandFile = fs.openSync(sandFilePath, fs.OpenMode.READ_ONLY);
+    let arrayBuffer = new ArrayBuffer(stat.size);
+    fs.readSync(sandFile.fd, arrayBuffer);
+    return arrayBuffer;
+  } catch (err) {
+    console.error(`readSandFile2ArrayBuffer failed: ${err.code}, message: ${err.message}`);
+    return new ArrayBuffer(0);
+  } finally {
+    if (sandFile) {
+      fs.closeSync(sandFile);
+    }
+  }
+}
 
 
-<em>// </em><em><span style="color: rgb(128,128,128);">使用网络图片需要确保</span><span style="color: rgb(128,128,128);">module.json5</span><span style="color: rgb(128,128,128);">中申请了网络权限</span><span style="color: rgb(128,128,128);">ohos.permission.INTERNET</span><span style="color: rgb(128,128,128);">，网络图片地址</span><span style="color: rgb(128,128,128);">url</span><span style="color: rgb(128,128,128);">需要实际可用</span></em>
-async function <span style="color: rgb(0,0,255);">readHttpFile2ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">url</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">ArrayBuffer</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-  try <span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">httpResponse</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">http</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">HttpResponse </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">http</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createHttp</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">url</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">http</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ResponseCode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OK </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">httpResponse</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">responseCode</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'httpResponse success'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      return <span style="color: rgb(255,255,255);">httpResponse</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">result </span>as <span style="color: rgb(181,106,1);">ArrayBuffer</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  } </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`http request failed with. Code: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-  return new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+// 调用相册管理模块选择指定图片
+async function readUserPhoto2ArrayBuffer(): Promise<ArrayBuffer> {
+  let photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
+  photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE;
+  photoSelectOptions.maxSelectNumber = 1;
+  let photoPicker = new photoAccessHelper.PhotoViewPicker();
+  let photoSelectResult = await photoPicker.select(photoSelectOptions);
+  let file: fs.File | null = null;
+  try {
+    let file = fs.openSync(photoSelectResult.photoUris[0], fs.OpenMode.READ_ONLY);
+    let stat = fs.statSync(file.fd);
+    let arrayBuffer = new ArrayBuffer(stat.size);
+    fs.readSync(file.fd, arrayBuffer);
+    return arrayBuffer;
+  } catch (err) {
+    console.error(`readUserPhoto2ArrayBuffer failed: ${err.code}, message: ${err.message}`);
+    return new ArrayBuffer(0);
+  } finally {
+    if (file) {
+      fs.closeSync(file);
+    }
+  }
+}
 
 
-<em>// </em><em><span style="color: rgb(128,128,128);">使用</span><span style="color: rgb(128,128,128);">packToData</span><span style="color: rgb(128,128,128);">获取</span><span style="color: rgb(128,128,128);">PixelMap</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">ArrayBuffer</span></em>
-async function <span style="color: rgb(0,0,255);">readPixelMap2ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PixelMap</span><span style="color: rgb(181,106,1);">,</span>
-  <span style="color: rgb(255,255,255);">packOpts</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PackingOption</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">ArrayBuffer</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-  try <span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">imagePackerApi</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ImagePacker </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createImagePacker</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    return await <span style="color: rgb(255,255,255);">imagePackerApi</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">packToData</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pixelMap</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">packOpts</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`Failed to pack the image.code </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">,message is </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-  return new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+// 使用网络图片需要确保module.json5中申请了网络权限ohos.permission.INTERNET，网络图片地址url需要实际可用
+async function readHttpFile2ArrayBuffer(url: string): Promise<ArrayBuffer> {
+  try {
+    let httpResponse: http.HttpResponse = await http.createHttp().request(url);
+    if (http.ResponseCode.OK === httpResponse.responseCode) {
+      console.info('httpResponse success');
+      return httpResponse.result as ArrayBuffer;
+    }
+  } catch (e) {
+    console.error(`http request failed with. Code: ${e.code}, message: ${e.message}`);
+  }
+  return new ArrayBuffer(0);
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Base64 </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">base64Pixel</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PixelMap </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">base64String</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">url</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">uContext </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+// 使用packToData获取PixelMap的ArrayBuffer
+async function readPixelMap2ArrayBuffer(pixelMap: image.PixelMap,
+  packOpts: image.PackingOption): Promise<ArrayBuffer> {
+  try {
+    let imagePackerApi: image.ImagePacker = image.createImagePacker();
+    return await imagePackerApi.packToData(pixelMap, packOpts);
+  } catch (e) {
+    console.error(`Failed to pack the image.code ${e.code},message is ${e.message}`);
+  }
+  return new ArrayBuffer(0);
+}
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'data:image/jpeg;base64,' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">base64String</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">objectFit</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">ImageFit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Contain</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'20%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">base64String</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'50%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">本地图片转</span><span style="color: rgb(132,63,161);">base64'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          let <span style="color: rgb(255,255,255);">uint8Array </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">readResource2Uint8Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.startIcon'</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">base64String </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">uint8Array2Base64</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">uint8Array</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">沙箱图片转</span><span style="color: rgb(132,63,161);">base64'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          const <span style="color: rgb(255,255,255);">resourceManager </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">uContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">;</span>
-          const <span style="color: rgb(255,255,255);">imageBuffer </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">!.</span><span style="color: rgb(0,0,255);">getMediaContentSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.sandbox'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          const <span style="color: rgb(255,255,255);">pathDir </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">uContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">filesDir</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(255,255,255);">filePath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">pathDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">'/img.png'</span><span style="color: rgb(181,106,1);">;</span>
-          let <span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">File </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
-          try <span style="color: rgb(181,106,1);">{</span>
-            let <span style="color: rgb(255,255,255);">file </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">filePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">READ_WRITE </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CREATE</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(255,255,255);">writeLen </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">imageBuffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(255,255,255);">sandArrayBuffer </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">readSandFile2ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">filePath</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">base64String </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">arrayBuffer2Base64</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">sandArrayBuffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">writeLen</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`change to base64 failed: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">} </span>finally <span style="color: rgb(181,106,1);">{</span>
-            if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">          }</span>
-<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">相册图片转</span><span style="color: rgb(132,63,161);">base64'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(</span>async <span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">readUserPhoto2ArrayBuffer</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">photoArrayBuffer</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">base64String </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">arrayBuffer2Base64</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">photoArrayBuffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">base64String</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">网络图片转</span><span style="color: rgb(132,63,161);">base64'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(</span>async <span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">readHttpFile2ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">url</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">httpArrayBuffer</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">base64String </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">arrayBuffer2Base64</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">httpArrayBuffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'PixelMap</span><span style="color: rgb(132,63,161);">转</span><span style="color: rgb(132,63,161);">base64'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(</span>async <span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          let <span style="color: rgb(255,255,255);">resourceManager </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">uContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(255,255,255);">resourceManager</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getMediaContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.pixelmap'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">id</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            let <span style="color: rgb(255,255,255);">pixelBuffer </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer </span>as <span style="color: rgb(181,106,1);">Object </span>as <span style="color: rgb(181,106,1);">ArrayBuffer</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(255,255,255);">imageSource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createImageSource</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pixelBuffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(255,255,255);">opts</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DecodingOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">editable</span><span style="color: rgb(181,106,1);">: </span>true <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">base64Pixel </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">imageSource</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createPixelMapSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">opts</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            let <span style="color: rgb(255,255,255);">packingOpts</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">image</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">PackingOption </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(255,255,255);">quality</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">,</span>
-              <span style="color: rgb(255,255,255);">format</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'image/png'</span>
-            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(0,0,255);">readPixelMap2ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">base64Pixel</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">packingOpts</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">pixelBuffer</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">base64String </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">arrayBuffer2Base64</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pixelBuffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+@Entry
+@Component
+struct Base64 {
+  @State base64Pixel: image.PixelMap | undefined = undefined;
+  @State base64String: string = '';
+  private url: string = '';
+
+  aboutToAppear() {
+    uContext = this.getUIContext();
+  }
+
+  build() {
+    Column() {
+      Image('data:image/jpeg;base64,' + this.base64String)
+        .objectFit(ImageFit.Contain)
+        .height('20%');
+      Text(this.base64String)
+        .width('100%')
+        .height('50%');
+      Button('本地图片转base64')
+        .onClick(() => {
+          let uint8Array = readResource2Uint8Array($r('app.media.startIcon'));
+          this.base64String = uint8Array2Base64(uint8Array);
+        });
+      Button('沙箱图片转base64')
+        .onClick(() => {
+          const resourceManager = uContext.getHostContext()?.resourceManager;
+          const imageBuffer = resourceManager!.getMediaContentSync($r('app.media.sandbox').id);
+          const pathDir = uContext.getHostContext()?.filesDir;
+          let filePath = pathDir + '/img.png';
+          let file: fs.File | null = null;
+          try {
+            let file = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
+            let writeLen = fs.writeSync(file.fd, imageBuffer.buffer);
+            let sandArrayBuffer = readSandFile2ArrayBuffer(filePath);
+            this.base64String = arrayBuffer2Base64(sandArrayBuffer);
+            console.info(`${writeLen}`);
+          } catch (err) {
+            console.error(`change to base64 failed: ${err.code}, message: ${err.message}`);
+          } finally {
+            if (file) {
+              fs.closeSync(file);
+            }
+          }
+        })
+        .margin(5);
+      Button('相册图片转base64')
+        .onClick(async () => {
+          readUserPhoto2ArrayBuffer().then((photoArrayBuffer) => {
+            this.base64String = arrayBuffer2Base64(photoArrayBuffer);
+            console.info('', this.base64String);
+          });
+        })
+        .margin(5);
+      Button('网络图片转base64')
+        .onClick(async () => {
+          readHttpFile2ArrayBuffer(this.url).then((httpArrayBuffer) => {
+            this.base64String = arrayBuffer2Base64(httpArrayBuffer);
+          });
+        })
+        .margin(5);
+      Button('PixelMap转base64')
+        .onClick(async () => {
+          let resourceManager = uContext.getHostContext()?.resourceManager;
+          resourceManager?.getMediaContent($r('app.media.pixelmap').id).then((value) => {
+            let pixelBuffer = value.buffer as Object as ArrayBuffer;
+            let imageSource = image.createImageSource(pixelBuffer);
+            let opts: image.DecodingOptions = { editable: true };
+            this.base64Pixel = imageSource.createPixelMapSync(opts);
+            let packingOpts: image.PackingOption = {
+              quality: 100,
+              format: 'image/png'
+            };
+            readPixelMap2ArrayBuffer(this.base64Pixel, packingOpts).then((pixelBuffer) => {
+              this.base64String = arrayBuffer2Base64(pixelBuffer);
+            });
+          });
+        })
+        .margin(5);
+    };
+  }
+}
 ```
  
  

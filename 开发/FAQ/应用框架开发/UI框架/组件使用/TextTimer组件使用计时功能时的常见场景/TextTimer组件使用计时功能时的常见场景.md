@@ -37,7 +37,7 @@ TextTimer组件使用计时功能时遇到的常见场景如下。
 @Entry
 @Component
 struct Index {
-  @State timeNum: number = 60000; <em>// 单位ms</em>
+  @State timeNum: number = 60000; // 单位ms
   @State timeEnd: number = 0;
   timeId: number = -1;
 
@@ -49,18 +49,18 @@ struct Index {
         .fontWeight(FontWeight.Bold);
       Button('开始计时')
         .onClick(() => {
-          if (this.timeId === -1) { <em>// 防止重复执行</em>
-            this.timeEnd = Date.now() + this.timeNum; <em>// 设置结束时间</em>
+          if (this.timeId === -1) { // 防止重复执行
+            this.timeEnd = Date.now() + this.timeNum; // 设置结束时间
             this.timeId = setInterval(() => {
-              if (Date.now() < this.timeEnd) { <em>// 当前时间未到结束时间</em>
-                this.timeNum = this.timeEnd - Date.now(); <em>// 获取计时剩余时间，单位ms</em>
-                <em>// 添加执行过程中的操作</em>
+              if (Date.now() < this.timeEnd) { // 当前时间未到结束时间
+                this.timeNum = this.timeEnd - Date.now(); // 获取计时剩余时间，单位ms
+                // 添加执行过程中的操作
                 console.info(`${this.timeNum}`);
               } else {
-                clearInterval(this.timeId); <em>// 停止计时器</em>
+                clearInterval(this.timeId); // 停止计时器
                 this.timeId = -1;
-                <em>// 添加执行结束的操作</em>
-                this.timeNum = 0; <em>// 到达结束时间，剩余时间0</em>
+                // 添加执行结束的操作
+                this.timeNum = 0; // 到达结束时间，剩余时间0
                 console.info(`计时结束`);
               }
             }, 10);
@@ -96,27 +96,27 @@ struct Index {
 
   
 ```ArkTS
-<em>// EntryAbility.ets下相关代码</em>
-<em>// 进入前台时触发</em>
+// EntryAbility.ets下相关代码
+// 进入前台时触发
 onForeground(): void {
   console.info('应用进入前台');
   if (textTimerInfo.inProgress) {
-    textTimerInfo.textTimerController.start(); <em>// 如果原本是计时状态,进入前台开始计时</em>
+    textTimerInfo.textTimerController.start(); // 如果原本是计时状态,进入前台开始计时
   }
 }
 
-<em>// 进入后台时触发</em>
+// 进入后台时触发
 onBackground(): void {
   console.info('应用进入后台');
-  textTimerInfo.textTimerController.pause(); <em>// 进入后台时停止计时</em>
+  textTimerInfo.textTimerController.pause(); // 进入后台时停止计时
 }
 ```
  
 ```ArkTS
-<em>// Page2.ets</em>
+// Page2.ets
 class TextTimerInfo {
-  textTimerController: TextTimerController; <em>// 计时器控制器</em>
-  inProgress: boolean; <em>// 计时器原本是否在计时</em>
+  textTimerController: TextTimerController; // 计时器控制器
+  inProgress: boolean; // 计时器原本是否在计时
 
   constructor(textTimerController: TextTimerController, inProgress: boolean) {
     this.textTimerController = textTimerController;
@@ -124,7 +124,7 @@ class TextTimerInfo {
   }
 }
 
-export const textTimerInfo: TextTimerInfo = new TextTimerInfo(new TextTimerController(), false); <em>// 导出计时器的信息</em>
+export const textTimerInfo: TextTimerInfo = new TextTimerInfo(new TextTimerController(), false); // 导出计时器的信息
 
 @Entry
 @Component

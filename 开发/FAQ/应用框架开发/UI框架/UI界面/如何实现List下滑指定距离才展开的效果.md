@@ -35,15 +35,15 @@ List组件可以下拉上滑，期望实现以下效果：
 - 使用onTouch监听触摸事件，根据触摸类型执行相应的操作。当触摸类型为Down时，记录当前触摸位置和图片初始高度。当触摸类型为Move时，根据图片展开状态和触摸移动的距离调整图片高度。当触摸类型为Up时，判断是否需要展开图片，并使用getUIContext().animateTo执行动画，根据图片高度变化展开或收起图片。动画结束后，设置isAnimating为false，表示动画结束。
 ```text
 .onTouch((event: TouchEvent) => {
-  if (!this.isAnimating) {<em> </em><em>// 非动画中</em>
+  if (!this.isAnimating) { // 非动画中
     const currentY = event.touches[0].y;
     switch (event.type) {
-      case TouchType.Down: <em>// 记录当前触摸位置和图片初始高度</em>
+      case TouchType.Down: // 记录当前触摸位置和图片初始高度
         this.touchStartY = currentY;
         this.touchStartHeight = this.imageHeight;
         break;
 
-      case TouchType.Move: <em>// </em><em>根据图片展开状态和触摸移动的距离调整图片高度</em>
+      case TouchType.Move: // 根据图片展开状态和触摸移动的距离调整图片高度
         const deltaY = currentY - this.touchStartY;
         if (this.isExpanded) {
           if (deltaY >= 0) {
@@ -64,8 +64,8 @@ List组件可以下拉上滑，期望实现以下效果：
         }
         break;
 
-      case TouchType.Up:<em> </em><em>// 手指抬起，判断当前组件展开的高度进行完全展开或收起动作</em>
-        const movedDistance = Math.abs(currentY - this.touchStartHeight);<em> </em><em>// 移动距离小于5不做操作</em>
+      case TouchType.Up: // 手指抬起，判断当前组件展开的高度进行完全展开或收起动作
+        const movedDistance = Math.abs(currentY - this.touchStartHeight); // 移动距离小于5不做操作
         const isMove = movedDistance > 5;
 
         if (isMove) {
@@ -102,14 +102,14 @@ import curves from '@ohos.curves';
 @Entry
 @Component
 struct ListDownDemo {
-  @State imageHeight: number = 0;<em> // </em><em>图片容器高度</em>
-  @State startIndex: number = 0;<em> </em><em>// 列表起始索引</em>
-  @State isExpanded: boolean = false; <em>// 图片展开状态</em>
-  private maxImageHeight: number = 240; <em>// </em><em>图片最大高度</em>
-  private touchStartY: number = 0;<em> </em><em>// 触摸起始位置</em>
-  private threshold: number = 120; <em>// </em><em>触发阈值</em>
-  private isAnimating: boolean = false; <em>// 是否正在动画中</em>
-  private touchStartHeight: number = 0; <em>//</em><em> 触摸图片起始高度</em>
+  @State imageHeight: number = 0; // 图片容器高度
+  @State startIndex: number = 0; // 列表起始索引
+  @State isExpanded: boolean = false; // 图片展开状态
+  private maxImageHeight: number = 240; // 图片最大高度
+  private touchStartY: number = 0; // 触摸起始位置
+  private threshold: number = 120; // 触发阈值
+  private isAnimating: boolean = false; // 是否正在动画中
+  private touchStartHeight: number = 0; // 触摸图片起始高度
 
   build() {
     Column() {
@@ -166,15 +166,15 @@ struct ListDownDemo {
       .edgeEffect(EdgeEffect.None)
     }
     .onTouch((event: TouchEvent) => {
-      if (!this.isAnimating) { <em>// 非动画中</em>
+      if (!this.isAnimating) { // 非动画中
         const currentY = event.touches[0].y;
         switch (event.type) {
-          case TouchType.Down:<em> </em><em>// 记录当前触摸位置和图片初始高度</em>
+          case TouchType.Down: // 记录当前触摸位置和图片初始高度
             this.touchStartY = currentY;
             this.touchStartHeight = this.imageHeight;
             break;
 
-          case TouchType.Move: <em>// </em><em>根据图片展开状态和触摸移动的距离调整图片高度</em>
+          case TouchType.Move: // 根据图片展开状态和触摸移动的距离调整图片高度
             const deltaY = currentY - this.touchStartY;
             if (this.isExpanded) {
               if (deltaY >= 0) {
@@ -195,8 +195,8 @@ struct ListDownDemo {
             }
             break;
 
-          case TouchType.Up: <em>// 手指抬起，判断当前组件展开的高度进行完全展开或收起动作</em>
-            const movedDistance = Math.abs(currentY - this.touchStartHeight);<em> </em><em>// 移动距离小于5不做操作</em>
+          case TouchType.Up: // 手指抬起，判断当前组件展开的高度进行完全展开或收起动作
+            const movedDistance = Math.abs(currentY - this.touchStartHeight); // 移动距离小于5不做操作
             const isMove = movedDistance > 5;
 
             if (isMove) {

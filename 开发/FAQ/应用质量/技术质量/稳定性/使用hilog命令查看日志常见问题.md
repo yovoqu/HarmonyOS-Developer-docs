@@ -31,8 +31,8 @@ hdc shell hilog -b D
 
   或者按需设置其他级别。
 ```bash
-hdc shell hilog -b I   <em># 只显示INFO及以上级别</em>
-hdc shell hilog -b W   <em># 只显示WARN及以上级别</em>
+hdc shell hilog -b I   # 只显示INFO及以上级别
+hdc shell hilog -b W   # 只显示WARN及以上级别
 ```
 
 2. 日志打印量过大，触发了系统的流控机制。查看流控警告：在日志中搜索关键字LOGLIMIT、Slow reader missed、write socket failed。
@@ -41,10 +41,10 @@ hdc shell hilog -b W   <em># 只显示WARN及以上级别</em>
 
   
 ```bash
-<em># 关闭进程级流控</em>
+# 关闭进程级流控
 hdc shell hilog -Q pidoff
 
-<em># 关闭domain级流控</em>
+# 关闭domain级流控
 hdc shell hilog -Q domainoff
 ```
 
@@ -57,7 +57,7 @@ hdc shell hilog -G 16M
 
   减少日志量：关闭不必要的DEBUG日志，或只开启特定domain的日志。
 ```bash
-<em># 只显示指定domain的INFO级别日志</em>
+# 只显示指定domain的INFO级别日志
 hdc shell hilog -b I -D d003200
 ```
 
@@ -99,7 +99,7 @@ cmd /k chcp 65001
 
 - 按进程名过滤。
 ```bash
-<em># 查看指定进程名的日志</em>
+# 查看指定进程名的日志
 hdc shell hilog | grep "com.example.myapp"
 ```
 
@@ -115,6 +115,6 @@ hdc shell hilog -T "MyTag"
 
 - 组合过滤。
 ```bash
-<em># 查看指定domain的ERROR级别日志</em>
+# 查看指定domain的ERROR级别日志
 hdc shell hilog -L E -D 03200
 ```

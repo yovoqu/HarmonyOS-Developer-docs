@@ -37,7 +37,7 @@ const TAG: string = 'SocketSelfTest';
 export default function socketSelfTest() {
   describe('SocketSelfCommunicationTest', () => {
     it('手机自发自收 – 服务端+客户端在同一设备', 0, async (done: Function) => {
-     <em> /* ================= 1. 启动服务端 ================= */</em>
+      /* ================= 1. 启动服务端 ================= */
       const server = socket.constructTCPSocketServerInstance();
       const addr: socket.NetAddress = {
         address: '127.0.0.1',
@@ -45,7 +45,7 @@ export default function socketSelfTest() {
         family: 1
       };
 
-     <em> // 一步完成“绑定+监听”</em>
+      // 一步完成“绑定+监听”
       await new Promise<void>((resolve, reject) => {
         server.listen(addr, (err) => {
           if (err) {
@@ -58,11 +58,11 @@ export default function socketSelfTest() {
         });
       });
 
-     <em> // 订阅server的connect事件，客户端与服务端建立连接后，返回一个TCPSocketConnection对象，用于与客户端通信（仅注册事件，不阻塞）</em>
+      // 订阅server的connect事件，客户端与服务端建立连接后，返回一个TCPSocketConnection对象，用于与客户端通信（仅注册事件，不阻塞）
       server.on('connect', (clientSocket: socket.TCPSocketConnection) => {
         console.info(`${TAG} client on connected`);
-      <em>  // clientSocket即为建立连接后获取到的连接对象，可以通过该对象订阅TCPSocketConnection相关的事件</em>
-<em>        // 服务端接收到客户端发送的信息HelloHypium</em>
+        // clientSocket即为建立连接后获取到的连接对象，可以通过该对象订阅TCPSocketConnection相关的事件
+        // 服务端接收到客户端发送的信息HelloHypium
         clientSocket.on('message', (value: socket.SocketMessageInfo) => {
           let buffer = value.message;
           let dataView = new DataView(buffer);
@@ -72,13 +72,13 @@ export default function socketSelfTest() {
           }
           console.info(`${TAG} server received message: ${str}`);
           console.info(`${TAG} server received address: ${value.remoteInfo.address}`);
-         <em> // 向客户端发送数据Echo:HelloHypium</em>
+          // 向客户端发送数据Echo:HelloHypium
           clientSocket.send({ data: `Echo:${str}` });
           console.info(`${TAG} server send message: Echo:${str}`)
         });
       });
 
-     <em> /* ================= 2. 启动客户端 ================= */</em>
+      /* ================= 2. 启动客户端 ================= */
       const client = socket.constructTCPSocketInstance();
       const resp = await new Promise<string>((resolve, reject) => {
         client.connect({ address: addr, timeout: 5000 }, (err) => {
@@ -89,7 +89,7 @@ export default function socketSelfTest() {
           }
           console.info(`${TAG} client start connected`);
 
-     <em>     // 连接成功之后，向服务端发送数据HelloHypium</em>
+          // 连接成功之后，向服务端发送数据HelloHypium
           client.send({ data: 'HelloHypium' }, (err) => {
             if (err) {
               console.error(`${TAG} client send fail: ${JSON.stringify(err)}`);
@@ -99,7 +99,7 @@ export default function socketSelfTest() {
             console.info(`${TAG} client send message: HelloHypium`);
           });
 
-         <em> // 监听message事件，接收到消息时，执行回调函数</em>
+          // 监听message事件，接收到消息时，执行回调函数
           client.on('message', (value: socket.SocketMessageInfo) => {
             let buffer = value.message;
             let dataView = new DataView(buffer);
@@ -114,7 +114,7 @@ export default function socketSelfTest() {
         });
       });
 
-   <em>   /* ================= 3. 断言 & 清理 ================= */</em>
+      /* ================= 3. 断言 & 清理 ================= */
       console.info(`${TAG} resp: ${resp}`);
       expect(resp).assertEqual('Echo:HelloHypium');
       server.off("connect");

@@ -53,7 +53,7 @@ struct TextInputClearFocusExample {
 
   build() {
     Column({ space: 10 }) {
-      TextInput({ placeholder: 'input your word...' }) <em>// 绑定自定义键盘</em>
+      TextInput({ placeholder: 'input your word...' }) // 绑定自定义键盘
         .customKeyboard(this.index === 0 ? this.keyboard() : (this.index === 1 ? this.keyboard1() : this.keyboard2()))
         .margin(10)
         .border({ width: 1 })
@@ -141,17 +141,17 @@ struct TextInputClearFocusExample {
   build() {
     Column() {
       if (this.index === 0) {
-        TextInput({ placeholder: 'input your word...' }) <em>// 绑定自定义键盘</em>
+        TextInput({ placeholder: 'input your word...' }) // 绑定自定义键盘
           .customKeyboard(this.keyboard())
           .margin(10)
           .height('48vp');
       } else if (this.index === 1) {
-        TextInput({ placeholder: 'input your word...' }) /<em>/ 绑定自定义键盘</em>
+        TextInput({ placeholder: 'input your word...' }) // 绑定自定义键盘
           .customKeyboard(this.keyboard1())
           .margin(10)
           .height('48vp');
       } else {
-        TextInput({ placeholder: 'input your word...' }) <em>// 绑定自定义键盘</em>
+        TextInput({ placeholder: 'input your word...' }) // 绑定自定义键盘
           .customKeyboard(this.keyboard2())
           .margin(10)
           .height('48vp');

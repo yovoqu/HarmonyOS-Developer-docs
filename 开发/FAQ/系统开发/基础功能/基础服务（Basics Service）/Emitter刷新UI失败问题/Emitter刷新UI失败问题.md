@@ -9,67 +9,67 @@
 在使用Emitter的过程中，将Emitter的订阅和取消都封装在class中，通过new实例来调用。Emitter订阅callback后，发送Emitter事件，参数会发生变化，但是ui并没有实际刷新。
  
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">emitter </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span>
+import { emitter } from '@kit.BasicServicesKit'
 
-export class <span style="color: rgb(0,0,255);">BaseA </span><span style="color: rgb(181,106,1);">{</span>
-  static <span style="color: rgb(255,255,255);">MESSAGE_ONE </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'1'</span>
-  static <span style="color: rgb(255,255,255);">MESSAGE_TWO </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'2'</span>
-  <span style="color: rgb(255,255,255);">number1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span>
-  <span style="color: rgb(255,255,255);">number2</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span>
+export class BaseA {
+  static MESSAGE_ONE = '1'
+  static MESSAGE_TWO = '2'
+  number1: number = 0
+  number2: number = 0
 
-  <span style="color: rgb(0,0,255);">register1</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BaseA</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MESSAGE_ONE</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">callback1</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  register1() {
+    emitter.on(BaseA.MESSAGE_ONE, this.callback1)
+  }
 
-  <span style="color: rgb(0,0,255);">register2</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BaseA</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MESSAGE_TWO</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">callback2</span><span style="color: rgb(255,0,170);">())</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  register2() {
+    emitter.on(BaseA.MESSAGE_TWO, () => this.callback2())
+  }
 
-  private <span style="color: rgb(255,255,255);">callback1 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number1 </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">1</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  private callback1 = () => {
+    this.number1 += 1
+  }
 
-  private <span style="color: rgb(0,0,255);">callback2</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number2 </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">1</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  private callback2() {
+    this.number2 += 1
+  }
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">EmitterTestPage </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BaseA </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">BaseA</span><span style="color: rgb(255,0,170);">()</span>
+@Entry
+@Component
+struct EmitterTestPage {
+  viewModel: BaseA = new BaseA()
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'callback1:' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">18</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#f00'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'callback2:' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number2</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">18</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#0f0'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">发送消息，直接更新</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number1 </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">1</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number2 </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">1</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">在</span><span style="color: rgb(132,63,161);">viewmodel</span><span style="color: rgb(132,63,161);">订阅消息第一种方式</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">register1</span><span style="color: rgb(255,0,170);">()</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">在</span><span style="color: rgb(132,63,161);">viewmodel</span><span style="color: rgb(132,63,161);">订阅消息第二种方式</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">register2</span><span style="color: rgb(255,0,170);">()</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">发送消息，更新</span><span style="color: rgb(132,63,161);">MessageOne'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">emit</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BaseA</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MESSAGE_ONE</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">发送消息，更新</span><span style="color: rgb(132,63,161);">MessageTwo'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">emit</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BaseA</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MESSAGE_TWO</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column({ space: 10 }) {
+      Text('callback1:' + this.viewModel.number1.toString())
+        .fontSize(18)
+        .fontColor('#f00')
+        .margin({ top: 20 })
+      Text('callback2:' + this.viewModel.number2.toString())
+        .fontSize(18)
+        .fontColor('#0f0')
+        .margin({ top: 20 })
+      Button('发送消息，直接更新').onClick(() => {
+        this.viewModel.number1 += 1
+        this.viewModel.number2 += 1
+      })
+      Button('在viewmodel订阅消息第一种方式').onClick(() => {
+        this.viewModel.register1()
+      })
+      Button('在viewmodel订阅消息第二种方式').onClick(() => {
+        this.viewModel.register2()
+      })
+      Button('发送消息，更新MessageOne')
+        .onClick(() => {
+          emitter.emit(BaseA.MESSAGE_ONE)
+        })
+      Button('发送消息，更新MessageTwo')
+        .onClick(() => {
+          emitter.emit(BaseA.MESSAGE_TWO)
+        })
+    }.margin({ top: 20 })
+  }
+}
 ```
  
  
@@ -102,151 +102,151 @@ struct <span style="color: rgb(0,0,255);">EmitterTestPage </span><span style="co
 
 - **方案一**：让箭头函数赋值的逻辑晚于构造器执行逻辑，即在BaseA类中声明一个箭头函数重新赋值的方法registerCallback1，之后在@Provide("BaseA") viewModel: BaseA = new BaseA()执行之后（例如aboutToAppear回调里）调用这个registerCallback1给箭头函数重新赋值。
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">emitter </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { emitter } from '@kit.BasicServicesKit';
 
-export class <span style="color: rgb(0,0,255);">BaseA </span><span style="color: rgb(181,106,1);">{</span>
-  static <span style="color: rgb(255,255,255);">MESSAGE_ONE </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'1'</span><span style="color: rgb(181,106,1);">;</span>
-  static <span style="color: rgb(255,255,255);">MESSAGE_TWO </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'2'</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">number1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">number2</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">callback1 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number1 </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+export class BaseA {
+  static MESSAGE_ONE = '1';
+  static MESSAGE_TWO = '2';
+  number1: number = 0;
+  number2: number = 0;
+  private callback1 = () => {
+    this.number1 += 1;
+  };
 
-  public <span style="color: rgb(0,0,255);">registerCallback1</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">callback1 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number1 </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  public registerCallback1() {
+    this.callback1 = () => {
+      this.number1 += 1;
+    };
+  };
 
-  <span style="color: rgb(0,0,255);">register1</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BaseA</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MESSAGE_ONE</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">callback1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  register1() {
+    emitter.on(BaseA.MESSAGE_ONE, this.callback1);
+  };
 
-  <span style="color: rgb(0,0,255);">register2</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BaseA</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MESSAGE_TWO</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">callback2</span><span style="color: rgb(255,0,170);">())</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  register2() {
+    emitter.on(BaseA.MESSAGE_TWO, () => this.callback2());
+  };
 
-  private <span style="color: rgb(0,0,255);">callback2</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number2 </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  private callback2() {
+    this.number2 += 1;
+  };
+};
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">EmitterTestPage </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@Provide </span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BaseA </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">BaseA</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct EmitterTestPage {
+  @Provide viewModel: BaseA = new BaseA();
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">registerCallback1</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  aboutToAppear(): void {
+    this.viewModel.registerCallback1();
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'callback1:' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">18</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#f00'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'callback2:' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number2</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">18</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#0f0'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">发送消息，直接更新</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number1 </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number2 </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">在</span><span style="color: rgb(132,63,161);">viewmodel</span><span style="color: rgb(132,63,161);">订阅消息第一种方式</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">register1</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">在</span><span style="color: rgb(132,63,161);">viewmodel</span><span style="color: rgb(132,63,161);">订阅消息第二种方式</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">register2</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">发送消息，更新</span><span style="color: rgb(132,63,161);">MessageOne'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">emit</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BaseA</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MESSAGE_ONE</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">发送消息，更新</span><span style="color: rgb(132,63,161);">MessageTwo'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">emit</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BaseA</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MESSAGE_TWO</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column({ space: 10 }) {
+      Text('callback1:' + this.viewModel.number1.toString())
+        .fontSize(18)
+        .fontColor('#f00')
+        .margin({ top: 20 })
+      Text('callback2:' + this.viewModel.number2.toString())
+        .fontSize(18)
+        .fontColor('#0f0')
+        .margin({ top: 20 })
+      Button('发送消息，直接更新')
+        .onClick(() => {
+          this.viewModel.number1 += 1;
+          this.viewModel.number2 += 1;
+        })
+      Button('在viewmodel订阅消息第一种方式')
+        .onClick(() => {
+          this.viewModel.register1();
+        })
+      Button('在viewmodel订阅消息第二种方式')
+        .onClick(() => {
+          this.viewModel.register2();
+        })
+      Button('发送消息，更新MessageOne')
+        .onClick(() => {
+          emitter.emit(BaseA.MESSAGE_ONE);
+        })
+      Button('发送消息，更新MessageTwo')
+        .onClick(() => {
+          emitter.emit(BaseA.MESSAGE_TWO);
+        })
+    }
+    .margin({ top: 20 })
+    .alignItems(HorizontalAlign.Center)
+    .width('100%')
+  }
+}
 ```
 
 - **方案二**：使用@ObservedV2和@Trace将number1包装成状态变量，这样当number1赋值时会直接被包装成状态变量，之后对number1的修改就都能触发状态管理。
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">emitter </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { emitter } from '@kit.BasicServicesKit';
 
-<span style="color: rgb(181,106,1);">@ObservedV2</span>
-export class <span style="color: rgb(0,0,255);">BaseA </span><span style="color: rgb(181,106,1);">{</span>
-  static <span style="color: rgb(255,255,255);">MESSAGE_ONE </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'1'</span><span style="color: rgb(181,106,1);">;</span>
-  static <span style="color: rgb(255,255,255);">MESSAGE_TWO </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'2'</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(255,255,255);">number1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Trace </span><span style="color: rgb(255,255,255);">number2</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">callback1 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number1 </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+@ObservedV2
+export class BaseA {
+  static MESSAGE_ONE = '1';
+  static MESSAGE_TWO = '2';
+  @Trace number1: number = 0;
+  @Trace number2: number = 0;
+  private callback1 = () => {
+    this.number1 += 1;
+  };
 
-  <span style="color: rgb(0,0,255);">register1</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BaseA</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MESSAGE_ONE</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">callback1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  register1() {
+    emitter.on(BaseA.MESSAGE_ONE, this.callback1);
+  };
 
-  <span style="color: rgb(0,0,255);">register2</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BaseA</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MESSAGE_TWO</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">callback2</span><span style="color: rgb(255,0,170);">())</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  register2() {
+    emitter.on(BaseA.MESSAGE_TWO, () => this.callback2());
+  };
 
-  private <span style="color: rgb(0,0,255);">callback2</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number2 </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  private callback2() {
+    this.number2 += 1;
+  };
+};
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">EmitterTestPage </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BaseA </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">BaseA</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct EmitterTestPage {
+  viewModel: BaseA = new BaseA();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'callback1:' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">18</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#f00'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'callback2:' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number2</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">18</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#0f0'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">发送消息，直接更新</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number1 </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">number2 </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">在</span><span style="color: rgb(132,63,161);">viewmodel</span><span style="color: rgb(132,63,161);">订阅消息第一种方式</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">register1</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">在</span><span style="color: rgb(132,63,161);">viewmodel</span><span style="color: rgb(132,63,161);">订阅消息第二种方式</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">viewModel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">register2</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">发送消息，更新</span><span style="color: rgb(132,63,161);">MessageOne'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">emit</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BaseA</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MESSAGE_ONE</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">发送消息，更新</span><span style="color: rgb(132,63,161);">MessageTwo'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">emitter</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">emit</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">BaseA</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MESSAGE_TWO</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column({ space: 10 }) {
+      Text('callback1:' + this.viewModel.number1.toString())
+        .fontSize(18)
+        .fontColor('#f00')
+        .margin({ top: 20 })
+      Text('callback2:' + this.viewModel.number2.toString())
+        .fontSize(18)
+        .fontColor('#0f0')
+        .margin({ top: 20 })
+      Button('发送消息，直接更新')
+        .onClick(() => {
+          this.viewModel.number1 += 1;
+          this.viewModel.number2 += 1;
+        })
+      Button('在viewmodel订阅消息第一种方式')
+        .onClick(() => {
+          this.viewModel.register1();
+        })
+      Button('在viewmodel订阅消息第二种方式')
+        .onClick(() => {
+          this.viewModel.register2();
+        })
+      Button('发送消息，更新MessageOne')
+        .onClick(() => {
+          emitter.emit(BaseA.MESSAGE_ONE);
+        })
+      Button('发送消息，更新MessageTwo')
+        .onClick(() => {
+          emitter.emit(BaseA.MESSAGE_TWO);
+        })
+    }
+    .margin({ top: 20 })
+    .alignItems(HorizontalAlign.Center)
+    .width('100%')
+  }
+}
 ```

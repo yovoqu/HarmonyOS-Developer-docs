@@ -226,15 +226,15 @@ export default class EntryAbility extends UIAbility {
         return;
       }
       hilog.info(DOMAIN, 'testTag', 'Succeeded in loading the content.');
-     <em> // 获取避让区信息并保存</em>
+      // 获取避让区信息并保存
       let windowClass = windowStage.getMainWindowSync();
       let type = window.AvoidAreaType.TYPE_SYSTEM;
       let avoidArea = windowClass.getWindowAvoidArea(type);
       let typeNavigation = window.AvoidAreaType.TYPE_NAVIGATION_INDICATOR;
       let avoidAreaNavigation = windowClass.getWindowAvoidArea(typeNavigation);
-      let statusBarHeight = avoidArea.topRect.height; <em>// 获取状态栏区域高度</em>
-      let navigationIndicatorHeight = avoidAreaNavigation.bottomRect.height;<em> // 获取导航条区域高度</em>
-      let displayClass = display.getDefaultDisplaySync(); <em>// 获取屏幕实例</em>
+      let statusBarHeight = avoidArea.topRect.height; // 获取状态栏区域高度
+      let navigationIndicatorHeight = avoidAreaNavigation.bottomRect.height; // 获取导航条区域高度
+      let displayClass = display.getDefaultDisplaySync(); // 获取屏幕实例
       displayClass.getCutoutInfo((err: BusinessError, data: display.CutoutInfo) => {
         if (err.code) {
           console.error(`Failed to get cutoutInfo. Code: ${err.code}, message: ${err.message}`);
@@ -242,9 +242,9 @@ export default class EntryAbility extends UIAbility {
         }
         console.info(`Succeeded in getting cutoutInfo. data: ${data}`);
       });
-      AppStorage.setOrCreate('statusBarHeight', statusBarHeight); <em>// 保存状态栏区域的高度</em>
-      AppStorage.setOrCreate('navigationIndicatorHeight', navigationIndicatorHeight); <em>// 保存底部导航条区域的高度</em>
-     <em> // 监听安全区变化</em>
+      AppStorage.setOrCreate('statusBarHeight', statusBarHeight); // 保存状态栏区域的高度
+      AppStorage.setOrCreate('navigationIndicatorHeight', navigationIndicatorHeight); // 保存底部导航条区域的高度
+      // 监听安全区变化
       windowClass.on('avoidAreaChange', (data) => {
         if (data.type === window.AvoidAreaType.TYPE_SYSTEM) {
           AppStorage.setOrCreate('statusBarHeight', data.area.topRect.height);

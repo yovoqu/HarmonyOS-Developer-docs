@@ -54,18 +54,18 @@ import { site } from '@kit.MapKit';
 struct Index {
   async poiSearch(){
     let params: site.SearchByTextParams = {
-    <em>  // 指定关键字，xxx需替换具体地址</em>
+      // 指定关键字，xxx需替换具体地址
       query: "xxxxxxxx",
-    <em>  // 经纬度坐标</em>
+      // 经纬度坐标
       location: {
         latitude: 34.19390192547735,
         longitude: 108.87269875520396
       },
-   <em>   // 指定地理位置的范围半径</em>
+      // 指定地理位置的范围半径
       radius: 10000,
       language: "zh"
     };
- <em>   // 返回关键字搜索结果</em>
+    // 返回关键字搜索结果
     const result = await site.searchByText(params);
     console.log("搜索结果：",JSON.stringify(result));
   }

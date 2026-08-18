@@ -93,34 +93,34 @@ A：支持，不管是模拟器还是真机，在user_config.xml指定设备的s
 <?xml version="1.0" encoding="UTF-8"?>
 <user_config>
     <environment>
-        <em><!-- type: 设备连接方式,usb-hdc表示使用hdc命令控制设备(默认) --></em>
+        <!-- type: 设备连接方式,usb-hdc表示使用hdc命令控制设备(默认) -->
         <device type="usb-hdc">
-            <em><!-- ip: 远端设备地址,ip和port为空时使用本地设备,非空时使用远端设备 --></em>
+            <!-- ip: 远端设备地址,ip和port为空时使用本地设备,非空时使用远端设备 -->
             <ip></ip> 
-           <em> <!-- port: 远端设备端口号 --></em>
+            <!-- port: 远端设备端口号 -->
             <port></port> 
-            <em><!-- sn: 设备SN号列表,SN之间用分号";"分隔,sn字段为空时使用所有本地设备,非空时使用指定的sn设备 --></em>
+            <!-- sn: 设备SN号列表,SN之间用分号";"分隔,sn字段为空时使用所有本地设备,非空时使用指定的sn设备 -->
             <sn></sn> 
         </device>
     </environment>
     <testcases>
-        <em><!-- 指定测试用例目录，为空则默认设置为当前项目下的testcase文件夹 --></em>
+        <!-- 指定测试用例目录，为空则默认设置为当前项目下的testcase文件夹 -->
         <dir></dir>
     </testcases>
     <resource>
-        <em><!-- 指定资源目录，为空则默认设置为当前项目下的resource文件夹 --></em>
+        <!-- 指定资源目录，为空则默认设置为当前项目下的resource文件夹 -->
         <dir></dir>
     </resource>
-    <em><!-- 默认为INFO，如需更详细信息可设置为DEBUG --></em>
+    <!-- 默认为INFO，如需更详细信息可设置为DEBUG -->
     <loglevel>DEBUG</loglevel>
     <devicelog>
-       <em> <!--在测试用例结束后额外后拉取以下路径的日志到报告下--></em>
+        <!--在测试用例结束后额外后拉取以下路径的日志到报告下-->
         <dir>/data/log/tee;/data/log/test</dir>
-        <em><!--控制hilog日志等级，默认值为INFO--></em>
+        <!--控制hilog日志等级，默认值为INFO-->
         <loglevel>DEBUG</loglevel>    
-        <em><!--控制是否在拉取日志后设备端的日志，默认值为true--></em>
+        <!--控制是否在拉取日志后设备端的日志，默认值为true-->
         <clear></clear>                
-        <em><!--控制是否抓取设备日志，默认值为ON，OFF时候上述两个标签不生效--></em>
+        <!--控制是否抓取设备日志，默认值为ON，OFF时候上述两个标签不生效-->
         <enable>ON</enable>            
     </devicelog>
 </user_config>

@@ -31,7 +31,7 @@ async function getTotalOutOfzStream() {
     await zip.deflateInit(zStream, zlib.CompressLevel.COMPRESS_LEVEL_BEST_SPEED)
     await zip.deflate(zStream, zlib.CompressFlushMode.FINISH)
 
-   <em> // 使用zStream获取totalOut</em>
+    // 使用zStream获取totalOut
     let totalOut = zStream.totalOut
     console.info(`The total out of zStream is ` + totalOut)
   } catch (e) {
@@ -69,7 +69,7 @@ async function getTotalOutOfzStream() {
     await zip.deflateInit(zStream, zlib.CompressLevel.COMPRESS_LEVEL_BEST_SPEED);
     await zip.deflate(zStream, zlib.CompressFlushMode.FINISH);
 
-   <em> // 重新getZStream()获取最新状态，然后获取totalOut</em>
+    // 重新getZStream()获取最新状态，然后获取totalOut
     let totalOut = (await zip.getZStream()).totalOut;
     console.info('The total out of zStream is ' + totalOut);
   } catch (e) {

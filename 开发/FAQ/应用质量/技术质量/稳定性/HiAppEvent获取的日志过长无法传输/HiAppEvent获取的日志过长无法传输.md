@@ -51,19 +51,19 @@ export default class EntryAbility extends UIAbility {
         for (const eventGroup of appEventGroups) {
           hilog.info(0x0000, 'testTag', `HiAppEvent eventName=${eventGroup.name}`);
           for (const eventInfo of eventGroup.appEventInfos) {
-            let logPath: string = eventInfo.params['external_log'][0]; <em>// 获取首个日志文件路径</em>
+            let logPath: string = eventInfo.params['external_log'][0]; // 获取首个日志文件路径
             let accessible = fs.accessSync(logPath);
             if (accessible) {
               let maxBufferLength = 4096;
               let file = fs.openSync(logPath, fs.OpenMode.READ_ONLY);
               try {
-                let stat = fs.statSync(logPath);<em> // 获取文件信息</em>
-                let bufferLength = Math.min(stat.size, maxBufferLength);<em>// 限制要发送的数据大小</em>
-                let buf = new ArrayBuffer(bufferLength); <em>// 创建缓冲区</em>
-                fs.readSync(file.fd, buf); <em>// 读取内容到缓冲区</em>
-              <em>  // sendByHttps() 自行实现将数据异步发送给后台</em>
+                let stat = fs.statSync(logPath); // 获取文件信息
+                let bufferLength = Math.min(stat.size, maxBufferLength);// 限制要发送的数据大小
+                let buf = new ArrayBuffer(bufferLength); // 创建缓冲区
+                fs.readSync(file.fd, buf); // 读取内容到缓冲区
+                // sendByHttps() 自行实现将数据异步发送给后台
               } finally {
-                fs.closeSync(file);<em> // 关闭文件</em>
+                fs.closeSync(file); // 关闭文件
 
               }
             }
@@ -91,17 +91,17 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageDestroy(): void {
-   <em> // Main window is destroyed, release UI related resources</em>
+    // Main window is destroyed, release UI related resources
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
-   <em> // Ability has brought to foreground</em>
+    // Ability has brought to foreground
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground(): void {
-   <em> // Ability has back to background</em>
+    // Ability has back to background
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 }

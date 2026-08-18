@@ -76,7 +76,7 @@ export class NumberUtils {
       return parseFloat(length as string);
     } else {
       let parseRes = length as Resource;
-     <em> // 获取上下文</em>
+      // 获取上下文
       return (new UIContext().getHostContext() as common.UIAbilityContext).resourceManager.getNumber(parseRes.id);
     }
   }
@@ -89,7 +89,7 @@ struct CoordinateChanged {
   itemHeight: number = 163;
   unselectScale: number = 0.83;
   itemSpace: number = 10;
- <em> // Swiper轮播的图片列表，开发者可根据真实场景进行替换</em>
+  // Swiper轮播的图片列表，开发者可根据真实场景进行替换
   @State imgList: Resource [] = [
     $r('app.media.fig1'),
     $r('app.media.fig2'),
@@ -102,14 +102,14 @@ struct CoordinateChanged {
   @State xL: number = 0;
   @State xC: number = 0;
   @State xR: number = 0;
-  <em>// 旧的坐标值</em>
+  // 旧的坐标值
   @State getOldValue: Area = {
     width: 0,
     height: 0,
     position: { x: 0, y: 0 },
     globalPosition: { x: 0, y: 0 }
   };
-  <em>// 新的坐标值</em>
+  // 新的坐标值
   @State getNewValue: Area = {
     width: 0,
     height: 0,
@@ -117,7 +117,7 @@ struct CoordinateChanged {
     globalPosition: { x: 0, y: 0 }
   };
 
-  <em>// 横幅宽度变化时修改xL、xC、xR的值</em>
+  // 横幅宽度变化时修改xL、xC、xR的值
   onBannerWidthChanged() {
     if (this.bannerWidth > 0) {
       this.previousWidth = (this.bannerWidth - this.itemWidth - this.itemSpace * 2) / 2;
@@ -127,7 +127,7 @@ struct CoordinateChanged {
     }
   }
 
- <em> // 获取实时坐标值</em>
+  // 获取实时坐标值
   func(index: number, _oldValue: Area, newValue: Area) {
     if (index >= this.viewInfo.length) {
       this.viewInfo.push(newValue);
@@ -156,7 +156,7 @@ struct CoordinateChanged {
       }
       .onContentDidScroll(() => {
       })
-      <em>// 在Swiper数据源少于三个的场景，需要把loop属性设置为false，这样可以实现组件坐标平滑变动的效果</em>
+      // 在Swiper数据源少于三个的场景，需要把loop属性设置为false，这样可以实现组件坐标平滑变动的效果
       .loop(this.imgList.length > 2 ? true : false)
       .displayCount(1)
       .prevMargin(this.previousWidth)
@@ -168,7 +168,7 @@ struct CoordinateChanged {
       })
       .autoPlay(true);
 
-      <em>// 展示横幅的坐标属性</em>
+      // 展示横幅的坐标属性
       Column({ space: 10 }) {
         Column() {
           Text(`Params`)
@@ -183,7 +183,7 @@ struct CoordinateChanged {
         .padding(5)
         .alignItems(HorizontalAlign.Start);
 
-       <em> // 展示每张图片的坐标属性</em>
+        // 展示每张图片的坐标属性
         ForEach(this.viewInfo, (item: Area, index: number) => {
           Column() {
             Text(`Item[${index}]`)
@@ -211,7 +211,7 @@ struct CoordinateChanged {
   }
 }
 
-<em>// 设置数据源</em>
+// 设置数据源
 class MyDataSource implements IDataSource {
   private list: Resource[] = [];
 

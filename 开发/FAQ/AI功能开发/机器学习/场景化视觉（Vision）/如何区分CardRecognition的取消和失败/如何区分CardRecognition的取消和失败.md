@@ -40,7 +40,7 @@ struct test {
   build() {
     Stack({ alignContent: Alignment.Top }) {
       CardRecognition({
-        <em>// 此处选择身份证类型作为示例</em>
+        // 此处选择身份证类型作为示例
         supportType: CardType.CARD_ID,
         callback: ((params: CardRecognitionResult) => {
           this.para = params;
@@ -48,30 +48,30 @@ struct test {
           hilog.info(0x0001, TAG, `params cardType: ${params.cardType}`);
           hilog.info(0x0001, TAG, `params cardInfo front: ${JSON.stringify(params.cardInfo?.front)}`);
           hilog.info(0x0001, TAG, `params cardInfo back: ${JSON.stringify(params.cardInfo?.back)}`);
-        <em>  // params.code是-1说明是关闭，识别到后要退出</em>
+          // params.code是-1说明是关闭，识别到后要退出
           if (params.code === -1) {
             this.promptAction.showToast({
               message: '未进行识别，已返回!',
               duration: 1000
-            }); <em>// 伙伴可以根据需求自行更改promptAction类型</em>
+            }); // 伙伴可以根据需求自行更改promptAction类型
             this.getUIContext().getRouter().back(1);
           } else {
-           <em> // 可以使用某些条件，判断信息是否全面，如果不全面就说明识别信息不全，识别失败</em>
+            // 可以使用某些条件，判断信息是否全面，如果不全面就说明识别信息不全，识别失败
             if (!params.cardInfo?.front.sex) {
               this.promptAction.showToast({
                 message: '识别失败，请重试!',
                 duration: 1000
-              }); <em>// 可以根据需求自行更改promptAction类型</em>
+              }); // 可以根据需求自行更改promptAction类型
               this.getUIContext().getRouter().back(1);
             }
-           <em> // 接下来假设为未发现问题，可以进行后续操作</em>
+            // 接下来假设为未发现问题，可以进行后续操作
             else {
-            <em>  // 后续处理，可以设计存储数据，</em>
-<em>              // 处理完成进行跳转</em>
+              // 后续处理，可以设计存储数据，
+              // 处理完成进行跳转
               this.promptAction.showToast({
                 message: '识别完成!',
                 duration: 1000
-              }); <em>// 可以根据需求自行更改promptAction类型</em>
+              }); // 可以根据需求自行更改promptAction类型
               this.getUIContext().getRouter().back(1);
             }
           }

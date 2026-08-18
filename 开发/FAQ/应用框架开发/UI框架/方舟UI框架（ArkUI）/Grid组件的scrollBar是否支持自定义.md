@@ -35,7 +35,7 @@ struct Index {
         .columnsTemplate("1fr 1fr 1fr")
         .columnsGap(5)
         .rowsGap(5)
-     <em>   // Hide native scrollBar</em>
+        // Hide native scrollBar
         .scrollBar(BarState.Off)
 
         ScrollBar({ scroller: this.scroller, direction: ScrollBarDirection.Vertical, state: BarState.Auto }) {

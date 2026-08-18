@@ -9,16 +9,16 @@
 示例如下：
  
 ```text
-<em>// Define course types</em>
+// Define course types
 type Course = 'Math' | 'Chinese' | 'English';
 
-<em>// Define grade types</em>
+// Define grade types
 type Grade = number;
 
-<em>// Define student grade record types</em>
+// Define student grade record types
 type StudentGrades = Record<Course, Grade>;
 
-<em>// Define the type of class grade record, where the key is the student ID and the value is the student's grade record</em>
+// Define the type of class grade record, where the key is the student ID and the value is the student's grade record
 type ClassGrades = Record<string, StudentGrades>;
 
 interface StudentCourseGrade {
@@ -43,7 +43,7 @@ let student3: StudentCourseGrade = {
   English: 90
 }
 
-<em>// Initialize class grades</em>
+// Initialize class grades
 const classGrades: ClassGrades = {
   '001': student1,
   '002': student2,
@@ -53,18 +53,18 @@ const classGrades: ClassGrades = {
 @Entry
 @Component
 struct Index {
- <em> // Obtain the average grade of a student</em>
+  // Obtain the average grade of a student
   getAverageGrade(studentId: string, grades: ClassGrades): number | null {
-    const studentGrades = grades[studentId]; <em>// Obtain corresponding grade data for students</em>
+    const studentGrades = grades[studentId]; // Obtain corresponding grade data for students
     if (!studentGrades) {
       console.log(`Student with ID ${studentId} not found.`);
       return null;
     }
 
-    const courses = Object.keys(studentGrades) as Course[]; <em>// Course type array</em>
-   <em> // Calculate the total grade of the course</em>
+    const courses = Object.keys(studentGrades) as Course[]; // Course type array
+    // Calculate the total grade of the course
     const total = courses.reduce((sum, course) => sum + studentGrades[course], 0);
-    return total / courses.length; <em>// Average score</em>
+    return total / courses.length; // Average score
   }
 
   build() {
@@ -72,7 +72,7 @@ struct Index {
       Column() {
         Button('getAverageGrade')
           .onClick(() => {
-           <em> // output: 89</em>
+            // output: 89
             console.log('student average grade is:', this.getAverageGrade('001', classGrades));
           })
       }

@@ -61,17 +61,17 @@ export default class EntryAbility extends UIAbility {
 
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-   <em> // Main window is created, set main page for this ability</em>
+    // Main window is created, set main page for this ability
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
 
-<em>    // 获取设备类型</em>
+    // 获取设备类型
     let deviceType = deviceInfo.deviceType;
     // setSupportedWindowModes的系统能力为SystemCapability.Window.SessionManager，调用canIUse确认当前支持该系统能力
     let isLocationAvailable = canIUse('SystemCapability.Window.SessionManager');
     if (isLocationAvailable && deviceType === '2in1') {
       try {
-     <em>   // 设置主窗口支持悬浮窗模式和全屏模式</em>
+        // 设置主窗口支持悬浮窗模式和全屏模式
         let promise = windowStage.setSupportedWindowModes([
           bundleManager.SupportWindowMode.FLOATING,
           bundleManager.SupportWindowMode.FULL_SCREEN
@@ -85,7 +85,7 @@ export default class EntryAbility extends UIAbility {
         console.error(`Failed to set window support modes. Cause code: ${exception.code}, message: ${exception.message}`);
       }
       windowStage.getMainWindow().then((data: window.Window) => {
-     <em>   // 调用recover接口，将主窗口切换为悬浮窗模式</em>
+        // 调用recover接口，将主窗口切换为悬浮窗模式
         data.recover().then(() => {
           console.info('recover success.');
         }).catch((err: BusinessError) => {
@@ -106,19 +106,19 @@ export default class EntryAbility extends UIAbility {
 
 
   onWindowStageDestroy(): void {
-    <em>// Main window is destroyed, release UI related resources</em>
+    // Main window is destroyed, release UI related resources
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
 
   onForeground(): void {
-   <em> // Ability has brought to foreground</em>
+    // Ability has brought to foreground
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
 
   onBackground(): void {
-   <em> // Ability has back to background</em>
+    // Ability has back to background
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 };

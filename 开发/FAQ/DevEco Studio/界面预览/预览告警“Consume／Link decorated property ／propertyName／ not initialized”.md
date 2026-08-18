@@ -32,11 +32,11 @@
 示例代码：
  
 ```text
-<em>// Suggest adding @ Preview on ParentComp to preview the preview effect of ChildComp</em>
+// Suggest adding @ Preview on ParentComp to preview the preview effect of ChildComp
 @Preview
 @Component
 struct ParentComp {
-  <em>// @Provide decoration is provided by the entrance component ParentComp as its descendant component</em>
+  // @Provide decoration is provided by the entrance component ParentComp as its descendant component
   @Provide reviewVotes: number = 10;
 
   build() {
@@ -48,10 +48,10 @@ struct ParentComp {
   }
 }
 
-<em>// @Preview is not recommended to directly preview ChildComp</em>
+// @Preview is not recommended to directly preview ChildComp
 @Component
 struct ChildComp {
-  <em>// The variable decorated with '@Consume' is bound to the variable decorated with '@Provide' in its ancestor component ParentComp using the same attribute name</em>
+  // The variable decorated with '@Consume' is bound to the variable decorated with '@Provide' in its ancestor component ParentComp using the same attribute name
   @Consume reviewVotes: number;
   build() {
     Column() {

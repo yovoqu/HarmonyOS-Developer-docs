@@ -15,11 +15,11 @@ DevEco Studio创建的默认C++工程中是只有一个hello.cpp，想在C++侧�
 在NumberType.cpp文件中实现Add函数业务功能。
  
 ```text
-#include "NumberType.h" <em>// Import header file</em>
-<em>// NumberType is the class name, and Add is its function </em>
+#include "NumberType.h" // Import header file
+// NumberType is the class name, and Add is its function 
 napi_value NumberType::Add(napi_env env, napi_callback_info info) {
-  <em>  // ... Business Function Implementation Code</em>
-<em>    // ...</em>
+    // ... Business Function Implementation Code
+    // ...
 }
 ```
  
@@ -32,13 +32,13 @@ napi_value NumberType::Add(napi_env env, napi_callback_info info) {
 EXTERN_C_START
 static napi_value Init(napi_env env, napi_value exports)
 {
-  <em>  /* Associate the externally provided interface with the written method, for example, associate add with the Add </em>
-<em>     * method. </em>
-<em>    */ </em>
+    /* Associate the externally provided interface with the written method, for example, associate add with the Add 
+     * method. 
+    */ 
     napi_property_descriptor desc[] = {
         { "add", nullptr, NumberType::Add, nullptr, nullptr, nullptr, napi_default, nullptr }
     };
-   <em> // napi_define_properties construct a return value that contains a list of methods that correspond. </em>
+    // napi_define_properties construct a return value that contains a list of methods that correspond. 
     napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[0]), desc);
     return exports;
 }

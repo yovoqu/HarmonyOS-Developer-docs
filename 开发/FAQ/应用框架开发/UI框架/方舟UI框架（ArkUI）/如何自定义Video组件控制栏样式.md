@@ -56,41 +56,41 @@ struct VideoCreateComponent {
         })
       Row() {
         Button('src').onClick(() => {
-          this.videoSrc = $rawfile('xxx.mp4') <em>// Switch video source</em>
+          this.videoSrc = $rawfile('xxx.mp4') // Switch video source
         }).margin(5)
         Button('previewUri').onClick(() => {
-          this.previewUri = $r('app.media.xxx') <em>// Switch video preview poster</em>
+          this.previewUri = $r('app.media.xxx') // Switch video preview poster
         }).margin(5)
 
         Button('controls').onClick(() => {
-            this.showControls = !this.showControls <em>// Switch whether to display the video control bar</em>
+            this.showControls = !this.showControls // Switch whether to display the video control bar
         }).margin(5)
       }
 
       Row() {
         Button('start').onClick(() => {
-          this.controller.start() <em>// 开始播放</em>
+          this.controller.start() // 开始播放
         }).margin(5)
         Button('pause').onClick(() => {
-          this.controller.pause() <em>// 暂停播放</em>
+          this.controller.pause() // 暂停播放
         }).margin(5)
         Button('stop').onClick(() => {
-          this.controller.stop() <em>// 结束播放</em>
+          this.controller.stop() // 结束播放
         }).margin(5)
         Button('setTime').onClick(() => {
-          this.controller.setCurrentTime(10, SeekMode.Accurate) <em>// Accurately jump to the 10s position of the video</em>
+          this.controller.setCurrentTime(10, SeekMode.Accurate) // Accurately jump to the 10s position of the video
         }).margin(5)
       }
 
       Row() {
         Button('rate 0.75').onClick(() => {
-          this.curRate = PlaybackSpeed.Speed_Forward_0_75_X <em>// 0.75 times playback speed</em>
+          this.curRate = PlaybackSpeed.Speed_Forward_0_75_X // 0.75 times playback speed
         }).margin(5)
         Button('rate 1').onClick(() => {
-          this.curRate = PlaybackSpeed.Speed_Forward_1_00_X <em>// Original speed playback</em>
+          this.curRate = PlaybackSpeed.Speed_Forward_1_00_X // Original speed playback
         }).margin(5)
         Button('rate 2').onClick(() => {
-          this.curRate = PlaybackSpeed.Speed_Forward_2_00_X <em>// Play at 2x speed</em>
+          this.curRate = PlaybackSpeed.Speed_Forward_2_00_X // Play at 2x speed
         }).margin(5)
       }
     }

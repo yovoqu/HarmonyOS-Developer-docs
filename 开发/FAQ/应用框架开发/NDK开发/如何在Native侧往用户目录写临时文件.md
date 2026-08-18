@@ -38,9 +38,9 @@ files：用于存放应用数据文件。
 #include <fstream>
 napi_value WriteFile::WriteTemporaryFile(napi_env env, napi_callback_info info) {
     std::ofstream file("data/storage/el2/base/temp/2.txt");
-    if (file.is_open()) {       <em> // Determine if the file can be opened normally</em>
-        file << "Hello, World!";<em> // Write content to a file</em>
-        file.close();         <em>   // close file</em>
+    if (file.is_open()) {        // Determine if the file can be opened normally
+        file << "Hello, World!"; // Write content to a file
+        file.close();            // close file
     }
     return nullptr;
 }

@@ -91,17 +91,17 @@ struct setCharacteristicChangeNotification {
   }
 
   connect() {
-   <em> // 创建client端实例，server端虚拟mac地址,使用时,需要根据实际进行修改</em>
+    // 创建client端实例，server端虚拟mac地址,使用时,需要根据实际进行修改
     try {
       this.gattClient = ble.createGattClientDevice('deviceMAC');
     } catch (error) {
       console.error(`createGattClientDevice error:${error}`);
     }
-   <em> // 订阅ble蓝牙连接状态监听事件</em>
+    // 订阅ble蓝牙连接状态监听事件
     this.onBLEConnectionStateChange();
-  <em>  // 订阅MTU监听事件</em>
+    // 订阅MTU监听事件
     this.BLEMtuChange();
- <em>   // 连接server端ble蓝牙</em>
+    // 连接server端ble蓝牙
     try {
       this.gattClient?.connect();
     } catch (error) {
@@ -113,7 +113,7 @@ struct setCharacteristicChangeNotification {
     try {
       this.gattClient?.on('BLEConnectionStateChange', (state: ble.BLEConnectionChangeState) => {
         if (state.state === constant.ProfileConnectionState.STATE_CONNECTED) {
-       <em>   // 连接成功，先与server协商MTU，参数范围23~517</em>
+          // 连接成功，先与server协商MTU，参数范围23~517
           try {
             this.gattClient?.setBLEMtuSize(128);
           } catch (error) {
@@ -129,7 +129,7 @@ struct setCharacteristicChangeNotification {
   BLEMtuChange() {
     try {
       this.gattClient?.on('BLEMtuChange', (mtu: number) => {
-     <em>   // MTU协商成功,调用getServices接口获取server服务。</em>
+        // MTU协商成功,调用getServices接口获取server服务。
         console.info(`协商成功,mtu参数为:${mtu}`);
         this.getServices();
       });
@@ -141,15 +141,15 @@ struct setCharacteristicChangeNotification {
   getServices() {
     this.gattClient?.getServices().then((result: Array<ble.GattService>) => {
       result.filter(item => {
-      <em>  // 筛选出指定特征值服务，并设置通知变更能力。</em>
-<em>        // server端指定服务uuid,使用时,需要根据实际进行修改</em>
+        // 筛选出指定特征值服务，并设置通知变更能力。
+        // server端指定服务uuid,使用时,需要根据实际进行修改
         if (item.serviceUuid === 'uuid') {
           let descriptors: Array<ble.BLEDescriptor> = [];
           let arrayBuffer = new ArrayBuffer(8);
           let descV = new Uint8Array(arrayBuffer);
           descV[0] = 11;
           let arrayBufferC = new ArrayBuffer(8);
-     <em>     // 通过一一赋值的方式创建characteristic对象</em>
+          // 通过一一赋值的方式创建characteristic对象
           let characteristic: ble.BLECharacteristic = {
             serviceUuid: item.serviceUuid,
             characteristicUuid: item.characteristics[0].characteristicUuid,
@@ -174,7 +174,7 @@ struct setCharacteristicChangeNotification {
     Column() {
       Button('连接BLE蓝牙，并发起请求')
         .onClick(() => {
-         <em> // 连接BLE蓝牙，并发起setCharacteristicChangeNotification</em><em>请求</em>
+          // 连接BLE蓝牙，并发起setCharacteristicChangeNotification请求
           this.connect();
         });
     }.height('100%')

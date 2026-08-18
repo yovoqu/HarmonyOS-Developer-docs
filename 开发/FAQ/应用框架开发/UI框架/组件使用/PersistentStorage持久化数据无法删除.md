@@ -70,7 +70,7 @@ struct Test {
       Text(`应用中当前id的值：${this.uid}`)
       Button('删除本地持久化的数据')
         .onClick(() => {
-       <em>   // 删除持久化的数据后，应用中的数据还存在，需要退出应用才能看到效果</em>
+          // 删除持久化的数据后，应用中的数据还存在，需要退出应用才能看到效果
           PersistentStorage.deleteProp('id');
           this.uid = AppStorage.get('id');
           this.getUIContext().getPromptAction().showToast({ message: '已删除持久化中的数据' });
@@ -81,7 +81,7 @@ struct Test {
         })
       Button('删除应用中的状态变量')
         .onClick(() => {
-        <em>  // 如果没有订阅者，则删除成功</em>
+          // 如果没有订阅者，则删除成功
           let flag = AppStorage.delete('id');
           this.uid = AppStorage.get('id');
           if (flag) {

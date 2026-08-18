@@ -37,7 +37,7 @@ let customDialogId: number = 0;
 @Builder
 function customDialogBuilder() {
   Column() {
-   <em> // 可自定义文字大小及颜色</em>
+    // 可自定义文字大小及颜色
     Text('自定义Toast').fontSize(20).fontColor('#fff');
   }
   .width('100%')
@@ -65,12 +65,12 @@ struct Index99 {
               builder: () => {
                 this.customDialogComponent();
               },
-          <em>    // 弹窗背景色</em>
+              // 弹窗背景色
               backgroundColor: 'rgba(0,0,0,0.8)',
               backgroundBlurStyle: BlurStyle.NONE,
               cornerRadius: 5,
-              width: '50%',<em> </em><em>// 弹窗宽度</em>
-              height: 50,<em> </em><em>// 弹窗高度</em>
+              width: '50%', // 弹窗宽度
+              height: 50, // 弹窗高度
               isModal: false,
               alignment: DialogAlignment.Center,
               offset: { dx: 0, dy: 100 }

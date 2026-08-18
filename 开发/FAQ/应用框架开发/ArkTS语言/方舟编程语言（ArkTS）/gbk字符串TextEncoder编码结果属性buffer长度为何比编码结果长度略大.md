@@ -32,5 +32,5 @@ console.info("rstEncodeData.length = " + length);
 let byteLength = rstEncodeData.buffer.byteLength;
 console.info("rstEncodeData.buffer.byteLength = " + byteLength);
 console.info("rstEncodeData.buffer.slice(0, length).byteLength = " + rstEncodeData.buffer.slice(0, length).byteLength);
-<em>// rstEncodeData.buffer.slice(0, length).byteLength = 7</em>
+// rstEncodeData.buffer.slice(0, length).byteLength = 7
 ```

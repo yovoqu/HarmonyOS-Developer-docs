@@ -22,13 +22,13 @@ struct SideslipIntercept {
   @Provide pageStack: NavPathStack = new NavPathStack();
 
   build() {
-   <em> // Main page uses NavDestination as carrier to display Navigation content area</em>
+    // Main page uses NavDestination as carrier to display Navigation content area
     Navigation(this.pageStack) {
     }
     .onAppear(() => {
       this.pageStack.pushPathByName('MainPage', null, false);
     })
- <em>   // Create NavDestination component, use its onBackPressed callback to intercept back event</em>
+    // Create NavDestination component, use its onBackPressed callback to intercept back event
     .navDestination(this.textArea)
   }
 
@@ -50,7 +50,7 @@ struct SideslipIntercept {
       .height('100%')
     }
     .onBackPressed(() => {
-    <em>  // Interception logic can be added here, then return true to proceed</em>
+      // Interception logic can be added here, then return true to proceed
       this.getUIContext().getPromptAction().showDialog({
         message: 'Save?',
         alignment: DialogAlignment.Center,
@@ -65,12 +65,12 @@ struct SideslipIntercept {
           }
         ]
       }).then((data: ShowDialogSuccessResponse) => {
-    <em>    // When selecting button index in buttons array, starting from 0, second index is 1</em>
-<em>        // Click Don't Save button</em>
+        // When selecting button index in buttons array, starting from 0, second index is 1
+        // Click Don't Save button
         if (data.index === 0) {
           console.info('Not saving')
         }
-      <em>  // Click Save button</em>
+        // Click Save button
         if (data.index === 1) {
           console.info('Saving')
         }

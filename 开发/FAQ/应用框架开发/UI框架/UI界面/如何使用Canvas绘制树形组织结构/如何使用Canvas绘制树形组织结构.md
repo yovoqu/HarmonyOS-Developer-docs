@@ -21,206 +21,206 @@
 #### 解决方案
 1. 定义一个组织类TestOrg，用于展示节点名称和子节点。
 ```text
-class <span style="color: rgb(0,0,255);">TestOrg </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">children</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TestOrg</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+class TestOrg {
+  title: string = '';
+  children: TestOrg[] = [];
+}
 ```
 
 2. 使用Canvas绘制每个文本框和内部文字方法。
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">绘制文本框</span></em>
-<span style="color: rgb(0,0,255);">drawTextItem</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">beginPath</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">画一个外边框</span></em>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fillStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'#0A59F7'</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">strokeStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'#0A59F7'</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fill</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <em>// </em><em><span style="color: rgb(128,128,128);">绘制文字</span></em>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fillStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">White</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">font </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'16vp sans-serif'</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textBaseline </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'middle'</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">textWidth </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">measureText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">width </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">textWidth</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startY </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">height </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">textWidth</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+// 绘制文本框
+drawTextItem(startX: number, startY: number, width: number, height: number, title: string) {
+  this.context.beginPath();
+  // 画一个外边框
+  this.context.rect(startX, startY, width, height);
+  this.context.fillStyle = '#0A59F7';
+  this.context.strokeStyle = '#0A59F7';
+  this.context.stroke();
+  this.context.fill();
+  // 绘制文字
+  this.context.fillStyle = Color.White;
+  this.context.font = '16vp sans-serif';
+  this.context.textBaseline = 'middle';
+  let textWidth = this.context.measureText(title).width;
+  this.context.fillText(title, startX + (width - textWidth) / 2, startY + height / 2, textWidth);
+}
 ```
 
 3. 使用Canvas绘制文本框之间起点和终点路径。
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">绘制路径线条</span></em>
-<span style="color: rgb(0,0,255);">drawLine</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">nodeY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">childX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">childY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-  let <span style="color: rgb(255,255,255);">nodeWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">nodeHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">nodeMargin </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">12</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">beginPath</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">moveTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeWidth </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">nodeY </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">nodeHeight</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeWidth </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">nodeY </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">nodeHeight </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeMargin </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">childX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeWidth </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">childY </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeMargin </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">childX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeWidth </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">childY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">lineWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将起点和终点连接</span></em>
-<span style="color: rgb(181,106,1);">}</span>
+// 绘制路径线条
+drawLine(nodeX: number, nodeY: number, childX: number, childY: number) {
+  let nodeWidth = 100;
+  let nodeHeight = 50;
+  let nodeMargin = 12;
+  this.context.beginPath();
+  this.context.moveTo(nodeX + (nodeWidth / 2), nodeY + nodeHeight);
+  this.context.lineTo(nodeX + (nodeWidth / 2), nodeY + nodeHeight + (nodeMargin / 2));
+  this.context.lineTo(childX + (nodeWidth / 2), childY - (nodeMargin / 2));
+  this.context.lineTo(childX + (nodeWidth / 2), childY);
+  this.context.lineWidth = 2;
+  this.context.stroke(); // 将起点和终点连接
+}
 ```
 
 4. 计算子节点的个数。
 ```text
-<em>// </em><em><span style="color: rgb(128,128,128);">计算节点数</span></em>
-<span style="color: rgb(0,0,255);">getAllCount</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">city</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">TestOrg</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-  let <span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">city</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">reduce</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">pre</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">cue</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">pre </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">cue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(255,255,255);">cue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">? </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getAllCount</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">cue</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(255,255,255);">count</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  return <span style="color: rgb(255,255,255);">count</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+// 计算节点数
+getAllCount(city: TestOrg) {
+  let count = 0;
+  city.children.reduce((pre, cue) => {
+    count = pre + (cue.children && cue.children.length > 0 ? this.getAllCount(cue) : 1);
+    return count;
+  }, 0);
+  return count;
+}
 ```
 
 5. 构造树形结构，循环计算子节点个数，递归调用绘制文本框和画线方法。
 ```text
-<span style="color: rgb(0,0,255);">render</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">node</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">TestOrg</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-  let <span style="color: rgb(255,255,255);">nodeWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">nodeHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(181,106,1);">;</span>
-  let <span style="color: rgb(255,255,255);">nodeMargin </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">12</span><span style="color: rgb(181,106,1);">;</span>
-  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawTextItem</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">nodeWidth</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">nodeHeight</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">node</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">node</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(255,255,255);">node</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getAllCount</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">node</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">计算底层节点个数</span></em>
-    let <span style="color: rgb(255,255,255);">start </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">startX </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeWidth </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeMargin </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">))) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">起点</span></em>
-    <span style="color: rgb(255,255,255);">node</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">forEach</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      let <span style="color: rgb(255,255,255);">childrenStartX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">childrenStartY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">startY </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">nodeMargin </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">nodeHeight</span><span style="color: rgb(181,106,1);">;</span>
-      let <span style="color: rgb(255,255,255);">nodeLength </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-      if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">nodeLength </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getAllCount</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(255,255,255);">nodeLength </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      <span style="color: rgb(255,255,255);">childrenStartX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">start </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeWidth </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">nodeLength </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeMargin </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeLength </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">))) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">start </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">start </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeWidth </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">nodeLength </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeMargin </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeLength </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">))) </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">nodeMargin</span><span style="color: rgb(181,106,1);">;</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawLine</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">childrenStartX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">childrenStartY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">划线</span></em>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">render</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">childrenStartX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">childrenStartY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">画子级</span></em>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+render(startX: number, startY: number, node: TestOrg) {
+  let nodeWidth = 100;
+  let nodeHeight = 50;
+  let nodeMargin = 12;
+  this.drawTextItem(startX, startY, nodeWidth, nodeHeight, node.title);
+  if (node.children && node.children.length > 0) {
+    let count = 0;
+    count = this.getAllCount(node); // 计算底层节点个数
+    let start = startX - (nodeWidth * count + (nodeMargin * (count - 1))) / 2; // 起点
+    node.children.forEach((item) => {
+      let childrenStartX = 0;
+      let childrenStartY = startY + nodeMargin + nodeHeight;
+      let nodeLength = 0;
+      if (item.children && item.children.length > 0) {
+        nodeLength = this.getAllCount(item);
+      } else {
+        nodeLength = 1;
+      }
+      childrenStartX = start + (nodeWidth * nodeLength + (nodeMargin * (nodeLength - 1))) / 2;
+      start = start + (nodeWidth * nodeLength + (nodeMargin * (nodeLength - 1))) + nodeMargin;
+      this.drawLine(startX, startY, childrenStartX, childrenStartY); // 划线
+      this.render(childrenStartX, childrenStartY, item); // 画子级
+    });
+  }
+}
 ```
 
  
 完整示例参考如下：
  
 ```text
-class <span style="color: rgb(0,0,255);">TestOrg </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">children</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TestOrg</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+class TestOrg {
+  title: string = '';
+  children: TestOrg[] = [];
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">CanvasExample </span><span style="color: rgb(181,106,1);">{</span>
+@Entry
+@Component
+struct CanvasExample {
 
-  private <span style="color: rgb(255,255,255);">settings</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">RenderingContextSettings </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">RenderingContextSettings</span><span style="color: rgb(255,0,170);">(</span>true<span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">CanvasRenderingContext2D </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CanvasRenderingContext2D</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">settings</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,255,255);">province </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TestOrg</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  private settings: RenderingContextSettings = new RenderingContextSettings(true);
+  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
+  province = new TestOrg();
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建树形数据</span></em>
-    const <span style="color: rgb(255,255,255);">street1 </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TestOrg</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">street1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">街道</span><span style="color: rgb(132,63,161);">1'</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(255,255,255);">street2 </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TestOrg</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">street2</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">街道</span><span style="color: rgb(132,63,161);">2'</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(255,255,255);">street3 </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TestOrg</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">street3</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">街道</span><span style="color: rgb(132,63,161);">3'</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(255,255,255);">region </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TestOrg</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">region</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">建邺区</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">region</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">street1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">street2</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(255,255,255);">city1 </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TestOrg</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">city1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">南京市</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">city1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">region</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-    const <span style="color: rgb(255,255,255);">city2 </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">TestOrg</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">city2</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">扬州市</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">province</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">江苏省</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">province</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">city1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">city2</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  aboutToAppear(): void {
+    // 创建树形数据
+    const street1 = new TestOrg;
+    street1.title = '街道1';
+    const street2 = new TestOrg;
+    street2.title = '街道2';
+    const street3 = new TestOrg;
+    street3.title = '街道3';
+    const region = new TestOrg;
+    region.title = '建邺区';
+    region.children = [street1, street2];
+    const city1 = new TestOrg;
+    city1.title = '南京市';
+    city1.children = [region];
+    const city2 = new TestOrg;
+    city2.title = '扬州市';
+    this.province.title = '江苏省';
+    this.province.children = [city1, city2];
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">计算节点数</span></em>
-  <span style="color: rgb(0,0,255);">getAllCount</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">city</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TestOrg</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">city</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">reduce</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">pre</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">cue</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">pre </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">cue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(255,255,255);">cue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">? </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getAllCount</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">cue</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      return <span style="color: rgb(255,255,255);">count</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    return <span style="color: rgb(255,255,255);">count</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  // 计算节点数
+  getAllCount(city: TestOrg) {
+    let count = 0;
+    city.children.reduce((pre, cue) => {
+      count = pre + (cue.children && cue.children.length > 0 ? this.getAllCount(cue) : 1);
+      return count;
+    }, 0);
+    return count;
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">绘制文本框</span></em>
-  <span style="color: rgb(0,0,255);">drawTextItem</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">beginPath</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">画一个外边框</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fillStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'#0A59F7'</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">strokeStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'#0A59F7'</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fill</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">绘制文字</span></em>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fillStyle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">White</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">font </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'16vp sans-serif'</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">textBaseline </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'middle'</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">textWidth </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">measureText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fillText</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">width </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">textWidth</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startY </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">height </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">textWidth</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  // 绘制文本框
+  drawTextItem(startX: number, startY: number, width: number, height: number, title: string) {
+    this.context.beginPath();
+    // 画一个外边框
+    this.context.rect(startX, startY, width, height);
+    this.context.fillStyle = '#0A59F7';
+    this.context.strokeStyle = '#0A59F7';
+    this.context.stroke();
+    this.context.fill();
+    // 绘制文字
+    this.context.fillStyle = Color.White;
+    this.context.font = '16vp sans-serif';
+    this.context.textBaseline = 'middle';
+    let textWidth = this.context.measureText(title).width;
+    this.context.fillText(title, startX + (width - textWidth) / 2, startY + height / 2, textWidth);
+  }
 
-  <span style="color: rgb(0,0,255);">render</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">node</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">TestOrg</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">nodeWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">nodeHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">nodeMargin </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">12</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawTextItem</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">nodeWidth</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">nodeHeight</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">node</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">title</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">node</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(255,255,255);">node</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      let <span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getAllCount</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">node</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">计算底层节点个数</span></em>
-      let <span style="color: rgb(255,255,255);">start </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">startX </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeWidth </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeMargin </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">count </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">))) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">起点</span></em>
-      <span style="color: rgb(255,255,255);">node</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">forEach</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        let <span style="color: rgb(255,255,255);">childrenStartX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-        let <span style="color: rgb(255,255,255);">childrenStartY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">startY </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">nodeMargin </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">nodeHeight</span><span style="color: rgb(181,106,1);">;</span>
-        let <span style="color: rgb(255,255,255);">nodeLength </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">children</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">nodeLength </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getAllCount</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">nodeLength </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span>
-        <span style="color: rgb(255,255,255);">childrenStartX </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">start </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeWidth </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">nodeLength </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeMargin </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeLength </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">))) </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(255,255,255);">start </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">start </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeWidth </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">nodeLength </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeMargin </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeLength </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">))) </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">nodeMargin</span><span style="color: rgb(181,106,1);">;</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">drawLine</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">startX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">startY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">childrenStartX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">childrenStartY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">划线</span></em>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">render</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">childrenStartX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">childrenStartY</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">画子级</span></em>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  render(startX: number, startY: number, node: TestOrg) {
+    let nodeWidth = 100;
+    let nodeHeight = 50;
+    let nodeMargin = 12;
+    this.drawTextItem(startX, startY, nodeWidth, nodeHeight, node.title);
+    if (node.children && node.children.length > 0) {
+      let count = 0;
+      count = this.getAllCount(node); // 计算底层节点个数
+      let start = startX - (nodeWidth * count + (nodeMargin * (count - 1))) / 2; // 起点
+      node.children.forEach((item) => {
+        let childrenStartX = 0;
+        let childrenStartY = startY + nodeMargin + nodeHeight;
+        let nodeLength = 0;
+        if (item.children && item.children.length > 0) {
+          nodeLength = this.getAllCount(item);
+        } else {
+          nodeLength = 1;
+        }
+        childrenStartX = start + (nodeWidth * nodeLength + (nodeMargin * (nodeLength - 1))) / 2;
+        start = start + (nodeWidth * nodeLength + (nodeMargin * (nodeLength - 1))) + nodeMargin;
+        this.drawLine(startX, startY, childrenStartX, childrenStartY); // 划线
+        this.render(childrenStartX, childrenStartY, item); // 画子级
+      });
+    }
+  }
 
- <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">绘制路径线条</span></em>
-  <span style="color: rgb(0,0,255);">drawLine</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">nodeY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">childX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">childY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">nodeWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">nodeHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">nodeMargin </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">12</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">beginPath</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">moveTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeWidth </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">nodeY </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">nodeHeight</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeWidth </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">nodeY </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">nodeHeight </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeMargin </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">childX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeWidth </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">childY </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeMargin </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">lineTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">childX </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">nodeWidth </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">childY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">lineWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">;</span>
-    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stroke</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将起点和终点连接</span></em>
-  <span style="color: rgb(181,106,1);">}</span>
+  // 绘制路径线条
+  drawLine(nodeX: number, nodeY: number, childX: number, childY: number) {
+    let nodeWidth = 100;
+    let nodeHeight = 50;
+    let nodeMargin = 12;
+    this.context.beginPath();
+    this.context.moveTo(nodeX + (nodeWidth / 2), nodeY + nodeHeight);
+    this.context.lineTo(nodeX + (nodeWidth / 2), nodeY + nodeHeight + (nodeMargin / 2));
+    this.context.lineTo(childX + (nodeWidth / 2), childY - (nodeMargin / 2));
+    this.context.lineTo(childX + (nodeWidth / 2), childY);
+    this.context.lineWidth = 2;
+    this.context.stroke(); // 将起点和终点连接
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Flex</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">direction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">FlexDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Column</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">alignItems</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">ItemAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">justifyContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Canvas</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onReady</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">render</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">130</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">province</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
+      Canvas(this.context)
+        .width('100%')
+        .height('100%')
+        .onReady(() => {
+          this.render(130, 200, this.province);
+        })
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
 ```

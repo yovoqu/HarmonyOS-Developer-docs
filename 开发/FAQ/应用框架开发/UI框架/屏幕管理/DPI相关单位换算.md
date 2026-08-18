@@ -29,9 +29,9 @@ struct Index {
 
   aboutToAppear(): void {
     let displayClass: display.Display = display.getDefaultDisplaySync();
-   <em> // 获取屏幕高度（以像素为单位）</em>
+    // 获取屏幕高度（以像素为单位）
     let height = displayClass.height;
-    <em>// </em><em>获取屏幕的垂直方向的DPI（每英寸点数）</em>
+    // 获取屏幕的垂直方向的DPI（每英寸点数）
     let dpi = displayClass.yDPI;
     console.info(`屏幕Y方向对应的DPI:${dpi}`);
     console.info(`屏幕宽度的物理长度（mm）:${height / dpi * 25.4}`);

@@ -68,7 +68,7 @@ struct CheckboxDemo {
       Text(`复选框状态${this.checkSelect ? '（ 选中 ）' : '（ 非选中 ）'}`).margin({ bottom: 10 });
       Checkbox({ name: '复选框状态', group: 'checkboxGroup' })
         .select($$this.checkSelect)
-        .contentModifier(new MyCheckboxStyle('#0A59F7', 100, 120, 100, 80)) /<em>/ 自定义选择框样式</em>
+        .contentModifier(new MyCheckboxStyle('#0A59F7', 100, 120, 100, 80)) // 自定义选择框样式
         .onChange((value: boolean) => {
           console.info(`Checkbox change is${value}`);
         });
@@ -87,8 +87,8 @@ function buildCheckbox(config: CheckBoxConfiguration) {
     .fill(config.selected ? (config.contentModifier as MyCheckboxStyle).selectedColor : Color.White)
     .width(50)
     .height(50)
-    .strokeWidth(5) <em>// 设置边框宽度</em>
-    .stroke('#000') /<em>/ 设置边框颜色</em>
+    .strokeWidth(5) // 设置边框宽度
+    .stroke('#000') // 设置边框颜色
     .onClick(() => {
       config.triggerChange(!config.selected);
     });
@@ -129,7 +129,7 @@ struct ModifierCheckBoxTwo {
     Row() {
       Column() {
         Checkbox({ name: '复选框状态', group: 'checkboxGroup' })
-          .contentModifier(new MyCheckboxStyleTwo($r('app.media.green'))) <em>// 自定义选择框样式，根据具体场景传入默认背景</em>
+          .contentModifier(new MyCheckboxStyleTwo($r('app.media.green'))) // 自定义选择框样式，根据具体场景传入默认背景
           .onChange((value: boolean) => {
             console.info(`Checkbox change is${value}`);
           });
@@ -148,18 +148,18 @@ function buildCheckboxTwo(config: CheckBoxConfiguration) {
     Flex({ justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {
     }
     .onClick(() => {
-     <em> // 对当前背景图片进行取反操作</em>
+      // 对当前背景图片进行取反操作
       (config.contentModifier as MyCheckboxStyleTwo).selectedColor =
-        !config.selected ? $r('app.media.startIcon') : $r('app.media.background'); <em>// 根据具体场景加载资源</em>
-   <em>   // 判断多选框的选择状态</em>
+        !config.selected ? $r('app.media.startIcon') : $r('app.media.background'); // 根据具体场景加载资源
+      // 判断多选框的选择状态
       config.triggerChange(!config.selected);
     })
     .width(50)
     .height(50)
     .borderRadius(5)
     .backgroundImageSize({ width: '100%', height: '100%' })
-    /<em>/ 示例效果：未选中状态时的背景图片为绿色图片，经过自定义后未选中状态时的背景图片为蓝色图片</em>
-    .backgroundImage((config.contentModifier as MyCheckboxStyleTwo).selectedColor);<em> // 设置背景，根据具体场景加载资源</em>
+    // 示例效果：未选中状态时的背景图片为绿色图片，经过自定义后未选中状态时的背景图片为蓝色图片
+    .backgroundImage((config.contentModifier as MyCheckboxStyleTwo).selectedColor); // 设置背景，根据具体场景加载资源
   };
 }
 ```

@@ -33,7 +33,7 @@ struct CustomDialogExample {
   @State showFlag: Visibility = Visibility.Visible;
   private effect: TransitionEffect =
     TransitionEffect.OPACITY.animation({ curve: curves.springMotion(0, 1) })
-    <em>// 添加平移转场效果，这里的动画参数使用指定的springMotion()</em>
+    // 添加平移转场效果，这里的动画参数使用指定的springMotion()
       .combine(TransitionEffect.translate({ x: 150 }).animation({ curve: curves.springMotion() }));
 
   build() {
@@ -91,8 +91,8 @@ import { curves } from '@kit.ArkUI';
 struct CustomDialogExampleTwo {
   controller: CustomDialogController;
   @State showFlag: Visibility = Visibility.Visible;
-  @State translateX: number = 500; <em>// 设置组件在x轴的平移距离</em>
-  @State transparency: number = 0;<em> </em><em>// 设置组件的不透明度</em>
+  @State translateX: number = 500; // 设置组件在x轴的平移距离
+  @State transparency: number = 0; // 设置组件的不透明度
   duration: number = 400;
 
   build() {

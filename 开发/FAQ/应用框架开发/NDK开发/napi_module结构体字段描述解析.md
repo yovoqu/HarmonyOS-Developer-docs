@@ -8,12 +8,12 @@
  
 ```text
 static napi_module demoModule = {
-    .nm_version = 1,            <em> // nm Version number, default value is 1</em>
-    .nm_flags = 0,             <em>  // nm Identifier</em>
-    .nm_filename = nullptr,     <em> // File name, don't pay attention to it for now, just use the default value</em>
-    .nm_register_func = Init,   <em> // Specify the entrance function for nm</em>
-    .nm_modname = "entry",     <em>  // Specify the module name to import from the ArkTS page</em>
-    .nm_priv = ((void*)0),      <em> // Don't follow for now, just use the default settings</em>
-    .reserved = { 0 },           <em>// Don't pay attention for now, just use the default value</em>
+    .nm_version = 1,             // nm Version number, default value is 1
+    .nm_flags = 0,               // nm Identifier
+    .nm_filename = nullptr,      // File name, don't pay attention to it for now, just use the default value
+    .nm_register_func = Init,    // Specify the entrance function for nm
+    .nm_modname = "entry",       // Specify the module name to import from the ArkTS page
+    .nm_priv = ((void*)0),       // Don't follow for now, just use the default settings
+    .reserved = { 0 },           // Don't pay attention for now, just use the default value
 };
 ```

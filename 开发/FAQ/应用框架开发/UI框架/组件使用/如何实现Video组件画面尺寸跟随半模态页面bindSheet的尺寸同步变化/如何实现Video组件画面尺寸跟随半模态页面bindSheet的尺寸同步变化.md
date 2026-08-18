@@ -35,8 +35,8 @@
 @Entry
 @Component
 export struct VideoBindSheet {
-  @State videoSrc: Resource = $rawfile('harmonyos-next-pv-video-popup.mp4'); <em>// 资源更换为实际视频</em>
-  @State previewUri: Resource = $r('app.media.img'); <em>// 资源更换为实际预览图</em>
+  @State videoSrc: Resource = $rawfile('harmonyos-next-pv-video-popup.mp4'); // 资源更换为实际视频
+  @State previewUri: Resource = $r('app.media.img'); // 资源更换为实际预览图
   @State curSpeed: PlaybackSpeed = PlaybackSpeed.Speed_Forward_1_00_X;
   @State showFirstFrame: boolean = false;
   @State showBindSheet: boolean = false;
@@ -44,7 +44,7 @@ export struct VideoBindSheet {
   @State sheetHeight: number = 0;
   controller: VideoController = new VideoController();
 
-  <em>// 半模态页面</em>
+  // 半模态页面
   @Builder
   bindSheetBuilder() {
     Column() {
@@ -73,8 +73,8 @@ export struct VideoBindSheet {
         })
           .width('100%')
           .height(this.containerHeight === undefined ? '100%' :
-            this.containerHeight - this.sheetHeight) <em>// 首次布局时撑满容器，后续随半模态页面高度变化</em>
-          .objectFit(ImageFit.Contain) <em>// 边界内完全显示</em>
+            this.containerHeight - this.sheetHeight) // 首次布局时撑满容器，后续随半模态页面高度变化
+          .objectFit(ImageFit.Contain) // 边界内完全显示
           .onFinish(() => {
             this.controller.reset();
           });
@@ -83,7 +83,7 @@ export struct VideoBindSheet {
           .type(ButtonType.Capsule)
           .position({ right: 10, bottom: 50 + this.sheetHeight })
           .onClick(() => {
-            <em>// 拉起半模态页面</em>
+            // 拉起半模态页面
             this.showBindSheet = true;
           });
       }
@@ -94,27 +94,27 @@ export struct VideoBindSheet {
         this.bindSheetBuilder(),
         {
           height: 450,
-          preferType: SheetType.POPUP, <em>// 跟手弹窗</em>
+          preferType: SheetType.POPUP, // 跟手弹窗
           showClose: true,
-          placement: Placement.Bottom, <em>// 底部弹窗</em>
+          placement: Placement.Bottom, // 底部弹窗
           shouldDismiss: () => {
-            <em>// 页面交互式关闭时，修改显示状态为false，半模态页面高度重置为0</em>
+            // 页面交互式关闭时，修改显示状态为false，半模态页面高度重置为0
             this.showBindSheet = false;
             this.sheetHeight = 0;
           },
           onHeightDidChange: (height: number) => {
-            <em>// 根据每一帧高度，动态修改页面高度，需注意处理导航栏高度，导航栏高度为91px或28vp；若页面不显示，则重置为0</em>
+            // 根据每一帧高度，动态修改页面高度，需注意处理导航栏高度，导航栏高度为91px或28vp；若页面不显示，则重置为0
             this.sheetHeight = this.getUIContext().px2vp(height - 91);
             if (!this.showBindSheet) {
               this.sheetHeight = 0;
             }
           },
-          onWillAppear: () => this.sheetHeight = 422 <em>// 半模态页面高度450vp，需避让导航栏高度28vp，实际Video抬起高度为422vp</em>
+          onWillAppear: () => this.sheetHeight = 422 // 半模态页面高度450vp，需避让导航栏高度28vp，实际Video抬起高度为422vp
         }
       )
       .onAreaChange((oldValue, newValue) => {
         console.info(`Old Height: ${oldValue.height}`);
-        <em>// 获取容器高度</em>
+        // 获取容器高度
         this.containerHeight = newValue.height as number;
       });
     }
@@ -148,11 +148,11 @@ export struct VideoBindSheet {
 import { window, KeyboardAvoidMode } from '@kit.ArkUI';
 import { common } from '@kit.AbilityKit';
 
-<em>// 创建LocalStorage实例并初始化</em>
+// 创建LocalStorage实例并初始化
 let para: Record<string, number> = { 'dialogHeight': 0 };
 let storage: LocalStorage = new LocalStorage(para);
 
-<em>// NavDestination组件构造函数</em>
+// NavDestination组件构造函数
 @Builder
 function pageBuilder(name: string) {
   if (name === 'VideoPage') {
@@ -164,7 +164,7 @@ function pageBuilder(name: string) {
   }
 }
 
-<em>// Entry页面添加storage</em>
+// Entry页面添加storage
 @Entry(storage)
 @Component
 export struct VideoNavigation {
@@ -175,29 +175,29 @@ export struct VideoNavigation {
       Column() {
         Button('跳转Video')
           .onClick(() => {
-            this.pageInfos.pushPath({ name: 'VideoPage', param: this.pageInfos }); <em>// 跳转至Video组件页面</em>
+            this.pageInfos.pushPath({ name: 'VideoPage', param: this.pageInfos }); // 跳转至Video组件页面
           });
       }
       .height(200)
       .justifyContent(FlexAlign.Center);
     }
     .hideTitleBar(true)
-    .mode(NavigationMode.Stack) <em>// 单栏模式</em>
-    .navDestination(pageBuilder); <em>// 创建NavDestination组件</em>
+    .mode(NavigationMode.Stack) // 单栏模式
+    .navDestination(pageBuilder); // 创建NavDestination组件
   }
 }
 
-<em>// Video页面</em>
+// Video页面
 @Component
 struct VideoPage {
   @Consume pageInfos: NavPathStack = new NavPathStack();
   controller: VideoController = new VideoController();
-  @State videoSrc: Resource = $rawfile('harmonyos-next-pv-video-popup.mp4'); <em>// 资源更换为实际视频</em>
-  @State previewUri: Resource = $r('app.media.img'); <em>// 资源更换为实际预览图</em>
+  @State videoSrc: Resource = $rawfile('harmonyos-next-pv-video-popup.mp4'); // 资源更换为实际视频
+  @State previewUri: Resource = $r('app.media.img'); // 资源更换为实际预览图
   @State curSpeed: PlaybackSpeed = PlaybackSpeed.Speed_Forward_1_00_X;
   @State showFirstFrame: boolean = false;
   @State containerHeight: number | undefined = undefined;
-  @LocalStorageLink('dialogHeight') dialogHeight: number = 0; <em>// 与LocalStorage中对应属性建立双向绑定</em>
+  @LocalStorageLink('dialogHeight') dialogHeight: number = 0; // 与LocalStorage中对应属性建立双向绑定
 
   build() {
     NavDestination() {
@@ -210,9 +210,9 @@ struct VideoPage {
           posterOptions: { showFirstFrame: this.showFirstFrame }
         })
           .width('100%')
-          <em>// 首次布局时撑满容器，后续随半模态页面高度变化</em>
+          // 首次布局时撑满容器，后续随半模态页面高度变化
           .height(this.containerHeight === undefined ? '100%' : this.containerHeight - this.dialogHeight)
-          .objectFit(ImageFit.Contain) <em>// 边界内完全显示</em>
+          .objectFit(ImageFit.Contain) // 边界内完全显示
           .onFinish(() => {
             this.controller.reset();
           });
@@ -221,13 +221,13 @@ struct VideoPage {
           .type(ButtonType.Capsule)
           .position({ right: 10, bottom: 50 + this.dialogHeight })
           .onClick(() => {
-            this.pageInfos.pushPath({ name: 'CommentPage' }); <em>// 跳转至弹窗页面</em>
+            this.pageInfos.pushPath({ name: 'CommentPage' }); // 跳转至弹窗页面
           });
       }
       .height('96%')
       .onAreaChange((oldValue, newValue) => {
         console.info(`Old Height: ${oldValue.height}`);
-        this.containerHeight = newValue.height as number; <em>// 获取容器高度</em>
+        this.containerHeight = newValue.height as number; // 获取容器高度
       });
     }
     .height('100%')
@@ -238,11 +238,11 @@ struct VideoPage {
   }
 }
 
-<em>// 弹窗页面</em>
+// 弹窗页面
 @Component
 struct CommentPage {
   @Consume pageInfos: NavPathStack;
-  @LocalStorageLink('dialogHeight') dialogHeight: number = 0; <em>// 与LocalStorage中对应属性建立双向绑定</em>
+  @LocalStorageLink('dialogHeight') dialogHeight: number = 0; // 与LocalStorage中对应属性建立双向绑定
   @State preHeight: number = 0;
   @State commentContainerHeight: number | undefined = undefined;
   @State keyboardHeight: number = 0;
@@ -250,10 +250,10 @@ struct CommentPage {
 
   aboutToAppear(): void {
     window.getLastWindow(this.context, (err, currentWindow) => {
-      currentWindow.getUIContext().setKeyboardAvoidMode(KeyboardAvoidMode.NONE); <em>// 不避让键盘</em>
+      currentWindow.getUIContext().setKeyboardAvoidMode(KeyboardAvoidMode.NONE); // 不避让键盘
       currentWindow.on('keyboardHeightChange', (data) => {
-        let keyboardHgt = this.getUIContext().px2vp(data); <em>// 获取键盘高度</em>
-        this.keyboardHeight = keyboardHgt - 28; <em>// 获取避让高度，28为导航栏高度</em>
+        let keyboardHgt = this.getUIContext().px2vp(data); // 获取键盘高度
+        this.keyboardHeight = keyboardHgt - 28; // 获取避让高度，28为导航栏高度
       });
       console.info(`err: ${err.message}`);
     });
@@ -270,17 +270,17 @@ struct CommentPage {
             .backgroundColor(Color.Gray)
             .borderColor({ bottom: Color.Black })
             .gesture(
-              <em>// 顺序识别手势组合</em>
+              // 顺序识别手势组合
               GestureGroup(GestureMode.Sequence,
-                LongPressGesture({ repeat: true, duration: 100 }), <em>// 长按手势</em>
-                PanGesture({ direction: PanDirection.Vertical }) <em>// 滑动手势，识别纵向滑动</em>
+                LongPressGesture({ repeat: true, duration: 100 }), // 长按手势
+                PanGesture({ direction: PanDirection.Vertical }) // 滑动手势，识别纵向滑动
                   .onActionStart(() => {
-                    this.preHeight = this.dialogHeight; <em>// 当前弹窗高度</em>
+                    this.preHeight = this.dialogHeight; // 当前弹窗高度
                   })
                   .onActionUpdate((event) => {
-                    <em>// 动态修改弹窗高度，通过LocalStorage同步传入Video页面，以修改Video组件高度</em>
+                    // 动态修改弹窗高度，通过LocalStorage同步传入Video页面，以修改Video组件高度
                     this.dialogHeight = this.preHeight - event.offsetY;
-                    <em>// 动态修改外容器高度</em>
+                    // 动态修改外容器高度
                     this.commentContainerHeight = this.dialogHeight;
                   })
               )
@@ -291,11 +291,11 @@ struct CommentPage {
               .fontSize('18fp')
               .type(InputType.Normal)
               .width('92%')
-              .offset({ bottom: this.keyboardHeight }); <em>// 输入框偏移避让高度</em>
+              .offset({ bottom: this.keyboardHeight }); // 输入框偏移避让高度
 
             Button('Persons')
               .onClick(() => {
-                this.pageInfos.pushPath({ name: 'PersonPage' }); <em>// 跳转至人员页面</em>
+                this.pageInfos.pushPath({ name: 'PersonPage' }); // 跳转至人员页面
               });
 
             Text('Comments')
@@ -312,17 +312,17 @@ struct CommentPage {
         .backgroundColor(Color.White)
         .onAreaChange((oldValue, newValue) => {
           console.info(`Old Height: ${oldValue.height}`);
-          this.dialogHeight = newValue.height as number; <em>// 获取弹窗高度</em>
-          this.commentContainerHeight = this.dialogHeight; <em>// 获取外容器高度</em>
+          this.dialogHeight = newValue.height as number; // 获取弹窗高度
+          this.commentContainerHeight = this.dialogHeight; // 获取外容器高度
         });
       }
       .height('100%')
       .backgroundColor(Color.Transparent)
       .onClick(() => {
-        this.pageInfos.pop(); <em>// 点击遮罩层，弹窗页面弹出路由栈</em>
+        this.pageInfos.pop(); // 点击遮罩层，弹窗页面弹出路由栈
       });
     }
-    .mode(NavDestinationMode.DIALOG) <em>// 弹窗模式</em>
+    .mode(NavDestinationMode.DIALOG) // 弹窗模式
     .hideTitleBar(true)
     .onWillDisappear(() => {
       this.dialogHeight = 0;
@@ -331,7 +331,7 @@ struct CommentPage {
   }
 }
 
-<em>// 人员页面</em>
+// 人员页面
 @Component
 struct PersonPage {
   @Consume pageInfos: NavPathStack;
@@ -345,7 +345,7 @@ struct PersonPage {
       .height(300)
       .justifyContent(FlexAlign.Center)
       .onClick(() => {
-        this.pageInfos.pop(); <em>// 当前页面弹出路由栈</em>
+        this.pageInfos.pop(); // 当前页面弹出路由栈
       });
     };
   }

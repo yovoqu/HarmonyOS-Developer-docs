@@ -53,12 +53,12 @@ struct Index {
     name: this.dbName,
     securityLevel: relationalStore.SecurityLevel.S1,
   };
-<em>  /**</em>
-<em>   * 创建或打开数据库的路径</em>
-<em>   * 知识点1：</em>
-<em>   * 若不指定StoreConfig的rootDir，则默认在${this.context.databaseDir}/rdb路径下创建或打开数据库;</em>
-<em>   * 若需要自定义数据库的路径，则需指定StoreConfig的rootDir</em>
-<em>   */</em>
+  /**
+   * 创建或打开数据库的路径
+   * 知识点1：
+   * 若不指定StoreConfig的rootDir，则默认在${this.context.databaseDir}/rdb路径下创建或打开数据库;
+   * 若需要自定义数据库的路径，则需指定StoreConfig的rootDir
+   */
   private dbFilePath: string = `${this.context.databaseDir}/rdb`;
 
   build() {
@@ -66,7 +66,7 @@ struct Index {
       Button('rawfile目录下预置的数据库')
         .type(ButtonType.ROUNDED_RECTANGLE)
         .onClick(() => {
-          <em>// 需要替换为实际预置在rawfile目录下的db文件相对路径</em>
+          // 需要替换为实际预置在rawfile目录下的db文件相对路径
           let rawfilePath: string = 'rdb/test.db'; // rawfile/rdb/test.db
           this.saveRawFileToSandbox(rawfilePath, this.dbFilePath, this.dbName);
           this.initDataBaseDir();
@@ -75,7 +75,7 @@ struct Index {
       Button('操作resfile目录下预置的数据库')
         .type(ButtonType.ROUNDED_RECTANGLE)
         .onClick(() => {
-          <em>// 需要替换为实际预置在resfile目录下的db文件相对路径</em>
+          // 需要替换为实际预置在resfile目录下的db文件相对路径
           let resfilePath: string = `${this.context.resourceDir}/rdb/test.db`;
           this.saveResFileToSandbox(resfilePath, this.dbFilePath, this.dbName);
           this.initDataBaseDir();
@@ -94,8 +94,8 @@ struct Index {
 
   private deleteRdb() {
     relationalStore.deleteRdbStore(this.context, this.storeConfig).then(() => {
-      <em>// 数据库删除成功后，已初始化的RdbStore实例将无法继续使用。</em>
-      <em>// 及时将相关变量置空以释放资源。</em>
+      // 数据库删除成功后，已初始化的RdbStore实例将无法继续使用。
+      // 及时将相关变量置空以释放资源。
       this.store = undefined;
       this.promptAction.showToast({ message: `删除数据库成功` });
       console.info('Delete RdbStore successfully.');
@@ -107,13 +107,13 @@ struct Index {
   saveRawFileToSandbox(rawfilePath: string, dbFileDir: string, dbFileName: string) {
     let destFile: fileIo.File | undefined = undefined;
     try {
-<em>      /**</em>
-<em>       * 知识点2：rawfile目录下文件需使用resourceManager的getRawFdSync或getRawFileContentSync获取其文件数据</em>
-<em>       */</em>
-      <em>// 1.获取rawfile目录下预置的数据库文件</em>
+      /**
+       * 知识点2：rawfile目录下文件需使用resourceManager的getRawFdSync或getRawFileContentSync获取其文件数据
+       */
+      // 1.获取rawfile目录下预置的数据库文件
       const srcFile = this.resManage.getRawFdSync(rawfilePath);
-      <em>// 2.将rawfile目录下数据库文件写入指定沙箱目录下</em>
-      <em>// 如果目录不存在则开始创建</em>
+      // 2.将rawfile目录下数据库文件写入指定沙箱目录下
+      // 如果目录不存在则开始创建
       if (!fileIo.accessSync(dbFileDir)) {
         console.info(`沙箱路径【${dbFileDir}】不存在，开始创建目录。`);
         fileIo.mkdirSync(dbFileDir, true);
@@ -136,23 +136,23 @@ struct Index {
   }
 
   copyFile(fd: number, currentOffset: number, destFile: fileIo.File) {
-    <em>// 读取缓冲区大小</em>
+    // 读取缓冲区大小
     let bufferSize = 30000;
-    let buffer = new ArrayBuffer(bufferSize); <em>// 创建buffer缓冲区</em>
+    let buffer = new ArrayBuffer(bufferSize); // 创建buffer缓冲区
 
-    <em>// 要copy的文件的offset和length</em>
+    // 要copy的文件的offset和length
     let readOption: ReadOptions = {
       offset: currentOffset,
-      length: bufferSize <em>// 每次期望读取数据的长度。可选，默认缓冲区长度</em>
+      length: bufferSize // 每次期望读取数据的长度。可选，默认缓冲区长度
     };
-    <em>// 后面len会一直减，直到没有</em>
+    // 后面len会一直减，直到没有
     while (true) {
-      <em>// 读取buffer容量的内容</em>
+      // 读取buffer容量的内容
       let readLength = fileIo.readSync(fd, buffer, readOption);
-      <em>// 写入buffer容量的内容</em>
+      // 写入buffer容量的内容
       fileIo.writeSync(destFile.fd, buffer, { length: readLength });
-      <em>// 判断后续内容，修改读文件的参数</em>
-      <em>// buffer没读满代表文件读完了</em>
+      // 判断后续内容，修改读文件的参数
+      // buffer没读满代表文件读完了
       if (readLength < bufferSize) {
         break;
       }
@@ -166,13 +166,13 @@ struct Index {
     let srcFile: fileIo.File | undefined = undefined;
     let destFile: fileIo.File | undefined = undefined;
     try {
-<em>      /**</em>
-<em>       * 知识点3：resfile目录路径可使用${context.resourceDir}获取，可直接使用文件管理的能力打开读取</em>
-<em>       */</em>
-      <em>// 1.获取resfile目录下预置的数据库文件</em>
+      /**
+       * 知识点3：resfile目录路径可使用${context.resourceDir}获取，可直接使用文件管理的能力打开读取
+       */
+      // 1.获取resfile目录下预置的数据库文件
       srcFile = fileIo.openSync(resfilePath, fileIo.OpenMode.READ_ONLY);
-      <em>// 2.将resfile目录下数据库文件写入指定沙箱目录下</em>
-      <em>// 如果目录不存在则开始创建</em>
+      // 2.将resfile目录下数据库文件写入指定沙箱目录下
+      // 如果目录不存在则开始创建
       if (!fileIo.accessSync(dbFileDir)) {
         console.info(`沙箱路径【${dbFileDir}】不存在，开始创建目录。`);
         fileIo.mkdirSync(dbFileDir, true);
@@ -200,7 +200,7 @@ struct Index {
         .then(async (rdbStore: relationalStore.RdbStore) => {
           this.store = rdbStore;
           console.info('Get RdbStore successfully.');
-          <em>// 操作数据库增删改查</em>
+          // 操作数据库增删改查
           this.operateRdb();
         })
         .catch((err: BusinessError) => {
@@ -219,15 +219,15 @@ struct Index {
       return;
     }
     try {
-      <em>// 进行数据的相关操作</em>
-      <em>// 插入数据</em>
+      // 进行数据的相关操作
+      // 插入数据
       const valueBucket: relationalStore.ValuesBucket = {
         'NAME': 'rdbTest',
         'AGE': 10,
       };
       let rowId: number = this.store.insertSync(this.tableName, valueBucket);
       console.info(`Insert is successful, rowId = ${rowId}`);
-      <em>// 查询数据</em>
+      // 查询数据
       let resultSet = this.store.querySqlSync(`SELECT * FROM ${this.tableName} limit 10`);
       console.info(`ResultSet column names: ${resultSet.columnNames}, row count: ${resultSet.rowCount}`);
       if (resultSet.rowCount > 0) {

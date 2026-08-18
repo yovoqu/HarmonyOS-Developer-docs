@@ -68,14 +68,14 @@ struct WebFit {
         .justifyContent(FlexAlign.Center)
         .backgroundColor(Color.Gray);
 
-     <em>   // 网页内容过宽或者过长时需要设置为RenderMode.SYNC_RENDER</em>
+        // 网页内容过宽或者过长时需要设置为RenderMode.SYNC_RENDER
         Web({ src: $rawfile('test.html'), controller: this.webviewController, renderMode: RenderMode.SYNC_RENDER })
           .width('100%')
           .height('100%')
           .metaViewport(true)
-          .layoutMode(WebLayoutMode.FIT_CONTENT)<em> </em><em>// 设置Web组件高度进行自适应</em>
-          .overScrollMode(OverScrollMode.NEVER) <em>// 关闭过界回弹效果</em>
-          .zoomAccess(false)<em> </em><em>// 关闭手势缩放</em>
+          .layoutMode(WebLayoutMode.FIT_CONTENT) // 设置Web组件高度进行自适应
+          .overScrollMode(OverScrollMode.NEVER) // 关闭过界回弹效果
+          .zoomAccess(false) // 关闭手势缩放
           .fileAccess(false)
           .geolocationAccess(false);
         Row() {

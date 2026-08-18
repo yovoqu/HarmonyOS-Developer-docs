@@ -39,7 +39,7 @@ struct Solution1 {
   private pathStack: NavPathStack = new NavPathStack();
 
   aboutToAppear(): void {
-    this.pathStack.pushPath({ name: 'PageOneS1' });<em> </em><em>// 推送第一个子页作为首页</em>
+    this.pathStack.pushPath({ name: 'PageOneS1' }); // 推送第一个子页作为首页
   }
 
   @Builder
@@ -126,7 +126,7 @@ struct PageTwoS1 {
           .width('30%')
           .margin('20vp')
           .onClick(() => {
-         <em>   // 或者使用单例模式跳转回其它页面</em>
+            // 或者使用单例模式跳转回其它页面
             this.pathStack.pushPath({ name: 'PageOneS1' }, { launchMode: LaunchMode.MOVE_TO_TOP_SINGLETON });
           });
       }.width('100%').height('100%');
@@ -159,7 +159,7 @@ struct Solution2 {
   private pathStack: NavPathStack = new NavPathStack();
 
   aboutToAppear(): void {
-    this.pathStack.pushPath({ name: 'PageOneS2' }); <em>// </em><em>推送第一个子页作为首页</em>
+    this.pathStack.pushPath({ name: 'PageOneS2' }); // 推送第一个子页作为首页
   }
 
   @Builder
@@ -203,12 +203,12 @@ struct PageOneS2 {
 
   callBackFunc = (info: uiObserver.NavDestinationSwitchInfo) => {
     console.info(JSON.stringify(info));
-    const offsetY = Number(AppStorage.get('listScrollOffset'));<em> </em><em>// 获取记录切换的tabs中的index</em>
+    const offsetY = Number(AppStorage.get('listScrollOffset')); // 获取记录切换的tabs中的index
     this.scroller.scrollTo({
       xOffset: 0,
       yOffset: offsetY,
       animation: { duration: 0, curve: Curve.Ease }
-    }); <em>// 由于只能上下移动，所以改变yOffset即可</em>
+    }); // 由于只能上下移动，所以改变yOffset即可
   };
 
   build() {
@@ -241,8 +241,8 @@ struct PageOneS2 {
         .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.BOTTOM])
         .onDidScroll((xOffset: number, yOffset: number, scrollState: ScrollState) => {
           console.info(`${xOffset} ${yOffset} ${scrollState}`);
-          this.offsetY += yOffset;<em> </em><em>// 上下滑动，只记录yOffset即可</em>
-          AppStorage.setOrCreate('listScrollOffset', this.offsetY); <em>// 持久化存储</em>
+          this.offsetY += yOffset; // 上下滑动，只记录yOffset即可
+          AppStorage.setOrCreate('listScrollOffset', this.offsetY); // 持久化存储
         });
       }
       .width('100%')

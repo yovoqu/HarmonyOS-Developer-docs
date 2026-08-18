@@ -30,19 +30,19 @@
 async base64Str2PixelMap() {
   let imageSource: image.ImageSource | undefined = undefined;
   try {
-  <em>  // 判断是否以固定格式开头，如果不是则为非法base64字符串图片</em>
+    // 判断是否以固定格式开头，如果不是则为非法base64字符串图片
     let headerReg = new RegExp('data:image/\\w+;base64,');
     let idx = this.imageStr.search(headerReg);
     if (idx !== 0) {
       console.error(`Invalid image base64 string`);
       return;
     }
-  <em>  // 去除头部固定格式字符串</em>
+    // 去除头部固定格式字符串
     let base64Str = this.imageStr.replace(headerReg, '');
-  <em>  // 解码base64为图片二进制数据</em>
+    // 解码base64为图片二进制数据
     let base64Helper = new util.Base64Helper();
     let imgData = await base64Helper.decode(base64Str);
- <em>   // 通过图片二进制数据创建ImageSource，并解码为PixelMap</em>
+    // 通过图片二进制数据创建ImageSource，并解码为PixelMap
     imageSource = image.createImageSource(imgData.buffer.slice(0));
     this.pixelMap = await imageSource.createPixelMap();
   } catch (err) {
@@ -64,21 +64,21 @@ async base64Str2PixelMap() {
   
 ```json
 async saveBase64StrImage() {
- <em> // 匹配开头固定格式的字符串，若不存在，则为非法base64图片</em>
+  // 匹配开头固定格式的字符串，若不存在，则为非法base64图片
   let headerReg = new RegExp('data:image/\\w+;base64,');
   let matchArr = this.imageStr.match(headerReg);
   if (!matchArr || matchArr.length === 0) {
     console.error(`Invalid image base64 string`);
     return;
   }
-<em>  // 去除头部固定格式的字符串</em>
+  // 去除头部固定格式的字符串
   let base64Str = this.imageStr.replace(headerReg, '');
-<em>  // 获得图片编码格式信息</em>
+  // 获得图片编码格式信息
   let fileNameExtension = matchArr[0].replace('data:image/', '').replace(';base64,', '');
- <em> // 解码base64为图片二进制数据</em>
+  // 解码base64为图片二进制数据
   let base64Helper = new util.Base64Helper();
   let imgData = await base64Helper.decode(base64Str);
- <em> // 写入沙箱文件</em>
+  // 写入沙箱文件
   let context = this.getUIContext().getHostContext() as Context;
   let srcFilePath = context.tempDir + `/temp_img.${fileNameExtension}`;
   let tmpFile: fileIo.File | undefined = undefined;
@@ -103,17 +103,17 @@ async saveBase64StrImage() {
     let srcFileUris: Array<string> = [
       srcFileUri,
     ];
-  <em>  // 指定待保存照片的创建选项，包括文件后缀和照片类型，标题和照片子类型可选。</em>
+    // 指定待保存照片的创建选项，包括文件后缀和照片类型，标题和照片子类型可选。
     let photoCreationConfigs: Array<photoAccessHelper.PhotoCreationConfig> = [
       {
         fileNameExtension: fileNameExtension,
         photoType: photoAccessHelper.PhotoType.IMAGE,
       },
     ];
-  <em>  // 基于弹窗授权的方式获取媒体库的目标uri。</em>
+    // 基于弹窗授权的方式获取媒体库的目标uri。
     let desFileUris: Array<string> =
       await phAccessHelper.showAssetsCreationDialog(srcFileUris, photoCreationConfigs);
-  <em>  // 将来源于应用沙箱的照片内容写入媒体库的目标uri。</em>
+    // 将来源于应用沙箱的照片内容写入媒体库的目标uri。
     desFile = await fileIo.open(desFileUris[0], fileIo.OpenMode.WRITE_ONLY);
     srcFile = await fileIo.open(srcFileUri, fileIo.OpenMode.READ_ONLY);
     await fileIo.copyFile(srcFile.fd, desFile.fd);
@@ -151,14 +151,14 @@ struct Base64ImageDemo {
   async image2Base64Str() {
     let imageSource: image.ImageSource | undefined = undefined;
     try {
-    <em>  // 读取rawfile目录下的图片文件</em>
+      // 读取rawfile目录下的图片文件
       let context = this.getUIContext().getHostContext() as Context;
       let imgData = await context.resourceManager.getRawFileContent('img.png');
-   <em>   // 获取图片mime type</em>
+      // 获取图片mime type
       imageSource = image.createImageSource(imgData.buffer.slice(0));
       let info = await imageSource.getImageInfo();
       let mime = info.mimeType;
-   <em>   // 编码图片数据为base64字符串</em>
+      // 编码图片数据为base64字符串
       let base64Helper = new util.Base64Helper();
       let base64Str = await base64Helper.encodeToString(imgData);
       this.imageStr = `data:${mime};base64,` + base64Str;
@@ -174,19 +174,19 @@ struct Base64ImageDemo {
   async base64Str2PixelMap() {
     let imageSource: image.ImageSource | undefined = undefined;
     try {
-     <em> // 判断是否以固定格式开头，如果不是则为非法base64字符串图片</em>
+      // 判断是否以固定格式开头，如果不是则为非法base64字符串图片
       let headerReg = new RegExp('data:image/\\w+;base64,');
       let idx = this.imageStr.search(headerReg);
       if (idx !== 0) {
         console.error(`Invalid image base64 string`);
         return;
       }
-   <em>   // 去除头部固定格式字符串</em>
+      // 去除头部固定格式字符串
       let base64Str = this.imageStr.replace(headerReg, '');
-    <em>  // 解码base64为图片二进制数据</em>
+      // 解码base64为图片二进制数据
       let base64Helper = new util.Base64Helper();
       let imgData = await base64Helper.decode(base64Str);
-    <em>  // 通过图片二进制数据创建ImageSource，并解码为PixelMap</em>
+      // 通过图片二进制数据创建ImageSource，并解码为PixelMap
       imageSource = image.createImageSource(imgData.buffer.slice(0));
       this.pixelMap = await imageSource.createPixelMap();
     } catch (err) {
@@ -200,21 +200,21 @@ struct Base64ImageDemo {
 
 
   async saveBase64StrImage() {
-  <em>  // 匹配开头固定格式的字符串，若不存在，则为非法base64图片</em>
+    // 匹配开头固定格式的字符串，若不存在，则为非法base64图片
     let headerReg = new RegExp('data:image/\\w+;base64,');
     let matchArr = this.imageStr.match(headerReg);
     if (!matchArr || matchArr.length === 0) {
       console.error(`Invalid image base64 string`);
       return;
     }
-   <em> // 去除头部固定格式的字符串</em>
+    // 去除头部固定格式的字符串
     let base64Str = this.imageStr.replace(headerReg, '');
- <em>   // 获得图片编码格式信息</em>
+    // 获得图片编码格式信息
     let fileNameExtension = matchArr[0].replace('data:image/', '').replace(';base64,', '');
-  <em>  // 解码base64为图片二进制数据</em>
+    // 解码base64为图片二进制数据
     let base64Helper = new util.Base64Helper();
     let imgData = await base64Helper.decode(base64Str);
-  <em>  // 写入沙箱文件</em>
+    // 写入沙箱文件
     let context = this.getUIContext().getHostContext() as Context;
     let srcFilePath = context.tempDir + `/temp_img.${fileNameExtension}`;
     let tmpFile: fileIo.File | undefined = undefined;
@@ -239,17 +239,17 @@ struct Base64ImageDemo {
       let srcFileUris: Array<string> = [
         srcFileUri,
       ];
-    <em>  // 指定待保存照片的创建选项，包括文件后缀和照片类型，标题和照片子类型可选。</em>
+      // 指定待保存照片的创建选项，包括文件后缀和照片类型，标题和照片子类型可选。
       let photoCreationConfigs: Array<photoAccessHelper.PhotoCreationConfig> = [
         {
           fileNameExtension: fileNameExtension,
           photoType: photoAccessHelper.PhotoType.IMAGE,
         },
       ];
-    <em>  // 基于弹窗授权的方式获取媒体库的目标uri。</em>
+      // 基于弹窗授权的方式获取媒体库的目标uri。
       let desFileUris: Array<string> =
         await phAccessHelper.showAssetsCreationDialog(srcFileUris, photoCreationConfigs);
-    <em>  // 将来源于应用沙箱的照片内容写入媒体库的目标uri。</em>
+      // 将来源于应用沙箱的照片内容写入媒体库的目标uri。
       desFile = await fileIo.open(desFileUris[0], fileIo.OpenMode.WRITE_ONLY);
       srcFile = await fileIo.open(srcFileUri, fileIo.OpenMode.READ_ONLY);
       await fileIo.copyFile(srcFile.fd, desFile.fd);

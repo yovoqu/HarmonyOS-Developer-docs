@@ -15,7 +15,7 @@ struct CustomizeTheTabsBarAndItsAlignment {
   tabArray = [0, 1];
 
 
-  <em>// Custom tab</em>
+  // Custom tab
   @Builder
   tabBuilder(tabName: string, tabItem: number, tabIndex: number) {
     Column({ space: 20 }) {
@@ -36,7 +36,7 @@ struct CustomizeTheTabsBarAndItsAlignment {
   build() {
     Column() {
       Column() {
-        <em>// tab</em>
+        // tab
         Row({ space: 6 }) {
           Scroll() {
             Row() {
@@ -46,7 +46,7 @@ struct CustomizeTheTabsBarAndItsAlignment {
             }
             .justifyContent(FlexAlign.Start)
           }
-          <em>// Set left alignment</em>
+          // Set left alignment
           .align(Alignment.Start)
           .scrollable(ScrollDirection.Horizontal)
           .scrollBar(BarState.Off)
@@ -57,7 +57,7 @@ struct CustomizeTheTabsBarAndItsAlignment {
         .backgroundColor('#ffb7b7b7')
 
 
-        <em>// tabs</em>
+        // tabs
         Tabs({ barPosition: BarPosition.Start, controller: this.controller }) {
           ForEach(this.tabArray, (item: number, index: number) => {
             TabContent() {

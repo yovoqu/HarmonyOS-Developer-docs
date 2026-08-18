@@ -32,12 +32,12 @@ import { curves } from '@kit.ArkUI';
 @Entry
 @Component
 struct Index {
-  @State controlViewOpacity: number = 0.5;<em> </em><em>// 透明度</em>
-  @State controlViewShow: boolean = true;<em> </em><em>// 是否展示</em>
-  @State controlViewWidth: number = 240;<em> </em><em>// 布局宽度</em>
-  @State controlViewBorderRadius: number = 0; <em>// 布局的圆角大小</em>
-  @State controlViewPaddingLeft: number = 0;<em> </em><em>// 内边距大小</em>
-  finalControlViewWidth: number = 240; <em>// 最终布局宽度</em>
+  @State controlViewOpacity: number = 0.5; // 透明度
+  @State controlViewShow: boolean = true; // 是否展示
+  @State controlViewWidth: number = 240; // 布局宽度
+  @State controlViewBorderRadius: number = 0; // 布局的圆角大小
+  @State controlViewPaddingLeft: number = 0; // 内边距大小
+  finalControlViewWidth: number = 240; // 最终布局宽度
 
   build() {
     Stack() {
@@ -57,16 +57,16 @@ struct Index {
           Text('人声').fontColor(Color.White)
             .fontSize(15);
         }
-        .renderFit(RenderFit.RESIZE_CONTAIN)<em> </em><em>// renderFit设置宽高跟随动画实时变化</em>
+        .renderFit(RenderFit.RESIZE_CONTAIN) // renderFit设置宽高跟随动画实时变化
         .opacity(this.controlViewOpacity)
         .visibility(this.controlViewShow ? Visibility.Visible : Visibility.None)
         .height(30)
         .layoutWeight(1)
-        .clip(true);<em> </em><em>// 伸缩时裁剪超出部分</em>
+        .clip(true); // 伸缩时裁剪超出部分
 
         Image($r('app.media.startIcon')).width(30).height(30)
           .margin({ right: 10 }).onClick(() => {
-        <em>  // 点击图标执行显示动画</em>
+          // 点击图标执行显示动画
           this.getUIContext()?.animateTo({
             duration: 5000,
             curve: curves.springMotion(0.5, 15),

@@ -34,12 +34,12 @@ BarMode.Fixed：所有tabBar会平均分配[barWidth](https://developer.huawei.c
 
   
 ```text
-<em>// 封装页签属性为类</em>
+// 封装页签属性为类
 class TabMember {
-  tabContent: string = ''; <em>// 页面内容</em>
-  tabBar: string = ''; <em>// 页签内容</em>
-  tabBarWidth: number = 0; <em>// 页签宽度</em>
-  tabBarHeight: number = 0; <em>// 页签高度</em>
+  tabContent: string = ''; // 页面内容
+  tabBar: string = ''; // 页签内容
+  tabBarWidth: number = 0; // 页签宽度
+  tabBarHeight: number = 0; // 页签高度
 
   constructor(tabContent: string, tabBar: string, tabBarWidth: number, tabBarHeight: number) {
     this.tabContent = tabContent;
@@ -59,7 +59,7 @@ struct TabContentExample {
     new TabMember('页面三', 'tab3', 140, 40), new TabMember('页面四', 'tab4', 100, 40),
     new TabMember('页面五', 'tab5', 200, 40)];
 
-  <em>// 创建CustomBuilder，并传入页签的各种属性，此处封装为TabMember类</em>
+  // 创建CustomBuilder，并传入页签的各种属性，此处封装为TabMember类
   @Builder
   tabBuilder(index: number, item: TabMember) {
     Column() {
@@ -70,8 +70,8 @@ struct TabContentExample {
     .justifyContent(FlexAlign.Center)
     .border({ width: 1 })
     .backgroundColor(this.selectedIndex === index ? '#46B1E3' : '#F1F3F5')
-    .width(item.tabBarWidth) <em>// 宽度赋值</em>
-    .height(item.tabBarHeight); <em>// 高度赋值</em>
+    .width(item.tabBarWidth) // 宽度赋值
+    .height(item.tabBarHeight); // 高度赋值
   }
 
   build() {
@@ -91,7 +91,7 @@ struct TabContentExample {
       .barMode(BarMode.Scrollable)
       .barHeight(56)
       .onChange((index: number) => {
-        <em>// currentIndex控制TabContent显示页签</em>
+        // currentIndex控制TabContent显示页签
         this.currentIndex = index;
         this.selectedIndex = index;
       })
@@ -99,7 +99,7 @@ struct TabContentExample {
         if (index === targetIndex) {
           return;
         }
-        <em>// selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
+        // selectedIndex控制自定义TabBar内Image和Text颜色切换
         this.selectedIndex = targetIndex;
       })
       .width('100%')

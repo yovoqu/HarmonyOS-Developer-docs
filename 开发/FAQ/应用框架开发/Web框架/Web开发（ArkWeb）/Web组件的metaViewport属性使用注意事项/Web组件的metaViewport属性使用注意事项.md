@@ -27,7 +27,7 @@ metaViewport属性用于设置前端网页viewport属性是否可用，如下示
  
 ```text
 Web({
- <em> // 更改为实际网页或要加载的HTML页面</em>
+  // 更改为实际网页或要加载的HTML页面
   src: 'www.example.com',
   controller: this.controller
 })
@@ -40,7 +40,7 @@ Web({
 this.controller.runJavaScript(`
   let metaViewport = document.querySelector('meta[name="viewport"]');
   if (metaViewport) {
-  <em>  // 修改content属性，更新initial-scale的值</em>
+    // 修改content属性，更新initial-scale的值
     metaViewport.setAttribute('content', 'width=device-width, initial-scale=1.3, minimum-scale=1.0, maximum-scale=4.0, user-scalable=yes');
     console.info('Initial scale changed to 1.3');
   } else {
@@ -66,7 +66,7 @@ struct SettingViewport {
           this.controller.runJavaScript(`
             let metaViewport = document.querySelector('meta[name="viewport"]');
             if (metaViewport) {
-           <em>   // 修改content属性，更新initial-scale的值</em>
+              // 修改content属性，更新initial-scale的值
               metaViewport.setAttribute('content', 'width=device-width, initial-scale=1.3, minimum-scale=1.0, maximum-scale=4.0, user-scalable=yes');
               console.info('Initial scale changed to 1.3');
             } else {
@@ -75,7 +75,7 @@ struct SettingViewport {
           );
         });
       Web({
-     <em>   // 更改为实际网页或要加载的HTML页面</em>
+        // 更改为实际网页或要加载的HTML页面
         src: 'www.example.com',
         controller: this.controller
       })

@@ -77,8 +77,8 @@ extern "C" __attribute__((constructor)) void RegisterCallbackModule(void) {
 3. Promise实现参考：
 ```text
 #include "napi/native_api.h" 
-<em>// Empty value so that macros here are able to return NULL or void </em>
-#define NAPI_RETVAL_NOTHING <em> // Intentionally blank </em>
+// Empty value so that macros here are able to return NULL or void 
+#define NAPI_RETVAL_NOTHING  // Intentionally blank 
 #define GET_AND_THROW_LAST_ERROR(env)                                                                    
     do {                                                                                               
         const napi_extended_error_info* errorInfo = nullptr;                                             
@@ -147,7 +147,7 @@ static napi_value NativeCall(napi_env env, napi_callback_info info) {
     NAPI_CALL(env, napi_get_cb_info(env, info, &argc, args, nullptr, nullptr)); 
     int32_t arg; 
     NAPI_CALL(env, napi_get_value_int32(env, args[0], &arg)); 
-    <em>// Create promise </em>
+    // Create promise 
     napi_deferred deferred; 
     napi_value promise; 
     NAPI_CALL(env, napi_create_promise(env, &deferred, &promise)); 

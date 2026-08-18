@@ -32,11 +32,11 @@ struct Index {
             let context = this.context.getHostContext() as common.UIAbilityContext;
             context.startAbility(want, (err: BusinessError) => {
               if (err.code) {
-                <em>// 处理业务逻辑错误</em>
+                // 处理业务逻辑错误
                 hilog.error(0x0000, 'testTag', `startAbility failed, code is ${err.code}, message is ${err.message}`);
                 return;
               }
-              <em>// 执行正常业务</em>
+              // 执行正常业务
               hilog.info(0x0000, 'testTag', 'startAbility succeed');
             });
           })

@@ -34,9 +34,9 @@ struct RichEditorReplaceImageDemo {
   controller: RichEditorController = new RichEditorController();
   @State pictureName: string = '';
   @State start: number = 0;
- <em> // 当前是否输入@符号</em>
+  // 当前是否输入@符号
   @State flag: boolean = false;
- <em> // 存放图片名称</em>
+  // 存放图片名称
   imageList: Array<string> = ['logo', 'startIcon'];
 
   build() {
@@ -51,16 +51,16 @@ struct RichEditorReplaceImageDemo {
           if (!this.flag) {
             return true;
           }
-        <em>  // 设置通过空格结束输入图片名</em>
+          // 设置通过空格结束输入图片名
           if (value.insertValue === ' ') {
-          <em>  // 判断当前图片是否存在</em>
+            // 判断当前图片是否存在
             if (this.imageList.includes(this.pictureName)) {
               this.controller.deleteSpans({ start: this.start, end: this.controller.getCaretOffset() });
               this.controller.addImageSpan($r('app.media.' + this.pictureName), {
                 imageStyle: { size: ['100px', '100px'] }
               });
             }
-           <em> // 重置标志符</em>
+            // 重置标志符
             this.flag = false;
             this.pictureName = '';
           } else {

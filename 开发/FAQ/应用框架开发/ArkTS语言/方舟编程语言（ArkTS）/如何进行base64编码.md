@@ -25,8 +25,8 @@ struct Base64Encode {
             let arr = new Uint8Array([48, 49, 2, 1, 1, 4, 32, 115, 56]);
             let base64Str = base64.encodeToStringSync(arr); // Uint8Array to base64
             console.log('encodeToStringSync',base64Str);
-          <em>  // base64.decodeSync(''); // base64 to Uint8Array</em>
-<em>            // console.log('decodeSync',base64.decodeSync(''));</em>
+            // base64.decodeSync(''); // base64 to Uint8Array
+            // console.log('decodeSync',base64.decodeSync(''));
           })
       }
       .width('100%')

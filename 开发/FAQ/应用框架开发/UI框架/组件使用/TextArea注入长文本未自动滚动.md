@@ -38,7 +38,7 @@ struct TextAreaExample {
       Button('点击添加文本')
         .onClick(() => {
           this.controller.addText('这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本');
-        <em>  // 设置TextArea获焦</em>
+          // 设置TextArea获焦
           focusControl.requestFocus('focus1');
         })
       TextArea({
@@ -54,17 +54,17 @@ struct TextAreaExample {
         .fontSize(16)
         .fontColor('#182431')
         .backgroundColor('#FFFFFF')
-          <em>// 监听文本变化事件</em>
+          // 监听文本变化事件
         .onChange((value: string) => {
-          <em>// 计算当前输入文本长度</em>
+          // 计算当前输入文本长度
           let length: number = value.length;
-     <em>     // 更新maxLength状态：记录当前输入内容的最大长度</em>
+          // 更新maxLength状态：记录当前输入内容的最大长度
           if (this.maxLength < length) {
             this.maxLength = length;
           }
-          <em>// </em><em>更新text状态：保存最新输入内容</em>
+          // 更新text状态：保存最新输入内容
           this.text = value;
-         <em> // 调用controller的caretPosition方法：将光标定位到文本末尾</em>
+          // 调用controller的caretPosition方法：将光标定位到文本末尾
           this.controller.caretPosition(this.maxLength);
         })
     }.width('100%').height('100%').backgroundColor('#F1F3F5')
@@ -88,7 +88,7 @@ struct TextAreaPage {
   controller: Scroller = new Scroller();
 
   scrollToBottom() {
-    this.controller.scrollEdge(Edge.Bottom);<em>// </em><em>通过控制器滚动到容器底部</em>
+    this.controller.scrollEdge(Edge.Bottom);// 通过控制器滚动到容器底部
   }
 
   build() {

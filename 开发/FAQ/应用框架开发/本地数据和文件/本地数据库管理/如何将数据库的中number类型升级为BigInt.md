@@ -35,12 +35,12 @@ BigInt类型当前不支持比较大小，不支持如下谓词：between、notB
  
 ```text
 async changeDbDataType() {
- <em> // 注意：SQLite不支持简单的ALTER COLUMN来改变类型，以下是一个常见的替代方案</em>
+  // 注意：SQLite不支持简单的ALTER COLUMN来改变类型，以下是一个常见的替代方案
   if (this.rdbStore) {
     try {
-    <em>  // 1.将旧表重命名</em>
+      // 1.将旧表重命名
       await this.rdbStore.executeSql('ALTER TABLE Student RENAME TO old_Student;');
-    <em>  // 2.创建新表结构，使用UNLIMITED INT类型</em>
+      // 2.创建新表结构，使用UNLIMITED INT类型
       const CREATE_TABLE_SQL = 'CREATE TABLE IF NOT EXISTS Student (' +
         'id INTEGER PRIMARY KEY AUTOINCREMENT, ' +
         'name TEXT NOT NULL, ' +
@@ -49,12 +49,12 @@ async changeDbDataType() {
         'carId  UNLIMITED INT DEFAULT 123456789, ' +
         'salary REAL)';
       await this.rdbStore.executeSql(CREATE_TABLE_SQL);
-    <em>  // 3.将旧表数据迁移到新表，使用CAST(原列AS UNLIMITED INT)确保数据无损转换</em>
+      // 3.将旧表数据迁移到新表，使用CAST(原列AS UNLIMITED INT)确保数据无损转换
       const INSERT_SQL = 'INSERT INTO Student (id, name, age, identity, carId, salary) ' +
         'SELECT id, name, age, identity, CAST(carId AS UNLIMITED INT), ' +
         'salary FROM old_Student;';
       await this.rdbStore.executeSql(INSERT_SQL);
-     <em> // 4.删除旧表</em>
+      // 4.删除旧表
       await this.rdbStore.executeSql('DROP TABLE old_Student');
       console.info('数据库表结构升级完成，字段类型已改为BigInt');
     } catch (err) {
@@ -89,7 +89,7 @@ struct Index {
         return;
       }
       console.info(`Create Student.db successfully!`);
-     <em> // 创建表，在创建表时，通过DEFAULT关键字为bigint列设置默认值</em>
+      // 创建表，在创建表时，通过DEFAULT关键字为bigint列设置默认值
       const CREATE_TABLE_SQL = 'CREATE TABLE IF NOT EXISTS Student (' +
         'id INTEGER PRIMARY KEY AUTOINCREMENT, ' +
         'name TEXT NOT NULL, ' +
@@ -103,7 +103,7 @@ struct Index {
   }
 
   async insert(valueBucketArray: Array<relationalStore.ValuesBucket>) {
- <em>   // 数据插入</em>
+    // 数据插入
     if (this.rdbStore) {
       await this.rdbStore.batchInsert('Student', valueBucketArray);
       console.info(`insert data successfully!`);
@@ -111,10 +111,10 @@ struct Index {
   }
 
   async query() {
-  <em>  // 获取结果集</em>
+    // 获取结果集
     if (this.rdbStore) {
       let predicates: relationalStore.RdbPredicates = new relationalStore.RdbPredicates('Student');
-      let resultSet = await this.rdbStore.query(predicates); <em>// 查询所有数据</em>
+      let resultSet = await this.rdbStore.query(predicates); // 查询所有数据
       console.info(`Query data successfully! row count:${resultSet.rowCount}`);
       while (resultSet.goToNextRow()) {
         const id = resultSet.getLong(resultSet.getColumnIndex('id'));
@@ -125,18 +125,18 @@ struct Index {
         const salary = resultSet.getDouble(resultSet.getColumnIndex('SALARY'));
         console.info(`id=${id}, name=${name}, age=${age},carId=${carId}, identity=${identity}, salary=${salary}`);
       }
-     <em> // 释放数据集的内存</em>
+      // 释放数据集的内存
       resultSet.close();
     }
   }
 
   async changeDbDataType() {
-   <em> // 注意：SQLite不支持简单的ALTER COLUMN来改变类型，以下是一个常见的替代方案</em>
+    // 注意：SQLite不支持简单的ALTER COLUMN来改变类型，以下是一个常见的替代方案
     if (this.rdbStore) {
       try {
-       <em> // 1.将旧表重命名</em>
+        // 1.将旧表重命名
         await this.rdbStore.executeSql('ALTER TABLE Student RENAME TO old_Student;');
-      <em>  // 2.创建新表结构，使用UNLIMITED INT类型</em>
+        // 2.创建新表结构，使用UNLIMITED INT类型
         const CREATE_TABLE_SQL = 'CREATE TABLE IF NOT EXISTS Student (' +
           'id INTEGER PRIMARY KEY AUTOINCREMENT, ' +
           'name TEXT NOT NULL, ' +
@@ -145,12 +145,12 @@ struct Index {
           'carId  UNLIMITED INT DEFAULT 123456789, ' +
           'salary REAL)';
         await this.rdbStore.executeSql(CREATE_TABLE_SQL);
-     <em>   // 3.将旧表数据迁移到新表，使用CAST(原列AS UNLIMITED INT)确保数据无损转换</em>
+        // 3.将旧表数据迁移到新表，使用CAST(原列AS UNLIMITED INT)确保数据无损转换
         const INSERT_SQL = 'INSERT INTO Student (id, name, age, identity, carId, salary) ' +
           'SELECT id, name, age, identity, CAST(carId AS UNLIMITED INT), ' +
           'salary FROM old_Student;';
         await this.rdbStore.executeSql(INSERT_SQL);
-       <em> // 4.删除旧表</em>
+        // 4.删除旧表
         await this.rdbStore.executeSql('DROP TABLE old_Student');
         console.info('数据库表结构升级完成，字段类型已改为BigInt');
       } catch (err) {
@@ -169,12 +169,12 @@ struct Index {
         Button('插入数据')
           .margin({ top: 10 })
           .onClick(() => {
-           <em> // 模拟数据</em>
+            // 模拟数据
             const count = 2;
             const timeCount = new Date().getTime();
             let valueBucketArray = new Array<relationalStore.ValuesBucket>(count);
             for (let i = 0; i < count; i++) {
-           <em>   // identity不做设置，数据库显示默认值</em>
+              // identity不做设置，数据库显示默认值
               let v: relationalStore.ValuesBucket = {
                 id: timeCount + i,
                 name: 'zhangsan' + i,

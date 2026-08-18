@@ -46,10 +46,10 @@ struct Index {
         .onClick(() => {
           for (let i: number = 0; i < 6; i++) {
             let fileUrl = `entry/ets/workers/Worker.ets`;
-           <em> // 创建Worker对象</em>
+            // 创建Worker对象
             let workerInstance = new worker.ThreadWorker(fileUrl);
 
-         <em>   // 注册onmessage回调，捕获宿主线程接收到来自其创建的Worker通过workerPort.postMessage接口发送的消息。该回调在宿主线程执行</em>
+            // 注册onmessage回调，捕获宿主线程接收到来自其创建的Worker通过workerPort.postMessage接口发送的消息。该回调在宿主线程执行
             workerInstance.onmessage = (e: MessageEvents) => {
               let data: string = e.data;
               this.message += data;
@@ -57,23 +57,23 @@ struct Index {
               console.info('workerInstance onmessage is: ', data);
             };
 
-           <em> // 注册onAllErrors回调，捕获Worker线程的onmessage回调、timer回调以及文件执行等流程产生的全局异常。该回调在宿主线程执行</em>
+            // 注册onAllErrors回调，捕获Worker线程的onmessage回调、timer回调以及文件执行等流程产生的全局异常。该回调在宿主线程执行
             workerInstance.onAllErrors = (err: ErrorEvent) => {
               console.error('workerInstance onAllErrors message is: ' + err.message);
             };
 
-          <em>  // 注册onmessageerror回调，当Worker对象接收到无法序列化的消息时被调用，在宿主线程执行</em>
+            // 注册onmessageerror回调，当Worker对象接收到无法序列化的消息时被调用，在宿主线程执行
             workerInstance.onmessageerror = () => {
               console.error('workerInstance onmessageerror');
             };
 
-          <em>  // 注册onexit回调，当Worker销毁时被调用，在宿主线程执行</em>
+            // 注册onexit回调，当Worker销毁时被调用，在宿主线程执行
             workerInstance.onexit = (e: number) => {
-             <em> // Worker正常退出时，code为0；异常退出时，code为1</em>
+              // Worker正常退出时，code为0；异常退出时，code为1
               console.info('workerInstance onexit code is: ', e);
             };
 
-          <em>  // 发送消息给Worker线程</em>
+            // 发送消息给Worker线程
             workerInstance.postMessage(i.toString());
           }
         });
@@ -97,12 +97,12 @@ import { rcp } from '@kit.RemoteCommunicationKit';
 
 const workerPort: ThreadWorkerGlobalScope = worker.workerPort;
 
-<em>/**</em>
-<em> * Defines the event handler to be called when the worker thread receives a message sent by the host thread.</em>
-<em> * The event handler is executed in the worker thread.</em>
-<em> *</em>
-<em> * @param event message data</em>
-<em> */</em>
+/**
+ * Defines the event handler to be called when the worker thread receives a message sent by the host thread.
+ * The event handler is executed in the worker thread.
+ *
+ * @param event message data
+ */
 workerPort.onmessage = (event: MessageEvents) => {
   let data: string = event.data;
   console.info('workerPort onmessage is: ', data);
@@ -119,26 +119,26 @@ workerPort.onmessage = (event: MessageEvents) => {
   }
 
 
- <em> // 向宿主线程发送消息</em>
+  // 向宿主线程发送消息
   workerPort.postMessage(sessionMap.size.toString());
 };
 
-<em>/**</em>
-<em> * Defines the event handler to be called when the worker receives a message that cannot be deserialized.</em>
-<em> * The event handler is executed in the worker thread.</em>
-<em> *</em>
-<em> * @param event message data</em>
-<em> */</em>
+/**
+ * Defines the event handler to be called when the worker receives a message that cannot be deserialized.
+ * The event handler is executed in the worker thread.
+ *
+ * @param event message data
+ */
 workerPort.onmessageerror = (event: MessageEvents) => {
   console.error('workerPort onmessageerror', event.type);
 };
 
-<em>/**</em>
-<em> * Defines the event handler to be called when an exception occurs during worker execution.</em>
-<em> * The event handler is executed in the worker thread.</em>
-<em> *</em>
-<em> * @param event error message</em>
-<em> */</em>
+/**
+ * Defines the event handler to be called when an exception occurs during worker execution.
+ * The event handler is executed in the worker thread.
+ *
+ * @param event error message
+ */
 workerPort.onerror = (event: ErrorEvent) => {
   console.error('workerPort onerror err is: ', event.message);
 };

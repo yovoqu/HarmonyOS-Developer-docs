@@ -25,7 +25,7 @@
 
 - **场景一**：可以通过使用onScrollIndex方法来实现，在加载最后一个item之前发请求拿新数据。
 ```text
-<em>// </em><em>模拟分页数据</em>
+// 模拟分页数据
 export class ListDataOne {
   data: Array<string> = [];
   totalCount: number = 100;
@@ -75,7 +75,7 @@ struct GetTheHeightOfTheListItemOne {
       .alignListItem(ListItemAlign.Center)
       .cachedCount(2)
       .onScrollIndex((start: number, end: number, center: number) => {
-        <em>// 加载最后一个item之前发请求拿新数据</em>
+        // 加载最后一个item之前发请求拿新数据
         if (end === this.page * this.pageSize - 1) {
           this.page++;
           let listData = new ListDataOne();
@@ -119,9 +119,9 @@ struct GetTheHeightOfTheListItemTwo {
               .fontSize(30)
               .onAreaChange((newValue: Area) => {
                 if (!this.isFlag) {
-                  console.info(`${newValue.height}`); <em>// </em><em>获取每一个组件的高度</em>
-                  console.info(`length  ${this.list.length}`); <em>// </em><em>获取总共有多少个组件</em>
-                  console.info(`index ${index} -- ${newValue.height}`); <em>// </em><em>获取每个组件</em>
+                  console.info(`${newValue.height}`); // 获取每一个组件的高度
+                  console.info(`length  ${this.list.length}`); // 获取总共有多少个组件
+                  console.info(`index ${index} -- ${newValue.height}`); // 获取每个组件
                   this.isFlag = !this.isFlag;
                   console.info(`sum: ${Number(newValue.height) * this.list.length}`);
                 }

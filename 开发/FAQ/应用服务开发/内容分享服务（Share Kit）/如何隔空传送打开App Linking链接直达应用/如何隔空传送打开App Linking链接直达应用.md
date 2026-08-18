@@ -32,25 +32,25 @@
 ```json
 {
   "entities": [
-  <em>  // entities必须包含"entity.system.browsable"</em>
+    // entities必须包含"entity.system.browsable"
     "entity.system.browsable"
   ],
   "actions": [
-  <em>  // actions必须包含"ohos.want.action.viewData"</em>
+    // actions必须包含"ohos.want.action.viewData"
     "ohos.want.action.viewData"
   ],
   "uris": [
     {
-   <em>   // scheme须配置为https</em>
+      // scheme须配置为https
       "scheme": "https",
-      <em>// host须配置为关联的网址域名，实际运行时替换为真实的App Linking链接域名</em>
+      // host须配置为关联的网址域名，实际运行时替换为真实的App Linking链接域名
       "host": "www.example.com",
-      <em>// path可选，表示域名服务器上的目录或文件路径，例如www.example.com/path1中的path1</em>
-<em>      // 如果应用只能处理部分特定的path，则此处应该配置应用所支持的path，避免出现应用不能处理的path链接也被引流到应用中的问题</em>
+      // path可选，表示域名服务器上的目录或文件路径，例如www.example.com/path1中的path1
+      // 如果应用只能处理部分特定的path，则此处应该配置应用所支持的path，避免出现应用不能处理的path链接也被引流到应用中的问题
       "path": "path1"
     }
   ],
- <em> // domainVerify须设置为true</em>
+  // domainVerify须设置为true
   "domainVerify": true
 }
 ```
@@ -126,10 +126,10 @@ build() {
  1. 构造华为分享事件触发后的回调[SharableTarget](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/share-harmony-share#sharabletarget)。设置utd类型为utd.UniformDataType.HYPERLINK,表示分享内容为链接。分享链接通过目标方应用关联的网址域名和自定义参数拼接而成。代码如下：
 ```text
 private immersiveCallback = (sharableTarget: harmonyShare.SharableTarget) => {
-  let filePath = this.context.filesDir + '/gestures_immersive.png'; <em>// 仅为示例 请替换正确的文件路径</em>
+  let filePath = this.context.filesDir + '/gestures_immersive.png'; // 仅为示例 请替换正确的文件路径
   let shareData: systemShare.SharedData = new systemShare.SharedData({
     utd: utd.UniformDataType.HYPERLINK,
-    content: `App Linking链接?index=${this.shareIndex}`,<em> // 须替换为真实的App Linking链接，拼接自定义参数。</em>
+    content: `App Linking链接?index=${this.shareIndex}`, // 须替换为真实的App Linking链接，拼接自定义参数。
     thumbnailUri: fileUri.getUriFromPath(filePath),
     title: '隔空传送分享卡片标题',
     description: '隔空传送分享卡片描述'
@@ -206,7 +206,7 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-  <em>  // Main window is created, set main page for this ability</em>
+    // Main window is created, set main page for this ability
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
     windowStage.loadContent('pages/Index', (err) => {
@@ -219,17 +219,17 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageDestroy(): void {
-  <em>  // Main window is destroyed, release UI related resources</em>
+    // Main window is destroyed, release UI related resources
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
-   <em> // Ability has brought to foreground</em>
+    // Ability has brought to foreground
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground(): void {
-<em>    // Ability has back to background</em>
+    // Ability has back to background
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 }
@@ -251,7 +251,7 @@ struct Index {
 
   aboutToAppear(): void {
     try {
-      let filePath = this.context.filesDir + '/gestures_immersive.png';<em> // 仅为示例 请替换正确的文件路径</em>
+      let filePath = this.context.filesDir + '/gestures_immersive.png'; // 仅为示例 请替换正确的文件路径
       let file = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
       let writeLen = fs.writeSync(file.fd,
         (this.context.resourceManager.getMediaContentSync($r('app.media.gestures_immersive').id) as Uint8Array).buffer);
@@ -263,10 +263,10 @@ struct Index {
   }
 
   private immersiveCallback = (sharableTarget: harmonyShare.SharableTarget) => {
-    let filePath = this.context.filesDir + '/gestures_immersive.png'; <em>// 仅为示例 请替换正确的文件路径</em>
+    let filePath = this.context.filesDir + '/gestures_immersive.png'; // 仅为示例 请替换正确的文件路径
     let shareData: systemShare.SharedData = new systemShare.SharedData({
       utd: utd.UniformDataType.HYPERLINK,
-      content: `App Linking链接?index=${this.shareIndex}`, <em>// 须替换为真实的App Linking链接，拼接自定义参数。</em>
+      content: `App Linking链接?index=${this.shareIndex}`, // 须替换为真实的App Linking链接，拼接自定义参数。
       thumbnailUri: fileUri.getUriFromPath(filePath),
       title: '隔空传送分享卡片标题',
       description: '隔空传送分享卡片描述'

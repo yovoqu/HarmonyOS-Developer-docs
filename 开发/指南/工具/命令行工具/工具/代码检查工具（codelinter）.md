@@ -45,7 +45,7 @@ codelinter // 进行codelinter检查
 
 2. 执行如下命令，指定codelinter检查所使用的code-linter.json5规则配置文件，并进行代码检查。
 ```text
-codelinter -c <em>filepath</em> // 指定执行检查的规则配置文件位置
+codelinter -c filepath // 指定执行检查的规则配置文件位置
 ```
  
 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/gT95u0ZiQN2LgBXaTdy8lw/zh-cn_image_0000002594635078.png?HW-CC-KV=V1&HW-CC-Date=20260624T020703Z&HW-CC-Expire=86400&HW-CC-Sign=7C0D989D91A6052AB41F529C2B3ABFB67F4F4016E5788FDCF1D4A8B35FC41FB1)
@@ -53,7 +53,7 @@ codelinter -c <em>filepath</em> // 指定执行检查的规则配置文件位置
 
 3. 执行如下命令，对指定工程将根据指定的规则配置文件执行codelinter检查，并对部分支持修复的告警信息进行自动修复。
 ```text
-<em>codelinter -c filepath</em> --fix // 对工程中的告警进行修复
+codelinter -c filepath --fix // 对工程中的告警进行修复
 ```
  
 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/WXXoUid_SZW_y3W1WnfTsw/zh-cn_image_0000002625074651.png?HW-CC-KV=V1&HW-CC-Date=20260624T020703Z&HW-CC-Expire=86400&HW-CC-Sign=EF3D33F31A38799C192BB0222B8941A858D1EAA89E348149417DE0F81F36136F)
@@ -68,13 +68,13 @@ codelinter dir [filepath] [dir1] // 指定执行检查的工程目录或文件�
 
 2. 在指定的工程目录下，根据指定的codelinter规则配置文件进行代码检查。
 ```text
-codelinter -c <em>filepath</em> dir // filepath为指定的规则配置文件所在位置，dir指定执行检查的工程根目录
+codelinter -c filepath dir // filepath为指定的规则配置文件所在位置，dir指定执行检查的工程根目录
 ```
 
 
 3. 执行如下命令，对指定工程重新执行codelinter检查，并对部分支持修复的告警进行自动修复。
 ```text
-<em>codelinter -c filepath dir</em> --fix // 对指定工程中的告警进行修复。支持配置同时多个工程路径
+codelinter -c filepath dir --fix // 对指定工程中的告警进行修复。支持配置同时多个工程路径
 ```
  
 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/bmu3F0qMR4CtM9qDagqG5g/zh-cn_image_0000002625074655.png?HW-CC-KV=V1&HW-CC-Date=20260624T020703Z&HW-CC-Expire=86400&HW-CC-Sign=6B10DEB180BFF8E71FCBE65F21A32C98D6D0DAC61BE20306A3B278AA7E6F7D34)
@@ -96,7 +96,7 @@ codelinter [dir] -f json  //[dir]为待检查的工程根目录
 
   
 ```json
-codelinter [dir] -f json -o <em>filepath</em>2     // [dir]为待检查的工程根目录，<em>filepath</em>2为指定存放代码检查结果的文件路径
+codelinter [dir] -f json -o filepath2     // [dir]为待检查的工程根目录，filepath2为指定存放代码检查结果的文件路径
 ```
  
 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/8i0DDDoKRQ2JpMXrAWi1TA/zh-cn_image_0000002594475162.png?HW-CC-KV=V1&HW-CC-Date=20260624T020703Z&HW-CC-Expire=86400&HW-CC-Sign=5B2C48440DDCAFEE75DD236437F17AEE28686F6E2BE146186823BCFDCDBEDEA9)

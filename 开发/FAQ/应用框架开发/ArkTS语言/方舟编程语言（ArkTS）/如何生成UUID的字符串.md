@@ -8,7 +8,7 @@
  
 ```text
 let uuid = util.generateRandomUUID(true);
-console.info("RFC 4122 Version 4 UUID:" + uuid);<em> // Output randomly generated UUID</em>
+console.info("RFC 4122 Version 4 UUID:" + uuid); // Output randomly generated UUID
 ```
  
 **参考链接**

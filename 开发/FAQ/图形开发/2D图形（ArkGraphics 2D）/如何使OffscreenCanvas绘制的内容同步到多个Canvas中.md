@@ -122,7 +122,7 @@ struct SyncCanvasContent {
     this.layer.draw();
     this.layer.data = this.layer.context.getImageData(0, 0, WH, WH);
     this.context.putImageData(this.layer.data, 0, 0);
-  <em>  // 此句用于证明layer中的绘画数据可以被多个context使用</em>
+    // 此句用于证明layer中的绘画数据可以被多个context使用
     this.context2.putImageData(this.layer.data, 0, 0);
   }
 }

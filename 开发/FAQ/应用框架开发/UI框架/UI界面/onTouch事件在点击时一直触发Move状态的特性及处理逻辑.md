@@ -31,7 +31,7 @@ onTouch事件在点击时，会持续触发TouchType.Move事件，在按下去�
 struct OnTouchMove {
   @State startX: number = 0;
   @State startY: number = 0;
-<em>  // 设置移动阈值（单位：vp）</em>
+  // 设置移动阈值（单位：vp）
   readonly MOVE_THRESHOLD: number = 5;
 
   build() {
@@ -52,13 +52,13 @@ struct OnTouchMove {
             case TouchType.Move:
               const currentX: number = event.touches[0].x;
               const currentY: number = event.touches[0].y;
-            <em>  // 计算偏移量</em>
+              // 计算偏移量
               const deltaX = Math.abs(currentX - this.startX);
               const deltaY = Math.abs(currentY - this.startY);
-           <em>   // 当移动距离超出阈值时，触发move状态</em>
+              // 当移动距离超出阈值时，触发move状态
               if (deltaX > this.MOVE_THRESHOLD || deltaY > this.MOVE_THRESHOLD) {
                 console.info('有效移动:', currentX, currentY);
-               <em> // 更新起始坐标</em>
+                // 更新起始坐标
                 this.startX = currentX;
                 this.startY = currentY;
               }

@@ -11,117 +11,117 @@
 问题代码示例参考如下：
  1. Index.ets。
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">点击跳转</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRouter</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushUrl</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'pages/SecondPage' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+@Entry
+@Component
+struct Index {
+  build() {
+    Column() {
+      Button('点击跳转').onClick(() => {
+        this.getUIContext().getRouter().pushUrl({ url: 'pages/SecondPage' })
+      })
+    }.width('100%').height('100%')
+  }
+}
 ```
 
 2. SecondPage.ets。
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">Router</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">UIContext </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
+import { Router, UIContext } from '@kit.ArkUI';
 
-let <span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">UIContext </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">UIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-let <span style="color: rgb(255,255,255);">router</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Router </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRouter</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+let uiContext: UIContext = new UIContext();
+let router: Router = uiContext.getRouter();
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">SecondPage </span><span style="color: rgb(181,106,1);">{</span>
-  private <span style="color: rgb(255,255,255);">DISPLAY_COUNT</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1</span>
-  private <span style="color: rgb(255,255,255);">MIN_SCALE</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0.75</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">backgroundColors</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">=</span>
-    <span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">'#ffd2bf82'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#ff7db5db'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#ff95b784'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#ff867aa7'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#ffae8080'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#ffa98b6a'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#ffa9a9a9'</span><span style="color: rgb(255,0,170);">]</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">opacityList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">scaleList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">translateList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">zIndexList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span>
+@Entry
+@Component
+struct SecondPage {
+  private DISPLAY_COUNT: number = 1
+  private MIN_SCALE: number = 0.75
+  @State backgroundColors: string[] =
+    ['#ffd2bf82', '#ff7db5db', '#ff95b784', '#ff867aa7', '#ffae8080', '#ffa98b6a', '#ffa9a9a9']
+  @State opacityList: number[] = []
+  @State scaleList: number[] = []
+  @State translateList: number[] = []
+  @State zIndexList: number[] = []
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">backgroundColors</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">opacityList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1.0</span><span style="color: rgb(255,0,170);">)</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1.0</span><span style="color: rgb(255,0,170);">)</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">translateList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0.0</span><span style="color: rgb(255,0,170);">)</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">zIndexList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  aboutToAppear(): void {
+    for (let i = 0; i < this.backgroundColors.length; i++) {
+      this.opacityList.push(1.0)
+      this.scaleList.push(1.0)
+      this.translateList.push(0.0)
+      this.zIndexList.push(0)
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Swiper</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">backgroundColors</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">backgroundColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Color</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">backgroundColor</span><span style="color: rgb(255,0,170);">) </span><em>// </em><em><span style="color: rgb(128,128,128);">自定义动画变化透明度、缩放页面、抵消系统默认位移、渲染层级等</span></em>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">opacity</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">opacityList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">])</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scale</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">translate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">translateList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">zIndex</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">zIndexList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">])</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">300</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indicator</span><span style="color: rgb(255,0,170);">(</span>false<span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">displayCount</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DISPLAY_COUNT</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span>
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">关键代码</span></em>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAnimationStart</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">targetIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">目标页面是最后一页则可以开始返回了</span></em>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">targetIndex </span><span style="color: rgb(181,106,1);">=== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">backgroundColors</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">router</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">back</span><span style="color: rgb(255,0,170);">()</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">customContentTransition</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">页面移除视窗时超时</span><span style="color: rgb(128,128,128);">1000ms</span><span style="color: rgb(128,128,128);">下渲染树</span></em>
-        <span style="color: rgb(255,255,255);">timeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1000</span><span style="color: rgb(181,106,1);">,</span>
-       <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">对视窗内所有页面逐帧回调</span><span style="color: rgb(128,128,128);">transition</span><span style="color: rgb(128,128,128);">，在回调中修改</span><span style="color: rgb(128,128,128);">opacity</span><span style="color: rgb(128,128,128);">、</span><span style="color: rgb(128,128,128);">scale</span><span style="color: rgb(128,128,128);">、</span><span style="color: rgb(128,128,128);">translate</span><span style="color: rgb(128,128,128);">、</span><span style="color: rgb(128,128,128);">zIndex</span></em><em>等属性值，实现自定义动画。</em>
-        <span style="color: rgb(255,255,255);">transition</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">SwiperContentTransitionProxy</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">position </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">% </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DISPLAY_COUNT </span><span style="color: rgb(181,106,1);">||</span>
-            <span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">position </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DISPLAY_COUNT </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">% </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DISPLAY_COUNT</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">同组页面往左滑或往右完全滑出视窗外时，重置属性值</span></em>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">opacityList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1.0</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1.0</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">translateList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0.0</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">zIndexList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span>
-          <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-           <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">同组页面往右滑且未滑出视窗外时，对同组中左右两个页面，逐帧根据</span><span style="color: rgb(128,128,128);">position</span><span style="color: rgb(128,128,128);">修改属性值，实现两个页面往</span><span style="color: rgb(128,128,128);">Swiper</span><span style="color: rgb(128,128,128);">中间靠拢并透明缩放的自定义切换动画。</span></em>
-            if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">% </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DISPLAY_COUNT </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">opacityList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">position </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DISPLAY_COUNT</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">=</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MIN_SCALE </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MIN_SCALE</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">position </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DISPLAY_COUNT</span><span style="color: rgb(255,0,170);">)</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">translateList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">=</span>
-<span style="color: rgb(181,106,1);">                -</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">position </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mainAxisLength </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mainAxisLength </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2.0</span>
-            <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">opacityList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">position </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DISPLAY_COUNT</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">=</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MIN_SCALE </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MIN_SCALE</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">position </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DISPLAY_COUNT</span><span style="color: rgb(255,0,170);">)</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">translateList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">position </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mainAxisLength </span><span style="color: rgb(181,106,1);">-</span>
-                <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mainAxisLength </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2.0</span>
-            <span style="color: rgb(181,106,1);">}</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">zIndexList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(80,160,79);">1</span>
-          <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">        }</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onContentDidScroll</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">selectedIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">position</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">mainAxisLength</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">监听</span><span style="color: rgb(128,128,128);">Swiper</span><span style="color: rgb(128,128,128);">页面滑动事件，在该回调中可以实现自定义导航点切换动画等。</span></em>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`onContentDidScroll selectedIndex: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">selectedIndex</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, index: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, position: </span><span style="color: rgb(181,106,1);">${</span>
-        <span style="color: rgb(255,255,255);">position</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);"> , mainAxisLength: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">mainAxisLength</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column() {
+      Swiper() {
+        ForEach(this.backgroundColors, (backgroundColor: Color, index: number) => {
+          Text(index.toString())
+            .width('100%')
+            .height('100%')
+            .fontSize(50)
+            .textAlign(TextAlign.Center)
+            .backgroundColor(backgroundColor) // 自定义动画变化透明度、缩放页面、抵消系统默认位移、渲染层级等
+            .opacity(this.opacityList[index])
+            .scale({ x: this.scaleList[index], y: this.scaleList[index] })
+            .translate({ x: this.translateList[index] })
+            .zIndex(this.zIndexList[index])
+        })
+      }
+      .height(300)
+      .indicator(false)
+      .displayCount(this.DISPLAY_COUNT, true)
+      // 关键代码
+      .onAnimationStart((index: number, targetIndex: number) => {
+        // 目标页面是最后一页则可以开始返回了
+        if (targetIndex === this.backgroundColors.length - 1) {
+          router.back()
+        }
+      })
+      .customContentTransition({
+        // 页面移除视窗时超时1000ms下渲染树
+        timeout: 1000,
+        // 对视窗内所有页面逐帧回调transition，在回调中修改opacity、scale、translate、zIndex等属性值，实现自定义动画。
+        transition: (proxy: SwiperContentTransitionProxy) => {
+          if (proxy.position <= proxy.index % this.DISPLAY_COUNT ||
+            proxy.position >= this.DISPLAY_COUNT + proxy.index % this.DISPLAY_COUNT) {
+            // 同组页面往左滑或往右完全滑出视窗外时，重置属性值
+            this.opacityList[proxy.index] = 1.0
+            this.scaleList[proxy.index] = 1.0
+            this.translateList[proxy.index] = 0.0
+            this.zIndexList[proxy.index] = 0
+          } else {
+            // 同组页面往右滑且未滑出视窗外时，对同组中左右两个页面，逐帧根据position修改属性值，实现两个页面往Swiper中间靠拢并透明缩放的自定义切换动画。
+            if (proxy.index % this.DISPLAY_COUNT === 0) {
+              this.opacityList[proxy.index] = 1 - proxy.position / this.DISPLAY_COUNT
+              this.scaleList[proxy.index] =
+                this.MIN_SCALE + (1 - this.MIN_SCALE) * (1 - proxy.position / this.DISPLAY_COUNT)
+              this.translateList[proxy.index] =
+                -proxy.position * proxy.mainAxisLength + (1 - this.scaleList[proxy.index]) * proxy.mainAxisLength / 2.0
+            } else {
+              this.opacityList[proxy.index] = 1 - (proxy.position - 1) / this.DISPLAY_COUNT
+              this.scaleList[proxy.index] =
+                this.MIN_SCALE + (1 - this.MIN_SCALE) * (1 - (proxy.position - 1) / this.DISPLAY_COUNT)
+              this.translateList[proxy.index] = -(proxy.position - 1) * proxy.mainAxisLength -
+                (1 - this.scaleList[proxy.index]) * proxy.mainAxisLength / 2.0
+            }
+            this.zIndexList[proxy.index] = -1
+          }
+        }
+      })
+      .onContentDidScroll((selectedIndex: number, index: number, position: number, mainAxisLength: number) => {
+        // 监听Swiper页面滑动事件，在该回调中可以实现自定义导航点切换动画等。
+        console.info(`onContentDidScroll selectedIndex: ${selectedIndex}, index: ${index}, position: ${
+        position} , mainAxisLength: ${mainAxisLength}`)
+      })
+    }.width('100%')
+  }
 
-  <span style="color: rgb(0,0,255);">pageTransition</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">PageTransitionEnter</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">500 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">opacity</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(0,0,255);">PageTransitionExit</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">400 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">opacity</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  pageTransition() {
+    PageTransitionEnter({ duration: 500 }).opacity(1)
+    PageTransitionExit({ duration: 400 }).opacity(0)
+  }
+}
 ```
  问题效果预览：翻到最后一页时会闪一下。
 
@@ -158,124 +158,124 @@ struct <span style="color: rgb(0,0,255);">SecondPage </span><span style="color: 
 即将上述SecondPage.ets中的onAnimationStart方法改为：
  
 ```text
-<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAnimationEnd</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">extraInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">SwiperAnimationEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">=== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColors</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">router</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">back</span><span style="color: rgb(0,0,255);">()</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+.onAnimationEnd((index: number, extraInfo: SwiperAnimationEvent) => {
+  if (index === this.backgroundColors.length - 1) {
+    router.back()
+  }
+})
 ```
  
 完整示例参考如下：
  1. Index.ets：
 ```text
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">点击跳转</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
-        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRouter</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pushUrl</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'pages/SecondPage' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
-    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+@Entry
+@Component
+struct Index {
+  build() {
+    Column() {
+      Button('点击跳转').onClick(() => {
+        this.getUIContext().getRouter().pushUrl({ url: 'pages/SecondPage' })
+      })
+    }.width('100%').height('100%')
+  }
+}
 ```
 
 2. SecondPage.ets：
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">Router</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">UIContext </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
+import { Router, UIContext } from '@kit.ArkUI';
 
-let <span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">UIContext </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">UIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-let <span style="color: rgb(255,255,255);">router</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Router </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRouter</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+let uiContext: UIContext = new UIContext();
+let router: Router = uiContext.getRouter();
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">SecondPage </span><span style="color: rgb(181,106,1);">{</span>
-  private <span style="color: rgb(255,255,255);">DISPLAY_COUNT</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1</span>
-  private <span style="color: rgb(255,255,255);">MIN_SCALE</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0.75</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">backgroundColors</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">=</span>
-    <span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">'#ffd2bf82'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#ff7db5db'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#ff95b784'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#ff867aa7'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#ffae8080'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#ffa98b6a'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">'#ffa9a9a9'</span><span style="color: rgb(255,0,170);">]</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">opacityList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">scaleList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">translateList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">zIndexList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span>
+@Entry
+@Component
+struct SecondPage {
+  private DISPLAY_COUNT: number = 1
+  private MIN_SCALE: number = 0.75
+  @State backgroundColors: string[] =
+    ['#ffd2bf82', '#ff7db5db', '#ff95b784', '#ff867aa7', '#ffae8080', '#ffa98b6a', '#ffa9a9a9']
+  @State opacityList: number[] = []
+  @State scaleList: number[] = []
+  @State translateList: number[] = []
+  @State zIndexList: number[] = []
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">backgroundColors</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">opacityList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1.0</span><span style="color: rgb(255,0,170);">)</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1.0</span><span style="color: rgb(255,0,170);">)</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">translateList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0.0</span><span style="color: rgb(255,0,170);">)</span>
-      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">zIndexList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">  }</span>
+  aboutToAppear(): void {
+    for (let i = 0; i < this.backgroundColors.length; i++) {
+      this.opacityList.push(1.0)
+      this.scaleList.push(1.0)
+      this.translateList.push(0.0)
+      this.zIndexList.push(0)
+    }
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Swiper</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">backgroundColors</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">backgroundColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Color</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">backgroundColor</span><span style="color: rgb(255,0,170);">) </span><em>// </em><em><span style="color: rgb(128,128,128);">自定义动画变化透明度、缩放页面、抵消系统默认位移、渲染层级等</span></em>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">opacity</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">opacityList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">])</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scale</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">translate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">translateList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">zIndex</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">zIndexList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">])</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">300</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indicator</span><span style="color: rgb(255,0,170);">(</span>false<span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">displayCount</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DISPLAY_COUNT</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(255,0,170);">)</span>
-     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">关键代码</span></em>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAnimationEnd</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">extraInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">SwiperAnimationEvent</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-        if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">=== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">backgroundColors</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <span style="color: rgb(255,255,255);">router</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">back</span><span style="color: rgb(255,0,170);">()</span>
-        <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">customContentTransition</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">页面移除视窗时超时</span><span style="color: rgb(128,128,128);">1000ms</span><span style="color: rgb(128,128,128);">下渲染树</span></em>
-        <span style="color: rgb(255,255,255);">timeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1000</span><span style="color: rgb(181,106,1);">,</span>
-        <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">对视窗内所有页面逐帧回调</span><span style="color: rgb(128,128,128);">transition</span><span style="color: rgb(128,128,128);">，在回调中修改</span><span style="color: rgb(128,128,128);">opacity</span><span style="color: rgb(128,128,128);">、</span><span style="color: rgb(128,128,128);">scale</span><span style="color: rgb(128,128,128);">、</span><span style="color: rgb(128,128,128);">translate</span><span style="color: rgb(128,128,128);">、</span><span style="color: rgb(128,128,128);">zIndex</span><span style="color: rgb(128,128,128);">等属性值，实现自定义动画。</span></em>
-        <span style="color: rgb(255,255,255);">transition</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">SwiperContentTransitionProxy</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">position </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">% </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DISPLAY_COUNT </span><span style="color: rgb(181,106,1);">||</span>
-            <span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">position </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DISPLAY_COUNT </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">% </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DISPLAY_COUNT</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-          <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">同组页面往左滑或往右完全滑出视窗外时，重置属性值</span></em>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">opacityList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1.0</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1.0</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">translateList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0.0</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">zIndexList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span>
-          <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-          <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">同组页面往右滑且未滑出视窗外时，对同组中左右两个页面，逐帧根据</span><span style="color: rgb(128,128,128);">position</span><span style="color: rgb(128,128,128);">修改属性值，实现两个页面往</span><span style="color: rgb(128,128,128);">Swiper</span><span style="color: rgb(128,128,128);">中间靠拢并透明缩放的自定义切换动画。</span></em>
-            if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">% </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DISPLAY_COUNT </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">opacityList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">position </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DISPLAY_COUNT</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">=</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MIN_SCALE </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MIN_SCALE</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">position </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DISPLAY_COUNT</span><span style="color: rgb(255,0,170);">)</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">translateList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">=</span>
-<span style="color: rgb(181,106,1);">                -</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">position </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mainAxisLength </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mainAxisLength </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2.0</span>
-            <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">opacityList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">position </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DISPLAY_COUNT</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">=</span>
-                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MIN_SCALE </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">MIN_SCALE</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">position </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DISPLAY_COUNT</span><span style="color: rgb(255,0,170);">)</span>
-              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">translateList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">position </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mainAxisLength </span><span style="color: rgb(181,106,1);">-</span>
-                <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">]) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">mainAxisLength </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2.0</span>
-            <span style="color: rgb(181,106,1);">}</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">zIndexList</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">proxy</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(80,160,79);">1</span>
-          <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">        }</span>
-<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onContentDidScroll</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">selectedIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">position</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">mainAxisLength</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-    <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">监听</span><span style="color: rgb(128,128,128);">Swiper</span><span style="color: rgb(128,128,128);">页面滑动事件，在该回调中可以实现自定义导航点切换动画等。</span></em>
-        <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`onContentDidScroll selectedIndex: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">selectedIndex</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, index: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, position: </span><span style="color: rgb(181,106,1);">${</span>
-        <span style="color: rgb(255,255,255);">position</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);"> , mainAxisLength: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">mainAxisLength</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span>
-      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column() {
+      Swiper() {
+        ForEach(this.backgroundColors, (backgroundColor: Color, index: number) => {
+          Text(index.toString())
+            .width('100%')
+            .height('100%')
+            .fontSize(50)
+            .textAlign(TextAlign.Center)
+            .backgroundColor(backgroundColor) // 自定义动画变化透明度、缩放页面、抵消系统默认位移、渲染层级等
+            .opacity(this.opacityList[index])
+            .scale({ x: this.scaleList[index], y: this.scaleList[index] })
+            .translate({ x: this.translateList[index] })
+            .zIndex(this.zIndexList[index])
+        })
+      }
+      .height(300)
+      .indicator(false)
+      .displayCount(this.DISPLAY_COUNT, true)
+      // 关键代码
+      .onAnimationEnd((index: number, extraInfo: SwiperAnimationEvent) => {
+        if (index === this.backgroundColors.length - 1) {
+          router.back()
+        }
+      })
+      .customContentTransition({
+        // 页面移除视窗时超时1000ms下渲染树
+        timeout: 1000,
+        // 对视窗内所有页面逐帧回调transition，在回调中修改opacity、scale、translate、zIndex等属性值，实现自定义动画。
+        transition: (proxy: SwiperContentTransitionProxy) => {
+          if (proxy.position <= proxy.index % this.DISPLAY_COUNT ||
+            proxy.position >= this.DISPLAY_COUNT + proxy.index % this.DISPLAY_COUNT) {
+            // 同组页面往左滑或往右完全滑出视窗外时，重置属性值
+            this.opacityList[proxy.index] = 1.0
+            this.scaleList[proxy.index] = 1.0
+            this.translateList[proxy.index] = 0.0
+            this.zIndexList[proxy.index] = 0
+          } else {
+            // 同组页面往右滑且未滑出视窗外时，对同组中左右两个页面，逐帧根据position修改属性值，实现两个页面往Swiper中间靠拢并透明缩放的自定义切换动画。
+            if (proxy.index % this.DISPLAY_COUNT === 0) {
+              this.opacityList[proxy.index] = 1 - proxy.position / this.DISPLAY_COUNT
+              this.scaleList[proxy.index] =
+                this.MIN_SCALE + (1 - this.MIN_SCALE) * (1 - proxy.position / this.DISPLAY_COUNT)
+              this.translateList[proxy.index] =
+                -proxy.position * proxy.mainAxisLength + (1 - this.scaleList[proxy.index]) * proxy.mainAxisLength / 2.0
+            } else {
+              this.opacityList[proxy.index] = 1 - (proxy.position - 1) / this.DISPLAY_COUNT
+              this.scaleList[proxy.index] =
+                this.MIN_SCALE + (1 - this.MIN_SCALE) * (1 - (proxy.position - 1) / this.DISPLAY_COUNT)
+              this.translateList[proxy.index] = -(proxy.position - 1) * proxy.mainAxisLength -
+                (1 - this.scaleList[proxy.index]) * proxy.mainAxisLength / 2.0
+            }
+            this.zIndexList[proxy.index] = -1
+          }
+        }
+      })
+      .onContentDidScroll((selectedIndex: number, index: number, position: number, mainAxisLength: number) => {
+        // 监听Swiper页面滑动事件，在该回调中可以实现自定义导航点切换动画等。
+        console.info(`onContentDidScroll selectedIndex: ${selectedIndex}, index: ${index}, position: ${
+        position} , mainAxisLength: ${mainAxisLength}`)
+      })
+    }.width('100%')
+  }
 
-  <span style="color: rgb(0,0,255);">pageTransition</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">PageTransitionEnter</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">500 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">opacity</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(0,0,255);">PageTransitionExit</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">400 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">opacity</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  pageTransition() {
+    PageTransitionEnter({ duration: 500 }).opacity(1)
+    PageTransitionExit({ duration: 400 }).opacity(0)
+  }
+}
 ```

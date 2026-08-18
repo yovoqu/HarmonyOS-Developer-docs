@@ -93,7 +93,7 @@ struct RequestFocusDemo {
   @State buttonColor2: Color | string = '#F1F3F5';
 
   onDidBuild(): void {
-   <em> // 两秒后使“这是一个文本1”聚焦</em>
+    // 两秒后使“这是一个文本1”聚焦
     setTimeout(() => {
       this.getUIContext().getFocusController().requestFocus('buttonId1');
     }, 2000);
@@ -109,7 +109,7 @@ struct RequestFocusDemo {
       .width(200)
       .height(40)
       .focusable(true)
-     <em> // 监听第一个组件的获焦事件，获焦后改变颜色</em>
+      // 监听第一个组件的获焦事件，获焦后改变颜色
       .onFocus(() => {
         this.buttonColor1 = '#0A59F7';
       })
@@ -119,7 +119,7 @@ struct RequestFocusDemo {
       Button({ type: ButtonType.ROUNDED_RECTANGLE }) {
         Text('这是一个文本2')
           .fontSize(24)
-          <em>  // 点击使“这是一个文本2”聚焦</em>
+            // 点击使“这是一个文本2”聚焦
           .onClick(() => {
             this.getUIContext().getFocusController().requestFocus('buttonId2');
           })
@@ -127,7 +127,7 @@ struct RequestFocusDemo {
       .width(200)
       .height(40)
       .focusable(true)
-      <em>// </em><em>监听第一个组件的获焦事件，获焦后改变颜色</em>
+      // 监听第一个组件的获焦事件，获焦后改变颜色
       .onFocus(() => {
         this.buttonColor2 = '#0A59F7';
       })

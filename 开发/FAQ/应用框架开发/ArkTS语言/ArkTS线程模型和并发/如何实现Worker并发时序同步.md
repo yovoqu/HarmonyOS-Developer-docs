@@ -11,9 +11,9 @@
 ```text
 workerPort.onmessage = async (event: MessageEvents) => {
   let eventData: string = event.data;
- <em> // 1.存储数据</em>
-<em>  // 2.检查数据库</em>
-<em>  // 3.满足条件，触发上传任务</em>
+  // 1.存储数据
+  // 2.检查数据库
+  // 3.满足条件，触发上传任务
 }
 ```
  
@@ -34,29 +34,29 @@ workerPort.onmessage = async (event: MessageEvents) => {
 ```ArkTS
 import { worker, MessageEvents } from '@kit.ArkTS';
 
-<em>// </em><em>原子计数器（主线程维护）</em>
+// 原子计数器（主线程维护）
 let uploadCounter = 0;
 const UPLOAD_THRESHOLD = 10;
 const workerInstance = new worker.ThreadWorker('../workers/Worker.ets');
 
-<em>// </em><em>接收Worker存储完成通知</em>
+// 接收Worker存储完成通知
 workerInstance.onmessage = (e: MessageEvents) => {
   if (e.data === 'STORAGE_DONE') {
-    uploadCounter++;<em> </em><em>// 原子递增</em>
-  <em>  // 主线程判断满足条件后触发上传任务</em>
+    uploadCounter++; // 原子递增
+    // 主线程判断满足条件后触发上传任务
     if (uploadCounter === UPLOAD_THRESHOLD) {
       triggerUpload();
-      uploadCounter = 0; <em>// 重置计数器</em>
+      uploadCounter = 0; // 重置计数器
     }
   }
 };
 
-<em>// </em><em>触发Worker存储（示例）</em>
+// 触发Worker存储（示例）
 function triggerWorkerStorage(data: number) {
   workerInstance.postMessage(data);
 }
 
-<em>// </em><em>上传执行函数</em>
+// 上传执行函数
 function triggerUpload() {
   console.info('执行上传操作');
 }
@@ -93,7 +93,7 @@ struct Index {
 import { MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
 
 const workerPort: ThreadWorkerGlobalScope = worker.workerPort;
-<em>// </em><em>模拟数据库</em>
+// 模拟数据库
 let list: Array<string> = [];
 
 workerPort.onmessage = (event: MessageEvents) => {
@@ -106,7 +106,7 @@ workerPort.onmessage = (event: MessageEvents) => {
   }
 };
 
-<em>// </em><em>模拟存数据库</em>
+// 模拟存数据库
 function storeSQL(data: string) {
   list.push(data);
   console.info(`模拟存储数据库${list.length}`);

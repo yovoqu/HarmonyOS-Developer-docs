@@ -23,13 +23,13 @@ Image组件使用file://协议，加载沙箱路径中含有特殊字符的图�
 Image组件使用file://路径前缀的字符串的路径格式加载应用沙箱中图片资源，例如【@%^\_,.jpg】这种文件名中有特殊符号的图片，需要将路径转换为URI，再放入Image组件显示。
  1. 构造含有特殊符号命名的沙箱图片，从相册中选取一张图片保存到应用沙箱中，并使用特殊符号给图片命名【@%^_,.jpg】，然后获取沙箱路径中图片对应的URI：
 ```text
-<em>// 从相册选择图片</em>
+// 从相册选择图片
 let photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
 photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE;
 photoSelectOptions.maxSelectNumber = 1;
 let photoPicker = new photoAccessHelper.PhotoViewPicker();
 photoPicker.select(photoSelectOptions).then(async (photoSelectResult) => {
- <em> // 将图片保存到应用沙箱，并用特殊符号给图片命名</em>
+  // 将图片保存到应用沙箱，并用特殊符号给图片命名
   if (photoSelectResult.photoUris.length) {
     let photoUri: Array<string> = photoSelectResult.photoUris;
     let pathDir = this.context.filesDir;
@@ -40,7 +40,7 @@ photoPicker.select(photoSelectOptions).then(async (photoSelectResult) => {
     fs.copyFileSync(file.fd, file2.fd);
     fs.closeSync(file);
     fs.closeSync(file2);
-  <em>  // 将沙箱路径的path转换为URI</em>
+    // 将沙箱路径的path转换为URI
     this.path = 'file://' + this.context.abilityInfo.bundleName + path;
     this.uri = fileUri.getUriFromPath(path);
     console.info(`uri: ${this.uri}`);
@@ -51,22 +51,22 @@ photoPicker.select(photoSelectOptions).then(async (photoSelectResult) => {
 
 2. 在显示界面设置两个Image组件，一个的图片资源是沙箱路径path，另一个是沙箱路径对应的URI：
 ```text
-<em>// 显示沙箱路径URI的值</em>
+// 显示沙箱路径URI的值
 Text('使用沙箱路径URI加载图片')
   .margin({ top: 30, bottom: 20 });
 Text('uri: ' + this.uri).margin({bottom:16})
-<em>// 使用沙箱路径URI显示图片</em>
+// 使用沙箱路径URI显示图片
 Image(this.uri)
   .width('100%')
   .height(200)
   .borderColor('#000001')
   .border({ width: 1 })
   .margin({ bottom: 75 });
-<em>// 显示沙箱路径path的值</em>
+// 显示沙箱路径path的值
 Text('使用沙箱路径path加载图片')
   .margin({ bottom: 20 });
 Text('path: ' + this.path).margin({bottom:16});
-<em>// 使用沙箱路径path显示图片</em>
+// 使用沙箱路径path显示图片
 Image(this.path)
   .width('100%')
   .height(200)
@@ -95,22 +95,22 @@ struct ImageSpecialCharacters {
 
   build() {
     Column() {
-     <em> // 显示沙箱路径URI的值</em>
+      // 显示沙箱路径URI的值
       Text('使用沙箱路径URI加载图片')
         .margin({ top: 30, bottom: 20 });
       Text('uri: ' + this.uri).margin({bottom:16})
-     <em> // 使用沙箱路径URI显示图片</em>
+      // 使用沙箱路径URI显示图片
       Image(this.uri)
         .width('100%')
         .height(200)
         .borderColor('#000001')
         .border({ width: 1 })
         .margin({ bottom: 75 });
-    <em>  // 显示沙箱路径path的值</em>
+      // 显示沙箱路径path的值
       Text('使用沙箱路径path加载图片')
         .margin({ bottom: 20 });
       Text('path: ' + this.path).margin({bottom:16});
-     <em> // 使用沙箱路径path显示图片</em>
+      // 使用沙箱路径path显示图片
       Image(this.path)
         .width('100%')
         .height(200)
@@ -119,13 +119,13 @@ struct ImageSpecialCharacters {
       Blank().height(20);
       Button('选择图片').fontSize(15).height(30)
         .onClick(async () => {
-         <em> // 从相册选择图片</em>
+          // 从相册选择图片
           let photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
           photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE;
           photoSelectOptions.maxSelectNumber = 1;
           let photoPicker = new photoAccessHelper.PhotoViewPicker();
           photoPicker.select(photoSelectOptions).then(async (photoSelectResult) => {
-           <em> // 将图片保存到应用沙箱，并用特殊符号给图片命名</em>
+            // 将图片保存到应用沙箱，并用特殊符号给图片命名
             if (photoSelectResult.photoUris.length) {
               let photoUri: Array<string> = photoSelectResult.photoUris;
               let pathDir = this.context.filesDir;
@@ -136,7 +136,7 @@ struct ImageSpecialCharacters {
               fs.copyFileSync(file.fd, file2.fd);
               fs.closeSync(file);
               fs.closeSync(file2);
-            <em>  // 将沙箱路径的path转换为URI</em>
+              // 将沙箱路径的path转换为URI
               this.path = 'file://' + this.context.abilityInfo.bundleName + path;
               this.uri = fileUri.getUriFromPath(path);
               console.info(`uri: ${this.uri}`);

@@ -112,7 +112,7 @@ struct CallbackContext {
 void WorkerCallNapiLoop::SubThread(CallbackContext *context) { 
     uv_loop_s *loop = nullptr; 
     napi_get_uv_event_loop(context->env, &loop); 
-  <em>  // uv_work_t is the structure that associates loop and thread pool callback functions</em>
+    // uv_work_t is the structure that associates loop and thread pool callback functions
     uv_work_t *work = new uv_work_t; 
     work->data = (CallbackContext *)context; 
     uv_queue_work( 
@@ -120,7 +120,7 @@ void WorkerCallNapiLoop::SubThread(CallbackContext *context) {
         [](uv_work_t *work, int status) { 
             CallbackContext *context = (CallbackContext *)work->data; 
             napi_handle_scope scope = nullptr; 
-          <em>  // Manage the lifecycle of napi_value to prevent memory leaks</em>
+            // Manage the lifecycle of napi_value to prevent memory leaks
             napi_open_handle_scope(context->env, &scope); 
             if (scope == nullptr) { 
                 return; 
@@ -157,7 +157,7 @@ napi_value WorkerCallNapiLoop::MainThread(napi_env env, napi_callback_info info)
     napi_add_env_cleanup_hook(asyncContext->env, func, asyncContext); 
     uv_loop_s *loop = nullptr; 
     napi_get_uv_event_loop(env, &loop); 
-   <em> // Start sub thread </em>
+    // Start sub thread 
     std::thread testThread(SubThread, asyncContext); 
     testThread.detach(); 
     return nullptr; 

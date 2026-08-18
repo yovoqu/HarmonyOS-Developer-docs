@@ -33,18 +33,18 @@ struct FriendsBook {
     axios<string, AxiosResponse<string>, null>({
       method: 'get',
       url: URL,
-      <em>// When using the util.TextDecoder method, the encoding and decoding formats must be consistent,</em>
-      <em>// so the data type needs to be set to ARRAY_BUFFER when retrieving, otherwise garbled characters will appear.</em>
+      // When using the util.TextDecoder method, the encoding and decoding formats must be consistent,
+      // so the data type needs to be set to ARRAY_BUFFER when retrieving, otherwise garbled characters will appear.
       responseType: 'ARRAY_BUFFER'
     })
       .then((res: AxiosResponse) => {
-        <em>// First, use create to construct a TextDecoder instance and set the encoding format to gbk.</em>
+        // First, use create to construct a TextDecoder instance and set the encoding format to gbk.
         const textDecoder = util.TextDecoder.create('gbk', { ignoreBOM: true });
-        <em>// Next, use the decodeWithStream method to decode the input parameters and output the corresponding UTF-8 formatted text string.</em>
-        <em>// The parameters passed in must be in Uint8Array format, so the obtained data needs to be converted to an array type using the Uint8Array method.</em>
+        // Next, use the decodeWithStream method to decode the input parameters and output the corresponding UTF-8 formatted text string.
+        // The parameters passed in must be in Uint8Array format, so the obtained data needs to be converted to an array type using the Uint8Array method.
         const result = new Uint8Array(res.data);
         const resultString = textDecoder.decodeToString(result, { stream: false });
-        <em>// Parse JSON strings.</em>
+        // Parse JSON strings.
         const jsonResult = JSON.parse(resultString) as string;
       })
   }

@@ -43,10 +43,10 @@ async copyFile2Sandbox(filePathString: string): Promise<boolean> {
   let resFile: fileIo.File | undefined;
   try {
     resFile = fileIo.openSync(filePathString, fileIo.OpenMode.READ_ONLY);
-  <em>  // 创建临时文件目录</em>
+    // 创建临时文件目录
     let dateStr = (new Date().getTime()).toString();
     let newPath = context.cacheDir + `/${dateStr + resFile.name}`;
-   <em> // 拷贝系统图库图片到沙箱</em>
+    // 拷贝系统图库图片到沙箱
     fileIo.copyFileSync(resFile.fd, newPath);
     return true;
   } catch (error) {
@@ -80,25 +80,25 @@ import {
 @Entry
 @Component
 struct Index {
-<em>  // 组件初始化完成后，可控制组件部分行为。</em>
+  // 组件初始化完成后，可控制组件部分行为。
   @State pickerController: PickerController = new PickerController();
- <em> // 组件初始化时设置参数信息。</em>
+  // 组件初始化时设置参数信息。
   pickerOptions: PickerOptions = new PickerOptions();
-<em>  // 目前选择的图片。</em>
+  // 目前选择的图片。
   currentUri: string = '';
 
 
   aboutToAppear() {
-  <em>  // 设置picker宫格页数据类型</em>
-    this.pickerOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE; <em>// 只显示图片</em>
- <em>   // 最大选择数量。</em>
+    // 设置picker宫格页数据类型
+    this.pickerOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE; // 只显示图片
+    // 最大选择数量。
     this.pickerOptions.maxSelectNumber = 1;
- <em>   // 超出最大选择数量时。</em>
+    // 超出最大选择数量时。
     this.pickerOptions.maxSelectedReminderMode = ReminderMode.TOAST;
   }
 
 
- <em> // 资源被选中回调，返回资源的信息，以及选中方式。</em>
+  // 资源被选中回调，返回资源的信息，以及选中方式。
   private onItemClicked(itemInfo: ItemInfo, clickType: ClickType): boolean {
     if (!itemInfo) {
       return false;
@@ -106,11 +106,11 @@ struct Index {
     let type: ItemType | undefined = itemInfo.itemType;
     let uri: string | undefined = itemInfo.uri;
     if (type === ItemType.CAMERA) {
-    <em>  // 点击相机item。</em>
-      return true; <em>// 返回true则拉起系统相机，若应用需要自行处理则返回false。</em>
+      // 点击相机item。
+      return true; // 返回true则拉起系统相机，若应用需要自行处理则返回false。
     } else {
       if (clickType === ClickType.SELECTED) {
-  <em>      // 应用做自己的业务处理。</em>
+        // 应用做自己的业务处理。
         if (uri) {
           this.copyFile2Sandbox(uri)
             .then((result: boolean) => {
@@ -121,7 +121,7 @@ struct Index {
               }
             });
         }
-        return true; <em>// 返回true则勾选，否则则不响应勾选。</em>
+        return true; // 返回true则勾选，否则则不响应勾选。
       }
       return true;
     }
@@ -131,10 +131,10 @@ struct Index {
     let resFile: fileIo.File | undefined;
     try {
       resFile = fileIo.openSync(filePathString, fileIo.OpenMode.READ_ONLY);
-     <em> // 创建临时文件目录</em>
+      // 创建临时文件目录
       let dateStr = (new Date().getTime()).toString();
       let newPath = context.cacheDir + `/${dateStr + resFile.name}`;
-     <em> // 拷贝系统图库图片到沙箱</em>
+      // 拷贝系统图库图片到沙箱
       fileIo.copyFileSync(resFile.fd, newPath);
       return true;
     } catch (error) {

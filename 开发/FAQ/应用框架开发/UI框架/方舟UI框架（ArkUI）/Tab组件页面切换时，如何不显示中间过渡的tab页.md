@@ -78,7 +78,7 @@ struct TABTransitionAnimation {
       .barMode(BarMode.Fixed)
       .backgroundColor('#F1F3F5')
       .margin({ top: 52 })
-      .animationDuration(0) <em>// Setting the animation time to 0 can solve the problem of switching between pages and displaying intermediate transition pages</em>
+      .animationDuration(0) // Setting the animation time to 0 can solve the problem of switching between pages and displaying intermediate transition pages
       .onChange((index: number) => {
         if (index >= 0 && index <= 3) {
           this.currentIndex = index;

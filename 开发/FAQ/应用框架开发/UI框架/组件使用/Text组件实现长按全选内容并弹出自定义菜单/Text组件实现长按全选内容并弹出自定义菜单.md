@@ -32,14 +32,14 @@ struct TextExample {
   optionsPopup: string[] = ['搜索', '复制', '粘贴'];
   controller: TextController = new TextController();
   options: TextOptions = { controller: this.controller };
-  @State start: number = -1;<em> // 选中区域开始光标</em>
-  @State end: number = -1; <em>// 选中区域结束光标</em>
+  @State start: number = -1; // 选中区域开始光标
+  @State end: number = -1; // 选中区域结束光标
 
   build() {
     Column() {
       Column() {
         Text(undefined, this.options) {
-        <em>  // 将Text内容设置为字图混合形式</em>
+          // 将Text内容设置为字图混合形式
           Span('Hello World')
             .fontSize(36)
           ImageSpan($r('app.media.startIcon'))
@@ -48,13 +48,13 @@ struct TextExample {
             .objectFit(ImageFit.Fill)
             .verticalAlign(ImageSpanAlignment.CENTER);
         }
-        .selection(this.start, this.end) /<em>/ 选中区域</em>
-        .copyOption(CopyOptions.InApp) <em>// 设置可复制</em>
-        .bindSelectionMenu(TextSpanType.DEFAULT, this.LongPressTextCustomMenu, TextResponseType.DEFAULT) <em>// 自定义菜单</em>
+        .selection(this.start, this.end) // 选中区域
+        .copyOption(CopyOptions.InApp) // 设置可复制
+        .bindSelectionMenu(TextSpanType.DEFAULT, this.LongPressTextCustomMenu, TextResponseType.DEFAULT) // 自定义菜单
         .gesture(
           LongPressGesture({ duration: 300 })
             .onAction(() => {
-            <em>  // 调整选中区域，全选文本</em>
+              // 调整选中区域，全选文本
               this.start = 0;
               this.end = 12;
             })
@@ -70,20 +70,20 @@ struct TextExample {
     .height('100%');
   }
 
-  <em>// 自定义菜单</em>
+  // 自定义菜单
   @Builder
   LongPressTextCustomMenu() {
     Flex({ direction: FlexDirection.Row, justifyContent: FlexAlign.SpaceEvenly, alignItems: ItemAlign.Center }) {
       ForEach(this.optionsPopup, (item: string, index) => {
         Text(item).height('100%')
           .onClick(() => {
-          <em>  // 取消选中</em>
+            // 取消选中
             this.start = -1;
             this.end = -1;
-            <em>// 关闭自定义菜单</em>
+            // 关闭自定义菜单
             this.controller.closeSelectionMenu();
           });
-        <em>// 设置间隔</em>
+        // 设置间隔
         if (index < this.optionsPopup.length - 1) {
           Divider().height(10).vertical(true);
         }

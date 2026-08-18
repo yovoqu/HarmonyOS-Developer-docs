@@ -20,7 +20,7 @@ struct Index {
 
   aboutToAppear(): void {
     window.getLastWindow(this.getUIContext().getHostContext(), (err, data) => {
-      data?.setWindowLayoutFullScreen(true); <em>// 设置沉浸式布局，与知识内容无关仅为全屏展示效果</em>
+      data?.setWindowLayoutFullScreen(true); // 设置沉浸式布局，与知识内容无关仅为全屏展示效果
     });
   }
 
@@ -110,7 +110,7 @@ struct OptionOne {
 
   aboutToAppear(): void {
     window.getLastWindow(this.getUIContext().getHostContext(), (err, data) => {
-      data?.setWindowLayoutFullScreen(true);<em> // 设置沉浸式布局，与知识内容无关仅为全屏展示效果</em>
+      data?.setWindowLayoutFullScreen(true); // 设置沉浸式布局，与知识内容无关仅为全屏展示效果
     });
   }
 
@@ -133,8 +133,8 @@ struct OptionOne {
         }
         .width('100%');
       }
-      .height('auto') <em>// 自适应子组件高度</em>
-      .width('auto');<em> // 自适应子组件宽度</em>
+      .height('auto') // 自适应子组件高度
+      .width('auto'); // 自适应子组件宽度
     }
     .width('100%')
     .height('100%');
@@ -155,12 +155,12 @@ struct OptionTwo {
 
   aboutToAppear(): void {
     window.getLastWindow(this.getUIContext().getHostContext(), (err, data) => {
-      data?.setWindowLayoutFullScreen(true);<em> // 设置沉浸式布局，与知识内容无关仅为全屏展示效果</em>
+      data?.setWindowLayoutFullScreen(true); // 设置沉浸式布局，与知识内容无关仅为全屏展示效果
     });
   }
 
   build() {
-  <em>  // Column组件代替RelativeContainer组件</em>
+    // Column组件代替RelativeContainer组件
     Scroll(this.scroller) {
       Column({ space: 10 }) {
         Text('组件1')
@@ -197,12 +197,12 @@ struct OptionThree {
 
   aboutToAppear(): void {
     window.getLastWindow(this.getUIContext().getHostContext(), (err, data) => {
-      data?.setWindowLayoutFullScreen(true);<em> // 设置沉浸式布局，与知识内容无关仅为全屏展示效果</em>
+      data?.setWindowLayoutFullScreen(true); // 设置沉浸式布局，与知识内容无关仅为全屏展示效果
     });
   }
 
   build() {
-   <em> // RelativeContainer组件嵌套Scroll组件</em>
+    // RelativeContainer组件嵌套Scroll组件
     RelativeContainer() {
       Scroll(this.scroller) {
         Column({ space: 10 }) {

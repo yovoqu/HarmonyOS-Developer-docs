@@ -20,9 +20,9 @@
 - pushUrl与replaceUrl描述页面信息的参数为[RouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routeroptions)，传递参数结构形式为：
 ```text
 {
-  url: 'page/onePage', <em>// 传递的方式，必填参数</em>
-  params: Object, <em>// 传递的数据，必填参数</em>
-  recoverable: true <em>// 页面是否可恢复，该参数为非必填参数，默认为true</em>
+  url: 'page/onePage', // 传递的方式，必填参数
+  params: Object, // 传递的数据，必填参数
+  recoverable: true // 页面是否可恢复，该参数为非必填参数，默认为true
 }
 ```
 
@@ -31,9 +31,9 @@
 - pushNamedRoute与replaceNamedRoute描述页面信息的参数为[NamedRouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#namedrouteroptions10)，传递参数结构形式为：
 ```text
 {
-  name: 'Welcome', <em>// 传递的方式，必填参数</em>
-  params: Object, <em>// 传递的数据，必填参数</em>
-  recoverable: true <em>// 页面是否可恢复，该参数为非必填参数，默认为true</em>
+  name: 'Welcome', // 传递的方式，必填参数
+  params: Object, // 传递的数据，必填参数
+  recoverable: true // 页面是否可恢复，该参数为非必填参数，默认为true
 }
 ```
  
@@ -78,7 +78,7 @@ this.getUIContext().getRouter().pushUrl({
  
 - 页面一：
 ```text
-<em>// 定义公共参数类</em>
+// 定义公共参数类
 export class InfoTmp {
   age: number = 0;
 }
@@ -88,7 +88,7 @@ export class ParamInfo {
   info: InfoTmp = new InfoTmp();
 }
 
-<em>// 通过this.getUIContext().getRouter().pushUrl跳转至目标页携带params参数</em>
+// 通过this.getUIContext().getRouter().pushUrl跳转至目标页携带params参数
 @Entry
 @Component
 struct Index {
@@ -128,19 +128,19 @@ struct Index {
 ```text
 import { ParamInfo } from './Index';
 
-<em>// 在second页面中接收传递过来的参数</em>
+// 在second页面中接收传递过来的参数
 @Entry
 @Component
 struct Second {
   @State params: ParamInfo = this.getUIContext().getRouter().getParams() as ParamInfo;
 
   aboutToAppear(): void {
-    <em>// 方案一</em>
+    // 方案一
     let params = (this.getUIContext().getRouter().getParams() as Record<string, object>);
     let name = params.name;
     let info = params.info;
     console.info(`Succeeded in completing PlanOne. params:{name: ${name}, info: ${info}}. `);
-    <em>// 方案二</em>
+    // 方案二
     let paramInfo: ParamInfo = this.getUIContext().getRouter().getParams() as ParamInfo;
     console.info(`Succeeded in completing PlanTwo. params:{name: ${paramInfo.name}, info.age: ${paramInfo.info.age}}. `);
   }
@@ -194,7 +194,7 @@ A：router.getParams()获取的是路由记录中的只读参数副本，参数�
 ```text
 this.getUIContext().getRouter().pushUrl({
   url: 'pages/Page',
-  params: {} <em>// 若不传递参数，传空对象，覆盖旧对象。</em>
+  params: {} // 若不传递参数，传空对象，覆盖旧对象。
 });
 ```
  

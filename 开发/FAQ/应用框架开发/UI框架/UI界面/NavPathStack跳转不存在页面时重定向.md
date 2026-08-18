@@ -53,10 +53,10 @@ struct NavPathStackDemo {
         .fontSize('20fp')
         .margin({ top: '50vp' })
         .onClick(() => {
-        <em>  // 跳转xxx页面，此页面不存在</em>
+          // 跳转xxx页面，此页面不存在
           this.navPathStack.pushDestination({ name: 'xxx' }).catch((result: BusinessError) => {
             console.info(`${result.code} ${result.name} ${result.message}`);
-            this.navPathStack.pushPathByName('ErrorPage', null, false);<em> </em><em>// 跳转失败重定向</em>
+            this.navPathStack.pushPathByName('ErrorPage', null, false); // 跳转失败重定向
           });
         });
     }

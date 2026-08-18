@@ -19,7 +19,7 @@ import I18n from '@ohos.i18n';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  I18n.System.setAppPreferredLanguage('en-Latn-US'); <em>// 设置应用当前的偏好语言为'US'</em>
+  I18n.System.setAppPreferredLanguage('en-Latn-US'); // 设置应用当前的偏好语言为'US'
 } catch (error) {
   let err: BusinessError = error as BusinessError;
   console.error(`call System.setAppPreferredLanguage failed, error code: ${err.code}, message: ${err.message}.`);

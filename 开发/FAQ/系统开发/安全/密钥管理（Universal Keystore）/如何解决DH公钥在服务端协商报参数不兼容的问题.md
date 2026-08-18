@@ -11,30 +11,30 @@ HarmonyOS使用ArkTS生成的DH公钥，在服务端协商失败，报错Incompa
 ```text
 class TestDh {
     public static void main(String[] args) throws Exception {
-        <em>// </em><em>生成并初始化DH密钥</em>
+        // 生成并初始化DH密钥
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("DH");
         keyPairGenerator.initialize(512);
-        <em>/* 服务端公私钥 */</em>
+        /* 服务端公私钥 */
         KeyPair keyPair= keyPairGenerator.generateKeyPair();
         DHPublicKey publicKey = (DHPublicKey) keyPair.getPublic();
         String serverPuk = Base64.getEncoder().encodeToString(publicKey.getEncoded());
-        <em>// </em><em>HarmonyOS公钥</em>
+        // HarmonyOS公钥
         String pukClient = "替换为HarmonyOS的公钥";
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(Base64.getDecoder().decode(pukClient));
-        <em>//</em> <em>根据DH算法获取KeyFactory</em>
+        // 根据DH算法获取KeyFactory
         KeyFactory kf = KeyFactory.getInstance("DH");
-        <em>// </em><em>通过KeyFactory创建公钥</em>
+        // 通过KeyFactory创建公钥
         PublicKey receivedPublicKey = kf.generatePublic(keySpec);
-        <em>// </em><em>创建KeyAgreement对象</em>
+        // 创建KeyAgreement对象
         KeyAgreement keyAgreement = KeyAgreement.getInstance("DH");
-        <em>//</em><em> 初始化协议，设置我方密钥</em>
+        // 初始化协议，设置我方密钥
         DHPrivateKey privateKey = (DHPrivateKey) keyPair.getPrivate();
         keyAgreement.init(privateKey);
-        <em>// </em><em>添加对方的公钥</em>
+        // 添加对方的公钥
         keyAgreement.doPhase((DHPublicKey)receivedPublicKey, true);
-        <em>// </em><em>生成协商密钥</em>
+        // 生成协商密钥
         byte[] sharedSecret = keyAgreement.generateSecret();
-        <em>// </em><em>输出协商的密钥</em>
+        // 输出协商的密钥
     }
 }
 ```
@@ -60,7 +60,7 @@ class TestDh {
 
   从DH算法的生成流程看，最关键的核心是密钥对的生成和交换，首先检查公钥的解析是否正确，核心代码：
 ```text
-<em>// </em><em>来自服务端的公钥serverPubString</em>
+// 来自服务端的公钥serverPubString
 let serverPubString ='替换下xxx';
 const serverPubArray: Uint8Array = new util.Base64Helper().decodeSync(serverPubString);
 ```
@@ -131,22 +131,22 @@ struct Index {
 }
 
 async function dhCreate(): Promise<string> {
-  <em>// 生成客户端公私钥对</em>
+  // 生成客户端公私钥对
   let keyGen = cryptoFramework.createAsyKeyGenerator('DH_modp1536');
   let clientPair = await keyGen.generateKeyPair();
   let clientPub = clientPair.pubKey.getEncoded();
   let base64Helper = new util.Base64Helper();
-  <em>// 传给服务端的公钥:toServerPuk</em>
+  // 传给服务端的公钥:toServerPuk
   let toServerPuk = base64Helper.encodeToStringSync(clientPub.data);
   hilog.debug(1, 'Index', `createKeyAgreement toServerPuk ${toServerPuk}`);
-  <em>// 来自服务端的公钥serverPubString，以下为模拟key，非真实值！！！</em>
+  // 来自服务端的公钥serverPubString，以下为模拟key，非真实值！！！
   let serverPubString =
     'MIIBoDCB1QYJKoZIhvcNAQMBMIHHAoHBAP//////////yQ/aoiFowjTExmKLgNwc0SkCTgiKZ8x0Agu+pjsTmyJRSgh5jjQE3e+VGbPNOkMbMCsKbfJfFDdP4TVtbVHCReSFtXZiXn7G9ExC6aY37WsL/1y29Aa37e44a/taiZ+lrp8kEXxLH+ZJKGZR7ORbPcIAfLihY78FmNpINhxV05ppFj+o/STPX4NlXSPco62WHGLzViCFUrue1SkHcJaWbWcMNU5KvJgE8XRsCMojcyf//////////wIBAgOBxQACgcEAnwrTwUX2xwrz0RYuYe2feqrD5wgJWDDeZSu0AnpIHFGZER1eYUJ1TTEZjE1gtBQAMbcVngSekfqFn5mHjDSA3JCLa7E2GK0GvhETtKv0m3BD/aR7bNpwwEqb0865ybD+y75P2ehYlre9XOiWcdMSs7Vc04ac0Ru1h/vyuN7ljtciJeSg8kvLJjEQSNF0QdZ5vMpOVRDLWpB0/fVRlfVdvUs2F2V95cPTK0SIXrmS9xN6quV5nDYwj+3+4rm0+VDs';
   const serverPubArray: Uint8Array = new util.Base64Helper().decodeSync(serverPubString);
   try {
     let serverPubKey = keyGen.convertKeySync({ data: serverPubArray }, null);
     let keyAgreement = cryptoFramework.createKeyAgreement('DH_modp1536');
-    <em>// 使用服务端的公钥和客户端的私钥进行密钥协商</em>
+    // 使用服务端的公钥和客户端的私钥进行密钥协商
     return keyAgreement.generateSecret(clientPair.priKey, serverPubKey.pubKey).then((reslove) => {
       let strBase = new util.Base64Helper().encodeToStringSync(reslove.data);
       hilog.debug(1, 'Index', 'result is:' + strBase);

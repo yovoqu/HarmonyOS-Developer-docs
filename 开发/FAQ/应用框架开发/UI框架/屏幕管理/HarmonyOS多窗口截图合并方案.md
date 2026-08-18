@@ -41,13 +41,13 @@ import { common } from '@kit.AbilityKit';
 @Entry
 @Component
 struct Index {
-  private context = this.getUIContext().getHostContext(); <em>// </em><em>获取Context</em>
+  private context = this.getUIContext().getHostContext(); // 获取Context
   mainWindowClass: window.Window | undefined = undefined;
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
   private canvasContext: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
 
   aboutToAppear(): void {
-  <em>  // 获取主窗口</em>
+    // 获取主窗口
     window.getLastWindow(this.context).then((value) => {
       this.mainWindowClass = value;
     });
@@ -85,16 +85,16 @@ struct Index {
           .width('90%')
           .margin({ bottom: 20 })
           .onClick(async () => {
-       <em>     // 清除画布内容</em>
+            // 清除画布内容
             this.canvasContext.clearRect(0, 0, 1000, 1000);
-           <em> // 主窗口截图</em>
+            // 主窗口截图
             this.mainWindowClass?.snapshot((err: BusinessError, pixelMap: image.PixelMap) => {
               const errCode: number = err.code;
               if (errCode) {
                 console.error(`Failed to snapshot window. Cause code: ${err.code}, message: ${err.message}`);
                 return;
               }
-             <em> // 绘制主窗口到画布</em>
+              // 绘制主窗口到画布
               this.canvasContext.drawImage(pixelMap, 90, 50, 200, 400);
             });
             window.getLastWindow(this.context, (err: BusinessError, topWindow) => {
@@ -108,7 +108,7 @@ struct Index {
                   console.error(`Failed to snapshot window. Cause code: ${err.code}, message: ${err.message}`);
                   return;
                 }
-               <em> // 绘制子窗口到画布</em>
+                // 绘制子窗口到画布
                 this.canvasContext.drawImage(pixelMap, 90, 50, 200, 400);
               });
             });
@@ -146,13 +146,13 @@ struct Watermark {
             this.canvas.font = '16vp';
             this.canvas.textAlign = 'center';
             this.canvas.textBaseline = 'middle';
-          <em>  // 在这里绘制文字水印，也可以是图片水印</em>
+            // 在这里绘制文字水印，也可以是图片水印
             for (let i = 0; i < this.canvas.width / 120; i++) {
               this.canvas.translate(120, 0);
               let j = 0;
               for (; j < this.canvas.height / 120; j++) {
                 this.canvas.rotate(-Math.PI / 180 * 30);
-               <em> // 此处水印数据是写死的，具体请替换为自己的水印</em>
+                // 此处水印数据是写死的，具体请替换为自己的水印
                 this.canvas.fillText('test', -60, -60);
                 this.canvas.rotate(Math.PI / 180 * 30);
                 this.canvas.translate(0, 120);

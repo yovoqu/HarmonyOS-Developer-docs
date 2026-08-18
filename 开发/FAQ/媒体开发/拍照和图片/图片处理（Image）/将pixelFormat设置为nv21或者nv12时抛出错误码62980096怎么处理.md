@@ -48,7 +48,7 @@ struct Index {
             let resourceManager = this.getUIContext().getHostContext()!.resourceManager
             let imageArray = await resourceManager.getMediaContent($r("app.media.sample14_NV21_fromJPG_510X510"));
             let pixelBuffer = new Uint8Array(imageArray).buffer as Object as ArrayBuffer;
-           <em> //</em><em> The value 8 of the sourcePixelFormat parameter corresponds to NV21 format, and 9 corresponds to NV12 format; The sourceSize parameter needs to set the width and height (the width and height data of the original yuv image), and the width value cannot be odd.</em>
+            // The value 8 of the sourcePixelFormat parameter corresponds to NV21 format, and 9 corresponds to NV12 format; The sourceSize parameter needs to set the width and height (the width and height data of the original yuv image), and the width value cannot be odd.
             let sourceOptions: image.SourceOptions =
               { sourceDensity: 120, sourcePixelFormat: 8, sourceSize: { width: 510, height: 510 } };
             let imageResource = image.createImageSource(pixelBuffer, sourceOptions);
@@ -57,7 +57,7 @@ struct Index {
 
             let imageArray2 = await resourceManager.getMediaContent($r('app.media.sample10_NV12_fromJPG_510X510'));
             let pixelBuffer2 = new Uint8Array(imageArray2).buffer as Object as ArrayBuffer;
-            <em>// The value 8 of the sourcePixelFormat parameter corresponds to NV21 format, and 9 corresponds to NV12 format; The sourceSize parameter needs to set the width and height (the width and height data of the original yuv image), and the width value cannot be odd.</em>
+            // The value 8 of the sourcePixelFormat parameter corresponds to NV21 format, and 9 corresponds to NV12 format; The sourceSize parameter needs to set the width and height (the width and height data of the original yuv image), and the width value cannot be odd.
             let sourceOptions2: image.SourceOptions =
               { sourceDensity: 120, sourcePixelFormat: 9, sourceSize: { width: 510, height: 510 } };
             let imageResource2 = image.createImageSource(pixelBuffer2, sourceOptions2);

@@ -36,26 +36,26 @@ struct VideoControlExample {
 
   build() {
     Column() {
-      <em>// Web组件加载视频页面</em>
+      // Web组件加载视频页面
       Web({
-        src: '******', <em>// H5页面地址</em>
+        src: '******', // H5页面地址
         controller: this.controller
       })
-        <em>// 页面加载完成后初始化视频控制</em>
+        // 页面加载完成后初始化视频控制
         .onPageEnd(() => {
           this.controller.runJavaScript(
-            <em>// 获取页面video元素，并设置video.controls为false，设置video播放控件不显示</em>
+            // 获取页面video元素，并设置video.controls为false，设置video播放控件不显示
             "window.videoElement = document.querySelector('video');"
               + "window.videoElement.controls = false;"
           );
         })
-        .mediaPlayGestureAccess(false)  <em>// 允许有声视频用户手动点击播放</em>
+        .mediaPlayGestureAccess(false)  // 允许有声视频用户手动点击播放
         .fileAccess(true)
         .geolocationAccess(false)
         .width('100%')
         .height('85%')
 
-      <em>// 播放/暂停控制按钮</em>
+      // 播放/暂停控制按钮
       Button(this.isPlaying ? '暂停' : '播放')
         .onClick(() => {
           this.isPlaying = !this.isPlaying;
@@ -69,7 +69,7 @@ struct VideoControlExample {
         .width('90%')
         .height('5%')
 
-      <em>// 倍速控制按钮组</em>
+      // 倍速控制按钮组
       Row() {
         Button('0.75x').onClick(() => this.setPlaybackSpeed(0.75))
         Button('1.0x').onClick(() => this.setPlaybackSpeed(1.0))
@@ -81,7 +81,7 @@ struct VideoControlExample {
     .height('100%')
   }
 
-  <em>// 倍速控制按钮触发</em>
+  // 倍速控制按钮触发
   setPlaybackSpeed(speed: number) {
     const script = `document.querySelector('video').playbackRate = ${speed};`;
     this.controller.runJavaScript(
@@ -112,15 +112,15 @@ Q：ArkTS侧如何设置H5中视频的播放控件不显示？
 A：video的播放控件由controls属性进行控制，网页加载完成后，设置controls属性为false，播放控件就不会显示。示例代码：
  
 ```text
-<em>// Web组件加载视频页面</em>
+// Web组件加载视频页面
 Web({
-  src: '******', <em>// H5页面地址</em>
+  src: '******', // H5页面地址
   controller: this.controller
 })
-  <em>// 页面加载完成后初始化视频控制</em>
+  // 页面加载完成后初始化视频控制
   .onPageEnd(() => {
     this.controller.runJavaScript(
-      <em>// 获取页面video元素，并设置video.controls为false，设置video播放控件不显示</em>
+      // 获取页面video元素，并设置video.controls为false，设置video播放控件不显示
       "window.videoElement = document.querySelector('video');"
         + "window.videoElement.controls = false;"
     );

@@ -143,7 +143,7 @@ struct TransparentBackgroundColor2 {
   private controller: TabsController = new TabsController();
 
   onDidBuild(): void {
-  <em>  // 设置TabBar透明</em>
+    // 设置TabBar透明
     this.controller.setTabBarOpacity(0.5);
   }
 
@@ -197,9 +197,9 @@ struct GradientBackgroundColor2 {
         .width('100%')
         .height(this.barHeight)
         .linearGradient({
-          direction: GradientDirection.LeftTop, <em>// 渐变方向</em>
-          repeating: false, <em>// 渐变颜色是否重复</em>
-          colors: [[0x0A59F7, 0.0], [0xF1F3F5, 0.3], [0x0A59F7, 0.8]]<em> // 数组末尾元素占比小于1时满足重复着色效果</em>
+          direction: GradientDirection.LeftTop, // 渐变方向
+          repeating: false, // 渐变颜色是否重复
+          colors: [[0x0A59F7, 0.0], [0xF1F3F5, 0.3], [0x0A59F7, 0.8]] // 数组末尾元素占比小于1时满足重复着色效果
         })
       Tabs({ barPosition: BarPosition.End }) {
         TabContent() {
@@ -275,7 +275,7 @@ struct BackgroundImage1 {
 
   build() {
     Stack({ alignContent: Alignment.Bottom }) {
-      Image($r('app.media.harmony_intelligence')) <em>// 开发者需自行替换图片资源</em>
+      Image($r('app.media.harmony_intelligence')) // 开发者需自行替换图片资源
         .width('100%')
         .height(this.barHeight)
         .objectFit(ImageFit.Fill)
@@ -286,7 +286,7 @@ struct BackgroundImage1 {
             .height('100%')
             .backgroundColor('#FFF')
         }
-        .tabBar(this.tabBuilder(0, $r('app.media.foreground'), '首页')) <em>// 开发者需自行替换图片资源和文字内容</em>
+        .tabBar(this.tabBuilder(0, $r('app.media.foreground'), '首页')) // 开发者需自行替换图片资源和文字内容
 
         TabContent() {
           Column()
@@ -294,7 +294,7 @@ struct BackgroundImage1 {
             .height('100%')
             .backgroundColor('#0A59F7')
         }
-        .tabBar(this.tabBuilder(1, $r('app.media.foreground'), '商城')) <em>// 开发者需自行替换图片资源和文字内容</em>
+        .tabBar(this.tabBuilder(1, $r('app.media.foreground'), '商城')) // 开发者需自行替换图片资源和文字内容
 
         TabContent() {
           Column()
@@ -302,10 +302,10 @@ struct BackgroundImage1 {
             .height('100%')
             .backgroundColor('#FFF')
         }
-        .tabBar(this.tabBuilder(2, $r('app.media.foreground'), '我的')) <em>// 开发者需自行替换图片资源和文字内容</em>
+        .tabBar(this.tabBuilder(2, $r('app.media.foreground'), '我的')) // 开发者需自行替换图片资源和文字内容
       }
       .onChange((index: number) => {
-      <em>  // currentIndex控制TabContent显示页签</em>
+        // currentIndex控制TabContent显示页签
         this.currentIndex = index;
         this.selectedIndex = index;
       })

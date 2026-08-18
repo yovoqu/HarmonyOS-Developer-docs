@@ -13,7 +13,7 @@ import { commonEventManager } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 
-<em>// Publish public event callbacks</em>
+// Publish public event callbacks
 function publishCB(err: BusinessError) {
   if (err) {
     console.error(`Failed to publish common event. Code is ${err.code}, message is ${err.message}`);
@@ -21,7 +21,7 @@ function publishCB(err: BusinessError) {
     console.info(`Succeeded in publishing common event.`);
   }
 }
-<em>// Publish public events</em>
+// Publish public events
 try {
   commonEventManager.publish("event", publishCB);
 } catch (error) {
@@ -36,13 +36,13 @@ try {
 import { BusinessError } from '@kit.BasicServicesKit';
 import { commonEventManager } from '@kit.BasicServicesKit';
 
-<em>// Define subscribers to save successfully created subscriber objects, which can be used to complete subscription and unsubscribe</em> actions in the future
+// Define subscribers to save successfully created subscriber objects, which can be used to complete subscription and unsubscribe actions in the future
 let subscriber: commonEventManager.CommonEventSubscriber;
-<em>// Subscriber information</em>
+// Subscriber information
 let subscribeInfo: commonEventManager.CommonEventSubscribeInfo = {
   events: ["event"]
 };
-<em>// Subscribe to public event callbacks</em>
+// Subscribe to public event callbacks
 function SubscribeCB(err: BusinessError, data: commonEventManager.CommonEventData) {
   if (err) {
     console.error(`Failed to subscribe. Code is ${err.code}, message is ${err.message}`);
@@ -50,12 +50,12 @@ function SubscribeCB(err: BusinessError, data: commonEventManager.CommonEventDat
     console.info(`Succeeded in subscribing, data is ` + JSON.stringify(data));
   }
 }
-<em>// Create subscriber callback</em>
+// Create subscriber callback
 function createCB(err: BusinessError, commonEventSubscriber: commonEventManager.CommonEventSubscriber) {
   if(!err) {
     console.info(`Succeeded in creating subscriber.`);
     subscriber = commonEventSubscriber;
-    <em>// Subscribe to public events</em>
+    // Subscribe to public events
     try {
       commonEventManager.subscribe(subscriber, SubscribeCB);
     } catch (error) {
@@ -66,7 +66,7 @@ function createCB(err: BusinessError, commonEventSubscriber: commonEventManager.
     console.error(`Failed to create subscriber. Code is ${err.code}, message is ${err.message}`);
   }
 }
-<em>// Create subscribers</em>
+// Create subscribers
 try {
   commonEventManager.createSubscriber(subscribeInfo, createCB);
 } catch (error) {

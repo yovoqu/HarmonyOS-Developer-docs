@@ -17,13 +17,13 @@
 从4.1.3.400版本开始，abiFilters字段缺省配置为"arm64-v8a"，将默认只编译arm64-v8a一种ABI，若设备不支持64位ABI，构建出的包将无法运行在设备上，请根据设备支持的ABI，在build-profile.json5中的buildOption/externalNativeOptions内手动配置abiFilters的值。
  
 ```json
-<em>// HarmonyOS工程</em>
+// HarmonyOS工程
 "buildOption": {
   "externalNativeOptions": {
     "abiFilters": ["arm64-v8a", "x86_64"]
   },
 }
-<em>// OpenHarmony工程</em>
+// OpenHarmony工程
 "buildOption": {
   "externalNativeOptions": {
     "abiFilters": ["arm64-v8a", "x86_64", "armeabi-v7a"]

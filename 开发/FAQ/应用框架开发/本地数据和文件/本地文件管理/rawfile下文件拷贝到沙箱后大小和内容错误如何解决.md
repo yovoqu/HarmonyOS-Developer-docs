@@ -18,23 +18,23 @@ import { resourceManager } from '@kit.LocalizationKit';
 
 function copyRawFileToSdcard(context: common.Context) {
   let destRoot = context.filesDir;
-<em>  // rawfile下的文件名</em>
+  // rawfile下的文件名
   let srcFileName = 'test_1.txt'
   let destFilePath = destRoot + '/test/copy_' + srcFileName;
-<em>  // 创建文件目录</em>
+  // 创建文件目录
   fileIo.mkdir(destRoot + '/test').catch((error: BusinessError) => {
-  <em>  // 可能目录已存在或者没有权限</em>
+    // 可能目录已存在或者没有权限
     console.error(`copyRawFileToSdcard mkdir fail: ${error.code}, ${error.code}`)
   }).then(async () => {
-    <em>// </em><em>创建目录成功</em>
+    // 创建目录成功
     console.info('copyRawFileToSdcard mkdir success')
-   <em> // 获取rawfile的fd</em>
+    // 获取rawfile的fd
     let data: resourceManager.RawFileDescriptor = await context.resourceManager.getRawFd(srcFileName);
     fileIo.copyFile(data.fd, destFilePath, 0).then(() => {
-     <em> // 文件拷贝成功</em>
+      // 文件拷贝成功
       console.info('copyRawFileToSdcard write success')
     }).catch((error: BusinessError) => {
-     <em> // 文件拷贝失败</em>
+      // 文件拷贝失败
       console.error(`copyRawFileToSdcard write exception : ${error.code}, ${error.code}`)
     })
   })
@@ -88,12 +88,12 @@ struct Index {
 
   copyRawFileToSdcard(context: common.Context) {
     let destRoot = context.filesDir;
-  <em>  // rawfile下的文件名</em>
+    // rawfile下的文件名
     let srcFileName = 'test_1.txt';
     let destFilePath = destRoot + '/test/copy_' + srcFileName;
-   <em> // 创建文件目录</em>
+    // 创建文件目录
     fileIo.mkdir(destRoot + '/test').then(async () => {
-     <em> // 创建目录成功</em>
+      // 创建目录成功
       console.info('copyRawFileToSdcard mkdir success');
       context.resourceManager.getRawFileContent(srcFileName, (error: BusinessError, data: Uint8Array) => {
         if (error != null) {
@@ -103,13 +103,13 @@ struct Index {
           let fileStream = fileIo.createStreamSync(destFilePath, 'w+');
           fileStream.writeSync(data.buffer);
           fileStream.close();
-         <em> // 文件拷贝成功</em>
+          // 文件拷贝成功
           promptAction.openToast({ message: '拷贝成功' });
           console.info('copyRawFileToSdcard write success');
         }
       });
     }).catch((error: BusinessError) => {
-     <em> // 可能目录已存在或者没有权限</em>
+      // 可能目录已存在或者没有权限
       promptAction.openToast({ message: '拷贝失败' });
       console.error(`copyRawFileToSdcard mkdir fail: ${error.code}, ${error.code}`);
     });

@@ -50,7 +50,7 @@ struct FourTextInput {
             .fontSize('30vp')
             .textAlign(TextAlign.Center)
             .maxLength(1)
-          <em>  // .type(InputType.NUMBER_PASSWORD) // 如需要启动安全模式，添加此处属性</em>
+            // .type(InputType.NUMBER_PASSWORD) // 如需要启动安全模式，添加此处属性
             .showPasswordIcon(false)
             .height(80)
             .border({
@@ -62,14 +62,14 @@ struct FourTextInput {
             .id(index.toString())
             .onDidDelete(() => {
               if (this.inputValue[index].length === 0) {
-              <em>  // 不是第一个输入框且输入框内没有文字，则删除上一个输入框内容，并且使上一个输入框获取焦点</em>
+                // 不是第一个输入框且输入框内没有文字，则删除上一个输入框内容，并且使上一个输入框获取焦点
                 if (index !== 0) {
                   this.inputValue[index - 1] = '';
                   this.inputEnable[index] = false;
                   this.inputEnable[index - 1] = true;
                   this.getUIContext().getFocusController().requestFocus((index - 1).toString());
                 } else {
-                  <em>// 如果输入框内有文字，则只删除当前输入框内容</em>
+                  // 如果输入框内有文字，则只删除当前输入框内容
                   this.inputValue[index] = '';
                 }
               }

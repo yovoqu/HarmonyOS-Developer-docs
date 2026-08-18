@@ -135,7 +135,7 @@ x28:0000000000000000 x29:0000007ea9ccb440
 lr:0000005a0b69dad4 sp:0000007ea9ccb200 pc:0000005a2e7e86b0
 pstate:0000000080001000 esr:0000000000000000
 ... 
-<em>maps：</em>
+maps：
 5a2e7c0000-5a2e7d7000 r--p 00000000 /data/storage/el1/bundle/libs/arm64/libentry.so
 5a2e7d7000-5a2e804000 r-xp 00016000 /data/storage/el1/bundle/libs/arm64/libentry.so
 5a2e804000-5a2e806000 r--p 00042000 /data/storage/el1/bundle/libs/arm64/libentry.so
@@ -231,7 +231,7 @@ x28:0000000000000000 x29:0000007ea9ccb440
 lr:0000005a0b69dad4 sp:0000007ea9ccb200 pc:0000005a2e5686cc
 pstate:0000000080001000 esr:0000000000000000
 ...
-<em>maps：</em>
+maps：
 5a2e540000-5a2e557000 r--p 00000000 /data/storage/el1/bundle/libs/arm64/libentry.so
 5a2e557000-5a2e584000 r-xp 00016000 /data/storage/el1/bundle/libs/arm64/libentry.so
 5a2e584000-5a2e586000 r--p 00042000 /data/storage/el1/bundle/libs/arm64/libentry.so

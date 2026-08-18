@@ -21,7 +21,7 @@ struct ListTestPage {
   @State testArray: Array<TestItem> = [];
 
 
- <em> // 删除数组项</em>
+  // 删除数组项
   changeArray(testArray: Array<TestItem>, index: number): Array<TestItem> {
     if (testArray.length <= 0 || index < 0 || index >= testArray.length) {
       return testArray;
@@ -49,7 +49,7 @@ struct ListTestPage {
       .margin({ top: 30 });
 
 
-     <em> // 添加按钮</em>
+      // 添加按钮
       Row() {
         Button('添加列表数量');
       }
@@ -78,7 +78,7 @@ struct ListTestPage {
         .onChange((value: string) => {
           itemBean.content = value;
         })
-        .defaultFocus(false); <em>// 弹出软键盘</em>
+        .defaultFocus(false); // 弹出软键盘
       Text('删除')
         .visibility(index >= 2 ? Visibility.Visible : Visibility.None)
         .onClick(() => {
@@ -148,7 +148,7 @@ class TestItemOne {
 
 
   constructor(id: number) {
-  <em>  // 构造时传入不同的id</em>
+    // 构造时传入不同的id
     this.id = id;
   }
 }
@@ -160,7 +160,7 @@ struct OptionOne {
   @State testArray: Array<TestItemOne> = [];
 
 
-  <em>// 删除数组项</em>
+  // 删除数组项
   changeArray(testArray: Array<TestItemOne>, index: number): Array<TestItemOne> {
     if (testArray.length <= 0 || index < 0 || index >= testArray.length) {
       return testArray;
@@ -188,7 +188,7 @@ struct OptionOne {
       .margin({ top: 30 });
 
 
-    <em>  // 添加按钮</em>
+      // 添加按钮
       Row() {
         Button('添加列表数量');
       }
@@ -196,7 +196,7 @@ struct OptionOne {
       .borderRadius(4)
       .alignItems(VerticalAlign.Center)
       .onClick(() => {
-       <em> // 构造时传入不同的id，此处以数组的长度作为数组最后一项的id，从而保证每个对象的id都不一致，从而刷新ForEach</em>
+        // 构造时传入不同的id，此处以数组的长度作为数组最后一项的id，从而保证每个对象的id都不一致，从而刷新ForEach
         this.testArray.push(new TestItemOne(this.testArray.length));
       });
     }
@@ -257,7 +257,7 @@ struct OptionTwo {
   @State testArray: Array<TestItemTwo> = [];
 
 
- <em> // 删除数组项</em>
+  // 删除数组项
   changeArray(testArray: Array<TestItemTwo>, index: number): Array<TestItemTwo> {
     if (testArray.length <= 0 || index < 0 || index >= testArray.length) {
       return testArray;
@@ -277,7 +277,7 @@ struct OptionTwo {
             this.builderVoteOpinionView(itemBean, index);
           };
         }, (item: TestItemTwo, index: number) => {
-          return index + '__' + JSON.stringify(item) + JSON.stringify(Date.now());<em> // 为系统默认的返回值增加Date.now()</em>
+          return index + '__' + JSON.stringify(item) + JSON.stringify(Date.now()); // 为系统默认的返回值增加Date.now()
         });
       }
       .width('90%')
@@ -287,7 +287,7 @@ struct OptionTwo {
       .margin({ top: 30 });
 
 
-     <em> // 添加按钮</em>
+      // 添加按钮
       Row() {
         Button('添加列表数量');
       }

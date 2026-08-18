@@ -27,7 +27,7 @@
 ```json
 @ObservedV2
 class Person {
-<em>  // 控制Checkbox的选中状态</em>
+  // 控制Checkbox的选中状态
   @Trace public name: boolean;
   public value: number;
 
@@ -57,7 +57,7 @@ struct CheckboxPage {
         Text('反选');
       }
       .onClick(() => {
-    <em>    // 反转Checkbox的选中状态，实现反选</em>
+        // 反转Checkbox的选中状态，实现反选
         for (let i = 0; i < this.info.personList.length; i++) {
           this.info.personList[i].name = !this.info.personList[i].name;
         }
@@ -73,7 +73,7 @@ struct CheckboxPage {
                 .unselectedColor('#027cff')
                 .select(item.name)
                 .onChange((value: boolean) => {
-             <em>     // 记录当前Checkbox的选中状态</em>
+                  // 记录当前Checkbox的选中状态
                   item.name = value;
                 })
                 .width(18)
@@ -126,7 +126,7 @@ struct CheckboxExample {
   build() {
     Scroll() {
       Column() {
-     <em>   // 全选按钮</em>
+        // 全选按钮
         Flex({ justifyContent: FlexAlign.Start, alignItems: ItemAlign.Center }) {
           CheckboxGroup({ group: 'checkboxGroup' })
             .selectedColor('#007DFF')
@@ -148,7 +148,7 @@ struct CheckboxExample {
                 } else {
                   this.selectIndexList = this.selectIndexList.filter((element) => {
                     return element !== item.productName;
-                <em>    // 返回不等于要删除元素的元素构成新数组</em>
+                    // 返回不等于要删除元素的元素构成新数组
                   });
                 }
               });

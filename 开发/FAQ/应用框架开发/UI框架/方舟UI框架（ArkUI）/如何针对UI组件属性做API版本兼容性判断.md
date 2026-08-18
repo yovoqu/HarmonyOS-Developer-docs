@@ -24,7 +24,7 @@ struct ComponentAttributeCompatibilityJudgment {
 
   build() {
     List() {
-   <em>   // List content</em>
+      // List content
     }
     .height('100%')
     .width('100%')
@@ -34,10 +34,10 @@ struct ComponentAttributeCompatibilityJudgment {
 
 class MyListModifier implements AttributeModifier<ListAttribute> {
   applyNormalAttribute(instance: ListAttribute): void {
-  <em>  // Determine based on the API version information of deviceInfo</em>
+    // Determine based on the API version information of deviceInfo
     if (deviceInfo.sdkApiVersion > 14) {
-    <em>  // The property to be adapted is the backToTop attribute of the List component</em>
-<em>      // The instance is an attribute object of the List, and its properties can be modified through the instance</em>
+      // The property to be adapted is the backToTop attribute of the List component
+      // The instance is an attribute object of the List, and its properties can be modified through the instance
       instance.backToTop(true);
     }
   }

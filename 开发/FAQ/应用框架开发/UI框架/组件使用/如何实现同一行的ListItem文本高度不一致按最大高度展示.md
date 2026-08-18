@@ -54,7 +54,7 @@ const ARR: Area[] = [
   new Area('酉阳土家族苗族自治县'), new Area('彭水苗族土家族自治县'),
 ];
 
-<em>// 元素子组件</em>
+// 元素子组件
 @Component
 struct TextComponentOne {
   content: string = '';
@@ -79,8 +79,8 @@ struct Index {
     Scroll() {
       Flex({
         justifyContent: FlexAlign.Center,
-        wrap: FlexWrap.Wrap, <em>// Flex容器的元素多行/列排布</em>
-        alignItems: ItemAlign.Stretch, <em>// 元素在Flex容器中，交叉轴方向拉伸填充</em>
+        wrap: FlexWrap.Wrap, // Flex容器的元素多行/列排布
+        alignItems: ItemAlign.Stretch, // 元素在Flex容器中，交叉轴方向拉伸填充
         space: {
           cross: { value: 0, unit: LengthUnit.VP }
         }
@@ -89,7 +89,7 @@ struct Index {
           Column() {
             TextComponentOne({ content: item.name });
           }
-         <em> // 格式、宽度、圆角等属性需在Flex元素设置，若设置在元素子组件内，交叉轴防线拉伸填充可能不生效</em>
+          // 格式、宽度、圆角等属性需在Flex元素设置，若设置在元素子组件内，交叉轴防线拉伸填充可能不生效
           .justifyContent(item.name.length >= 9 ? FlexAlign.Start : FlexAlign.Center)
           .width('30%')
           .border({ width: 0, radius: 7 })
@@ -114,7 +114,7 @@ struct Index {
 
 - **方案二**：通过onAreaChange获取各ListItem高度并判断行内最大高度，通过状态变量变化和if/else条件语句，刷新页面布局，将组件高度设置为行内最大高度。1. 计算每个ListItem的高度，并判断同一行中所有ListItem的最大高度。
 ```text
-<em>// 判断行内高度的最大值，并将arr中的元素的高度设置为高度最大值</em>
+// 判断行内高度的最大值，并将arr中的元素的高度设置为高度最大值
 reSetHeightSize() {
   for (let i = 0; i < this.arr.length; i += 3) {
     let arrTmp: number[] = [];
@@ -140,7 +140,7 @@ ListItemChangeRegion() {
       ListItem() {
         TextComponentTwo({ content: item.name })
           .onAreaChange((oldValue: Area, newValue: Area) => {
-           <em> // 遍历全部ListItem并收集高度后，调用reSetHeightSize方法计算各行的最大高度，并再完成遍历后改变状态变量isBoolean的值，UI渲染改变</em>
+            // 遍历全部ListItem并收集高度后，调用reSetHeightSize方法计算各行的最大高度，并再完成遍历后改变状态变量isBoolean的值，UI渲染改变
             this.arr[index].heightSize = newValue.height as number;
             if (this.flags === this.arr.length - 1) {
               this.isBoolean = false;
@@ -176,10 +176,10 @@ ListItemSameHeight() {
 4. 使用条件语句if和状态变量isBoolean，通过判断状态变量的值的变化，重新对布局进行刷新。
 ```text
 if (this.isBoolean) {
- <em> // 首次布局，组件区域变化触发onRegionOneChange回调，收集并计算ListItem高度</em>
+  // 首次布局，组件区域变化触发onRegionOneChange回调，收集并计算ListItem高度
   this.ListItemChangeRegion();
 } else {
- <em> // isBoolean值发生改变，重新布局进入else语句，此时，各ListItem的高度已是行内的最大高度值</em>
+  // isBoolean值发生改变，重新布局进入else语句，此时，各ListItem的高度已是行内的最大高度值
   this.ListItemSameHeight();
 }
 ```
@@ -216,7 +216,7 @@ const ARR: RegionOne[] = [
   new RegionOne('酉阳土家族苗族自治县'), new RegionOne('彭水苗族土家族自治县'),
 ];
 
-<em>// 元素子组件</em>
+// 元素子组件
 @Component
 struct TextComponentTwo {
   content: string = '';
@@ -249,7 +249,7 @@ struct Page {
   private flags: number = 0;
   @State private isBoolean: boolean = true;
 
- <em> // 判断行内高度的最大值，并将arr中的元素的高度设置为高度最大值</em>
+  // 判断行内高度的最大值，并将arr中的元素的高度设置为高度最大值
   reSetHeightSize() {
     for (let i = 0; i < this.arr.length; i += 3) {
       let arrTmp: number[] = [];
@@ -271,7 +271,7 @@ struct Page {
         ListItem() {
           TextComponentTwo({ content: item.name })
             .onAreaChange((oldValue: Area, newValue: Area) => {
-            <em>  // 遍历全部ListItem并收集高度后，调用reSetHeightSize方法计算各行的最大高度，并再完成遍历后改变状态变量isBoolean的值，UI渲染改变</em>
+              // 遍历全部ListItem并收集高度后，调用reSetHeightSize方法计算各行的最大高度，并再完成遍历后改变状态变量isBoolean的值，UI渲染改变
               this.arr[index].heightSize = newValue.height as number;
               if (this.flags === this.arr.length - 1) {
                 this.isBoolean = false;
@@ -301,10 +301,10 @@ struct Page {
   build() {
     Column() {
       if (this.isBoolean) {
-      <em>  // 首次布局，组件区域变化触发onRegionOneChange回调，收集并计算ListItem高度</em>
+        // 首次布局，组件区域变化触发onRegionOneChange回调，收集并计算ListItem高度
         this.ListItemChangeRegion();
       } else {
-     <em>   // isBoolean值发生改变，重新布局进入else语句，此时，各ListItem的高度已是行内的最大高度值</em>
+        // isBoolean值发生改变，重新布局进入else语句，此时，各ListItem的高度已是行内的最大高度值
         this.ListItemSameHeight();
       }
     }

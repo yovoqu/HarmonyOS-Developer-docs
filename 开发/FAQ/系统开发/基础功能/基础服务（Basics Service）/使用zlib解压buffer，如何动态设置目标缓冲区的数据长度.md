@@ -45,17 +45,17 @@ import { BusinessError, zlib } from '@kit.BasicServicesKit';
 
 const DOMAIN = 0x0000;
 
-<em>/**</em>
-<em> * 解压逻辑</em>
-<em> * (1) inBuf：ArrayBuffer转 strm：zlib.ZStream 每次的大小为 let readLen = Math.min(BUFLEN, inBuf.byteLength - offset)</em>
-<em> * 循环-> BUFLEN计算stream的偏移量，作为起点继续下一个截取的stream转换  [循环->(用BUFLEN大小的outBuf：ArrayBuffer缓冲目标区去接收分割后的stream]</em>
-<em> * (3) 计算stream的偏移量，作为起点继续下一个截取的stream转换</em>
-<em> * (4) 判断当前的stream是否为最后的一个，如果是结束循环</em>
-<em> */</em>
+/**
+ * 解压逻辑
+ * (1) inBuf：ArrayBuffer转 strm：zlib.ZStream 每次的大小为 let readLen = Math.min(BUFLEN, inBuf.byteLength - offset)
+ * 循环-> BUFLEN计算stream的偏移量，作为起点继续下一个截取的stream转换  [循环->(用BUFLEN大小的outBuf：ArrayBuffer缓冲目标区去接收分割后的stream]
+ * (3) 计算stream的偏移量，作为起点继续下一个截取的stream转换
+ * (4) 判断当前的stream是否为最后的一个，如果是结束循环
+ */
 async function unzip(inBuf: ArrayBuffer) {
 
   let zip = zlib.createZipSync();
-<em>  // 将压缩后的arrayBuffer解压的正确姿势</em>
+  // 将压缩后的arrayBuffer解压的正确姿势
   let strm: zlib.ZStream = {};
   let BUFLEN = 4096;
   let count = inBuf.byteLength / BUFLEN;
@@ -64,10 +64,10 @@ async function unzip(inBuf: ArrayBuffer) {
   }
 
   let outBuf = new ArrayBuffer(BUFLEN);
-  let output: ArrayBuffer[] = []; <em>// </em><em>用于存储解压后的数据</em>
+  let output: ArrayBuffer[] = []; // 用于存储解压后的数据
 
   await zip.inflateInit(strm);
-  let offset = 0; <em>// 用于跟踪读取的字节数</em>
+  let offset = 0; // 用于跟踪读取的字节数
   do {
     let readLen = Math.min(BUFLEN, inBuf.byteLength - offset);
     if (readLen <= 0) {
@@ -76,11 +76,11 @@ async function unzip(inBuf: ArrayBuffer) {
 
     strm.availableIn = readLen;
     strm.nextIn = inBuf.slice(offset, offset + readLen);
-    offset += readLen; <em>// 更新偏移量</em>
+    offset += readLen; // 更新偏移量
 
     do {
       strm.availableOut = BUFLEN;
-      strm.nextOut = outBuf;<em> </em><em>// 压缩后的输出字节</em>
+      strm.nextOut = outBuf; // 压缩后的输出字节
 
       try {
         await zip.inflate(strm, zlib.CompressFlushMode.SYNC_FLUSH);
@@ -95,7 +95,7 @@ async function unzip(inBuf: ArrayBuffer) {
         if (strm.availableOut != undefined) {
           let have = BUFLEN - strm.availableOut;
           if (have > 0) {
-        <em>    // 将解压后的数据存储到output数组中</em>
+            // 将解压后的数据存储到output数组中
             output.push(outBuf.slice(0, have));
           }
         }
@@ -107,27 +107,27 @@ async function unzip(inBuf: ArrayBuffer) {
 
   zip.inflateEnd(strm);
 
-<em>  // 将output数组中的Uint8Array合并为一个单一的Uint8Array</em>
+  // 将output数组中的Uint8Array合并为一个单一的Uint8Array
   let totalLength = output.reduce((acc, val) => acc + val.byteLength, 0);
-<em>  // 解压后的buff</em>
+  // 解压后的buff
   let result = new Uint8Array(totalLength);
   let pos = 0;
   for (let arr of output) {
-  <em>  // 将ArrayBuffer转换为Uint8Array</em>
+    // 将ArrayBuffer转换为Uint8Array
     let u = new Uint8Array(arr);
-  <em>  // 将解压后的数据写入result</em>
+    // 将解压后的数据写入result
     result.set(u, pos);
-  <em>  // 更新位置</em>
+    // 更新位置
     pos += u.byteLength;
   }
 
-<em>  // 转回string检测结果正确</em>
+  // 转回string检测结果正确
   hilog.info(DOMAIN, 'testZip', `解压后的数据：${uint8ArrayToString(result)}`);
 }
 
-<em>/**</em>
-<em> * Uint8Array转string</em>
-<em> */</em>
+/**
+ * Uint8Array转string
+ */
 function uint8ArrayToString(arr: Uint8Array): string {
   let str = '';
   if (arr && arr.length > 0) {
@@ -140,14 +140,14 @@ function uint8ArrayToString(arr: Uint8Array): string {
   }
   return str;
 }
-<em>/**</em>
-<em> * 压缩逻辑</em>
-<em> */</em>
+/**
+ * 压缩逻辑
+ */
 function zip(str: string): ArrayBuffer {
   const enc = util.TextEncoder.create('utf-8');
   const u8 = enc.encodeInto(str); // Uint8Array
   const arrayBufferIn = u8.buffer.slice(u8.byteOffset, u8.byteOffset + u8.byteLength);
- <em> // arrayBufferOut长度必须足够，否则会抛出异常</em>
+  // arrayBufferOut长度必须足够，否则会抛出异常
   let arrayBufferOut = new ArrayBuffer(100);
   let zip = zlib.createZipSync();
 
@@ -163,7 +163,7 @@ function zip(str: string): ArrayBuffer {
 @Component
 struct ZlibTest {
   aboutToAppear(): void {
-   <em> // 仅作功能展示，用户可根据实际填写</em>
+    // 仅作功能展示，用户可根据实际填写
     let zipStr = '英文ABCdef中文123456字符，。、,./;';
     hilog.info(DOMAIN, 'testZip', `待压缩数据：${zipStr}`);
     hilog.info(DOMAIN, 'testZip', '开始压缩');

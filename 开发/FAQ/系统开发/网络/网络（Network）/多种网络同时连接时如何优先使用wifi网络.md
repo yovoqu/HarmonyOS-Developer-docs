@@ -42,18 +42,18 @@
 
 2. 编写优先使用wifi网络管理类。
 ```ArkTS
-<em>// WifiManager.ets</em>
+// WifiManager.ets
 import { BusinessError } from '@kit.BasicServicesKit';
 import { connection } from '@kit.NetworkKit';
 
 export class WifiManager {
   private static instance?: WifiManager;
 
-<em>  /**</em>
-<em>   * Get singleton</em>
-<em>   *</em>
-<em>   * @returns Singleton object</em>
-<em>   */</em>
+  /**
+   * Get singleton
+   *
+   * @returns Singleton object
+   */
   public static getInstance(): WifiManager {
     if (!WifiManager.instance) {
       WifiManager.instance = new WifiManager();
@@ -61,9 +61,9 @@ export class WifiManager {
     return WifiManager.instance;
   }
 
-<em>  /**</em>
-<em>   * Start listening for network changes (Wi-Fi network / Bluetooth network / cellular data)</em>
-<em>   */</em>
+  /**
+   * Start listening for network changes (Wi-Fi network / Bluetooth network / cellular data)
+   */
   public startListenNetChange(): void {
     console.info("registerNetListener");
     let netConnectionWifi = connection.createNetConnection({
@@ -122,9 +122,9 @@ export class WifiManager {
     });
   }
 
-<em>  /**</em>
-<em>   * Connect the App to the Wi-Fi network asynchronously</em>
-<em>   */</em>
+  /**
+   * Connect the App to the Wi-Fi network asynchronously
+   */
   private async bindWifiWhenConnected(): Promise<void> {
     await connection.setAppNet(connection.getDefaultNetSync()).then(() => {
       console.info('setAppNet default success')
@@ -155,7 +155,7 @@ export class WifiManager {
 ```text
 import { WifiManager } from './WifiManager'
 
-<em>// Register for change monitoring</em>
+// Register for change monitoring
 WifiManager.getInstance().startListenNetChange();
 ```
 

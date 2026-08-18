@@ -9,10 +9,10 @@
 DevEco Studio编译有以下报错：
  
 ```text
-<span style="color: rgb(0,0,255);">ohpm </span><span style="color: rgb(181,106,1);">ERROR</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Invalid dependency entry</span><span style="color: rgb(181,106,1);">@</span><span style="color: rgb(181,106,1);">...</span>\<span style="color: rgb(0,0,255);">entry </span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">entry</span><span style="color: rgb(181,106,1);">@</span><span style="color: rgb(255,0,0);">1.0.0</span><span style="color: rgb(181,106,1);">.</span>
-<span style="color: rgb(0,0,255);">ohpm </span><span style="color: rgb(181,106,1);">ERROR</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Found </span><span style="color: rgb(181,106,1);">exception</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Invalid dependency</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">reached retry limit or non retryable error encountered</span><span style="color: rgb(181,106,1);">.</span>
-<em>// ...</em>
-<span style="color: rgb(0,0,255);">ohpm </span><span style="color: rgb(181,106,1);">ERROR</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Install failed</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">detail</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Invalid dependency</span><span style="color: rgb(181,106,1);">.</span>
+ohpm ERROR: Invalid dependency entry@...\entry -> entry@1.0.0.
+ohpm ERROR: Found exception: Error: Invalid dependency, reached retry limit or non retryable error encountered.
+// ...
+ohpm ERROR: Install failed, detail: Error: Invalid dependency.
 ```
  
 如何解决？
@@ -27,10 +27,10 @@ DevEco Studio编译有以下报错：
 - **场景二**：如果该依赖项确实存在，解决方案是修改该模块名称，或者在该模块的oh-package.json5中修改该依赖项名称，并找到该依赖项所在模块，用修改模块名称的方法做出相应修改。
 - **场景三**：ohpm缓存的问题导致，执行以下命令：
 ```text
-<span style="color: rgb(0,0,255);">ohpm cache clean</span>
+ohpm cache clean
 ```
  
 ```text
-<span style="color: rgb(0,0,255);">ohpm clean</span>
+ohpm clean
 ```
  再同步一下工程(File -> Sync and Refresh Project)，最后编译运行即可。

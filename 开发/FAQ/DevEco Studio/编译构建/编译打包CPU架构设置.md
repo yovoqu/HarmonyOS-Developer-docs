@@ -15,15 +15,15 @@
 ```json
 "externalNativeOptions": {
   "path": "./src/main/cpp/CMakeLists.txt",
-  <em>// CMake configuration file, providing CMake build scripts</em>
+  // CMake configuration file, providing CMake build scripts
   "arguments": "",
-  <em>// Optional compilation parameters passed to CMake</em>
+  // Optional compilation parameters passed to CMake
   "abiFilters": [
     "x86_64",
     "arm64-v8a"
   ],
-  <em>// Used to set up the local ABI compilation environment</em>
+  // Used to set up the local ABI compilation environment
   "cppFlags": ""
-  <em>// Set optional parameters for the C++ compiler</em>
+  // Set optional parameters for the C++ compiler
 },
 ```

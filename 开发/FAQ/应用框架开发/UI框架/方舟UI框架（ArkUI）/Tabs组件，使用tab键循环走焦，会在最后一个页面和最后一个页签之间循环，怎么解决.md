@@ -56,7 +56,7 @@ struct TabsExample {
           }
         }, (item: string) => item)
       }
-      .listDirection(Axis.Vertical)<em> // 排列方向</em>
+      .listDirection(Axis.Vertical) // 排列方向
       .scrollBar(BarState.Off)
       .friction(0.6)
       .divider({
@@ -64,8 +64,8 @@ struct TabsExample {
         color: 0xFFFFFF,
         startMargin: 20,
         endMargin: 20
-      }) <em>// 每行之间的分界线</em>
-      .edgeEffect(EdgeEffect.Spring) <em>// 边缘效果设置为Spring</em>
+      }) // 每行之间的分界线
+      .edgeEffect(EdgeEffect.Spring) // 边缘效果设置为Spring
     }
     .width('100%')
     .height('100%')
@@ -91,7 +91,7 @@ struct TabsExample {
       .barHeight(56)
       .animationDuration(400)
       .onChange((index: number) => {
-     <em>   // currentIndex控制TabContent显示页签</em>
+        // currentIndex控制TabContent显示页签
         this.currentIndex = index;
         this.selectedIndex = index;
       })
@@ -99,7 +99,7 @@ struct TabsExample {
         if (index === targetIndex) {
           return;
         }
-       <em> // selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
+        // selectedIndex控制自定义TabBar内Image和Text颜色切换
         this.selectedIndex = targetIndex;
       })
       .width('100%')

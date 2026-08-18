@@ -41,7 +41,7 @@ struct NavObserverDemo {
   }
 
   aboutToAppear() {
-    uiObserver.on('navDestinationSwitch', this.getUIContext(), callBackFunc); <em>// 注册页面切换的监听</em>
+    uiObserver.on('navDestinationSwitch', this.getUIContext(), callBackFunc); // 注册页面切换的监听
   }
 
   aboutToDisappear() {

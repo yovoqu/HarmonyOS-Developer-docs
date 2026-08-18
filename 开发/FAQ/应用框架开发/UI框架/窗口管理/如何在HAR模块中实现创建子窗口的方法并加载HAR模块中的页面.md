@@ -32,7 +32,7 @@
 ```json
 onWindowStageCreate(windowStage: window.WindowStage): void {
   AppStorage.setOrCreate('windowStage', windowStage);
-  <em>// Main window is created, set main page for this ability</em>
+  // Main window is created, set main page for this ability
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
   windowStage.loadContent('pages/Index', (err) => {
@@ -61,7 +61,7 @@ export function func(value: string, value2: string) {
 
   let windowStage = AppStorage.get('windowStage') as window.WindowStage;
   windowStage.createSubWindow('SubWindow', (err, windowClass) => {
-    <em>// 获取屏幕宽高以设置子窗口坐标</em>
+    // 获取屏幕宽高以设置子窗口坐标
     let displayClass = display.getPrimaryDisplaySync();
     screenWidth = displayClass.width;
     screenHeight = displayClass.height;
@@ -70,15 +70,15 @@ export function func(value: string, value2: string) {
       return;
     }
     try {
-     <em> // 设置子窗口加载页</em>
+      // 设置子窗口加载页
       windowClass.loadContentByName('page1', storage);
-     <em> // 设置子窗口左上角坐标</em>
+      // 设置子窗口左上角坐标
       windowClass.moveWindowTo((screenWidth - uiContext.vp2px(300)) / 2, (screenHeight - uiContext.vp2px(300)) / 2);
-      <em>// 设置子窗口大小</em>
+      // 设置子窗口大小
       windowClass.resize(uiContext.vp2px(300), uiContext.vp2px(300));
-      <em>// 设置子窗口圆角</em>
+      // 设置子窗口圆角
       windowClass.setWindowCornerRadius(16);
-      <em>// 展示子窗口</em>
+      // 展示子窗口
       windowClass.showWindow();
 
     } catch (err) {
@@ -178,7 +178,7 @@ struct Index {
         .height(16);
       Button('打开子窗口')
         .onClick(() => {
-          <em>// 调用HAR模块方法</em>
+          // 调用HAR模块方法
           func('来自Index', 'app.media.startIcon');
         });
     }

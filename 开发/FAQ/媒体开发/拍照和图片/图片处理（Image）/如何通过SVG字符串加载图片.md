@@ -36,7 +36,7 @@ import { util } from '@kit.ArkTS';
 @Component
 struct Index {
   @State pixelMap: image.PixelMap | undefined = undefined;
- <em> // 将以下内容替换成从三方库得到的SVG字符串</em>
+  // 将以下内容替换成从三方库得到的SVG字符串
   svgContent = '';
 
   async uint8ArrayToPixelMap(svg: string): Promise<image.PixelMap> {

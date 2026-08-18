@@ -32,13 +32,13 @@
  
 - SharedModule.ets共享对象定义文件。
 ```ArkTS
-<em>// </em><em>共享模块sharedModule.ets</em>
+// 共享模块sharedModule.ets
 import { ArkTSUtils } from '@kit.ArkTS';
 
-<em>// </em><em>声明当前模块为共享模块，只能导出可Sendable数据</em>
+// 声明当前模块为共享模块，只能导出可Sendable数据
 'use shared';
 
-<em>// </em><em>共享模块，SingletonA全局唯一</em>
+// 共享模块，SingletonA全局唯一
 @Sendable
 class SingletonA {
   private count_: number = 0;
@@ -51,14 +51,14 @@ class SingletonA {
   }
 
   public async increaseCount() {
- <em>   // 异步锁中自增count</em>
+    // 异步锁中自增count
     await this.lock_.lockAsync(() => {
       this.count_++;
     });
   }
 }
 
-<em>// </em><em>导出单例共享对象</em>
+// 导出单例共享对象
 export const singletonA = new SingletonA();
 ```
 

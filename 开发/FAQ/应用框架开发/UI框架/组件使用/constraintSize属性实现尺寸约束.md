@@ -57,11 +57,11 @@ struct Solution1 {
             }
           );
         }
-        .margin(10) <em>// 与外层Flex间隔为10</em>
-        .constraintSize({ maxHeight: 45 * 4 + 10 * 3 }) <em>// 设置内层Flex最大高度为4个Button的高度+Button之间的间隔</em>
-        .clip(true) <em>// 超出部分不显示</em>
+        .margin(10) // 与外层Flex间隔为10
+        .constraintSize({ maxHeight: 45 * 4 + 10 * 3 }) // 设置内层Flex最大高度为4个Button的高度+Button之间的间隔
+        .clip(true) // 超出部分不显示
         .width('100%');
-      }.border({ width: 1 }).width('80%'); <em>// 外层Flex不设置高度，自适应内层Flex高度</em>
+      }.border({ width: 1 }).width('80%'); // 外层Flex不设置高度，自适应内层Flex高度
     }.width('100%').height('100%').justifyContent(FlexAlign.Center);
   }
 }
@@ -88,26 +88,26 @@ import { display } from '@kit.ArkUI';
 @Entry
 @Component
 struct Solution2 {
-  <em>// 屏幕宽度-单位为px</em>
+  // 屏幕宽度-单位为px
   screenWidthPx: number = 0;
-  <em>// 屏幕宽度-单位为vp</em>
+  // 屏幕宽度-单位为vp
   @State screenWidth: number = 0;
 
   aboutToAppear(): void {
-    <em>// 获取显示设备的屏幕宽度，单位为px</em>
+    // 获取显示设备的屏幕宽度，单位为px
     this.screenWidthPx = display.getDefaultDisplaySync().width;
-    <em>// 将px转换为vp</em>
+    // 将px转换为vp
     this.screenWidth = this.getUIContext().px2vp(this.screenWidthPx);
   }
 
   build() {
     Column() {
       Row({ space: 10 }) {
-        Image($r('app.media.startIcon')) <em>// 图片资源需自行替换</em>
+        Image($r('app.media.startIcon')) // 图片资源需自行替换
           .width(40);
         Text('测试一段长文字测试一段长文字测试一段长文字测试一段长文字测试一段长文字测试一段长文字测试一段长文字测试一段长文字测试一段长文字')
           .backgroundColor('#F1F3F5')
-          .constraintSize({ maxWidth: this.screenWidth - 40 - 20 - 20 - 10 }); <em>// 约束宽度，屏幕宽-图片宽-左右margin-间隔</em>
+          .constraintSize({ maxWidth: this.screenWidth - 40 - 20 - 20 - 10 }); // 约束宽度，屏幕宽-图片宽-左右margin-间隔
       }
       .width('100%')
       .margin(20)

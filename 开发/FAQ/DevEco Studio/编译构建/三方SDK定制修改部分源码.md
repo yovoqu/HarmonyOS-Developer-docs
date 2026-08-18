@@ -49,7 +49,7 @@ SDK使用方需在SDK上定制功能开发，SDK提供方仅希望提供SDK和�
 "buildOption": {
     "packingOptions": {
       "customizedOptions": {
-        "basePackage": "./basePackage/modules.abc" <em>// 相对路径</em>
+        "basePackage": "./basePackage/modules.abc" // 相对路径
       }
     }
   },

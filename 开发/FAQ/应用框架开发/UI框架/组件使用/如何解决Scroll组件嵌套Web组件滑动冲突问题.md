@@ -48,7 +48,7 @@ Web组件和Scroll组件在同一页面时，会存在Web获取焦点，导致Sc
 
   
 ```text
-.hitTestBehavior(HitTestMode.Transparent); <em>// </em><em>自身和子节点均响应触摸测试，不会阻塞兄弟节点和祖先节点的触摸测试。</em>
+.hitTestBehavior(HitTestMode.Transparent); // 自身和子节点均响应触摸测试，不会阻塞兄弟节点和祖先节点的触摸测试。
 ```
  效果预览：
 
@@ -60,8 +60,8 @@ Web组件和Scroll组件在同一页面时，会存在Web获取焦点，导致Sc
   
 ```text
 .nestedScroll({
-  scrollForward: NestedScrollMode.PARENT_FIRST,<em> </em><em>// 向前滚动父容器优先</em>
-  scrollBackward: NestedScrollMode.SELF_FIRST<em> </em><em>// 向后滚动子组件优先</em>
+  scrollForward: NestedScrollMode.PARENT_FIRST, // 向前滚动父容器优先
+  scrollBackward: NestedScrollMode.SELF_FIRST // 向后滚动子组件优先
 });
 ```
  效果预览：
@@ -88,7 +88,7 @@ struct Solution1 {
     Scroll(this.scroller) {
       Column({ space: 20 }) {
         Web({
-         <em> // 开发者需根据需求替换src</em>
+          // 开发者需根据需求替换src
           src: $rawfile('ScrollWeb.html'),
           controller: this.webController
         })
@@ -127,7 +127,7 @@ struct Solution2 {
     Scroll(this.scroller) {
       Column({ space: 20 }) {
         Web({
-       <em>   // 开发者需根据需求替换src</em>
+          // 开发者需根据需求替换src
           src: $rawfile('ScrollWeb.html'),
           controller: this.webController
         })
@@ -144,7 +144,7 @@ struct Solution2 {
     .height('100%')
     .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM])
     .backgroundColor('#F1F3F5')
-    .hitTestBehavior(HitTestMode.Transparent); <em>// 自身和子节点均响应触摸测试，不会阻塞兄弟节点和祖先节点的触摸测试。</em>
+    .hitTestBehavior(HitTestMode.Transparent); // 自身和子节点均响应触摸测试，不会阻塞兄弟节点和祖先节点的触摸测试。
   }
 }
 
@@ -157,7 +157,7 @@ struct Solution3 {
     Scroll(this.scroller) {
       Column({ space: 20 }) {
         Web({
-         <em> // 开发者需根据需求替换src</em>
+          // 开发者需根据需求替换src
           src: $rawfile('ScrollWeb.html'),
           controller: this.webController
         })
@@ -167,8 +167,8 @@ struct Solution3 {
           .height('100%')
           .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM])
           .nestedScroll({
-            scrollForward: NestedScrollMode.PARENT_FIRST, <em>// </em><em>向前滚动父容器优先</em>
-            scrollBackward: NestedScrollMode.SELF_FIRST <em>// </em><em>向后滚动子组件优先</em>
+            scrollForward: NestedScrollMode.PARENT_FIRST, // 向前滚动父容器优先
+            scrollBackward: NestedScrollMode.SELF_FIRST // 向后滚动子组件优先
           });
         Row()
           .height(150);
@@ -227,13 +227,13 @@ struct TabsExample {
         .tabBar(this.tabBuilder(2, '方案3'))
         .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM]);
       }
-    <em>  //.vertical(false)</em>
-<em>      //.barMode(BarMode.Fixed)</em>
+      //.vertical(false)
+      //.barMode(BarMode.Fixed)
       .barWidth(360)
       .barHeight(56)
       .animationDuration(400)
       .onChange((index: number) => {
-       <em> // currentIndex控制TabContent显示页签</em>
+        // currentIndex控制TabContent显示页签
         this.currentIndex = index;
         this.selectedIndex = index;
       })
@@ -242,7 +242,7 @@ struct TabsExample {
           return;
         }
         console.info(`event currentOffset ${event.currentOffset}`);
-      <em>  // selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
+        // selectedIndex控制自定义TabBar内Image和Text颜色切换
         this.selectedIndex = targetIndex;
       })
       .width('100%')
@@ -259,7 +259,7 @@ struct TabsExample {
 html页面代码：
  
 ```text
-<em><!-- index.html --></em>
+<!-- index.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -274,8 +274,8 @@ html页面代码：
         .lightgray, .midgray {
          font-size:16px;
          height:200px;
-         text-align: center;   <em>    /* 水平居中 */</em>
-         line-height: 200px;      <em> /* 垂直居中（值等于容器高度） */</em>
+         text-align: center;       /* 水平居中 */
+         line-height: 200px;       /* 垂直居中（值等于容器高度） */
         }
     </style>
 </head>

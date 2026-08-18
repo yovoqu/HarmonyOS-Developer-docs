@@ -43,15 +43,15 @@ class SubscriberClass {
 
 
   subscribe(eventType: string, callback: (event: string) => void) {
- <em>   // 1.创建订阅者</em>
+    // 1.创建订阅者
     commonEventManager.createSubscriber({ events: [eventType] }, (err, data) => {
       if (err) {
         return console.info('logData:', '创建订阅者失败');
       }
-    <em>  // 2.data是订阅者</em>
+      // 2.data是订阅者
       this.subscriber = data;
       if (this.subscriber) {
-      <em>  // 3.订阅事件</em>
+        // 3.订阅事件
         commonEventManager.subscribe(this.subscriber, (err, data) => {
           if (err) {
             return console.info('logData:', '订阅者事件失败');
@@ -81,7 +81,7 @@ struct Index {
 
 
   aboutToAppear(): void {
-  <em>  // 订阅来自卡片发布的事件</em>
+    // 订阅来自卡片发布的事件
     subscriberClass.subscribe('appUpdate', (event) => {
       this.count = Number(event);
     });
@@ -95,9 +95,9 @@ struct Index {
       Button('-')
         .width(80)
         .onClick(() => {
-       <em>   // 减少计数器</em>
+          // 减少计数器
           this.count--;
-        <em>  // 发布事件</em>
+          // 发布事件
           subscriberClass.publish('cardUpdate', this.count.toString());
         });
 
@@ -108,9 +108,9 @@ struct Index {
       Button('+')
         .width(80)
         .onClick(() => {
-       <em>   // 增加计数器</em>
+          // 增加计数器
           this.count++;
-      <em>    // 发布事件</em>
+          // 发布事件
           subscriberClass.publish('cardUpdate', this.count.toString());
         });
     }.width('100%').height('100%').justifyContent(FlexAlign.Center);
@@ -134,10 +134,10 @@ interface Param {
 
 export default class EntryFormAbility extends FormExtensionAbility {
   onAddForm(want: Want) {
-    <em>// Called to return a FormBindingData object.</em>
+    // Called to return a FormBindingData object.
     let formData = '';
     let formId: string = want.parameters![formInfo.FormParam.IDENTITY_KEY] as string;
-   <em> // 订阅公共事件</em>
+    // 订阅公共事件
     subscriberClass.subscribe('cardUpdate', (event) => {
       formProvider.updateForm(formId, formBindingData.createFormBindingData({
         count: event
@@ -152,20 +152,20 @@ export default class EntryFormAbility extends FormExtensionAbility {
 
 
   onCastToNormalForm(formId: string) {
-   <em> // Called when the form provider is notified that a temporary form is successfully</em>
-<em>    // converted to a normal form.</em>
+    // Called when the form provider is notified that a temporary form is successfully
+    // converted to a normal form.
     console.info('onCastToNormalForm', formId);
   }
 
 
   onUpdateForm(formId: string) {
-  <em>  // Called to notify the form provider to update a specified form.</em>
+    // Called to notify the form provider to update a specified form.
     console.info('onUpdateForm', formId);
   }
 
 
   onFormEvent(formId: string, message: string) {
-   <em> // Called when a specified message event defined by the form provider is triggered.</em>
+    // Called when a specified message event defined by the form provider is triggered.
     console.info('onFormEvent', formId);
     // 发布公共事件
     let param = JSON.parse(message) as Param;
@@ -174,7 +174,7 @@ export default class EntryFormAbility extends FormExtensionAbility {
 
 
   onRemoveForm(formId: string) {
-    <em>// Called to notify the form provider that a specified form has been destroyed.</em>
+    // Called to notify the form provider that a specified form has been destroyed.
     console.info('onRemoveForm', formId);
   }
 
@@ -262,15 +262,15 @@ class SubscriberClass {
 
 
   subscribe(eventType: string, callback: (event: string) => void) {
-  <em>  // 1.创建订阅者</em>
+    // 1.创建订阅者
     commonEventManager.createSubscriber({ events: [eventType] }, (err, data) => {
       if (err) {
         return console.info('logData:', '创建订阅者失败');
       }
-     <em> // 2.data是订阅者</em>
+      // 2.data是订阅者
       this.subscriber = data;
       if (this.subscriber) {
-      <em>  // 3.订阅事件</em>
+        // 3.订阅事件
         commonEventManager.subscribe(this.subscriber, (err, data) => {
           if (err) {
             return console.info('logData:', '订阅者事件失败');
@@ -303,16 +303,16 @@ struct Index {
 
 
   aboutToAppear(): void {
-   <em> // 订阅来自卡片发布的事件</em>
+    // 订阅来自卡片发布的事件
     subscriberClass.subscribe('appUpdate', (event) => {
       this.count = Number(event);
     });
 
 
-  <em>  // 获取已上桌的卡片</em>
+    // 获取已上桌的卡片
     formProvider.getPublishedRunningFormInfos().then((data: formInfo.RunningFormInfo[]) => {
       console.info(`formProvider getPublishedRunningFormInfos, data: ${JSON.stringify(data)}`);
-      <em>// 过滤出需要同步更新的卡片，可以根据卡片名称</em>
+      // 过滤出需要同步更新的卡片，可以根据卡片名称
       this.updateForms = data.filter((item) => item.formName === 'widget');
     }).catch((error: BusinessError) => {
       console.error(`promise error, code: ${error.code}, message: ${error.message})`);
@@ -327,7 +327,7 @@ struct Index {
       Button('-')
         .width(80)
         .onClick(() => {
-      <em>    // 减少计数器</em>
+          // 减少计数器
           this.count--;
         });
 
@@ -338,18 +338,18 @@ struct Index {
       Button('+')
         .width(80)
         .onClick(() => {
-      <em>    // 增加计数器</em>
+          // 增加计数器
           this.count++;
         });
     }.width('100%').height('100%').justifyContent(FlexAlign.Center);
   }
 
 
-  <em>// 计数器变化监听</em>
+  // 计数器变化监听
   countChange() {
- <em>   // 遍历卡片</em>
+    // 遍历卡片
     this.updateForms.forEach((item) => {
-   <em>   // 值更新</em>
+      // 值更新
       formProvider.updateForm(item.formId, formBindingData.createFormBindingData({
         count: this.count
       }), (error: BusinessError) => {
@@ -382,7 +382,7 @@ interface Param {
 
 export default class EntryFormAbility extends FormExtensionAbility {
   onAddForm(want: Want) {
-   <em> // Called to return a FormBindingData object.</em>
+    // Called to return a FormBindingData object.
     let formId: string = want.parameters![formInfo.FormParam.IDENTITY_KEY] as string;
     console.info('onAddForm', formId);
     const formData = '';
@@ -391,33 +391,33 @@ export default class EntryFormAbility extends FormExtensionAbility {
 
 
   onCastToNormalForm(formId: string) {
-  <em>  // Called when the form provider is notified that a temporary form is successfully</em>
-<em>    // converted to a normal form.</em>
+    // Called when the form provider is notified that a temporary form is successfully
+    // converted to a normal form.
     console.info('onCastToNormalForm', formId);
   }
 
 
   onUpdateForm(formId: string) {
-   <em> // Called to notify the form provider to update a specified form.</em>
+    // Called to notify the form provider to update a specified form.
     console.info('onUpdateForm', formId);
   }
 
 
   onFormEvent(formId: string, message: string) {
-   <em> // Called when a specified message event defined by the form provider is triggered.</em>
+    // Called when a specified message event defined by the form provider is triggered.
     let param = JSON.parse(message) as Param;
     subscriberClass.publish('appUpdate', param.count.toString());
   }
 
 
   onRemoveForm(formId: string) {
-  <em>  // Called to notify the form provider that a specified form has been destroyed.</em>
+    // Called to notify the form provider that a specified form has been destroyed.
     console.info('onRemoveForm', formId);
   }
 
 
   onAcquireFormState(want: Want) {
-  <em>  // Called to return a {@link FormState} object.</em>
+    // Called to return a {@link FormState} object.
     console.info('onAcquireFormState', want.bundleName);
     return formInfo.FormState.READY;
   }

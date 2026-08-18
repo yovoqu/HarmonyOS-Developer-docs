@@ -26,62 +26,62 @@
 ArkTS实现：
  
 ```text
-import <span style="color: rgb(0,0,255);">fontNapi </span>from <span style="color: rgb(255,0,170);">'libentry.so'</span><span style="color: rgb(181,106,1);">;</span>
+import fontNapi from 'libentry.so';
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Hello World'</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct Index {
+  message: string = 'Hello World';
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
-    <em>// </em><em><span style="color: rgb(128,128,128);">此处是模拟的读取本地字体文件后得到</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">，实际场景中可以直接传入字体的</span><span style="color: rgb(128,128,128);">ArrayBuffer</span></em>
-    const <span style="color: rgb(0,0,255);">fontName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'MyCustomFont'</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">自定义字体名称</span></em>
-    const <span style="color: rgb(0,0,255);">fontPath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'XXXX.ttf'</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">此处仅为示例，请开发者替换为可用的字体文件。</span></em>
-    const <span style="color: rgb(0,0,255);">file </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRawFileContentSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">fontPath</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(0,0,255);">fontNapi</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">registerFontFamily</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">fontName</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
+  aboutToAppear(): void {
+    // 此处是模拟的读取本地字体文件后得到ArrayBuffer，实际场景中可以直接传入字体的ArrayBuffer
+    const fontName = 'MyCustomFont'; // 自定义字体名称
+    const fontPath = 'XXXX.ttf'; // 此处仅为示例，请开发者替换为可用的字体文件。
+    const file = this.getUIContext().getHostContext()?.resourceManager.getRawFileContentSync(fontPath);
+    fontNapi.registerFontFamily(fontName, file?.buffer);
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
-      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
-        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span>
-          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontFamily</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'MyCustomFont'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(255,0,170);">}</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,0,170);">}</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+  build() {
+    Row() {
+      Column({ space: 10 }) {
+        Text(this.message)
+          .fontFamily('MyCustomFont');
+      }
+      .width('100%');
+    }
+    .height('100%');
+  }
+}
 ```
  
 NAPI实现：
  
 ```text
-<em>/*</em>
-<em><span style="color: rgb(128,128,128);"> * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.</span></em>
-<em><span style="color: rgb(128,128,128);"> */</span></em>
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
+ */
 
 
-<span style="color: rgb(181,106,1);">#include "napi/native_api.h"</span>
-<span style="color: rgb(181,106,1);">#include "native_drawing/drawing_register_font.h"</span>
-<span style="color: rgb(181,106,1);">#include "native_drawing/drawing_font_collection.h"</span>
+#include "napi/native_api.h"
+#include "native_drawing/drawing_register_font.h"
+#include "native_drawing/drawing_font_collection.h"
 
 static napi_value registerFontFamily(napi_env env, napi_callback_info info) 
 {
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取全局字体集对象</span><span style="color: rgb(128,128,128);">OH_Drawing_FontCollection</span></em>
+    // 获取全局字体集对象OH_Drawing_FontCollection
     OH_Drawing_FontCollection *fontCollection = OH_Drawing_GetFontCollectionGlobalInstance();
-    size_t argc = <span style="color: rgb(0,0,255);">2</span>;
-    napi_value args[<span style="color: rgb(0,0,255);">2</span>];
+    size_t argc = 2;
+    napi_value args[2];
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取字体名称</span></em>
-    char fontName[<span style="color: rgb(0,0,255);">256</span>];
+    // 获取字体名称
+    char fontName[256];
     size_t fontNameLen;
-    napi_get_value_string_utf8(env, args[<span style="color: rgb(0,0,255);">0</span>], fontName, sizeof(fontName), &fontNameLen);
- <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取字体的</span><span style="color: rgb(128,128,128);">ArrayBuffer</span><span style="color: rgb(128,128,128);">数据</span></em>
+    napi_get_value_string_utf8(env, args[0], fontName, sizeof(fontName), &fontNameLen);
+    // 获取字体的ArrayBuffer数据
     void *bufferData;
     size_t bufferLength;
-    napi_get_arraybuffer_info(env, args[<span style="color: rgb(0,0,255);">1</span>], &bufferData, &bufferLength);
-   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">注册字体</span></em>
+    napi_get_arraybuffer_info(env, args[1], &bufferData, &bufferLength);
+    // 注册字体
     OH_Drawing_RegisterFontBuffer(fontCollection, fontName, reinterpret_cast<uint8_t *>(bufferData), bufferLength);
     return nullptr;
 }
@@ -90,18 +90,18 @@ static napi_value Init(napi_env env, napi_value exports)
 {
     napi_property_descriptor desc[] = {
         {"registerFontFamily", nullptr, registerFontFamily, nullptr, nullptr, nullptr, napi_default, nullptr}};
-    napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[<span style="color: rgb(0,0,255);">0</span>]), desc);
+    napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[0]), desc);
     return exports;
 }
 EXTERN_C_END
 static napi_module demoModule = {
-    .nm_version = <span style="color: rgb(0,0,255);">1</span>,
-    .nm_flags = <span style="color: rgb(0,0,255);">0</span>,
+    .nm_version = 1,
+    .nm_flags = 0,
     .nm_filename = nullptr,
     .nm_register_func = Init,
     .nm_modname = "entry",
-    .nm_priv = ((void *)<span style="color: rgb(0,0,255);">0</span>),
-    .reserved = {<span style="color: rgb(0,0,255);">0</span>},
+    .nm_priv = ((void *)0),
+    .reserved = {0},
 };
 extern "C" __attribute__((constructor)) void RegisterEntryModule(void) { napi_module_register(&demoModule); }
 ```
@@ -115,8 +115,8 @@ export const registerFontFamily: (fontName: string, file: ArrayBuffer) => void;
 CMakeLists.txt：
  
 ```cpp
-<span style="color: rgb(181,106,1);"># the </span>minimum version of CMake.
-cmake_minimum_required(VERSION <span style="color: rgb(0,0,255);">3.5.0</span>)
+# the minimum version of CMake.
+cmake_minimum_required(VERSION 3.5.0)
 project(registerFontBuffer)
 set(NATIVERENDER_ROOT_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 if(DEFINED PACKAGE_FIND_FILE)

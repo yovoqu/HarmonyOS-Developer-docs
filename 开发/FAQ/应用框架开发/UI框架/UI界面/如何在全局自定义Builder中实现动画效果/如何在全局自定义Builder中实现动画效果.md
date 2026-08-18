@@ -9,25 +9,25 @@
 在全局自定义Builder函数中，通过修改组件的属性，如何实现动画效果？问题代码示例参考如下：
  
 ```text
-<span style="color: rgb(181,106,1);">@Builder</span>
-function <span style="color: rgb(0,0,255);">bottomViewBuilder</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.start_branding_light_icon'</span><span style="color: rgb(255,0,170);">))</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">150</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'bottomRectHeight'</span><span style="color: rgb(255,0,170);">) </span>as <span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">End</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.color.background_color_level2'</span><span style="color: rgb(255,0,170);">))</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">windowWidth</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">windowHeight </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">adHeight</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1000</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Linear</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">playMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">PlayMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Normal</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAppear</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">  }</span><span style="color: rgb(255,0,170);">)</span>
-<span style="color: rgb(181,106,1);">}</span>
+@Builder
+function bottomViewBuilder() {
+  Column() {
+    Image($r('app.media.start_branding_light_icon'))
+      .width(150)
+  }
+  .padding({ bottom: AppStorage.get('bottomRectHeight') as number })
+  .justifyContent(FlexAlign.End)
+  .backgroundColor($r('app.color.background_color_level2'))
+  .width(windowWidth)
+  .height(windowHeight - adHeight)
+  .animation({
+    duration: 1000,
+    curve: Curve.Linear,
+    playMode: PlayMode.Normal
+  })
+  .onAppear(() => {
+  })
+}
 ```
  
 以上代码中windowWidth、windowHeight、adHeight为全局变量，当全局变量修改时，无法触发动画效果。
@@ -52,99 +52,99 @@ function <span style="color: rgb(0,0,255);">bottomViewBuilder</span><span style=
 
   
 ```text
-<span style="color: rgb(181,106,1);">@Builder</span>
-function <span style="color: rgb(0,0,255);">bottomViewBuilderOne</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">simple</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">AnimatesOne</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.startIcon'</span><span style="color: rgb(255,0,170);">))</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">150</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'bottomRectHeight'</span><span style="color: rgb(255,0,170);">) </span>as <span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">End</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">simple</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">windowWidth</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">simple</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">windowHeight </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">simple</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">adHeight</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAppear</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">  }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+@Builder
+function bottomViewBuilderOne(simple: AnimatesOne) {
+  Column() {
+    Image($r('app.media.startIcon'))
+      .width(150);
+  }
+  .padding({ bottom: AppStorage.get('bottomRectHeight') as number })
+  .justifyContent(FlexAlign.End)
+  .width(simple.windowWidth)
+  .height(simple.windowHeight - simple.adHeight)
+  .onAppear(() => {
+  });
+}
 
-<em>// </em><em><span style="color: rgb(128,128,128);">动画属性只支持状态变量的修改，同时由于</span><span style="color: rgb(128,128,128);">Builder</span><span style="color: rgb(128,128,128);">的传参限制，建议封装为一个可深度观测的类</span></em>
-class <span style="color: rgb(0,0,255);">AnimatesOne </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@Track </span><span style="color: rgb(255,255,255);">windowWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Track </span><span style="color: rgb(255,255,255);">windowHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Track </span><span style="color: rgb(255,255,255);">adHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+// 动画属性只支持状态变量的修改，同时由于Builder的传参限制，建议封装为一个可深度观测的类
+class AnimatesOne {
+  @Track windowWidth: number = 100;
+  @Track windowHeight: number = 100;
+  @Track adHeight: number = 0;
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">OptionOne </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">simple</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">AnimatesOne </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">AnimatesOne</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct OptionOne {
+  @State simple: AnimatesOne = new AnimatesOne();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">开始动画</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">animateTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-            <span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">2000</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Linear</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">iterations</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">playMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">PlayMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Normal</span><span style="color: rgb(181,106,1);">,</span>
-            <span style="color: rgb(255,255,255);">onFinish</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-              <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'play end'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-            <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">simple</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">windowWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(181,106,1);">;</span>
-            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">simple</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">adHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(181,106,1);">;</span>
-          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">bottomViewBuilderOne</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">simple</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column() {
+      Text('开始动画')
+        .onClick(() => {
+          this.getUIContext()?.animateTo({
+            duration: 2000,
+            curve: Curve.Linear,
+            iterations: -1,
+            playMode: PlayMode.Normal,
+            onFinish: () => {
+              console.info('play end');
+            }
+          }, () => {
+            this.simple.windowWidth = 200;
+            this.simple.adHeight = 50;
+          });
+        });
+      bottomViewBuilderOne(this.simple);
+    };
+  }
+}
 ```
 
 - **方案二**：采用animation属性动画，实现方式与方案一类似，将方案一的步骤3的动画参数绑定在animation内。
 ```text
-<span style="color: rgb(181,106,1);">@Builder</span>
-function <span style="color: rgb(0,0,255);">bottomViewBuilderTwo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">simple</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">AnimatesTwo</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.startIcon'</span><span style="color: rgb(255,0,170);">))</span>
-      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">150</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">AppStorage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'bottomRectHeight'</span><span style="color: rgb(255,0,170);">) </span>as <span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">End</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">simple</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">windowWidth</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">simple</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">windowHeight </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">simple</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">adHeight</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">3000</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">iterations</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Linear</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(255,255,255);">playMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">PlayMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Normal</span>
-  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAppear</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-<span style="color: rgb(181,106,1);">  }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+@Builder
+function bottomViewBuilderTwo(simple: AnimatesTwo) {
+  Column() {
+    Image($r('app.media.startIcon'))
+      .width(150);
+  }
+  .padding({ bottom: AppStorage.get('bottomRectHeight') as number })
+  .justifyContent(FlexAlign.End)
+  .width(simple.windowWidth)
+  .height(simple.windowHeight - simple.adHeight)
+  .animation({
+    duration: 3000,
+    iterations: -1,
+    curve: Curve.Linear,
+    playMode: PlayMode.Normal
+  })
+  .onAppear(() => {
+  });
+}
 
-class <span style="color: rgb(0,0,255);">AnimatesTwo </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@Track </span><span style="color: rgb(255,255,255);">windowWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Track </span><span style="color: rgb(255,255,255);">windowHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">@Track </span><span style="color: rgb(255,255,255);">adHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">}</span>
+class AnimatesTwo {
+  @Track windowWidth: number = 100;
+  @Track windowHeight: number = 100;
+  @Track adHeight: number = 0;
+}
 
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">OptionTwo </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">simple</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">AnimatesTwo </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">AnimatesTwo</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+@Entry
+@Component
+struct OptionTwo {
+  @State simple: AnimatesTwo = new AnimatesTwo();
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">开始动画</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">simple</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">windowWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">simple</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">adHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-      <span style="color: rgb(0,0,255);">bottomViewBuilderTwo</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">simple</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column() {
+      Text('开始动画')
+        .onClick(() => {
+          this.simple.windowWidth = 200;
+          this.simple.adHeight = 50;
+        });
+      bottomViewBuilderTwo(this.simple);
+    };
+  }
+}
 ```
  效果预览：
 

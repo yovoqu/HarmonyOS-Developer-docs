@@ -37,10 +37,10 @@ struct ClearRectOne {
         .width('100%')
         .height('100%')
         .onReady(() => {
-        <em>  // 设置全局合成操作模式为XOR</em>
+          // 设置全局合成操作模式为XOR
           this.context.globalCompositeOperation = 'xor';
           this.context.beginPath();
-       <em>   // 计算屏幕宽度和高度并绘制矩形</em>
+          // 计算屏幕宽度和高度并绘制矩形
           this.context.rect(0, 0, this.getUIContext().px2vp(display.getDefaultDisplaySync().width),
             this.getUIContext().px2vp(display.getDefaultDisplaySync().height) - 40);
           this.context.closePath();
@@ -76,11 +76,11 @@ struct ClearRectTwo {
         .height(200)
         .backgroundColor(undefined)
         .onReady(async () => {
-        <em>  // 设置填充色</em>
+          // 设置填充色
           this.context.fillStyle = '#000000';
-       <em>   // 绘制覆盖整个Canvas的矩形</em>
+          // 绘制覆盖整个Canvas的矩形
           this.context.fillRect(0, 0, 140, 140);
-       <em>   // 在矩形中心位置创建镂空区域</em>
+          // 在矩形中心位置创建镂空区域
           this.context.clearRect(40, 40, 60, 60);
         })
         .opacity(0.6);
@@ -100,7 +100,7 @@ struct ClearRectTwo {
 struct ClearRectThree {
   build() {
     Stack() {
-     <em> // 背景设置</em>
+      // 背景设置
       Column() {
       }
       .width('100%')
@@ -108,7 +108,7 @@ struct ClearRectThree {
       .backgroundColor(Color.Yellow);
 
       Stack() {
-      <em>  // 绘制镂空区域</em>
+        // 绘制镂空区域
         Circle({ width: 50, height: 50 })
           .blendMode(BlendMode.XOR, BlendApplyType.OFFSCREEN);
       }

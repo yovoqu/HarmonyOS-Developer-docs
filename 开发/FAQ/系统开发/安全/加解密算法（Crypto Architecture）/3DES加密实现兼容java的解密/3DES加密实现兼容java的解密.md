@@ -51,13 +51,13 @@ struct Index {
   }
 }
 
-<em>/**</em>
-<em> * 加密消息</em>
-<em> *</em>
-<em> * @param symKey symKey</em>
-<em> * @param plainText plainText</em>
-<em> * @returns 加密后的内容</em>
-<em> */</em>
+/**
+ * 加密消息
+ *
+ * @param symKey symKey
+ * @param plainText plainText
+ * @returns 加密后的内容
+ */
 async function encryptMessagePromise(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob) {
   let cipher = cryptoFramework.createCipher('3DES192|ECB|PKCS7');
   await cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, null);
@@ -65,11 +65,11 @@ async function encryptMessagePromise(symKey: cryptoFramework.SymKey, plainText: 
   return encryptData;
 }
 
-<em>/**</em>
-<em> * 通过key data值获取symKey</em>
-<em> * @param symKeyData keyData</em>
-<em> * @returns void</em>
-<em> */</em>
+/**
+ * 通过key data值获取symKey
+ * @param symKeyData keyData
+ * @returns void
+ */
 async function genSymKeyByData(symKeyData: Uint8Array) {
   let symKeyBlob: cryptoFramework.DataBlob = { data: symKeyData };
   let symGenerator = cryptoFramework.createSymKeyGenerator('3DES192');
@@ -78,11 +78,11 @@ async function genSymKeyByData(symKeyData: Uint8Array) {
   return symKey;
 }
 
-<em>/**</em>
-<em> * 将uint8转换为 string值</em>
-<em> * @param uint Uint8Array值</em>
-<em> * @returns string值</em>
-<em> */</em>
+/**
+ * 将uint8转换为 string值
+ * @param uint Uint8Array值
+ * @returns string值
+ */
 function uint8ToString(uint: Uint8Array): string {
   let base64Helper = new util.Base64Helper();
   let result = base64Helper.encodeToStringSync(uint, util.Type.BASIC);
@@ -91,21 +91,21 @@ function uint8ToString(uint: Uint8Array): string {
 
 }
 
-<em>/**</em>
-<em> * 3DES_ECB模式加密</em>
-<em> */</em>
+/**
+ * 3DES_ECB模式加密
+ */
 export async function encrypt_3DES() {
- <em> // 此处填写实际值</em>
+  // 此处填写实际值
   let keyData =
     new Uint8Array([238, 249, 61, 55, 128, 220, 183, 224, 139, 253, 248, 239, 239, 41, 71, 25, 235, 206, 230, 162, 249,
       27, 234, 114]);
-  <em>// 获取symKey</em>
+  // 获取symKey
   let symKey = await genSymKeyByData(keyData);
- <em> // 待加密的信息</em>
+  // 待加密的信息
   let message = 'This is a test';
- <em> // 将待加密的信息转换为plainText</em>
+  // 将待加密的信息转换为plainText
   let plainText: cryptoFramework.DataBlob = { data: new Uint8Array(buffer.from(message, 'utf-8').buffer) };
- <em> // 生成加密后的密文</em>
+  // 生成加密后的密文
   let encryptText = await encryptMessagePromise(symKey, plainText);
   console.info('encrypt:', uint8ToString(encryptText.data));
 }
@@ -123,28 +123,28 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 public class Triple_DES {
-   <em> // key值</em>
+    // key值
     private static String keyString="7vk9N4Dct+CL/fjv7ylHGevO5qL5G+py";
-   <em> // 待解密的字符串信息</em>
+    // 待解密的字符串信息
     private static String encryptData="7hp/cpn6R+5adY0ALFfktw==";
 
-   <em> /**</em>
-<em>     * 获取解密密钥</em>
-<em>     *</em>
-<em>     * @return SecretKey</em>
-<em>     */</em>
+    /**
+     * 获取解密密钥
+     *
+     * @return SecretKey
+     */
     public static SecretKey makePrivateKey(){
         byte[] keyBytes = Base64.decodeBase64(keyString);
         return new SecretKeySpec(keyBytes, "DESede");
     }
 
-  <em>  /**</em>
-<em>     * 解密</em>
-<em>     */</em>
+    /**
+     * 解密
+     */
     public static String decrypt(SecretKey key) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
-        Cipher cipher = Cipher.getInstance("DESede/ECB/PKCS5Padding"); <em>// 注意：ECB模式不安全，推荐使用CBC模式并传入IV</em>
+        Cipher cipher = Cipher.getInstance("DESede/ECB/PKCS5Padding"); // 注意：ECB模式不安全，推荐使用CBC模式并传入IV
         cipher.init(Cipher.DECRYPT_MODE, key);
-        String encryptedData = encryptData;<em> // 加密后的数据，通常是Base64编码的字符串</em>
+        String encryptedData = encryptData; // 加密后的数据，通常是Base64编码的字符串
         byte[] encryptedBytes = Base64.decodeBase64(encryptedData);
         byte[] decryptedBytes = cipher.doFinal(encryptedBytes);
         return new String(decryptedBytes);

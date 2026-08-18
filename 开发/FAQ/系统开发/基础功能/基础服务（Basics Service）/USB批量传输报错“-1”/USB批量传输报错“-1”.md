@@ -19,11 +19,11 @@
 - **权限控制**：允许对USB设备的访问和操作进行权限控制，保证系统的安全性。
 - **使用示例**：在TypeScript中，可以这样使用@ohos.usbManager模块来获取USB设备列表：
 ```text
-import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">usbManager </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import { usbManager } from '@kit.BasicServicesKit';
 
-<em>// </em><em><span style="color: rgb(128,128,128);">获取</span><span style="color: rgb(128,128,128);">USB</span><span style="color: rgb(128,128,128);">设备列表</span></em>
-let <span style="color: rgb(0,0,255);">devicesList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">usbManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">USBDevice</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">usbManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDevices</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`devicesList = </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">devicesList</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+// 获取USB设备列表
+let devicesList: Array<usbManager.USBDevice> = usbManager.getDevices();
+console.info(`devicesList = ${devicesList}`);
 ```
 
 

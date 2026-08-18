@@ -39,17 +39,17 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct TlsSocketBind {
- <em> // tlsSocket实例</em>
+  // tlsSocket实例
   @State tls: socket.TLSSocket = socket.constructTLSSocketInstance();
 
-  <em>// </em><em>绑定tls</em>
+  // 绑定tls
   bind() {
-   <em> // 网络协议类型，可选类型：</em>
-<em>    // - 1：IPv4。默认为1。</em>
-<em>    // - 2：IPv6。地址为IPV6类型，该字段必须被显式指定为2。</em>
-<em>    // - 3：Domain。地址为Domain类型，该字段必须被显式指定为3。</em>
+    // 网络协议类型，可选类型：
+    // - 1：IPv4。默认为1。
+    // - 2：IPv6。地址为IPV6类型，该字段必须被显式指定为2。
+    // - 3：Domain。地址为Domain类型，该字段必须被显式指定为3。
     let bindAddr: socket.NetAddress = {
-      address: '::1', <em>// address需要根据实际地址进行填写</em>
+      address: '::1', // address需要根据实际地址进行填写
       port: 8080,
       family: 2
     };
@@ -65,7 +65,7 @@ struct TlsSocketBind {
   build() {
     Column() {
       Button('开始绑定tls').onClick(() => {
-      <em>  // 开始绑定tls</em>
+        // 开始绑定tls
         this.bind();
       });
     }

@@ -51,21 +51,21 @@ struct OutFrame {
   fontColor: string = '#182431';
   selectedFontColor: string = '#007DFF';
   iconMinHeight: number = 640;
-  <em>// 图片资源仅供参考，开发者可替换成所需资源</em>
+  // 图片资源仅供参考，开发者可替换成所需资源
   iconList: Resource[] = [
     $r('app.media.person'),
     $r('app.media.ellipsis_message'),
     $r('app.media.envelope'),
     $r('app.media.magnifyingglass')
   ];
-  iconX: number = 20; <em>// 图片位置x</em>
-  iconY: number = 65; <em>// 图片位置Y</em>
+  iconX: number = 20; // 图片位置x
+  iconY: number = 65; // 图片位置Y
   private controller: TabsController = new TabsController();
   @State currentIndex: number = 0;
-  @State iconWidth: number = 80; <em>// 图片宽度</em>
-  @State iconHeight: number = 80; <em>// 图片高度</em>
-  @State showAnimation: boolean = false; <em>// 控制动画显示</em>
-  @State showTabIcon: boolean = true; <em>// 控制Tab栏图标显隐</em>
+  @State iconWidth: number = 80; // 图片宽度
+  @State iconHeight: number = 80; // 图片高度
+  @State showAnimation: boolean = false; // 控制动画显示
+  @State showTabIcon: boolean = true; // 控制Tab栏图标显隐
 
   @Builder
   tabBuilder(img: Resource, index: number) {
@@ -117,14 +117,14 @@ struct OutFrame {
       .barHeight('auto')
       .animationDuration(400)
       .onChange((index: number) => {
-        <em>// currentIndex控制TabContent显示页签</em>
+        // currentIndex控制TabContent显示页签
         this.currentIndex = index;
         this.showAnimation = true;
         this.showTabIcon = false;
         this.iconWidth = 70;
         this.iconHeight = 70;
         this.iconY = 65;
-        <em>// 设置动画实现效果</em>
+        // 设置动画实现效果
         this.getUIContext().animateTo({
           delay: 0,
           duration: 500,
@@ -176,7 +176,7 @@ struct OutFrame {
 @Entry
 @Component
 struct HideTabBar {
-  <em>// 图片资源仅供参考，开发者可替换成所需资源</em>
+  // 图片资源仅供参考，开发者可替换成所需资源
   iconList: Resource[] = [
     $r('app.media.person'),
     $r('app.media.ellipsis_message'),
@@ -215,7 +215,7 @@ struct HideTabBar {
     .height('100%')
     .width('100%')
     .onClick(() => {
-      <em>// 添加消失动画</em>
+      // 添加消失动画
       this.getUIContext().animateTo({
         delay: 0,
         duration: 500,
@@ -253,7 +253,7 @@ struct HideTabBar {
 @Entry
 @Component
 struct DragAction {
-  <em>// 图片资源仅供参考，开发者可替换成所需资源</em>
+  // 图片资源仅供参考，开发者可替换成所需资源
   iconList: Resource[] = [
     $r('app.media.person'),
     $r('app.media.ellipsis_message'),
@@ -261,14 +261,14 @@ struct DragAction {
     $r('app.media.magnifyingglass')
   ];
   private controller: TabsController = new TabsController();
-  threshold: number = 0.7; <em>// 吸附阈值</em>
+  threshold: number = 0.7; // 吸附阈值
   barHeight: number = 56;
   circleHeight: number = 50;
   circleWidth: number = 50;
-  @State barWidth: number = 0; <em>// 单个TabBar的宽度值</em>
+  @State barWidth: number = 0; // 单个TabBar的宽度值
   @State currentIndex: number = 0;
-  @State bgTransX: number = 0; <em>// 背景的X偏移量</em>
-  @State pageWidth: number = 0; <em>// tabContent内页面的宽度</em>
+  @State bgTransX: number = 0; // 背景的X偏移量
+  @State pageWidth: number = 0; // tabContent内页面的宽度
 
   @Builder
   tabBuilder(img: Resource) {
@@ -280,7 +280,7 @@ struct DragAction {
     .width('100%');
   }
 
-  <em>// 计算背景的X偏移量</em>
+  // 计算背景的X偏移量
   getBgOffset(index: number) {
     return index * this.barWidth + (this.barWidth - this.circleWidth) / 2;
   }
@@ -307,7 +307,7 @@ struct DragAction {
           .backgroundColor('#ffffff');
         });
       }
-      <em>// 获取单个TabBar的宽度值、背景的X偏移量、tabContent内页面的宽度</em>
+      // 获取单个TabBar的宽度值、背景的X偏移量、tabContent内页面的宽度
       .onAreaChange((old, current) => {
         console.info(`Succeeded in getting info.Old:${old.width},current:${current.width}.`);
         this.barWidth = Number(current.width) / this.iconList.length;
@@ -327,7 +327,7 @@ struct DragAction {
           iterations: 1
         }, () => {
           this.currentIndex = index;
-          <em>// 重新偏移</em>
+          // 重新偏移
           this.bgTransX = this.getBgOffset(index);
           this.currentIndex = index;
         });
@@ -336,7 +336,7 @@ struct DragAction {
       .height('100%')
       .width('100%')
       .backgroundColor('#ffffff')
-      <em>// 滑动过程中：跟随手指滑动</em>
+      // 滑动过程中：跟随手指滑动
       .onGestureSwipe((index: number, event: TabsAnimationEvent) => {
         if (this.pageWidth <= 0 || this.barWidth <= 0) {
           return;
@@ -345,25 +345,25 @@ struct DragAction {
         const from = this.getBgOffset(index);
         this.bgTransX = from - ratio * this.barWidth;
       })
-      <em>// 松手后</em>
+      // 松手后
       .onAnimationEnd((index: number) => {
         const targetIndex = index + 1;
-        const from = this.getBgOffset(index); <em>// 当前Tab的中心位置</em>
-        const to = this.getBgOffset(targetIndex); <em>// 目标Tab的中心位置</em>
+        const from = this.getBgOffset(index); // 当前Tab的中心位置
+        const to = this.getBgOffset(targetIndex); // 目标Tab的中心位置
         const totalMove = to - from;
         const currentMove = this.bgTransX - from;
-        const progress = Math.abs(currentMove / totalMove); <em>// 滑动进度</em>
+        const progress = Math.abs(currentMove / totalMove); // 滑动进度
         this.getUIContext().animateTo({
           delay: 0,
           duration: 200,
           curve: Curve.EaseOut,
           iterations: 1
         }, () => {
-          <em>// 超过阈值，吸附到目标图标中心</em>
+          // 超过阈值，吸附到目标图标中心
           if (progress >= this.threshold) {
             this.bgTransX = to;
           } else {
-            <em>// 回弹原位置</em>
+            // 回弹原位置
             this.bgTransX = from;
           }
         });

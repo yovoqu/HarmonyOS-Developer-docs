@@ -42,7 +42,7 @@ struct Index {
   private message: string = 'Hello World';
   uiContext = this.getUIContext();
 
-  <em>// 在aboutToAppear()生命周期中设置PC窗口背景颜色</em>
+  // 在aboutToAppear()生命周期中设置PC窗口背景颜色
   aboutToAppear(): void {
     window.getLastWindow(this.uiContext?.getHostContext(), (err, data) => {
       try {

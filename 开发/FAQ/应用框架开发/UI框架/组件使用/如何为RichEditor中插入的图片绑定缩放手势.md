@@ -47,7 +47,7 @@ struct PinchGestureExample {
         .width('100%')
         .objectFit(ImageFit.Contain)
         .scale({ x: this.scaleValue, y: this.scaleValue, z: 1 })
-        <em>  // 2指捏合触发该手势事件</em>
+          // 2指捏合触发该手势事件
         .gesture(
           PinchGesture({ fingers: 2 })
             .onActionStart(() => {

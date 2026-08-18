@@ -117,18 +117,18 @@ static napi_value ArrayBufferToMat(napi_env env, napi_callback_info info) {
     napi_value error;
     napi_create_int32(env, -1, &error);
 
-  <em>  // Initialize PixelMap object data </em>
+    // Initialize PixelMap object data 
     NativePixelMap *native = OH_PixelMap_InitNativePixelMap(env, args[0]);
     if (native == nullptr) {
         return error;
     }
-   <em> // Obtaining Image Information</em>
+    // Obtaining Image Information
     struct OhosPixelMapInfos pixelMapInfos;
     if (OH_PixelMap_GetImageInfo(native, &pixelMapInfos) != IMAGE_RESULT_SUCCESS) {
         OH_LOG_Print(LOG_APP, LOG_ERROR, 0xFF00, "Test", "Pure : -1");
         return error;
     }
-  <em>  // Obtains the buffer</em>
+    // Obtains the buffer
     napi_value buffer = args[1];
     napi_valuetype valueType;
     napi_typeof(env, buffer, &valueType);
@@ -145,14 +145,14 @@ static napi_value ArrayBufferToMat(napi_env env, napi_callback_info info) {
     napi_get_arraybuffer_info(env, buffer, &data, &byteLength);
     int32_t *saveBuffer = (int32_t *)(data);
 
-   <em> // Convert to Mat</em>
+    // Convert to Mat
     cv::Mat originMat(pixelMapInfos.height, pixelMapInfos.width, CV_8UC4, saveBuffer);
     if (!originMat.data) {
         OH_LOG_Print(LOG_APP, LOG_ERROR, 0xFF00, "Read Image", "Pure : -1");
         return error;
     }
 
-  <em>  // openCV defaults to BGRA or BGR. If the pixelmap is not created in one of these formats, a format conversion is required</em>
+    // openCV defaults to BGRA or BGR. If the pixelmap is not created in one of these formats, a format conversion is required
     cv::Mat saveMat;
     cv::cvtColor(originMat, saveMat, cv::COLOR_BGRA2RGBA);
     char pathArray[1024];
@@ -192,17 +192,17 @@ static napi_value AccessToMat(napi_env env, napi_callback_info info) {
     }
 
     void *pixel;
-   <em> // Obtain the memory address of the NativePixelMap object and lock the memory</em>
+    // Obtain the memory address of the NativePixelMap object and lock the memory
     OH_PixelMap_AccessPixels(native, &pixel);
 
-   <em> // Convert to Mat, pay attention to alignment, so rowSize needs to be passed in</em>
+    // Convert to Mat, pay attention to alignment, so rowSize needs to be passed in
     cv::Mat originMat(pixelMapInfos.height, pixelMapInfos.width, CV_8UC4, pixel, pixelMapInfos.rowSize);
     if (!originMat.data) {
         OH_LOG_Print(LOG_APP, LOG_ERROR, 0xFF00, "Read Image", "Pure : -1");
         return error;
     }
 
-   <em> // openCV defaults to BGRA or BGR. If the pixelmap is not created in one of these formats, a format conversion is required</em>
+    // openCV defaults to BGRA or BGR. If the pixelmap is not created in one of these formats, a format conversion is required
     cv::Mat saveMat;
     cv::cvtColor(originMat, saveMat, cv::COLOR_BGRA2RGBA);
     char pathArray[1024];

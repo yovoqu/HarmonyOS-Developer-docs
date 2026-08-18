@@ -25,7 +25,7 @@ struct HollowOutWithCanvas {
         Stack() {
           Image($r('app.media.startIcon'))
             .height(300)
-         <em> // Use Canvas to draw masks to cover images, cameras, etc</em>
+          // Use Canvas to draw masks to cover images, cameras, etc
           Canvas(this.context)
             .width('100%')
             .height('100%')
@@ -37,7 +37,7 @@ struct HollowOutWithCanvas {
               if (this.circleRadius > this.circleCenterX) {
                 this.circleRadius = this.circleCenterX / 2;
               }
-           <em>   // Draw a circular path for semi transparent filling</em>
+              // Draw a circular path for semi transparent filling
               this.context.beginPath();
               this.context.moveTo(0, 0);
               this.context.lineTo(0, this.context.height);

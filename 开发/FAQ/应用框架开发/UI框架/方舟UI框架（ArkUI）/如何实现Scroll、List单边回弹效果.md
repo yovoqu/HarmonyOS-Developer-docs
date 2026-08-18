@@ -11,7 +11,7 @@
 参考代码如下：
  
 ```text
-<em>// Single side rebound effect of Scroll component</em>
+// Single side rebound effect of Scroll component
 @Entry
 @Component
 struct ScrollSideRebound {
@@ -37,12 +37,12 @@ struct ScrollSideRebound {
         }
         .width('100%')
       }
-      .scrollable(ScrollDirection.Vertical) <em>// Rolling direction vertically</em>
-      .scrollBar(BarState.On) <em>// Scroll bar permanent display</em>
-      .scrollBarColor(Color.Gray) <em>// Scroll bar color</em>
-      .scrollBarWidth(2) <em>// Scroll bar width</em>
+      .scrollable(ScrollDirection.Vertical) // Rolling direction vertically
+      .scrollBar(BarState.On) // Scroll bar permanent display
+      .scrollBarColor(Color.Gray) // Scroll bar color
+      .scrollBarWidth(2) // Scroll bar width
       .friction(0.6)
-      .edgeEffect(this.yOffset <= 0 ? EdgeEffect.Spring : EdgeEffect.None) <em>// Rebound after rolling to the edge</em>
+      .edgeEffect(this.yOffset <= 0 ? EdgeEffect.Spring : EdgeEffect.None) // Rebound after rolling to the edge
       .onDidScroll(() => {
         this.yOffset = this.scroller.currentOffset().yOffset;
       })
@@ -55,7 +55,7 @@ struct ScrollSideRebound {
 ```
  
 ```text
-<em>// Single side rebound effect of List component</em>
+// Single side rebound effect of List component
 @Entry
 @Component
 struct ListSideRebound {
@@ -77,10 +77,10 @@ struct ListSideRebound {
           }
         }, (item: string) => item)
       }
-      .listDirection(Axis.Vertical) <em>// Arrangement direction</em>
+      .listDirection(Axis.Vertical) // Arrangement direction
       .scrollBar(BarState.Off)
       .friction(0.6)
-      .edgeEffect(this.isTop ? EdgeEffect.Spring : EdgeEffect.None)<em> // Enable the flex effect only on the top boundary</em>
+      .edgeEffect(this.isTop ? EdgeEffect.Spring : EdgeEffect.None) // Enable the flex effect only on the top boundary
       .onScrollIndex((firstIndex: number) => {
         if (this.arr.length === 0 || firstIndex === 0) {
           this.isTop = true;

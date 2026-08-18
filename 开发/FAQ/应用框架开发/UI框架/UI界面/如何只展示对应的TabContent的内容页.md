@@ -27,7 +27,7 @@
 struct TabsExample {
   @State currentIndex: number = 0;
   private tabsController: TabsController = new TabsController();
- <em> // 设置页面切换动画，代替滑动跳转页面动画</em>
+  // 设置页面切换动画，代替滑动跳转页面动画
   private customContentTransition: (from: number, to: number) => TabContentAnimatedTransition =
     (from: number, to: number) => {
       console.info(`from ${from} to ${to}`);
@@ -80,7 +80,7 @@ struct MyComponent {
   private color: string = '';
 
   aboutToAppear(): void {
-    console.info(`------aboutToAppear backgroundColor: ${this.color}`); <em>// 通过打印日志可以观察到没有加载中间页面</em>
+    console.info(`------aboutToAppear backgroundColor: ${this.color}`); // 通过打印日志可以观察到没有加载中间页面
   }
 
   aboutToDisappear(): void {

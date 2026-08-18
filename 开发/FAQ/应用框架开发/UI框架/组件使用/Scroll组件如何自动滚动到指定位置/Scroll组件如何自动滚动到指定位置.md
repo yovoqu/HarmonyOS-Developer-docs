@@ -29,7 +29,7 @@ scrollTo、scrollBy和scrollToIndex可实现通用滚动控制，scrollToItemInG
 - **场景一**：单层列表的快速定位。
 使用scrollTo，通过设置xOffset，yOffset的值来实现滑动到指定位置。
 ```text
-<em>// scene1:使用scrollTo，通过设置xOffset，yOffset的值来实现滑动到指定位置。</em>
+// scene1:使用scrollTo，通过设置xOffset，yOffset的值来实现滑动到指定位置。
 sceneOne() {
   this.scroller.scrollTo({ xOffset: 700, yOffset: 700 });
 }
@@ -37,18 +37,18 @@ sceneOne() {
 
 - 使用scrollBy，设置dx，dy滑动指定距离。
 ```text
-<em>// scene2:使用scrollBy，设置dx，dy滑动指定距离。</em>
+// scene2:使用scrollBy，设置dx，dy滑动指定距离。
 sceneTwo() {
-  this.scroller.scrollBy(700, 700);<em> // dx=700,dy=700</em>
+  this.scroller.scrollBy(700, 700); // dx=700,dy=700
 }
 ```
 
 - 使用scrollToIndex，通过设置其中的参数value，options来实现滑动到指定位置的效果。
 ```text
-<em>// scene3:使用scrollToIndex，通过设置其中的参数value，options来实现。</em>
+// scene3:使用scrollToIndex，通过设置其中的参数value，options来实现。
 sceneThree() {
   this.scroller.scrollToIndex(1, false, ScrollAlign.START, {
-    extraOffset: { value: 80, unit: 0 }<em> // 设置额外偏移量</em>
+    extraOffset: { value: 80, unit: 0 } // 设置额外偏移量
   });
 }
 ```
@@ -64,20 +64,20 @@ struct ListExample {
   private arr: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   private scroller: Scroller = new Scroller();
 
- <em> // scene1:使用scrollTo，通过设置xOffset，yOffset的值来实现滑动到指定位置。</em>
+  // scene1:使用scrollTo，通过设置xOffset，yOffset的值来实现滑动到指定位置。
   sceneOne() {
     this.scroller.scrollTo({ xOffset: 700, yOffset: 700 });
   }
 
-  <em>// scene2:使用scrollBy，设置dx，dy滑动指定距离。</em>
+  // scene2:使用scrollBy，设置dx，dy滑动指定距离。
   sceneTwo() {
-    this.scroller.scrollBy(700, 700); <em>// dx=700,dy=700</em>
+    this.scroller.scrollBy(700, 700); // dx=700,dy=700
   }
 
- <em> // scene3:使用scrollToIndex，通过设置其中的参数value，options来实现。</em>
+  // scene3:使用scrollToIndex，通过设置其中的参数value，options来实现。
   sceneThree() {
     this.scroller.scrollToIndex(1, false, ScrollAlign.START, {
-      extraOffset: { value: 80, unit: 0 } <em>// 设置额外偏移量</em>
+      extraOffset: { value: 80, unit: 0 } // 设置额外偏移量
     });
   }
 
@@ -137,7 +137,7 @@ struct ListExample {
 @Component
 struct ListItemGroupExample {
   listScroller: ListScroller = new ListScroller();
-<em>  //列表数据</em>
+  //列表数据
   private timeTable: TimeTable[] = [
     {
       title: '星期一',
@@ -218,7 +218,7 @@ struct ListItemGroupExample {
         })
         .onClick(() => {
           try {
-       <em>     //使用scrollToItemInGroup定位到分组列表中指定分组内的目标项</em>
+            //使用scrollToItemInGroup定位到分组列表中指定分组内的目标项
             this.listScroller.scrollToItemInGroup(2, 1);
           } catch (error) {
             console.error(`error: ${error}`);

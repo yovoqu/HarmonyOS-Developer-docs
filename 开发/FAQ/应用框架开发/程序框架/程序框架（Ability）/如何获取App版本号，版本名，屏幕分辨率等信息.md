@@ -9,10 +9,10 @@
 import { BusinessError } from '@kit.BasicServicesKit';
 import { bundleManager } from '@kit.AbilityKit';
 
-<em>// ...</em>
+// ...
 bundleManager.getBundleInfoForSelf(bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION).then((bundleInfo) => {
-  let versionName = bundleInfo.versionName; <em>// App version name</em>
-  let versionNo = bundleInfo.versionCode; <em>// App version code</em>
+  let versionName = bundleInfo.versionName; // App version name
+  let versionNo = bundleInfo.versionCode; // App version code
 }).catch((error: BusinessError) => {
   console.error('get bundleInfo failed, error is ' + error);
 })
@@ -22,8 +22,8 @@ bundleManager.getBundleInfoForSelf(bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH
 ```text
 import { common } from '@kit.AbilityKit';
 
-<em>// ...</em>
-<em>// In the utility class: Save the context to AppStorage in the EntryAbility - onCreate lifecycle, then use AppStorage to retrieve it in the utility class</em>
+// ...
+// In the utility class: Save the context to AppStorage in the EntryAbility - onCreate lifecycle, then use AppStorage to retrieve it in the utility class
 let context = AppStorage.get('context') as common.UIAbilityContext;
 
 let screenDensity = context.config.screenDensity;

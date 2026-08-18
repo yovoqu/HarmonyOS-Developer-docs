@@ -72,7 +72,7 @@ struct ScrollerPage {
   private arr: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
   scroller: Scroller = new Scroller();
 
-  <em>// 沉浸式窗口</em>
+  // 沉浸式窗口
   onPageShow(): void {
     window.getLastWindow(this.getUIContext().getHostContext(), (err, win) => {
       win.setWindowLayoutFullScreen(true);
@@ -100,7 +100,7 @@ struct ScrollerPage {
           };
         }, (item: string) => item);
       }
-      <em>// 排列方向</em>
+      // 排列方向
       .listDirection(Axis.Vertical)
       .scrollBar(BarState.Off)
       .friction(0.6)
@@ -114,7 +114,7 @@ struct ScrollerPage {
         }
         return { offsetRemain: offset };
       })
-      <em>// 根据List显示组件的索引值判断是否滑动到顶部</em>
+      // 根据List显示组件的索引值判断是否滑动到顶部
       .onScrollIndex((firstIndex: number) => {
         if (firstIndex > 10) {
           this.scroller.scrollToIndex(10);

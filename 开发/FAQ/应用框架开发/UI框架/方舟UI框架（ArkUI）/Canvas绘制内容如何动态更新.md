@@ -17,8 +17,8 @@ struct CanvasContentUpdate {
   @State @Watch('draw')content: string = '';
 
   draw() {
-    this.context.clearRect(0, 0, 200, 200); <em>// Clean up canvas content</em>
-    this.context.fillText(this.content, 50, 50); <em>// Refill</em>
+    this.context.clearRect(0, 0, 200, 200); // Clean up canvas content
+    this.context.fillText(this.content, 50, 50); // Refill
   }
 
   build() {
@@ -28,7 +28,7 @@ struct CanvasContentUpdate {
         .height('25%')
         .backgroundColor('#F5DC62')
         .onReady(() => {
-       <em>   //You can draw content here.</em>
+          //You can draw content here.
           this.context.font = '55px sans-serif';
           this.context.fillText(this.content, 50, 50);
         })

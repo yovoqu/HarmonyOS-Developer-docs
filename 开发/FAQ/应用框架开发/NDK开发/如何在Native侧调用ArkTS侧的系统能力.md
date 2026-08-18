@@ -22,15 +22,15 @@
 #define LOG_TAG "Pure" 
  
 napi_value CallSystemModule::GetDisplaySize(napi_env env, napi_callback_info info) { 
-  <em>  // Obtain the system library path on the arkts side</em>
+    // Obtain the system library path on the arkts side
     char path[64] = "@ohos.display"; 
     size_t typeLen = 0; 
     napi_value string; 
     napi_create_string_utf8(env, path, typeLen, &string); 
-   <em> // Loading system libraries </em>
+    // Loading system libraries 
     napi_value sysModule; 
     napi_load_module(env, path, &sysModule); 
-   <em> // Retrieve the 'getDefault Display Sync' method from the system library </em>
+    // Retrieve the 'getDefault Display Sync' method from the system library 
     napi_value func = nullptr; 
     napi_get_named_property(env, sysModule, "getDefaultDisplaySync", &func); 
     napi_value funcResult; 
@@ -45,7 +45,7 @@ napi_value CallSystemModule::GetDisplaySize(napi_env env, napi_callback_info inf
     double height; 
     napi_get_value_double(env, heightValue, &height); 
     OH_LOG_INFO(LOG_APP, "height: %{public}f", height); 
-  <em>  // By obtaining the width and height of the business, specific business logic can be further processed</em>
+    // By obtaining the width and height of the business, specific business logic can be further processed
     return nullptr; 
 }
 ```

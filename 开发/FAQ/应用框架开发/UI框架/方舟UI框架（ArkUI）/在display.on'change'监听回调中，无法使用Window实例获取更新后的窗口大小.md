@@ -10,16 +10,16 @@
  
 **错误示例**
 ```json
-<em>// The display is updated first</em>
+// The display is updated first
 display.on('change', async (data) => {
   let newDisplay: display.Display = display.getDefaultDisplaySync();
   console.info('Orientation: ' + newDisplay.orientation);
   let windowClass: window.Window = await window.getLastWindow(this.context);
- <em> // After updating the window, the retrieved width and height are still the original ones.</em>
+  // After updating the window, the retrieved width and height are still the original ones.
   let windowProperties = windowClass.getWindowProperties();
   console.info('Width: ' + windowProperties.windowRect.width +
     ', height: ' + windowProperties.windowRect.height);
- <em> // Please ensure that you have obtained the relevant Window instance, that is windowClass.</em>
+  // Please ensure that you have obtained the relevant Window instance, that is windowClass.
  try {
    windowClass.getWindowAvoidArea(window.AvoidAreaType.TYPE_CUTOUT);
   } catch (err) {

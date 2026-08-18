@@ -30,7 +30,7 @@ struct SavePixelMapToAlbum {
 
   async aboutToAppear() {
     const resourceMgr: resourceManager.ResourceManager = this.context.resourceManager;
-   <em> // "beer.jpeg" is the name of the image file under the rawfile directory, which can be modified and used according to your own needs</em>
+    // "beer.jpeg" is the name of the image file under the rawfile directory, which can be modified and used according to your own needs
     const fileData: Uint8Array = await resourceMgr.getRawFileContent('beer.jpeg');
     let buffer = new Uint8Array(fileData).buffer as object as ArrayBuffer;
     let imageResource = image.createImageSource(buffer);
@@ -39,7 +39,7 @@ struct SavePixelMapToAlbum {
   }
 
   async savePixelMapToAlbum() {
-   <em> // Obtain the save path of the album</em>
+    // Obtain the save path of the album
     let helper = photoAccessHelper.getPhotoAccessHelper(this.context);
     let uri = await helper.createAsset(photoAccessHelper.PhotoType.IMAGE, 'jpeg');
     let file = await fileIo.open(uri, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);

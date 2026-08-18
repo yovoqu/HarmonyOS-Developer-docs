@@ -127,7 +127,7 @@ struct SceneThree {
       .width('100%');
     }
     .onReady(() => {
-     <em> // 模拟从其它NavDestination页面获取的参数，初始化本页面参数</em>
+      // 模拟从其它NavDestination页面获取的参数，初始化本页面参数
       this.message = 'Hello World!';
       this.isChange = false;
     });
@@ -228,7 +228,7 @@ struct SceneTwo {
   @Local book: Book = new Book();
 
 
-  <em>// 正常触发监听</em>
+  // 正常触发监听
   @Monitor('book.num')
   changeNum(monitor: IMonitor) {
     monitor.dirty.forEach((path: string) => {
@@ -237,7 +237,7 @@ struct SceneTwo {
   }
 
 
-  <em>// 不会触发监听</em>
+  // 不会触发监听
   @Monitor('book.name')
   changeName(monitor: IMonitor) {
     monitor.dirty.forEach((path: string) => {
@@ -273,12 +273,12 @@ struct SceneTwo {
 struct SceneThree {
   @Local message: string = '';
   @Local isChange: boolean = true;
-  isInitialization: boolean = true; <em>// 设置初始化判断参数</em>
+  isInitialization: boolean = true; // 设置初始化判断参数
 
 
   @Monitor('isChange')
   change() {
-   <em> // 是初始化时，跳过后续修改</em>
+    // 是初始化时，跳过后续修改
     if (this.isInitialization) {
       return;
     }
@@ -299,7 +299,7 @@ struct SceneThree {
       .width('100%');
     }
     .onReady(() => {
-     <em> // 模拟从其它NavDestination页面获取的参数，初始化本页面参数</em>
+      // 模拟从其它NavDestination页面获取的参数，初始化本页面参数
       this.message = 'Hello World!';
       this.isChange = false;
     });

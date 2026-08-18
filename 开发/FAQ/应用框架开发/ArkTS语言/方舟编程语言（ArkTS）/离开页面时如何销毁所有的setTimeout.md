@@ -38,13 +38,13 @@ struct clearAllTimeouts1 {
 
   clearAllTimeouts(timeouts: number[]) {
     timeouts?.forEach(timeoutId => {
-      clearTimeout(timeoutId);<em> </em><em>// 按照定时器ID循环清除定时器</em>
+      clearTimeout(timeoutId); // 按照定时器ID循环清除定时器
     });
-    this.timeouts = []; <em>// 初始化数组</em>
+    this.timeouts = []; // 初始化数组
   }
 
   onPageHide() {
-    this.clearAllTimeouts(this.timeouts);<em> </em><em>// </em><em>离开页面时清除所有定时器</em>
+    this.clearAllTimeouts(this.timeouts); // 离开页面时清除所有定时器
   }
 
   build() {
@@ -62,7 +62,7 @@ struct clearAllTimeouts1 {
           .onClick(() => {
             this.clickNum = 0;
             this.content = 0;
-            this.clearAllTimeouts(this.timeouts); <em>// 主动触发清除所有定时器</em>
+            this.clearAllTimeouts(this.timeouts); // 主动触发清除所有定时器
           });
         Text('点击了' + this.clickNum + '次按钮');
         Text('创建了' + this.content + '个定时器');

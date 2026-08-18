@@ -40,7 +40,7 @@ export struct YUVViewStopPage {
   build() {
     Column() {
       Column() {
-        if (this.flag) {<em> </em><em>// flag为true时渲染该组件，为false时销毁该组件</em>
+        if (this.flag) { // flag为true时渲染该组件，为false时销毁该组件
           XComponent({
             id: 'XComponentId',
             type: XComponentType.TEXTURE,
@@ -55,7 +55,7 @@ export struct YUVViewStopPage {
             .aspectRatio(1)
             .borderRadius(15)
             .backgroundColor(Color.White)
-            .onDestroy(() => { <em>// 判断是否销毁</em>
+            .onDestroy(() => { // 判断是否销毁
               console.info(`XComponent已销毁`);
             });
         }
@@ -87,7 +87,7 @@ export struct YUVViewStopPage {
   async writeYUVFile() {
     try {
       const resourceManager = this.getUIContext().getHostContext()!.resourceManager;
-      const imageArray = await resourceManager.getMediaContent($r('app.media.startIcon').id); <em>// </em><em>此处仅为样例，请开发者更换为可用图片</em>
+      const imageArray = await resourceManager.getMediaContent($r('app.media.startIcon').id); // 此处仅为样例，请开发者更换为可用图片
       let path: string = this.getUIContext().getHostContext()!.filesDir + '/image.yuv';
       let file = fileIo.openSync(path, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);
       fileIo.write(file.fd, imageArray.buffer).then(() => {

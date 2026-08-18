@@ -131,15 +131,15 @@ if (this.focusIndex === pre && pre === this.tabArray.length - 1) {
   setTimeout(() => {
     this.test = false;
   }, 400);
-} <em>// 最后一个元素并且当前选中情况</em>
+} // 最后一个元素并且当前选中情况
 else if (this.focusIndex === pre) {
   this.tabArray.splice(pre, 1);
-} <em>// 非最后一个元素且当前选中情况</em>
+} // 非最后一个元素且当前选中情况
 else if (this.focusIndex > pre) {
   this.focusIndex = this.focusIndex - 1;
   this.tabArray.splice(pre, 1);
   this.controller.changeIndex(this.focusIndex);
-}<em> </em><em>// 非当前选中且比选中的小</em>
+} // 非当前选中且比选中的小
 else {
   this.tabArray.splice(pre, 1);
 }
@@ -157,12 +157,12 @@ struct Drag {
   private controller: TabsController = new TabsController();
   @State test: boolean = false;
 
-<em>  // 单独的页签</em>
+  // 单独的页签
   @Builder
   Tab(tabName: string, tabItem: number, tabIndex: number) {
     Row({ space: 20 }) {
       Text(tabName).fontSize(18)
-      Image($r('app.media.startIcon')).width(20).height(20)<em> </em><em>// 运行时请按需替换图片资源</em>
+      Image($r('app.media.startIcon')).width(20).height(20) // 运行时请按需替换图片资源
         .onClick(() => {
           let pre = tabIndex;
           if (this.focusIndex === pre && pre === this.tabArray.length - 1) {
@@ -173,15 +173,15 @@ struct Drag {
             setTimeout(() => {
               this.test = false;
             }, 400);
-          }<em> </em><em>// 最后一个元素并且当前选中情况</em>
+          } // 最后一个元素并且当前选中情况
           else if (this.focusIndex === pre) {
             this.tabArray.splice(pre, 1);
-          } <em>// 非最后一个元素且当前选中情况</em>
+          } // 非最后一个元素且当前选中情况
           else if (this.focusIndex > pre) {
             this.focusIndex = this.focusIndex - 1;
             this.tabArray.splice(pre, 1);
             this.controller.changeIndex(this.focusIndex);
-          }<em> </em><em>// 非当前选中且比选中的小</em>
+          } // 非当前选中且比选中的小
           else {
             this.tabArray.splice(pre, 1);
           }

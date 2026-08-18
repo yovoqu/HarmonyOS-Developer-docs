@@ -78,7 +78,7 @@ struct GesturePriorityPage {
       .borderRadius(16)
       .translate({ x: this.offsetX, y: this.offsetY })
       .priorityGesture(
-       <em> // 滑动手势，设置为高优先级</em>
+        // 滑动手势，设置为高优先级
         PanGesture()
           .onActionStart(() => {
             this.startX = this.offsetX;
@@ -155,7 +155,7 @@ struct GestureCombinationPage {
       .backgroundColor(this.bgColor)
       .borderRadius(16)
       .translate({ x: this.offsetX, y: this.offsetY })
-   <em>   // 使用顺序识别组合，先长按再拖拽</em>
+      // 使用顺序识别组合，先长按再拖拽
       .gesture(
         GestureGroup(GestureMode.Sequence,
           LongPressGesture({ duration: 500 })
@@ -185,11 +185,11 @@ struct GestureCombinationPage {
               }, 1000);
             })
         ))
-    <em>  // 单独添加快速滑动手势</em>
+      // 单独添加快速滑动手势
       .gesture(
         SwipeGesture({
           direction: SwipeDirection.All,
-          speed: 100<em> </em><em>// 设置较高的速度阈值，避免慢速拖拽被识别为滑动</em>
+          speed: 100 // 设置较高的速度阈值，避免慢速拖拽被识别为滑动
         })
           .onAction((event: GestureEvent) => {
             let direction = '';
@@ -264,10 +264,10 @@ struct GestureJudgementPage {
   @State startY: number = 0;
   @State startTime: number = 0;
 
-<em>  // 判断是否为快速滑动</em>
+  // 判断是否为快速滑动
   isSwipeGesture(distance: number, duration: number): boolean {
-    const speed = distance / duration; <em>// </em><em>像素每毫秒</em>
-    return speed > 0.5; <em>// 速度阈值</em>
+    const speed = distance / duration; // 像素每毫秒
+    return speed > 0.5; // 速度阈值
   }
 
   build() {
@@ -308,21 +308,21 @@ struct GestureJudgementPage {
                 event.offsetY * event.offsetY
             );
 
-          <em>  // 根据速度判断是滑动还是拖拽</em>
+            // 根据速度判断是滑动还是拖拽
             if (this.isSwipeGesture(distance, duration)) {
-             <em> // 快速滑动，执行滑动操作</em>
+              // 快速滑动，执行滑动操作
               this.statusText = '快速滑动触发';
               const angle = Math.atan2(event.offsetY, event.offsetX) * 180 / Math.PI;
 
               if (Math.abs(angle) < 45) {
-             <em>   // 向右滑动，回到原位</em>
+                // 向右滑动，回到原位
                 this.getUIContext()?.animateTo({ duration: 300 }, () => {
                   this.offsetX = this.startX;
                   this.offsetY = this.startY;
                 });
                 this.statusText = '右滑取消';
               } else if (Math.abs(angle) > 135) {
-               <em> // 向左滑动，归档</em>
+                // 向左滑动，归档
                 this.getUIContext()?.animateTo({ duration: 300 }, () => {
                   this.offsetX = this.startX - 400;
                   this.offsetY = this.startY;
@@ -330,7 +330,7 @@ struct GestureJudgementPage {
                 this.statusText = '左滑删除';
               }
             } else {
-             <em> // 慢速移动，保持拖拽位置</em>
+              // 慢速移动，保持拖拽位置
               this.statusText = '拖拽完成';
             }
           })
@@ -387,7 +387,7 @@ struct StopPropagationPage {
           .backgroundColor('#f1f2f3')
           .onTouch((event: TouchEvent) => {
             if (event.type === TouchType.Down) {
-         <em>     // 消耗事件，阻止向上冒泡</em>
+              // 消耗事件，阻止向上冒泡
               if (event.stopPropagation) {
                 event.stopPropagation();
               }

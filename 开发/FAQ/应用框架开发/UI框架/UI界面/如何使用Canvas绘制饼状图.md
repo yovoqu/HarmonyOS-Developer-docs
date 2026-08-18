@@ -28,17 +28,17 @@
  1. 根据指定数组填装数据，并且计算出总量。
 ```text
 class SectorInfo {
-  name: string = ''; <em>// </em><em>名称</em>
-  data: number = 0; <em>// </em><em>数据</em>
-  color: string = ''; <em>// 颜色</em>
-  fontSize: number = 14;<strong style="color: rgb(181,106,1);"> </strong><em>// 字体大小</em>
-  radius: number = 40;<em> </em><em>// 半径</em>
+  name: string = ''; // 名称
+  data: number = 0; // 数据
+  color: string = ''; // 颜色
+  fontSize: number = 14;<strong style="color: rgb(181,106,1);"> </strong>// 字体大小
+  radius: number = 40; // 半径
 }
 ```
  
 ```text
 aboutToAppear(): void {
- <em> // 装载模拟数据</em>
+  // 装载模拟数据
   const categories = ['视频广告', '搜索引擎', '直接访问', '邮件营销', '联盟广告'];
   const dataCount = [1, 2, 1, 3, 1];
   const colorArr =
@@ -64,11 +64,11 @@ aboutToAppear(): void {
 ```text
 drawChart() {
   this.context.clearRect(0, 0, this.centerX * 2, this.centerY * 2);
- <em> // 上一个扇形的结束角度</em>
+  // 上一个扇形的结束角度
   let lastEndAngle: number = -Math.PI / 2;
   for (let index = 0; index < this.sectorInfoArr.length; index++) {
     const element = this.sectorInfoArr[index];
-   <em> // 计算当前扇形的起始角度和终点角度</em>
+    // 计算当前扇形的起始角度和终点角度
     let startAngle: number = lastEndAngle;
     let endAngle: number = lastEndAngle + element.data / this.allData * 2 * Math.PI;
     if (this.isTypeChange) {
@@ -101,28 +101,28 @@ drawBrokenLineAndText(startAngle: number, endAngle: number, sectorInfo: SectorIn
   let angle = endAngle - startAngle;
   let brokenLineLength: number = 20;
   let brokenLineLengthTemp: number = 15;
- <em> // 计算扇形中心角度</em>
+  // 计算扇形中心角度
   let centerAngle = startAngle + angle / 2;
   let r = sectorInfo.radius * 2 + brokenLineLength / 2;
- <em> // 计算折线起始点</em>
+  // 计算折线起始点
   let startX = this.centerX + (r - brokenLineLength) * Math.cos(centerAngle);
   let startY = this.centerY + (r - brokenLineLength) * Math.sin(centerAngle);
- <em> // 计算折线转折点</em>
+  // 计算折线转折点
   let brokenX = this.centerX + r * Math.cos(centerAngle);
   let brokenY = this.centerY + r * Math.sin(centerAngle);
   let endX = brokenX;
   let endY = brokenY;
- <em> // 添加文字属性</em>
+  // 添加文字属性
   this.context.textBaseline = 'middle';
   this.context.fillStyle = sectorInfo.color;
   this.context.font = this.getUIContext().fp2px(sectorInfo.fontSize) + 'px sans-serif';
-<em>  // 获取文本</em>
+  // 获取文本
   let textWidth = this.context.measureText(sectorInfo.name).width;
   let textHeight = this.context.measureText(sectorInfo.name).height;
   let textX = endX;
   let textY = endY - textHeight + 5;
   let lastX = 0;
-<em>  // 根据文字计算折线终点，根据角度单位判断折线左右方向，以及文字的起点</em>
+  // 根据文字计算折线终点，根据角度单位判断折线左右方向，以及文字的起点
   if (centerAngle < Math.PI / 2) {
     this.context.textAlign = 'right';
     endX = brokenX + brokenLineLengthTemp + textWidth;
@@ -134,14 +134,14 @@ drawBrokenLineAndText(startAngle: number, endAngle: number, sectorInfo: SectorIn
     textX = endX;
     lastX = endX + 27;
   }
- <em> // 绘制折线</em>
+  // 绘制折线
   this.context.beginPath();
   this.context.lineWidth = 2;
   this.context.strokeStyle = sectorInfo.color;
   this.context.moveTo(startX, startY);
   this.context.lineTo(brokenX, brokenY);
   this.context.lineTo(lastX, endY);
- <em> // 填充文字</em>
+  // 填充文字
   this.context.fillText(sectorInfo.name, textX, textY);
   this.context.stroke();
 }
@@ -150,11 +150,11 @@ drawBrokenLineAndText(startAngle: number, endAngle: number, sectorInfo: SectorIn
 5. 完整示例参考如下：
 ```text
 class SectorInfo {
-  name: string = ''; <em>// 名称</em>
-  data: number = 0; <em>// </em><em>数据</em>
-  color: string = ''; <em>// 颜色</em>
-  fontSize: number = 14;<em> </em><em>// 字体大小</em>
-  radius: number = 40;<em> </em><em>// 半径</em>
+  name: string = ''; // 名称
+  data: number = 0; // 数据
+  color: string = ''; // 颜色
+  fontSize: number = 14; // 字体大小
+  radius: number = 40; // 半径
 }
 
 @Entry
@@ -162,18 +162,18 @@ class SectorInfo {
 struct drawPieChart {
   @State sectorInfoArr: Array<SectorInfo> = [];
   @State @Watch('drawChart') isTypeChange: boolean = false;
- <em> // 用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿，true表明开启抗锯齿。</em>
+  // 用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿，true表明开启抗锯齿。
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
-  <em>// 用来创建CanvasRenderingContext2D对象，通过在canvas中调用CanvasRenderingContext2D对象来绘制。</em>
+  // 用来创建CanvasRenderingContext2D对象，通过在canvas中调用CanvasRenderingContext2D对象来绘制。
   private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
   private centerX: number = 0;
   private centerY: number = 0;
   private radius: number = 40;
-  private allData: number = 0;<em> </em><em>// 总数</em>
-  private maxData: number = 40;<em> </em><em>// 最大值</em>
-  private minData: number = 20; <em>// </em><em>最小值</em>
+  private allData: number = 0; // 总数
+  private maxData: number = 40; // 最大值
+  private minData: number = 20; // 最小值
 
- <em> // 绘制扇形</em>
+  // 绘制扇形
   drawSector(startAngle: number, endAngle: number, sectorInfo: SectorInfo) {
     this.context.beginPath();
     this.context.arc(this.centerX, this.centerY, sectorInfo.radius, startAngle, endAngle);
@@ -183,33 +183,33 @@ struct drawPieChart {
     this.context.restore();
   }
 
- <em> // 绘制折线和文字</em>
+  // 绘制折线和文字
   drawBrokenLineAndText(startAngle: number, endAngle: number, sectorInfo: SectorInfo) {
     let angle = endAngle - startAngle;
     let brokenLineLength: number = 20;
     let brokenLineLengthTemp: number = 15;
-  <em>  // 计算扇形中心角度</em>
+    // 计算扇形中心角度
     let centerAngle = startAngle + angle / 2;
     let r = sectorInfo.radius * 2 + brokenLineLength / 2;
-   <em> // 计算折线起始点</em>
+    // 计算折线起始点
     let startX = this.centerX + (r - brokenLineLength) * Math.cos(centerAngle);
     let startY = this.centerY + (r - brokenLineLength) * Math.sin(centerAngle);
-  <em>  // 计算折线转折点</em>
+    // 计算折线转折点
     let brokenX = this.centerX + r * Math.cos(centerAngle);
     let brokenY = this.centerY + r * Math.sin(centerAngle);
     let endX = brokenX;
     let endY = brokenY;
-  <em>  // 添加文字属性</em>
+    // 添加文字属性
     this.context.textBaseline = 'middle';
     this.context.fillStyle = sectorInfo.color;
     this.context.font = this.getUIContext().fp2px(sectorInfo.fontSize) + 'px sans-serif';
-   <em> // 获取文本</em>
+    // 获取文本
     let textWidth = this.context.measureText(sectorInfo.name).width;
     let textHeight = this.context.measureText(sectorInfo.name).height;
     let textX = endX;
     let textY = endY - textHeight + 5;
     let lastX = 0;
-  <em>  // 根据文字计算折线终点，根据角度单位判断折线左右方向，以及文字的起点</em>
+    // 根据文字计算折线终点，根据角度单位判断折线左右方向，以及文字的起点
     if (centerAngle < Math.PI / 2) {
       this.context.textAlign = 'right';
       endX = brokenX + brokenLineLengthTemp + textWidth;
@@ -221,20 +221,20 @@ struct drawPieChart {
       textX = endX;
       lastX = endX + 27;
     }
-   <em> // 绘制折线</em>
+    // 绘制折线
     this.context.beginPath();
     this.context.lineWidth = 2;
     this.context.strokeStyle = sectorInfo.color;
     this.context.moveTo(startX, startY);
     this.context.lineTo(brokenX, brokenY);
     this.context.lineTo(lastX, endY);
- <em>   // 填充文字</em>
+    // 填充文字
     this.context.fillText(sectorInfo.name, textX, textY);
     this.context.stroke();
   }
 
   aboutToAppear(): void {
-  <em>  // 装载模拟数据</em>
+    // 装载模拟数据
     const categories = ['视频广告', '搜索引擎', '直接访问', '邮件营销', '联盟广告'];
     const dataCount = [1, 2, 1, 3, 1];
     const colorArr =
@@ -257,11 +257,11 @@ struct drawPieChart {
 
   drawChart() {
     this.context.clearRect(0, 0, this.centerX * 2, this.centerY * 2);
-  <em>  // 上一个扇形的结束角度</em>
+    // 上一个扇形的结束角度
     let lastEndAngle: number = -Math.PI / 2;
     for (let index = 0; index < this.sectorInfoArr.length; index++) {
       const element = this.sectorInfoArr[index];
-    <em>  // 计算当前扇形的起始角度和终点角度</em>
+      // 计算当前扇形的起始角度和终点角度
       let startAngle: number = lastEndAngle;
       let endAngle: number = lastEndAngle + element.data / this.allData * 2 * Math.PI;
       if (this.isTypeChange) {
@@ -282,7 +282,7 @@ struct drawPieChart {
         .height('40%')
         .backgroundColor('#fff5f5f1')
         .onAreaChange((oldArea: Area, newArea: Area) => {
-       <em>   // 计算饼图的中心点</em>
+          // 计算饼图的中心点
           this.centerX = Number(newArea.width) / 2;
           this.centerY = Number(newArea.height) / 2;
           this.drawChart();

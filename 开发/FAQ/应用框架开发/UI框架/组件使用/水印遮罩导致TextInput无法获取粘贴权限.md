@@ -74,29 +74,29 @@
 
 - 主页面（Index）：
 ```text
-<em>// 剪贴板权限方式</em>
+// 剪贴板权限方式
 import { abilityAccessCtrl, common, Permissions } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 const permissions: Array<Permissions> = ['ohos.permission.READ_PASTEBOARD'];
 
-<em>// 申请权限</em>
+// 申请权限
 function reqPermissionsFromUser(permissions: Array<Permissions>, context: common.UIAbilityContext): void {
   let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
- <em> // requestPermissionsFromUser会判断权限的授权状态来决定是否唤起弹窗</em>
+  // requestPermissionsFromUser会判断权限的授权状态来决定是否唤起弹窗
   atManager.requestPermissionsFromUser(context, permissions).then((data) => {
     let grantStatus: Array<number> = data.authResults;
     let length: number = grantStatus.length;
     for (let i = 0; i < length; i++) {
       if (grantStatus[i] === 0) {
-     <em>   // 用户授权，可以继续访问目标操作</em>
+        // 用户授权，可以继续访问目标操作
       } else {
-     <em>   // 用户拒绝授权，提示用户必须授权才能访问当前页面的功能，并引导用户到系统设置中打开相应的权限</em>
+        // 用户拒绝授权，提示用户必须授权才能访问当前页面的功能，并引导用户到系统设置中打开相应的权限
         return;
       }
     }
-  <em>  // 授权成功</em>
+    // 授权成功
   }).catch((err: BusinessError) => {
     console.error(`Failed to request permissions from user. Code is ${err.code}, message is ${err.message}`);
   });
@@ -105,7 +105,7 @@ function reqPermissionsFromUser(permissions: Array<Permissions>, context: common
 @Entry
 @Component
 struct Scene1 {
-  private context = this.getUIContext().getHostContext() as common.UIAbilityContext; <em>// 获取Context</em>
+  private context = this.getUIContext().getHostContext() as common.UIAbilityContext; // 获取Context
 
   build() {
     Row() {
@@ -150,7 +150,7 @@ struct Scene1 {
 
 - 水印页面（Watermark）：
 ```text
-<em>// 水印页面</em>
+// 水印页面
 @Entry
 @Component
 struct Watermark {
@@ -170,13 +170,13 @@ struct Watermark {
             this.canvas.font = '16vp';
             this.canvas.textAlign = 'center';
             this.canvas.textBaseline = 'middle';
-         <em>   // 在这里绘制文字水印，也可以是图片水印</em>
+            // 在这里绘制文字水印，也可以是图片水印
             for (let i = 0; i < this.canvas.width / 120; i++) {
               this.canvas.translate(120, 0);
               let j = 0;
               for (; j < this.canvas.height / 120; j++) {
                 this.canvas.rotate(-Math.PI / 180 * 30);
-           <em>     // 此处水印数据是写死的，具体请替换为自己的水印</em>
+                // 此处水印数据是写死的，具体请替换为自己的水印
                 this.canvas.fillText('test', -60, -60);
                 this.canvas.rotate(Math.PI / 180 * 30);
                 this.canvas.translate(0, 120);
@@ -204,7 +204,7 @@ struct Watermark {
 
  - **方案二**：可以通过配置[setMenuOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-textmenucontroller#setmenuoptions16)来实现显示子窗水印后TextInput实现粘贴，当TextInput、TextArea可支持拉起[enableAutoFill](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#enableautofill11)时，不支持将其对应的文本选择菜单显示在独立窗口中。因为TextInput配置了placeholder触发了自动填充，所以需要将自动填充关闭.enableAutoFill(false)。
 ```text
-<em>// 控制Text菜单显示方式</em>
+// 控制Text菜单显示方式
 import { common } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -215,7 +215,7 @@ struct Scene2 {
   private context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 
   aboutToAppear(): void {
-   <em> // 优先显示在独立窗口中</em>
+    // 优先显示在独立窗口中
     this.getUIContext()
       .getTextMenuController()
       .setMenuOptions(

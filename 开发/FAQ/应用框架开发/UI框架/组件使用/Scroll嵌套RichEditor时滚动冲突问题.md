@@ -71,7 +71,7 @@ struct OptionOne {
           .width(200);
       }
       .height(100)
-      .scrollBar(BarState.Off); <em>// </em><em>关掉Scroll组件的滚动条</em>
+      .scrollBar(BarState.Off); // 关掉Scroll组件的滚动条
     }
     .height('100%')
     .width('100%');
@@ -102,7 +102,7 @@ struct OptionTwo {
           .width(200);
       }
       .height(100)
-      .scrollBar(BarState.Off); <em>// </em><em>关掉Scroll组件的滚动条</em>
+      .scrollBar(BarState.Off); // 关掉Scroll组件的滚动条
     }
     .height('100%')
     .width('100%');
@@ -133,7 +133,7 @@ struct OptionThree {
           .height(100)
           .width(200);
       }
-      .scrollBar(BarState.Off); <em>// </em><em>关掉Scroll组件的滚动条</em>
+      .scrollBar(BarState.Off); // 关掉Scroll组件的滚动条
     }
     .height('100%')
     .width('100%');

@@ -9,7 +9,7 @@
 List组件替换元素位置导致UI显示异常，功能类似于歌曲置顶效果，问题代码示例参考如下：
  
 ```ArkTS
-<em>// Index.ets</em>
+// Index.ets
 import { JSON, util } from '@kit.ArkTS';
 
 class Contact {
@@ -49,7 +49,7 @@ struct Index {
             .width('100%')
             .justifyContent(FlexAlign.Start)
           }.onClick(() => {
-          <em>  // 将对应位置的元素移至首位</em>
+            // 将对应位置的元素移至首位
             if (this.contacts.length > 0) {
               const movedItem = this.contacts.splice(index, 1);
               this.contacts.unshift(movedItem) 
@@ -145,7 +145,7 @@ struct Index {
             .width('100%')
             .justifyContent(FlexAlign.Start)
           }.onClick(() => {
-      <em>      // 将对应位置的元素移至首位</em>
+            // 将对应位置的元素移至首位
             if (this.contacts.length > 0) {
               const movedItem = this.contacts.splice(index, 1);
               this.contacts.unshift(movedItem[0]);

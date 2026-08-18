@@ -36,7 +36,7 @@ Canvas绘制一个数字列表，需要添加滑动手势才能实现滑动，�
 
 2. 计算滑动速度和滑动距离，示例使用指数函数方式计算速度和距离，以达到先快后慢的效果。
 ```text
-<em>// </em><em>计算滑动速度和滑动距离，示例使用指数函数方式计算速度和距离，以达到先快后慢的效果</em>
+// 计算滑动速度和滑动距离，示例使用指数函数方式计算速度和距离，以达到先快后慢的效果
 const v = speed * Math.pow(Math.E, -frictionFactor * (speed - this.velocityX) / frameTime * (frameTime / 1000));
 const distance = v * (frameTime / 1000);
 this.offsetX += distance;
@@ -49,7 +49,7 @@ this.flingTimerId = setInterval(redrawCanvas, frameTime);
 
 4. 在滑动时间不足或滑动距离超出范围时，则停止定时器。
 ```text
-<em>// </em><em>偏移量不在[-maxOffset, 0]区间时，需修正偏移量，并停止定时器</em>
+// 偏移量不在[-maxOffset, 0]区间时，需修正偏移量，并停止定时器
 if (this.offsetX > 0) {
   this.reset();
 }
@@ -59,7 +59,7 @@ if (this.offsetX < -this.maxOffset) {
 ```
  
 ```text
-if (this.flingTime < frameTime) { <em>// 滑动时间不足时，停止定时器</em>
+if (this.flingTime < frameTime) { // 滑动时间不足时，停止定时器
   this.reset();
   return;
 }
@@ -124,14 +124,14 @@ struct CanvasFling {
   }
 
   private scrollFling(speed: number) {
-    const frameTime: number = 16;      <em> </em><em>// 假设每隔16ms进行画布重绘</em>
-    const frictionFactor: number = 2;   <em>// 摩擦系数，系数越大阻力越大</em>
+    const frameTime: number = 16;       // 假设每隔16ms进行画布重绘
+    const frictionFactor: number = 2;   // 摩擦系数，系数越大阻力越大
 
     this.velocityX = speed;
     this.flingTime = Math.abs(this.velocityX) / frictionFactor;
 
     const redrawCanvas = () => {
-      if (this.flingTime < frameTime) { <em>// </em><em>滑动时间不足时，停止定时器</em>
+      if (this.flingTime < frameTime) { // 滑动时间不足时，停止定时器
         this.reset();
         return;
       }
@@ -139,12 +139,12 @@ struct CanvasFling {
       this.velocityX -= frictionFactor * frameTime;
       this.flingTime -= frameTime;
 
-  <em>    // 计算滑动速度和滑动距离，示例使用指数函数方式计算速度和距离，以达到先快后慢的效果</em>
+      // 计算滑动速度和滑动距离，示例使用指数函数方式计算速度和距离，以达到先快后慢的效果
       const v = speed * Math.pow(Math.E, -frictionFactor * (speed - this.velocityX) / frameTime * (frameTime / 1000));
       const distance = v * (frameTime / 1000);
       this.offsetX += distance;
 
-     <em> // 偏移量不在[-maxOffset, 0]区间时，需修正偏移量，并停止定时器</em>
+      // 偏移量不在[-maxOffset, 0]区间时，需修正偏移量，并停止定时器
       if (this.offsetX > 0) {
         this.reset();
       }

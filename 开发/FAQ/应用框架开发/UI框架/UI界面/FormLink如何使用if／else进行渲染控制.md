@@ -41,7 +41,7 @@ export default class EntryAbility extends UIAbility {
 
   onCreate(want: Want): void {
     if (want?.parameters?.params) {
-      <em>// want.parameters.params对应FormLink()中params内容</em>
+      // want.parameters.params对应FormLink()中params内容
       let params: Record<string, Object> = JSON.parse(want.parameters.params as string);
       this.selectPage = params.message as string;
       console.info(`onCreate selectPage: ${this.selectPage}`);
@@ -54,11 +54,11 @@ export default class EntryAbility extends UIAbility {
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onCreate');
   }
 
-  <em>// 如果UIAbility已在后台运行，在收到Router事件后会触发onNewWant生命周期回调</em>
+  // 如果UIAbility已在后台运行，在收到Router事件后会触发onNewWant生命周期回调
   onNewWant(want: Want): void {
     console.info(`Ability onNewWant: ${JSON.stringify(want?.parameters)}`);
     if (want?.parameters?.params) {
-     <em> // want.parameters.params对应FormLink()中params内容</em>
+      // want.parameters.params对应FormLink()中params内容
       let params: Record<string, Object> = JSON.parse(want.parameters.params as string);
       this.selectPage = params.message as string;
       console.info(`onNewWant selectPage: ${this.selectPage}`);
@@ -70,7 +70,7 @@ export default class EntryAbility extends UIAbility {
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
     let targetPage: string;
-    <em>// 根据传递的targetPage不同，选择拉起不同的页面</em>
+    // 根据传递的targetPage不同，选择拉起不同的页面
     switch (this.selectPage) {
       case 'page':
         targetPage = 'pages/Page';
@@ -100,13 +100,13 @@ EntryFormAbility.ets文件：
 ```json
 onFormEvent(formId: string, message: string) {
   if (message) {
-    <em>// message是从卡片UI传来的字符串</em>
+    // message是从卡片UI传来的字符串
     let flag: number = JSON.parse(message)['message'];
-    <em>// 构建卡片数据对象</em>
+    // 构建卡片数据对象
     let formData: Record<string, boolean> = { 'change': !flag };
-    <em>// createFormBindingData将普通对象转换为卡片能识别的FormBindingData对象</em>
+    // createFormBindingData将普通对象转换为卡片能识别的FormBindingData对象
     let formInfo = formBindingData.createFormBindingData(formData);
-    <em>// 通过formProvider的updateForm接口刷新卡片UI</em>
+    // 通过formProvider的updateForm接口刷新卡片UI
     formProvider.updateForm(formId, formInfo);
   }
 }
@@ -123,19 +123,19 @@ struct FormLinkDemo {
   build() {
     Column({ space: 10 }) {
       Text('这是一个静态卡片').fontSize(20);
-      <em>// message事件触发FormExtensionAbility的onFormEvent生命周期</em>
+      // message事件触发FormExtensionAbility的onFormEvent生命周期
       FormLink({
         action: 'message',
         abilityName: 'EntryAbility',
         params: {
-          'message': this.flag <em>// 自定义要发送的message</em>
+          'message': this.flag // 自定义要发送的message
         }
       }) {
         Button('点我切换要跳转的页面').width(220);
       };
 
       if (this.flag) {
-        <em>// router事件用于静态卡片跳转到对应的UIAbility</em>
+        // router事件用于静态卡片跳转到对应的UIAbility
         FormLink({
           action: 'router',
           abilityName: 'EntryAbility',
@@ -146,12 +146,12 @@ struct FormLinkDemo {
           Button('跳转到页面二').width(220);
         };
       } else {
-        <em>// router事件用于静态卡片跳转到对应的UIAbility</em>
+        // router事件用于静态卡片跳转到对应的UIAbility
         FormLink({
           action: 'router',
           abilityName: 'EntryAbility',
           params: {
-            'message': 'index'<em> // 自定义要发送的message</em>
+            'message': 'index' // 自定义要发送的message
           }
         }) {
           Button('跳转到页面一').width(220);

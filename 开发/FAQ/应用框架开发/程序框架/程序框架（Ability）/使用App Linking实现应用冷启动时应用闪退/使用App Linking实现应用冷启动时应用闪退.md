@@ -11,7 +11,7 @@
 问题代码的EntryAbility中参数配置如下：
  
 ```text
-<em>// 冷启动</em>
+// 冷启动
 onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
   this.getRouterUri(want);
   console.info('Ability onCreate');
@@ -19,10 +19,10 @@ onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
 private getRouterUri(want: Want) {
   let uri: string | undefined = want?.uri;
   if (uri) {
-    <em>// 根据解析的uri跳转至相应页面，例如需要跳转页面为"pages/Access"</em>
+    // 根据解析的uri跳转至相应页面，例如需要跳转页面为"pages/Access"
     let status: router.RouterState = router.getState();
     if (status && status.name !== 'Access' && uri) {
-      <em>// 根据uri参数做业务处理</em>
+      // 根据uri参数做业务处理
       router.replaceUrl({
         url: 'pages/Page1',
         params: {
@@ -78,7 +78,7 @@ export default class EntryAbility extends UIAbility {
   uiContext: UIContext | undefined = undefined;
 
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
-    <em>// 接收调用方UIAbility传过来的参数</em>
+    // 接收调用方UIAbility传过来的参数
     this.funcAbilityWant = want;
 
     try {
@@ -91,12 +91,12 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-    <em>// Main window is created, set main page for this ability</em>
+    // Main window is created, set main page for this ability
     console.info('Ability onWindowStageCreate');
-    <em>// Main window is created, set main page for this ability</em>
+    // Main window is created, set main page for this ability
     let url = 'pages/Index';
     if (this.funcAbilityWant?.parameters?.router && this.funcAbilityWant.parameters.router === 'funcA') {
-      url = 'pages/Page_ColdStartUp'; <em>// 根据实际业务设置</em>
+      url = 'pages/Page_ColdStartUp'; // 根据实际业务设置
     }
     windowStage.loadContent(url, (err, data) => {
       if (err.code) {
@@ -108,7 +108,7 @@ export default class EntryAbility extends UIAbility {
     });
   }
 
-  <em>// 示例省略其他生命周期函数</em>
+  // 示例省略其他生命周期函数
 };
 ```
 

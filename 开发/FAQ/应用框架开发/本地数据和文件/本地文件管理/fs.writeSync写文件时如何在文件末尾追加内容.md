@@ -33,19 +33,19 @@ struct Index {
 
   build() {
     Column({ space: 30 }) {
-      Text(`当前test.txt为文件的内容是：${this.message}`) <em>// </em><em>展示文件内容</em>
+      Text(`当前test.txt为文件的内容是：${this.message}`) // 展示文件内容
         .fontSize(30)
       Button('追加文本')
         .onClick(() => {
           let context = this.getUIContext().getHostContext() as Context;
-          let filePath = context.cacheDir + '/test.txt'; <em>// </em><em>获取文件路径</em>
+          let filePath = context.cacheDir + '/test.txt'; // 获取文件路径
           let file =
-            fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.APPEND | fs.OpenMode.CREATE);<em> </em><em>// 设置以追加方式打开文件</em>
-          let str = systemDateTime.getTime().toString() + ','; <em>// </em><em>获取当前时间作为写入文件的内容</em>
-          let writeLen = fs.writeSync(file.fd, str); <em>// 向文件内写入内容，返回值为写入内容的长度</em>
+            fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.APPEND | fs.OpenMode.CREATE); // 设置以追加方式打开文件
+          let str = systemDateTime.getTime().toString() + ','; // 获取当前时间作为写入文件的内容
+          let writeLen = fs.writeSync(file.fd, str); // 向文件内写入内容，返回值为写入内容的长度
           console.log(`writeLen：${writeLen}`);
-          fs.closeSync(file); <em>// 关闭文件</em>
-          this.message = fs.readTextSync(filePath); <em>// 读取文件内容</em>
+          fs.closeSync(file); // 关闭文件
+          this.message = fs.readTextSync(filePath); // 读取文件内容
         })
     }
     .width('100%')

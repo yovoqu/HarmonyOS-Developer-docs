@@ -9,14 +9,14 @@
 socket.TCPSocketServer订阅'connect'事件，off掉之后，重新订阅，回调方法不生效。问题代码如下：
  
 ```text
-<em>// 开启serverSocket监听</em>
+// 开启serverSocket监听
 const tcpServer: socket.TCPSocketServer = socket.constructTCPSocketServerInstance();
 let bindAddr: socket.NetAddress = {
   address: '::',
   port: 1111,
   family: 25
 };
-<em>// 设置TCPSocketServer连接的其他属性</em>
+// 设置TCPSocketServer连接的其他属性
 const options: socket.TCPExtraOptions = {
   keepAlive: true,
 };
@@ -27,14 +27,14 @@ tcpServer.listen(bindAddr).then(() => {
   console.error(TAG, `server listen error : ${err.message}`);
 });
 
-<em>// 订阅TCPSocketServer的事件</em>
+// 订阅TCPSocketServer的事件
 const connectCallBack = () => {
   console.info('test');
 };
 tcpServer.on('connect', connectCallBack);
 
 tcpServer.off('connect', connectCallBack);
-<em>// 回调不生效了</em>
+// 回调不生效了
 tcpServer.on('connect', connectCallBack);
 ```
  
@@ -202,14 +202,14 @@ struct tcpServerTest {
   }
 
   start() {
- <em>// 将url替换成有效的链接资源，例如使用本地环回地址</em>
+ // 将url替换成有效的链接资源，例如使用本地环回地址
     this.webUrl = 'xxx' + this.port.toString();
     let listenAddr: socket.NetAddress = {
       address: '0.0.0.0',
       port: this.port,
       family: 1
     };
-    <em>// listen方法调用成功后，调用on('connect')开启监听</em>
+    // listen方法调用成功后，调用on('connect')开启监听
     tcpServer.listen(listenAddr, (err: BusinessError) => {
       if (err) {
         this.msgHistory += 'listen fail \r\n';
@@ -228,14 +228,14 @@ struct tcpServerTest {
       });
     });
   }
-  <em>// 关闭监听</em>
+  // 关闭监听
   stop() {
     tcpServer.off('connect');
     console.info('close listen connect');
   }
 }
 
-<em>//构造给客户端的应答内容</em>
+//构造给客户端的应答内容
 function buildRespString(content: string) {
   let result: string = '';
   let bodyContent = `<html><head><title>HTTP服务器模拟</title></head><body><h1>浏览器发送的请求信息</h1><pre><h2>${content}</h2></pre></body></html>`;

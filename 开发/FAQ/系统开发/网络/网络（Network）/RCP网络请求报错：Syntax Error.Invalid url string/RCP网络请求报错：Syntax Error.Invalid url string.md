@@ -14,30 +14,30 @@ RCP网络请求报错：Syntax Error.Invalid url string。
 const sessionConfig: rcp.SessionConfiguration = {
 
 
- <em> // 设置会话中URL的基地址</em>
+  // 设置会话中URL的基地址
   baseAddress: 'https://xxx.com/appservice',
   requestConfiguration: {
     transfer: {
       autoRedirect: true,
       timeout: {
-        connectMs: 20000, /<em>/ 允许建立连接的最长时间（以毫秒为单位）</em>
-        transferMs: 20000, //<em> 允许传输数据的最长时间（以毫秒为单位）</em>
+        connectMs: 20000, // 允许建立连接的最长时间（以毫秒为单位）
+        transferMs: 20000, // 允许传输数据的最长时间（以毫秒为单位）
       },
     },
     tracing: {
       verbose: true,
     },
     security: {
-      remoteValidation: 'skip' //<em> 取消验证ssl证书</em>
+      remoteValidation: 'skip' // 取消验证ssl证书
     },
   },
 };
 
 
-<em>// 创建会话</em>
+// 创建会话
 const session = rcp.createSession(sessionConfig);
 let req = new rcp.Request('/post', 'POST', header, params);
-/<em>/ 发送请求，并处理返回结果</em>。
+// 发送请求，并处理返回结果。
 session.fetch(req).then((rep: rcp.Response) => {
   console.info(`Response succeeded: ${rep}`);
 }).catch((err: BusinessError) => {

@@ -18,7 +18,7 @@ struct ToggleDrag {
   @State positionX: number = 0;
   @State positionY: number = 0;
   @State toggleIsOn: boolean = true;
- <em> // Marks whether the current drag state is used to block click events</em>
+  // Marks whether the current drag state is used to block click events
   private isDragging: boolean = false;
 
 
@@ -28,7 +28,7 @@ struct ToggleDrag {
         Text('Toggle')
       }
       .selectedColor(Color.Pink)
-    <em>  // Onchange callback precedes onActionEnd</em>
+      // Onchange callback precedes onActionEnd
       .onChange((isOn: boolean) => {
         hilog.info(0x0000, 'TOGGLE_DRAG', 'xxx %{public}s', `onClick Toggle, isOn: ${isOn}`);
         console.info('isDragging======' + this.isDragging);

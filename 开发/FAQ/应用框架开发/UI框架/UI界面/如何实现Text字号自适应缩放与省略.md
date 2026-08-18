@@ -47,7 +47,7 @@ struct TextDemo {
     Column({ space: 30 }) {
       TextInput({ text: this.message })
         .onChange((value: string) => {
-         <em> // 文本内容发生变化时触发该回调</em>
+          // 文本内容发生变化时触发该回调
           this.message = value;
         })
       Row() {

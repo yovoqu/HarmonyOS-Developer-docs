@@ -106,7 +106,7 @@ struct Settings {
 @Entry
 @Component
 struct TabsNavPage {
- <em> // 使用@Provide将路由栈对象传递给TabContent内的组件</em>
+  // 使用@Provide将路由栈对象传递给TabContent内的组件
   @Provide('pathStack') pathStack: NavPathStack = new NavPathStack();
 
   @Builder
@@ -117,7 +117,7 @@ struct TabsNavPage {
   }
 
   build() {
-   <em> // 使用Navigation包裹Tabs，Tabs子页使用同一个路由栈对象</em>
+    // 使用Navigation包裹Tabs，Tabs子页使用同一个路由栈对象
     Navigation(this.pathStack) {
       Tabs() {
         TabContent() {
@@ -139,7 +139,7 @@ struct TabsNavPage {
 
 @Component
 struct MinePage {
- <em> // 获取Navigation的路由栈对象</em>
+  // 获取Navigation的路由栈对象
   @Consume('pathStack') pathStack: NavPathStack;
 
   build() {

@@ -37,7 +37,7 @@ struct ImageGifDemo {
     Column({ space: 20 }) {
       Button('test')
         .onClick(async () => {
-        <em>  // app.media.gif1是gif文件，需要自行配置</em>
+          // app.media.gif1是gif文件，需要自行配置
           let pixelMaps = await this.getPixmapFromMedia($r('app.media.gif1'));
           this.animated = new AnimatedDrawableDescriptor(pixelMaps, this.animationOpt);
         })
@@ -49,7 +49,7 @@ struct ImageGifDemo {
     .alignItems(HorizontalAlign.Center)
   }
 
- <em> // 读取资源文件返回PixelMap数组</em>
+  // 读取资源文件返回PixelMap数组
   private async getPixmapFromMedia(resource: Resource) {
     let uint8Array = await this.uiContext.getHostContext()?.resourceManager.getMediaContent(resource.id);
     let imageSource = image.createImageSource(uint8Array!.buffer.slice(0, uint8Array!.buffer.byteLength));

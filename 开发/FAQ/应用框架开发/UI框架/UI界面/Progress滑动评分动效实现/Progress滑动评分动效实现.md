@@ -22,7 +22,7 @@
 #### 解决方案
 1. 自定义评分样式。
 ```text
-<em>//自定义评分样式</em>
+//自定义评分样式
 class MyProgressModifier implements ContentModifier<ProgressConfiguration> {
   color: ResourceColor = Color.White;
   outerRadius: number = 500;
@@ -35,7 +35,7 @@ class MyProgressModifier implements ContentModifier<ProgressConfiguration> {
     this.innerRadius = outerRadius * sin(18) / cos(36);
   }
 
- <em> // 绘制五角星路径的字符串</em>
+  // 绘制五角星路径的字符串
   paintingPath(startX: number, startY: number, isHalf: boolean = false, isLeft: boolean = true) {
     let point1: string = `${startX} ${startY}`;
     let point3: string = `${startX - this.outerRadius * cos(18)} ${startY - (sin(18) - 1) * this.outerRadius}`;
@@ -71,7 +71,7 @@ class MyProgressModifier implements ContentModifier<ProgressConfiguration> {
 ```text
 @Builder
 function leftStar(config: ProgressConfiguration, value: number) {
- <em> // 绘制左半部分</em>
+  // 绘制左半部分
   Path()
     .width('100px')
     .height('100%')
@@ -85,7 +85,7 @@ function leftStar(config: ProgressConfiguration, value: number) {
 
 @Builder
 function rightStar(config: ProgressConfiguration, value: number) {
- <em> // 绘制右半部分</em>
+  // 绘制右半部分
   Path()
     .width('100px')
     .height('100%')
@@ -101,9 +101,9 @@ function rightStar(config: ProgressConfiguration, value: number) {
 3. 手势滑动时相关属性变动处理，并渲染页面。
 ```text
 Progress({ value: this.currentValue, total: 10 })
-  .contentModifier(this.modifier) <em>// 自定义评分栏</em>
+  .contentModifier(this.modifier) // 自定义评分栏
   .gesture(
-   <em> // 滑动手势x发生变化时修改评分</em>
+    // 滑动手势x发生变化时修改评分
     PanGesture()
       .onActionStart((event: GestureEvent) => {
         this.progressX = event.fingerList[0].localX;
@@ -125,7 +125,7 @@ Progress({ value: this.currentValue, total: 10 })
  
 完整代码：
 ```text
-<em>//自定义评分样式</em>
+//自定义评分样式
 class MyProgressModifier implements ContentModifier<ProgressConfiguration> {
   color: ResourceColor = Color.White;
   outerRadius: number = 500;
@@ -138,7 +138,7 @@ class MyProgressModifier implements ContentModifier<ProgressConfiguration> {
     this.innerRadius = outerRadius * sin(18) / cos(36);
   }
 
- <em> // 绘制五角星路径的字符串</em>
+  // 绘制五角星路径的字符串
   paintingPath(startX: number, startY: number, isHalf: boolean = false, isLeft: boolean = true) {
     let point1: string = `${startX} ${startY}`;
     let point3: string = `${startX - this.outerRadius * cos(18)} ${startY - (sin(18) - 1) * this.outerRadius}`;
@@ -171,7 +171,7 @@ class MyProgressModifier implements ContentModifier<ProgressConfiguration> {
 
 @Builder
 function leftStar(config: ProgressConfiguration, value: number) {
- <em> // 绘制左半部分</em>
+  // 绘制左半部分
   Path()
     .width('100px')
     .height('100%')
@@ -185,7 +185,7 @@ function leftStar(config: ProgressConfiguration, value: number) {
 
 @Builder
 function rightStar(config: ProgressConfiguration, value: number) {
-<em>  // 绘制右半部分</em>
+  // 绘制右半部分
   Path()
     .width('100px')
     .height('100%')
@@ -219,17 +219,17 @@ function myProgress(config: ProgressConfiguration) {
 @Entry
 @Component
 struct CustomRating {
-  @State currentValue: number = 0;<em> // 评分</em>
+  @State currentValue: number = 0; // 评分
   modifier = new MyProgressModifier('#F7CE00', 80);
-  progressX: number = 0; <em>// 单位vp</em>
+  progressX: number = 0; // 单位vp
   context: UIContext = this.getUIContext();
 
   build() {
     Column() {
       Progress({ value: this.currentValue, total: 10 })
-        .contentModifier(this.modifier)<em> // 自定义评分栏</em>
+        .contentModifier(this.modifier) // 自定义评分栏
         .gesture(
-         <em> // 滑动手势x发生变化时修改评分</em>
+          // 滑动手势x发生变化时修改评分
           PanGesture()
             .onActionStart((event: GestureEvent) => {
               this.progressX = event.fingerList[0].localX;

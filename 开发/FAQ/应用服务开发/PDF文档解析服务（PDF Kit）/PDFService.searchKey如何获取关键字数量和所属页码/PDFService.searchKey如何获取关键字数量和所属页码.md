@@ -25,9 +25,9 @@ pdfViewManager（PDF预览），本模块为应用提供统一的PDF预览能力
 1. 拷贝rawfile目录PDF文件到沙箱中。
 2. 根据关键字搜索文本并返回匹配的总数。
 ```text
-this.controller.searchKey('XXX', (total: number) => {<em>// 执行关键字搜索</em>
+this.controller.searchKey('XXX', (total: number) => {// 执行关键字搜索
   hilog.info(0x0000, 'PdfSearch', '匹配总数：%{public}d', total);
-  for (let i = 0; i < total; i++) {<em>// 遍历所有搜索结果获取页码</em>
+  for (let i = 0; i < total; i++) {// 遍历所有搜索结果获取页码
     this.controller.setSearchIndex(i);
     const currentPage = this.controller.getPageIndex();
     hilog.info(0x0000, 'PdfSearch',
@@ -38,7 +38,7 @@ this.controller.searchKey('XXX', (total: number) => {<em>// 执行关键字搜�
 
 3. 跳转索引对应搜索结果处页面并返回页面索引。
 ```text
-for (let i = 0; i < total; i++) {<em>// 遍历所有搜索结果获取页码</em>
+for (let i = 0; i < total; i++) {// 遍历所有搜索结果获取页码
   this.controller.setSearchIndex(i);
   const currentPage = this.controller.getPageIndex();
   hilog.info(0x0000, 'PdfSearch',
@@ -66,7 +66,7 @@ struct PdfSearchExample {
 
   async aboutToAppear(): Promise<void> {
     try {
-     <em> //确保rawfile目录下有pdf文件</em>
+      //确保rawfile目录下有pdf文件
       await this.copyRawFileToSdcard(this.context, 'test.pdf');
       promptAction.openToast({ message: '全部拷贝完成' });
       const filePath = `${this.context.filesDir}/test.pdf`;
@@ -83,9 +83,9 @@ struct PdfSearchExample {
       Button('搜索关键字')
         .onClick(() => {
           if (this.loadResult === pdfService.ParseResult.PARSE_SUCCESS) {
-            this.controller.searchKey('XXX', (total: number) => {<em>// 执行关键字搜索</em>
+            this.controller.searchKey('XXX', (total: number) => {// 执行关键字搜索
               hilog.info(0x0000, 'PdfSearch', '匹配总数：%{public}d', total);
-              for (let i = 0; i < total; i++) {<em>// 遍历所有搜索结果获取页码</em>
+              for (let i = 0; i < total; i++) {// 遍历所有搜索结果获取页码
                 this.controller.setSearchIndex(i);
                 const currentPage = this.controller.getPageIndex();
                 hilog.info(0x0000, 'PdfSearch',
@@ -101,11 +101,11 @@ struct PdfSearchExample {
     }
   }
 
- <em> // 拷贝pdf文件到应用沙箱目录</em>
+  // 拷贝pdf文件到应用沙箱目录
   private copyRawFileToSdcard(context: common.Context, pdfName: string): Promise<void> {
     return new Promise((resolve) => {
       let destRoot = context.filesDir;
-     <em> // rawfile下的文件名</em>
+      // rawfile下的文件名
       let srcFileName = pdfName;
       let destFilePath = `${destRoot}/${srcFileName}`;
       context.resourceManager.getRawFileContent(srcFileName, (error: BusinessError, data: Uint8Array) => {

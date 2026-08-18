@@ -23,7 +23,7 @@ struct TabsDemo {
   private controller: TabsController = new TabsController();
   private tabsWidth: number = 0;
 
- <em> // Single tab</em>
+  // Single tab
   @Builder
   tab(tabName: string, tabItem: number, tabIndex: number) {
     Row({ space: 20 }) {
@@ -57,7 +57,7 @@ struct TabsDemo {
 
   build() {
     Column() {
-    <em>  // Tab bar</em>
+      // Tab bar
       Stack({ alignContent: Alignment.TopStart }) {
         Scroll() {
           Row() {
@@ -124,18 +124,18 @@ struct TabsDemo {
         this.currentIndex = index; // Listen for index changes to switch tab content.
       })
       .onAnimationStart((index: number, targetIndex: number, event: TabsAnimationEvent) => {
-     <em>   // Callback when the switching animation starts. The underline slides with the page and the width changes.</em>
+        // Callback when the switching animation starts. The underline slides with the page and the width changes.
         this.currentIndex = targetIndex;
         let targetIndexInfo = this.getTextInfo(targetIndex);
         this.startAnimateTo(this.animationDuration, targetIndexInfo.left, targetIndexInfo.width);
       })
       .onAnimationEnd((index: number, event: TabsAnimationEvent) => {
-        <em>// Callback when the switching animation ends. The underline animation stops.</em>
+        // Callback when the switching animation ends. The underline animation stops.
         let currentIndicatorInfo = this.getCurrentIndicatorInfo(index, event);
         this.startAnimateTo(0, currentIndicatorInfo.left, currentIndicatorInfo.width);
       })
       .onGestureSwipe((index: number, event: TabsAnimationEvent) => {
-     <em>   // Callback triggered frame by frame during page swipe.</em>
+        // Callback triggered frame by frame during page swipe.
         let currentIndicatorInfo = this.getCurrentIndicatorInfo(index, event);
         this.currentIndex = currentIndicatorInfo.index;
         this.indicatorLeftMargin = currentIndicatorInfo.left;
@@ -145,7 +145,7 @@ struct TabsDemo {
     .height('100%')
   }
 
-  <em>// Get component size, position, translation, scaling, rotation, and affine matrix attribute information.</em>
+  // Get component size, position, translation, scaling, rotation, and affine matrix attribute information.
   private getTextInfo(index: number): Record<string, number> {
     let modePosition: componentUtils.ComponentInfo =
       this.getUIContext().getComponentUtils().getRectangleById(index.toString());
@@ -155,12 +155,12 @@ struct TabsDemo {
     };
   }
 
-<em>  /*</em>
-<em>   * Calculate indicator dynamic position information</em>
-<em>   * @param index Current page index</em>
-<em>   * @param event Swipe event object</em>
-<em>   * @returns {left: Indicator left shift, width: Indicator width, index: Target page index}</em>
-<em>   */</em>
+  /*
+   * Calculate indicator dynamic position information
+   * @param index Current page index
+   * @param event Swipe event object
+   * @returns {left: Indicator left shift, width: Indicator width, index: Target page index}
+   */
   private getCurrentIndicatorInfo(index: number, event: TabsAnimationEvent): Record<string, number> {
     let nextIndex = index;
     if (index > 0 && event.currentOffset > 0) {
@@ -171,7 +171,7 @@ struct TabsDemo {
     let indexInfo = this.getTextInfo(index);
     let nextIndexInfo = this.getTextInfo(nextIndex);
     let swipeRatio = Math.abs(event.currentOffset / this.tabsWidth);
-   <em> // When page sliding exceeds half, tabBar switches to the next page.</em>
+    // When page sliding exceeds half, tabBar switches to the next page.
     let currentIndex = swipeRatio > 0.5 ? nextIndex : index;
     let currentLeft = indexInfo.left + (nextIndexInfo.left - indexInfo.left) * swipeRatio;
     let currentWidth = indexInfo.width + (nextIndexInfo.width - indexInfo.width) * swipeRatio;
@@ -180,13 +180,13 @@ struct TabsDemo {
 
   private startAnimateTo(duration: number, leftMargin: number, width: number) {
     this.getUIContext().animateTo({
-     <em> // Animation duration</em>
+      // Animation duration
       duration: duration,
-    <em>  // Animation curve</em>
+      // Animation curve
       curve: Curve.Linear,
-     <em> // Number of iterations</em>
+      // Number of iterations
       iterations: 1,
-    <em>  // Animation mode</em>
+      // Animation mode
       playMode: PlayMode.Normal,
       onFinish: () => {
         console.info('play end');

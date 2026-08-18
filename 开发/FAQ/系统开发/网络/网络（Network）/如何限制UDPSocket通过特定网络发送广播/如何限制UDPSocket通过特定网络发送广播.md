@@ -26,14 +26,14 @@ let udpExtraOptions: socket.UDPExtraOptions = {
   sendBufferSize: 8192,
   reuseAddress: false,
   socketTimeout: 6000,
-  broadcast: true <em>// 开启广播</em>
+  broadcast: true // 开启广播
 };
 this.udpClient.bind({ address: '0.0.0.0', port: 8000, family: 1 } as socket.NetAddress, (error: Error) => {
   if (error) {
     console.error(`udp client bind fail: ${JSON.stringify(error)}`);
     return;
   }
-<em>  // 注意setExtraOptions需要在bind成功之后设置</em>
+  // 注意setExtraOptions需要在bind成功之后设置
   this.udpClient.setExtraOptions(udpExtraOptions, (err: BusinessError) => {
     if (err) {
       console.error(`setExtraOptions fail: ${JSON.stringify(err)}`);
@@ -86,7 +86,7 @@ bindSocket2BearType(socketParam: socket.TCPSocket | socket.UDPSocket, bearType: 
 4. 向广播地址发送数据：
 ```json
 let netAddress: socket.NetAddress = {
-  address: this.broadcastIp,<em> // 广播地址</em>
+  address: this.broadcastIp, // 广播地址
   port: this.broadcastPort
 };
 let sendOptions: socket.UDPSendOptions = {
@@ -114,8 +114,8 @@ import { util } from '@kit.ArkTS';
 @Component
 struct SocketSendBySpecificNet {
   private udpClient: socket.UDPSocket = socket.constructUDPSocketInstance();
-  private broadcastIp: string = '255.255.255.255';<em> // 广播地址，可以是子网广播地址比如192.168.43.255或受限广播地址255.255.255.255</em>
-  private broadcastPort: number = 18256; <em>// 广播包端口，需要双方协商</em>
+  private broadcastIp: string = '255.255.255.255'; // 广播地址，可以是子网广播地址比如192.168.43.255或受限广播地址255.255.255.255
+  private broadcastPort: number = 18256; // 广播包端口，需要双方协商
 
   aboutToAppear(): void {
     let udpExtraOptions: socket.UDPExtraOptions = {
@@ -123,14 +123,14 @@ struct SocketSendBySpecificNet {
       sendBufferSize: 8192,
       reuseAddress: false,
       socketTimeout: 6000,
-      broadcast: true <em>// 开启广播</em>
+      broadcast: true // 开启广播
     };
     this.udpClient.bind({ address: '0.0.0.0', port: 8000, family: 1 } as socket.NetAddress, (error: Error) => {
       if (error) {
         console.error(`udp client bind fail: ${JSON.stringify(error)}`);
         return;
       }
-    <em>  // 注意setExtraOptions需要在bind成功之后设置</em>
+      // 注意setExtraOptions需要在bind成功之后设置
       this.udpClient.setExtraOptions(udpExtraOptions, (err: BusinessError) => {
         if (err) {
           console.error(`setExtraOptions fail: ${JSON.stringify(err)}`);
@@ -180,7 +180,7 @@ struct SocketSendBySpecificNet {
     Column({ space: 24 }) {
       Button('Socket通过特定网络发送广播').onClick(() => {
         let netAddress: socket.NetAddress = {
-          address: this.broadcastIp,<em> // 广播地址</em>
+          address: this.broadcastIp, // 广播地址
           port: this.broadcastPort
         };
         let sendOptions: socket.UDPSendOptions = {

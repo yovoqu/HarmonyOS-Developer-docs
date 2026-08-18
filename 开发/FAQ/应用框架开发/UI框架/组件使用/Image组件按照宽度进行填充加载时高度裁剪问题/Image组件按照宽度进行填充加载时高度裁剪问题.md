@@ -21,7 +21,7 @@ struct DisplayTest1 {
           .objectFit(ImageFit.None);
       }
       .width('100%')
-      .height(200) <em>// 需要设置的图片高度</em>
+      .height(200) // 需要设置的图片高度
       .backgroundColor('#ECA724');
     }
     .width('100%')
@@ -69,9 +69,9 @@ struct DisplayTest2 {
           .objectFit(ImageFit.Cover);
       }
       .width('100%')
-      .height(200) <em>// 需要设置的图片高度</em>
-      .scrollBar(BarState.Off) <em>// 滚动条常驻显示</em>
-      .enabled(false) <em>// 禁用滑动</em>
+      .height(200) // 需要设置的图片高度
+      .scrollBar(BarState.Off) // 滚动条常驻显示
+      .enabled(false) // 禁用滑动
       .backgroundColor('#ECA724');
     }
     .width('100%')

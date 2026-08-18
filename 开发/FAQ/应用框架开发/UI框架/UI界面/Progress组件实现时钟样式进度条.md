@@ -54,7 +54,7 @@ struct Index {
           .height(40)
           .width(0)
           .borderWidth(2)
-          .margin({ top: -90 }) <em>// </em><em>通过centerX、centerY设置旋转中心</em>
+          .margin({ top: -90 }) // 通过centerX、centerY设置旋转中心
           .rotate({
             centerX: '100%',
             centerY: '100%',
@@ -64,7 +64,7 @@ struct Index {
             this.uiContext?.animateTo({
               duration: 3000,
               curve: Curve.Linear,
-              iterations: -1, <em>// 设置-1表示动画无限循环</em>
+              iterations: -1, // 设置-1表示动画无限循环
             }, () => {
               this.rotateAngle = 360 * 20 / 150;
             });

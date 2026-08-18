@@ -26,9 +26,9 @@ I C02B8B/audio_server/AudioCoreService: [comm][DeviceFetchStart] by SetDefaultOu
 
 - 输出设备切换时，会对每个音频输出流做静音操作，避免切换时的杂音，可查看到日志中存在多条静音与取消静音操作日志，音频流切换时间是累计的，共耗时约1.1s，有明显的中断。
 ```text
-I C02B89/audio_server/AudioRenderSink: [SetSinkMuteForSwitchDevice]set primary mute 1 <em>// 静音操作</em>
+I C02B89/audio_server/AudioRenderSink: [SetSinkMuteForSwitchDevice]set primary mute 1 // 静音操作
 ...
-I C02B89/audio_server/AudioRenderSink: [SetSinkMuteForSwitchDevice]set voip mute 0 <em>// 取消静音操作</em>
+I C02B89/audio_server/AudioRenderSink: [SetSinkMuteForSwitchDevice]set voip mute 0 // 取消静音操作
 ```
  
 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/Evt4nCtiQpu3snbrUrEIGw/zh-cn_image_0000002658792059.png?HW-CC-KV=V1&HW-CC-Date=20260811T005549Z&HW-CC-Expire=86400&HW-CC-Sign=C67C708995F8DB63A49DFD23898233085483BC7343CB78A632A7E5DA5B2F8B40)

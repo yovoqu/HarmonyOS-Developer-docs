@@ -11,32 +11,32 @@ import { ErrorEvent, MessageEvents, worker } from '@kit.ArkTS';
 
 const workerInstance = new worker.ThreadWorker('entry/ets/pages/Worker.ets');
 
-<em>// The main thread passes information to the worker thread</em>
+// The main thread passes information to the worker thread
 workerInstance.postMessage('123');
 
-<em>// The main thread receives worker thread information</em>
+// The main thread receives worker thread information
 workerInstance.onmessage = (e: MessageEvents): void => {
- <em> // Data: Information sent by the Worker thread</em>
+  // Data: Information sent by the Worker thread
   let data: string = e.data;
   console.info(`main thread onmessage, data:${data}`);
   const workerInstance1 = new worker.ThreadWorker('entry/ets/pages/Work.ets');
   workerInstance1.postMessage('123');
   workerInstance1.onmessage = (e: MessageEvents): void => {
-   <em> // data：Information sent by worker threads</em>
+    // data：Information sent by worker threads
     let data1: string = e.data;
     console.info(`main thread onmessage1, data:${data1}`);
-  <em>  // Destroy Worker object</em>
+    // Destroy Worker object
     workerInstance1.terminate();
   }
- <em> // After calling terminate, execute onexit</em>
+  // After calling terminate, execute onexit
   workerInstance1.onexit = (code) => {
     console.info(`main thread terminate, code:${code}`);
   }
-<em>  // Destroy Worker object</em>
+  // Destroy Worker object
   workerInstance.terminate();
 
 }
-<em>// After calling terminate, execute onexit</em>
+// After calling terminate, execute onexit
 workerInstance.onexit = (code) => {
   console.info(`main thread terminate, code:${code}`);
 }
@@ -47,23 +47,23 @@ workerInstance.onerror = (err: ErrorEvent) => {
 ```
  
 ```ArkTS
-<em>// Work.ets & Worker.ets</em>
+// Work.ets & Worker.ets
 import { ErrorEvent, MessageEvents, worker } from '@kit.ArkTS';
 
-<em>// Create an object in the worker thread that communicates with the main thread</em>
+// Create an object in the worker thread that communicates with the main thread
 const workerPort = worker.workerPort;
 
-<em>// The worker thread receives information from the main thread</em>
+// The worker thread receives information from the main thread
 workerPort.onmessage = (e: MessageEvents): void => {
- <em> // Data: Information sent by the main thread</em>
+  // Data: Information sent by the main thread
   let data: string = e.data;
   console.info(`Work.ets onmessage: data ${data}`);
 
- <em> // Worker thread sends information to main thread</em>
+  // Worker thread sends information to main thread
   workerPort.postMessage('123');
 }
 
-<em>// Callback for worker thread error</em>
+// Callback for worker thread error
 workerPort.onerror = (err: ErrorEvent) => {
   console.info('Worker.ets onerror' + err.message);
 }

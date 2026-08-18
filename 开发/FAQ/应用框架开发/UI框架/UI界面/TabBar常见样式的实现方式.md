@@ -78,7 +78,7 @@ struct CapsuleOne {
       SegmentButton({
         options: this.tabOptions,
         selectedIndexes: $tabSelectedIndexes,
-       <em> // 点击SegmentButton时Tabs页面切换</em>
+        // 点击SegmentButton时Tabs页面切换
         onItemClicked: (index: number) => {
           this.currentIndex = index;
         }
@@ -98,7 +98,7 @@ struct CapsuleOne {
       .layoutWeight(1)
       .onChange((index: number) => {
         this.currentIndex = index;
-      <em>  // 页面滑动时SegmentButton切换选中状态</em>
+        // 页面滑动时SegmentButton切换选中状态
         this.tabSelectedIndexes = [index];
       });
     }
@@ -134,7 +134,7 @@ struct CapsuleTwo {
     Column() {
       Text(name)
         .width(this.tabbarWidth / 2 -
-          this.tabbarPadding * 2) <em>// 设置宽度在(tabBar宽度/tabBar个数-padding值*tabBar个数，tabBar宽度/tabBar个数)之间</em>
+          this.tabbarPadding * 2) // 设置宽度在(tabBar宽度/tabBar个数-padding值*tabBar个数，tabBar宽度/tabBar个数)之间
         .height('36vp')
         .textAlign(TextAlign.Center)
         .textVerticalAlign(TextVerticalAlign.CENTER)
@@ -211,7 +211,7 @@ struct BarOverlapPage {
             .textAlign(TextAlign.Center)
             .backgroundColor('#26000000');
         }
-       <em> // 设置底部组件的padding值大于tabBar的高度</em>
+        // 设置底部组件的padding值大于tabBar的高度
         .padding({ bottom: index === this.contentList.length - 1 ? 56 + this.listSpace : 0 });
       });
     }
@@ -232,7 +232,7 @@ struct BarOverlapPage {
           .tabBar(item);
         });
       }
-      .barOverlap(true) /<em>/ 开启背景模糊</em>
+      .barOverlap(true) // 开启背景模糊
       .barBackgroundBlurStyle(BlurStyle.Thin);
     }
     .backgroundColor('#fff1f3f5')
@@ -263,7 +263,7 @@ interface tabInterface {
 @Entry
 @Component
 struct SuspensionPage {
-<em>  // 图片资源开发者可根据自身需求替换成所需资源</em>
+  // 图片资源开发者可根据自身需求替换成所需资源
   tabList: tabInterface[] = [
     { text: '内容1', icon: $r('app.media.heart') },
     { text: '内容2', icon: $r('app.media.clock') },
@@ -332,7 +332,7 @@ struct SuspensionPage {
         .onChange((index: number) => {
           this.currentIndex = index;
         });
-    <em>    // 页签</em>
+        // 页签
         this.myTabBar();
       }
       .width('100%');

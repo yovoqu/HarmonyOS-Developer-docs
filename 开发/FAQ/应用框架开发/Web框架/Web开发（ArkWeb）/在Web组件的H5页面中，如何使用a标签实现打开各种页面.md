@@ -143,7 +143,7 @@ function startSettingsInfo(context: common.UIAbilityContext,uri : string): void 
   };
   context.startAbility(want)
     .then(() => {
-     <em> // ...</em>
+      // ...
     })
     .catch((err: BusinessError) => {
       console.error(`Failed to startAbility. Code: ${err.code}, message: ${err.message}`);
@@ -220,14 +220,14 @@ struct WebComponent {
       Column() {
         Web({ src: $rawfile('hello.html'), controller: this.controller })
           .onLoadIntercept((event) => {
-            let context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext; <em>// UIAbilityContext</em>
+            let context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext; // UIAbilityContext
             let want: Want = {
-              deviceId: '', <em>// An empty DeviceId indicates that this device</em>
-              bundleName: '***', <em>// BundleName of the third-party application you want to jump to</em>
-              moduleName: 'entry', <em>// ModuleName is not mandatory</em>
+              deviceId: '', // An empty DeviceId indicates that this device
+              bundleName: '***', // BundleName of the third-party application you want to jump to
+              moduleName: 'entry', // ModuleName is not mandatory
               abilityName: 'EntryAbility',
               parameters: {
-               <em> // Customize parameters to transmit page information</em>
+                // Customize parameters to transmit page information
                 router: 'index'
               }
             }

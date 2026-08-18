@@ -34,14 +34,14 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let audioRenderer: audio.AudioRenderer;
 let audioStreamInfo: audio.AudioStreamInfo = {
-  samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_8000, <em>// 采样率。</em>
-  channels: audio.AudioChannel.CHANNEL_1, <em>// 通道。</em>
-  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE,<em> // 采样格式。</em>
-  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW <em>// 编码格式。</em>
+  samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_8000, // 采样率。
+  channels: audio.AudioChannel.CHANNEL_1, // 通道。
+  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE, // 采样格式。
+  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW // 编码格式。
 };
 let audioRendererInfo: audio.AudioRendererInfo = {
-  usage: audio.StreamUsage.STREAM_USAGE_MUSIC, <em>// 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。</em>
-  rendererFlags: 0 <em>// 音频渲染器标志。</em>
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC, // 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。
+  rendererFlags: 0 // 音频渲染器标志。
 };
 let audioRendererOptions: audio.AudioRendererOptions = {
   streamInfo: audioStreamInfo,
@@ -53,7 +53,7 @@ let audioRendererOptions: audio.AudioRendererOptions = {
 @Component
 export struct PlayPcmEndDemo {
   context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  audioData: Uint8Array = generateTestPCM(); <em>// 测试PCM数据，按需替换为其他音频数据源</em>
+  audioData: Uint8Array = generateTestPCM(); // 测试PCM数据，按需替换为其他音频数据源
   writeOffset = 0;
   preTimestamp = 0;
   intervalId = 0;
@@ -62,7 +62,7 @@ export struct PlayPcmEndDemo {
 
   async aboutToAppear(): Promise<void> {
     audioRenderer = await audio.createAudioRenderer(audioRendererOptions);
-    await this.init();<em> //初始化</em>
+    await this.init(); //初始化
   }
 
 
@@ -81,7 +81,7 @@ export struct PlayPcmEndDemo {
           await audioRenderer.start();
 
 
-          this.checkPlayEnd(); <em>//定时获取音频流时间戳，当时间戳不变时，播放结束</em>
+          this.checkPlayEnd(); //定时获取音频流时间戳，当时间戳不变时，播放结束
         });
       Button('停止播放').width('100%')
         .onClick(async () => {
@@ -97,7 +97,7 @@ export struct PlayPcmEndDemo {
   }
 
 
- <em> //定时获取音频流时间戳，当时间戳不变时，播放结束</em>
+  //定时获取音频流时间戳，当时间戳不变时，播放结束
   checkPlayEnd() {
     this.intervalId = setInterval(() => {
       audioRenderer.getAudioTimestampInfo().then((audioTimestampInfo: audio.AudioTimestampInfo) => {
@@ -156,12 +156,12 @@ function generateTestPCM(): Uint8Array {
 
 
   const freqMap: Record<number, number> = {
-    1: 523.25, <em>// C5</em>
-    2: 587.33, <em>// D5</em>
-    3: 659.25,<em> // E5</em>
-    4: 698.46, <em>// F5</em>
-    5: 783.99, <em>// G5</em>
-    6: 880.00, <em>// A5</em>
+    1: 523.25, // C5
+    2: 587.33, // D5
+    3: 659.25, // E5
+    4: 698.46, // F5
+    5: 783.99, // G5
+    6: 880.00, // A5
   };
 
 
@@ -172,9 +172,9 @@ function generateTestPCM(): Uint8Array {
   ];
 
 
-  const samplesPerNote = Math.floor(sampleRate * noteDuration); <em>// 4000</em>
-  const totalSamples = samplesPerNote * melody.length; <em>// 96,000</em>
-  const buffer = new ArrayBuffer(totalSamples * 2); <em>// 192,000 bytes</em>
+  const samplesPerNote = Math.floor(sampleRate * noteDuration); // 4000
+  const totalSamples = samplesPerNote * melody.length; // 96,000
+  const buffer = new ArrayBuffer(totalSamples * 2); // 192,000 bytes
   const view = new DataView(buffer);
 
 

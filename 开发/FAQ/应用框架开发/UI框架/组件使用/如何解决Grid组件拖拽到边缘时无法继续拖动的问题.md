@@ -80,7 +80,7 @@ struct GridExample {
 
 
   @Builder
-  pixelMapBuilder() { <em>//拖拽过程样式</em>
+  pixelMapBuilder() { //拖拽过程样式
     Column() {
       Text(this.text)
         .fontSize(16)
@@ -101,7 +101,7 @@ struct GridExample {
   }
 
 
-  setScreenFull() {<em> // 设置沉浸式</em>
+  setScreenFull() { // 设置沉浸式
     let windowClass: window.Window | undefined = undefined;
     try {
       let promise = window.getLastWindow(this.context);
@@ -110,11 +110,11 @@ struct GridExample {
         windowClass.setWindowLayoutFullScreen(true).then(() => {
         }).catch(() => {
         });
-     <em>   //状态栏隐藏</em>
+        //状态栏隐藏
         windowClass.setSpecificSystemBarEnabled('status', true).then(() => {
         }).catch(() => {
         });
-    <em>    //导航条隐藏</em>
+        //导航条隐藏
         windowClass.setSpecificSystemBarEnabled('navigationIndicator', false).then(() => {
         }).catch(() => {
         });
@@ -130,7 +130,7 @@ struct GridExample {
 
 
   changeIndex(index1: number, index2: number) {
-<em>    //交换数组位置</em>
+    //交换数组位置
     let temp: string;
     temp = this.numbers[index1];
     this.numbers[index1] = this.numbers[index2];
@@ -152,7 +152,7 @@ struct GridExample {
                 .textAlign(TextAlign.Center)
                 .borderRadius(16);
             }
-            .borderWidth(0); /<em>/ 设置边框宽度</em>
+            .borderWidth(0); // 设置边框宽度
 
 
           };
@@ -163,7 +163,7 @@ struct GridExample {
       .rowsGap(16)
       .backgroundColor('rgba(255, 255, 255, 1)')
       .scrollBar(BarState.Off)
-     <em> //设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem</em>
+      //设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem
       .editMode(true)
       .onScrollIndex((start: number, end: number) => {
         this.startIndex = start;
@@ -174,13 +174,13 @@ struct GridExample {
       .onItemDragStart((event: ItemDragInfo, itemIndex: number) => {
 
 
-      <em>  //第一次拖拽此事件绑定的组件时，触发回调。</em>
+        //第一次拖拽此事件绑定的组件时，触发回调。
         this.text = this.numbers[itemIndex];
         this.currentIndex = itemIndex;
-        return this.pixelMapBuilder(); <em>//设置拖拽过程中显示的图片。</em>
+        return this.pixelMapBuilder(); //设置拖拽过程中显示的图片。
       })
       .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number,
-        isSuccess: boolean) => { <em>//绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。</em>
+        isSuccess: boolean) => { //绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。
 
 
         // isSuccess=false时，说明drop的位置在grid外部；insertIndex > length时，说明有新增元素的事件发生
@@ -193,7 +193,7 @@ struct GridExample {
         let screenHeight = display.getDefaultDisplaySync().height;
 
 
-      <em>  // 计算当前Y轴的位移量</em>
+        // 计算当前Y轴的位移量
         let yOffset: number = this.scroller.currentOffset().yOffset;
 
 
@@ -220,7 +220,7 @@ struct GridExample {
 
 
   currentYChange() {
-  <em>  //创建一个阶梯曲线</em>
+    //创建一个阶梯曲线
     let curve = Curves.interpolatingSpring(10, 1, 228, 30);
     this.scroller.scrollTo({ xOffset: 0, yOffset: this.currentY, animation: { duration: 1000, curve: curve } });
   }

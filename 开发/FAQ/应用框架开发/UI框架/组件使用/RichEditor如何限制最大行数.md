@@ -41,12 +41,12 @@ RichEditor富文本编辑如何限制最大输入行数？文本框初始为单�
 @Entry
 @Component
 struct RichEditorMaxLines {
- <em> // 定义变量</em>
-  private editorPadding: string = '8vp';<em> </em><em>// 设置上下左右padding</em>
-  private fontSize: string = '16fp'; <em>// </em><em>设置字体大小</em>
-  private minLine: number = 1; <em>// </em><em>设置最小行数</em>
-  private maxLine: number = 3;<em> </em><em>// 设置最大行数</em>
-  private lineHeight: string = '18fp';<em> </em><em>// 设置单行高度</em>
+  // 定义变量
+  private editorPadding: string = '8vp'; // 设置上下左右padding
+  private fontSize: string = '16fp'; // 设置字体大小
+  private minLine: number = 1; // 设置最小行数
+  private maxLine: number = 3; // 设置最大行数
+  private lineHeight: string = '18fp'; // 设置单行高度
   controller: RichEditorStyledStringController = new RichEditorStyledStringController();
 
   build() {
@@ -60,7 +60,7 @@ struct RichEditorMaxLines {
               lineHeight: this.lineHeight
             });
           })
-        <em>  // 计算最小和最大高度：minHeight/maxHeight=上下padding+行数minLine/maxLine*行高lineHeight</em>
+          // 计算最小和最大高度：minHeight/maxHeight=上下padding+行数minLine/maxLine*行高lineHeight
           .constraintSize({
             minHeight: `${2 * parseFloat(this.editorPadding) + this.minLine * parseFloat(this.lineHeight)}vp`,
             maxHeight: `${2 * parseFloat(this.editorPadding) + this.maxLine * parseFloat(this.lineHeight)}vp`

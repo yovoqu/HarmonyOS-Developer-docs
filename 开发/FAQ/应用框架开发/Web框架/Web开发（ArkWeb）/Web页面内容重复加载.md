@@ -71,9 +71,9 @@ struct WebVideo {
         .visibility(this.showWeb ? Visibility.Visible : Visibility.Hidden)
         .onVisibleAreaChange([0.0, 1.0], (isExpanding: boolean, currentRatio: number) => {
           if (isExpanding && currentRatio >= 1.0) {
-          <em>  // 模拟获取数据延迟</em>
+            // 模拟获取数据延迟
             setTimeout(() => {
-              this.controller.loadUrl($rawfile('text3.html')); <em>// 加载Web页面</em>
+              this.controller.loadUrl($rawfile('text3.html')); // 加载Web页面
             }, 2000);
           }
         })
@@ -84,7 +84,7 @@ struct WebVideo {
               duration: 500
             })
         );
-    <em>  // 未使用onLoadIntercept阻拦重复加载页面</em>
+      // 未使用onLoadIntercept阻拦重复加载页面
     }
     .height('100%')
     .width('100%');
@@ -146,10 +146,10 @@ struct WebVideo {
         .fileAccess(true)
         .geolocationAccess(false)
         .initialScale(90)
-      <em>  // 使用onLoadIntercept阻拦重复加载页面</em>
+        // 使用onLoadIntercept阻拦重复加载页面
         .onLoadIntercept((event) => {
           let url = event.data.getRequestUrl();
-        <em>  // 跳转的页面与当前页面相同时进行阻拦</em>
+          // 跳转的页面与当前页面相同时进行阻拦
           if (this.lastUrl === url) {
             return true;
           } else {
@@ -160,9 +160,9 @@ struct WebVideo {
         .visibility(this.showWeb ? Visibility.Visible : Visibility.Hidden)
         .onVisibleAreaChange([0.0, 1.0], (isExpanding: boolean, currentRatio: number) => {
           if (isExpanding && currentRatio >= 1.0) {
-       <em>     // 模拟获取数据延迟</em>
+            // 模拟获取数据延迟
             setTimeout(() => {
-              this.controller.loadUrl($rawfile('text3.html')); <em>// 加载Web页面</em>
+              this.controller.loadUrl($rawfile('text3.html')); // 加载Web页面
             }, 2000);
           }
         })
@@ -225,7 +225,7 @@ src/main/resources/rawfile/text3.html：
 
 
 <script>
-   <em> // 模拟逐渐显示页面</em>
+    // 模拟逐渐显示页面
     setTimeout(() => {
       document.getElementById("contentA").classList.remove("hidden");
     }, 500);

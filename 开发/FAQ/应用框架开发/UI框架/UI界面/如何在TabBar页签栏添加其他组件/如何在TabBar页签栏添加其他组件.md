@@ -91,7 +91,7 @@ struct TabBarOverlay {
     .padding(2);
   }
 
-<em>  // 设置浮层</em>
+  // 设置浮层
   @Builder
   tabOverlay() {
     Flex({
@@ -99,7 +99,7 @@ struct TabBarOverlay {
       direction: FlexDirection.Row,
       alignItems: ItemAlign.Center
     }) {
-      Image($r('sys.media.ohos_ic_public_arrow_left'))<em> // 开发者可根据需求更换其它图片资源</em>
+      Image($r('sys.media.ohos_ic_public_arrow_left')) // 开发者可根据需求更换其它图片资源
         .width(30)
         .height(30)
         .onClick(() => {
@@ -116,7 +116,7 @@ struct TabBarOverlay {
             console.error(`showToast args error code is ${code}, message is ${message}`);
           }
         });
-      Image($r('sys.media.ohos_ic_public_more'))<em> // 开发者可根据需求更换其它图片资源</em>
+      Image($r('sys.media.ohos_ic_public_more')) // 开发者可根据需求更换其它图片资源
         .width(30)
         .height(30)
         .onClick(() => {
@@ -137,7 +137,7 @@ struct TabBarOverlay {
     .padding({ left: 20, right: 20 })
     .width('100%')
     .height(56)
-    .hitTestBehavior(HitTestMode.Transparent);<em> // 配置浮层不阻塞交互</em>
+    .hitTestBehavior(HitTestMode.Transparent); // 配置浮层不阻塞交互
   }
 
   build() {
@@ -228,7 +228,7 @@ struct TabBarStack {
 
   build() {
     Stack({ alignContent: Alignment.TopStart }) {
-      Image($r('sys.media.ohos_ic_public_arrow_left'))<em> // 开发者自定义图片资源</em>
+      Image($r('sys.media.ohos_ic_public_arrow_left')) // 开发者自定义图片资源
         .width(32)
         .height(32)
         .offset({ top: 15, left: 16 })
@@ -282,7 +282,7 @@ struct TabBarStack {
         }
         this.selectedIndex = targetIndex;
       })
-    <em>  // 设置Tabs层级小于Image组件</em>
+      // 设置Tabs层级小于Image组件
       .zIndex(-1);
     }.width('100%').height('100%');
   }
@@ -375,7 +375,7 @@ struct TabBarRow {
         .scrollable(ScrollDirection.Horizontal)
         .scrollBar(BarState.Off);
 
-        Image($r('sys.media.ohos_ic_public_more'))<em> // 开发者可根据需求更换其它图片资源</em>
+        Image($r('sys.media.ohos_ic_public_more')) // 开发者可根据需求更换其它图片资源
           .width(32)
           .height(32)
           .onClick(() => {

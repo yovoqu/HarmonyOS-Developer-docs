@@ -74,7 +74,7 @@ DownloadFileButton({
 3. 点击下载文件按钮，通过[request.downloadFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestdownloadfile9)创建下载任务，代码示例如下：
 ```text
 request.downloadFile(context, {
-  url: 'xxx.xxx.xxxx/xxxx.png', <em>// 替换为自有链接</em>
+  url: 'xxx.xxx.xxxx/xxxx.png', // 替换为自有链接
   filePath: sanPath
 })
 ```
@@ -82,25 +82,25 @@ request.downloadFile(context, {
 4. 下载完成，通过DocumentViewPicker保存文件，代码示例如下：
 ```json
 const documentSaveOptions = new picker.DocumentSaveOptions();
-<em>// 创建文件管理器保存选项实例</em>
+// 创建文件管理器保存选项实例
 documentSaveOptions.pickerMode = picker.DocumentPickerMode.DOWNLOAD;
-<em>// 保存文件</em>
+// 保存文件
 const documentViewPicker = new picker.DocumentViewPicker;
 documentViewPicker.save(documentSaveOptions).then((documentSaveResult: Array<string>) => {
- <em> // 获取到文件的URI后进行文件读取等操作</em>
+  // 获取到文件的URI后进行文件读取等操作
   let uri = documentSaveResult[0];
   this.constUri = uri;
- <em> // 把这里的path存起来，作为后续保存文件的path</em>
+  // 把这里的path存起来，作为后续保存文件的path
   let path: string = new fileUri.FileUri(uri).path;
   let filePath: string = `${path}/${'test.png'}`;
   console.info('pub uri:', uri);
   let sanFile: fs.File | null = null;
   let pubFile: fs.File | null = null;
   try {
- <em>   // 沙箱路径文件</em>
+    // 沙箱路径文件
     let sanFile = fs.openSync(sanPath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
     let pubFile = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
-  <em>  // 将文件从沙箱路拷贝到公共路径</em>
+    // 将文件从沙箱路拷贝到公共路径
     fs.copyFileSync(sanFile.fd, pubFile.fd);
   } catch (e) {
     console.error('fs.openSync failed error is : ', JSON.stringify(e));
@@ -182,32 +182,32 @@ struct Index {
             let sanPath = context.filesDir + '/' + Date.now() + '.png';
             try {
               request.downloadFile(context, {
-                url: 'xxx.xxx.xxxx/xxxx.png', <em>// 替换为自有链接</em>
+                url: 'xxx.xxx.xxxx/xxxx.png', // 替换为自有链接
                 filePath: sanPath
               })
                 .then((downloadTask: request.DownloadTask) => {
                 downloadTask.on('complete', () => {
                   console.info('download complete');
                   const documentSaveOptions = new picker.DocumentSaveOptions();
-                  <em>// 创建文件管理器保存选项实例</em>
+                  // 创建文件管理器保存选项实例
                   documentSaveOptions.pickerMode = picker.DocumentPickerMode.DOWNLOAD;
-                <em>  // 保存文件</em>
+                  // 保存文件
                   const documentViewPicker = new picker.DocumentViewPicker;
                   documentViewPicker.save(documentSaveOptions).then((documentSaveResult: Array<string>) => {
-                   <em> // 获取到文件的URI后进行文件读取等操作</em>
+                    // 获取到文件的URI后进行文件读取等操作
                     let uri = documentSaveResult[0];
                     this.constUri = uri;
-                 <em>   // 把这里的path存起来，作为后续保存文件的path</em>
+                    // 把这里的path存起来，作为后续保存文件的path
                     let path: string = new fileUri.FileUri(uri).path;
                     let filePath: string = `${path}/${'test.png'}`;
                     console.info('pub uri:', uri);
                     let sanFile: fs.File | null = null;
                     let pubFile: fs.File | null = null;
                     try {
-                   <em>   // 沙箱路径文件</em>
+                      // 沙箱路径文件
                       let sanFile = fs.openSync(sanPath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
                       let pubFile = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
-                   <em>   // 将文件从沙箱路拷贝到公共路径</em>
+                      // 将文件从沙箱路拷贝到公共路径
                       fs.copyFileSync(sanFile.fd, pubFile.fd);
                     } catch (e) {
                       console.error('fs.openSync failed error is : ', JSON.stringify(e));

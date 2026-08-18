@@ -11,7 +11,7 @@ import { Font } from '@kit.ArkUI'
 @Entry
 @Component
 struct UseIconFont {
- <em> // Assuming 0000 is the Unicode for the specified icon, developers actually need to obtain Unicode from the ttf file of the registered iconFont</em>
+  // Assuming 0000 is the Unicode for the specified icon, developers actually need to obtain Unicode from the ttf file of the registered iconFont
   @State unicode: string = '\u0000';
   aboutToAppear(): void {
     let font: Font = this.getUIContext().getFont();

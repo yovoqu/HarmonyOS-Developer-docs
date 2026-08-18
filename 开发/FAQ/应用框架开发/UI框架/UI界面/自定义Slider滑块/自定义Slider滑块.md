@@ -90,7 +90,7 @@ struct SliderDemo {
   @Builder
   OverlayNode() {
     Column() {
-      Image($r(this.icon)) <em>// 可根据实际情况引用资源</em>
+      Image($r(this.icon)) // 可根据实际情况引用资源
     }.width(40).height(40).alignItems(HorizontalAlign.Center).margin({ left: 10 })
   };
   build() {
@@ -102,7 +102,7 @@ struct SliderDemo {
         .selectedColor(Color.White)
         .width('90%')
         .margin({ left: '5%', top: '40%' })
-        .blockStyle({ type: SliderBlockType.IMAGE, image: $r(this.icon) }) <em>// 可根据实际情况引用资源</em>
+        .blockStyle({ type: SliderBlockType.IMAGE, image: $r(this.icon) }) // 可根据实际情况引用资源
         .onChange(value => {
           if (value < 20) {
             this.icon = this.iconList[0];
@@ -148,11 +148,11 @@ struct SliderPage1 {
   private hideTipTask?: number;
   @State sliderChangeMode: SliderChangeMode = SliderChangeMode.Begin;
 
- <em> // 显示提示框并计算偏移量</em>
+  // 显示提示框并计算偏移量
   private showTip(value: number) {
     this.isTipShow = true;
     let percent = Number((value / 100).toFixed(2));
-    <em>// 计算提示框的偏移量:滑块移动距离 - 提示框居中所需的偏移量</em>
+    // 计算提示框的偏移量:滑块移动距离 - 提示框居中所需的偏移量
     this.tipsOffset = (this.slideHeight - this.blockSize - BLOCK_DEFAULT_BORDER_WIDTH * 2) * percent -
       (this.tipHeight / 2 - (this.blockSize / 2 + BLOCK_DEFAULT_BORDER_WIDTH));
   }
@@ -173,7 +173,7 @@ struct SliderPage1 {
         .sliderInteractionMode(SliderInteraction.SLIDE_AND_CLICK)
         .onChange((value: number, mode: SliderChangeMode) => {
           this.value = Number((value).toFixed()).toString();
-          <em>// 根据不同的变化模式执行不同操作</em>
+          // 根据不同的变化模式执行不同操作
           switch (mode) {
             case SliderChangeMode.Begin:
               this.sliderChangeMode = SliderChangeMode.Begin;
@@ -193,20 +193,20 @@ struct SliderPage1 {
               break;
           }
         });
-      <em>// 显示当前滑块数值的提示文本</em>
+      // 显示当前滑块数值的提示文本
       Text(this.value)
         .fontSize(20)
         .height(this.tipHeight)
         .width(this.tipHeight)
-        <em>// 设置偏移量，使提示框跟随滑块移动</em>
+        // 设置偏移量，使提示框跟随滑块移动
         .offset({ x: this.tipsOffset, y: -50 })
         .fontColor(Color.Black)
         .textAlign(TextAlign.Center)
         .backgroundColor(Color.Transparent)
         .borderRadius(25)
-        <em>// 设置点击测试行为为透明，使提示框不拦截点击事件</em>
+        // 设置点击测试行为为透明，使提示框不拦截点击事件
         .hitTestBehavior(HitTestMode.Transparent)
-        <em>// 添加动画效果</em>
+        // 添加动画效果
         .animation({
           duration: this.sliderChangeMode === SliderChangeMode.Moving ? 50 : 340,
           curve: Curve.FastOutSlowIn,

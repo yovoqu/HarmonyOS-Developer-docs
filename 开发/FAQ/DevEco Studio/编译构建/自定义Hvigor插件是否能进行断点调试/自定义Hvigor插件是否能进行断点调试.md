@@ -27,15 +27,15 @@ import { hapTasks } from '@ohos/hvigor-ohos-plugin';
 import { HvigorPlugin, HvigorNode } from '@ohos/hvigor';
 import { open } from 'inspector';
 
-<em>/**</em>
-<em> * open(port?: number, host?: string, wait?: boolean): void</em>
-<em> * port：用于监听检查器连接的端口。</em>
-<em> * host：用于监听检查器连接的主机。</em>
-<em> * wait：阻塞直到有客户端连接。</em>
-<em> */</em>
+/**
+ * open(port?: number, host?: string, wait?: boolean): void
+ * port：用于监听检查器连接的端口。
+ * host：用于监听检查器连接的主机。
+ * wait：阻塞直到有客户端连接。
+ */
 open(9229, undefined, true);
 
-<em>// 自定义插件</em>
+// 自定义插件
 function customPlugin(): HvigorPlugin {
   return {
     pluginId: 'customPlugin',
@@ -47,10 +47,10 @@ function customPlugin(): HvigorPlugin {
 }
 
 export default {
-  system: hapTasks,<em> /* Built-in plugin of Hvigor. It cannot be modified. */</em>
+  system: hapTasks, /* Built-in plugin of Hvigor. It cannot be modified. */
   plugins: [
     customPlugin()
-  ]      <em> /* Custom plugin to extend the functionality of Hvigor. */</em>
+  ]       /* Custom plugin to extend the functionality of Hvigor. */
 }
 ```
 

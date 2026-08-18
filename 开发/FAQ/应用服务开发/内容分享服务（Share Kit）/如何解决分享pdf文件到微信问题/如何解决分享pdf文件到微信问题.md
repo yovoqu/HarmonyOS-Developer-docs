@@ -27,65 +27,65 @@
 可以使用Share kit（分享服务）将pdf文件分享到微信，需要先在resource资源目录下resfile目录里放入pdf文件。
  
 ```text
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">systemShare </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ShareKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">common </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BusinessError </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">fileUri </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.CoreFileKit'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">uniformTypeDescriptor </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkData'</span><span style="color: rgb(181,106,1);">;</span>
-import <span style="color: rgb(255,255,255);">fs </span>from <span style="color: rgb(132,63,161);">'@ohos.file.fs'</span><span style="color: rgb(181,106,1);">;</span>
-<span style="color: rgb(181,106,1);">@Entry</span>
-<span style="color: rgb(181,106,1);">@Component</span>
-struct <span style="color: rgb(0,0,255);">SharePage </span><span style="color: rgb(181,106,1);">{</span>
-  <span style="color: rgb(255,255,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(255,0,170);">() </span>as <span style="color: rgb(181,106,1);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+import { systemShare } from '@kit.ShareKit';
+import { common } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { fileUri } from '@kit.CoreFileKit';
+import { uniformTypeDescriptor } from '@kit.ArkData';
+import fs from '@ohos.file.fs';
+@Entry
+@Component
+struct SharePage {
+  context = this.getUIContext()?.getHostContext() as common.UIAbilityContext;
 
-  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">fileExtention </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'.pdf'</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">typeId </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">uniformTypeDescriptor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUniformDataTypeByFilenameExtension</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">fileExtention</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">uniformTypeDescriptor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getTypeDescriptor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">typeId</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  aboutToAppear(): void {
+    let fileExtention = '.pdf';
+    let typeId = uniformTypeDescriptor.getUniformDataTypeByFilenameExtension(fileExtention);
+    uniformTypeDescriptor.getTypeDescriptor(typeId);
+  }
 
-  <span style="color: rgb(0,0,255);">sharePDF</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">{</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取文件沙箱路径</span></em>
-    let <span style="color: rgb(255,255,255);">filePath </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">filesDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(132,63,161);">'/test.pdf'</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将沙箱路径转换为</span><span style="color: rgb(128,128,128);">uri</span></em>
-    let <span style="color: rgb(255,255,255);">uri </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fileUri</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUriFromPath</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">filePath</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">shareData</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">systemShare</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SharedData </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">systemShare</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SharedData</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">utd</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'com.adobe.pdf'</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">uri</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">uri</span><span style="color: rgb(181,106,1);">,</span>
-      <span style="color: rgb(255,255,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">标题</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">不传</span><span style="color: rgb(128,128,128);">title</span><span style="color: rgb(128,128,128);">字段时</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">显示图片文件名</span></em>
-      <span style="color: rgb(255,255,255);">description</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">描述</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">不传</span><span style="color: rgb(128,128,128);">description</span><span style="color: rgb(128,128,128);">字段时</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">显示图片大小</span></em>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">进行分享面板显示</span></em>
-    let <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">systemShare</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ShareController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">systemShare</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ShareController</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">shareData</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">show</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">selectionMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">systemShare</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SelectionMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">BATCH</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">选择模式默认为</span><span style="color: rgb(128,128,128);">SINGLE,BATCH</span><span style="color: rgb(128,128,128);">模式为批量分享</span></em>
-      <span style="color: rgb(255,255,255);">previewMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">systemShare</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SharePreviewMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">DETAIL</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'ShareController show success.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`ShareController show error. code: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, message: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  sharePDF(){
+    // 获取文件沙箱路径
+    let filePath = this.context.filesDir + '/test.pdf';
+    // 将沙箱路径转换为uri
+    let uri = fileUri.getUriFromPath(filePath);
+    let shareData: systemShare.SharedData = new systemShare.SharedData({
+      utd: 'com.adobe.pdf',
+      uri: uri,
+      title: '标题', // 不传title字段时,显示图片文件名
+      description: '描述', // 不传description字段时,显示图片大小
+    });
+    // 进行分享面板显示
+    let controller: systemShare.ShareController = new systemShare.ShareController(shareData);
+    controller.show(this.context, {
+      selectionMode: systemShare.SelectionMode.BATCH, // 选择模式默认为SINGLE,BATCH模式为批量分享
+      previewMode: systemShare.SharePreviewMode.DETAIL,
+    }).then(() => {
+      console.info('ShareController show success.');
+    }).catch((error: BusinessError) => {
+      console.error(`ShareController show error. code: ${error.code}, message: ${error.message}`);
+    });
+  }
 
-  <span style="color: rgb(0,0,255);">copyPDF</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">{</span>
-    let <span style="color: rgb(255,255,255);">file </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">resourceDir</span><span style="color: rgb(181,106,1);">+</span><span style="color: rgb(132,63,161);">'/test.pdf'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">READ_ONLY</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    let <span style="color: rgb(255,255,255);">file2 </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">filesDir</span><span style="color: rgb(181,106,1);">+</span><span style="color: rgb(132,63,161);">'/test.pdf'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">READ_WRITE </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CREATE</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copyFileSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">file2</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">fd</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-    <span style="color: rgb(255,255,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">file2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
-  <span style="color: rgb(181,106,1);">}</span>
+  copyPDF(){
+    let file = fs.openSync(this.context.resourceDir+'/test.pdf', fs.OpenMode.READ_ONLY);
+    let file2 = fs.openSync(this.context.filesDir+'/test.pdf', fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
+    fs.copyFileSync(file.fd, file2.fd);
+    fs.closeSync(file);
+    fs.closeSync(file2);
+  }
 
-  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
-      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">点击分享</span><span style="color: rgb(132,63,161);">pdf'</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">150</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(()</span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">{</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copyPDF</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sharePDF</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
-        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
-    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
-  <span style="color: rgb(181,106,1);">}</span>
-<span style="color: rgb(181,106,1);">}</span>
+  build() {
+    Column() {
+      Button('点击分享pdf')
+        .width(150).margin({ top: 20 })
+        .onClick(()=>{
+          this.copyPDF();
+          this.sharePDF();
+        })
+    }.padding(20)
+    .height('100%')
+    .justifyContent(FlexAlign.Center)
+  }
+}
 ```

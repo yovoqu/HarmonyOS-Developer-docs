@@ -15,7 +15,7 @@ import { webview } from '@kit.ArkWeb';
 @Component
 struct Index {
   private scrollerForScroll: Scroller = new Scroller();
-  controller: webview.WebviewController = new webview.WebviewController; <em>// Web component controller, used for loading pages and interaction control</em>
+  controller: webview.WebviewController = new webview.WebviewController; // Web component controller, used for loading pages and interaction control
   @State scrollDirection: ScrollDirection = ScrollDirection.Vertical;
   title = '2023落下帷幕，一起迎接2024年***********************************************';
   review = '评论';

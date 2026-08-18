@@ -31,9 +31,9 @@ ArkTS与Native跨语言交互开发详见[使用Node-API实现跨语言交互开
  1. 由于在Native侧无法直接获取window实例，需要在ArkTS侧EntryAbility的onWindowStageCreate生命周期中获取。
 ```json
 onWindowStageCreate(windowStage: window.WindowStage): void {
- <em> // Main window is created,set main page for this ability</em>
+  // Main window is created,set main page for this ability
   hilog.info(0x0000, 'testTag', '%{public}s','Ability onWindowStageCreate');
- <em> // 1.获取应用主窗口。</em>
+  // 1.获取应用主窗口。
   let windowClass: window.Window | null = null;
   windowStage.getMainWindow((err: BusinessError, data) => {
     let errCode: number = err.code;
@@ -42,7 +42,7 @@ onWindowStageCreate(windowStage: window.WindowStage): void {
       return;
     }
     windowClass = data;
-  <em>  // 通过windowClass的getWindowProperties方法获取id信息</em>
+    // 通过windowClass的getWindowProperties方法获取id信息
     this.windowID = windowClass.getWindowProperties().id;
     AppStorage.setOrCreate<number>('windowID', this.windowID);
     console.info(`Succeeded in obtaining the main window. Result:${data}`);
@@ -128,9 +128,9 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-   <em> // Main window is created,set main page for this ability</em>
+    // Main window is created,set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
-    <em>// 1.</em><em>获取应用主窗口。</em>
+    // 1.获取应用主窗口。
     let windowClass: window.Window | null = null;
     windowStage.getMainWindow((err: BusinessError, data) => {
       let errCode: number = err.code;
@@ -139,7 +139,7 @@ export default class EntryAbility extends UIAbility {
         return;
       }
       windowClass = data;
-    <em>  // 通过windowClass的getWindowProperties方法获取id信息</em>
+      // 通过windowClass的getWindowProperties方法获取id信息
       this.windowID = windowClass.getWindowProperties().id;
       AppStorage.setOrCreate<number>('windowID', this.windowID);
       console.info(`Succeeded in obtaining the main window. Result:${data}`);
@@ -154,17 +154,17 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageDestroy(): void {
-   <em> // Main window is destroyed, release UI related resources</em>
+    // Main window is destroyed, release UI related resources
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
-   <em> // Ability has brought to foreground</em>
+    // Ability has brought to foreground
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground(): void {
-  <em>  // Ability has back to background</em>
+    // Ability has back to background
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 };
@@ -206,9 +206,9 @@ export const setWindowID: (windowID: number) => void;
 entry>src>main>cpp>napi_init.cpp：
  
 ```text
-<em>/*</em>
-<em> * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.</em>
-<em> */</em>
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ */
 #include "napi/native_api.h"
 #include "hilog/log.h"
 int32_t g_WindowID;

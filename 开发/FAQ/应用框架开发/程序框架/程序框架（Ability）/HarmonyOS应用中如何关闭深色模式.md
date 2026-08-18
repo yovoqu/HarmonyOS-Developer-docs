@@ -53,7 +53,7 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
- <em>   // Main window is created, set main page for this ability</em>
+    // Main window is created, set main page for this ability
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
     windowStage.loadContent('pages/Index', (err) => {
@@ -65,22 +65,22 @@ export default class EntryAbility extends UIAbility {
     });
 
     let applicationContext = this.context.getApplicationContext();
-    applicationContext.setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_LIGHT); <em>//</em><em>主动设置深浅色模式</em>
+    applicationContext.setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_LIGHT); //主动设置深浅色模式
   }
 
 
   onWindowStageDestroy(): void {
-  <em>  // Main window is destroyed, release UI related resources</em>
+    // Main window is destroyed, release UI related resources
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
-  <em>  // Ability has brought to foreground</em>
+    // Ability has brought to foreground
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground(): void {
-  <em>  // Ability has back to background</em>
+    // Ability has back to background
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 
@@ -122,7 +122,7 @@ export default class EntryAbility extends UIAbility {
   }
 
   async onWindowStageCreate(windowStage: window.WindowStage): Promise<void> {
-  <em>  // Main window is created, set main page for this ability</em>
+    // Main window is created, set main page for this ability
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
     windowStage.loadContent('pages/Index', (err) => {
@@ -134,26 +134,26 @@ export default class EntryAbility extends UIAbility {
     });
 
     (await windowStage.getMainWindow()).setWindowSystemBarProperties({
-    <em>  // 设置状态栏颜色为其他颜色</em>
+      // 设置状态栏颜色为其他颜色
       statusBarColor: '#ffa28d8f',
-   <em>   // 设置状态栏文本颜色为白色</em>
+      // 设置状态栏文本颜色为白色
       statusBarContentColor: '#ffe30520'
     });
   }
 
 
   onWindowStageDestroy(): void {
-   <em> // Main window is destroyed, release UI related resources</em>
+    // Main window is destroyed, release UI related resources
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
- <em>   // Ability has brought to foreground</em>
+    // Ability has brought to foreground
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground(): void {
-   <em> // Ability has back to background</em>
+    // Ability has back to background
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 

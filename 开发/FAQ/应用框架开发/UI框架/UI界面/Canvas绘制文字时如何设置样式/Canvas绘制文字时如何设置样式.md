@@ -46,7 +46,7 @@ struct CanvasCustomFont {
   aboutToAppear(): void {
     this.getUIContext().getFont().registerFont({
       familyName: 'customFont',
-      familySrc: $rawfile('customFont.ttf') <em>// rawfile目录下自定义字体，开发者可以自行替换</em>
+      familySrc: $rawfile('customFont.ttf') // rawfile目录下自定义字体，开发者可以自行替换
     });
   }
 
@@ -94,22 +94,22 @@ struct CanvasGradFont {
         .height('100%')
         .onReady(() => {
           this.context.font = '150px sans-serif';
-       <em>   // 创建一个线性渐变</em>
+          // 创建一个线性渐变
           let grad = this.context.createLinearGradient(50, 0, 300, 100);
           grad.addColorStop(0.0, '#f88b57');
           grad.addColorStop(0.4, '#aee4a0');
           grad.addColorStop(0.7, '#c4d1ec');
           grad.addColorStop(0.9, '#c08dcc');
-      <em>    // 后续fill相关绘制都会使用该线性渐变</em>
+          // 后续fill相关绘制都会使用该线性渐变
           this.context.fillStyle = grad;
           this.context.fillText('Hello World!', 60, 100);
 
-        <em>  // 创建一个径向渐变</em>
+          // 创建一个径向渐变
           let radialGrad = this.context.createRadialGradient(200, 200, 50, 200, 200, 200);
           radialGrad.addColorStop(0.0, 'rgb(39,135,217)');
           radialGrad.addColorStop(0.5, 'rgb(255,238,240)');
           radialGrad.addColorStop(1.0, 'rgb(112,112,112)');
-     <em>     // 后续stroke相关绘制都会使用该径向渐变</em>
+          // 后续stroke相关绘制都会使用该径向渐变
           this.context.strokeStyle = radialGrad;
           this.context.strokeText('Hello World!', 60, 200);
         });
@@ -145,7 +145,7 @@ struct CanvasShadowFont {
         .onReady(() => {
           this.context.font = '150px sans-serif';
           this.context.fillText('Hello World!', 60, 100);
-      <em>    // 设置阴影样式</em>
+          // 设置阴影样式
           this.context.shadowBlur = 30;
           this.context.shadowColor = 'rgb(0,0,0)';
           this.context.fillText('Hello World!', 60, 200);

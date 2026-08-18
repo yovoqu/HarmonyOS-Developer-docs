@@ -39,7 +39,7 @@ struct wordDemo {
       Text('测试Test测试123456789!@#$%-测试Test测试123456789!@#$%-测试Test测试123456789!@#$%-测试Test测试123456789!@#$%-测试Test测试123456789!@#$%')
         .textAlign(TextAlign.JUSTIFY)
         .backgroundColor('#87ceeb')
-        .wordBreak(WordBreak.BREAK_ALL) <em>// 配合TextAlign.JUSTIFY实现两端对齐，解决间距大小不一的问题</em>
+        .wordBreak(WordBreak.BREAK_ALL) // 配合TextAlign.JUSTIFY实现两端对齐，解决间距大小不一的问题
         .fontSize(16)
         .borderRadius(16)
         .padding(16);

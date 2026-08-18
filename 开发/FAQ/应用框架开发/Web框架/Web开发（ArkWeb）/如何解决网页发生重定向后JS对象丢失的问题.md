@@ -48,7 +48,7 @@ APP中使用Web组件加载在线网页，网页内部会跳转到新网页，JS
 ```text
 import { webview } from '@kit.ArkWeb';
 
-<em>// </em><em>模拟注入数据，需要根据业务修改注入的对象</em>
+// 模拟注入数据，需要根据业务修改注入的对象
 class WebObj {
   constructor() {
   }
@@ -72,7 +72,7 @@ struct WebRedirect {
 
   build() {
     Column() {
-      <em>// src需替换为相应业务的网址</em>
+      // src需替换为相应业务的网址
       Web({ src: 'www.example.com', controller: this.controller })
         .domStorageAccess(true)
         .javaScriptAccess(true)
@@ -90,7 +90,7 @@ struct WebRedirect {
             console.info(`loginfo: 两次url不一样——上次加载 url：${this.loadUrl == null ? 'null' :
             this.loadUrl} ---- 本次加载 URL：${event.data.getRequestUrl()}`);
             this.loadUrl = event.data.getRequestUrl();
-            <em>// </em><em>重新注册JS对象</em>
+            // 重新注册JS对象
             this.controller.registerJavaScriptProxy(this.webTestObj, "objTestName", ["webTest", "webString"]);
             this.controller.refresh();
           } else {
@@ -118,12 +118,12 @@ import { webview } from '@kit.ArkWeb';
 @Component
 struct WebRedirectJudge {
   controller: webview.WebviewController = new webview.WebviewController();
-  @State loadUrl: string | null = null; <em>// </em><em>记录加载的url</em>
-  isRedirect: boolean = false; <em>// </em><em>是否发生重定向</em>
+  @State loadUrl: string | null = null; // 记录加载的url
+  isRedirect: boolean = false; // 是否发生重定向
 
   build() {
     Column() {
-     <em> // scr需替换为相应业务的网址</em>
+      // scr需替换为相应业务的网址
       Web({ src: 'www.example.com', controller: this.controller })
         .domStorageAccess(true)
         .javaScriptAccess(true)
@@ -131,28 +131,28 @@ struct WebRedirectJudge {
         .geolocationAccess(false)
         .onLoadIntercept((event) => {
           console.info(`onLoadIntercept, url is ${event.data.getRequestUrl()}`);
-          if (this.loadUrl === null) { <em>// </em><em>首次加载</em>
+          if (this.loadUrl === null) { // 首次加载
             console.info('首次加载');
-            this.loadUrl = event.data.getRequestUrl(); <em>// 将此次加载路径保存入变量中，为下次对比做参照</em>
+            this.loadUrl = event.data.getRequestUrl(); // 将此次加载路径保存入变量中，为下次对比做参照
             this.isRedirect = false;
-          } else { <em>// 非首次加载</em>
-            if (this.loadUrl === event.data.getRequestUrl()) { <em>// </em><em>和上一次跳转的url相同</em>
+          } else { // 非首次加载
+            if (this.loadUrl === event.data.getRequestUrl()) { // 和上一次跳转的url相同
               console.info('两次url相同，未发生重定向');
               this.isRedirect = false;
-            } else { <em>// </em><em>和上一次跳转的url不同</em>
-              if (event.data.isRedirect()) {<em> </em><em>// 判断服务器重定向</em>
+            } else { // 和上一次跳转的url不同
+              if (event.data.isRedirect()) { // 判断服务器重定向
                 console.info('服务器重定向');
                 this.isRedirect = true;
               } else {
-                if (event.data.isRequestGesture()) { <em>// </em><em>判断是否发生了交互，未交互就跳转认定为代码重定向，发生了交互认定为正常页面跳转</em>
-                  console.info('页面跳转'); <em>// </em><em>用户交互发生的页面跳转属于正常页面跳转，不属于重定向</em>
+                if (event.data.isRequestGesture()) { // 判断是否发生了交互，未交互就跳转认定为代码重定向，发生了交互认定为正常页面跳转
+                  console.info('页面跳转'); // 用户交互发生的页面跳转属于正常页面跳转，不属于重定向
                   this.isRedirect = false;
                 } else {
-                  console.info('客户端页面代码重定向'); <em>// </em><em>若未发生交互，直接进行页面跳转则认定发生了重定向</em>
+                  console.info('客户端页面代码重定向'); // 若未发生交互，直接进行页面跳转则认定发生了重定向
                   this.isRedirect = true;
                 }
               }
-              this.loadUrl = event.data.getRequestUrl(); <em>// </em><em>将此次加载路径保存入变量中，为下次对比做参照</em>
+              this.loadUrl = event.data.getRequestUrl(); // 将此次加载路径保存入变量中，为下次对比做参照
             }
           }
           return this.isRedirect;

@@ -58,9 +58,9 @@ struct EdgeGestureDemo {
     .gesture(
       PanGesture()
         .onActionUpdate((event: GestureEvent) => {
-      <em>    // 使用displayX检测屏幕边缘，其中数值30和60仅作示例，根据业务实际需要做出调整</em>
+          // 使用displayX检测屏幕边缘，其中数值30和60仅作示例，根据业务实际需要做出调整
           if (event.fingerList[0].displayX < 60 &&
-            event.offsetX > 30) { <em>// </em><em>从边缘滑动超过30vp</em>
+            event.offsetX > 30) { // 从边缘滑动超过30vp
             this.edgeTriggered = true;
           }
         })

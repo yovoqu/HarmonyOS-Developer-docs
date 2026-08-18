@@ -74,32 +74,32 @@ import { PathShape } from '@kit.ArkUI';
 @Entry
 @Component
 struct ClipFilletCorner {
-  <em>// 定义PathShape绘制的路线</em>
+  // 定义PathShape绘制的路线
   /*
-   <em> 绘制原始图形，即不裁剪，绘制路线的单位为px，宽高默认单位为vp，可以按需要使用像素单位转换方法进行转换</em>
+    绘制原始图形，即不裁剪，绘制路线的单位为px，宽高默认单位为vp，可以按需要使用像素单位转换方法进行转换
    */
   commands1: string =
     `M0 0 L${this.getUIContext().vp2px(300)} 0 L${this.getUIContext().vp2px(300)} ${this.getUIContext()
       .vp2px(200)} L0 ${this.getUIContext().vp2px(200)} Z`;
   /*
-    <em>将图片裁剪为三角形</em>
-    * <em>commands的命令M是定义绘制的起点，如M0 0是定义点(0, 0)为绘制起点</em>
-    *<em> commands的命令L是绘制当前点到指定点的直线，如L600 0是绘制当前点到(600, 0)的直线</em>
-    * <em>commands的命令Z是指绘制当前点到起点的直线并结束绘制</em>
+    将图片裁剪为三角形
+    * commands的命令M是定义绘制的起点，如M0 0是定义点(0, 0)为绘制起点
+    * commands的命令L是绘制当前点到指定点的直线，如L600 0是绘制当前点到(600, 0)的直线
+    * commands的命令Z是指绘制当前点到起点的直线并结束绘制
    */
   commands2: string = 'M0 0 L600 0 L600 300 Z';
   /*
-    <em>将图片裁剪为带圆角的不规则图形</em>
-<em>    </em>*<em> commands的命令H是绘制当前点到对应x坐标的点的水平线，如M0 100 H300是绘制从(0, 100)到(300, 100)的水平线</em>
-<em>    </em>*<em> commands的命令V是绘制当前点到对应y坐标的点的垂直线，如M100 0 V300是绘制从(100, 0)到(100, 300)的垂直线</em>
-<em>    </em>*<em> commands的命令S是绘制当前点到终点的二次贝塞尔曲线，前两个值是设置控制点，后两个值是曲线终点</em>
+    将图片裁剪为带圆角的不规则图形
+    * commands的命令H是绘制当前点到对应x坐标的点的水平线，如M0 100 H300是绘制从(0, 100)到(300, 100)的水平线
+    * commands的命令V是绘制当前点到对应y坐标的点的垂直线，如M100 0 V300是绘制从(100, 0)到(100, 300)的垂直线
+    * commands的命令S是绘制当前点到终点的二次贝塞尔曲线，前两个值是设置控制点，后两个值是曲线终点
    */
   commands3: string = 'M0 100 S0 0 100 0 H300 S400 0 400 100 V300 S400 400 300 400 H200Z';
   @State shapeNum: number = 1;
 
   build() {
     Column() {
-     <em> // 待裁剪图片</em>
+      // 待裁剪图片
       Image($r('app.media.startIcon'))
         .height(200)
         .width(300)
@@ -109,7 +109,7 @@ struct ClipFilletCorner {
         .clipShape(new PathShape().commands(this.shapeNum === 1 ? this.commands1 :
           (this.shapeNum === 2 ? this.commands2 : this.commands3)));
 
-      <em>// 定义命令控制器</em>
+      // 定义命令控制器
       Row() {
         Button('Original')
           .type(ButtonType.Capsule)
@@ -157,14 +157,14 @@ struct ClipFilletCorner {
 struct PathFilletCorner {
   build() {
     Column() {
-      <em>// 绘制上一示例的带圆角的不规则图形</em>
+      // 绘制上一示例的带圆角的不规则图形
       Path()
         .fill('rgba(10, 89, 247, 0.3)')
         .stroke('#0A59F7')
-        <em>// 命令与上一示例的commands3相同</em>
+        // 命令与上一示例的commands3相同
         .commands('M0 100 S0 0 100 0 H300 S400 0 400 100 V300 S400 400 300 400 H200Z');
 
-      <em>// 绘制带圆角的三角形</em>
+      // 绘制带圆角的三角形
       Path()
         .fill('rgba(0, 0, 0, 0.2)')
         .stroke('#0A59F7')

@@ -50,7 +50,7 @@ struct RichEditorWidthChange {
   richEditorBorder: number = 1;
   private displayWidth: number = this.getUIContext().px2vp(display.getDefaultDisplaySync().width);
 
-  <em>// </em><em>避免调整尺寸模式</em>
+  // 避免调整尺寸模式
   aboutToAppear(): void {
     this.getUIContext().setKeyboardAvoidMode(1);
     console.info('displayWidth: ', this.displayWidth);
@@ -64,7 +64,7 @@ struct RichEditorWidthChange {
       lineWidthSum = lineWidthSum + layoutManager.getLineMetrics(i).width;
     }
     lineWidthSum = this.getUIContext().px2vp(lineWidthSum) + this.richEditorPadding * 2 + this.richEditorBorder * 2;
-    <em>// 总文本宽度超过当前窗口宽度</em>
+    // 总文本宽度超过当前窗口宽度
     this.richEditorWidth = lineWidthSum >= this.displayWidth ? '100%' : lineWidthSum;
   }
 
@@ -83,7 +83,7 @@ struct RichEditorWidthChange {
             this.controller.addTextSpan(this.textStr);
           })
           .onDidChange(() => {
-           <em> // 等待10ms，确保addTextSpan添加文本后，layoutManager.getLineCount()能正确感知当前行数</em>
+            // 等待10ms，确保addTextSpan添加文本后，layoutManager.getLineCount()能正确感知当前行数
             setTimeout(() => {
               this.getLayoutWidth();
             }, 10);

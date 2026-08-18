@@ -86,7 +86,7 @@ struct NavigationExample {
   }
 }
 
-<em>// PageOne页面</em>
+// PageOne页面
 @Component
 export struct pageOneTmp {
   @Consume('pageInfos') pageInfos: NavPathStack;
@@ -100,7 +100,7 @@ export struct pageOneTmp {
   }
 }
 
-<em>// PageTwo页面</em>
+// PageTwo页面
 @Component
 export struct pageTwoTmp {
   @Consume('pageInfos') pageInfos: NavPathStack;
@@ -114,7 +114,7 @@ export struct pageTwoTmp {
   }
 }
 
-<em>// PageThree页面</em>
+// PageThree页面
 @Component
 export struct pageThreeTmp {
   @Consume('pageInfos') pageInfos: NavPathStack;
@@ -138,9 +138,9 @@ export struct DefaultPage {
       }.width('100%').height('100%').justifyContent(FlexAlign.Center);
     }.title('DefaultPage')
     .onBackPressed(() => {
-    <em>  // 返回true表示自定义返回，能避免返回空白页面。返回false则表示系统默认返回，会返回空白页面。</em>
+      // 返回true表示自定义返回，能避免返回空白页面。返回false则表示系统默认返回，会返回空白页面。
       try {
-   <em>     // 需要导入window</em>
+        // 需要导入window
         window.getLastWindow(this.getUIContext().getHostContext(), (err, win) => {
           const errCode: number = err.code;
           if (errCode) {

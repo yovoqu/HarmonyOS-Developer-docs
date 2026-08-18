@@ -18,17 +18,17 @@ import { picker, fileIo } from '@kit.CoreFileKit';
 
 let uri: string = '';
 
-<em>// Save content to the public directory</em>
+// Save content to the public directory
 export async function saveToUser(content: string) {
   try {
     let DocumentSaveOptions = new picker.DocumentSaveOptions();
-  <em>  // New file name</em>
+    // New file name
     DocumentSaveOptions.newFileNames = ['test.txt'];
     let documentPicker = new picker.DocumentViewPicker();
     documentPicker.save(DocumentSaveOptions).then((DocumentSaveResult: Array<string>) => {
       console.info('DocumentViewPicker.save successfully, uri: ' + JSON.stringify(DocumentSaveResult));
       uri = DocumentSaveResult[0];
-    <em>  // Write the content into the newly created file</em>
+      // Write the content into the newly created file
       let file = fileIo.openSync(uri, fileIo.OpenMode.READ_WRITE);
       fileIo.writeSync(file.fd, content);
     }).catch((err: BusinessError) => {

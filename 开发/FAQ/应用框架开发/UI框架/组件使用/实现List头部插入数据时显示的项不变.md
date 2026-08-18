@@ -86,7 +86,7 @@ struct StableList {
     }
     this.nextItemIndex += 5;
     this.listData = [...newItems, ...this.listData];
-   <em> // 计算新的位置并滚动</em>
+    // 计算新的位置并滚动
     const newListLength: number = newItems.length;
     const newIndex: number = oldIndex + newListLength;
     this.scrollerForList.scrollToIndex(newIndex, false, undefined,

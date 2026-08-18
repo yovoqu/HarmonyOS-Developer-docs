@@ -53,14 +53,14 @@
   **代码示例如下：**
 ```text
 onForeground():void {
-   <em> // 切到前台，设置isForeGround值为true</em>
+    // 切到前台，设置isForeGround值为true
     console.info('onForeground-切换到前台了');
     AppStorage.setOrCreate('isForeGround', true);
   }
 
 
   onBackground():void {
-  <em>  // 切到后台，设置isForeGround值为false</em>
+    // 切到后台，设置isForeGround值为false
     console.info('onBackground-切换到后台了');
     AppStorage.setOrCreate('isForeGround', false);
   }
@@ -71,21 +71,21 @@ onForeground():void {
 
   
 ```text
-<em>//设置变量控制播控图标变化</em>
+//设置变量控制播控图标变化
 @State isplay: boolean = true;
-<em>//设置变量记录播放状态</em>
+//设置变量记录播放状态
 state: boolean = true;
-<em>//监听前后台变化</em>
+//监听前后台变化
 @Watch('network') @StorageLink('isForeGround') isForeGround: boolean = false;
 
 
 network() {
   if (this.isForeGround && this.state) {
-  <em>  // 切换到前台了且视频播放状态为true，视频继续播放</em>
+    // 切换到前台了且视频播放状态为true，视频继续播放
     this.isplay = true;
     this.controller.start();
   } else {
-<em>    // 切换到后台了，视频暂停播放</em>
+    // 切换到后台了，视频暂停播放
     this.state = this.isplay;
     this.isplay = false;
     this.controller.pause();
@@ -108,21 +108,21 @@ struct VideoControlPage {
   private controller = new VideoController();
   @State currentTime: number = 0;
   @State durationTime: number = 100;
- <em> //设置变量控制播控图标变化</em>
+  //设置变量控制播控图标变化
   @State isplay: boolean = true;
- <em> //设置变量记录播放状态</em>
+  //设置变量记录播放状态
   state: boolean = true;
-  <em>//监听前后台变化</em>
+  //监听前后台变化
   @Watch('network') @StorageLink('isForeGround') isForeGround: boolean = false;
 
 
   network() {
     if (this.isForeGround && this.state) {
-     <em> // 切换到前台了且视频播放状态为true，视频继续播放</em>
+      // 切换到前台了且视频播放状态为true，视频继续播放
       this.isplay = true;
       this.controller.start();
     } else {
-     <em> // 切换到后台了，视频暂停播放</em>
+      // 切换到后台了，视频暂停播放
       this.state = this.isplay;
       this.isplay = false;
       this.controller.pause();
@@ -159,7 +159,7 @@ struct VideoControlPage {
         });
 
 
-    <em>  // 自定义的控制器</em>
+      // 自定义的控制器
       Row() {
         Image(this.isplay ? $r('app.media.pause') : $r('app.media.play_fill'))
           .onClick(() => {
@@ -182,18 +182,18 @@ struct VideoControlPage {
             .trackColor('#7ff1f3f5')
             .width('100%')
             .onChange((value: number) => {
-              this.controller.setCurrentTime(value); <em>// 设置视频播放的进度跳转到value处</em>
+              this.controller.setCurrentTime(value); // 设置视频播放的进度跳转到value处
             })
         }
         .width(this.isFullScreen ? '80%' : '68%');
 
 
-       <em> // 展示剩余时长</em>
+        // 展示剩余时长
         Text(`${String(Math.floor((this.currentTime / 60))).padStart(2, '0')}` + `:` +
           `${String(this.currentTime % 60).padStart(2, '0')}`)
           .textAlign(TextAlign.Center)
           .fontColor(Color.White);
-      <em>  // 修改全屏控制方法，同时删除原问题代码中Video组件的onFullscreenChange判断条件</em>
+        // 修改全屏控制方法，同时删除原问题代码中Video组件的onFullscreenChange判断条件
         Image(this.isFullScreen ? $r('app.media.left') : $r('app.media.right'))
           .onClick(() => {
             this.isFullScreen = !this.isFullScreen;
@@ -215,7 +215,7 @@ struct VideoControlPage {
   }
 
 
- <em> // 更改屏幕方向landscape为true横屏，false竖屏</em>
+  // 更改屏幕方向landscape为true横屏，false竖屏
   changeOrientation(landscape: boolean) {
     window.getLastWindow(this.getUIContext().getHostContext()).then((lastWindow) => {
       lastWindow.setPreferredOrientation(landscape ? window.Orientation.LANDSCAPE : window.Orientation.PORTRAIT);

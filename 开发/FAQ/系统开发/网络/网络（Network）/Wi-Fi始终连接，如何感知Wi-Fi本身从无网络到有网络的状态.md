@@ -39,7 +39,7 @@ let netCon: connection.NetConnection = connection.createNetConnection();
 @Component
 struct Connection {
   aboutToAppear(): void {
-  <em>  // 先使用register接口注册订阅事件</em>
+    // 先使用register接口注册订阅事件
     netCon.register((error: BusinessError) => {
       console.error(JSON.stringify(error));
     });
@@ -49,16 +49,16 @@ struct Connection {
     Column() {
       Text('开始检测网络状态')
         .onClick(() => {
-       <em>   // 订阅网络丢失事件</em>
+          // 订阅网络丢失事件
           netCon.on('netLost', (data: connection.NetHandle) => {
             console.info(`网络丢失: ${data.netId}`);
           });
-      <em>    // 订阅网络能力变化事件</em>
+          // 订阅网络能力变化事件
           netCon.on('netCapabilitiesChange', (data: connection.NetCapabilityInfo) => {
             console.info(`订阅网络能力变化: ${data.netCap.bearerTypes}`);
           });
 
-       <em>   // 订阅网络可用事件</em>
+          // 订阅网络可用事件
           netCon.on('netAvailable', (data: connection.NetHandle) => {
             console.info(`网络可用: ${data.netId}`);
           });

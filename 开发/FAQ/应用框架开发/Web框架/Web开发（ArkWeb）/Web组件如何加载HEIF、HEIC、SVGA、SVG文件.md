@@ -26,7 +26,7 @@ HEIF和HEIC、SVGA和SVG分别是什么，Web组件如何加载这些文件？
 
   
 ```text
-<em><!-- heif.html --></em>
+<!-- heif.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,21 +55,21 @@ HEIF和HEIC、SVGA和SVG分别是什么，Web组件如何加载这些文件？
 <div class="flex-center">
     <div>
         <p>HEIF图片</p>
-       <em> <!--网络图片src直接换成对应的url地址即可--></em>
+        <!--网络图片src直接换成对应的url地址即可-->
         
 ![](img/test.heif)
 
     </div>
     <div>
         <p>HEIC图片</p>
-       <em> <!--网络图片src直接换成对应的url地址即可--></em>
+        <!--网络图片src直接换成对应的url地址即可-->
         
 ![](img/test.heic)
 
     </div>
     <div>
         <p>SVG图片</p>
-     <em>   <!--网络图片src直接换成对应的url地址即可--></em>
+        <!--网络图片src直接换成对应的url地址即可-->
         
 ![](img/test.svg)
 
@@ -128,17 +128,17 @@ struct HEIFDemo {
   
 ```text
 document.addEventListener('DOMContentLoaded', function () {
-  <em>// 1. 初始化播放器，绑定到容器</em>
+  // 1. 初始化播放器，绑定到容器
   let player = new SVGA.Player('#svgaContainer');
- <em> // 2. 初始化解析器</em>
+  // 2. 初始化解析器
   let parser = new SVGA.Parser();
 
-  <em>// 3. 加载并解析SVGA文件，此处load的url使用的是本地文件的地址，也可以使用在线的svga文件，例如：xxx.com/xxx.svga</em>
+  // 3. 加载并解析SVGA文件，此处load的url使用的是本地文件的地址，也可以使用在线的svga文件，例如：xxx.com/xxx.svga
   parser.load("file:///data/storage/el1/bundle/entry/resources/resfile/img/test.svga",
     function (videoItem) {
-     <em> // 4. 将解析好的视频项设置给播放器</em>
+      // 4. 将解析好的视频项设置给播放器
       player.setVideoItem(videoItem);
-     <em> // 5. 开始播放动画</em>
+      // 5. 开始播放动画
       player.startAnimation();
     }, function (error) {
       console.error('SVGA文件加载失败:', error);
@@ -214,16 +214,16 @@ struct SVGADemo {
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-       <em> // 1. 初始化播放器，绑定到容器</em>
+        // 1. 初始化播放器，绑定到容器
         let player = new SVGA.Player('#svgaContainer');
-       <em> // 2. 初始化解析器</em>
+        // 2. 初始化解析器
         let parser = new SVGA.Parser();
-       <em> // 3. 加载并解析SVGA文件，此处load的url使用的是本地文件的地址，也可以使用在线的svga文件，例如：xxx.com/xxx.svga</em>
+        // 3. 加载并解析SVGA文件，此处load的url使用的是本地文件的地址，也可以使用在线的svga文件，例如：xxx.com/xxx.svga
         parser.load("file:///data/storage/el1/bundle/entry/resources/resfile/img/test.svga",
             function (videoItem) {
-              <em>  // 4. 将解析好的视频项设置给播放器</em>
+                // 4. 将解析好的视频项设置给播放器
                 player.setVideoItem(videoItem);
-             <em>   // 5. 开始播放动画</em>
+                // 5. 开始播放动画
                 player.startAnimation();
             }, function (error) {
                 console.error('SVGA文件加载失败:', error);

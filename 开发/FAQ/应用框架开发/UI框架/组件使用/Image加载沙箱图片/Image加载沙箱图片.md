@@ -41,7 +41,7 @@ struct Index2 {
 
   build() {
     Column({ space: 30 }) {
-    <em>  // 这里直接加载无法显示</em>
+      // 这里直接加载无法显示
       Image(this.downloadImage)
         .width(100);
       Button('Download Image')
@@ -49,7 +49,7 @@ struct Index2 {
           try {
             let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
             let filesDir = context.cacheDir;
-        <em>    // 将字符串/xxx.png拼接到filesDir路径末尾，表示在应用缓存文件路径下创建一个名为xxx.png的文件</em>
+            // 将字符串/xxx.png拼接到filesDir路径末尾，表示在应用缓存文件路径下创建一个名为xxx.png的文件
             let filePath = filesDir + '/xxx.png';
             let res = fs.accessSync(filePath);
             if (res) {
@@ -58,7 +58,7 @@ struct Index2 {
               });
             } else {
               request.downloadFile(context, {
-             <em>   // 此处地址实际使用过程中替换为真实地址</em>
+                // 此处地址实际使用过程中替换为真实地址
                 url: 'XXX.XXX.png',
                 filePath: filePath
               }).then((downloadTask: request.DownloadTask) => {

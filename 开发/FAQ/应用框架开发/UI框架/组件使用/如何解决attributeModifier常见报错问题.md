@@ -12,7 +12,7 @@
 ```text
 class NavigationModifier implements AttributeModifier<NavigationAttribute> {
   applyNormalAttribute(instance: NavigationAttribute): void {
-    instance.title({ builder: mainToolbarLayout(), height: 60 }); <em>// 此处入参为CustomBuilder</em>
+    instance.title({ builder: mainToolbarLayout(), height: 60 }); // 此处入参为CustomBuilder
   }
 }
 
@@ -37,7 +37,7 @@ class TextModifier implements AttributeModifier<TextAttribute> {
   applyNormalAttribute(instance: TextAttribute): void {
     instance.hitTestBehavior(HitTestMode.Default)
       .copyOption(CopyOptions.InApp)
-     <em> // bindSelectionMenu第二个入参为CustomBuilder</em>
+      // bindSelectionMenu第二个入参为CustomBuilder
       .bindSelectionMenu(TextSpanType.TEXT, longPressEmptyMenu, TextResponseType.LONG_PRESS);
   }
 }
@@ -45,7 +45,7 @@ class TextModifier implements AttributeModifier<TextAttribute> {
 
 @Builder
 function longPressEmptyMenu() {
-  <em>// 需要让Menu组件为空，才能达到长按选中但不出现默认菜单的效果</em>
+  // 需要让Menu组件为空，才能达到长按选中但不出现默认菜单的效果
   Column() {
     Menu() {
     };
@@ -173,7 +173,7 @@ function mainToolbarLayout() {
 
 @Builder
 function longPressEmptyMenu() {
-  <em>// 需要让Menu组件为空，才能达到长按选中但不出现默认菜单的效果</em>
+  // 需要让Menu组件为空，才能达到长按选中但不出现默认菜单的效果
   Column() {
     Menu() {
     };

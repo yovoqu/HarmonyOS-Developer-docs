@@ -51,7 +51,7 @@ Mixed Content: The page at 'xxx' was loaded over HTTPS, but requested an insecur
 <body>
 <div class="content">
     <video width="100%" controls>
-    <em>    <!-- 替换为实际地址 --></em>
+        <!-- 替换为实际地址 -->
         <source src="example.mp4" type="video/mp4">
     </video>
 </div>
@@ -70,9 +70,9 @@ export struct WebVideoIndex {
 
   build() {
     Column() {
-      Web({ src: $rawfile('webVideo.html'), controller: this.controller }) <em> // 加载本地html页面</em>
+      Web({ src: $rawfile('webVideo.html'), controller: this.controller })  // 加载本地html页面
         .width('100%')
-        .mixedMode(MixedMode.All); <em>// 设置Web组件中的mixedMode属性使其允许加载HTTP和HTTPS混合内容</em>
+        .mixedMode(MixedMode.All); // 设置Web组件中的mixedMode属性使其允许加载HTTP和HTTPS混合内容
     }
     .width('100%')
     .height('100%');

@@ -45,7 +45,7 @@ struct TextView {
           left: '5vp',
           right: '5vp'
         });
-      Image($r('app.media.img1'))<em> // 图片资源文件需自行替换</em>
+      Image($r('app.media.img1')) // 图片资源文件需自行替换
         .width(this.textWidth)
         .resizable({
           slice: {

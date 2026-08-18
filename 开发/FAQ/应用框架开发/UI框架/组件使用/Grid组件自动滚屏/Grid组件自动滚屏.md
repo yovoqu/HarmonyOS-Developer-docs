@@ -27,7 +27,7 @@
  
 ```text
 .onItemDrop((event: ItemDragInfo, itemIndex: number,
-  insertIndex: number) => { <em>//绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。</em>
+  insertIndex: number) => { //绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。
   if (event.x > 270 && event.y > 710) {
     this.numbers.splice(itemIndex, 1);
   } else {
@@ -53,7 +53,7 @@ struct GridDemo {
 
 
   @Builder
-  pixelMapBuilder() { <em>// 拖拽过程样式</em>
+  pixelMapBuilder() { // 拖拽过程样式
     Column() {
       Text('浮动内容')
         .borderRadius(12)
@@ -73,7 +73,7 @@ struct GridDemo {
   }
 
 
-  moveToIndex(index1: number, index2: number) { <em>// 将index1位置的元素移动至 index2位置</em>
+  moveToIndex(index1: number, index2: number) { // 将index1位置的元素移动至 index2位置
     let temp = '';
     let num1Length = this.numbers.length;
     temp = this.numbers[index1];
@@ -113,18 +113,18 @@ struct GridDemo {
         .padding({ left: 16, right: 16 })
         .columnsTemplate('1fr 1fr 1fr')
         .rowsGap(20)
-        .editMode(true) <em>//设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem</em>
+        .editMode(true) //设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem
         .onScrollIndex((start: number, end: number) => {
           this.startIndex = start;
           this.endIndex = end;
         })
-        .onItemDragStart((event: ItemDragInfo, itemIndex: number) => { <em>//第一次拖拽此事件绑定的组件时，触发回调。</em>
+        .onItemDragStart((event: ItemDragInfo, itemIndex: number) => { //第一次拖拽此事件绑定的组件时，触发回调。
           this.text = this.numbers[itemIndex];
-          return this.pixelMapBuilder(); <em>//设置拖拽过程中显示的图片。</em>
+          return this.pixelMapBuilder(); //设置拖拽过程中显示的图片。
         })
         .onItemDragMove((event: ItemDragInfo, itemIndex: number, insertIndex: number) => {
           this.isShowDelete = true;
-          <em>// 滑出网格外自动滚动位置，判断条件根据实际情况调整</em>
+          // 滑出网格外自动滚动位置，判断条件根据实际情况调整
           if (insertIndex <= this.startIndex + 2) {
             const yOffset: number = this.scroller.currentOffset().yOffset;
             this.scroller.scrollTo({ xOffset: 0, yOffset: yOffset - 200, animation: true });
@@ -135,7 +135,7 @@ struct GridDemo {
           }
         })
         .onItemDrop((event: ItemDragInfo, itemIndex: number,
-          insertIndex: number) => { <em>//绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。</em>
+          insertIndex: number) => { //绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。
           if (event.x > 270 && event.y > 710) {
             this.numbers.splice(itemIndex, 1);
           } else {

@@ -41,8 +41,8 @@ useNormalizedOHMUrl为true的时候ohmurl使用的是新的拼接和解析方式
 ```json
 "modules": [
   {
-    name: "hsp",   <em>// The referenced hsp package dependency</em>
-    srcPath: "../MyApplication_stageB/hsp",   <em>// The path to the hsp package being referenced (both absolute and relative paths are okay)</em>
+    name: "hsp",   // The referenced hsp package dependency
+    srcPath: "../MyApplication_stageB/hsp",   // The path to the hsp package being referenced (both absolute and relative paths are okay)
   }
 ],
 ```

@@ -10,9 +10,9 @@
  
 ```text
 let publicKey = x509Cert.getPublicKey().getEncoded()
-<em>// </em><em>创建实例化对象</em>
+// 创建实例化对象
 let cipher = cryptoFramework.createCipher('RSA1024|PKCS1')
-<em>// </em><em>初始化加解密对象</em>
+// 初始化加解密对象
 cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, publicKey, null)
 ```
  
@@ -64,12 +64,12 @@ function create509(encodingBlob: certFramework.EncodingBlob, cb: (s: string) => 
   certFramework.createX509Cert(encodingBlob).then(async x509Cert => {
     let publicKey = x509Cert.getPublicKey().getEncoded().data.toString();
     console.info('createX509Cert success: publicKey = ' + publicKey);
-  <em>  // 进行密钥转换</em>
+    // 进行密钥转换
     let rsaGenerator = cryptoFramework.createAsyKeyGenerator('RSA1024');
     let keyPair = rsaGenerator.convertKeySync(x509Cert.getPublicKey().getEncoded(), null);
-  <em>  // 创建实例化对象</em>
+    // 创建实例化对象
     let cipher = cryptoFramework.createCipher('RSA1024|PKCS1');
-   <em> // 初始化加解密对象</em>
+    // 初始化加解密对象
     await cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, keyPair.pubKey, null);
 
     let sha1 = '32**************d7';
@@ -95,7 +95,7 @@ struct CreateX509Cert {
   message: string = '';
 
   aboutToAppear(): void {
-    <em>// </em><em>证书二进制数据，需业务自行赋值。</em>
+    // 证书二进制数据，需业务自行赋值。
     let certData = '-----BEGIN CERTIFICATE-----\r\n' +
       'MIIDTjCCAjagAwIBAgIBBDANBgkqhkiG9w0BAQsFADASMRAwDgYDVQQDDAdSb290\n' +
       'IENBMB4XDTI0MDMxOTAyMDQwMVoXDTM0MDMxNzAyMDQwMVowEjEQMA4GA1UEAwwH\n' +
@@ -119,7 +119,7 @@ struct CreateX509Cert {
 
     let encodingBlob: cert.EncodingBlob = {
       data: stringToUint8Array(certData),
-     <em> // 根据encodingData的格式进行赋值，支持FORMAT_PEM和FORMAT_DER。</em>
+      // 根据encodingData的格式进行赋值，支持FORMAT_PEM和FORMAT_DER。
       encodingFormat: cert.EncodingFormat.FORMAT_PEM
     };
     create509(encodingBlob, () => {

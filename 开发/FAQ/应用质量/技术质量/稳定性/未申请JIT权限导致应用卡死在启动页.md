@@ -64,7 +64,7 @@
 ```text
 async aboutToAppear(): Promise<void> {
   const startupTask = await DI_CONTAINER.getAsync(AppStartupTask)
-<em>  // 此处会一直阻塞，直到弹窗同意</em>
+  // 此处会一直阻塞，直到弹窗同意
   await startupTask.run({
     readPrivacyHandler: (callback) => {
       this.agreeCallback = () => callback(true)

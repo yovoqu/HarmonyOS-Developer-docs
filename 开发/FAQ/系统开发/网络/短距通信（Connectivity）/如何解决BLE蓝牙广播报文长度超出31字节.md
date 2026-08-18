@@ -19,20 +19,20 @@ const TAG: string = 'BleAdvertisingManager';
 export class BleAdvertisingManager {
   private advHandle: number = 0xFF;
 
- <em> // 1.定义广播状态上报事件</em>
+  // 1.定义广播状态上报事件
   onReceiveEvent = (data: ble.AdvertisingStateChangeInfo) => {
     AppStorage.setOrCreate('advertiserState', data.state);
   };
 
- <em> // 2.首次启动广播</em>
+  // 2.首次启动广播
   public async startAdvertising() {
-    <em>// 2.1设置广播发送的参数</em>
+    // 2.1设置广播发送的参数
     let setting: ble.AdvertiseSetting = {
       interval: 160,
       txPower: 0,
       connectable: true,
     };
- <em>   // 2.2构造广播数据</em>
+    // 2.2构造广播数据
     let manufactureValueBuffer = new Uint8Array();
     manufactureValueBuffer[0] = 1;
     manufactureValueBuffer[1] = 2;
@@ -77,15 +77,15 @@ export class BleAdvertisingManager {
       serviceData: [],
     };
 
-   <em> // 2.3构造广播启动完整参数AdvertisingParams</em>
+    // 2.3构造广播启动完整参数AdvertisingParams
     let advertisingParams: ble.AdvertisingParams = {
       advertisingSettings: setting,
-      advertisingData: advData, <em>// </em><em>注意:广播报文长度不能超过31个字节</em>
-      advertisingResponse: advData, <em>// </em><em>注意:广播报文长度不能超过31个字节</em>
-      duration: 0 <em>// </em><em>可选参数，若参数大于0，则广播发送一段时间后会停止，但分配的广播资源还在，可重新启动发送</em>
+      advertisingData: advData, // 注意:广播报文长度不能超过31个字节
+      advertisingResponse: advData, // 注意:广播报文长度不能超过31个字节
+      duration: 0 // 可选参数，若参数大于0，则广播发送一段时间后会停止，但分配的广播资源还在，可重新启动发送
     }
 
-   <em> // 2.4首次启动广播，蓝牙子系统会分配相关资源，包括应用获取到的广播标识ID</em>
+    // 2.4首次启动广播，蓝牙子系统会分配相关资源，包括应用获取到的广播标识ID
     try {
       ble.on('advertisingStateChange', this.onReceiveEvent);
       this.advHandle = await ble.startAdvertising(advertisingParams);

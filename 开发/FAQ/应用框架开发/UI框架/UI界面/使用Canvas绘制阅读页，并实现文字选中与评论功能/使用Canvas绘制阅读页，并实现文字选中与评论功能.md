@@ -86,7 +86,7 @@ initParagraph() {
 2. 绘制文本以及可点击的矩形用于查看评论。
 ```text
 repaint() {
-  <em>// 绘制背景</em>
+  // 绘制背景
   let brush = new drawing.Brush();
   brush.setColor({
     red: 255,
@@ -96,13 +96,13 @@ repaint() {
   });
   this.ctx.canvas.drawBackground(brush);
   this.ctx.canvas.detachBrush();
-<em>  // 绘制文本</em>
+  // 绘制文本
   this.paragraphs.filter(item => item.content.length > 1).forEach(item => {
     item.paragraph.paint(this.ctx.canvas, 0, this.scrollOffset + item.y);
-  <em>  // 绘制评论</em>
+    // 绘制评论
     this.paintArgs(item);
   });
- <em> // 绘制高亮选中文本</em>
+  // 绘制高亮选中文本
   brush.setColor({
     red: 255,
     green: 255,
@@ -125,7 +125,7 @@ repaint() {
 
 3. 绑定长按手势，通过isShowPopup变量控制是否弹出选中菜单。
 ```text
-<em>// 长按手势</em>
+// 长按手势
 LongPressGesture({ fingers: 1 })
   .onAction(event => {
     this.getCaretInfo(this.uiCtx.vp2px(event.fingerList[0].localX),
@@ -150,7 +150,7 @@ LongPressGesture({ fingers: 1 })
 
 4. 绑定单击手势，通过isShowSheet变量控制是否弹出评论模态框。
 ```text
-<em>// 单击手势</em>
+// 单击手势
 TapGesture({ fingers: 1, count: 1 })
   .onAction(event => {
     if (event.fingerList.length <= 0) {
@@ -188,7 +188,7 @@ import { LengthMetricsUnit, window } from '@kit.ArkUI';
 import { common2D, drawing, text } from '@kit.ArkGraphics2D';
 
 
-<em>// 这里文本仅演示使用</em>
+// 这里文本仅演示使用
 const CONTENT: string =
   `明月出天山，苍茫云海间\n` +
     `长风几万里，吹度玉门关\n` +
@@ -261,7 +261,7 @@ class CaretInfo {
 }
 
 
-<em>// 文本信息</em>
+// 文本信息
 class TextInfo {
   index: number;
   itemRect: common2D.Rect;
@@ -406,7 +406,7 @@ struct CanvasDrawParagraph {
 
 
   repaint() {
-   <em> // 绘制背景</em>
+    // 绘制背景
     let brush = new drawing.Brush();
     brush.setColor({
       red: 255,
@@ -416,13 +416,13 @@ struct CanvasDrawParagraph {
     });
     this.ctx.canvas.drawBackground(brush);
     this.ctx.canvas.detachBrush();
-   <em> // 绘制文本</em>
+    // 绘制文本
     this.paragraphs.filter(item => item.content.length > 1).forEach(item => {
       item.paragraph.paint(this.ctx.canvas, 0, this.scrollOffset + item.y);
-     <em> // 绘制评论</em>
+      // 绘制评论
       this.paintArgs(item);
     });
-  <em>  // 绘制高亮选中文本</em>
+    // 绘制高亮选中文本
     brush.setColor({
       red: 255,
       green: 255,
@@ -443,7 +443,7 @@ struct CanvasDrawParagraph {
   }
 
 
-  <em>// 绘制评论数气泡</em>
+  // 绘制评论数气泡
   paintArgs(paragraph: ParagraphInfo) {
     let pen = new drawing.Pen();
     pen.setColor({
@@ -473,7 +473,7 @@ struct CanvasDrawParagraph {
         break;
       }
     }
-  <em>  // 获取文本度量</em>
+    // 获取文本度量
     let line = paragraph.getLineMetrics(lineNum)!;
     let textIndex: number = -1;
     if (x >= (line.left + line.width)) {
@@ -576,12 +576,12 @@ struct CanvasDrawParagraph {
                 }
               }
             });
-        <em>    // 绘制</em>
+            // 绘制
             this.repaint();
           })
           .gesture(
             GestureGroup(GestureMode.Exclusive,
-             <em> // 滑动手势</em>
+              // 滑动手势
               PanGesture({ fingers: 1, direction: PanDirection.Vertical })
                 .onActionStart(() => {
                   this.lastScrollOffset = this.scrollOffset;
@@ -590,7 +590,7 @@ struct CanvasDrawParagraph {
                   this.scrollOffset = this.lastScrollOffset + this.uiCtx.vp2px(event.offsetY);
                   this.repaint();
                 }),
-           <em>   // 长按手势</em>
+              // 长按手势
               LongPressGesture({ fingers: 1 })
                 .onAction(event => {
                   this.getCaretInfo(this.uiCtx.vp2px(event.fingerList[0].localX),
@@ -611,7 +611,7 @@ struct CanvasDrawParagraph {
                   this.isShowPopup = true;
                   this.repaint();
                 }),
-         <em>     // 单击手势</em>
+              // 单击手势
               TapGesture({ fingers: 1, count: 1 })
                 .onAction(event => {
                   if (event.fingerList.length <= 0) {

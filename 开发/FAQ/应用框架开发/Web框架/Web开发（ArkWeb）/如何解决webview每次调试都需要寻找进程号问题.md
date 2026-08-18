@@ -13,7 +13,7 @@
 参考以下示例代码，文件内容编写完成后，将文件扩展名更改为.bat。每次调试后，运行bat文件以自动获取进程号。
  
 ```bash
-<em>// xxx.bat</em>
+// xxx.bat
 @echo off
 setlocal
 
@@ -34,7 +34,7 @@ if not defined SOCKET_NAME (
 )
 
 :: Extract process ID
-<em>// tokens=4 indicates extracting the field separated by the fourth underscore as the PID</em>
+// tokens=4 indicates extracting the field separated by the fourth underscore as the PID
 for /f "delims=_ tokens=4" %%a in ("%SOCKET_NAME%") do set PID=%%a
 if not defined PID (
     echo Error: Failed to extract process ID.

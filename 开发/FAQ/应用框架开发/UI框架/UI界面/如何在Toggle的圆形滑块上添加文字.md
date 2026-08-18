@@ -28,7 +28,7 @@ Toggle的switchStyle仅支持设置圆形滑块半径或颜色，不支持添加
 示例代码如下：
  
 ```text
-<em>// </em><em>自定义开关样式接口</em>
+// 自定义开关样式接口
 interface SwitchParam {
   circleRadius: number,
   borderRadius: number,
@@ -42,7 +42,7 @@ interface SwitchParam {
   labelSize?: number
 }
 
-<em>// </em><em>开关样式接口的实现类</em>
+// 开关样式接口的实现类
 class MySwitchStyle implements ContentModifier<ToggleConfiguration> {
   switchStyle: SwitchParam;
 
@@ -55,9 +55,9 @@ class MySwitchStyle implements ContentModifier<ToggleConfiguration> {
   }
 }
 @Builder
-function buildSwitch(config: ToggleConfiguration) { <em>// 自定义Toggle内容区。</em>
+function buildSwitch(config: ToggleConfiguration) { // 自定义Toggle内容区。
   Column() {
-    Button(config.isOn ? <em>// </em><em>配置圆形滑块的文字。</em>
+    Button(config.isOn ? // 配置圆形滑块的文字。
       (config.contentModifier as MySwitchStyle).switchStyle.selectedLabel ?? '' :
       (config.contentModifier as MySwitchStyle).switchStyle.unselectedLabel ?? '',
       { type: ButtonType.Circle })
@@ -83,7 +83,7 @@ function buildSwitch(config: ToggleConfiguration) { <em>// 自定义Toggle内容
   .onClick(() => {
     config.triggerChange(!config.isOn);
   })
- <em> // 当开关切换时，存在背景色过渡动画。</em>
+  // 当开关切换时，存在背景色过渡动画。
   .animation({
     duration: 200,
     curve: Curve.Ease,

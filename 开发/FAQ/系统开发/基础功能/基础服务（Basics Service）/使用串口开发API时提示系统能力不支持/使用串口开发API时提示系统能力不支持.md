@@ -9,7 +9,7 @@
 使用API19的串口开发，提示系统能力不支持，需要配置syscap.json文件，详细报错如下：
  
 ```json
-<span style="color: rgb(255,255,255);">The default system capabilities of devices phone </span>do <span style="color: rgb(255,255,255);">not include SystemCapability</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">USB</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">USBManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Serial</span><span style="color: rgb(181,106,1);">. </span><span style="color: rgb(255,255,255);">Configure the capabilities </span>in <span style="color: rgb(255,255,255);">syscap</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">json</span><span style="color: rgb(181,106,1);">.</span>
+The default system capabilities of devices phone do not include SystemCapability.USB.USBManager.Serial. Configure the capabilities in syscap.json.
 ```
  
  

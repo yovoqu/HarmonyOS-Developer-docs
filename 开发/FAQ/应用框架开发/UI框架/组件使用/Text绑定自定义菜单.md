@@ -52,23 +52,23 @@ struct BindMenuPage {
     Column() {
       Text(undefined, { controller: this.controller }) {
         Span('Hello World');
-        ImageSpan($r('app.media.startIcon')) <em>// 图片资源需自行替换</em>
+        ImageSpan($r('app.media.startIcon')) // 图片资源需自行替换
           .width('100px').height('100px');
       }
       .parallelGesture(
-     <em>   // 重写双击手势事件，关闭菜单</em>
+        // 重写双击手势事件，关闭菜单
         TapGesture({ count: 2 })
           .onAction(() => {
             this.controller.closeSelectionMenu();
           }), GestureMask.Normal)
       .copyOption(CopyOptions.InApp)
-   <em>   // 设置TextResponseType.LONG_PRESS，可以通过长按方式弹出自定义菜单</em>
+      // 设置TextResponseType.LONG_PRESS，可以通过长按方式弹出自定义菜单
       .bindSelectionMenu(TextSpanType.DEFAULT, this.LongPressImageCustomMenu, TextResponseType.LONG_PRESS);
     }.width('100%').height('100%')
     .justifyContent(FlexAlign.Center)
     .onClick(() => {
-   <em>   // 在页面根节点设置点击事件，关闭菜单</em>
-      this.controller.closeSelectionMenu(); <em>// </em><em>关闭菜单</em>
+      // 在页面根节点设置点击事件，关闭菜单
+      this.controller.closeSelectionMenu(); // 关闭菜单
     });
   }
 
@@ -77,7 +77,7 @@ struct BindMenuPage {
     Column() {
       Menu() {
         MenuItemGroup() {
-     <em>     // 图片资源需自行替换</em>
+          // 图片资源需自行替换
           MenuItem({ startIcon: $r('app.media.startIcon'), content: 'Long Press Image Menu 1', labelInfo: '' });
           MenuItem({ startIcon: $r('app.media.startIcon'), content: 'Long Press Image Menu 2', labelInfo: '' });
           MenuItem({ startIcon: $r('app.media.startIcon'), content: 'Long Press Image Menu 3', labelInfo: '' });

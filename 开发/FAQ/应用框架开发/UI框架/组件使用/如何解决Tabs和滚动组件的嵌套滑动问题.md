@@ -70,7 +70,7 @@ struct TabsGridDemo {
             .height('25%')
             .columnsGap(16)
             .rowsTemplate('1fr')
-           <em> // 设置Grid优先滚动</em>
+            // 设置Grid优先滚动
             .nestedScroll({
               scrollForward: NestedScrollMode.SELF_FIRST,
               scrollBackward: NestedScrollMode.SELF_FIRST,
@@ -129,7 +129,7 @@ struct TabsSwiperDemo {
 
 
         TabContent() {
-        <em>  // Swiper在第二个TabContent内。</em>
+          // Swiper在第二个TabContent内。
           Swiper(this.swiperController) {
             ForEach(this.data, (item: number, index: number) => {
               Text(item.toString())
@@ -146,15 +146,15 @@ struct TabsSwiperDemo {
                       console.info('Pan update');
                     })
                     .onActionEnd((event: GestureEvent) => {
-                   <em>   // Swiper在Tabs第二页内采用if/else逻辑优先判定Swiper边缘滑动情况。</em>
+                      // Swiper在Tabs第二页内采用if/else逻辑优先判定Swiper边缘滑动情况。
                       if (index === 0 && event.offsetX > 0) {
-                        this.tabsController.changeIndex(0); <em>// Swiper滑动到第一页继续右滑，Tabs控制器跳转到第一页。</em>
+                        this.tabsController.changeIndex(0); // Swiper滑动到第一页继续右滑，Tabs控制器跳转到第一页。
                       } else if (index === (this.data.length - 1) && event.offsetX < 0) {
-                        this.tabsController.changeIndex(2); <em>// Swiper滑动到最后一页继续左滑，Tabs控制器跳转到第三页。</em>
+                        this.tabsController.changeIndex(2); // Swiper滑动到最后一页继续左滑，Tabs控制器跳转到第三页。
                       } else if (event.offsetX < 0) {
-                        this.swiperController.showNext(); <em>// Swiper控制器。</em>
+                        this.swiperController.showNext(); // Swiper控制器。
                       } else if (event.offsetX > 0) {
-                        this.swiperController.showPrevious();<em> // Swiper控制器。</em>
+                        this.swiperController.showPrevious(); // Swiper控制器。
                       }
                     })
                 );
@@ -186,19 +186,19 @@ struct TabsSwiperDemo {
 @Component
 struct TabsTabsDemo {
   tabsController: TabsController = new TabsController();
-  @State selectIndex0: number = 0; <em>// 外部页签</em>
-  @State selectIndex1: number = 0;<em> // 内部页签</em>
+  @State selectIndex0: number = 0; // 外部页签
+  @State selectIndex1: number = 0; // 内部页签
 
 
   @Builder
-  tabContent0(nam: string, targetIndex: number) { <em>// 外层Tab栏</em>
+  tabContent0(nam: string, targetIndex: number) { // 外层Tab栏
     Text(nam)
       .fontColor(this.selectIndex0 === targetIndex ? '#0a59f7' : '#99000000')
   }
 
 
   @Builder
-  tabContent1(nam: string, targetIndex: number) {<em> // 内层Tab栏</em>
+  tabContent1(nam: string, targetIndex: number) { // 内层Tab栏
     Text(nam)
       .fontColor(this.selectIndex1 === targetIndex ? '#0a59f7' : '#99000000')
   }
@@ -228,7 +228,7 @@ struct TabsTabsDemo {
             );
 
 
-       <em>     // 中间的其它TabContent</em>
+            // 中间的其它TabContent
             TabContent() {
               Text('tab2').fontSize('30fp');
             }.tabBar(this.tabContent1('tab2', 1))

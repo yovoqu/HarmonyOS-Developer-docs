@@ -79,10 +79,10 @@ napi_init.cpp：
 static napi_value LoadModule(napi_env env, napi_callback_info info) 
 {
     napi_value result;
-   <em> // 1. 使用napi_load_module_with_info加载模块</em>
+    // 1. 使用napi_load_module_with_info加载模块
     napi_load_module_with_info(env, "entry/src/main/ets/pages/Index", "com.example.callback/entry", &result);
     napi_value testFn;
-   <em> // 2. 使用napi_get_named_property获取test函数</em>
+    // 2. 使用napi_get_named_property获取test函数
     napi_get_named_property(env, result, "test", &testFn);
 
     napi_value inputArgs[2];
@@ -90,7 +90,7 @@ static napi_value LoadModule(napi_env env, napi_callback_info info)
     napi_create_int32(env, a, &inputArgs[0]);
     napi_create_int32(env, b, &inputArgs[1]);
 
-   <em> // 3. 使用napi_call_function调用函数test</em>
+    // 3. 使用napi_call_function调用函数test
     napi_value output;
     napi_call_function(env, result, testFn, 2, inputArgs, &output);
 
@@ -185,25 +185,25 @@ struct Index {
 1. 检查开发环境是否配置完善，包括安装了必要的依赖库（如libuv）。
 2. 确保CMakeLists.txt脚本中添加了编译所需的源代码、头文件以及三方库等。CMakeLists.txt脚本示例如下：
 ```cpp
-<em># the minimum version of CMake.</em>
+# the minimum version of CMake.
 cmake_minimum_required(VERSION 3.5.0)
 project(S_20250329170715728896)
 
 
-<em># 定义一个变量，并赋值为当前模块cpp目录</em>
+# 定义一个变量，并赋值为当前模块cpp目录
 set(NATIVERENDER_ROOT_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 
 
-<em># 添加头文件.h目录，包括cpp，cpp/include，告诉cmake去这里找到代码引入的头文件</em>
+# 添加头文件.h目录，包括cpp，cpp/include，告诉cmake去这里找到代码引入的头文件
 include_directories(${NATIVERENDER_ROOT_PATH}
                     ${NATIVERENDER_ROOT_PATH}/include)
 
 
-<em># 声明一个产物libentry.so，SHARED表示产物为动态库，hello.cpp为产物的源代码</em>
+# 声明一个产物libentry.so，SHARED表示产物为动态库，hello.cpp为产物的源代码
 add_library(entry SHARED napi_init.cpp)
 
 
-<em># 声明产物entry链接时需要的三方库libace_napi.z.so</em>
-<em># 这里直接写三方库的名称是因为它是在ndk中，已在链接寻址路径中，无需额外声明</em>
+# 声明产物entry链接时需要的三方库libace_napi.z.so
+# 这里直接写三方库的名称是因为它是在ndk中，已在链接寻址路径中，无需额外声明
 target_link_libraries(entry PUBLIC libace_napi.z.so)
 ```

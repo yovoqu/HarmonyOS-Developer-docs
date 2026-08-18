@@ -28,7 +28,7 @@ LazyForEach删除数据时，组件需要重新加载所有子组件，否则删
 核心代码如下所示：
  
 ```text
-<em>// 数据源删除方法实现代码</em>
+// 数据源删除方法实现代码
 class MyDataSource implements IDataSource {
   public totalCount(): number {
     return this.dataArray.length;
@@ -39,26 +39,26 @@ class MyDataSource implements IDataSource {
   };
 
   registerDataChangeListener(): void {
-   <em> // ...</em>
+    // ...
   };
 
   unregisterDataChangeListener(): void {
-   <em> // ...</em>
+    // ...
   };
 
   private listeners: DataChangeListener[] = [];
   private dataArray: string[] = [];
 
   public deleteData(index: number): void {
-  <em>  // 通过索引值删除数组对应数据</em>
+    // 通过索引值删除数组对应数据
     this.dataArray.splice(index, 1);
-   <em> // 通知LazyForEach组件需要在index对应索引处删除该子组件</em>
+    // 通知LazyForEach组件需要在index对应索引处删除该子组件
     this.listeners.forEach(listener => {
       listener.onDataDelete(index);
     });
   };
 
- <em> // 通知LazyForEach组件需要重载所有子组件</em>
+  // 通知LazyForEach组件需要重载所有子组件
   notifyDataReload(): void {
     this.listeners.forEach(listener => {
       listener.onDataReloaded();
@@ -68,7 +68,7 @@ class MyDataSource implements IDataSource {
 ```
  
 ```json
-<em>// 删除操作示例代码</em>
+// 删除操作示例代码
 @Component
 struct MyComponent {
   private data: MyDataSource = new MyDataSource();
@@ -77,7 +77,7 @@ struct MyComponent {
     List({ space: 3 }) {
       LazyForEach(this.data, (item: string, index: number) => {
         ListItem() {
-        <em>  // ...</em>
+          // ...
         }
         .onClick(() => {
           this.data.deleteData(index);

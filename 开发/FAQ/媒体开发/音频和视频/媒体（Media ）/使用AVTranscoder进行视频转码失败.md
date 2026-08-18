@@ -35,13 +35,13 @@ IO错误原因通常有：
 - 目标文件格式错误，当前输出视频文件仅支持mp4，可参考[AVTranscoderConfig.fileFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avtranscoderconfig12)参数说明，核心代码如下，完整代码可[参考官网](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avtranscoder-for-transcodering)。
 ```text
 private avConfig: media.AVTranscoderConfig = {
-  audioBitrate: 100000, <em>// 音频比特率。</em>
-  audioCodec: media.CodecMimeType.AUDIO_AAC, <em>// 音频编码格式。</em>
-  fileFormat: media.ContainerFormatType.CFT_MPEG_4, <em>// 封装格式。</em>
-  videoBitrate: 200000, <em>// 视频比特率。</em>
-  videoCodec: media.CodecMimeType.VIDEO_AVC, <em>// 视频编码格式。</em>
-  videoFrameWidth: 640, <em>// 视频分辨率的宽为640。</em>
-  videoFrameHeight: 480, <em>// 视频分辨率的高为480。</em>
+  audioBitrate: 100000, // 音频比特率。
+  audioCodec: media.CodecMimeType.AUDIO_AAC, // 音频编码格式。
+  fileFormat: media.ContainerFormatType.CFT_MPEG_4, // 封装格式。
+  videoBitrate: 200000, // 视频比特率。
+  videoCodec: media.CodecMimeType.VIDEO_AVC, // 视频编码格式。
+  videoFrameWidth: 640, // 视频分辨率的宽为640。
+  videoFrameHeight: 480, // 视频分辨率的高为480。
 };
 ```
 
@@ -66,13 +66,13 @@ private avConfig: media.AVTranscoderConfig = {
   
 ```text
 private avConfig: media.AVTranscoderConfig = {
-  audioBitrate: 100000,<em> // 音频比特率。</em>
-  audioCodec: media.CodecMimeType.AUDIO_AAC, <em>// 音频编码格式。</em>
-  fileFormat: media.ContainerFormatType.CFT_MPEG_4, <em>// 封装格式。</em>
-  videoBitrate: 200000, <em>// 视频比特率。</em>
-  videoCodec: media.CodecMimeType.VIDEO_AVC, <em>// 视频编码格式。</em>
-  videoFrameWidth: 640, <em>// 视频分辨率的宽为640。</em>
-  videoFrameHeight: 480,<em> // 视频分辨率的高为480。</em>
+  audioBitrate: 100000, // 音频比特率。
+  audioCodec: media.CodecMimeType.AUDIO_AAC, // 音频编码格式。
+  fileFormat: media.ContainerFormatType.CFT_MPEG_4, // 封装格式。
+  videoBitrate: 200000, // 视频比特率。
+  videoCodec: media.CodecMimeType.VIDEO_AVC, // 视频编码格式。
+  videoFrameWidth: 640, // 视频分辨率的宽为640。
+  videoFrameHeight: 480, // 视频分辨率的高为480。
 };
 ```
 

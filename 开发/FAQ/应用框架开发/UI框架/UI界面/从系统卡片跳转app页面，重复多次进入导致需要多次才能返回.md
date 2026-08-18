@@ -22,10 +22,10 @@ ArkTS的路由功能可以通过[router](https://developer.huawei.com/consumer/c
 - 检查热启动跳转代码是否重复添加页面的路由信息入栈且未清除，以下是未清除重复路由的示例代码：
 ```text
 onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void {
- <em> // 通过want.parameters获取参数</em>
+  // 通过want.parameters获取参数
   const targetPage = want.parameters?.targetPage;
   console.info(`onNewWant Received parameter: ${targetPage}`)
- <em> // 根据参数执行逻辑（例如跳转页面）</em>
+  // 根据参数执行逻辑（例如跳转页面）
   if (targetPage === 'test1') {
     this.pathStack.pushPath({ name: targetPage.toString() });
   }

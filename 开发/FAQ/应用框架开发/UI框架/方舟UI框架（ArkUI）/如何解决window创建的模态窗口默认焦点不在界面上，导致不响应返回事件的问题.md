@@ -13,7 +13,7 @@
 模态窗口是给系统权限申请弹窗用的，默认不能响应back手势事件。使用setDialogBackGestureEnabled接口设置模态窗口是否响应手势返回事件，设置为true时，模态窗口可响应onBackPress回调。参考代码如下：
  
 ```ArkTS
-<em>// EntryAbility.ets</em>
+// EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { window } from '@kit.ArkUI';
@@ -38,7 +38,7 @@ export default class EntryAbility extends UIAbility {
         windowClass = data;
         windowClass.setUIContent('pages/Index');
         let enabled = true;
-       <em> // Enable response to back gesture event</em>
+        // Enable response to back gesture event
         let promise = windowClass.setDialogBackGestureEnabled(enabled);
         promise.then(() => {
           console.info('Succeeded in setting dialog window to respond back gesture.');

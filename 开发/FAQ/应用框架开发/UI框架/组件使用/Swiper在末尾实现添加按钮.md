@@ -48,8 +48,8 @@ struct SwiperButtonDemo {
   private scroller: Scroller = new Scroller();
   @State currentIndex: number = 0;
   @State bgColors: string[] = ['#F1F3F5', '#F1F3F5', '#F1F3F5'];
-  @State swiperEnable: boolean = true; <em>// Swiper是否可交互</em>
-  @State directionRight: boolean = false; <em>// </em><em>控制外层Scroll是否向右滑动</em>
+  @State swiperEnable: boolean = true; // Swiper是否可交互
+  @State directionRight: boolean = false; // 控制外层Scroll是否向右滑动
 
   build() {
     Scroll(this.scroller) {
@@ -69,7 +69,7 @@ struct SwiperButtonDemo {
         .loop(false)
         .width('100%')
         .height('25%')
-        .nestedScroll(SwiperNestedScrollMode.SELF_FIRST) <em>// Swiper优化Scroll滑动</em>
+        .nestedScroll(SwiperNestedScrollMode.SELF_FIRST) // Swiper优化Scroll滑动
         .indicator(
           Indicator.dot()
             .selectedItemWidth(10)
@@ -87,7 +87,7 @@ struct SwiperButtonDemo {
             Text(`添加`);
           }
           .onClick(() => {
-            this.bgColors.push('#F1F3F5'); <em>// 增加Swiper数据的数量</em>
+            this.bgColors.push('#F1F3F5'); // 增加Swiper数据的数量
             this.currentIndex += 1;
           })
           .margin({ 'right': '10vp' })

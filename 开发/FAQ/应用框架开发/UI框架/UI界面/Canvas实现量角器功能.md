@@ -48,12 +48,12 @@ struct GaugeScale {
 
   draw() {
     this.context.clearRect(0, 0, this.context.width, this.context.height);
-   <em> // 绘制面板</em>
+    // 绘制面板
     this.context.beginPath();
     this.context.arc(this.centerX, this.centerY, this.radius, Math.PI, Math.PI * 2);
     this.context.lineWidth = 1;
     this.context.strokeStyle = 'black';
-    this.context.stroke();<em> </em><em>// 绘制刻度</em>
+    this.context.stroke(); // 绘制刻度
     for (let i = 90; i <= 270; i += 5) {
       this.context.beginPath();
       this.context.lineWidth = 1;
@@ -63,7 +63,7 @@ struct GaugeScale {
       this.context.lineTo(this.centerX + (this.radius - 3) * Math.sin(i / 180 * Math.PI),
         this.centerY + (this.radius - 3) * Math.cos(i / 180 * Math.PI));
       this.context.stroke();
-    }<em> </em><em>// 绘制指针</em>
+    } // 绘制指针
     this.context.beginPath();
     this.context.strokeStyle = 'green';
     this.context.fillStyle = '#8000ff00';
@@ -91,7 +91,7 @@ struct GaugeScale {
           let y = this.centerY - event.touches[0].y;
           if (y >= 0) {
             this.angle = Math.atan(y / x) * (180 / Math.PI);
-            if (this.angle < 0) { <em>// 表示钝角</em>
+            if (this.angle < 0) { // 表示钝角
               this.angle += 180;
             }
             this.draw();

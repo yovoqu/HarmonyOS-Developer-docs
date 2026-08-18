@@ -47,10 +47,10 @@ struct ImageChange {
   build() {
     Column() {
 
-      Image($r('app.media.background')) <em>// </em><em>可根据具体场景替换为可用资源</em>
+      Image($r('app.media.background')) // 可根据具体场景替换为可用资源
         .width(100)
         .borderRadius(this.radius)
-        .clip(true)<em> </em><em>// 裁剪超出Image组件的图片</em>
+        .clip(true) // 裁剪超出Image组件的图片
       Column() {
         Text(this.radius + 'PX')
           .fontColor('#007AFF')
@@ -58,7 +58,7 @@ struct ImageChange {
           min: 0,
           max: 60,
           style: SliderStyle.OutSet,
-          value: $$this.radius <em>// </em><em>双向绑定</em>
+          value: $$this.radius // 双向绑定
         })
           .blockSize({ width: 20, height: 20 })
           .trackColor('#E5E5EA')

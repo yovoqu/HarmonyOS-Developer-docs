@@ -46,7 +46,7 @@ struct HuaweiMapDemo {
   aboutToAppear(): void {
     let displayClass = display.getDefaultDisplaySync();
     this.mapHeight = this.getUIContext().px2vp(displayClass.height);
-   <em> // 地图初始化参数，设置地图中心点坐标及层级</em>
+    // 地图初始化参数，设置地图中心点坐标及层级
     this.mapOptions = {
       position: {
         target: {
@@ -57,10 +57,10 @@ struct HuaweiMapDemo {
       }
     };
 
-   <em> // 地图初始化的回调</em>
+    // 地图初始化的回调
     this.callback = async (err, mapController) => {
       if (!err) {
-      <em>  // 获取地图的控制器类，用来操作地图</em>
+        // 获取地图的控制器类，用来操作地图
         this.mapController = mapController;
         this.mapEventManager = this.mapController.getEventManager();
         this.mapEventManager.on("mapLoad", () => {
@@ -71,7 +71,7 @@ struct HuaweiMapDemo {
 
   build() {
     Stack() {
-   <em>   // 调用MapComponent组件初始化地图</em>
+      // 调用MapComponent组件初始化地图
       MapComponent({ mapOptions: this.mapOptions, mapCallback: this.callback })
         .width('100%')
         .height(this.mapHeight)

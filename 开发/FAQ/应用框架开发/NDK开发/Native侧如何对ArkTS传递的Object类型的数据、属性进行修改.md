@@ -103,28 +103,28 @@ napi_value RevArkTSObj::ModifyObject(napi_env env, napi_callback_info info) {
     size_t length;
     size_t byte_offset;
     napi_get_typedarray_info(env, typedArray1, &type, &length, nullptr, &input_buffer, &byte_offset);
-   <em> // Retrieve the basic data buffer data of input_fuffer and the length byte_length of the basic data buffer.</em>
+    // Retrieve the basic data buffer data of input_fuffer and the length byte_length of the basic data buffer.
     void *data;
     size_t byte_length;
     napi_get_arraybuffer_info(env, input_buffer, &data, &byte_length);
-   <em> // Create a new ArrayBuffer with a pointer pointing to the underlying data buffer of the ArrayBuffer, denoted as' output _ptr '</em>
+    // Create a new ArrayBuffer with a pointer pointing to the underlying data buffer of the ArrayBuffer, denoted as' output _ptr '
     napi_value output_buffer;
     void *output_prt = nullptr;
     napi_create_arraybuffer(env, byte_length, &output_prt, &output_buffer);
-   <em> // Create typedarray using output buffer</em>
+    // Create typedarray using output buffer
     napi_value output_array;
     napi_create_typedarray(env, type, length, output_buffer, byte_offset, &output_array);
-   <em> // Data is composed of consecutive memory locations, where reinterpret_cast<uint8_t *>(data) represents the memory address of its first element.</em>
-<em>    // Data is the old arraybuffer data pointer</em>
+    // Data is composed of consecutive memory locations, where reinterpret_cast<uint8_t *>(data) represents the memory address of its first element.
+    // Data is the old arraybuffer data pointer
     uint8_t *input_bytes = reinterpret_cast<uint8_t *>(data) + byte_offset;
-   <em> // Assign the 'outputting _ptr' pointer to 'outputting: bytes'</em>
-<em>    // Output_ptr is a new array buffer data pointer</em>
+    // Assign the 'outputting _ptr' pointer to 'outputting: bytes'
+    // Output_ptr is a new array buffer data pointer
     uint8_t *output_bytes = reinterpret_cast<uint8_t *>(output_prt);
     for (int i = 0; i < length; i++) {
-      <em>  // Multiply each element of the old arraybuffer data by 2 and assign it to the new arraybuffer data</em>
+        // Multiply each element of the old arraybuffer data by 2 and assign it to the new arraybuffer data
         output_bytes[i] = input_bytes[i] * 2;
     }
-  <em>  // Assign the new typedArray to obj ['typedArray ']</em>
+    // Assign the new typedArray to obj ['typedArray ']
     napi_set_named_property(env, obj, "typedArray", output_array);
     return obj;
 }

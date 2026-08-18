@@ -41,7 +41,7 @@ struct WidgetsProgress {
       Progress({ value: this.proValue, type: ProgressType.Linear })
         .width(300)
         .style({ strokeWidth: 10, enableSmoothEffect: false });
-   <em>   // 当进度达到100%时显示“加载完成”文本</em>
+      // 当进度达到100%时显示“加载完成”文本
       Text('加载完成').visibility(this.proValue >= 100 ? Visibility.Visible : Visibility.None);
       Button('进度条++')
         .margin({ top: 5, bottom: 5 })
@@ -56,7 +56,7 @@ struct WidgetsProgress {
         });
       Button('进度条重置')
         .onClick(() => {
-        <em>  // 重置进度值为0</em>
+          // 重置进度值为0
           this.proValue = 0;
         });
     }

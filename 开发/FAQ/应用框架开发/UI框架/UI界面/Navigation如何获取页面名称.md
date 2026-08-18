@@ -39,7 +39,7 @@ struct Index {
   navPathStack: NavPathStack = new NavPathStack();
 
   aboutToAppear(): void {
-   <em> // 通过setInterception跳转拦截获取目标页面名称</em>
+    // 通过setInterception跳转拦截获取目标页面名称
     this.navPathStack.setInterception({
       willShow: (from: NavDestinationContext | 'navBar', to: NavDestinationContext | 'navBar') => {
         if (typeof from === 'string') {
@@ -94,14 +94,14 @@ struct GetNaviPageName_NaviDesPage {
     NavDestination() {
       Button('GetName')
         .onClick(() => {
-         <em> // 调用getAllPageName，拿到所有页面名字，最后一项即为当前页面名称</em>
+          // 调用getAllPageName，拿到所有页面名字，最后一项即为当前页面名称
           let names = this.navPathStack.getAllPathName();
           let pageName = names[names.length-1];
           console.info(`last page of getAllPathName: ${pageName}`);
         });
     }
     .onReady((ctx: NavDestinationContext) => {
-    <em>  // 通过onReady回调的NavDestinationContext获取当前页面名称</em>
+      // 通过onReady回调的NavDestinationContext获取当前页面名称
       this.navPathStack = ctx.pathStack;
       console.info(`onReady: ${ctx.pathInfo.name}`);
     }).height('100%').width('100%');

@@ -22,7 +22,7 @@ struct Demo {
         .objectFit(ImageFit.Auto)
         .margin({ right: 8, left: 8, top: 8 })
         .aspectRatio(1)
-        .geometryTransition('cover') <em>// 绑定标识符</em>
+        .geometryTransition('cover') // 绑定标识符
     }
   }
 
@@ -36,7 +36,7 @@ struct Demo {
         .objectFit(ImageFit.Auto)
         .margin({ right: 8, left: 8, top: 8 })
         .aspectRatio(1)
-        .geometryTransition('cover', { follow: true }) <em>// 绑定标识符</em>
+        .geometryTransition('cover', { follow: true }) // 绑定标识符
     }
   }
 
@@ -105,7 +105,7 @@ class TransNodeController extends NodeController {
   }
 
 
- <em> // 移动节点</em>
+  // 移动节点
   moveTo(target: TransNodeController) {
     this.detach();
     target.attach();
@@ -173,7 +173,7 @@ class TransNodeController extends NodeController {
 import { BuilderNode, NodeController } from '@kit.ArkUI';
 
 
-<em>//实现NodeController，用于自定义节点的创建、显示等操作的管理</em>
+//实现NodeController，用于自定义节点的创建、显示等操作的管理
 class TransNodeController extends NodeController {
   private node?: BuilderNode<[Object]>;
   private listener: TransListener;
@@ -195,7 +195,7 @@ class TransNodeController extends NodeController {
   }
 
 
-  <em>// 移动节点</em>
+  // 移动节点
   moveTo(target: TransNodeController) {
     this.detach();
     target.attach();
@@ -282,7 +282,7 @@ class SwiperItemInfo {
   }
 
 
- <em> // UI属性</em>
+  // UI属性
   @Trace translate: number = 0;
   @Trace transNodeTranslate: number = 0;
 }
@@ -291,16 +291,16 @@ class SwiperItemInfo {
 @Entry
 @Component
 struct SwiperTransitionDemo {
- <em> // 图片大小原始比例</em>
+  // 图片大小原始比例
   @State imageWidth: number = 1;
-  <em>// 最大宽度比和最小宽度比</em>
+  // 最大宽度比和最小宽度比
   private max_width: number = 1;
   private min_width: number = 0.3;
- <em> // 图片位置</em>
+  // 图片位置
   private lastPositionToWindowX: number = 0;
-<em>  // 共享图片builder node对象</em>
+  // 共享图片builder node对象
   private transNode = new BuilderNode<[TransNodeContent]>(this.getUIContext());
-  <em>// node controller对象</em>
+  // node controller对象
   private swiperInfos: SwiperItemInfo[] = [
     new SwiperItemInfo(new TransNodeController({ onAttach: () => this.transNode })),
     new SwiperItemInfo(new TransNodeController({ onAttach: () => this.transNode }))
@@ -308,7 +308,7 @@ struct SwiperTransitionDemo {
 
 
   aboutToAppear(): void {
-   <em> // 提前创建组件，提升页面响应速度</em>
+    // 提前创建组件，提升页面响应速度
     this.transNode.build(wrapBuilder<[TransNodeInfo]>(TransNodeContentBuilder), new TransNodeInfo(() => {
       this.imageBuilder();
     }));
@@ -330,16 +330,16 @@ struct SwiperTransitionDemo {
       .objectFit(ImageFit.Auto)
       .margin({ right: 8, left: 8, top: 8 })
       .aspectRatio(1)
-      .geometryTransition('cover', { follow: true }) <em>// 绑定标识符</em>
+      .geometryTransition('cover', { follow: true }) // 绑定标识符
   }
 
 
   @Builder
   oneBuilder(info: SwiperItemInfo, index: number) {
-   <em> // 使用堆叠容器，转场图片放到页面之上</em>
+    // 使用堆叠容器，转场图片放到页面之上
     Stack() {
       Column() {
-        <em>// 内容区域</em>
+        // 内容区域
         Text('测试')
           .visibility(index === 0 ? Visibility.Hidden : Visibility.Visible)
           .padding({ top: 30, left: 30 })
@@ -350,11 +350,11 @@ struct SwiperTransitionDemo {
       .translate({ x: `${info.translate}%` })
 
 
-     <em> // 使用NodeContainer显示自定义节点</em>
+      // 使用NodeContainer显示自定义节点
       NodeContainer(info.controller)
         .width('100%')
         .position({ x: 8, y: 8 })
-        .translate({ x: `${info.transNodeTranslate}%` }) <em>// 设置平移。</em>
+        .translate({ x: `${info.transNodeTranslate}%` }) // 设置平移。
     }
     .position({ x: 0, y: 0 })
   }
@@ -383,7 +383,7 @@ struct SwiperTransitionDemo {
       .height('100%')
       .effectMode(EdgeEffect.None)
       .hitTestBehavior(HitTestMode.Transparent)
-     <em> // 监听Swiper页面滑动事件，获取实时偏移量绘制动画。</em>
+      // 监听Swiper页面滑动事件，获取实时偏移量绘制动画。
       .onContentDidScroll((selectedIndex, index, position) => {
         if (this.lastPositionToWindowX == 0) {
           this.lastPositionToWindowX = this.swiperInfos[selectedIndex].controller.getPositionToWindow()?.x ?? 0;

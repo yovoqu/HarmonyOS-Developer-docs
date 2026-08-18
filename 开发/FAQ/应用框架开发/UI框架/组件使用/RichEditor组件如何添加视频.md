@@ -41,12 +41,12 @@ struct VideoDemo {
   @Builder
   placeholderBuilder() {
     Row({ space: 2 }) {
-   <em>   // 配置Video组件各项参数</em>
+      // 配置Video组件各项参数
       Video({
-        src: $rawfile('video-v8.mp4'),<em> </em><em>// 根据场景需要添加视频</em>
-        previewUri: $r('app.media.background'), <em>// 视频未播放时的预览图片路径</em>
-        currentProgressRate: PlaybackSpeed.Speed_Forward_1_00_X,<em> </em><em>// 视频播放倍速</em>
-        controller: new VideoController() <em>// </em><em>设置视频控制器，可以控制视频的播放状态</em>
+        src: $rawfile('video-v8.mp4'), // 根据场景需要添加视频
+        previewUri: $r('app.media.background'), // 视频未播放时的预览图片路径
+        currentProgressRate: PlaybackSpeed.Speed_Forward_1_00_X, // 视频播放倍速
+        controller: new VideoController() // 设置视频控制器，可以控制视频的播放状态
       }).width('100%');
     }
 
@@ -74,7 +74,7 @@ struct VideoDemo {
 
         Button('add span')
           .onClick(() => {
-      <em>      // 使用addBuilderSpan接口将Video组件添加到文本框中</em>
+            // 使用addBuilderSpan接口将Video组件添加到文本框中
             let num = this.controller.addBuilderSpan(this.my_builder, { offset: this.my_offset });
             console.info('addBuilderSpan return ' + num);
           });

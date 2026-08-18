@@ -47,9 +47,9 @@ PROCESS_NAME = com.jd.app.reader.hos
   
 ```text
 #01 at anonymous (bookshelf|src/main/ets/BookShelfModule.ts:766:1)
-#02 pc ... BuiltinStub_ArrayFindIndexStwCopy... <em>// 正在执行查找</em>
+#02 pc ... BuiltinStub_ArrayFindIndexStwCopy... // 正在执行查找
 #04 at anonymous (bookshelf|src/main/ets/BookShelfModule.ts:765:42)
-#05 pc ... BuiltinStub_ArrayForEachStwCopy...  <em> // 正在执行遍历</em>
+#05 pc ... BuiltinStub_ArrayForEachStwCopy...   // 正在执行遍历
 ```
  这表明在BookShelfModule.ts的第764-766行，存在forEach循环内部嵌套findIndex的操作。
  

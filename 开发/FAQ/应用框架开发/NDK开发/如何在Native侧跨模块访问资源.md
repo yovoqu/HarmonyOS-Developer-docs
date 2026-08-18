@@ -57,28 +57,28 @@ static napi_value GetRawFileContent(napi_env env, napi_callback_info info)
     size_t requireArgc = 3; 
     size_t argc = 2; 
     napi_value argv[2] = { nullptr }; 
-  <em>  // Obtain parameter information </em>
+    // Obtain parameter information 
     napi_get_cb_info(env, info, &argc, argv, nullptr, nullptr); 
-   <em> // argv[0] is the first parameter of the function, the js resource object. OH_ResourceManager_InitNativeResourceManager convert to Native object. </em>
+    // argv[0] is the first parameter of the function, the js resource object. OH_ResourceManager_InitNativeResourceManager convert to Native object. 
     NativeResourceManager *mNativeResMgr = OH_ResourceManager_InitNativeResourceManager(env, argv[0]); 
     size_t strSize; 
     char strBuf[256]; 
     napi_get_value_string_utf8(env, argv[1], strBuf, sizeof(strBuf), &strSize); 
     std::string filename(strBuf, strSize); 
-  <em>  // Get rawfile pointer object </em>
+    // Get rawfile pointer object 
     RawFile *rawFile = OH_ResourceManager_OpenRawFile(mNativeResMgr, filename.c_str()); 
     if (rawFile != nullptr) { 
         OH_LOG_Print(LOG_APP, LOG_ERROR, GLOBAL_RESMGR, TAG, "OH_ResourceManager_OpenRawFile success"); 
     } 
-   <em> // Obtain the size of the rawfile and allocate memory </em>
+    // Obtain the size of the rawfile and allocate memory 
     long len = OH_ResourceManager_GetRawFileSize(rawFile); 
     std::unique_ptr<uint8_t[]> data= std::make_unique<uint8_t[]>(len); 
-   <em> // Read the entire content of the rawfile one-off </em>
+    // Read the entire content of the rawfile one-off 
     int res = OH_ResourceManager_ReadRawFile(rawFile, data.get(), len); 
-   <em> // Close the open pointer object  </em>
+    // Close the open pointer object  
     OH_ResourceManager_CloseRawFile(rawFile); 
     OH_ResourceManager_ReleaseNativeResourceManager(mNativeResMgr); 
-   <em> // Convert to js object  </em>
+    // Convert to js object  
     return CreateJsArrayValue(env, data, len);
 }
 ```

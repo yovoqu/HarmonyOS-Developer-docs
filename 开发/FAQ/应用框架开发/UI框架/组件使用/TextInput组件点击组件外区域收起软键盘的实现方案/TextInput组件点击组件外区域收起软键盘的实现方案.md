@@ -27,7 +27,7 @@
 - **方案一**：当页面只有一个TextInput组件时，通过给外层组件添加点击事件，调用stopEditing方法收起键盘。
 ```text
 .onClick(() => {
- <em> // 调用stopEditing()方法关闭键盘</em>
+  // 调用stopEditing()方法关闭键盘
   this.controller.stopEditing();
 });
 ```
@@ -37,7 +37,7 @@
 - **方案二**：当页面只有多个TextInput组件时，如果使用方案一调用stopEditing方法关闭键盘时需要定义多个controller控制器比较繁琐，这种情况下使用@ohos.inputMethod(输入法框架)，通过输入法服务InputMethodController的[stopInputSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod#stopinputsession9)接口控制点击组件外区域收起键盘。
 ```text
 .onClick(() => {
-     <em> // 调用[stopInputSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod#stopinputsession9-1)()方法关闭键盘</em>
+      // 调用[stopInputSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod#stopinputsession9-1)()方法关闭键盘
       inputMethod.getController().[stopInputSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod#stopinputsession9-1)();
     });
 ```
@@ -62,13 +62,13 @@ struct SingleTextInput {
     }
     .width('100%')
     .height('100%')
-  <em>  // Startsolution1</em>
+    // Startsolution1
     .onClick(() => {
-    <em>  // 调用stopEditing()方法关闭键盘</em>
+      // 调用stopEditing()方法关闭键盘
       this.controller.stopEditing();
     });
 
-  <em>  // Endsolution1</em>
+    // Endsolution1
   }
 }
 
@@ -81,13 +81,13 @@ struct MultiTextInput {
     }
     .height('100%')
     .width('100%')
-   <em> // Startsolution2</em>
+    // Startsolution2
     .onClick(() => {
-    <em>  // 调用[stopInputSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod#stopinputsession9-1)()方法关闭键盘</em>
+      // 调用[stopInputSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod#stopinputsession9-1)()方法关闭键盘
       inputMethod.getController().[stopInputSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod#stopinputsession9-1)();
     });
 
-   <em> // Endsolution2</em>
+    // Endsolution2
   }
 }
 
@@ -159,7 +159,7 @@ struct TextStopInput {
       .barWidth(360)
       .barHeight(0)
       .onChange((index: number) => {
-     <em>   // currentIndex控制TabContent显示页签</em>
+        // currentIndex控制TabContent显示页签
         this.currentIndex = index;
         this.selectedIndex = index;
       })
@@ -168,7 +168,7 @@ struct TextStopInput {
           return;
         }
         console.info(`event currentOffset ${event.currentOffset}`);
-      <em>  // selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
+        // selectedIndex控制自定义TabBar内Image和Text颜色切换
         this.selectedIndex = targetIndex;
       })
       .width('100%')

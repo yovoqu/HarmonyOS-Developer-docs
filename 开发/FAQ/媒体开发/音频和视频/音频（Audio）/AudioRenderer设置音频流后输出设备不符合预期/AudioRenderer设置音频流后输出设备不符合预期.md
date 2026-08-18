@@ -7,23 +7,23 @@
 #### 问题现象
 
 ```text
-export class <span style="color: rgb(0,0,255);">AudioRenderPlayer </span><span style="color: rgb(255,0,170);">{</span>
-  private <span style="color: rgb(0,0,255);">renderModel</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AudioRenderer </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
-  private <span style="color: rgb(0,0,255);">audioStreamInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AudioStreamInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">samplingRate</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AudioSamplingRate</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SAMPLE_RATE_16000</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">采样率</span></em>
-    <span style="color: rgb(0,0,255);">channels</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AudioChannel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CHANNEL_1</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">通道</span></em>
-    <span style="color: rgb(0,0,255);">sampleFormat</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AudioSampleFormat</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SAMPLE_FORMAT_S16LE</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">采样格式</span></em>
-    <span style="color: rgb(0,0,255);">encodingType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AudioEncodingType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ENCODING_TYPE_RAW </span><em>// </em><em><span style="color: rgb(128,128,128);">编码格式</span></em>
-  <span style="color: rgb(255,0,170);">}</span>
-  private <span style="color: rgb(0,0,255);">audioRendererInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AudioRendererInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">usage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">StreamUsage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">STREAM_USAGE_VOICE_COMMUNICATION</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">音频流使用类型</span></em>
-    <span style="color: rgb(0,0,255);">rendererFlags</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">音频渲染器标志</span></em>
-  <span style="color: rgb(255,0,170);">}</span>
-  private <span style="color: rgb(0,0,255);">audioRendererOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AudioRendererOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-    <span style="color: rgb(0,0,255);">streamInfo</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">audioStreamInfo</span><span style="color: rgb(181,106,1);">,</span>
-    <span style="color: rgb(0,0,255);">rendererInfo</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">audioRendererInfo</span>
-  <span style="color: rgb(255,0,170);">}</span>
-<span style="color: rgb(255,0,170);">}</span>
+export class AudioRenderPlayer {
+  private renderModel: audio.AudioRenderer | undefined = undefined;
+  private audioStreamInfo: audio.AudioStreamInfo = {
+    samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_16000, // 采样率
+    channels: audio.AudioChannel.CHANNEL_1, // 通道
+    sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE, // 采样格式
+    encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW // 编码格式
+  }
+  private audioRendererInfo: audio.AudioRendererInfo = {
+    usage: audio.StreamUsage.STREAM_USAGE_VOICE_COMMUNICATION, // 音频流使用类型
+    rendererFlags: 0 // 音频渲染器标志
+  }
+  private audioRendererOptions: audio.AudioRendererOptions = {
+    streamInfo: this.audioStreamInfo,
+    rendererInfo: this.audioRendererInfo
+  }
+}
 ```
  
 通过以上代码配置音频渲染参数以便后面创建AudioRenderer实例，预期使用扬声器播放，实际从听筒发出声音，为什么？
@@ -52,10 +52,10 @@ export class <span style="color: rgb(0,0,255);">AudioRenderPlayer </span><span s
 
 - 可以尝试更换音频流类型为**STREAM_USAGE_MUSIC**，默认会从扬声器播放。
 ```text
-let <span style="color: rgb(0,0,255);">audioRendererInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">AudioRendererInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
-  <span style="color: rgb(0,0,255);">usage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">StreamUsage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">STREAM_USAGE_MUSIC</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">音频流使用类型：音乐。根据业务场景配置，参考</span><span style="color: rgb(128,128,128);">StreamUsage</span><span style="color: rgb(128,128,128);">。</span></em>
-  <span style="color: rgb(0,0,255);">rendererFlags</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0 </span><em>// </em><em><span style="color: rgb(128,128,128);">音频渲染器标志。</span></em>
-<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+let audioRendererInfo: audio.AudioRendererInfo = {
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC, // 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。
+  rendererFlags: 0 // 音频渲染器标志。
+};
 ```
  完整代码可参考：使用AudioRenderer开发音频播放功能[完整示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-audiorenderer-for-playback#完整示例)。
 - 若默认的输入/输出设备不符合使用诉求，应用也可以调用[setDefaultOutputDevice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setdefaultoutputdevice12)接口主动修改默认输出设备，值得注意的是，该接口仅适用于StreamUsage为语音消息（STREAM_USAGE_VOICE_MESSAGE）、VoIP语音通话（STREAM_USAGE_VOICE_COMMUNICATION）或者VoIP视频通话（STREAM_USAGE_VIDEO_COMMUNICATION）的场景。

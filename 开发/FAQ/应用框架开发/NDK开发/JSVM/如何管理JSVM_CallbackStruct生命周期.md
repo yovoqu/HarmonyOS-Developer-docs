@@ -31,7 +31,7 @@ void SomeFunction() {
 执行以下代码时，应用程序会崩溃。
  
 ```text
-<em>// ...</em>
+// ...
 
 auto func = CreateFunction(env);
 SomeFunction();
@@ -42,7 +42,7 @@ OH_JSVM_GetUndefined(env, &undef);
 JSVM_Value result;
 OH_JSVM_CallFunction(env, undef, func, 0, nullptr, &result);
 
-<em>// ...</em>
+// ...
 ```
  
 在 OH_JSVM_CallFunction 调用时，callbackStruct为栈上变量，OH_JSVM_CreateFunction 参数接收了栈内存地址（&callbackStruct）。调用 SomeFunction 后，栈内存被修改。在 OH_JSVM_CallFunction 中，执行 JSVM_CallbackStruct 中的回调函数时，由于 JSVM_CallbackStruct 的内存已修改，导致非法内存访问，应用崩溃。

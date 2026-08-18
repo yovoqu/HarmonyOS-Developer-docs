@@ -59,13 +59,13 @@ struct GridExample {
         Text('修改一行最大显示个数+1')
           .fontSize(15)
           .onClick(() => {
-          <em>  // 当单行最大的个数超出屏幕宽度时，即使最大个数增加也不会改变布局。</em>
+            // 当单行最大的个数超出屏幕宽度时，即使最大个数增加也不会改变布局。
             this.rowMaxCount += 1;
           });
         Text('修改一行最大显示个数-1')
           .fontSize(15)
           .onClick(() => {
-           <em> // 避免单行最大个数小于最小个数，该示例一行最小设置两个GridItem。</em>
+            // 避免单行最大个数小于最小个数，该示例一行最小设置两个GridItem。
             if (this.rowMaxCount > 2) {
               this.rowMaxCount -= 1;
             }
@@ -73,7 +73,7 @@ struct GridExample {
         Text('修改一行行高-10')
           .fontSize(15)
           .onClick(() => {
-         <em>   // 限制最小行高为40</em>
+            // 限制最小行高为40
             if (this.cellHeight > 40) {
               this.cellHeight -= 10;
             }
@@ -105,7 +105,7 @@ struct GridExample {
         .rowsGap(5)
         .backgroundColor(0xAFEEEE)
         .maxCount(this.rowMaxCount)
-        .minCount(2) <em>// GridDirection.Row的模式下，该属性表示一行最少放置的个数，本示例为两个。</em>
+        .minCount(2) // GridDirection.Row的模式下，该属性表示一行最少放置的个数，本示例为两个。
         .cellLength(this.cellHeight)
         .layoutDirection(GridDirection.Row);
       }

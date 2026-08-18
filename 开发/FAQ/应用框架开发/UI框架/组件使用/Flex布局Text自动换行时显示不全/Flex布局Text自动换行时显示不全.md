@@ -27,7 +27,7 @@ struct Index {
           Column() {
             Text('yyyy')
             Text('yyyy')
-            Text(this.text) <em>// 这里在自动换行时，最后一行的字符被部分遮挡</em>
+            Text(this.text) // 这里在自动换行时，最后一行的字符被部分遮挡
           }
           .flexGrow(1)
           .flexShrink(1)
@@ -101,7 +101,7 @@ struct StretchDemo {
           Column() {
             Text('yyyy');
             Text('yyyy');
-            Text(this.text); <em>// 这里在自动换行时，最后一行的字符被部分遮挡</em>
+            Text(this.text); // 这里在自动换行时，最后一行的字符被部分遮挡
           }
           .flexGrow(1)
           .flexShrink(1)

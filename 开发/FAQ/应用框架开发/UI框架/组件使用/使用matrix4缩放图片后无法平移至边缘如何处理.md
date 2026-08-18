@@ -57,12 +57,12 @@ struct Index {
       .scale({ x: this.mScale, y: this.mScale })
   }
 
-  <em>// 计算最大偏移量</em>
+  // 计算最大偏移量
   getMaxOffset(): [number, number] {
-   <em> // 内容缩放后的实际尺寸</em>
+    // 内容缩放后的实际尺寸
     const scaledWidth = this.componentWidth * this.mScale;
     const scaledHeight = this.componentHeight * this.mScale;
-  <em>  // 最大允许偏移量（内容边缘不超出容器）</em>
+    // 最大允许偏移量（内容边缘不超出容器）
     const maxX = Math.max(0, (scaledWidth - this.componentWidth) / 2);
     const maxY = Math.max(0, (scaledHeight - this.componentHeight) / 2);
     return [maxX, maxY];
@@ -81,28 +81,28 @@ struct Index {
         .height('100%')
         .transform(this.matrix)
         .gesture(
-          GestureGroup(GestureMode.Exclusive, <em>// 互斥模式</em>
-            PinchGesture({ fingers: 2, distance: 1 })<em> </em><em>// 双指最小5vp触发</em>
+          GestureGroup(GestureMode.Exclusive, // 互斥模式
+            PinchGesture({ fingers: 2, distance: 1 }) // 双指最小5vp触发
               .onActionStart(() => {
                 this.mBaseScale = this.mScale;
               })
               .onActionUpdate((event: PinchGestureEvent) => {
-                this.handlePinchUpdate(event);<em> </em><em>// 缩放事件处理</em>
+                this.handlePinchUpdate(event); // 缩放事件处理
               }),
-            PanGesture({ fingers: 1 }) <em>// </em><em>单指拖动</em>
+            PanGesture({ fingers: 1 }) // 单指拖动
               .onActionUpdate((event: PanGestureEvent) => {
                 let distanceX: number = this.startOffsetX + event.offsetX;
                 let distanceY: number = this.startOffsetY + event.offsetY;
-                let maxOffset: [number, number] = this.getMaxOffset();<em> </em><em>// 解构元组赋值</em>
+                let maxOffset: [number, number] = this.getMaxOffset(); // 解构元组赋值
                 let maxX = maxOffset[0];
                 let maxY = maxOffset[1];
-               <em> // 水平方向边界约束</em>
+                // 水平方向边界约束
                 if (maxX > 0) {
                   distanceX = Math.max(-maxX, Math.min(distanceX, maxX));
                 } else {
-                  distanceX = 0; <em>// 缩放后内容未超出容器，不允许拖拽</em>
+                  distanceX = 0; // 缩放后内容未超出容器，不允许拖拽
                 }
-               <em> // 垂直方向约束</em>
+                // 垂直方向约束
                 if (maxY > 0) {
                   distanceY = Math.max(-maxY, Math.min(distanceY, maxY));
                 } else {
@@ -115,16 +115,16 @@ struct Index {
               .onActionEnd((event: PanGestureEvent) => {
                 let distanceX: number = this.startOffsetX + event.offsetX;
                 let distanceY: number = this.startOffsetY + event.offsetY;
-                let maxOffset: [number, number] = this.getMaxOffset(); <em>// 解构元组赋值</em>
+                let maxOffset: [number, number] = this.getMaxOffset(); // 解构元组赋值
                 let maxX = maxOffset[0];
                 let maxY = maxOffset[1];
-              <em>  // 水平方向约束</em>
+                // 水平方向约束
                 if (maxX > 0) {
                   distanceX = Math.max(-maxX, Math.min(distanceX, maxX));
                 } else {
-                  distanceX = 0; <em>// 缩放后内容未超出容器，不允许拖拽</em>
+                  distanceX = 0; // 缩放后内容未超出容器，不允许拖拽
                 }
-            <em>    // 垂直方向约束</em>
+                // 垂直方向约束
                 if (maxY > 0) {
                   distanceY = Math.max(-maxY, Math.min(distanceY, maxY));
                 } else {
@@ -202,9 +202,9 @@ struct Index {
 
 - 修改最大偏移量计算逻辑。
 ```text
-<em>// </em><em>计算最大偏移量</em>
+// 计算最大偏移量
 getMaxOffset(): [number, number] {
- <em> // 内容缩放后的实际尺寸</em>
+  // 内容缩放后的实际尺寸
   const scaledWidth = (this.getUIContext().vp2px(this.componentWidth) / 2) * (this.mScale - 1) / this.mScale;
   const scaledHeight = (this.getUIContext().vp2px(this.componentHeight) / 2) * (this.mScale - 1) / this.mScale;
 
@@ -215,9 +215,9 @@ getMaxOffset(): [number, number] {
 - 修改调用getMaxOffset逻辑，每次拖动调用一次即可，或者迁移至缩放结束回调。
 ```text
 .onActionStart(() => {
-  let maxOffset: [number, number] = this.getMaxOffset();<em> </em><em>// 获取当前缩放下的移动阈值</em>
-  this.lateralMovementThreshold = maxOffset[0];<em> </em><em>// 横向移动阈值</em>
-  this.verticalMovementThreshold = maxOffset[1]; <em>// 纵向移动阈值</em>
+  let maxOffset: [number, number] = this.getMaxOffset(); // 获取当前缩放下的移动阈值
+  this.lateralMovementThreshold = maxOffset[0]; // 横向移动阈值
+  this.verticalMovementThreshold = maxOffset[1]; // 纵向移动阈值
 })
 ```
 
@@ -270,16 +270,16 @@ struct Matrix4Demo {
     });
   }
 
- <em> // 更新矩阵</em>
+  // 更新矩阵
   public updateMatrix(): void {
     this.matrix = Matrix4.identity()
       .translate({ x: this.offsetX, y: this.offsetY })
       .scale({ x: this.mScale, y: this.mScale });
   }
 
- <em> // 计算最大偏移量</em>
+  // 计算最大偏移量
   getMaxOffset(): [number, number] {
-   <em> // 内容缩放后的实际尺寸</em>
+    // 内容缩放后的实际尺寸
     const scaledWidth = (this.getUIContext().vp2px(this.componentWidth) / 2) * (this.mScale - 1) / this.mScale;
     const scaledHeight = (this.getUIContext().vp2px(this.componentHeight) / 2) * (this.mScale - 1) / this.mScale;
 
@@ -299,28 +299,28 @@ struct Matrix4Demo {
         .height('100%')
         .transform(this.matrix)
         .gesture(
-          GestureGroup(GestureMode.Exclusive,<em> </em><em>// 互斥模式</em>
-            PinchGesture({ fingers: 2, distance: 1 }) <em>// </em><em>双指最小5vp触发</em>
+          GestureGroup(GestureMode.Exclusive, // 互斥模式
+            PinchGesture({ fingers: 2, distance: 1 }) // 双指最小5vp触发
               .onActionStart(() => {
                 this.mBaseScale = this.mScale;
               })
               .onActionUpdate((event: PinchGestureEvent) => {
-                this.handlePinchUpdate(event); <em>// </em><em>缩放事件处理</em>
+                this.handlePinchUpdate(event); // 缩放事件处理
               }),
-            PanGesture({ fingers: 1 })<em> </em><em>// 单指拖动</em>
+            PanGesture({ fingers: 1 }) // 单指拖动
               .onActionStart(() => {
-                let maxOffset: [number, number] = this.getMaxOffset();<em> </em><em>// 获取当前缩放下的移动阈值</em>
-                this.lateralMovementThreshold = maxOffset[0];<em> </em><em>// 横向移动阈值</em>
-                this.verticalMovementThreshold = maxOffset[1];<em> </em><em>// 纵向移动阈值</em>
+                let maxOffset: [number, number] = this.getMaxOffset(); // 获取当前缩放下的移动阈值
+                this.lateralMovementThreshold = maxOffset[0]; // 横向移动阈值
+                this.verticalMovementThreshold = maxOffset[1]; // 纵向移动阈值
               })
               .onActionUpdate((event: PanGestureEvent) => {
                 let distanceX: number = this.startOffsetX + this.getUIContext().vp2px(event.offsetX / this.mScale);
                 let distanceY: number = this.startOffsetY + this.getUIContext().vp2px(event.offsetY / this.mScale);
 
-               <em> // 水平方向边界约束</em>
+                // 水平方向边界约束
                 this.offsetX = Math.max(-this.lateralMovementThreshold,
                   Math.min(distanceX, this.lateralMovementThreshold));
-              <em>  // 垂直方向约束</em>
+                // 垂直方向约束
                 this.offsetY = Math.max(-this.verticalMovementThreshold,
                   Math.min(distanceY, this.verticalMovementThreshold));
 

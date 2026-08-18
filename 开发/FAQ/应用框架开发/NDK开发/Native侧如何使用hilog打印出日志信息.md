@@ -16,8 +16,8 @@ target_link_libraries(entry PUBLIC libhilog_ndk.z.so)
 #include "hilog/log.h"
 #undef LOG_DOMAIN
 #undef LOG_TAG
-#define LOG_DOMAIN 0x3200 <em>// Global domain macro, identifying the business domain</em>
-#define LOG_TAG "MY_TAG" <em> // Global tag macro, identifying module log tags</em>
+#define LOG_DOMAIN 0x3200 // Global domain macro, identifying the business domain
+#define LOG_TAG "MY_TAG"  // Global tag macro, identifying module log tags
 ```
  
 3.打印日志，以打印ERROR级别的日志为例：

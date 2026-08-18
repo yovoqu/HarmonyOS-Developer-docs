@@ -57,7 +57,7 @@ get info realtime: 2024/10/21 13:30:03
 
                                     Shared      Shared      Private     Private                                                     
 Size        Rss         Pss         Clean       Dirty       Clean       Dirty       Swap        SwapPss     Counts                        Name
-<em>// ...</em>
+// ...
 5804        5684        2076        3608        0           2076        0           44          44          251                           [anon:native_heap:brk]                    
 120876      99416       99144       276         0           99140       0           60          9           33                            [anon:native_heap:jemalloc meta]          
 3514368     3087120     3068350     19196       0           3067924     0           16096       15947       42                            [anon:native_heap:jemalloc]
@@ -95,7 +95,7 @@ HardThreshold: 3145728(KB)
 Index   RSS(KB)     Offset(KB)  PSS(KB)     SwapPSS(KB) TotalPSS(KB)    Level   Running Time(s) Realtime
 69      1463024     0           1463024     584316      2047340         W       546388          2025/08/18 03:18:46
 70      1475752     0           1475752     584316      2060068         W       546508          2025/08/18 03:20:46
-<em>// ...</em>
+// ...
 0       2897696     -120852     2776844     460979      3237823         C       571469          *2025/08/18 10:16:48
 1       2904080     -120852     2783228     493804      3277032         C       571588          2025/08/18 10:18:47
 2       3068680     -120852     2947828     493776      3441604         C       572069          2025/08/18 10:26:47
@@ -109,21 +109,21 @@ Index   RSS(KB)     Offset(KB)  PSS(KB)     SwapPSS(KB) TotalPSS(KB)    Level   
 LOGGER_MEMCHECK_SMAPS_INFO
 get info realtime: 2025/08/18 03:50:46
 Size        Rss         Pss         Clean       Dirty       Clean       Dirty       Swap        SwapPss     Counts                        Name
-<em>// ...</em>
+// ...
 1663488     612820      609032      3964        0           608856      0           529108      515557      49                            [anon:native_heap:jemalloc]               
 45842956    1388852     1839337     109528      424         1278424     476         584284      550476      5321                          Summary
 *********
 LOGGER_MEMCHECK_SMAPS_INFO
 get info realtime: 2025/08/18 06:36:47
 Size        Rss         Pss         Clean       Dirty       Clean       Dirty       Swap        SwapPss     Counts                        Name
-<em>// ...</em>
+// ...
 2253312     978656      974856      3980        0           974676      0           453676      440148      52                            [anon:native_heap:jemalloc]               
 46626456    2046904     2400395     134284      472         1911640     508         506508      473514      5444                          Summary
 *********
 LOGGER_MEMCHECK_SMAPS_INFO
 get info realtime: 2025/08/18 10:16:48
 Size        Rss         Pss         Clean       Dirty       Clean       Dirty       Swap        SwapPss     Counts                        Name
-<em>// ...</em>
+// ...
 3498496     1769376     1765572     3980        0           1765396     0           442020      428488      59                            [anon:native_heap:jemalloc]               
 47875540    2932248     3271740     135540      472         2795728     508         493816      460809      5518                          Summary
 ```
@@ -132,7 +132,7 @@ Size        Rss         Pss         Clean       Dirty       Clean       Dirty   
 ```bash
 LOGGER_MEMCHECK_SMAPS_INFO
 get info realtime: 2025/08/18 03:50:46
-<em>// ...</em>
+// ...
 LOGGER_MEMCHECK_SAMPLE_NMD_INFO
             size       allocated         nmalloc         ndalloc
                8          553600       132546322       132477122
@@ -142,7 +142,7 @@ LOGGER_MEMCHECK_SAMPLE_NMD_INFO
 *********
 LOGGER_MEMCHECK_SMAPS_INFO
 get info realtime: 2025/08/18 06:36:47
-<em>// ... </em>
+// ... 
 LOGGER_MEMCHECK_SAMPLE_NMD_INFO
             size       allocated         nmalloc         ndalloc
                8          461768       177274989       177217268
@@ -152,7 +152,7 @@ LOGGER_MEMCHECK_SAMPLE_NMD_INFO
 *********
 LOGGER_MEMCHECK_SMAPS_INFO
 get info realtime: 2025/08/18 10:16:48
-<em>// ...</em>
+// ...
 LOGGER_MEMCHECK_SAMPLE_NMD_INFO
             size       allocated         nmalloc         ndalloc
                8          826432       251754132       251650828

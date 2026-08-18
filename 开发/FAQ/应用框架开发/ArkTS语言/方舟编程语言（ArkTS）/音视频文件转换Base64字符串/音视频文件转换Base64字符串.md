@@ -20,13 +20,13 @@ Base64编码常用于存储二进制数据，如图片、视频、音频文件�
 1. 读取音视频文件调用[encodeSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#encodesync9)函数得到Base64字符串。示例代码如下：
 ```text
 videoToBase64() {
-<em>  // 读取rawfile目录下的sample.mp4视频</em>
+  // 读取rawfile目录下的sample.mp4视频
   let rawfileContent = this.getUIContext().getHostContext()?.resourceManager.getRawFileContentSync('sample.mp4');
   let base64Helper = new util.Base64Helper();
   let base64Result = base64Helper.encodeSync(rawfileContent);
   let base64ResultArrayBuffer:ArrayBuffer = base64Result.buffer.slice(0);
   console.info('the videoBase64 is: ' + base64Result);
-  <em>// 保存到沙箱目录下</em>
+  // 保存到沙箱目录下
   let path = this.getUIContext().getHostContext()?.filesDir + '/Vbase64.txt';
   let sandBoxFile = fs.openSync(path, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
   fs.write(sandBoxFile.fd, base64ResultArrayBuffer).then((writeLen:number) => {
@@ -105,13 +105,13 @@ struct Index {
 
 
   videoToBase64() {
-   <em> // 读取rawfile目录下的sample.mp4视频</em>
+    // 读取rawfile目录下的sample.mp4视频
     let rawfileContent = this.getUIContext().getHostContext()?.resourceManager.getRawFileContentSync('sample.mp4');
     let base64Helper = new util.Base64Helper();
     let base64Result = base64Helper.encodeSync(rawfileContent);
     let base64ResultArrayBuffer:ArrayBuffer = base64Result.buffer.slice(0);
     console.info('the videoBase64 is: ' + base64Result);
-  <em>  // 保存到沙箱目录下</em>
+    // 保存到沙箱目录下
     let path = this.getUIContext().getHostContext()?.filesDir + '/Vbase64.txt';
     let sandBoxFile = fs.openSync(path, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
     fs.write(sandBoxFile.fd, base64ResultArrayBuffer).then((writeLen:number) => {
@@ -158,12 +158,12 @@ struct Index {
   build() {
     Column() {
       Button('videoToBase64txt')
-    <em>  // 保存编码后的base64到沙箱中</em>
+      // 保存编码后的base64到沙箱中
         .onClick( () => {
           this.videoToBase64();
         })
       Button('base64txtToVideo')
-   <em>   // 从沙箱加载base64解码成原视频到沙箱中</em>
+      // 从沙箱加载base64解码成原视频到沙箱中
         .onClick(()=> {
           this.base64ToVideo();
         })

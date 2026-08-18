@@ -36,21 +36,21 @@ Swiper嵌套的页面包含[Canvas](https://developer.huawei.com/consumer/cn/doc
 ```text
 @Component
 struct CanvasExampleOne {
- <em> // 用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿，true表明开启抗锯齿。</em>
+  // 用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿，true表明开启抗锯齿。
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
- <em> // 用来创建CanvasRenderingContext2D对象，通过在canvas中调用CanvasRenderingContext2D对象来绘制。</em>
+  // 用来创建CanvasRenderingContext2D对象，通过在canvas中调用CanvasRenderingContext2D对象来绘制。
   private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
 
   build() {
     Column() {
       Text('Canvas');
-   <em>   // 在canvas中调用CanvasRenderingContext2D对象。</em>
+      // 在canvas中调用CanvasRenderingContext2D对象。
       Canvas(this.context)
         .width('100%')
         .height('100%')
         .backgroundColor('#ffffffff')
         .onReady(() => {
-     <em>     // 可以在这里绘制内容。</em>
+          // 可以在这里绘制内容。
           this.context.strokeRect(50, 50, 200, 150);
         })
         .priorityGesture(GestureGroup(GestureMode.Exclusive,

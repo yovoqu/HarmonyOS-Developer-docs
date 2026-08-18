@@ -54,7 +54,7 @@ struct SwiperIndicator {
         });
       }
       .onChange((index: number) => {
-     <em>   // 修改计数器</em>
+        // 修改计数器
         this.curIndex = index + 1;
       })
       .padding(10)

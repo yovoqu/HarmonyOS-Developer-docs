@@ -12,19 +12,19 @@ import { curves } from '@kit.ArkUI';
 @Entry
 @Component
 struct ReplaceDefaultTimeSetPage {
-<em>  // Element array</em>
+  // Element array
   @State numbers: number[] = [];
   @State row: number = 4;
-<em>  // Index of the last element in the array</em>
+  // Index of the last element in the array
   @State lastIndex: number = 0;
   @State dragItem: number = -1;
   @State scaleItem: number = -1;
   @State item: number = -1;
   @State offsetX: number = 0;
   @State offsetY: number = 0;
-  <em>// Set grid column count</em>
+  // Set grid column count
   private str: string = '';
-  <em>// Records the offset of the drag starting position</em>
+  // Records the offset of the drag starting position
   private dragRefOffsetx: number = 0;
   private dragRefOffsety: number = 0;
   private FIX_VP_X: number = 108;
@@ -36,7 +36,7 @@ struct ReplaceDefaultTimeSetPage {
     }
     this.lastIndex = this.numbers.length - 1;
 
-  <em>  // Multiple columns</em>
+    // Multiple columns
     for (let i = 0; i < this.row; i++) {
       this.str = this.str + '1fr ';
     }
@@ -50,19 +50,19 @@ struct ReplaceDefaultTimeSetPage {
     this.numbers.splice(newIndex, 0, tmp[0]);
   }
 
-  <em>// Slide down</em>
+  // Slide down
   down(index: number): void {
-   <em> // Specify fixed GridItem does not respond to events</em>
+    // Specify fixed GridItem does not respond to events
     if (!this.isDraggable(index + this.row)) {
       return;
     }
     this.offsetY -= this.FIX_VP_Y;
     this.dragRefOffsety += this.FIX_VP_Y;
-   <em> // Multiple columns</em>
+    // Multiple columns
     this.itemMove(index, index + this.row);
   }
 
- <em> // Slide down (bottom right is empty)</em>
+  // Slide down (bottom right is empty)
   down2(index: number): void {
     if (!this.isDraggable(index + 3)) {
       return;
@@ -72,7 +72,7 @@ struct ReplaceDefaultTimeSetPage {
     this.itemMove(index, index + 3);
   }
 
- <em> // Slide up</em>
+  // Slide up
   up(index: number): void {
     if (!this.isDraggable(index - this.row)) {
       return;
@@ -82,7 +82,7 @@ struct ReplaceDefaultTimeSetPage {
     this.itemMove(index, index - this.row);
   }
 
-  <em>// Slide left</em>
+  // Slide left
   left(index: number): void {
     if (!this.isDraggable(index - 1)) {
       return;
@@ -92,7 +92,7 @@ struct ReplaceDefaultTimeSetPage {
     this.itemMove(index, index - 1);
   }
 
-  <em>// Slide right</em>
+  // Slide right
   right(index: number): void {
     if (!this.isDraggable(index + 1)) {
       return;
@@ -102,7 +102,7 @@ struct ReplaceDefaultTimeSetPage {
     this.itemMove(index, index + 1);
   }
 
- <em> // Slide bottom right</em>
+  // Slide bottom right
   lowerRight(index: number): void {
     if (!this.isDraggable(index + this.row + 1)) {
       return;
@@ -114,7 +114,7 @@ struct ReplaceDefaultTimeSetPage {
     this.itemMove(index, index + this.row + 1);
   }
 
-<em>  // Slide top right</em>
+  // Slide top right
   upperRight(index: number): void {
     if (!this.isDraggable(index - (this.row - 1))) {
       return;
@@ -126,7 +126,7 @@ struct ReplaceDefaultTimeSetPage {
     this.itemMove(index, index - (this.row - 1));
   }
 
-<em>  // Slide bottom left</em>
+  // Slide bottom left
   lowerLeft(index: number): void {
     if (!this.isDraggable(index + (this.row - 1))) {
       return;
@@ -138,7 +138,7 @@ struct ReplaceDefaultTimeSetPage {
     this.itemMove(index, index + (this.row - 1));
   }
 
-  <em>// Slide top left</em>
+  // Slide top left
   upperLeft(index: number): void {
     if (!this.isDraggable(index - (this.row + 1))) {
       return;
@@ -150,7 +150,7 @@ struct ReplaceDefaultTimeSetPage {
     this.itemMove(index, index - (this.row + 1));
   }
 
-  <em>// Control whether the element can be moved and sorted by its index</em>
+  // Control whether the element can be moved and sorted by its index
   isDraggable(index: number): boolean {
     return index >= 0 && index < this.numbers.length;
   }
@@ -185,23 +185,23 @@ struct ReplaceDefaultTimeSetPage {
               })
           }
           .onAreaChange((_oldVal, newVal) => {
-            <em>// Multiple columns</em>
+            // Multiple columns
             this.FIX_VP_X = Math.round(newVal.width as number);
             this.FIX_VP_Y = Math.round(newVal.height as number);
           })
-      <em>    // Specify fixed GridItem does not respond to events</em>
+          // Specify fixed GridItem does not respond to events
           .hitTestBehavior(this.isDraggable(this.numbers.indexOf(item)) ? HitTestMode.Default : HitTestMode.None)
           .scale({ x: this.scaleItem === item ? 1.05 : 1, y: this.scaleItem === item ? 1.05 : 1 })
           .zIndex(this.dragItem === item ? 1 : 0)
           .translate(this.dragItem === item ? { x: this.offsetX, y: this.offsetY } : { x: 0, y: 0 })
           .padding(10)
           .gesture(
-            <em>//The following combined gestures are recognized sequentially. If the long press gesture event is not triggered normally, the drag gesture event will not be triggered.</em>
+            //The following combined gestures are recognized sequentially. If the long press gesture event is not triggered normally, the drag gesture event will not be triggered.
             GestureGroup(GestureMode.Sequence,
               LongPressGesture({
                 repeat: true,
                 duration: 50
-              }) <em> // Control the duration of the long-press event that triggers dragging, defaulting to 500 milliseconds. Setting it to less than 0 reverts to the default value; here it is set to 50 milliseconds</em>
+              })  // Control the duration of the long-press event that triggers dragging, defaulting to 500 milliseconds. Setting it to less than 0 reverts to the default value; here it is set to 50 milliseconds
                 .onAction((_event?: GestureEvent) => {
                   this.getUIContext().animateTo({
                     curve: Curve.Friction,
@@ -237,44 +237,44 @@ struct ReplaceDefaultTimeSetPage {
                     if (this.offsetY >= this.FIX_VP_Y / 2 &&
                       (this.offsetX <= this.FIX_VP_X / 2 && this.offsetX >= -this.FIX_VP_X / 2)
                       && (index + this.row <= this.lastIndex)) {
-                    <em>  // Slide down</em>
+                      // Slide down
                       this.down(index);
                     } else if (this.offsetY <= -this.FIX_VP_Y / 2 &&
                       (this.offsetX <= this.FIX_VP_X / 2 && this.offsetX >= -this.FIX_VP_X / 2)
                       && index - this.row >= 0) {
-                  <em>    // Slide up</em>
+                      // Slide up
                       this.up(index);
                     } else if (this.offsetX >= this.FIX_VP_X / 2 &&
                       (this.offsetY <= this.FIX_VP_Y / 2 && this.offsetY >= -this.FIX_VP_Y / 2)
                       && !(((index - (this.row - 1)) % this.row === 0) || index === this.lastIndex)) {
-                   <em>   // ) {</em>
-<em>                      // Slide right</em>
+                      // ) {
+                      // Slide right
                       this.right(index);
                     } else if (this.offsetX <= -this.FIX_VP_X / 2 &&
                       (this.offsetY <= this.FIX_VP_Y / 2 && this.offsetY >= -this.FIX_VP_Y / 2)
                       && !(index % this.row === 0)) {
-                     <em> // Slide left</em>
+                      // Slide left
                       this.left(index);
                     } else if (this.offsetX >= this.FIX_VP_X / 2 && this.offsetY >= this.FIX_VP_Y / 2
                       && ((index + this.row + 1 <= this.lastIndex && !((index - (this.row - 1)) % this.row === 0)) ||
                         !((index - (this.row - 1)) % this.row === 0))) {
-                 <em>     // Slide bottom right</em>
+                      // Slide bottom right
                       this.lowerRight(index);
                     } else if (this.offsetX >= this.FIX_VP_X / 2 && this.offsetY <= -this.FIX_VP_Y / 2
                       && !((index - this.row < 0) || ((index - (this.row - 1)) % this.row === 0))) {
-                  <em>    // Slide top right</em>
+                      // Slide top right
                       this.upperRight(index);
                     } else if (this.offsetX <= -this.FIX_VP_X / 2 && this.offsetY >= this.FIX_VP_Y / 2
                       && (!(index % this.row === 0) && (index + (this.row - 1) <= this.lastIndex))) {
-                     <em> // Slide bottom left</em>
+                      // Slide bottom left
                       this.lowerLeft(index);
                     } else if (this.offsetX <= -this.FIX_VP_X / 2 && this.offsetY <= -this.FIX_VP_Y / 2
                       && !((index <= this.row - 1) || (index % this.row === 0))) {
-                     <em> // Slide top left</em>
+                      // Slide top left
                       this.upperLeft(index);
                     } else if (this.offsetX >= this.FIX_VP_X / 2 && this.offsetY >= this.FIX_VP_Y / 2
                       && (index === this.lastIndex)) {
-                    <em>  // Slide right down (bottom right is empty)</em>
+                      // Slide right down (bottom right is empty)
                       this.down2(index);
                     }
                   });
@@ -311,7 +311,7 @@ struct ReplaceDefaultTimeSetPage {
       .width('90%')
       .editMode(true)
       .scrollBar(BarState.Off)
-    <em>  // Multiple columns</em>
+      // Multiple columns
       .columnsTemplate(this.str)
     }
     .width('100%')

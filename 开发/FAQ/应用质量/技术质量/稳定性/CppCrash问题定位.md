@@ -34,7 +34,7 @@ Reason:Signal:SIGSEGV(SEGV_MAPERR)@0xffab14aa14a914c0
 Fault thread info:
 Tid:62538, Name:com.hx.example
 #00 pc 00000000000296e4 /system/lib64/libace_ndk.z.so(ArkUI_AccessibilityProvider::SendAccessibilityAsyncEvent(ArkUI_AccessibilityEventInfo*, void (*)(int))+32)(42521ecd5a913b6984e2ff754dc45cf0)
-#01 pc 000000000020295c /data/storage/el1/bundle/libs/arm64/libflutter.so(cd0979aaa7458f05c7c4cfb0d8928c90c484e393) <em>// 异常so库</em>
+#01 pc 000000000020295c /data/storage/el1/bundle/libs/arm64/libflutter.so(cd0979aaa7458f05c7c4cfb0d8928c90c484e393) // 异常so库
 #02 pc 0000000000789730 /data/storage/el1/bundle/libs/arm64/libflutter.so(cd0979aaa7458f05c7c4cfb0d8928c90c484e393)
 #03 pc 0000000000221170 /data/storage/el1/bundle/libs/arm64/libflutter.so(cd0979aaa7458f05c7c4cfb0d8928c90c484e393)
 #04 pc 0000000000016db4 /system/lib64/platformsdk/libuv.so(uv__async_io+352)(25c5e130ae25e495771607adc70da044)

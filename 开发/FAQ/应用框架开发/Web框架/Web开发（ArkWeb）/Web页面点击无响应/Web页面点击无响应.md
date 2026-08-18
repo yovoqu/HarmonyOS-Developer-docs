@@ -79,7 +79,7 @@ struct WebPage {
       Button('Register JavaScript To Window')
         .onClick(() => {
           try {
-          <em>  // 同时注册同步和异步函数</em>
+            // 同时注册同步和异步函数
             this.controller.registerJavaScriptProxy(this.testObj, 'objName', ['test']);
             this.prompt.showToast({message: '成功注册'});
           } catch (error) {

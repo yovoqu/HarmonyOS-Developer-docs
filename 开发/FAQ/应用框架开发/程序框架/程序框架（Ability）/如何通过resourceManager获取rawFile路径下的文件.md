@@ -11,7 +11,7 @@
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-<em>// Passing in '' indicates obtaining a list of files in the root directory of rawfile</em>
+// Passing in '' indicates obtaining a list of files in the root directory of rawfile
 try {
   let context = AppStorage.get('context') as UIContext;
   context.getHostContext()!.resourceManager.getRawFileList('', (error: BusinessError, value: Array<string>) => {

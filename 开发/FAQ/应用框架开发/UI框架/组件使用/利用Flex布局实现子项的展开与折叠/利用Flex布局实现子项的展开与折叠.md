@@ -46,9 +46,9 @@ struct TextItem {
     Text(this.text)
       .textAlign(TextAlign.Center)
       .maxLines(1)
-      .height(30) <em>// 文本框高度30</em>
+      .height(30) // 文本框高度30
       .padding({ left: 8, right: 8 })
-      .constraintSize({ minWidth: 60, maxWidth: '100%' }) <em>// 文本框的宽度限制</em>
+      .constraintSize({ minWidth: 60, maxWidth: '100%' }) // 文本框的宽度限制
       .backgroundColor('#f1f3f5')
       .borderRadius(5);
   }
@@ -61,41 +61,41 @@ struct Page1 {
   uiContext: UIContext = this.getUIContext();
   measureUtils: MeasureUtils = this.uiContext.getMeasureUtils();
   textList: string[] =
-    ['11111', '2222222', '3333333', '444', '555555', '6666', '7777777', '88888', '999999999999', '000']; <em>// Flex子组件文本内容</em>
-  textItemHeight: number = 30; <em>// 子组件的高度</em>
-  foldLine: number = 2; <em>// 默认折叠行数，不到折叠行数时按当前Flex行数，超过会自动折叠到行数</em>
- <em> // Flex折叠状态高度，文本框高度 * 2行 + Flex每行之间的space + Flex上下内间距 + Flex边框</em>
+    ['11111', '2222222', '3333333', '444', '555555', '6666', '7777777', '88888', '999999999999', '000']; // Flex子组件文本内容
+  textItemHeight: number = 30; // 子组件的高度
+  foldLine: number = 2; // 默认折叠行数，不到折叠行数时按当前Flex行数，超过会自动折叠到行数
+  // Flex折叠状态高度，文本框高度 * 2行 + Flex每行之间的space + Flex上下内间距 + Flex边框
   defaultFlexHeight: number = this.textItemHeight * this.foldLine + (this.foldLine - 1) * 16 + 10 * 2 + 2;
-  lineWidth: number = 0; <em>// Flex组件每行可布局宽度</em>
-  @State showButton: boolean = false; <em>// 是否展示折叠按钮，行数超过默认折叠行数展示按钮</em>
-  @State flexState: string = '展开';<em> // Flex组件状态，展开/折叠</em>
+  lineWidth: number = 0; // Flex组件每行可布局宽度
+  @State showButton: boolean = false; // 是否展示折叠按钮，行数超过默认折叠行数展示按钮
+  @State flexState: string = '展开'; // Flex组件状态，展开/折叠
 
 
   getShowButtonValue() {
-    let line = 1; <em>// 子组件占用行数</em>
-    let countWidth = 0; <em>// 当前行子组件已占用宽度</em>
+    let line = 1; // 子组件占用行数
+    let countWidth = 0; // 当前行子组件已占用宽度
     this.textList.forEach((item) => {
-      if (line <= this.foldLine) { <em>// 行数还未达到需要折叠的行，继续计算布局</em>
+      if (line <= this.foldLine) { // 行数还未达到需要折叠的行，继续计算布局
         let textWidth = this.uiContext.px2vp(this.measureUtils.measureText({
           textContent: item,
           fontSize: '16fp'
         }));
-      <em>  // 子组件的宽度，最小60vp，最大占一整行</em>
+        // 子组件的宽度，最小60vp，最大占一整行
         let itemWidth =
           (textWidth + 16) < 60 ? 60 : (textWidth + 16 > this.lineWidth ? this.lineWidth : (textWidth + 16));
         if (countWidth === 0) {
-          countWidth = itemWidth; <em>// 第一个子组件Flex没有主轴方向子组件间距</em>
+          countWidth = itemWidth; // 第一个子组件Flex没有主轴方向子组件间距
         } else {
           if (countWidth + itemWidth + 10 <= this.lineWidth) {
             countWidth = countWidth + itemWidth + 10;
           } else {
-            line++; <em>// 换行</em>
-            countWidth = itemWidth; <em>// 子组件放到新的一行</em>
+            line++; // 换行
+            countWidth = itemWidth; // 子组件放到新的一行
           }
         }
       }
     });
- <em>   // 不超过折叠行数时不显示按钮，否则展示按钮</em>
+    // 不超过折叠行数时不显示按钮，否则展示按钮
     if (line <= this.foldLine) {
       this.showButton = false;
     } else {
@@ -116,7 +116,7 @@ struct Page1 {
       Flex({
         wrap: FlexWrap.Wrap,
         space: {
-          main: LengthMetrics.vp(10), <em>// 主轴方向间距10</em>
+          main: LengthMetrics.vp(10), // 主轴方向间距10
           cross: LengthMetrics.vp(16)
         }
       }) {
@@ -126,7 +126,7 @@ struct Page1 {
       }
       .width('90%')
       .clip(true)
-      .padding(10) <em>// Flex布局上下左右内间距为10</em>
+      .padding(10) // Flex布局上下左右内间距为10
       .border({ color: '#888888', radius: 10, width: 1 })
       .height((this.flexState === '折叠' ? this.defaultFlexHeight : 'auto'));
 
@@ -177,9 +177,9 @@ struct TextItem {
     Text(this.text)
       .textAlign(TextAlign.Center)
       .maxLines(1)
-      .height(30) <em>// 文本框高度30</em>
+      .height(30) // 文本框高度30
       .padding({ left: 8, right: 8 })
-      .constraintSize({ minWidth: 60, maxWidth: '100%' }) <em>// 文本框的宽度限制</em>
+      .constraintSize({ minWidth: 60, maxWidth: '100%' }) // 文本框的宽度限制
       .backgroundColor('#f1f3f5')
       .borderRadius(5);
   }
@@ -192,38 +192,38 @@ struct Page2 {
   uiContext: UIContext = this.getUIContext();
   measureUtils: MeasureUtils = this.uiContext.getMeasureUtils();
   textList: string[] =
-    ['11111', '2222222', '3333333', '444', '555555', '6666', '7777777', '88888', '999999999999', '000']; <em>// Flex子组件文本内容</em>
-  textItemHeight: number = 30;<em> // 子组件的高度</em>
-  foldLine: number = 2; <em>// 默认折叠行数，不到折叠行数时按当前Flex行数，超过会自动折叠到行数</em>
-  lineWidth: number = 0; <em>// Flex组件每行可布局宽度</em>
-  @State foldIndex: number = 0; <em>// 折叠时最后一个子组件的索引</em>
-  @State showButton: boolean = false; <em>// 是否展示折叠按钮，行数超过默认折叠行数展示</em>
-  @State flexState: string = '展开'; <em>// Flex组件状态，展开/折叠</em>
+    ['11111', '2222222', '3333333', '444', '555555', '6666', '7777777', '88888', '999999999999', '000']; // Flex子组件文本内容
+  textItemHeight: number = 30; // 子组件的高度
+  foldLine: number = 2; // 默认折叠行数，不到折叠行数时按当前Flex行数，超过会自动折叠到行数
+  lineWidth: number = 0; // Flex组件每行可布局宽度
+  @State foldIndex: number = 0; // 折叠时最后一个子组件的索引
+  @State showButton: boolean = false; // 是否展示折叠按钮，行数超过默认折叠行数展示
+  @State flexState: string = '展开'; // Flex组件状态，展开/折叠
 
 
   getFoldIndex() {
     this.showButton = false;
-    let line = 1; <em>// 占用行数</em>
-    let countWidth = 0; <em>// 当前行子组件已占用宽度</em>
+    let line = 1; // 占用行数
+    let countWidth = 0; // 当前行子组件已占用宽度
     this.textList.forEach((item, index) => {
-      if (line <= this.foldLine) { <em>// 行数还未达到需要折叠的行，继续计算布局</em>
+      if (line <= this.foldLine) { // 行数还未达到需要折叠的行，继续计算布局
         let textWidth = this.uiContext.px2vp(this.measureUtils.measureText({
           textContent: item,
           fontSize: '16fp'
         }));
-      <em>  // 子组件的宽度，最小60vp，最大占一整行</em>
+        // 子组件的宽度，最小60vp，最大占一整行
         let itemWidth =
           (textWidth + 16) < 60 ? 60 : (textWidth + 16 > this.lineWidth ? this.lineWidth : (textWidth + 16));
         if (countWidth === 0) {
-          countWidth = itemWidth; <em>// 第一个子组件Flex没有主轴方向子组件间距</em>
+          countWidth = itemWidth; // 第一个子组件Flex没有主轴方向子组件间距
         } else {
           if (countWidth + itemWidth + 10 <= this.lineWidth) {
             countWidth = countWidth + itemWidth + 10;
           } else {
-            line++; <em>// 换行</em>
-            countWidth = itemWidth; <em>// 子组件放到新的一行</em>
+            line++; // 换行
+            countWidth = itemWidth; // 子组件放到新的一行
             if (line > this.foldLine) {
-              this.foldIndex = index - 1; <em>// 换行刚好超过折叠行数时，获取当前子组件索引-1</em>
+              this.foldIndex = index - 1; // 换行刚好超过折叠行数时，获取当前子组件索引-1
               this.showButton = true;
             }
           }
@@ -235,9 +235,9 @@ struct Page2 {
 
   aboutToAppear(): void {
     let displayClass = display.getDefaultDisplaySync();
-  <em>  // 计算Flex组件每行可布局宽度，屏幕宽 * 0.9 - Flex边框2 - 左右内边距各10</em>
+    // 计算Flex组件每行可布局宽度，屏幕宽 * 0.9 - Flex边框2 - 左右内边距各10
     this.lineWidth = this.uiContext.px2vp(displayClass.width) * 0.9 - 2 - 2 * 10;
-    this.getFoldIndex(); <em>// 获取Flex折叠时展示的最后一个子组件的索引值</em>
+    this.getFoldIndex(); // 获取Flex折叠时展示的最后一个子组件的索引值
   }
 
 
@@ -246,19 +246,19 @@ struct Page2 {
       Flex({
         wrap: FlexWrap.Wrap,
         space: {
-          main: LengthMetrics.vp(10), <em>// 主轴方向间距10</em>
+          main: LengthMetrics.vp(10), // 主轴方向间距10
           cross: LengthMetrics.vp(16)
         }
       }) {
         ForEach(this.textList, (item: string, index: number) => {
-          if (this.flexState === '展开' || index <= this.foldIndex) { <em>// 展开状态全展示，折叠状态展示部分</em>
+          if (this.flexState === '展开' || index <= this.foldIndex) { // 展开状态全展示，折叠状态展示部分
             TextItem({ text: item });
           }
         });
       }
       .width('90%')
       .clip(true)
-      .padding(10) <em>// Flex布局上下左右内间距为10</em>
+      .padding(10) // Flex布局上下左右内间距为10
       .border({ color: '#888888', radius: 10, width: 1 });
 
 

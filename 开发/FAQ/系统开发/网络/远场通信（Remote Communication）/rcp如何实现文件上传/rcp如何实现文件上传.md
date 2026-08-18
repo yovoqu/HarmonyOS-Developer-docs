@@ -58,7 +58,7 @@ this.uploadFileForCommon(sandboxFileName);
 4. 新建rcp会话session实例，使用uploadFromFile方法创建文件上传请求。
 ```json
 let session = rcp.createSession();
-session.uploadFromFile('xx.xx.xx.xx', new rcp.UploadFromFile(fileOrPath)) <em>// 需开发者自行配置请求地址</em>
+session.uploadFromFile('xx.xx.xx.xx', new rcp.UploadFromFile(fileOrPath)) // 需开发者自行配置请求地址
   .then((response: rcp.Response) => {
     console.info(`Upload succeeded: ${response}`);
   })
@@ -96,7 +96,7 @@ let multiForm = new rcp.MultipartForm({ 'test': multiFormFieldValue, 'test1': mu
 4. 新建rcp会话实例，发起请求。
 ```json
 uploadMultiPartFormFileForCommon(multiForm: rcp.MultipartForm) {
-  let req = new rcp.Request('xx.xx.xx.xx'); <em>// 需开发者自行配置请求地址</em>
+  let req = new rcp.Request('xx.xx.xx.xx'); // 需开发者自行配置请求地址
   req.content = multiForm;
   req.method = 'POST';
   try {
@@ -105,12 +105,12 @@ uploadMultiPartFormFileForCommon(multiForm: rcp.MultipartForm) {
       console.info(`Response succeeded: ${JSON.stringify(resp)}`);
       session.close();
     }).catch((err: BusinessError) => {
-   <em>   // 请求错误处理。</em>
+      // 请求错误处理。
       console.error(`Response err: Code is ${JSON.stringify(err.code)}, message is ${JSON.stringify(err)}`);
       session.close();
     });
   } catch (err) {
-   <em> // 创建会话错误处理。</em>
+    // 创建会话错误处理。
     console.error(`createSession err: Code is ${JSON.stringify(err.code)}, message is ${JSON.stringify(err)}`);
   }
 }
@@ -167,10 +167,10 @@ import { rcp } from '@kit.RemoteCommunicationKit';
 
 async function getFileAssetsFromType(): Promise<string> {
   let photoPicker = new photoAccessHelper.PhotoViewPicker();
-  const photoSelectOptions = new photoAccessHelper.PhotoSelectOptions(); <em>// 创建图片选项实例</em>
-<em>  // 选择媒体文件类型和选择媒体文件的最大数目</em>
-  photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE; <em>// 选择媒体文件类型为Image</em>
-  photoSelectOptions.maxSelectNumber = 1; <em>// 选择媒体文件的最大数目</em>
+  const photoSelectOptions = new photoAccessHelper.PhotoSelectOptions(); // 创建图片选项实例
+  // 选择媒体文件类型和选择媒体文件的最大数目
+  photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE; // 选择媒体文件类型为Image
+  photoSelectOptions.maxSelectNumber = 1; // 选择媒体文件的最大数目
   photoSelectOptions.isEditSupported = true;
   photoSelectOptions.isOriginalSupported = true;
   let photoSelectResult: photoAccessHelper.PhotoSelectResult = await photoPicker.select(photoSelectOptions);
@@ -187,13 +187,13 @@ async function copyFileToSandBox(sandboxDir: string): Promise<string> {
     console.info('copyFileToSandBox 没有图片选中');
     return '';
   }
-  const fileName = uri.split('/').pop() || 'default.jpg'; <em>// 提取文件名</em>
+  const fileName = uri.split('/').pop() || 'default.jpg'; // 提取文件名
   console.info('沙箱路径:' + sandboxDir);
   console.info('选择图片文件名称:' + fileName);
   console.info('uris文件路径:' + uri);
-  let sandboxFilename = `${sandboxDir}/${fileName}`; <em>// 也可以直接使用沙箱路径字符串如：/data/storage/el2/base/files</em>
+  let sandboxFilename = `${sandboxDir}/${fileName}`; // 也可以直接使用沙箱路径字符串如：/data/storage/el2/base/files
   console.info('沙箱路径图片文件名:' + sandboxFilename);
-  const srcFile = fileIo.openSync(uri, fileIo.OpenMode.READ_ONLY);<em> // 复制文件到沙箱</em>
+  const srcFile = fileIo.openSync(uri, fileIo.OpenMode.READ_ONLY); // 复制文件到沙箱
   try {
     fileIo.copyFileSync(srcFile.fd, sandboxFilename);
   } catch (error) {
@@ -214,7 +214,7 @@ struct SingleFileUpload {
 
   uploadFileForCommon(fileOrPath: rcp.Path | rcp.LocalFile | rcp.ReadFile) {
     let session = rcp.createSession();
-    session.uploadFromFile('xx.xx.xx.xx', new rcp.UploadFromFile(fileOrPath)) <em>// 需开发者自行配置请求地址</em>
+    session.uploadFromFile('xx.xx.xx.xx', new rcp.UploadFromFile(fileOrPath)) // 需开发者自行配置请求地址
       .then((response: rcp.Response) => {
         console.info(`Upload succeeded: ${response}`);
       })
@@ -264,7 +264,7 @@ struct MultiPartFormUploadFile {
   }
 
   uploadMultiPartFormFileForCommon(multiForm: rcp.MultipartForm) {
-    let req = new rcp.Request('xx.xx.xx.xx'); <em>// 需开发者自行配置请求地址</em>
+    let req = new rcp.Request('xx.xx.xx.xx'); // 需开发者自行配置请求地址
     req.content = multiForm;
     req.method = 'POST';
     try {
@@ -273,12 +273,12 @@ struct MultiPartFormUploadFile {
         console.info(`Response succeeded: ${JSON.stringify(resp)}`);
         session.close();
       }).catch((err: BusinessError) => {
-        <em>// 请求错误处理。</em>
+        // 请求错误处理。
         console.error(`Response err: Code is ${JSON.stringify(err.code)}, message is ${JSON.stringify(err)}`);
         session.close();
       });
     } catch (err) {
-    <em>  // 创建会话错误处理。</em>
+      // 创建会话错误处理。
       console.error(`createSession err: Code is ${JSON.stringify(err.code)}, message is ${JSON.stringify(err)}`);
     }
   }
@@ -338,7 +338,7 @@ struct UploadFile {
   selectedFontColor: string = '#0A59F7';
   @State currentIndex: number = 0;
   @State selectedIndex: number = 0;
-  @State tabSelectedIndexes: number[] = [0]; <em>// SegmentButton默认选项</em>
+  @State tabSelectedIndexes: number[] = [0]; // SegmentButton默认选项
   @State tabOptions: SegmentButtonOptions = SegmentButtonOptions.tab({
     buttons: [{ text: '快速上传文件' }, { text: '多部分表单上传文件' },] as ItemRestriction<SegmentButtonTextItem>,
     backgroundColor: '#0d000000',
@@ -399,7 +399,7 @@ struct UploadFile {
       .barWidth(360)
       .barHeight(0)
       .onChange((index: number) => {
-    <em>    // currentIndex控制TabContent显示页签</em>
+        // currentIndex控制TabContent显示页签
         this.currentIndex = index;
         this.selectedIndex = index;
       })
@@ -408,7 +408,7 @@ struct UploadFile {
           return;
         }
         console.info(`event currentOffset ${event.currentOffset}`);
-      <em>  // selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
+        // selectedIndex控制自定义TabBar内Image和Text颜色切换
         this.selectedIndex = targetIndex;
       })
       .width('100%')

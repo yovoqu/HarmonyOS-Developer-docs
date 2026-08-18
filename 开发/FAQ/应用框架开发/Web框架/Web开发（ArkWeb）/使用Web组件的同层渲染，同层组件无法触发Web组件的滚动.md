@@ -12,7 +12,7 @@
  
 ```json
 Web({ src: $rawfile("embed_view.html"), controller: this.browserTabController })
- <em> // ...</em>
+  // ...
   .onNativeEmbedGestureEvent((touch) => {
     console.info(`NativeEmbed onNativeEmbedGestureEvent ${JSON.stringify(touch.touchEvent)}`);
     this.componentIdArr.forEach((componentId: string) => {
@@ -25,7 +25,7 @@ Web({ src: $rawfile("embed_view.html"), controller: this.browserTabController })
           console.error(`onNativeEmbedGestureEvent failed ${componentId}`);
         }
         if (touch.result) {
-       <em>   // 通知Web组件手势事件消费结果。</em>
+          // 通知Web组件手势事件消费结果。
           touch.result.setGestureEventResult(ret);
         }
       }
@@ -63,18 +63,18 @@ onNativeEmbedGestureEvent回调中设置了同层组件消费手势，Web无法�
 #### 修改建议
 1. 可以通过修改setGestureEventResult的参数为false，让手势事件被Web组件消费。
 ```text
-<em>// 触摸同层组件触发Web组件滚动</em>
+// 触摸同层组件触发Web组件滚动
 touch.result.setGestureEventResult(false);
 ```
 
 2. 当同层组件本身有手势事件需要响应，可以根据手势动作动态修改setGestureEventResult的参数。
 ```text
 if (AppStorage.get('longPressPan')) {
- <em> // 当同层组件本身有手势事件(如长按手势)需要响应，可以根据手势动作动态修改参数</em>
-<em>  // 此时触摸同层组件不触发Web组件滚动</em>
+  // 当同层组件本身有手势事件(如长按手势)需要响应，可以根据手势动作动态修改参数
+  // 此时触摸同层组件不触发Web组件滚动
   touch.result.setGestureEventResult(ret, false);
 } else {
- <em> // 触摸同层组件触发Web组件滚动</em>
+  // 触摸同层组件触发Web组件滚动
   touch.result.setGestureEventResult(false);
 }
 ```
@@ -177,18 +177,18 @@ struct TextComponent {
               LongPressGesture({ repeat: true })
                 .tag('longPress')
                 .onAction(() => {
-          <em>        // 长按动作</em>
+                  // 长按动作
                   console.info('Long Press.');
                 }),
               PanGesture({ fingers: 1, direction: null, distance: 0 })
                 .tag('pan')
                 .onActionStart(() => {
-                <em>  // 开始拖动</em>
+                  // 开始拖动
                   AppStorage.setOrCreate('longPressPan', true);
                   console.info('Pan Start.');
                 })
                 .onActionEnd(() => {
-              <em>    // 结束拖动</em>
+                  // 结束拖动
                   AppStorage.setOrCreate('longPressPan', false);
                   console.info('Pan End.');
                 })
@@ -238,7 +238,7 @@ struct Index {
               .width(this.widthMap.get(componentId))
               .height(this.heightMap.get(componentId));
           }, (embedId: string) => embedId);
-      <em>    // Web组件加载本地html页面。</em>
+          // Web组件加载本地html页面。
           Web({ src: $rawfile('embed_view.html'), controller: this.browserTabController })
             .fileAccess(false)
             .geolocationAccess(false)
@@ -291,7 +291,7 @@ struct Index {
                 console.info(`NativeEmbed status ${embed.status}`);
               }
             })
-         <em>   // 获取同层渲染组件触摸事件信息。</em>
+            // 获取同层渲染组件触摸事件信息。
             .onNativeEmbedGestureEvent((touch) => {
               console.info(`NativeEmbed onNativeEmbedGestureEvent ${JSON.stringify(touch.touchEvent)}`);
               this.componentIdArr.forEach((componentId: string) => {
@@ -305,11 +305,11 @@ struct Index {
                   }
                   if (touch.result) {
                     if (AppStorage.get('longPressPan')) {
-                     <em> // 当同层组件本身有手势事件(如长按手势)需要响应，可以根据手势动作动态修改参数</em>
-<em>                      // 此时触摸同层组件不触发Web组件滚动</em>
+                      // 当同层组件本身有手势事件(如长按手势)需要响应，可以根据手势动作动态修改参数
+                      // 此时触摸同层组件不触发Web组件滚动
                       touch.result.setGestureEventResult(ret, false);
                     } else {
-                   <em>   // 触摸同层组件触发Web组件滚动</em>
+                      // 触摸同层组件触发Web组件滚动
                       touch.result.setGestureEventResult(false);
                     }
                   }
@@ -327,7 +327,7 @@ struct Index {
 ```
  
 ```text
-<em><!--embed_view.html--></em>
+<!--embed_view.html-->
 <!Document>
 <html>
 <head>
@@ -339,24 +339,24 @@ struct Index {
     <div id="bodyId">
         <div class="top"></div>
         <div align="center">
-            <embed id="embed1" type = "native/component" width="92%" height="54%" src="view"/>
+            
         </div>
         <div class="bottom"></div>
     </div>
 </div>
 <script>
     let nativeEmbed = {
-   <em>   // 判断设备是否支持touch事件</em>
+      // 判断设备是否支持touch事件
       touch:('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch,
       nativeEmbed : document.getElementById('embed1'),
 
-   <em>   // 事件</em>
+      // 事件
       events:{
         nativeEmbed:document.getElementById('embed1'),
         handleEvent:function(event){ },
       },
 
-    <em>  // 初始化</em>
+      // 初始化
       init:function(){
         let self = this;
         self.nativeEmbed.addEventListener('touchstart', self.events, false); // addEventListener第二个参数可以传一个对象，会调用该对象的handleEvent属性

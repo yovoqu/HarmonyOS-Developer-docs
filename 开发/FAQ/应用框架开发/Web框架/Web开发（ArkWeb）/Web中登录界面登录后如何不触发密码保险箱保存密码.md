@@ -78,9 +78,9 @@ struct LoginDemo1 {
 <script>
     document.getElementById('loginForm').addEventListener('submit', function(event) {
       event.preventDefault();
-      <em>// 这里登录逻辑</em>
-<em>      // ....</em>
-<em>      // 跳转至首页</em>
+      // 这里登录逻辑
+      // ....
+      // 跳转至首页
       window.location.href = './index.html';
     });
 </script>
@@ -130,7 +130,7 @@ struct LoginDemo2 {
 
   build() {
     Column() {
-     <em> // src须替换为真实url</em>
+      // src须替换为真实url
       Web({ src: 'https://***', controller: this.controller })
         .javaScriptAccess(true)
         .fileAccess(true)
@@ -161,7 +161,7 @@ struct LoginDemo2 {
     <input type="text" id="username" name="username" required><br><br>
 
     <label for="password">密码：</label><br>
-    <em><!--  密码框type不使用password，改成text，避免触发密码保险箱  --></em>
+    <!--  密码框type不使用password，改成text，避免触发密码保险箱  -->
     <input type="text" id="password" name="password" required><br><br>
 
     <button type="submit">登录</button>
@@ -170,9 +170,9 @@ struct LoginDemo2 {
 <script>
     document.getElementById('loginForm').addEventListener('submit', function(event) {
       event.preventDefault();
-     <em> // 这里登录逻辑</em>
-<em>      // ....</em>
-<em>      // 跳转至首页</em>
+      // 这里登录逻辑
+      // ....
+      // 跳转至首页
       window.location.href = './index.html';
     });
 </script>

@@ -34,7 +34,7 @@
 4. 在试卷的总分页面，自定义calculate函数，用于计算scores数组的数组和。
  
 ```ArkTS
-<em>// Index.ets</em>
+// Index.ets
 class MyDataSource implements IDataSource {
   private list: number[] = [];
 

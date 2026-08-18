@@ -102,7 +102,7 @@
 
 - 代码示例如下：
 ```json
-<em>// 引入MapKit组件</em>
+// 引入MapKit组件
 import { map, mapCommon, MapComponent } from '@kit.MapKit';
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
 import { util } from '@kit.ArkTS';
@@ -110,7 +110,7 @@ import { util } from '@kit.ArkTS';
 @Entry
 @Component
 export struct Index {
- <em> // MapKit相关配置</em>
+  // MapKit相关配置
   private mapOptions?: mapCommon.MapOptions;
   private callback?: AsyncCallback<map.MapComponentController>;
   private mapController?: map.MapComponentController;
@@ -118,11 +118,11 @@ export struct Index {
   uiContext = this.getUIContext();
 
   aboutToAppear(): void {
-   <em> // 获取地图样式json串</em>
+    // 获取地图样式json串
     try {
       this.uiContext?.getHostContext()?.resourceManager.getRawFileContent("mapStyle.json").then((value: Uint8Array) => {
-        let textDecoder: util.TextDecoder = util.TextDecoder.create(); <em>// 调用util模块的TextDecoder类</em>
-        let retStr: string = textDecoder.decodeToString(value); <em>// 对Uint8Array解码</em>
+        let textDecoder: util.TextDecoder = util.TextDecoder.create(); // 调用util模块的TextDecoder类
+        let retStr: string = textDecoder.decodeToString(value); // 对Uint8Array解码
         this.mapStyle = retStr;
       }).catch((error: BusinessError) => {
         console.error(`getRawFileContent promise error is ${error}`);
@@ -132,7 +132,7 @@ export struct Index {
       let message = (error as BusinessError).message;
       console.error(`promise getRawFileContent failed, error code: ${code}, message: ${message}.`);
     }
-   <em> // 地图初始化参数，设置地图中心点坐标及层级</em>
+    // 地图初始化参数，设置地图中心点坐标及层级
     this.mapOptions = {
       position: {
         target: {
@@ -143,10 +143,10 @@ export struct Index {
       },
     };
 
-  <em>  // 地图初始化的回调</em>
+    // 地图初始化的回调
     this.callback = async (err, mapController) => {
       if (!err) {
-     <em>   // 获取地图的控制器类，用来操作地图</em>
+        // 获取地图的控制器类，用来操作地图
         this.mapController = mapController;
         let param: mapCommon.CustomMapStyleOptions = {
           styleContent: this.mapStyle
@@ -157,14 +157,14 @@ export struct Index {
   }
 
   onPageShow(): void {
-   <em> // 将地图切换到前台</em>
+    // 将地图切换到前台
     if (this.mapController) {
       this.mapController.show();
     }
   }
 
   onPageHide(): void {
-  <em>  // 将地图切换到后台</em>
+    // 将地图切换到后台
     if (this.mapController) {
       this.mapController.hide();
     }

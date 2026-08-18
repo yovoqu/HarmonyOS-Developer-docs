@@ -38,9 +38,9 @@ import { taskpool } from '@kit.ArkTS';
 
 @Concurrent
 async function taskpoolFunc2(vaTmp: AppstorageTmpValues): Promise<AppstorageTmpValues> {
- <em> // 在taskpool子线程中直接读AppStorage里面的值,会报错ReferenceError: AppStorage is not defined</em>
-  console.info('taskpool backupId:' + vaTmp.backupId); <em>// 输出22222</em>
-  console.info('taskpool isLightMode:' + vaTmp.isLightMode); <em>// 输出true</em>
+  // 在taskpool子线程中直接读AppStorage里面的值,会报错ReferenceError: AppStorage is not defined
+  console.info('taskpool backupId:' + vaTmp.backupId); // 输出22222
+  console.info('taskpool isLightMode:' + vaTmp.isLightMode); // 输出true
   taskpool.Task.sendData(vaTmp);
   vaTmp.backupId = '33333';
   vaTmp.isLightMode = false;
@@ -54,9 +54,9 @@ async function mainFunc(): Promise<void> {
     isLightMode: AppStorage.get('isLightMode') as boolean,
     backupId: AppStorage.get('backupId') as string
   };
-<em>  // 直接将AppStorage指定值作为参数传递给taskpool子线程</em>
+  // 直接将AppStorage指定值作为参数传递给taskpool子线程
   let task2: taskpool.Task = new taskpool.Task(taskpoolFunc2, appStateTmp);
-<em>  // 设置notice方法接收子线程发送的消息</em>
+  // 设置notice方法接收子线程发送的消息
   task2.onReceiveData(notice);
   let res2: AppstorageTmpValues = await taskpool.execute(task2) as AppstorageTmpValues;
   console.info("ui main get backupId: " + res2.backupId); // 输出33333
@@ -121,7 +121,7 @@ import { taskpool } from '@kit.ArkTS';
 async function taskpoolFunc(isLightModeTmp: boolean): Promise<string> {
   console.info('UI主线程过来数据isLightMode:' + isLightModeTmp);
   let backupIdTmp: string = '';
- <em> // 在taskpool子线程中直接读AppStorage里面的值,会报错ReferenceError: AppStorage is not defined</em>
+  // 在taskpool子线程中直接读AppStorage里面的值,会报错ReferenceError: AppStorage is not defined
   emitter.on("eventIdTmp", (eventData: emitter.EventData) => {
     let data = eventData?.data;
     if (data) {
@@ -135,10 +135,10 @@ async function taskpoolFunc(isLightModeTmp: boolean): Promise<string> {
 }
 
 async function mainFunc(): Promise<void> {
- <em> // 直接将AppStorage值作为参数传递给taskpool子线程</em>
+  // 直接将AppStorage值作为参数传递给taskpool子线程
   let task1: taskpool.Task = new taskpool.Task(taskpoolFunc, AppStorage.get('isLightMode') as boolean);
   let res1: string = await taskpool.execute(task1) as string;
- <em> // 调整AppStorage里面的值</em>
+  // 调整AppStorage里面的值
   AppStorage.setOrCreate('backupId', '8111122555');
   let eventData: emitter.EventData = {
     data: {
@@ -146,7 +146,7 @@ async function mainFunc(): Promise<void> {
       "backupId": AppStorage.get('backupId'),
     }
   };
-<em>  // 通过emitter将UI主线程的AppStorage作为消息发送给taskpool子线程</em>
+  // 通过emitter将UI主线程的AppStorage作为消息发送给taskpool子线程
   emitter.emit("eventIdTmp", eventData);
   console.info("taskpool: task res1 is: " + res1);
 }
@@ -190,7 +190,7 @@ let preferences: sendablePreferences.Preferences;
 
 @Concurrent
 async function taskpoolFunc(preferences: sendablePreferences.Preferences): Promise<void> {
- <em> // taskpool子线程从共享用户首选项获取backupId</em><em>配置值，默认取不到返回空</em>
+  // taskpool子线程从共享用户首选项获取backupId配置值，默认取不到返回空
   let backupIdTmp: string = '';
   let backupIdPromise = preferences.get('backupId', '');
   backupIdPromise.then((data: lang.ISendable) => {
@@ -202,7 +202,7 @@ async function taskpoolFunc(preferences: sendablePreferences.Preferences): Promi
 }
 
 async function mainFunc(): Promise<void> {
-<em>  // UI主线程中从共享用户首选项获取isLightMode</em><em>配置值，默认取不到返回</em>false
+  // UI主线程中从共享用户首选项获取isLightMode配置值，默认取不到返回false
   let isLightModeTmp = false;
   let isLightModePromise = preferences.get('isLightMode', false);
   isLightModePromise.then((data: lang.ISendable) => {
@@ -212,7 +212,7 @@ async function mainFunc(): Promise<void> {
     console.error(`Failed to get value of 'isLightMode'. code: ${err.code}, message: ${err.message}`);
   });
 
- <em> // UI主线程中从共享用户首选项获取backupId配置值，默认取不到返回空</em>
+  // UI主线程中从共享用户首选项获取backupId配置值，默认取不到返回空
   let backupIdTmp = '';
   let backupIdPromise = preferences.get('backupId', '');
   backupIdPromise.then((data: lang.ISendable) => {
@@ -222,7 +222,7 @@ async function mainFunc(): Promise<void> {
     console.error(`Failed to get value of 'backupId'. code: ${err.code}, message: ${err.message}`);
   });
 
- <em> // 将共享首选项的preferences（继承自ISendable）引用传递给taskpool子线程</em>
+  // 将共享首选项的preferences（继承自ISendable）引用传递给taskpool子线程
   let task: taskpool.Task = new taskpool.Task(taskpoolFunc, preferences);
   await taskpool.execute(task);
 }
@@ -231,16 +231,16 @@ async function mainFunc(): Promise<void> {
 @Component
 struct WayThree {
   aboutToAppear(): void {
-  <em>  // 创建AppStorage</em>
+    // 创建AppStorage
     AppStorage.setOrCreate('isLightMode', true);
     AppStorage.setOrCreate('backupId', '8976756778');
- <em>   // 添加sendablePreferences相关项</em>
+    // 添加sendablePreferences相关项
     let options: sendablePreferences.Options = { name: 'myStore' };
     let context = this.getUIContext().getHostContext()!;
     let promise = sendablePreferences.getPreferences(context, options);
     promise.then((object: sendablePreferences.Preferences) => {
       preferences = object;
-   <em>   // 写入sendablePreferences首选项键值</em>
+      // 写入sendablePreferences首选项键值
       preferences.put('isLightMode', AppStorage.get('isLightMode') as boolean);
       preferences.put('backupId', AppStorage.get('backupId') as string);
       console.info("Succeeded in getting preferences.");

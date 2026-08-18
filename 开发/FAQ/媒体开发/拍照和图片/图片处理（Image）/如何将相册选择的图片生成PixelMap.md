@@ -37,7 +37,7 @@ struct WebComponent {
             uris = PhotoSelectResult.photoUris;
             let phAccessHelper = photoAccessHelper.getPhotoAccessHelper(context);
             let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
-           <em> // Configure query conditions, use PhotoViewPicker to select the URI of the image to be queried</em>
+            // Configure query conditions, use PhotoViewPicker to select the URI of the image to be queried
             predicates.equalTo('uri', uris[0]);
             let fetchOptions: photoAccessHelper.FetchOptions = {
               fetchColumns: [],
@@ -48,7 +48,7 @@ struct WebComponent {
                 console.info('fetchResult success');
                 let photoAsset: photoAccessHelper.PhotoAsset = await fetchResult.getFirstObject();
                 if (photoAsset !== undefined) {
-                <em>  // Get Thumbnail</em>
+                  // Get Thumbnail
                   photoAsset.getThumbnail((err, pixelMap) => {
                     if (err == undefined) {
                       console.info('getThumbnail successful ' + JSON.stringify(pixelMap));

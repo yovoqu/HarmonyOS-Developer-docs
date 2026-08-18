@@ -10,14 +10,14 @@
 export class AudioRenderPlayer {
   private renderModel: audio.AudioRenderer | undefined = undefined;
   private audioStreamInfo: audio.AudioStreamInfo = {
-    samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_16000,<em> </em><em>// 采样率</em>
-    channels: audio.AudioChannel.CHANNEL_1, <em>// </em><em>通道</em>
-    sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE,<em> </em><em>// 采样格式</em>
-    encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW <em>// </em><em>编码格式</em>
+    samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_16000, // 采样率
+    channels: audio.AudioChannel.CHANNEL_1, // 通道
+    sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE, // 采样格式
+    encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW // 编码格式
   }
   private audioRendererInfo: audio.AudioRendererInfo = {
-    usage: audio.StreamUsage.STREAM_USAGE_VOICE_COMMUNICATION, <em>// 音频流使用类型</em>
-    rendererFlags: 0<em> </em><em>// 音频渲染器标志</em>
+    usage: audio.StreamUsage.STREAM_USAGE_VOICE_COMMUNICATION, // 音频流使用类型
+    rendererFlags: 0 // 音频渲染器标志
   }
   private audioRendererOptions: audio.AudioRendererOptions = {
     streamInfo: this.audioStreamInfo,
@@ -53,8 +53,8 @@ export class AudioRenderPlayer {
 - 可以尝试更换音频流类型为**STREAM_USAGE_MUSIC**，默认会从扬声器播放。
 ```text
 let audioRendererInfo: audio.AudioRendererInfo = {
-  usage: audio.StreamUsage.STREAM_USAGE_MUSIC, <em>// </em><em>音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。</em>
-  rendererFlags: 0 <em>// </em><em>音频渲染器标志。</em>
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC, // 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。
+  rendererFlags: 0 // 音频渲染器标志。
 };
 ```
  完整代码可参考：使用AudioRenderer开发音频播放功能[完整示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-audiorenderer-for-playback#完整示例)。

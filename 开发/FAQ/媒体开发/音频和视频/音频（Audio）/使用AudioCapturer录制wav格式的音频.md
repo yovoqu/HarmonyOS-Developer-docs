@@ -41,14 +41,14 @@ class Options {
 
 let audioCapturer: audio.AudioCapturer | undefined = undefined;
 let audioStreamInfo: audio.AudioStreamInfo = {
-  samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_48000,<em> </em><em>// 采样率。</em>
-  channels: audio.AudioChannel.CHANNEL_2, <em>// 通道。</em>
-  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE, <em>// 采样格式。</em>
-  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW <em>// 编码格式。</em>
+  samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_48000, // 采样率。
+  channels: audio.AudioChannel.CHANNEL_2, // 通道。
+  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE, // 采样格式。
+  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW // 编码格式。
 };
 let audioCapturerInfo: audio.AudioCapturerInfo = {
-  source: audio.SourceType.SOURCE_TYPE_MIC, <em>// </em><em>音源类型：Mic音频源。根据业务场景配置，参考SourceType。</em>
-  capturerFlags: 0 <em>// </em><em>音频采集器标志。</em>
+  source: audio.SourceType.SOURCE_TYPE_MIC, // 音源类型：Mic音频源。根据业务场景配置，参考SourceType。
+  capturerFlags: 0 // 音频采集器标志。
 };
 let audioCapturerOptions: audio.AudioCapturerOptions = {
   streamInfo: audioStreamInfo,
@@ -72,9 +72,9 @@ async function initArguments(context: common.UIAbilityContext) {
   };
 }
 
-<em>// </em><em>初始化，创建实例，设置监听事件。</em>
+// 初始化，创建实例，设置监听事件。
 async function init() {
-  audio.createAudioCapturer(audioCapturerOptions, (err, capturer) => { <em>// 创建AudioCapturer实例。</em>
+  audio.createAudioCapturer(audioCapturerOptions, (err, capturer) => { // 创建AudioCapturer实例。
     if (err) {
       console.error(`Invoke createAudioCapturer failed, code is ${err.code}, message is ${err.message}`);
       return;
@@ -87,17 +87,17 @@ async function init() {
   });
 }
 
-<em>// </em><em>开始一次音频采集。</em>
+// 开始一次音频采集。
 async function start() {
   if (audioCapturer !== undefined) {
     let stateGroup = [audio.AudioState.STATE_PREPARED, audio.AudioState.STATE_PAUSED, audio.AudioState.STATE_STOPPED];
     if (stateGroup.indexOf(audioCapturer.state.valueOf()) ===
-      -1) {<em> </em><em>// 当且仅当状态为STATE_PREPARED、STATE_PAUSED和STATE_STOPPED之一时才能启动采集。</em>
+      -1) { // 当且仅当状态为STATE_PREPARED、STATE_PAUSED和STATE_STOPPED之一时才能启动采集。
       console.error(`${TAG}: start failed`);
       return;
     }
 
-  <em>  // 启动采集。</em>
+    // 启动采集。
     audioCapturer.start((err: BusinessError) => {
       if (err) {
         console.error('Capturer start failed.');
@@ -108,17 +108,17 @@ async function start() {
   }
 }
 
-<em>// </em><em>停止采集。</em>
+// 停止采集。
 async function stop() {
   if (audioCapturer !== undefined) {
-  <em>  // 只有采集器状态为STATE_RUNNING或STATE_PAUSED的时候才可以停止。</em>
+    // 只有采集器状态为STATE_RUNNING或STATE_PAUSED的时候才可以停止。
     if (audioCapturer.state.valueOf() !== audio.AudioState.STATE_RUNNING &&
       audioCapturer.state.valueOf() !== audio.AudioState.STATE_PAUSED) {
       console.info('Capturer is not running or paused');
       return;
     }
 
-   <em> // 停止采集。</em>
+    // 停止采集。
     audioCapturer.stop((err: BusinessError) => {
       if (err) {
         console.error('Capturer stop failed.');
@@ -129,17 +129,17 @@ async function stop() {
   }
 }
 
-<em>// </em><em>销毁实例，释放资源。</em>
+// 销毁实例，释放资源。
 async function release() {
   if (audioCapturer !== undefined) {
-   <em> // 采集器状态不是STATE_RELEASED或STATE_NEW状态，才能release。</em>
+    // 采集器状态不是STATE_RELEASED或STATE_NEW状态，才能release。
     if (audioCapturer.state.valueOf() === audio.AudioState.STATE_RELEASED ||
       audioCapturer.state.valueOf() === audio.AudioState.STATE_NEW) {
       console.info('Capturer already released');
       return;
     }
 
-  <em>  // 释放资源。</em>
+    // 释放资源。
     audioCapturer.release((err: BusinessError) => {
       if (err) {
         console.error('Capturer release failed.');
@@ -278,7 +278,7 @@ interface WavHeader {
   dataSize: number
 };
 
-<em>// pcm</em><em>转wav工具类</em>
+// pcm转wav工具类
 class pcmToWav {
   private context: Context;
 
@@ -286,21 +286,21 @@ class pcmToWav {
     this.context = context;
   }
 
-<em>  // wav文件需要的文件头</em>
+  // wav文件需要的文件头
   waveHeader: WavHeader = {
-    riff: 'RIFF', <em>// "RIFF"</em>
-    fileSize: 0, <em>// 文件大小减去8</em>
-    wave: 'WAVE', <em>// ”WAVE“</em>
-    fmtChunkMarker: 'fmt ', <em>// "fmt "</em>
-    fmtSize: 16, <em>// 16</em>
-    formatType: 1,<em> </em><em>// 1（表示PCM）</em>
-    channels: 2,<em> </em><em>// 声道数</em>
-    sampleRate: 48000,<em> </em><em>// 采样率</em>
-    byteRate: 48000 * 2 * 2, <em>// 每秒字节数(SampleRate * Channels * BitsPerSample / 8)</em>
-    blockAlign: 2 * 2,<em> </em><em>// 帧大小(channels * BitsPerSample / 8)</em>
-    bitsPerSample: 16, <em>// 采样位数</em>
-    dataChunkMarker: 'data', <em>// ”data“</em>
-    dataSize: 0,<em> </em><em>// 数据大小</em>
+    riff: 'RIFF', // "RIFF"
+    fileSize: 0, // 文件大小减去8
+    wave: 'WAVE', // ”WAVE“
+    fmtChunkMarker: 'fmt ', // "fmt "
+    fmtSize: 16, // 16
+    formatType: 1, // 1（表示PCM）
+    channels: 2, // 声道数
+    sampleRate: 48000, // 采样率
+    byteRate: 48000 * 2 * 2, // 每秒字节数(SampleRate * Channels * BitsPerSample / 8)
+    blockAlign: 2 * 2, // 帧大小(channels * BitsPerSample / 8)
+    bitsPerSample: 16, // 采样位数
+    dataChunkMarker: 'data', // ”data“
+    dataSize: 0, // 数据大小
   };
 
   setString(idx: number, str: string, view: DataView) {
@@ -309,12 +309,12 @@ class pcmToWav {
     }
   }
 
- <em> /**</em>
-<em>   * 为pcm文件封装wav头</em>
-<em>   * @param pcmFilePath 保存录制的pcm数据的沙箱文件路径</em>
-<em>   */</em>
+  /**
+   * 为pcm文件封装wav头
+   * @param pcmFilePath 保存录制的pcm数据的沙箱文件路径
+   */
   async pcmTranslate(pcmFilePath: string) {
-  <em>  // 创建一个大小为44字节的缓冲区，用于存储wav文件的头部信息，再将其写入输出文件</em>
+    // 创建一个大小为44字节的缓冲区，用于存储wav文件的头部信息，再将其写入输出文件
     let fileSize = 0;
     try {
       fileSize = fileIo.statSync(pcmFilePath).size;
@@ -327,55 +327,55 @@ class pcmToWav {
     let idx: number = 0;
     let buffer: ArrayBuffer = new ArrayBuffer(44);
     let bufferView: DataView = new DataView(buffer);
-   <em> // riff</em>
+    // riff
     this.setString(idx, this.waveHeader.riff, bufferView);
     idx += 4;
-  <em>  // file size</em>
+    // file size
     bufferView.setInt32(idx, this.waveHeader.fileSize, true);
     idx += 4;
-  <em>  // wave</em>
+    // wave
     this.setString(idx, this.waveHeader.wave, bufferView);
     idx += 4;
-  <em>  // fmt</em>
+    // fmt
     this.setString(idx, this.waveHeader.fmtChunkMarker, bufferView);
     idx += 4;
-  <em>  // fmt size</em>
+    // fmt size
     bufferView.setInt32(idx, this.waveHeader.fmtSize, true);
     idx += 4;
- <em>   // format type</em>
+    // format type
     bufferView.setInt16(idx, this.waveHeader.formatType, true);
     idx += 2;
- <em>   // channels</em>
+    // channels
     bufferView.setInt16(idx, this.waveHeader.channels, true);
     idx += 2;
-  <em>  // sample rate</em>
+    // sample rate
     bufferView.setInt32(idx, this.waveHeader.sampleRate, true);
     idx += 4;
-   <em> // byte rate</em>
+    // byte rate
     bufferView.setInt32(idx, this.waveHeader.byteRate, true);
     idx += 4;
-  <em>  // block align</em>
+    // block align
     bufferView.setInt16(idx, this.waveHeader.blockAlign, true);
     idx += 2;
-  <em>  // bits per sample</em>
+    // bits per sample
     bufferView.setInt16(idx, this.waveHeader.bitsPerSample, true);
     idx += 2;
-  <em>  // data</em>
+    // data
     this.setString(idx, this.waveHeader.dataChunkMarker, bufferView);
     idx += 4;
-  <em>  // data size</em>
+    // data size
     bufferView.setInt32(idx, this.waveHeader.dataSize, true);
 
-  <em>  // 将PCM数据从输入文件写入输出文件，使用fs.readSync读取输入文件的数据，并写入输出文件，直到读取完毕</em>
-    let path = this.context.filesDir + '/output.wav'; <em>// output wav file path</em>
+    // 将PCM数据从输入文件写入输出文件，使用fs.readSync读取输入文件的数据，并写入输出文件，直到读取完毕
+    let path = this.context.filesDir + '/output.wav'; // output wav file path
     let inputFile: fileIo.File | undefined;
     let outputFile: fileIo.File | undefined;
     try {
       inputFile = fileIo.openSync(pcmFilePath, fileIo.OpenMode.READ_ONLY);
       outputFile = fileIo.openSync(path, fileIo.OpenMode.CREATE | fileIo.OpenMode.TRUNC | fileIo.OpenMode.WRITE_ONLY);
-    <em>  // write wav header</em>
+      // write wav header
       fileIo.writeSync(outputFile.fd, buffer);
-    <em>  // write pcm data</em>
+      // write pcm data
       let readSize = 0;
       let readBuf = new ArrayBuffer(1024 * 1024);
       do {

@@ -45,11 +45,11 @@
 1. 报错2301013 Permission denied，建议客户端bind更大的端口，避免使用系统保留端口。
 2. 报错2301099 Address not available，可以使用0.0.0.0（IPv4通配符）或::（IPv6通配符）绑定本地所有地址：
 ```text
-<em>// socket绑定0.0.0.0作为本机IP地址，参考样例:</em>
+// socket绑定0.0.0.0作为本机IP地址，参考样例:
 bindAllAddress() {
   let udp: socket.UDPSocket = socket.constructUDPSocketInstance();
   let bindAddr: socket.NetAddress = {
-    address: '0.0.0.0',<em> // 本端地址</em>
+    address: '0.0.0.0', // 本端地址
     port: 1234
   };
   udp.bind(bindAddr)
@@ -65,7 +65,7 @@ bindAllAddress() {
 
   
 ```text
-<em>// 获取WiFi IPV4地址，参考样例:</em>
+// 获取WiFi IPV4地址，参考样例:
 getWifiIp() {
   let localAddress = this.resolveIP(wifiManager.getIpInfo().ipAddress) as string;
   console.info(`localAddress: ${localAddress}`);
@@ -104,7 +104,7 @@ bindWithoutRandomPort(address: socket.NetAddress) {
         console.info('应用绑定的端口正确');
       } else {
         console.error(`应用重新绑定了另外的端口: ${localAddress.port}`);
-     <em>   // ...</em>
+        // ...
       }
     }).catch((err: Error) => {
       console.error(`获取UDP Socket地址失败: ${JSON.stringify(err)}`);
@@ -128,7 +128,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct SocketBindExample {
- <em> // 获取WiFi IPV4地址，参考样例:</em>
+  // 获取WiFi IPV4地址，参考样例:
   getWifiIp() {
     let localAddress = this.resolveIP(wifiManager.getIpInfo().ipAddress) as string;
     console.info(`localAddress: ${localAddress}`);
@@ -147,11 +147,11 @@ struct SocketBindExample {
     return ipRegex.test(ip);
   }
 
- <em> // socket绑定0.0.0.0作为本机IP地址，参考样例:</em>
+  // socket绑定0.0.0.0作为本机IP地址，参考样例:
   bindAllAddress() {
     let udp: socket.UDPSocket = socket.constructUDPSocketInstance();
     let bindAddr: socket.NetAddress = {
-      address: '0.0.0.0',<em> // 本端地址</em>
+      address: '0.0.0.0', // 本端地址
       port: 1234
     };
     udp.bind(bindAddr)
@@ -180,7 +180,7 @@ struct SocketBindExample {
           console.info('应用绑定的端口正确');
         } else {
           console.error(`应用重新绑定了另外的端口: ${localAddress.port}`);
-        <em>  // ...</em>
+          // ...
         }
       }).catch((err: Error) => {
         console.error(`获取UDP Socket地址失败: ${JSON.stringify(err)}`);

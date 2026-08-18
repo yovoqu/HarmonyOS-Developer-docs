@@ -64,7 +64,7 @@ struct PdfPage {
 
   async aboutToAppear(): Promise<void> {
     try {
-     <em> //确保rawfile目录下有pdf文件</em>
+      //确保rawfile目录下有pdf文件
       await this.copyRawFileToSdcard(this.context, 'input_src.pdf');
       await this.copyRawFileToSdcard(this.context, 'input_add.pdf');
       promptAction.openToast({ message: '全部拷贝完成' });
@@ -75,7 +75,7 @@ struct PdfPage {
 
   build() {
     Column() {
-     <em> // 将input_add.pdf文档页插入到input_src.pdf末尾的位置，并另存文档</em>
+      // 将input_add.pdf文档页插入到input_src.pdf末尾的位置，并另存文档
       Button('insertPageFromDocument').onClick(async () => {
         let filePath = this.context.filesDir + '/input_src.pdf';
         let loadResult: pdfService.ParseResult = this.pdfDocument.loadDocument(filePath);
@@ -85,7 +85,7 @@ struct PdfPage {
           promptAction.openToast({ message: '加载失败' });
         }
         let pdfDoc: pdfService.PdfDocument = new pdfService.PdfDocument();
-      <em>  // 确保该沙箱目录下有input_add.pdf文档</em>
+        // 确保该沙箱目录下有input_add.pdf文档
         let res = pdfDoc.loadDocument(this.context.filesDir + '/input_add.pdf');
         if (res === pdfService.ParseResult.PARSE_SUCCESS) {
           this.pdfDocument.insertPageFromDocument(pdfDoc, 0, pdfDoc.getPageCount(), this.lastPage);
@@ -100,16 +100,16 @@ struct PdfPage {
       })
 
       Button('addHeaderFooter').onClick(async () => {
-      <em>  // 确保沙箱目录有testInsertPageFromDocument.pdf文档</em>
+        // 确保沙箱目录有testInsertPageFromDocument.pdf文档
         let filePath = this.context.filesDir + '/testInsertPageFromDocument.pdf';
         let res = this.pdfDocument.loadDocument(filePath);
         if (res === pdfService.ParseResult.PARSE_SUCCESS) {
           let hfInfo: pdfService.HeaderFooterInfo = new pdfService.HeaderFooterInfo();
           hfInfo.fontInfo = new pdfService.FontInfo();
-       <em>   // 确保字体路径存在</em>
+          // 确保字体路径存在
           let font: Font = new Font();
           hfInfo.fontInfo.fontPath = font.getFontByName('HarmonyOS Sans')?.path;
-        <em>  // 如果不知道字体的具体名称，可以为空字符串</em>
+          // 如果不知道字体的具体名称，可以为空字符串
           hfInfo.fontInfo.fontName = '';
           hfInfo.textSize = 10;
           hfInfo.charset = pdfService.CharsetType.PDF_FONT_DEFAULT_CHARSET;
@@ -135,11 +135,11 @@ struct PdfPage {
     }
   }
 
-<em>  // 拷贝pdf文件到应用沙箱目录</em>
+  // 拷贝pdf文件到应用沙箱目录
   private copyRawFileToSdcard(context: common.Context, pdfName: string): Promise<void> {
     return new Promise((resolve) => {
       let destRoot = context.filesDir;
-    <em>  // rawfile下的文件名</em>
+      // rawfile下的文件名
       let srcFileName = pdfName;
       let destFilePath = `${destRoot}/${srcFileName}`;
       context.resourceManager.getRawFileContent(srcFileName, (error: BusinessError, data: Uint8Array) => {

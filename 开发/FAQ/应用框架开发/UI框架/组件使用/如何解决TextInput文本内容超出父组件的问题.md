@@ -12,7 +12,7 @@ TextInput组件绑定自定义键盘，如何实现当内容超过父组件宽�
  
 ```text
 build() {
- <em> // ...</em>
+  // ...
   RelativeContainer() {
     Text("￥")
       .fontSize(24)
@@ -29,8 +29,8 @@ build() {
       .fontColor($r('app.color.black'))
       .maxLines(1)
       .textAlign(TextAlign.End)
-      .enableKeyboardOnFocus(false) <em>// 不弹起系统键盘</em>
-      .caretColor(Color.Transparent)<em> // 设置光标透明色</em>
+      .enableKeyboardOnFocus(false) // 不弹起系统键盘
+      .caretColor(Color.Transparent) // 设置光标透明色
       .backgroundColor(Color.Transparent)
       .margin({ right: 12 })
       .padding(0)
@@ -68,7 +68,7 @@ build() {
     })
   }
 
- <em> // ...</em>
+  // ...
 
 }
 ```
@@ -114,7 +114,7 @@ struct Index {
   private calculator: Calculator = new Calculator(100, 100);
   private context: Context = this.getUIContext().getHostContext() as Context;
   private numbers: Array<string> =
-    this.context.resourceManager.getStringArrayValueSync($r('app.strarray.accounting_keyboard').id); <em>// 根据具体情况加载资源</em>
+    this.context.resourceManager.getStringArrayValueSync($r('app.strarray.accounting_keyboard').id); // 根据具体情况加载资源
 
   build() {
 
@@ -122,7 +122,7 @@ struct Index {
       Row() {
         Text('￥')
           .fontSize(24)
-          .fontColor($r('app.color.black')) <em>// 根据具体情况加载资源</em>
+          .fontColor($r('app.color.black')) // 根据具体情况加载资源
           .maxLines(1)
           .padding({ left: 3, right: 0 })
           .id('money_symbol')
@@ -134,15 +134,15 @@ struct Index {
 
         RelativeContainer() {
           TextInput({ text: this.input, placeholder: '0.00' })
-            .placeholderColor($r('app.color.black')) <em>// 根据具体情况加载资源</em>
+            .placeholderColor($r('app.color.black')) // 根据具体情况加载资源
             .placeholderFont({ size: 24, weight: FontWeight.Regular })
             .fontSize(24)
             .fontWeight(FontWeight.Regular)
-            .fontColor($r('app.color.black'))<em> // 根据具体情况加载资源</em>
+            .fontColor($r('app.color.black')) // 根据具体情况加载资源
             .maxLines(1)
             .textAlign(TextAlign.End)
-            .enableKeyboardOnFocus(false) <em>// 不弹起系统键盘</em>
-            .caretColor(Color.Transparent)<em> // 不希望有光标</em>
+            .enableKeyboardOnFocus(false) // 不弹起系统键盘
+            .caretColor(Color.Transparent) // 不希望有光标
             .backgroundColor(Color.Transparent)
             .margin({ right: 12 })
             .padding(0)
@@ -163,7 +163,7 @@ struct Index {
 
       Column() {
         Row({ space: 10 }) {
-         <em> // 给自定义键盘点击事件添加获焦操作。以按键数字“7”为例</em>
+          // 给自定义键盘点击事件添加获焦操作。以按键数字“7”为例
           KeyboardButton({ text: this.numbers[7] })
             .onClick(() => {
               this.input = this.calculator.input(this.numbers[7]);
@@ -241,14 +241,14 @@ struct Index {
               this.input = this.calculator.input(this.numbers[0]);
               this.getUIContext().getFocusController().requestFocus('money');
             });
-          KeyboardButton({ icon: $r('app.media.ic_keyboard_del') }) <em>// 根据具体情况加载资源</em>
+          KeyboardButton({ icon: $r('app.media.ic_keyboard_del') }) // 根据具体情况加载资源
             .onClick(() => {
               this.input = this.calculator.delete();
             });
           KeyboardButton({
             text: '完成',
             fontSize: 18,
-            fonColor: $r('app.color.white'),<em> // 根据具体情况加载资源</em>
+            fonColor: $r('app.color.white'), // 根据具体情况加载资源
             fontWeight: FontWeight.Medium
           })
             .onClick(() => {
@@ -280,7 +280,7 @@ export struct KeyboardButton {
   buttonWidth: number = 80;
   imageWidth: number = 29.5;
   fontSize: number = 24;
-  fonColor: ResourceStr = $r('app.color.black'); <em>// 根据具体情况加载资源</em>
+  fonColor: ResourceStr = $r('app.color.black'); // 根据具体情况加载资源
   fontWeight: FontWeight = FontWeight.Regular;
   btnBackground: ResourceStr = '';
   btnBackgroundPress: ResourceStr = '';
@@ -323,32 +323,32 @@ export struct KeyboardButton {
 
 - Calculator页面内容：
 ```text
-<em>/**</em>
-<em> */</em>
+/**
+ */
 export class Calculator {
-  <em>/**</em>
-<em>   * 整数位数</em>
-<em>   */</em>
+  /**
+   * 整数位数
+   */
   private digit: number = 10;
- <em> /**</em>
-<em>   * 小数点的位数</em>
-<em>   */</em>
+  /**
+   * 小数点的位数
+   */
   private accuracy: number = 2;
-<em>  /**</em>
-<em>   * 匹配的正则表达式</em>
-<em>   */</em>
+  /**
+   * 匹配的正则表达式
+   */
   private regExp: RegExp;
-<em>  /**</em>
-<em>   * 当前数字的字符串</em>
-<em>   */</em>
+  /**
+   * 当前数字的字符串
+   */
   private currentStr: string = '';
- <em> /**</em>
-<em>   * 前一个数字的字符串</em>
-<em>   */</em>
+  /**
+   * 前一个数字的字符串
+   */
   private lastStr: string = '';
- <em> /**</em>
-<em>   * 符号</em>
-<em>   */</em>
+  /**
+   * 符号
+   */
   private symbol: string = '';
 
   constructor(digit: number = 10, accuracy: number = 2) {
@@ -361,9 +361,9 @@ export class Calculator {
     this.regExp = new RegExp(`^-?\\\d{1,${this.digit}}(\\\.\\\d{1,${this.accuracy}})?$`);
   }
 
-  <em>/**</em>
-<em>   * 输入内容</em>
-<em>   */</em>
+  /**
+   * 输入内容
+   */
   input(str: string): string {
     if (str === '+' || str === '-') {
       if (this.symbol.length > 0) {
@@ -418,9 +418,9 @@ export class Calculator {
     }
   }
 
- <em> /**</em>
-<em>   * 删除内容</em>
-<em>   */</em>
+  /**
+   * 删除内容
+   */
   delete(): string {
     if (this.currentStr.length > 0) {
       this.currentStr = this.currentStr.slice(0, -1);
@@ -435,9 +435,9 @@ export class Calculator {
     return '';
   }
 
- <em> /**</em>
-<em>   * 计算</em>
-<em>   */</em>
+  /**
+   * 计算
+   */
   private calculate(): boolean {
     if (this.currentStr && this.lastStr) {
       const a: number = parseFloat(this.lastStr);

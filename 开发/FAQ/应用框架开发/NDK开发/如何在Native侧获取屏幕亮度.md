@@ -15,7 +15,7 @@ Native侧可通过napi_load_module接口访问到获取屏幕亮度的模块，�
 代码示例如下：
  1. ArkTS侧传入模块名称。
 ```ArkTS
-<em>// Screenbrightness/src/main/ets/pages/Index.ets</em>
+// Screenbrightness/src/main/ets/pages/Index.ets
 import testNapi from 'libscreenbrightness.so';
 
 @Entry
@@ -42,7 +42,7 @@ struct Index {
 
 2. 在Native侧获取屏幕亮度。
 ```cpp
-<em>// Screenbrightness/src/main/cpp/napi_init.cpp</em>
+// Screenbrightness/src/main/cpp/napi_init.cpp
 #include "hilog/log.h"
 #include "napi/native_api.h"
 #include <string>
@@ -115,7 +115,7 @@ extern "C" __attribute__((constructor)) void RegisterScreenBrightnessModule(void
 
 3. 在Index.d.ts文件中声明映射到ArkTS侧的Native接口。
 ```ts
-<em>// Screenbrightness/src/main/cpp/types/libscreenbrightness/Index.d.ts</em>
+// Screenbrightness/src/main/cpp/types/libscreenbrightness/Index.d.ts
 export const napiLoadModule: (a: string) => object;
 ```
 

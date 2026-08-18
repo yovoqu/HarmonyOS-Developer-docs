@@ -45,14 +45,14 @@ struct BindMenu {
 
   build() {
     Column() {
-     <em> // 绑定菜单的不显示组件，置于屏幕左上角</em>
+      // 绑定菜单的不显示组件，置于屏幕左上角
       Row() {
       }.width('0%')
       .height('0%')
       .bindContextMenu(this.isShown, this.MyMenu,
         {
           placement: Placement.BottomRight,
-          <em>// 根据点击屏幕位置设置菜单偏移</em>
+          // 根据点击屏幕位置设置菜单偏移
           offset: {
             x: this.clickX,
             y: this.clickY
@@ -60,7 +60,7 @@ struct BindMenu {
         });
 
 
-    <em>  // 控制isShown的组件，同时获取点击屏幕位置</em>
+      // 控制isShown的组件，同时获取点击屏幕位置
       Column() {
         Text('preview-builder')
           .width(200)

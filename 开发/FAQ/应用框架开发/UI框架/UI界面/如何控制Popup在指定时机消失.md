@@ -53,10 +53,10 @@ struct PopupControlMiss {
         })
         .bindPopup(this.customPopup, {
           message: 'this is a popup',
-          arrowHeight: 20, <em>// 设置气泡箭头高度</em>
-          arrowWidth: 20, <em>// 设置气泡箭头宽度</em>
-          radius: 20, <em>// 设置气泡的圆角</em>
-          shadow: ShadowStyle.OUTER_DEFAULT_XS, <em>// 设置气泡的阴影</em>
+          arrowHeight: 20, // 设置气泡箭头高度
+          arrowWidth: 20, // 设置气泡箭头宽度
+          radius: 20, // 设置气泡的圆角
+          shadow: ShadowStyle.OUTER_DEFAULT_XS, // 设置气泡的阴影
         });
       Button('PopupOptions')
         .onClick(() => {
@@ -66,9 +66,9 @@ struct PopupControlMiss {
           width: 300,
           message: 'This is a popup with PopupOptions',
           mask: false,
-          arrowPointPosition: ArrowPointPosition.START, <em>// 设置箭头的位置</em>
-          backgroundBlurStyle: BlurStyle.NONE, <em>// 关闭气泡的模糊背景</em>
-          popupColor: Color.Red, <em>// 设置气泡的背景色</em>
+          arrowPointPosition: ArrowPointPosition.START, // 设置箭头的位置
+          backgroundBlurStyle: BlurStyle.NONE, // 关闭气泡的模糊背景
+          popupColor: Color.Red, // 设置气泡的背景色
           autoCancel: false,
         });
     }

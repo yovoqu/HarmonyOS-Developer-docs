@@ -14,7 +14,7 @@ import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 function genIvParamsSpec() {
   let arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   let dataIv = new Uint8Array(arr);
-  <em>// The production environment should use randomly generated IVs. All zeros here are only for display purposes.</em>
+  // The production environment should use randomly generated IVs. All zeros here are only for display purposes.
   let ivBlob: cryptoFramework.DataBlob = { data: dataIv };
   let ivParamsSpec: cryptoFramework.IvParamsSpec = {
     algName: 'IvParamsSpec',

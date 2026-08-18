@@ -19,7 +19,7 @@ ArkTS无法直接回收C++对象。在ArkTS侧业务完成后，可以通过接�
 ```text
 napi_wrap(
     env, ArkTSDemo, CDemo,
-   <em> // Define a callback function for ArkTS object recycling to destroy C++objects and prevent memory leaks</em>
+    // Define a callback function for ArkTS object recycling to destroy C++objects and prevent memory leaks
     [](napi_env env, void *finalize_data, void *finalize_hint) {
         MyDemo *cDemo = (MyDemo *)finalize_data;
         delete cDemo;

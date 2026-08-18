@@ -212,7 +212,7 @@ HarmonyOS提供同层渲染能力把原生组件直接渲染到WebView层级，�
 ```text
 <div>
     <div id="bodyId">
-        <embed id="nativeSearch" type = "native/component" width="100%" height="100%" src="view"/>
+        
     </div>
 </div>
 ```

@@ -51,7 +51,7 @@ let C1y = spec.yCoordinate.toString(16).padStart(64, '0');
 let C2 = buffer.from(spec.cipherTextData).toString('hex');
 let C3 = buffer.from(spec.hashData).toString('hex');
 
-<em>// 拼接C1C2C3, 若要加前缀04表示C1未压缩</em>
+// 拼接C1C2C3, 若要加前缀04表示C1未压缩
 let result = '04' + C1x + C1y + C3 + C2;
 ```
  
@@ -75,7 +75,7 @@ function genData(result: string): cryptoFramework.DataBlob {
     cipherTextData: new Uint8Array(buffer.from(C2, 'hex').buffer),
     hashData: new Uint8Array(buffer.from(C3, 'hex').buffer),
   };
-  <em>// 此处的data可直接使用cryptoFramework进行SM2解密。</em>
+  // 此处的data可直接使用cryptoFramework进行SM2解密。
   let data = cryptoFramework.SM2CryptoUtil.genCipherTextBySpec(spec, 'C1C3C2');
   return data;
 }
@@ -112,7 +112,7 @@ function doEncryptByCommonKey2(data: string): string {
   let C2 = buffer.from(spec.cipherTextData).toString('hex');
   let C3 = buffer.from(spec.hashData).toString('hex');
 
- <em> // 拼接C1C2C3, 若要加前缀04表示C1未压缩</em>
+  // 拼接C1C2C3, 若要加前缀04表示C1未压缩
   let result = '04' + C1x + C1y + C3 + C2;
   console.info('doEncryptByCommonKey result:' + result);
   return result;
@@ -133,7 +133,7 @@ function genData(result: string): cryptoFramework.DataBlob {
     cipherTextData: new Uint8Array(buffer.from(C2, 'hex').buffer),
     hashData: new Uint8Array(buffer.from(C3, 'hex').buffer),
   };
-  <em>// 此处的data可直接使用cryptoFramework进行SM2解密。</em>
+  // 此处的data可直接使用cryptoFramework进行SM2解密。
   let data = cryptoFramework.SM2CryptoUtil.genCipherTextBySpec(spec, 'C1C3C2');
   return data;
 }

@@ -29,7 +29,7 @@
 示例代码如下：
  
 ```text
-<em>// 方案二：通过string的方式访问项目资源</em>
+// 方案二：通过string的方式访问项目资源
 @Entry
 @Component
 struct RatingExample1 {
@@ -41,7 +41,7 @@ struct RatingExample1 {
         .stars(5)
         .stepSize(0.5)
         .starStyle({
-         <em> // common目录与pages同级，文件名根据实际情况</em>
+          // common目录与pages同级，文件名根据实际情况
           backgroundUri: 'common/star1.png',
           foregroundUri: 'common/star2.png',
           secondaryUri: 'common/star3.png'

@@ -39,7 +39,7 @@ onWindowStageCreate(windowStage: window.WindowStage): void {
       hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
       return;
     }
-  <em>  // 初始化PersistentStorage</em>
+    // 初始化PersistentStorage
     PersistentStorage.persistProp('customerFlag', false);
     PersistentStorage.persistProp('offsetX', 0);
     PersistentStorage.persistProp('offsetY', 0);
@@ -63,7 +63,7 @@ struct Index {
   @State offset2Y: number = 0;
 
   aboutToAppear(): void {
-  <em>  // AppStorage获取对应值</em>
+    // AppStorage获取对应值
     this.flag = AppStorage.get<boolean>('customerFlag') ?? false;
     this.offsetX = AppStorage.get<number>('offsetX') ?? 0;
     this.offsetY = AppStorage.get<number>('offsetY') ?? 0;
@@ -77,7 +77,7 @@ struct Index {
         Button(this.flag ? '完成' : '自定义位置')
           .onClick(() => {
             this.flag = !this.flag;
-         <em>   // AppStorage设置对应属性值</em>
+            // AppStorage设置对应属性值
             AppStorage.setOrCreate('customerFlag', this.flag);
           });
       }
@@ -88,15 +88,15 @@ struct Index {
 
       Button('组件1')
         .zIndex(3)
-      <em>  // 组件平移位置</em>
+        // 组件平移位置
         .translate({ x: this.offsetX, y: this.offsetY, z: 0 })
         .gesture(
-    <em>      // 绑定拖动手势</em>
+          // 绑定拖动手势
           PanGesture()
             .onActionStart(() => {
               this.positionX = this.offsetX;
               this.positionY = this.offsetY;
-            })<em> // 当触发拖动手势时，根据回调函数修改组件的布局位置信息</em>
+            }) // 当触发拖动手势时，根据回调函数修改组件的布局位置信息
             .onActionUpdate((event: GestureEvent | undefined) => {
               if (!this.flag) {
                 return;
@@ -107,7 +107,7 @@ struct Index {
               }
             })
             .onActionEnd(() => {
-          <em>    // AppStorage设置对应属性值</em>
+              // AppStorage设置对应属性值
               AppStorage.setOrCreate('offsetX', this.offsetX);
               AppStorage.setOrCreate('offsetY', this.offsetY);
             })
@@ -115,15 +115,15 @@ struct Index {
 
       Button('组件2')
         .zIndex(2)
-     <em>   // 组件平移位置</em>
+        // 组件平移位置
         .translate({ x: this.offset2X, y: this.offset2Y, z: 0 })
         .gesture(
-        <em>  // 绑定拖动手势</em>
+          // 绑定拖动手势
           PanGesture()
             .onActionStart(() => {
               this.positionX = this.offset2X;
               this.positionY = this.offset2Y;
-            }) <em>// 当触发拖动手势时，根据回调函数修改组件的布局位置信息</em>
+            }) // 当触发拖动手势时，根据回调函数修改组件的布局位置信息
             .onActionUpdate((event: GestureEvent | undefined) => {
               if (!this.flag) {
                 return;
@@ -134,7 +134,7 @@ struct Index {
               }
             })
             .onActionEnd(() => {
-          <em>    // AppStorage设置对应属性值</em>
+              // AppStorage设置对应属性值
               AppStorage.setOrCreate('offset2X', this.offset2X);
               AppStorage.setOrCreate('offset2Y', this.offset2Y);
             })

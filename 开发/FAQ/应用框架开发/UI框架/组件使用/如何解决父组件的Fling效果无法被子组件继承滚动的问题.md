@@ -65,7 +65,7 @@ Fling效果，又被称为惯性滚动，是在App中的常见交互设计。在
 @Entry
 @Component
 struct StickyNestedScroll {
-  @State arr: number[] = []; <em>// 定义状态变量，用于存储列表数据。</em>
+  @State arr: number[] = []; // 定义状态变量，用于存储列表数据。
   private touchDown: boolean = false;
   private listTouchDown: boolean = false;
   private scrolling: boolean = false;
@@ -73,7 +73,7 @@ struct StickyNestedScroll {
   private listScroller: Scroller = new Scroller();
   private CONTENT_HEIGHT = 400;
 
-  <em>// 定义样式类listCard，用于统一ListItem样式。</em>
+  // 定义样式类listCard，用于统一ListItem样式。
   @Styles
   listCard() {
     .backgroundColor(Color.White)
@@ -99,16 +99,16 @@ struct StickyNestedScroll {
         Tabs({ barPosition: BarPosition.Start }) {
           TabContent() {
             List({ space: 10, scroller: this.listScroller }) {
-             <em> // 使用 ForEach遍历arr数组生成列表项。</em>
+              // 使用 ForEach遍历arr数组生成列表项。
               ForEach(this.arr, (item: number) => {
                 ListItem() {
                   Text('item' + item)
                     .fontSize(16);
-                }.listCard();<em> </em><em>// 应用listCard样式。</em>
+                }.listCard(); // 应用listCard样式。
               }, (item: number) => item.toString());
             }.width('100%')
             .edgeEffect(EdgeEffect.Spring)
-           <em> // 设置嵌套滚动模式。</em>
+            // 设置嵌套滚动模式。
             .nestedScroll({
               scrollForward: NestedScrollMode.PARENT_FIRST,
               scrollBackward: NestedScrollMode.SELF_FIRST
@@ -136,26 +136,26 @@ struct StickyNestedScroll {
         this.touchDown = false;
       }
     })
-  <em>  // 自定义滚动帧开始时的处理逻辑。</em>
+    // 自定义滚动帧开始时的处理逻辑。
     .onScrollFrameBegin((offset: number) => {
-     <em> // 如果正在滚动且偏移量大于0（向下滚动）。</em>
+      // 如果正在滚动且偏移量大于0（向下滚动）。
       if (this.scrolling && offset > 0) {
-        let yOffset: number = this.scroller.currentOffset().yOffset; <em>// </em><em>获取当前滚动偏移量。</em>
+        let yOffset: number = this.scroller.currentOffset().yOffset; // 获取当前滚动偏移量。
         if (yOffset >= this.CONTENT_HEIGHT) {
           this.listScroller.scrollBy(0, offset);
           return { offsetRemain: 0 };
         }
-      <em>  // </em><em>如果滚动将超过内容区域底部。</em>
+        // 如果滚动将超过内容区域底部。
         else if (yOffset + offset > this.CONTENT_HEIGHT) {
           this.listScroller.scrollBy(0, yOffset + offset - this.CONTENT_HEIGHT);
           return { offsetRemain: this.CONTENT_HEIGHT - yOffset };
         }
       }
-     <em> // 返回原始偏移量。</em>
+      // 返回原始偏移量。
       return { offsetRemain: offset };
     })
     .onScrollStart(() => {
-     <em> // 如果父Scroll被触摸且List未被触摸，则标记为正在滚动。</em>
+      // 如果父Scroll被触摸且List未被触摸，则标记为正在滚动。
       if (this.touchDown && !this.listTouchDown) {
         this.scrolling = true;
       }

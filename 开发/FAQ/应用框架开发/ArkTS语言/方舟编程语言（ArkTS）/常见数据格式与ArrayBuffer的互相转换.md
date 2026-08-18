@@ -25,11 +25,11 @@ ArrayBuffer是HarmonyOS开发中经常用到的数据类型，很多接口的入
 Base64转ArrayBuffer：
  
 ```text
-<em>/**</em>
-<em> * 将Base64格式字符串转换为ArrayBuffer类型</em>
-<em> * @param src Base64字符串</em>
-<em> * @returns ArrayBuffer格式数据</em>
-<em> */</em>
+/**
+ * 将Base64格式字符串转换为ArrayBuffer类型
+ * @param src Base64字符串
+ * @returns ArrayBuffer格式数据
+ */
 public static base64ToArrayBuffer(src: string): ArrayBuffer {
   if (src.length == 0) {
     return new ArrayBuffer(0);
@@ -43,16 +43,16 @@ public static base64ToArrayBuffer(src: string): ArrayBuffer {
 ArrayBuffer转Base64：
  
 ```text
-<em>/**</em>
-<em> * 将ArrayBuffer转换为Base64格式</em>
-<em> * @param src ArrayBuffer数据</em>
-<em> * @returns Base64格式字符串</em>
-<em> */</em>
+/**
+ * 将ArrayBuffer转换为Base64格式
+ * @param src ArrayBuffer数据
+ * @returns Base64格式字符串
+ */
 public static arrayBufferToBase64(src: ArrayBuffer): string {
   if (src.byteLength == 0) {
     return '';
   }
-<em>  // 将ArrayBuffer转成string，再编码成base64</em>
+  // 将ArrayBuffer转成string，再编码成base64
   let textDecoder = util.TextDecoder.create('utf-8');
   return textDecoder.decodeToString(new Uint8Array(src));
 }
@@ -63,11 +63,11 @@ public static arrayBufferToBase64(src: ArrayBuffer): string {
 string转ArrayBuffer：
  
 ```text
-<em>/**</em>
-<em> * 将字符串转换为ArrayBuffer格式</em>
-<em> * @param src 字符串</em>
-<em> * @returns ArrayBuffer格式数据</em>
-<em> */</em>
+/**
+ * 将字符串转换为ArrayBuffer格式
+ * @param src 字符串
+ * @returns ArrayBuffer格式数据
+ */
 public static stringToArrayBuffer(src: string): ArrayBuffer {
   if (src.length == 0) {
     return new ArrayBuffer(0);
@@ -81,11 +81,11 @@ public static stringToArrayBuffer(src: string): ArrayBuffer {
 ArrayBuffer转string：
  
 ```text
-<em>/**</em>
-<em> * 将ArrayBuffer格式转换为字符串</em>
-<em> * @param src ArrayBuffer格式数据</em>
-<em> * @returns 字符串</em>
-<em> */</em>
+/**
+ * 将ArrayBuffer格式转换为字符串
+ * @param src ArrayBuffer格式数据
+ * @returns 字符串
+ */
 public static arrayBufferToString(src: ArrayBuffer): string {
   let textDecoder = util.TextDecoder.create('UTF-8');
   let uint8Array = new Uint8Array(src);
@@ -98,11 +98,11 @@ public static arrayBufferToString(src: ArrayBuffer): string {
 collections.ArrayBuffer转ArrayBuffer：
  
 ```text
-<em>/**</em>
-<em> * 将collections.ArrayBuffer格式数据转换为ArrayBuffer</em>
-<em> * @param src collections.ArrayBuffer格式数据</em>
-<em> * @returns ArrayBuffer格式数据</em>
-<em> */</em>
+/**
+ * 将collections.ArrayBuffer格式数据转换为ArrayBuffer
+ * @param src collections.ArrayBuffer格式数据
+ * @returns ArrayBuffer格式数据
+ */
 public static CollectionsArrayBufferToArrayBuffer(src: collections.ArrayBuffer): ArrayBuffer {
   if (src.byteLength == 0) {
     return new ArrayBuffer(0);
@@ -116,11 +116,11 @@ public static CollectionsArrayBufferToArrayBuffer(src: collections.ArrayBuffer):
 ArrayBuffer转collections.ArrayBuffer：
  
 ```text
-<em>/**</em>
-<em> * 将ArrayBuffer格式数据转换为collections.ArrayBuffer</em>
-<em> * @param src ArrayBuffer格式数据</em>
-<em> * @returns collections.ArrayBuffer格式数据</em>
-<em> */</em>
+/**
+ * 将ArrayBuffer格式数据转换为collections.ArrayBuffer
+ * @param src ArrayBuffer格式数据
+ * @returns collections.ArrayBuffer格式数据
+ */
 public static ArrayBufferToCollectionsArrayBuffer(src: ArrayBuffer): collections.ArrayBuffer {
   if (src.byteLength == 0) {
     return new collections.ArrayBuffer(0);
@@ -198,15 +198,15 @@ utils/ArrayBufferUtil.ets：
 ```text
 import { collections, util } from '@kit.ArkTS';
 
-<em>/**</em>
-<em> * 提供Base64格式数据与ArrayBuffer的互相转换能力</em>
-<em> */</em>
+/**
+ * 提供Base64格式数据与ArrayBuffer的互相转换能力
+ */
 export class Base64Util {
-  <em>/**</em>
-<em>   * 将Base64格式字符串转换为ArrayBuffer类型</em>
-<em>   * @param src Base64字符串</em>
-<em>   * @returns ArrayBuffer格式数据</em>
-<em>   */</em>
+  /**
+   * 将Base64格式字符串转换为ArrayBuffer类型
+   * @param src Base64字符串
+   * @returns ArrayBuffer格式数据
+   */
   public static base64ToArrayBuffer(src: string): ArrayBuffer {
     if (src.length == 0) {
       return new ArrayBuffer(0);
@@ -217,16 +217,16 @@ export class Base64Util {
   }
 
 
-  <em>/**</em>
-<em>   * 将ArrayBuffer转换为Base64格式</em>
-<em>   * @param src ArrayBuffer数据</em>
-<em>   * @returns Base64格式字符串</em>
-<em>   */</em>
+  /**
+   * 将ArrayBuffer转换为Base64格式
+   * @param src ArrayBuffer数据
+   * @returns Base64格式字符串
+   */
   public static arrayBufferToBase64(src: ArrayBuffer): string {
     if (src.byteLength == 0) {
       return '';
     }
-    <em>// </em><em>将ArrayBuffer转成string，再编码成base64</em>
+    // 将ArrayBuffer转成string，再编码成base64
     let textDecoder = util.TextDecoder.create('utf-8');
     return textDecoder.decodeToString(new Uint8Array(src));
   }
@@ -234,15 +234,15 @@ export class Base64Util {
 }
 ;
 
-<em>/**</em>
-<em> * 提供string格式数据与ArrayBuffer的互相转换能力</em>
-<em> */</em>
+/**
+ * 提供string格式数据与ArrayBuffer的互相转换能力
+ */
 export class StringUtil {
-  <em>/**</em>
-<em>   * 将字符串转换为ArrayBuffer格式</em>
-<em>   * @param src 字符串</em>
-<em>   * @returns ArrayBuffer格式数据</em>
-<em>   */</em>
+  /**
+   * 将字符串转换为ArrayBuffer格式
+   * @param src 字符串
+   * @returns ArrayBuffer格式数据
+   */
   public static stringToArrayBuffer(src: string): ArrayBuffer {
     if (src.length == 0) {
       return new ArrayBuffer(0);
@@ -253,11 +253,11 @@ export class StringUtil {
   }
 
 
- <em> /**</em>
-<em>   * 将ArrayBuffer格式转换为字符串</em>
-<em>   * @param src ArrayBuffer格式数据</em>
-<em>   * @returns 字符串</em>
-<em>   */</em>
+  /**
+   * 将ArrayBuffer格式转换为字符串
+   * @param src ArrayBuffer格式数据
+   * @returns 字符串
+   */
   public static arrayBufferToString(src: ArrayBuffer): string {
     let textDecoder = util.TextDecoder.create('UTF-8');
     let uint8Array = new Uint8Array(src);
@@ -266,15 +266,15 @@ export class StringUtil {
 
 }
 
-<em>/**</em>
-<em> * 提供collections.ArrayBuffer格式数据与ArrayBuffer的互相转换能力</em>
-<em> */</em>
+/**
+ * 提供collections.ArrayBuffer格式数据与ArrayBuffer的互相转换能力
+ */
 export class CollectionsArrayBufferUtil {
-<em>  /**</em>
-<em>   * 将collections.ArrayBuffer格式数据转换为ArrayBuffer</em>
-<em>   * @param src collections.ArrayBuffer格式数据</em>
-<em>   * @returns ArrayBuffer格式数据</em>
-<em>   */</em>
+  /**
+   * 将collections.ArrayBuffer格式数据转换为ArrayBuffer
+   * @param src collections.ArrayBuffer格式数据
+   * @returns ArrayBuffer格式数据
+   */
   public static CollectionsArrayBufferToArrayBuffer(src: collections.ArrayBuffer): ArrayBuffer {
     if (src.byteLength == 0) {
       return new ArrayBuffer(0);
@@ -285,11 +285,11 @@ export class CollectionsArrayBufferUtil {
   }
 
 
-  <em>/**</em>
-<em>   * 将ArrayBuffer格式数据转换为collections.ArrayBuffer</em>
-<em>   * @param src ArrayBuffer格式数据</em>
-<em>   * @returns collections.ArrayBuffer格式数据</em>
-<em>   */</em>
+  /**
+   * 将ArrayBuffer格式数据转换为collections.ArrayBuffer
+   * @param src ArrayBuffer格式数据
+   * @returns collections.ArrayBuffer格式数据
+   */
   public static ArrayBufferToCollectionsArrayBuffer(src: ArrayBuffer): collections.ArrayBuffer {
     if (src.byteLength == 0) {
       return new collections.ArrayBuffer(0);

@@ -18,12 +18,12 @@
 ```text
 @ObservedV2
 class ItemModel {
-<em>  // 需要修改的属性值</em>
+  // 需要修改的属性值
   @Trace value: string = '';
 }
 
 class ListModel {
-<em>  // 通过静态数据直接初始化</em>
+  // 通过静态数据直接初始化
   static data: ItemModel[] = [
     {
       value: '修改前的值为：A'
@@ -33,7 +33,7 @@ class ListModel {
 
 @ObservedV2
 class ListViewModel {
-<em>  // 数据赋值给listData</em>
+  // 数据赋值给listData
   @Trace listData: ItemModel[] = ListModel.data;
 }
 
@@ -62,7 +62,7 @@ struct Index {
 
 2. **场景二**：@ObservedV2装饰的对象中使用了三方包中的类，三方包中类的实例数据变化了，对应的UI未刷新。案例如下：
 ```text
-<em>// PhoneInfo类定义在三方包中，无法使用@ObservedV2/@Trace</em>
+// PhoneInfo类定义在三方包中，无法使用@ObservedV2/@Trace
 class PhoneInfo {
   phone: string = '';
 
@@ -103,7 +103,7 @@ struct Index2 {
           .fontWeight(FontWeight.Bold)
         Button('模拟接口获取数据')
           .onClick(() => {
-          <em>  // 模拟接口获取数据</em>
+            // 模拟接口获取数据
             this.person.age = 19;
             this.person.phoneInfo.phone = '199****9999';
           })
@@ -144,7 +144,7 @@ struct Index2 {
 ```text
 @ObservedV2
 class ItemModel {
- <em> // 需要修改的属性值</em>
+  // 需要修改的属性值
   @Trace value: string = '';
 
   constructor(value: string) {
@@ -153,7 +153,7 @@ class ItemModel {
 }
 
 class ListModel {
- <em> // ItemModel需要使用new初始化</em>
+  // ItemModel需要使用new初始化
   static data: ItemModel[] = [
     new ItemModel('修改前的值为：A')
   ];
@@ -161,7 +161,7 @@ class ListModel {
 
 @ObservedV2
 class ListViewModel {
- <em> // 数据赋值给listData</em>
+  // 数据赋值给listData
   @Trace listData: ItemModel[] = ListModel.data;
 }
 
@@ -207,7 +207,7 @@ struct Index1 {
 ```text
 import { UIUtils } from '@kit.ArkUI';
 
-<em>// PhoneInfo类定义在三方包中，无法使用@ObservedV2/@Trace</em>
+// PhoneInfo类定义在三方包中，无法使用@ObservedV2/@Trace
 class PhoneInfo {
   phone: string = '';
 
@@ -247,7 +247,7 @@ struct Index2 {
           .fontWeight(FontWeight.Bold)
         Button('模拟接口获取数据')
           .onClick(() => {
-          <em>  // 模拟接口获取数据</em>
+            // 模拟接口获取数据
             this.person.age = 19;
             this.person.phoneInfo.phone = '199****9999';
           })

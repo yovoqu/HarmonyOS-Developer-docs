@@ -45,20 +45,20 @@ struct SharePage {
   }
 
   sharePDF(){
-  <em>  // 获取文件沙箱路径</em>
+    // 获取文件沙箱路径
     let filePath = this.context.filesDir + '/test.pdf';
-  <em>  // 将沙箱路径转换为uri</em>
+    // 将沙箱路径转换为uri
     let uri = fileUri.getUriFromPath(filePath);
     let shareData: systemShare.SharedData = new systemShare.SharedData({
       utd: 'com.adobe.pdf',
       uri: uri,
-      title: '标题',<em> </em><em>// 不传title字段时,显示图片文件名</em>
-      description: '描述',<em> </em><em>// 不传description字段时,显示图片大小</em>
+      title: '标题', // 不传title字段时,显示图片文件名
+      description: '描述', // 不传description字段时,显示图片大小
     });
-  <em>  // 进行分享面板显示</em>
+    // 进行分享面板显示
     let controller: systemShare.ShareController = new systemShare.ShareController(shareData);
     controller.show(this.context, {
-      selectionMode: systemShare.SelectionMode.BATCH,<em> </em><em>// 选择模式默认为SINGLE,BATCH模式为批量分享</em>
+      selectionMode: systemShare.SelectionMode.BATCH, // 选择模式默认为SINGLE,BATCH模式为批量分享
       previewMode: systemShare.SharePreviewMode.DETAIL,
     }).then(() => {
       console.info('ShareController show success.');

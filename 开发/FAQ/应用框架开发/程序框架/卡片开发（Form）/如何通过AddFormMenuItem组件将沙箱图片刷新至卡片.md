@@ -21,7 +21,7 @@
 #### 解决方案
 1. 在主应用中将resource目录中图片保存至沙箱，并根据沙箱中图片路径读取，获取文件的fd。构造传递给卡片的数据，需注意传递对象的key要与卡片页面一致。
 ```ArkTS
-<em>//Index.ets</em>
+//Index.ets
 import { common } from '@kit.AbilityKit';
 import { fileIo, fileUri } from '@kit.CoreFileKit';
 import { AddFormMenuItem } from '@kit.ArkUI';
@@ -31,13 +31,13 @@ import { JSON } from '@kit.ArkTS';
 
 @ObservedV2
 export class CardModel {
- <em> // 需注意，采用状态变量监控后，实际属性key会发生变化</em>
+  // 需注意，采用状态变量监控后，实际属性key会发生变化
   @Trace cardID: string = '';
   @Trace cardTitle: string = '';
   imageBackgroundPath_Square: string = '';
- <em> // 卡片需要显示图片场景, 必须和下列字段formImages 中的key fileName 相同。</em>
+  // 卡片需要显示图片场景, 必须和下列字段formImages 中的key fileName 相同。
   imgName: string = 'fileName';
- <em> // 卡片需要显示图片场景, 必填字段(formImages 不可缺省或改名), fileName 对应 fd</em>
+  // 卡片需要显示图片场景, 必填字段(formImages 不可缺省或改名), fileName 对应 fd
   formImages: Record<string, number> = {};
 }
 
@@ -52,7 +52,7 @@ struct Index {
     try {
       const sandboxPath = this.context.filesDir + '/test.png';
       const resourceManager = this.context.resourceManager;
-      <em>// 加载media目录下的test图片</em>
+      // 加载media目录下的test图片
       const fileContent = resourceManager.getMediaContentSync($r('app.media.test').id);
 
       let file = fileIo.openSync(sandboxPath, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
@@ -78,17 +78,17 @@ struct Index {
   }
 
   async aboutToAppear() {
-   <em> // 保存图片</em>
+    // 保存图片
     await this.saveResourceToSandbox();
     this.newCard.cardID = '1';
     this.newCard.cardTitle = '测试';
 
-   <em> // 图片</em>
+    // 图片
     let fileName = 'file' + Date.now();
     let imgMap: Record<string, number> = {};
     this.newCard.imgName = fileName;
     this.newCard.formImages = imgMap;
-   <em> // 获取图片fd</em>
+    // 获取图片fd
     imgMap[fileName] = await this.getImageFd(this.newCard.imageBackgroundPath_Square);
     console.info('构造卡片初始化数据', JSON.stringify(this.newCard));
   }
@@ -98,7 +98,7 @@ struct Index {
     Menu() {
       AddFormMenuItem(
         {
-         <em> // 应用包名 需要更换自己的</em>
+          // 应用包名 需要更换自己的
           bundleName: 'com.zwl.myapplication',
           abilityName: 'EntryFormAbility',
           parameters: {
@@ -112,7 +112,7 @@ struct Index {
           formBindingData: formBindingData.createFormBindingData(this.newCard),
           callback: (error, formId) => {
             console.info('AddCardMenu', `callback info：error = ${JSON.stringify(error)}, formId = ${formId}`);
-          <em>  // 更新桌面卡片后 关闭文件</em>
+            // 更新桌面卡片后 关闭文件
             fileIo.closeSync(this.newCard.formImages[this.newCard.imgName]);
             if (error?.code === 0) {
               console.info('AddCardMenu', "添加至桌面成功");
@@ -129,7 +129,7 @@ struct Index {
     Row() {
       Column() {
         if (this.imageLoaded) {
-          Image(fileUri.getUriFromPath(this.newCard.imageBackgroundPath_Square))  <em> // 自定义图片</em>
+          Image(fileUri.getUriFromPath(this.newCard.imageBackgroundPath_Square))   // 自定义图片
             .id(this.newCard.cardID)
             .width(200)
             .height(200)

@@ -41,7 +41,7 @@
 #### 修改建议
 1. 将ArkTS端[getEncoded](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencoded)生成的公钥转换成裸公钥的格式：通过[getAsyKeySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getasykeyspec10)方法，指定参数[AsyKeySpecItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#asykeyspecitem10)为ECC_PK_X_BN和ECC_PK_Y_BN分别获取公钥的X坐标和Y坐标，然后将坐标转换成十六进制数据，数据不足64位补充前导零，将处理完的X和Y拼接起来，最后补充前缀04即可，代码实现为：
 ```text
-<em>// 将压缩公钥转换成非压缩公钥</em>
+// 将压缩公钥转换成非压缩公钥
 function convertPublicKeyFormat(keyPair: cryptoFramework.KeyPair): string {
   let x = keyPair.pubKey.getAsyKeySpec(cryptoFramework.AsyKeySpecItem.ECC_PK_X_BN);
   let y = keyPair.pubKey.getAsyKeySpec(cryptoFramework.AsyKeySpecItem.ECC_PK_Y_BN);
@@ -64,12 +64,12 @@ function bigIntTo32Bytes(bn: bigint): Uint8Array {
 
 function convertSignFormat(signData: cryptoFramework.DataBlob): string {
   let spec: cryptoFramework.EccSignatureSpec = cryptoFramework.SignatureUtils.genEccSignatureSpec(signData.data);
- <em> // 拼接r||s裸签名</em>
+  // 拼接r||s裸签名
   let rBytes = bigIntTo32Bytes(spec.r);
   let sBytes = bigIntTo32Bytes(spec.s);
   let rawSignature = new Uint8Array(64);
-  rawSignature.set(rBytes, 0); <em>// 0-31位写入r</em>
-  rawSignature.set(sBytes, 32); <em>// 32-63位写入s</em>
+  rawSignature.set(rBytes, 0); // 0-31位写入r
+  rawSignature.set(sBytes, 32); // 32-63位写入s
   return uint8ArrayToHexStr(rawSignature);
 }
 ```
@@ -101,11 +101,11 @@ struct Index {
 }
 
 
-<em>// uint8Array转16进制工具函数</em>
+// uint8Array转16进制工具函数
 function uint8ArrayToHexStr(array: Uint8Array): string {
   let result = '';
   for (let i = 0; i < array.length; i++) {
-    <em>// 将字节转为16进制并补齐两位，确保格式统一</em>
+    // 将字节转为16进制并补齐两位，确保格式统一
     const hexByte = array[i].toString(16).padStart(2, '0');
     result += hexByte;
   }
@@ -145,19 +145,19 @@ function bigIntTo32Bytes(bn: bigint): Uint8Array {
 
 function convertSignFormat(signData: cryptoFramework.DataBlob): string {
   let spec: cryptoFramework.EccSignatureSpec = cryptoFramework.SignatureUtils.genEccSignatureSpec(signData.data);
- <em> // 拼接r||s裸签名</em>
+  // 拼接r||s裸签名
   let rBytes = bigIntTo32Bytes(spec.r);
   let sBytes = bigIntTo32Bytes(spec.s);
   let rawSignature = new Uint8Array(64);
-  rawSignature.set(rBytes, 0); <em>// 0-31位写入r</em>
-  rawSignature.set(sBytes, 32); <em>// 32-63位写入s</em>
+  rawSignature.set(rBytes, 0); // 0-31位写入r
+  rawSignature.set(sBytes, 32); // 32-63位写入s
   return uint8ArrayToHexStr(rawSignature);
 }
 
 
 
 
-<em>// 将压缩公钥转换成非压缩公钥</em>
+// 将压缩公钥转换成非压缩公钥
 function convertPublicKeyFormat(keyPair: cryptoFramework.KeyPair): string {
   let x = keyPair.pubKey.getAsyKeySpec(cryptoFramework.AsyKeySpecItem.ECC_PK_X_BN);
   let y = keyPair.pubKey.getAsyKeySpec(cryptoFramework.AsyKeySpecItem.ECC_PK_Y_BN);

@@ -44,7 +44,7 @@ const DOMAIN = 0x0000;
 
 
 export default class EntryAbility extends UIAbility {
- <em> //当前window对象</em>
+  //当前window对象
   private currentWindowStage: window.WindowStage | null = null;
 
   onCreate(): void {
@@ -58,20 +58,20 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-  <em>  // Main window is created, set main page for this ability</em>
+    // Main window is created, set main page for this ability
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
     if (this.currentWindowStage === null) {
       this.currentWindowStage = windowStage;
     }
-   <em> // 存储windowStage</em>
+    // 存储windowStage
     AppStorage.setOrCreate('windowStage', windowStage);
     windowStage.loadContent('pages/Index', (err) => {
-    <em>  // 存储windowStatus</em>
+      // 存储windowStatus
       AppStorage.setOrCreate('windowStatus', window.WindowStatusType.FULL_SCREEN);
       windowStage.getMainWindow((err: BusinessError, data) => {
         if (err) {
-        <em>  // To do sth.</em>
+          // To do sth.
         }
         let windowClass = data;
         windowClass.on('windowStatusChange', (windowStatusType) => {
@@ -88,24 +88,24 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageDestroy(): void {
-   <em> // Main window is destroyed, release UI related resources</em>
+    // Main window is destroyed, release UI related resources
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
-   <em> // Ability has brought to foreground</em>
+    // Ability has brought to foreground
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground(): void {
-  <em>  // Ability has back to background</em>
+    // Ability has back to background
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 
   onPrepareToTerminate(): boolean {
-  <em>  // 开发者定义预关闭动作</em>
+    // 开发者定义预关闭动作
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onPrepareToTerminate');
-  <em>  // 例如关闭应用之前弹窗提示是否关闭app</em>
+    // 例如关闭应用之前弹窗提示是否关闭app
     let windowStatus = AppStorage.get('windowStatus') as window.WindowStatusType;
     if (windowStatus == window.WindowStatusType.MINIMIZE) {
       let mainWindowClass = this.currentWindowStage?.getMainWindowSync() as window.Window;
@@ -133,7 +133,7 @@ export default class EntryAbility extends UIAbility {
                 duration: 2000
               });
             } else {
-           <em>   // 确认关闭</em>
+              // 确认关闭
               this.context.terminateSelf();
             }
           });
@@ -165,7 +165,7 @@ export default class EntryAbility extends UIAbility {
               duration: 2000
             });
           } else {
-          <em>  // 确认关闭</em>
+            // 确认关闭
             this.context.terminateSelf();
           }
         });

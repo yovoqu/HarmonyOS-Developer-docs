@@ -13,7 +13,7 @@
 struct TotalView {
   @Prop @Watch('onCountUpdated') count: number = 0;
   @State total: number = 0;
- <em> // @Watch callback</em>
+  // @Watch callback
   onCountUpdated(propName: string): void {
     this.total += this.count;
   }

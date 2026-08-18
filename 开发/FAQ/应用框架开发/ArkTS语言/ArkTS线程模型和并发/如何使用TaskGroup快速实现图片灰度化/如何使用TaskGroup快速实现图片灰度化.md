@@ -24,12 +24,12 @@
  1. 读取图片像素数据，分割为四份，添加到TaskGroup中。等待返回数据，并且把数据合并，重新编码为图片，代码示例如下：
 ```text
 pixelMapGrayScale(pixelMap: PixelMap) {
- <em> // 读取pixelMap的像素数据。</em>
+  // 读取pixelMap的像素数据。
   let width = pixelMap.getImageInfoSync().size.width;
   let height = pixelMap.getImageInfoSync().size.height;
   let readBuffer: ArrayBuffer = new ArrayBuffer(width * height * 4);
   pixelMap.readPixelsToBufferSync(readBuffer);
-  <em>// 分成四段并发调度。</em>
+  // 分成四段并发调度。
   let number: number = 4 * Math.ceil(width * height / 4);
   let buffer1: ArrayBuffer = readBuffer.slice(0, number);
   let buffer2: ArrayBuffer = readBuffer.slice(number, number * 2);
@@ -43,7 +43,7 @@ pixelMapGrayScale(pixelMap: PixelMap) {
   group.addTask(imageProcessing, buffer4);
 
   taskpool.execute(group, taskpool.Priority.HIGH).then((res: Array<Object>) => {
-    <em>// 结果数组汇总处理，重新编码为图片。</em>
+    // 结果数组汇总处理，重新编码为图片。
     console.info('execute res success', res.length);
     let byteBufferTemp: Uint8Array = new Uint8Array(new ArrayBuffer(width * height * 4));
     let offset: number = 0;
@@ -68,17 +68,17 @@ pixelMapGrayScale(pixelMap: PixelMap) {
 2. 开启图片处理线程，将像素做灰度化，代码示例如下：
 ```text
 function imageProcessing(dataSlice: ArrayBuffer): Uint8Array {
- <em> // 图像灰度化处理操作</em>
+  // 图像灰度化处理操作
   let byteBuffer: Uint32Array = new Uint32Array(dataSlice);
   let byteBufferTemp: Uint8Array = new Uint8Array(new ArrayBuffer(byteBuffer.length * 4));
   for (let index = 0; index < byteBuffer.length; index++) {
-    <em>// 通过移位方式获取RGBA各通道的值。</em>
+    // 通过移位方式获取RGBA各通道的值。
     let rgb = byteBuffer[index];
     let red = (rgb >> 0) & 0x000000ff;
     let green = (rgb >> 8) & 0x000000ff;
     let blue = (rgb >> 16) & 0x000000ff;
     let alpha = (rgb >> 24) & 0x000000ff;
- <em>   // 加权平均算法，获取灰度值。</em>
+    // 加权平均算法，获取灰度值。
     let gray = (0.299 * red + 0.587 * green + 0.114 * blue);
     byteBufferTemp[index * 4] = gray;
     byteBufferTemp[index * 4 + 1] = gray;
@@ -99,17 +99,17 @@ import { common } from '@kit.AbilityKit';
 
 @Concurrent
 function imageProcessing(dataSlice: ArrayBuffer): Uint8Array {
-<em>  // 图像灰度化处理操作</em>
+  // 图像灰度化处理操作
   let byteBuffer: Uint32Array = new Uint32Array(dataSlice);
   let byteBufferTemp: Uint8Array = new Uint8Array(new ArrayBuffer(byteBuffer.length * 4));
   for (let index = 0; index < byteBuffer.length; index++) {
-  <em>  // 通过移位方式获取RGBA各通道的值。</em>
+    // 通过移位方式获取RGBA各通道的值。
     let rgb = byteBuffer[index];
     let red = (rgb >> 0) & 0x000000ff;
     let green = (rgb >> 8) & 0x000000ff;
     let blue = (rgb >> 16) & 0x000000ff;
     let alpha = (rgb >> 24) & 0x000000ff;
-<em>    // 加权平均算法，获取灰度值。</em>
+    // 加权平均算法，获取灰度值。
     let gray = (0.299 * red + 0.587 * green + 0.114 * blue);
     byteBufferTemp[index * 4] = gray;
     byteBufferTemp[index * 4 + 1] = gray;
@@ -125,11 +125,11 @@ struct Index {
   @State pixelMap: image.PixelMap | undefined = undefined;
   @State pixelMapTemp: image.PixelMap | undefined = undefined;
 
- <em> // 通过rawfile目录下的文件名称创建pixelMap。</em>
+  // 通过rawfile目录下的文件名称创建pixelMap。
   createPixelMapFromFile(url: string) {
     let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
     const fileData: Uint8Array = context.resourceManager.getRawFileContentSync(url);
-  <em>  // 创建一个可供编辑的图片。</em>
+    // 创建一个可供编辑的图片。
     const buffer = fileData.buffer.slice(fileData.byteOffset, fileData.byteLength + fileData.byteOffset);
     let imageSource = image.createImageSource(buffer);
     const options: image.DecodingOptions = {
@@ -137,18 +137,18 @@ struct Index {
       desiredPixelFormat: image.PixelMapFormat.RGBA_8888,
     };
     let pixelMap: PixelMap = imageSource.createPixelMapSync(options);
-   <em> // 资源释放</em>
+    // 资源释放
     imageSource.release();
     return pixelMap;
   }
 
   pixelMapGrayScale(pixelMap: PixelMap) {
-  <em>  // 读取pixelMap的像素数据。</em>
+    // 读取pixelMap的像素数据。
     let width = pixelMap.getImageInfoSync().size.width;
     let height = pixelMap.getImageInfoSync().size.height;
     let readBuffer: ArrayBuffer = new ArrayBuffer(width * height * 4);
     pixelMap.readPixelsToBufferSync(readBuffer);
-    <em>// 分成四段并发调度。</em>
+    // 分成四段并发调度。
     let number: number = 4 * Math.ceil(width * height / 4);
     let buffer1: ArrayBuffer = readBuffer.slice(0, number);
     let buffer2: ArrayBuffer = readBuffer.slice(number, number * 2);
@@ -162,7 +162,7 @@ struct Index {
     group.addTask(imageProcessing, buffer4);
 
     taskpool.execute(group, taskpool.Priority.HIGH).then((res: Array<Object>) => {
-     <em> // 结果数组汇总处理，重新编码为图片。</em>
+      // 结果数组汇总处理，重新编码为图片。
       console.info('execute res success', res.length);
       let byteBufferTemp: Uint8Array = new Uint8Array(new ArrayBuffer(width * height * 4));
       let offset: number = 0;
@@ -184,7 +184,7 @@ struct Index {
   }
 
   aboutToAppear(): void {
-   <em> // 通过rawfile目录下的文件名称创建pixelMap，‘testicon.png’是测试图片，开发者需要在rawfile目录替换实际图片</em>
+    // 通过rawfile目录下的文件名称创建pixelMap，‘testicon.png’是测试图片，开发者需要在rawfile目录替换实际图片
     this.pixelMap = this.createPixelMapFromFile('testicon.png');
   }
 

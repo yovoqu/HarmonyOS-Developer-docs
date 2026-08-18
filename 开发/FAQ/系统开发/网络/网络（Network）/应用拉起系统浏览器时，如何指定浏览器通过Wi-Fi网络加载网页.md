@@ -39,10 +39,10 @@ struct NetPage {
         })
         .onClick(() => {
           let netId = 0;
-         <em> // 获取已连接的网络列表</em>
+          // 获取已连接的网络列表
           let netHandle = connection.getAllNetsSync();
           netHandle.forEach(item => {
-           <em> // 判断是否为Wi-Fi网络</em>
+            // 判断是否为Wi-Fi网络
             if (connection.getNetCapabilitiesSync(item).bearerTypes[0] === 1) {
               netId = item.netId;
             }
@@ -50,14 +50,14 @@ struct NetPage {
 
           try {
             let want: Want = {
-             <em> // action设置为ohos.want.action.awc或ohos.want.action.viewData</em>
+              // action设置为ohos.want.action.awc或ohos.want.action.viewData
               action: 'ohos.want.action.awc',
               bundleName: 'com.huawei.hmos.browser',
               entities: ['entity.browser.hbct'],
               abilityName: 'CustomTabAbility',
-           <em>   // 此处地址实际使用过程中替换为真实地址</em>
+              // 此处地址实际使用过程中替换为真实地址
               uri: 'xx.xx.xx',
-          <em>    // 传递netId</em>
+              // 传递netId
               parameters: {
                 'netId': netId
               }

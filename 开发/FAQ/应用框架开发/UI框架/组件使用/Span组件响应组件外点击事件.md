@@ -33,10 +33,10 @@ export struct Index {
   private contacts: string[] = ['张三', '李四', '王五', '赵六'];
 
   onClicked(event: ClickEvent) {
-    const height: number = event.target.area.height as number; <em>// </em><em>组件总高度</em>
-    const avgHeight: number = height / this.contacts.length; <em>// </em><em>分配到每个Span的平均高度</em>
+    const height: number = event.target.area.height as number; // 组件总高度
+    const avgHeight: number = height / this.contacts.length; // 分配到每个Span的平均高度
 
-    let index: number = Math.floor(event.y / avgHeight); <em>// </em><em>计算点击位置所在编号，取整，忽略小数部分</em>
+    let index: number = Math.floor(event.y / avgHeight); // 计算点击位置所在编号，取整，忽略小数部分
     if (index >= this.contacts.length) {
       index = this.contacts.length - 1;
     }

@@ -9,7 +9,7 @@
 页面中实现了一个操作类，包含三个操作方法，并在自定义组件中分别对三个方法进行重写，运行后发现其中某个方法执行的仍是未重写前的操作，问题代码示例参考如下：
  
 ```text
-<em>// </em><em>富文本配置类。</em>
+// 富文本配置类。
 export namespace CRichText {
   @Observed
   export class CustomRichController {
@@ -48,10 +48,10 @@ struct Index {
 
 
 @Component
-struct testDemo { <em>// 自定义组件</em>
+struct testDemo { // 自定义组件
   @ObjectLink controller: CRichText.CustomRichController;
 
-  aboutToAppear(): void {<em> </em><em>// 重写方法</em>
+  aboutToAppear(): void { // 重写方法
     this.controller.addImage = () => {
       console.info(`出现了图片`);
     }
@@ -106,7 +106,7 @@ struct testDemo { <em>// 自定义组件</em>
 将方法执行放在重写后：
  
 ```text
-<em>// </em><em>富文本配置类。</em>
+// 富文本配置类。
 export namespace CRichText {
   @Observed
   export class CustomRichController {
@@ -141,10 +141,10 @@ struct Index {
 
 
 @Component
-struct testDemo { <em>// </em><em>自定义组件</em>
+struct testDemo { // 自定义组件
   @ObjectLink controller: CRichText.CustomRichController;
 
-  aboutToAppear(): void { <em>// 重写方法</em>
+  aboutToAppear(): void { // 重写方法
     this.controller.addImage = () => {
       console.info(`出现了图片`);
     };
@@ -154,7 +154,7 @@ struct testDemo { <em>// </em><em>自定义组件</em>
     this.controller.setRichText = () => {
       console.info(`出现了文字`);
     };
-    this.controller.setRichText('文字'); <em>// 将方法调用移动到重写之后</em>
+    this.controller.setRichText('文字'); // 将方法调用移动到重写之后
   }
 
   build() {

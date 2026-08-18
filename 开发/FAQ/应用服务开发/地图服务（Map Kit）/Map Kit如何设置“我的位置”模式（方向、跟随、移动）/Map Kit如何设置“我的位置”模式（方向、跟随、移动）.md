@@ -77,9 +77,9 @@ struct HuaweiMyLocationDemo {
     if (!applyResult) {
       this.requestPermissions();
     } else {
-      <em>// 启用我的位置图层，mapController为地图操作类对象，获取方式详见地图呈现章节</em>
+      // 启用我的位置图层，mapController为地图操作类对象，获取方式详见地图呈现章节
       this.mapController?.setMyLocationEnabled(true);
-      <em>// 启用我的位置按钮</em>
+      // 启用我的位置按钮
       this.mapController?.setMyLocationControlsEnabled(true);
       let style: mapCommon.MyLocationStyle = {
         anchorU: 0.5,
@@ -91,15 +91,15 @@ struct HuaweiMyLocationDemo {
     }
   }
 
-  <em>// 向用户申请授权</em>
+  // 向用户申请授权
   requestPermissions(): void {
     let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
     atManager.requestPermissionsFromUser(this.getUIContext().getHostContext() as common.UIAbilityContext,
       ['ohos.permission.LOCATION', 'ohos.permission.APPROXIMATELY_LOCATION'])
       .then(() => {
-        <em>// 启用我的位置图层</em>
+        // 启用我的位置图层
         this.mapController?.setMyLocationEnabled(true);
-        <em>// 启用我的位置按钮</em>
+        // 启用我的位置按钮
         this.mapController?.setMyLocationControlsEnabled(true);
         let style: mapCommon.MyLocationStyle = {
           anchorU: 0.5,
@@ -114,12 +114,12 @@ struct HuaweiMyLocationDemo {
       });
   }
 
-  <em>// 获取相应的权限</em>
+  // 获取相应的权限
   async checkAccessToken(permission: Permissions): Promise<abilityAccessCtrl.GrantStatus> {
     let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
     let grantStatus:
       abilityAccessCtrl.GrantStatus = abilityAccessCtrl.GrantStatus.PERMISSION_DENIED;
-    <em>// 获取应用程序的accessTokenID</em>
+    // 获取应用程序的accessTokenID
     let tokenId: number = 0;
     try {
       let bundleInfo: bundleManager.BundleInfo =
@@ -130,7 +130,7 @@ struct HuaweiMyLocationDemo {
       let err: BusinessError = error as BusinessError;
       console.error(`Failed to get bundle info for self. Code is ${err.code},message is ${err.message}`);
     }
-    <em>// 校验应用是否被授予权限</em>
+    // 校验应用是否被授予权限
     try {
       grantStatus = await atManager.checkAccessToken(tokenId, permission);
     } catch (error) {
@@ -143,7 +143,7 @@ struct HuaweiMyLocationDemo {
   aboutToAppear(): void {
     let displayClass = display.getDefaultDisplaySync();
     this.mapHeight = this.getUIContext().px2vp(displayClass.height);
-    <em>// 地图初始化参数，设置地图中心坐标以及层级</em>
+    // 地图初始化参数，设置地图中心坐标以及层级
     this.mapOptions = {
       position: {
         target: {
@@ -155,10 +155,10 @@ struct HuaweiMyLocationDemo {
       myLocationControlsEnabled: true,
       scaleControlsEnabled: true,
     };
-    <em>// 地图初始化的回调</em>
+    // 地图初始化的回调
     this.callback = async (err, mapController) => {
       if (!err) {
-        <em>// 获取地图的控制器类，用来操作地图</em>
+        // 获取地图的控制器类，用来操作地图
         this.mapController = mapController;
         this.checkPermission();
       }

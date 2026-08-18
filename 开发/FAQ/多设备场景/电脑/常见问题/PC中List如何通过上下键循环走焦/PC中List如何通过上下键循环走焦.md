@@ -29,7 +29,7 @@
 将LazyForEach中Item的值作为每个ListItem的ID，对每个ListItem设置nextFocus方法，如果当前为第一个ListItem，则方向上键走到最后一个ListItem，如果当前为最后一个ListItem，则方向下键走到第一个ListItem。如果不是第一个或最后一个ListItem，则方向上键走到上个ListItem，方向下键走到下一个ListItem。
  
 ```text
-<em>// BasicDataSource实现了IDataSource接口，用于管理listener监听，以及通知LazyForEach数据更新</em>
+// BasicDataSource实现了IDataSource接口，用于管理listener监听，以及通知LazyForEach数据更新
 class BasicDataSource implements IDataSource {
   private listeners: DataChangeListener[] = [];
   private originDataArray: string[] = [];
@@ -42,7 +42,7 @@ class BasicDataSource implements IDataSource {
     return this.originDataArray[index];
   }
 
- <em> // 该方法为框架侧调用，为LazyForEach组件向其数据源处添加listener监听</em>
+  // 该方法为框架侧调用，为LazyForEach组件向其数据源处添加listener监听
   registerDataChangeListener(listener: DataChangeListener): void {
     if (this.listeners.indexOf(listener) < 0) {
       console.info('add listener');
@@ -50,7 +50,7 @@ class BasicDataSource implements IDataSource {
     }
   }
 
- <em> // 该方法为框架侧调用，为对应的LazyForEach组件在数据源处去除listener监听</em>
+  // 该方法为框架侧调用，为对应的LazyForEach组件在数据源处去除listener监听
   unregisterDataChangeListener(listener: DataChangeListener): void {
     const pos = this.listeners.indexOf(listener);
     if (pos >= 0) {
@@ -59,43 +59,43 @@ class BasicDataSource implements IDataSource {
     }
   }
 
-<em>  // 通知LazyForEach组件需要重载所有子组件</em>
+  // 通知LazyForEach组件需要重载所有子组件
   notifyDataReload(): void {
     this.listeners.forEach(listener => {
       listener.onDataReloaded();
     });
   }
 
- <em> // 通知LazyForEach组件需要在index对应索引处添加子组件</em>
+  // 通知LazyForEach组件需要在index对应索引处添加子组件
   notifyDataAdd(index: number): void {
     this.listeners.forEach(listener => {
       listener.onDataAdd(index);
-   <em>   // 写法2：listener.onDatasetChange([{type: DataOperationType.ADD, index: index}]);</em>
+      // 写法2：listener.onDatasetChange([{type: DataOperationType.ADD, index: index}]);
     });
   }
 
-<em>  // 通知LazyForEach组件在index对应索引处数据有变化，需要重建该子组件</em>
+  // 通知LazyForEach组件在index对应索引处数据有变化，需要重建该子组件
   notifyDataChange(index: number): void {
     this.listeners.forEach(listener => {
       listener.onDataChange(index);
-    <em>  // 写法2：listener.onDatasetChange([{type: DataOperationType.CHANGE, index: index}]);</em>
+      // 写法2：listener.onDatasetChange([{type: DataOperationType.CHANGE, index: index}]);
     });
   }
 
- <em> // 通知LazyForEach组件需要在index对应索引处删除该子组件</em>
+  // 通知LazyForEach组件需要在index对应索引处删除该子组件
   notifyDataDelete(index: number): void {
     this.listeners.forEach(listener => {
       listener.onDataDelete(index);
-    <em>  // 写法2：listener.onDatasetChange([{type: DataOperationType.DELETE, index: index}]);</em>
+      // 写法2：listener.onDatasetChange([{type: DataOperationType.DELETE, index: index}]);
     });
   }
 
-<em>  // 通知LazyForEach组件将from索引和to索引处的子组件进行交换</em>
+  // 通知LazyForEach组件将from索引和to索引处的子组件进行交换
   notifyDataMove(from: number, to: number): void {
     this.listeners.forEach(listener => {
       listener.onDataMove(from, to);
-    <em>  // 写法2：listener.onDatasetChange(</em>
-<em>      //         [{type: DataOperationType.EXCHANGE, index: {start: from, end: to}}]);</em>
+      // 写法2：listener.onDatasetChange(
+      //         [{type: DataOperationType.EXCHANGE, index: {start: from, end: to}}]);
     });
   }
 

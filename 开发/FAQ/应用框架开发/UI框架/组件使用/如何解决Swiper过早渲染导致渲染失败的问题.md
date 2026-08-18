@@ -58,10 +58,10 @@ class MySpecialDataSourceTwo implements IDataSource {
 struct SwiperPrematureRendering {
   private swiperController: SwiperController = new SwiperController();
   @State data: MySpecialDataSourceTwo = new MySpecialDataSourceTwo([]);
-  @State isShow: boolean = false; <em>// 设置一个标志位状态用来控制轮播图组件的显隐</em>
+  @State isShow: boolean = false; // 设置一个标志位状态用来控制轮播图组件的显隐
 
   aboutToAppear(): void {
-   <em> // 模拟网络请求获取轮播图数据</em>
+    // 模拟网络请求获取轮播图数据
     setTimeout(() => {
       let list: number[] = [];
       for (let i = 1; i <= 10; i++) {

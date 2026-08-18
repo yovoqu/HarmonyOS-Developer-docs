@@ -101,14 +101,14 @@ struct GridDemo {
         .indicator(false)
         .loop(false)
         .onContentDidScroll((selectedIndex: number, index: number, position: number, mainAxisLength: number) => {
-         <em> // The direct scrolling positions of the two indices change the height of the parent control</em>
+          // The direct scrolling positions of the two indices change the height of the parent control
           if (selectedIndex != index && Math.abs(selectedIndex - index) == 1) {
             let curHeight = this.gridHeights[selectedIndex];
             let targetHeight = this.gridHeights[index];
             this.swiperHeight = targetHeight +
               (selectedIndex < index ? (curHeight - targetHeight) : (targetHeight - curHeight)) * position;
           }
-         <em> // Switch the subscript of the selected status</em>
+          // Switch the subscript of the selected status
           if (selectedIndex == index) {
             let curIndex = -1 / this.tipList.length * position + selectedIndex / this.tipList.length;
             this.tipImageX = (curIndex * 100).toFixed(2) + '%';

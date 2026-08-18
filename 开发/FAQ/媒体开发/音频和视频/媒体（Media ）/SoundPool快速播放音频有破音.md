@@ -62,7 +62,7 @@ Button() {
 
   
 ```text
-<em>// </em><em>防抖 在一段时间内函数被多次触发，防抖让函数在一段时间后最终只执行一次</em>
+// 防抖 在一段时间内函数被多次触发，防抖让函数在一段时间后最终只执行一次
 export function debounce(func: (event: ClickEvent) => void, delay?: number) {
   let timer: number;
   return (event: ClickEvent) => {
@@ -78,14 +78,14 @@ export function debounce(func: (event: ClickEvent) => void, delay?: number) {
 
   引入SoundPool播放完成回调功能，即在上一路流的播放彻底完成后，再执行下一次音频数据的下发动作。该机制能够确保各音频指令按序无误地执行，避免因未等前一音频播放结束就下发新音频而导致的音质问题。
 ```text
-<em>//</em><em> 加载完成回调</em>
+// 加载完成回调
 async loadCallback() {
   this.soundPool?.on('loadComplete', (soundId_: number) => {
     console.info(`loadComplete,soundId:${soundId_}`);
   });
 }
 
-<em>//</em><em> 播放完成回调</em>
+// 播放完成回调
 async finishPlayCallback() {
   this.soundPool?.on('playFinished', () => {
     console.info('receive play finished message');
@@ -103,7 +103,7 @@ import { media } from '@kit.MediaKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 
-<em>// </em><em>防抖 在一段时间内函数被多次触发，防抖让函数在一段时间后最终只执行一次</em>
+// 防抖 在一段时间内函数被多次触发，防抖让函数在一段时间后最终只执行一次
 export function debounce(func: (event: ClickEvent) => void, delay?: number) {
   let timer: number;
   return (event: ClickEvent) => {
@@ -123,27 +123,27 @@ struct Index {
     usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
     rendererFlags: 1
   };
-  <em>// 加载完成回调</em>
+  // 加载完成回调
   async loadCallback() {
     this.soundPool?.on('loadComplete', (soundId_: number) => {
       console.info(`loadComplete,soundId:${soundId_}`);
     });
   }
 
-  <em>//</em><em> 播放完成回调</em>
+  // 播放完成回调
   async finishPlayCallback() {
     this.soundPool?.on('playFinished', () => {
       console.info('receive play finished message');
     });
   }
-  <em>//</em><em> 错误类型回调</em>
+  // 错误类型回调
   async setErrorCallback() {
     this.soundPool?.on('error', (error: BusinessError) => {
       console.error(`error happened,message is :${error.message}`);
     });
   }
 
-  <em>//</em><em> 加载琴键音效</em>
+  // 加载琴键音效
   async InitSoundPool() {
     this.soundPool = await media.createSoundPool(3, this.audioRendererInfo);
     this.loadCallback();
@@ -154,7 +154,7 @@ struct Index {
     }
   }
 
-  <em>//</em><em> 播放钢琴键音效DO</em>
+  // 播放钢琴键音效DO
   async PlaySoundPool_1() {
     this.soundPool?.play(this.soundId_1).then(() => {
       this.finishPlayCallback();

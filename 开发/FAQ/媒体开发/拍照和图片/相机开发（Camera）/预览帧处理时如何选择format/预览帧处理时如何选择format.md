@@ -106,7 +106,7 @@ pixelMap = await image.createPixelMap(dstArr.buffer, {
 2. [image.createPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmap8)方法是通过图像像素数据的缓冲区（dstArr.buffer）内容创建PixelMap，而dstArr.buffer的创建过程为：
 ```text
 let mSize = 1.5;
-const dstBufferSize = width * height * mSize; <em>// 以NV21为例（YUV_420_SP格式的图片）YUV_420_SP内存计算公式：长x宽+(长x宽)/2</em>
+const dstBufferSize = width * height * mSize; // 以NV21为例（YUV_420_SP格式的图片）YUV_420_SP内存计算公式：长x宽+(长x宽)/2
 const dstArr = new Uint8Array(dstBufferSize);
 for (let j = 0; j < height * mSize; j++) {
   const srcBuf = new Uint8Array(imgComponent.byteBuffer, j * stride, width);

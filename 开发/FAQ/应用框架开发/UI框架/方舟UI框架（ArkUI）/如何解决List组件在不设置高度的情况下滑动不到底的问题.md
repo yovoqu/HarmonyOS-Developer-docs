@@ -13,7 +13,7 @@
 给List组件设置layoutWeight()属性。layoutWeight()使子元素自适应占满父容器的剩余空间。当父容器尺寸确定时，设置了layoutWeight的子元素在主轴布局中的尺寸将按照权重分配，忽略其本身的尺寸设置。可参考如下代码：
  
 ```ArkTS
-<em>// xxx.ets</em>
+// xxx.ets
 @Entry
 @Component
 struct ListExample {
@@ -39,11 +39,11 @@ struct ListExample {
           }
         }, (item: string) => item)
       }
-      .layoutWeight(1) <em>// Adaptive occupancy of remaining space</em>
-      .listDirection(Axis.Vertical) <em>// Arrangement direction</em>
-      .divider({ strokeWidth: 2, color: 0xFFFFFF, startMargin: 20, endMargin: 20 })<em> // The boundary line between each row</em>
-      .edgeEffect(EdgeEffect.Spring) <em>// Sliding to the edge has no effect</em>
-      .scrollBar(BarState.Off) <em>// Set scrollbar</em>
+      .layoutWeight(1) // Adaptive occupancy of remaining space
+      .listDirection(Axis.Vertical) // Arrangement direction
+      .divider({ strokeWidth: 2, color: 0xFFFFFF, startMargin: 20, endMargin: 20 }) // The boundary line between each row
+      .edgeEffect(EdgeEffect.Spring) // Sliding to the edge has no effect
+      .scrollBar(BarState.Off) // Set scrollbar
       .margin({ top: 20 })
       .width('90%')
     }

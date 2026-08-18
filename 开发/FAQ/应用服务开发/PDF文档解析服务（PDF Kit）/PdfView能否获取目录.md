@@ -57,10 +57,10 @@ public async copyFile(fileName: string): Promise<void> {
 2. 给PDF增加书签（若原PDF自带书签可忽略步骤）：
 ```text
 private createBookmarks() {
- <em> // 创建书签</em>
+  // 创建书签
   let mark1: pdfService.Bookmark = this.pdfDocument.createBookmark();
   let mark2: pdfService.Bookmark = this.pdfDocument.createBookmark();
-<em>  // 设置书签的跳转信息</em>
+  // 设置书签的跳转信息
   let destInfo: pdfService.DestInfo = mark1.getDestInfo();
   destInfo.fitMode = pdfService.FitMode.FIT_MODE_XYZ;
   destInfo.pageIndex = 1;
@@ -68,17 +68,17 @@ private createBookmarks() {
   destInfo.top = 30;
   destInfo.zoom = 1.5;
   mark1.setDestInfo(destInfo);
- <em> // 设置书签内容及样式</em>
+  // 设置书签内容及样式
   let bookInfo: pdfService.BookmarkInfo = mark1.getBookmarkInfo();
   bookInfo.title = '这里是跳到第一页的书签';
   bookInfo.titleColor = 12;
   bookInfo.isBold = true;
   bookInfo.isItalic = true;
   mark1.setBookmarkInfo(bookInfo);
- <em> // 把创建的书签插入到PDF页面</em>
+  // 把创建的书签插入到PDF页面
   this.pdfDocument.insertBookmark(mark1, null, 1);
   this.pdfDocument.insertBookmark(mark2, mark1, 1);
- <em> // 设置保存文档沙箱路径并保存</em>
+  // 设置保存文档沙箱路径并保存
   this.outPdfPath = this.context.filesDir + '/testAddBookmark.pdf';
   let result = this.pdfDocument.saveDocument(this.outPdfPath);
   hilog.info(0x0000, 'PdfPage', 'saveAddBookmark %{public}s!', result ? 'success' : 'fail');
@@ -105,10 +105,10 @@ struct PdfGetDirectory {
         .width(200)
         .margin({ top: 100 })
         .onClick(async () => {
-          await this.copyFile('test.pdf'); <em>// 此处仅为示例，请开发者替换为实际使用的文件。</em>
+          await this.copyFile('test.pdf'); // 此处仅为示例，请开发者替换为实际使用的文件。
           let loadResult = this.pdfDocument.loadDocument(this.filePath, '');
           if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
-           <em> // 创建书签</em>
+            // 创建书签
             this.createBookmarks();
           }
         });
@@ -116,7 +116,7 @@ struct PdfGetDirectory {
         .width(200)
         .margin({ top: 100 })
         .onClick(() => {
-       <em>   // 确保加载的是保存了书签的文件</em>
+          // 确保加载的是保存了书签的文件
           let loadResult = this.pdfDocument.loadDocument(this.outPdfPath, '');
           if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
             this.verifyBookmarks();
@@ -129,10 +129,10 @@ struct PdfGetDirectory {
     .height('100%');
   }
   private createBookmarks() {
-  <em>  // 创建书签</em>
+    // 创建书签
     let mark1: pdfService.Bookmark = this.pdfDocument.createBookmark();
     let mark2: pdfService.Bookmark = this.pdfDocument.createBookmark();
-  <em>  // 设置书签的跳转信息</em>
+    // 设置书签的跳转信息
     let destInfo: pdfService.DestInfo = mark1.getDestInfo();
     destInfo.fitMode = pdfService.FitMode.FIT_MODE_XYZ;
     destInfo.pageIndex = 1;
@@ -140,23 +140,23 @@ struct PdfGetDirectory {
     destInfo.top = 30;
     destInfo.zoom = 1.5;
     mark1.setDestInfo(destInfo);
-   <em> // 设置书签内容及样式</em>
+    // 设置书签内容及样式
     let bookInfo: pdfService.BookmarkInfo = mark1.getBookmarkInfo();
     bookInfo.title = '这里是跳到第一页的书签';
     bookInfo.titleColor = 12;
     bookInfo.isBold = true;
     bookInfo.isItalic = true;
     mark1.setBookmarkInfo(bookInfo);
-   <em> // 把创建的书签插入到PDF页面</em>
+    // 把创建的书签插入到PDF页面
     this.pdfDocument.insertBookmark(mark1, null, 1);
     this.pdfDocument.insertBookmark(mark2, mark1, 1);
-  <em>  // 设置保存文档沙箱路径并保存</em>
+    // 设置保存文档沙箱路径并保存
     this.outPdfPath = this.context.filesDir + '/testAddBookmark.pdf';
     let result = this.pdfDocument.saveDocument(this.outPdfPath);
     hilog.info(0x0000, 'PdfPage', 'saveAddBookmark %{public}s!', result ? 'success' : 'fail');
   }
   private verifyBookmarks() {
- <em>   // 重新加载并验证书签</em>
+    // 重新加载并验证书签
     let loadResult = this.pdfDocument.loadDocument(this.outPdfPath, '');
     if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
       let rootBookmark = this.pdfDocument.getRootBookmarks();

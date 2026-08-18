@@ -36,7 +36,7 @@ struct constraintSizeExample {
     Column({ space: 30 }) {
       Row() {
         Text('添加constraintSize属性下的状态，右padding样式添加正常').constraintSize({ maxWidth: '90%' });
-        Image($r('app.media.startIcon'))   <em>// 开发者需自行替换图片</em>
+        Image($r('app.media.startIcon'))   // 开发者需自行替换图片
           .width(18)
           .height(18)
       }
@@ -44,7 +44,7 @@ struct constraintSizeExample {
 
       Row() {
         Text('没有添加constraintSize属性下的状态，右padding添加未生效');
-        Image($r('app.media.startIcon')) <em> </em><em>// 开发者需自行替换图片</em>
+        Image($r('app.media.startIcon'))  // 开发者需自行替换图片
           .width(18)
           .height(18)
       }

@@ -32,21 +32,21 @@ Node-API线程安全开发主要用于异步多线程之间共享和调用场景
 [napi_create_threadsafe_function](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#napi_create_threadsafe_function)：该接口主要用于创建线程安全对象，在创建的过程中，会注册异步过程中的关键信息：ArkTS回调接口callback和线程安全回调函数call_js_cb等。参数说明如下：
  
 ```text
-<em>/**</em>
-<em>* @brief 用于创建一个线程安全的函数，该函数可以在多个线程中调用，而不需要担心数据竞争或其他线程安全问题</em>
-<em>*</em>
-<em>* @param env 指向NAPI环境的指针，用于创建和操作Javascript值</em>
-<em>* @param func 指向JavaScript函数的指针</em>
-<em>* @param async_resource 异步资源，通常是一个表示异步操作的对象</em>
-<em>* @param async_resource_name 指向资源名称的指针，这个名称将用于日志和调试</em>
-<em>* @param max_queue_size 一个整数，表示队列的最大大小，当队列满时，新的调用将被丢弃</em>
-<em>* @param initial_thread_count 无符号整数，表示在创建线程安全函数时，初始的线程数量</em>
-<em>* @param thread_finalize_data 一个指向在所有线程之前需要清理的数据</em>
-<em>* @param napi_finalize thread_finalize_cb 回调函数，当所有线程完成时被调用，用于清理资源</em>
-<em>* @param context 指向上下文的指针，这个上下文将被传递给call_js_func函数</em>
-<em>* @param call_js_cb 指向回调函数的指针，这个函数将在Javascript函数被调用时被调用</em>
-<em>* @param result 指向napi_threadsafe_function结构的指针，这个结构将被填充为新创建的线程安全函数</em>
-<em>*/</em>
+/**
+* @brief 用于创建一个线程安全的函数，该函数可以在多个线程中调用，而不需要担心数据竞争或其他线程安全问题
+*
+* @param env 指向NAPI环境的指针，用于创建和操作Javascript值
+* @param func 指向JavaScript函数的指针
+* @param async_resource 异步资源，通常是一个表示异步操作的对象
+* @param async_resource_name 指向资源名称的指针，这个名称将用于日志和调试
+* @param max_queue_size 一个整数，表示队列的最大大小，当队列满时，新的调用将被丢弃
+* @param initial_thread_count 无符号整数，表示在创建线程安全函数时，初始的线程数量
+* @param thread_finalize_data 一个指向在所有线程之前需要清理的数据
+* @param napi_finalize thread_finalize_cb 回调函数，当所有线程完成时被调用，用于清理资源
+* @param context 指向上下文的指针，这个上下文将被传递给call_js_func函数
+* @param call_js_cb 指向回调函数的指针，这个函数将在Javascript函数被调用时被调用
+* @param result 指向napi_threadsafe_function结构的指针，这个结构将被填充为新创建的线程安全函数
+*/
 napi_status napi_create_threadsafe_function(napi_env env,
                                             napi_value func,
                                             napi_value async_resource,
@@ -87,20 +87,20 @@ static napi_value StartThread(napi_env env, napi_callback_info info)
 {
     size_t argc = 1;
     napi_value jsCb = nullptr;
-    CallbackData *callbackData = new CallbackData();<em> // 异步任务完成时释放</em>
+    CallbackData *callbackData = new CallbackData(); // 异步任务完成时释放
     napi_get_cb_info(env, info, &argc, &jsCb, nullptr, nullptr);
 
-  <em>  // 创建一个线程安全函数</em>
+    // 创建一个线程安全函数
     napi_value resourceName = nullptr;
     napi_create_string_utf8(env, "Thread-safe Function Demo", NAPI_AUTO_LENGTH, &resourceName);
     napi_create_threadsafe_function(env, jsCb, nullptr, resourceName, 0, 1, nullptr, nullptr, nullptr, CallJs,
                                     &callbackData->tsfn);
 
-   <em> // 创建一个异步任务</em>
-<em>    // ExecuteWork会执行在一个由libuv创建的非JS线程上，此处使用napi_create_async_work是为了模拟在非JS线程场景使用napi_call_threadsafe_function接口向JS线程提交任务</em>
+    // 创建一个异步任务
+    // ExecuteWork会执行在一个由libuv创建的非JS线程上，此处使用napi_create_async_work是为了模拟在非JS线程场景使用napi_call_threadsafe_function接口向JS线程提交任务
     napi_create_async_work(env, nullptr, resourceName, ExecuteWork, WorkComplete, callbackData, &callbackData->work);
 
-  <em>  // 将异步任务加入到异步队列中</em>
+    // 将异步任务加入到异步队列中
     napi_queue_async_work(env, callbackData->work);
     return nullptr;
 }

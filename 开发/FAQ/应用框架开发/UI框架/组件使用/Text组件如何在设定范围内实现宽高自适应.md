@@ -39,19 +39,19 @@
 aboutToAppear(): void {
   try {
     let screenW = this.getUIContext().px2vp(display.getDefaultDisplaySync().width);
-   <em> // 获取屏幕宽度，并转换为vp</em>
+    // 获取屏幕宽度，并转换为vp
     let stableW =
     this.getUIContext()
       .px2vp(this.uiContext?.getHostContext()?.resourceManager.getNumber($r('app.float.page_text_font_size').id));
- <em>   // 获取页面字体大小，并转换为vp</em>
+    // 获取页面字体大小，并转换为vp
     let marginR = Number(this.removeCharacter(this.marginRight as string));
     let marginL = this.marginLeft as number;
- <em>   // 左边距直接转换为数字</em>
+    // 左边距直接转换为数字
     let marginT = this.getUIContext()
       .px2vp(this.uiContext?.getHostContext()?.resourceManager.getNumber((this.marginTop as Resource).id));
-   <em> // 顶部边距直接转换为vp</em>
-    this.maxWidth = screenW - stableW - marginR - marginL - marginT;<em> </em><em>// 计算最大宽度</em>
-    console.info(`this.maxWidth: ${this.maxWidth}`); <em>// 打印最大宽度</em>
+    // 顶部边距直接转换为vp
+    this.maxWidth = screenW - stableW - marginR - marginL - marginT; // 计算最大宽度
+    console.info(`this.maxWidth: ${this.maxWidth}`); // 打印最大宽度
   } catch (error) {
   }
 }
@@ -91,19 +91,19 @@ struct Index {
   aboutToAppear(): void {
     try {
       let screenW = this.getUIContext().px2vp(display.getDefaultDisplaySync().width);
-   <em>   // 获取屏幕宽度，并转换为vp</em>
+      // 获取屏幕宽度，并转换为vp
       let stableW =
         this.getUIContext()
           .px2vp(this.uiContext?.getHostContext()?.resourceManager.getNumber($r('app.float.page_text_font_size').id));
-    <em>  // 获取页面字体大小，并转换为vp</em>
+      // 获取页面字体大小，并转换为vp
       let marginR = Number(this.removeCharacter(this.marginRight as string));
       let marginL = this.marginLeft as number;
-   <em>   // 左边距直接转换为数字</em>
+      // 左边距直接转换为数字
       let marginT = this.getUIContext()
         .px2vp(this.uiContext?.getHostContext()?.resourceManager.getNumber((this.marginTop as Resource).id));
-  <em>    // 顶部边距直接转换为vp</em>
-      this.maxWidth = screenW - stableW - marginR - marginL - marginT; <em>// </em><em>计算最大宽度</em>
-      console.info(`this.maxWidth: ${this.maxWidth}`); <em>// </em><em>打印最大宽度</em>
+      // 顶部边距直接转换为vp
+      this.maxWidth = screenW - stableW - marginR - marginL - marginT; // 计算最大宽度
+      console.info(`this.maxWidth: ${this.maxWidth}`); // 打印最大宽度
     } catch (error) {
     }
   }

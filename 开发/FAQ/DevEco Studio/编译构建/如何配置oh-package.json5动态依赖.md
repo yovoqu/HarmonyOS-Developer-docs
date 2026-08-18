@@ -31,7 +31,7 @@ oh-package.json5文件中：
   "dynamicDependencies": {
     "libtest3": "@param:dynamicDependencies.libtest3"
   },
-  "parameterFile": '.parameterFile/parameterFile.json5',<em>// Enable parameterization and specify the path to the parameterized </em>configuration file
+  "parameterFile": '.parameterFile/parameterFile.json5',// Enable parameterization and specify the path to the parameterized configuration file
 }
 ```
  

@@ -46,23 +46,23 @@ struct ShiftEnterNewline {
       }, (item: string) => item);
       TextArea({ text: $$this.text, placeholder: '请输入内容' })
         .onChange((value: string) => {
-          this.text = value; <em>// </em><em>同步输入框中的文本</em>
+          this.text = value; // 同步输入框中的文本
         })
         .onKeyPreIme((event: KeyEvent) => {
-          const keyCode: KeyCode = event.keyCode; <em>// </em><em>获取按键码</em>
-       <em>   // 监听Shift键</em>
+          const keyCode: KeyCode = event.keyCode; // 获取按键码
+          // 监听Shift键
           if (keyCode === KeyCode.KEYCODE_SHIFT_LEFT || keyCode === KeyCode.KEYCODE_SHIFT_RIGHT) {
-            this.isShiftPressed = (event.type === KeyType.Down); <em>// </em><em>记录Shift按下的状态</em>
+            this.isShiftPressed = (event.type === KeyType.Down); // 记录Shift按下的状态
             return true;
           }
-        <em>  // 监听Enter键</em>
+          // 监听Enter键
           if ((keyCode === KeyCode.KEYCODE_ENTER || keyCode === KeyCode.KEYCODE_NUMPAD_ENTER) &&
             event.type === KeyType.Down) {
             if (this.isShiftPressed) {
-   <em>           // shift+enter的处理逻辑</em>
-              this.text += '\n'; <em>// </em><em>添加换行符</em>
+              // shift+enter的处理逻辑
+              this.text += '\n'; // 添加换行符
             } else {
-        <em>      // 只按下enter的处理逻辑</em>
+              // 只按下enter的处理逻辑
               this.texts.push(this.text);
               this.text = '';
               return true;

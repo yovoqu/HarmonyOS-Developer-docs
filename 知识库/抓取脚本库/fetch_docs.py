@@ -315,6 +315,11 @@ def html_to_markdown(html, title, update_time, source_url, catalog, images_map):
             code = re.sub(r'</?code[^>]*>', '', code)
             # Strip highlight toolbar noise
             code = re.sub(r'<div[^>]*highlight-div-header[^>]*>[\s\S]*?</div>', '', code)
+            # Strip syntax-highlight <span> tags (API 返回的代码块含颜色高亮 span)
+            code = re.sub(r'<span[^>]*>', '', code)
+            code = re.sub(r'</span>', '', code)
+            code = re.sub(r'<em[^>]*>', '', code)
+            code = re.sub(r'</em>', '', code)
             code = code.strip()
             md = md.replace(f"\x00CODE{i}\x00", f"\n```{lang}\n{code}\n```\n")
         else:

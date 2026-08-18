@@ -77,7 +77,7 @@ struct Index {
 
   private registerListener(): void {
     this.readerComponentController.on('pageShow', (data: readerCore.PageDataInfo): void => {
-      <em>// </em><em>开发者可在此保存内容分布排版数据，利用data.resourceIndex及data.startDomPos数据调用startPlay接口继续阅读</em>
+      // 开发者可在此保存内容分布排版数据，利用data.resourceIndex及data.startDomPos数据调用startPlay接口继续阅读
       hilog.info(0x0000, TAG, `当前的domPos ${data.startDomPos}`);
       hilog.info(0x0000, TAG, `pageshow: 当前页数data is: ${JSON.stringify(data)}`);
     });

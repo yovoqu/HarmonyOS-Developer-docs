@@ -18,7 +18,7 @@
 声明ArkTS侧方法：
  
 ```ArkTS
-<em>// src/main/ets/pages/Test.ets</em>
+// src/main/ets/pages/Test.ets
 let value = 123;
 function test() {
   console.log('Hello HarmonyOS');
@@ -55,18 +55,18 @@ export {value, test};
  
 static napi_value LoadModule(napi_env env, napi_callback_info info) { 
     napi_value result; 
-  <em>  // 1. Load modules from the Test file using napi_load_module </em>
+    // 1. Load modules from the Test file using napi_load_module 
     napi_status status = napi_load_module(env, "ets/pages/Test", &result); 
     napi_value testFn; 
-  <em>  // 2. Use napi_get_named_property to obtain the test function </em>
+    // 2. Use napi_get_named_property to obtain the test function 
     napi_get_named_property(env, result, "test", &testFn); 
-   <em> // 3. Call the function test using napi_call_function </em>
+    // 3. Call the function test using napi_call_function 
     napi_call_function(env, result, testFn, 0, nullptr, nullptr); 
     napi_value value; 
     napi_value key; 
     std::string keyStr = "value"; 
     napi_create_string_utf8(env, keyStr.c_str(), keyStr.size(), &key); 
-  <em>  // 4. Get variable value using napi_get_property </em>
+    // 4. Get variable value using napi_get_property 
     napi_get_property(env, result, key, &value); 
     return value; 
 }

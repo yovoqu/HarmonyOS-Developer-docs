@@ -37,7 +37,7 @@ hvigor支持在hvigorfile.ts里接收部分编译配置，实现动态配置构�
     },
     "output": {
       "artifactName": "testAppName"
-  <em>    // app产物名称</em>
+      // app产物名称
     }
   }
 ],
@@ -50,7 +50,7 @@ hvigor支持在hvigorfile.ts里接收部分编译配置，实现动态配置构�
   {
     "name": "default",
     "output": {
-      "artifactName": "testHapName"<em> // hap产物名称</em>
+      "artifactName": "testHapName" // hap产物名称
     }
   },
   {
@@ -75,12 +75,12 @@ export function customPlugin(): HvigorPlugin {
       };
     },
     async apply(currentNode: HvigorNode): Promise<void> {
-      <em>// 获取app插件的上下文对象</em>
+      // 获取app插件的上下文对象
       const appContext = currentNode.getContext(OhosPluginId.OHOS_APP_PLUGIN) as OhosAppContext;
-     <em> // 通过上下文对象获取从根目录build-profile.json5文件中读出来的obj对象</em>
+      // 通过上下文对象获取从根目录build-profile.json5文件中读出来的obj对象
       const buildProfileOpt = appContext.getBuildProfileOpt();
       const appJsonOpt = appContext.getAppJsonOpt();
-     <em> // 修改obj对象为想要的，此处举例修改app中的signingConfigs</em>
+      // 修改obj对象为想要的，此处举例修改app中的signingConfigs
       const products = buildProfileOpt.app.products;
       let date = new Date();
       let formatDate = date.getFullYear().toString() + (date.getMonth() + 1).toString().padStart(2, '0') +
@@ -93,13 +93,13 @@ export function customPlugin(): HvigorPlugin {
           console.info(`output app name: ${product.output.artifactName}`);
         }
       }
-     <em> // 将obj对象设置回上下文对象以使能到构建的过程与结果中</em>
+      // 将obj对象设置回上下文对象以使能到构建的过程与结果中
       appContext.setBuildProfileOpt(buildProfileOpt);
       hvigor.nodesEvaluated(async() => {
         currentNode.subNodes((node: HvigorNode) => {
-       <em>   // 获取hap插件的上下文对象</em>
+          // 获取hap插件的上下文对象
           const hapContext = node.getContext(OhosPluginId.OHOS_HAP_PLUGIN) as OhosHapContext;
-         <em> // 通过上下文对象获取从根目录build-profile.json5文件中读出来的obj对象</em>
+          // 通过上下文对象获取从根目录build-profile.json5文件中读出来的obj对象
           const hapBuildProfileOpt = hapContext?.getBuildProfileOpt();
           if (hapBuildProfileOpt !== undefined) {
             const targets = hapBuildProfileOpt.targets;
@@ -134,7 +134,7 @@ OhosPluginId：本组件是hvigor-ohos-plugin插件id常量类；
 - getBuildProfileOpt：获取当前构建的根目录下build-profile.json5文件中内容的obj对象；
 - setBuildProfileOpt：设置当前构建的根目录下build-profile.json5文件中内容的obj对象。
 ```text
-<em>// 动态修改App包名加版本号，工程级hvigorfile.ts</em>
+// 动态修改App包名加版本号，工程级hvigorfile.ts
 import { appTasks , OhosPluginId} from '@ohos/hvigor-ohos-plugin';
 import { hvigor } from '@ohos/hvigor'
 
@@ -186,8 +186,8 @@ hvigor.afterNodeEvaluate((hvigorNode)=>{
 
 
 export default {
-  system: harTasks, <em> /* Built-in plugin of Hvigor. It cannot be modified. */</em>
-  plugins:[]        <em> /* Custom plugin to extend the functionality of Hvigor. */</em>
+  system: harTasks,  /* Built-in plugin of Hvigor. It cannot be modified. */
+  plugins:[]         /* Custom plugin to extend the functionality of Hvigor. */
 }
 ```
 
