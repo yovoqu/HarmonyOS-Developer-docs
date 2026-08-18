@@ -1,6 +1,6 @@
 # native_audio_suite_engine.h
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -838,7 +838,7 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_DisconnectNodes(OH_AudioNode* sourceAud
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AudioSuite_Result | AUDIOSUITE_SUCCESS：函数执行成功。 AUDIOSUITE_ERROR_INVALID_PARAM：参数sourceAudioNode或destAudioNode为空指针。 AUDIOSUITE_ERROR_NODE_NOT_EXIST：节点不存在或者当前节点已经被销毁。 AUDIOSUITE_ERROR_UNSUPPORTED_OPERATION：不支持操作。 可能的原因如下： 1. 参数sourceAudioNode类型为输出类型节点； 2. 参数destAudioNode为类型为输入类型节点； 3. 参数sourceAudioNode和destAudioNode为同一个节点； 4. 参数sourceAudioNode和destAudioNode不为同一个管线中的节点； 5. 管线状态为运行状态，但是destAudioNode不为mix类型节点； 6. 管线状态为运行状态，destAudioNode为mix类型节点，但是mix节点当前只连接了sourceAudioNode一个输入。 AUDIOSUITE_ERROR_INVALID_STATE：管线为无效状态。例如，无法找到输出节点。 AUDIOSUITE_ERROR_TIMEOUT：操作处理超时。 AUDIOSUITE_ERROR_SYSTEM：系统发生其他异常。 |
+| OH_AudioSuite_Result | AUDIOSUITE_SUCCESS：函数执行成功。 AUDIOSUITE_ERROR_INVALID_PARAM：参数sourceAudioNode或destAudioNode为空指针。 AUDIOSUITE_ERROR_NODE_NOT_EXIST：节点不存在或者当前节点已经被销毁。 AUDIOSUITE_ERROR_UNSUPPORTED_OPERATION：不支持操作。 可能的原因如下： 1. 参数sourceAudioNode类型为输出类型节点； 2. 参数destAudioNode类型为输入类型节点； 3. 参数sourceAudioNode和destAudioNode为同一个节点； 4. 参数sourceAudioNode和destAudioNode不为同一个管线中的节点； 5. 管线状态为运行状态，但是destAudioNode不为mix类型节点； 6. 管线状态为运行状态，destAudioNode为mix类型节点，但是mix节点当前只连接了sourceAudioNode一个输入。 AUDIOSUITE_ERROR_INVALID_STATE：管线为无效状态。例如，无法找到输出节点。 AUDIOSUITE_ERROR_TIMEOUT：操作处理超时。 AUDIOSUITE_ERROR_SYSTEM：系统发生其他异常。 |
  
  
   

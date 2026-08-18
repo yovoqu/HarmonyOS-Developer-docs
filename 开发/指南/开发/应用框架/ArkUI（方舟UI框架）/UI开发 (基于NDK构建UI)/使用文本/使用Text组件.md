@@ -1,6 +1,6 @@
 # 使用Text组件
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-use-text-component
 
@@ -307,7 +307,7 @@ Manager::nodeAPI_->setAttribute(text11, NODE_TEXT_COMPRESS_LEADING_PUNCTUATION, 
 | NODE_TEXT_TAIL_INDENTS | 设置文本尾部缩进。 |
 
 
-```text
+```cpp
 ArkUI_NumberValue multiValues[] = { { .f32 = 0.0f }, { .f32 = 50.0f }, { .f32 = 100.0f } };
 ArkUI_AttributeItem tailIndentItem2 = { .value = multiValues, .size = 3 };
 Manager::nodeAPI_->setAttribute(text2, NODE_TEXT_TAIL_INDENTS, &tailIndentItem2);

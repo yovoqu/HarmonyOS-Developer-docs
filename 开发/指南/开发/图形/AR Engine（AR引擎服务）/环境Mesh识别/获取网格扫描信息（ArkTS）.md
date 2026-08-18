@@ -1,6 +1,6 @@
 # 获取网格扫描信息（ArkTS）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-mesh
 
@@ -222,7 +222,7 @@ class ARViewCallbackImpl extends arViewController.ARViewCallback {
 
     let session: arEngine.ARSession | undefined = ctx.session;
 
-    // The mesh color is controlled by the file mesh.shader
+    // 网格颜色由mesh.shader文件控制。
     let rf: SceneResourceFactory = ctx.scene.getResourceFactory();
     this.material = await rf.createMaterial({ name: 'CustomMaterial' }, MaterialType.SHADER);
     this.shader = await rf.createShader({ name: 'CustomShader', uri: $rawfile('shaders/custom_shader/mesh.shader') });

@@ -1,6 +1,6 @@
 # 人脸跟踪（C/C++）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-face
 
@@ -86,9 +86,9 @@ struct ARFace {
           .onLoad(() => {
             logger.debug('XComponent onLoad ' + this.idStr);
             this.interval = setInterval(() => {
-              // Call the update Native API to update the calculation result of each frame by AR Engine.
+              // 调用Native API更新方法，使AR Engine更新每一帧的计算结果。
               arEngineDemo.update(this.idStr);
-            }, 33) // Set the frame rate to 30 fps (with the frame refreshed every 33 ms).
+            }, 33) // 将帧率设置为30fps（每33毫秒刷新一次帧）。
           })
           .onDestroy(() => {
             logger.debug('XComponent onDestroy ' + this.idStr);
@@ -144,9 +144,9 @@ AREngine_ARConfig *arConfig = nullptr;
 HMS_AREngine_ARConfig_Create(mArSession, &arConfig);
 // 设置ARType为FACE开启人脸跟踪模式。
 HMS_AREngine_ARConfig_SetARType(mArSession, arConfig, ARENGINE_TYPE_FACE);
-// （可选）设置为前置相机
+// （可选）设置为前置相机。
 HMS_AREngine_ARConfig_SetCameraLensFacing(mArSession, arConfig, ARENGINE_CAMERA_FACING_FRONT);
-// （可选）设置为多人脸模式
+// （可选）设置为多人脸模式。
 HMS_AREngine_ARConfig_SetMultiFaceMode(mArSession, arConfig, ARENGINE_MULTIFACE_ENABLE);
 // 配置器设置给AR会话。
 HMS_AREngine_ARSession_Configure(mArSession, arConfig);
@@ -160,7 +160,7 @@ HMS_AREngine_ARSession_Configure(mArSession, arConfig);
   
 ```text
 AREngine_ARTrackableList *faceList = nullptr;
-// 创建trackable list获取所有face
+// 创建trackable list获取所有face。
 CHECK(HMS_AREngine_ARTrackableList_Create(arSession, &faceList));
 
 AREngine_ARTrackableType faceTrackedType = ARENGINE_TRACKABLE_FACE;
@@ -195,9 +195,9 @@ for (int i = 0; i < faceListSize; ++i) {
 
   
 ```text
-AREngine_ARPose *facePose = nullptr;
-HMS_AREngine_ARPose_Create(arSession, nullptr, 0, &facePose);
-HMS_AREngine_ARFace_GetCenterPose(arSession, arFace, facePose);
+AREngine_ARPose* facePose = nullptr;
+HMS_AREngine_ARPose_Create(mArSession, nullptr, 0, &facePose);
+HMS_AREngine_ARFace_GetCenterPose(mArSession, arFace, facePose);
 ```
 
 2. 获取当前人脸的视图矩阵。
@@ -217,7 +217,7 @@ CHECK(HMS_AREngine_ARFace_AcquireViewMatrix(arSession, ARFace, faceViewMat.data(
   
 ```text
 AREngine_ARFaceGeometry *geometry = nullptr;
-// 获得当前face的人脸集合信息指针
+// 获得当前face的人脸集合信息指针。
 CHECK(HMS_AREngine_ARFace_AcquireGeometry(arSession, ARFace, &geometry));
 ```
 
@@ -269,13 +269,13 @@ ret = HMS_AREngine_ARFaceGeometry_AcquireTexCoord(session, firstFace, &texCoords
 // 调用HMS_AREngine_ARFace_AcquireBlendShapes，获取当前人脸的微表情信息，并将结果存放在arFaceBlendShapes中。
 AREngine_ARFaceBlendShapes* arFaceBlendShapes = nullptr;
 HMS_AREngine_ARFace_AcquireBlendShapes(arSession, arFace, &arFaceBlendShapes);
-// 调用HMS_AREngine_ARFaceBlendShapes_GetCount，获取当前人脸的微表情的数量
+// 调用HMS_AREngine_ARFaceBlendShapes_GetCount，获取当前人脸的微表情的数量。
 int count = 0;
 HMS_AREngine_ARFaceBlendShapes_GetCount(arSession, arFaceBlendShapes, &count);
-// 调用HMS_AREngine_ARFaceBlendShapes_AcquireTypes，获取当前人脸的微表情的标签集合
+// 调用HMS_AREngine_ARFaceBlendShapes_AcquireTypes，获取当前人脸的微表情的标签集合。
 const AREngine_ARAnimojiBlendShape* blendShapesTypes = nullptr;
 HMS_AREngine_ARFaceBlendShapes_AcquireTypes(arSession, arFaceBlendShapes, &blendShapesTypes);
-// 调用HMS_AREngine_ARFaceBlendShapes_AcquireData，获取当前人脸的微表情的数据集合，集合中的元素表示该位置在标签集合中表示的微表情的变化程度
+// 调用HMS_AREngine_ARFaceBlendShapes_AcquireData，获取当前人脸的微表情的数据集合，集合中的元素表示该位置在标签集合中表示的微表情的变化程度。
 const float *blendShapesData = nullptr;
 HMS_AREngine_ARFaceBlendShapes_AcquireData(arSession, arFaceBlendShapes, &blendShapesData);
 ```

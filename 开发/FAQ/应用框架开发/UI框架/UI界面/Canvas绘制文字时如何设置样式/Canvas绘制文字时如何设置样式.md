@@ -1,6 +1,6 @@
 # Canvas绘制文字时如何设置样式
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1012
 
@@ -19,21 +19,21 @@ Canvas提供了绘制文字的API，开发者在使用fillText绘制文字时会
 #### 背景知识
 
 - [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-drawing-customization-on-canvas)：提供画布组件，用于自定义绘制图形，开发者使用CanvasRenderingContext2D对象和OffscreenCanvasRenderingContext2D对象在Canvas组件上进行绘制，绘制对象可以是基础形状、文本、图片等。
-- [font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#font)：设置文本绘制中的字体样式，此属性为只写属性，API version 20及以后支持注册过的自定义字体。
-- [fillText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#filltext)：绘制填充类文本。
-- [strokeText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#stroketext)：绘制描边类文本。
-- [createLinearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#createlineargradient)：用于创建一个线性渐变色。
-- [shadowBlur](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#shadowblur)：设置绘制阴影时的模糊级别。
+- [font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#font)：设置文本绘制中的字体样式，此属性为只写属性，API version 20及以后支持注册过的自定义字体。
+- [fillText](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-canvas-rendering-context-2d#canvasrenderingcontext2dfilltext)：绘制填充类文本。
+- [strokeText](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-canvas-rendering-context-2d#canvasrenderingcontext2dstroketext)：绘制描边类文本。
+- [createLinearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#createlineargradient)：用于创建一个线性渐变色。
+- [shadowBlur](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#shadowblur)：设置绘制阴影时的模糊级别。
 
  
  
 
 #### 解决方案
 
-- **场景一**：设置字体常规样式。Canvas提供了fillText和strokeText两个API分别用于绘制填充类文本和绘制描边类文本，另外提供了font属性来设置字体样式，其语法如下：ctx.font = 'font-style font-weight font-size font-family'。具体示例可以参照官网[font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#font)属性。
+- **场景一**：设置字体常规样式。Canvas提供了fillText和strokeText两个API分别用于绘制填充类文本和绘制描边类文本，另外提供了font属性来设置字体样式，其语法如下：ctx.font = 'font-style font-weight font-size font-family'。具体示例可以参照官网[font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#font)属性。
 - **场景二**：绘制自定义字体。
 
-  在API version 20及以后版本Canvas支持使用自定义字体绘制，有以下两种方式：1. 直接调用字体引擎的[fontCollection.loadFontSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#loadfontsync)接口来注册，示例可以参照官网[font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#font)属性。
+  在API version 20及以后版本Canvas支持使用自定义字体绘制，有以下两种方式：1. 直接调用字体引擎的[fontCollection.loadFontSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#loadfontsync)接口来注册，示例可以参照官网[font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#font)属性。
 
 2. 通过ArkUI的异步接口[this.uiContext.getFont().registerFont](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-font#registerfont)注册：
 ```text
@@ -73,7 +73,7 @@ struct CanvasCustomFont {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/89IAV_sVSG-JoiZ3x_8Gkw/zh-cn_image_0000002658804045.png?HW-CC-KV=V1&HW-CC-Date=20260811T005641Z&HW-CC-Expire=86400&HW-CC-Sign=F8DE11C6BFD6C4732EA379AAA44C117976D5CE6F1FB59182CAD06C3E9FE8FD85)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/vsPTp0DcRXujV6FOKwBilw/zh-cn_image_0000002658804045.png?HW-CC-KV=V1&HW-CC-Date=20260818T063534Z&HW-CC-Expire=86400&HW-CC-Sign=65310196F611B38040CF7B804524B2FF673781CA94310A1CFC6CAA782DBD81D4)
 
 
  
@@ -123,7 +123,7 @@ struct CanvasGradFont {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/f--kYWcRRh-eXlM3Qje_Xg/zh-cn_image_0000002628404776.png?HW-CC-KV=V1&HW-CC-Date=20260811T005641Z&HW-CC-Expire=86400&HW-CC-Sign=4FC4B545EC14F55A83EC82162DA567FAEAC4321894B5634EF2C45B7CAA62B6C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/40o0lB3SQKyt0gtkh6zB8g/zh-cn_image_0000002628404776.png?HW-CC-KV=V1&HW-CC-Date=20260818T063534Z&HW-CC-Expire=86400&HW-CC-Sign=335702EF85B56CE7D3B5F8C94F3561248B176E259CC001B195FD42A8D519F335)
 
 
  
@@ -160,7 +160,7 @@ struct CanvasShadowFont {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/iR4FpS6zRp2F2OBOTzQyVQ/zh-cn_image_0000002628564682.png?HW-CC-KV=V1&HW-CC-Date=20260811T005641Z&HW-CC-Expire=86400&HW-CC-Sign=79EC87EC2E2956EA9E957EBC5A92EB2874BF80A69E84D4BB41EF6FADE9D3228F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/Vf05NfuYR7m_XM1z4n3cSA/zh-cn_image_0000002628564682.png?HW-CC-KV=V1&HW-CC-Date=20260818T063534Z&HW-CC-Expire=86400&HW-CC-Sign=3E2EC91D40BB8FC42C61DA39BF74DF85647A731C493B3243F2815EAC23E6AF85)
 
 
  

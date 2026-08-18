@@ -1,6 +1,6 @@
 # 使用Node-API接口创建ArkTS运行时环境
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-ark-runtime
 
@@ -50,12 +50,14 @@ target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so)
   
 ```ArkTS
 "buildOption": {
-  "arkOptions" : {
-    "runtimeOnly" : {
-      "sources": [
-        "./src/main/ets/pages/ObjectUtils.ets"
-      ]
-    }
+    "arkOptions" : {
+      "runtimeOnly" : {
+        "sources": [
+          "./src/main/ets/pages/ObjectUtils.ets"
+        ]
+      }
+    },
+// ...
   },
 ```
 

@@ -1,6 +1,6 @@
 # DialogV2
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialogv2
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -368,7 +368,7 @@ AdvancedDialogV2Button的构造函数。
 上图下文弹出框，包含imageRes、content等内容。
 
 ```text
-import { TipsDialogV2, AdvancedDialogV2Button, UIContext, ButtonRole  } from '@kit.ArkUI';
+import { TipsDialogV2, AdvancedDialogV2Button, UIContext } from '@kit.ArkUI';
 
 @Entry
 @ComponentV2
@@ -586,7 +586,7 @@ struct Index {
 纯文本弹出框，包含primaryTitle、secondaryTitle、content等内容。
 
 ```text
-import { AlertDialogV2, AdvancedDialogV2Button, UIContext, ButtonRole  } from '@kit.ArkUI';
+import { AlertDialogV2, AdvancedDialogV2Button, UIContext } from '@kit.ArkUI';
 
 @Entry
 @ComponentV2
@@ -752,7 +752,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/4kB_EK0VT_e6-A-IdE-aVA/zh-cn_image_0000002686088427.png?HW-CC-KV=V1&HW-CC-Date=20260730T071518Z&HW-CC-Expire=86400&HW-CC-Sign=AA749A9BDBA7C717BF3D6C60D5554F3DD1FBF96B686D1900434E55527CD12FB7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/cqFFHqaGS-SsACr7cZDt5A/zh-cn_image_0000002679967338.png?HW-CC-KV=V1&HW-CC-Date=20260818T063504Z&HW-CC-Expire=86400&HW-CC-Sign=F4C90BA48C597CAC269A53FB190B17D6260A203BC8F5C7C392C06E57428EB49C)
 
 
 
@@ -762,7 +762,7 @@ struct Index {
 支持自定义内容弹出框，包含contentBuilder、buttons等内容。
 
 ```text
-import { CustomContentDialogV2, AdvancedDialogV2Button, UIContext, ButtonStyleMode, ButtonRole  } from '@kit.ArkUI';
+import { CustomContentDialogV2, AdvancedDialogV2Button, UIContext } from '@kit.ArkUI';
 
 @Entry
 @ComponentV2
@@ -817,7 +817,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/uTfv6zTLQsqNjjVbSb7jpQ/zh-cn_image_0000002685928597.png?HW-CC-KV=V1&HW-CC-Date=20260730T071518Z&HW-CC-Expire=86400&HW-CC-Sign=B57500401C4838A467A7EDC0A7E98C337BD190404B4AC1F056AE5C53754FCCB4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/WBO7B7vHRxi--7xaqk2SFg/zh-cn_image_0000002709647147.png?HW-CC-KV=V1&HW-CC-Date=20260818T063504Z&HW-CC-Expire=86400&HW-CC-Sign=F68C8E67E4EB85C9F4CE6858695F86F753A4B694E6D7FCC724A892652028C068)
 
 
 
@@ -879,4 +879,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/a5Oq4vBESD6T-wxe4RF18w/zh-cn_image_0000002656008918.png?HW-CC-KV=V1&HW-CC-Date=20260730T071518Z&HW-CC-Expire=86400&HW-CC-Sign=013479469B1EAA32CE772C2E79BBDFAE636EC48903A74B53493E8ACF7C266EB5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/ZRWt2YcSRj6mdGwhrHg5Yg/zh-cn_image_0000002679807476.png?HW-CC-KV=V1&HW-CC-Date=20260818T063504Z&HW-CC-Expire=86400&HW-CC-Sign=3E094C4A481EDFDC76EAEC30773233D0196B2FD195CAC4CE4D0F341D76AB7616)

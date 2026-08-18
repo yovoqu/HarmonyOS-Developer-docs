@@ -1,6 +1,6 @@
 # native_audiocapturer.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiocapturer-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -843,7 +843,7 @@ OH_AudioStream_Result OH_AudioCapturer_RequestPlaybackCaptureStart(OH_AudioCaptu
 | --- | --- |
 | OH_AudioCapturer* capturer | 指向OH_AudioStreamBuilder_GenerateCapturer创建的音频流实例。 |
 | OH_AudioCapturer_OnPlaybackCaptureStartCallback callback | 用于接收启动请求最终结果的回调函数。 |
-| void* userData | 指向应用自定义的数据存储区域, 该结构将传递给回调函数。 |
+| void* userData | 指向应用自定义的数据存储区域，该结构将传递给回调函数。 |
  
  
 **返回：**

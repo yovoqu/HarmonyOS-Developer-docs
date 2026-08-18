@@ -1,6 +1,6 @@
 # 拦截Web组件发起的网络请求
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-scheme-handler
 
@@ -97,6 +97,12 @@ Web组件的创建会触发Web内核的初始化。另外ArkWeb还提供了initi
 在NDK中可以在ets侧先调用testNapi.registerCustomSchemes注册自定义协议，然后调用[initializeWebEngine](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#initializewebengine)初始化Web内核，示例如下：
 
 ```ArkTS
+import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import { window } from '@kit.ArkUI';
+import testNapi from 'libentry.so';
+import { webview } from '@kit.ArkWeb';
+
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     // 注册三方协议的配置。
@@ -236,7 +242,7 @@ NDK：[arkweb_net_error_list.h](https://developer.huawei.com/consumer/cn/doc/har
 ArkTS：[@ohos.web.netErrorList (ArkWeb网络协议栈错误列表)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-neterrorlist)。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/rROUPfzSTTqnTvdg24Nhng/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260813T095736Z&HW-CC-Expire=86400&HW-CC-Sign=464EA8982B0F5A48FDFEC01FFC703257372F85B742174682FD359B4C8D7D4960)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/ZOQLYCrWSrS59qBPrsrN7A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260818T063543Z&HW-CC-Expire=86400&HW-CC-Sign=07E19DDCBBF34414B0C134790319901D5C2FBBAA8BB4F62B2EE36ACCA6E3D3D6)
 
 
  - ArkWeb不支持自定义错误码，请使用ArkWeb提供的错误码来结束请求。

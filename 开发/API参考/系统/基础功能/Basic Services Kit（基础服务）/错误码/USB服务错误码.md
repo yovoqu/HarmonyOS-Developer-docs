@@ -1,6 +1,6 @@
 # USB服务错误码
 
-更新时间：2026-08-11 11:13:24
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-usb
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -20,7 +20,7 @@ Access right denied. Call requestRight to get the USBDevicePipe access right fir
 
 **错误描述**
 
-当调用USB模块部分接口时，如果没有相关权限，需先调用requestRight方法申请权限，会报此错误码。
+当调用USB模块部分接口时，需先调用requestRight方法申请权限，如果没有相关权限，会报此错误码。
 
 **可能原因**
 

@@ -22,5 +22,11 @@
     "name": "基于PixelMap与Canvas实现图片编辑",
     "file": "拍摄美化/基于PixelMap与Canvas实现图片编辑/基于PixelMap与Canvas实现图片编辑.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-canvas-image-editing"
+  },
+  {
+    "slug": "bpta-video-light-editing",
+    "name": "视频轻编辑开发实践",
+    "file": "影音娱乐/视频轻编辑开发实践/视频轻编辑开发实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-video-light-editing"
   }
 ]

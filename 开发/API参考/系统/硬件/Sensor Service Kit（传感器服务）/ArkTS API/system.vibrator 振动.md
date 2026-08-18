@@ -1,13 +1,13 @@
 # @system.vibrator (振动)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-vibrate
 **支持设备：** Wearable | lite_wearable
 
 @system.vibrator模块提供控制设备马达振动的能力，开发者可以通过该模块触发设备执行长振动或短振动效果，为用户提供触觉反馈。主要用于闹钟、开关机振动、来电振动等需要触觉提醒的交互场景，帮助应用在关键事件发生时通过振动吸引用户注意力。
  
-适用于Lite Wearable轻量穿戴设备。对于其他设备类型，自API version 8起该模块不再维护，
+适用于Lite Wearable轻量穿戴设备。对于其他设备类型，自API version 8起该模块不再维护。
  
 与[@ohos.vibrator (振动)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-vibrator)模块相比，本模块功能较为简单，不支持振动效果查询、振动器列表查询、自定义振动文件等高级功能。对于Lite Wearable设备，本模块持续维护；对于其他设备类型，从API version 8起不再维护，推荐使用[@ohos.vibrator (振动)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-vibrator)模块的[vibrator.startVibration()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-vibrator#vibratorstartvibration9)接口，该替代接口支持更丰富的振动效果（包括指定时长振动[VibrateTime](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-vibrator#vibratetime9)、预置效果振动[VibratePreset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-vibrator#vibratepreset9)、自定义文件振动[VibrateFromFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-vibrator#vibratefromfile10)等），适用于更多设备类型。
  
@@ -38,7 +38,7 @@ import { Vibrator } from '@kit.SensorServiceKit';
 
 **支持设备：** Wearable | lite_wearable
 
-static vibrate(options?: [VibrateOptions](#vibrateoptions)): void
+static vibrate(options?: VibrateOptions): void
  
 触发设备振动，根据指定的振动模式执行短振动或长振动效果。该接口通过callback方式返回调用结果。
  
@@ -56,7 +56,7 @@ static vibrate(options?: [VibrateOptions](#vibrateoptions)): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | VibrateOptions | 否 | 振动配置参数，用于指定振动模式及回调函数。不传时使用默认配置（mode默认为'long'），此时仅触发success和complete回调（无fail回调场景下）。 |
+| options | VibrateOptions | 否 | 振动配置参数，用于指定振动模式及回调函数。不传时使用默认配置（mode默认为'long'），此时仅触发success和complete回调（说明调用后不会触发fail回调）。 |
  
  
 **ArkTS示例**：
@@ -88,7 +88,7 @@ import vibrator from '@system.vibrator';
 
 export default {
   data: {
-    TAG: "WearLiteSample:",
+    TAG: 'WearLiteSample:',
     result: ''
   },
   vibrate() {

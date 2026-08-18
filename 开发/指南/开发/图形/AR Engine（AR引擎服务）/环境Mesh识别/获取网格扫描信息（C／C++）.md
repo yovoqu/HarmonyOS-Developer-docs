@@ -1,6 +1,6 @@
 # 获取网格扫描信息（C/C++）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-get-mesh
 
@@ -90,9 +90,9 @@ struct ARMesh {
           .onLoad(() => {
             logger.info(`XComponent onLoad ${this.idStr}.`);
             this.interval = setInterval(() => {
-              // Call the update Native API to update the calculation result of each frame by AR Engine.
+              // 调用Native API更新方法，使AR Engine更新每一帧的计算结果。
               arEngineDemo.update(this.idStr);
-            }, 33) // Set the frame rate to 30 fps (with the frame refreshed every 33 ms).
+            }, 33) // 将帧率设置为30fps（每33毫秒刷新一次帧）。
           })
           .onDestroy(() => {
             logger.info(`XComponent onDestroy ${this.idStr}.`);

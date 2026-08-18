@@ -1,6 +1,6 @@
 # 截图与隐私模式 (ArkTS)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/screenshot-and-privacy-mode
 
@@ -57,7 +57,7 @@
 
 可通过调用[snapshot()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#snapshot9-1)/[snapshotSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#snapshotsync20)接口对当前窗口进行截图。
 
-```json
+```ArkTS
 import { display, screenshot, window } from '@kit.ArkUI';
 import { common, abilityAccessCtrl, Permissions } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -223,7 +223,7 @@ struct Index {
 
 可通过调用[getMainWindowSnapshot()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-f#windowgetmainwindowsnapshot21)接口，针对一个或多个主窗（通过windowId指定）进行截图。
 
-```json
+```ArkTS
 import { display, screenshot, window } from '@kit.ArkUI';
 import { common, abilityAccessCtrl, Permissions } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -367,7 +367,7 @@ struct Index {
 
 
 
-```json
+```ArkTS
 import { display, screenshot, window } from '@kit.ArkUI';
 import { common, abilityAccessCtrl, Permissions } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';

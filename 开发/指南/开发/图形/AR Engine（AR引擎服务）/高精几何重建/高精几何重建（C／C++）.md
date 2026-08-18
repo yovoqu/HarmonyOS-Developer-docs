@@ -1,6 +1,6 @@
 # 高精几何重建（C/C++）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-volume-measurement
 
@@ -177,7 +177,7 @@ struct ARSemanticDenseRender {
                   this.volume = arEngineDemo.getVolume(this.idStr);
                 }
               }
-            }, 33) // Set the frame rate to 30 fps (with the frame refreshed every 33 ms).
+            }, 33) // 将帧率设置为30fps（每33毫秒刷新一次帧）。
           })
           .onDestroy(() => {
             if (this.interval !== -1) {

@@ -1,6 +1,6 @@
 # DistributedSchedule错误码
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributedschedule
 **支持设备：** Phone | PC/2in1 | Tablet | TV | Wearable
@@ -302,7 +302,7 @@ The callback has been registered.
 
 **可能原因**
 
-该错误码能原因是指定的callback已经注册过。
+该错误码可能原因是指定的callback已经注册过。
 
 **处理步骤**
 

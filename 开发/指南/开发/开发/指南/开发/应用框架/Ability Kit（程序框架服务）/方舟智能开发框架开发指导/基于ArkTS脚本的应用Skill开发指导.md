@@ -1,6 +1,6 @@
 # 基于ArkTS脚本的应用Skill开发指导
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-skill-development-guide
 
@@ -267,3 +267,5 @@ Schema的核心在于args子对象，它定义了系统智能体可填写的入�
   ]
 }
 ```
+
+6. 在完成Skill开发后，请参考[真机测试](https://developer.huawei.com/consumer/cn/doc/service/skill-real-machine-testing-0000002592771628)进行调试。

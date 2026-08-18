@@ -1,6 +1,6 @@
 # 使用Node-API接口操作bigint类型值
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-bigint
 
@@ -352,7 +352,7 @@ static napi_value GetValueBigintWords(napi_env env, napi_callback_info info)
 index.d.ts
  
 ```ts
-export const getValueBigintWords: (bigIntWords: bigint) => bigint | undefined; // napi_get_value_bigint_words
+export const getValueBigintWords: (bigIntWords: bigint) => number | undefined; // napi_get_value_bigint_words
 ```
  
 ArkTS侧示例代码

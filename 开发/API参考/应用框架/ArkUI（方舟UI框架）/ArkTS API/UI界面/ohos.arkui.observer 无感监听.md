@@ -1,6 +1,6 @@
 # @ohos.arkui.observer (无感监听)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-observer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -69,7 +69,7 @@ NavDestination组件状态。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-routerPage生命周期触发时对应的状态。RouterPageState用于[RouterPageInfo](#routerpageinfo)中，作为[routerPageUpdate](#uiobserveronrouterpageupdate11)无感监听的返回值。
+routerPage生命周期触发时对应的状态。RouterPageState用于[RouterPageInfo](#routerpageinfo)中，作为[routerPageUpdate](#uiobserveronrouterpageupdate)无感监听的返回值。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -694,7 +694,7 @@ struct Index {
  
   
 
-#### uiObserver.on('routerPageUpdate')11+
+#### uiObserver.on('routerPageUpdate')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -753,7 +753,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-#### uiObserver.off('routerPageUpdate')11+
+#### uiObserver.off('routerPageUpdate')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

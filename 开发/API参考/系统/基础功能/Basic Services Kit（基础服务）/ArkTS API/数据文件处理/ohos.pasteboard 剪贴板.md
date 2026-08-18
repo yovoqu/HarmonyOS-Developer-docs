@@ -1,6 +1,6 @@
 # @ohos.pasteboard (剪贴板)
 
-更新时间：2026-08-11 11:13:24
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pasteboard
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -796,7 +796,7 @@ struct PasteboardTest {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-对于剪贴板中内容记录的抽象定义，称之为条目。剪贴板内容部分由一个或者多个条目构成，例如一条文本内容、一份HTML、一个URI或者一个Want。
+对于剪贴板中内容记录的抽象定义，称之为条目。剪贴板内容部分由一个或者多个条目构成，例如一条文本内容、一份HTML、一个URI或者一个Want。不支持在创建PasteDataRecord之后，修改PasteDataRecord的默认数据类型的值，应在创建PasteDataRecord时指定正确的默认数据类型的值。如需刷新PasteDataRecord的属性值，请使用[addEntry](#addentry14)。
 
 
 
@@ -810,13 +810,13 @@ struct PasteboardTest {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| htmlText | string | 是 | 否 | HTML内容，需符合标准HTML格式。 |
-| want | Want | 是 | 否 | Want内容。 |
-| mimeType | string | 是 | 否 | 默认数据类型。 |
-| plainText | string | 是 | 否 | 纯文本内容。 |
-| uri | string | 是 | 否 | URI内容，需符合标准URI格式。 |
-| pixelMap9+ | image.PixelMap | 是 | 否 | PixelMap内容。 |
-| data9+ | Record<string, ArrayBuffer> | 是 | 否 | 自定义数据内容。 |
+| htmlText | string | 否 | 否 | HTML内容，需符合标准HTML格式。对此属性的修改无效，如需刷新属性值，请使用addEntry。 |
+| want | Want | 否 | 否 | Want内容。对此属性的修改无效，如需刷新属性值，请使用addEntry。 |
+| mimeType | string | 否 | 否 | 默认数据类型。对此属性的修改无效。 |
+| plainText | string | 否 | 否 | 纯文本内容。对此属性的修改无效，如需刷新属性值，请使用addEntry。 |
+| uri | string | 否 | 否 | URI内容，需符合标准URI格式。对此属性的修改无效，如需刷新属性值，请使用addEntry。 |
+| pixelMap9+ | image.PixelMap | 否 | 否 | PixelMap内容。对此属性的修改无效，如需刷新属性值，请使用addEntry。 |
+| data9+ | Record<string, ArrayBuffer> | 否 | 否 | 自定义数据内容。对此属性的修改无效。 |
 
 
 

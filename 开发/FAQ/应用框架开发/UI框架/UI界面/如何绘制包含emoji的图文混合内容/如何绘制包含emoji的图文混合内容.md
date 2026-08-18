@@ -1,6 +1,6 @@
 # 如何绘制包含emoji的图文混合内容
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1640
 
@@ -51,7 +51,7 @@ struct DrawingMixedGraphicsAndText {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/eG3zO1H5QvC9n8Jf6JOvdg/zh-cn_image_0000002628662310.png?HW-CC-KV=V1&HW-CC-Date=20260811T005712Z&HW-CC-Expire=86400&HW-CC-Sign=CE61A4686B32CA0410A37D4A9DC49589C3F18A2282359D4CEC07C1CDD20D913F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/G8W1eZdARiOAQYmE1SxgZQ/zh-cn_image_0000002628662310.png?HW-CC-KV=V1&HW-CC-Date=20260818T063535Z&HW-CC-Expire=86400&HW-CC-Sign=E7847309D89839EB1ABDC92BED187E14AA5F074785A30B8BDA1571A8C60A35BF)
 
 - 方案二：由于drawTextBlob不支持降级，可以通过接口drawSingleCharacter实现，drawSingleCharacter有字体退化处理的能力（在用户给的字体typeface不支持某些表情包时，可以退化查找其他已载入字体的typeface），没有设置字体会使用系统默认字体。具体使用可参考[drawSingleCharacter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas#drawsinglecharacter12)中的示例，将示例中绘制的字符串替换为emoji即可。
 
@@ -62,4 +62,4 @@ struct DrawingMixedGraphicsAndText {
 
 Q：绘制带emoji或纯emoji的字符串的高度和宽度怎么获取呢？
  
-A：可以使用文本计算[measureText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#measuretext)，参考官方示例。
+A：可以使用文本计算[measureText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#measuretext)，参考官方示例。

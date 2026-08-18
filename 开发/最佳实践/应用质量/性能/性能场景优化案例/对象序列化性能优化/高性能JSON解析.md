@@ -1,6 +1,6 @@
 # 高性能JSON解析
 
-更新时间：2026-07-28 03:34:01
+更新时间：2026-08-17 09:32:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-high-performance-json-parsing
 
@@ -76,9 +76,9 @@ export default {
   system: appTasks,
   plugins: [
     // ...
-    turboTransJsonPlugin(hvigor)
-  ]
-}
+    turboTransJsonPlugin(hvigor),
+  ],
+};
 ```
 
 
@@ -146,7 +146,7 @@ export class PersonWithSendable {
 
 2. 定义子线程执行方法，在子线程内创建原始对象并使用toSendable()方法，将原始对象转换为Sendable对象，并返回给主线程。使用引用方式跨线程传输数据，避免序列化和序列化耗时以及破坏对象结构。
 ```ArkTS
-// The buf parameter is only used to demonstrate TJSON's serialization and deserialization capabilities for ArrayBuffer type
+// The buf parameter only demonstrates TJSON's serialization and deserialization capabilities for ArrayBuffer type
 @Concurrent
 function childThreadTask(buf: ArrayBuffer): lang.ISendable | undefined {
   const scores: number[] = TJSON.fromBuffer(buf, { classKey: 'Array', genericTypes: ['number']});
@@ -284,7 +284,7 @@ const obj: ESObject = await jsonNode.toPlainObjectAsync();
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/lEcLzF8oTLaHRV9n1Bnhgg/zh-cn_image_0000002501330544.png?HW-CC-KV=V1&HW-CC-Date=20260730T072038Z&HW-CC-Expire=86400&HW-CC-Sign=281541BB5EF1AD08F55D330AD46829D06FA16173F396F0B73B72708652E654C3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/RWoyDEhxSuWIZJZX4jdAag/zh-cn_image_0000002501330544.png?HW-CC-KV=V1&HW-CC-Date=20260818T063241Z&HW-CC-Expire=86400&HW-CC-Sign=688D9379DE13D4F01061E5B9E02836E73CDBC82D23C41277977FAE0591433237)
 
  
 通过上述比对数据发现：

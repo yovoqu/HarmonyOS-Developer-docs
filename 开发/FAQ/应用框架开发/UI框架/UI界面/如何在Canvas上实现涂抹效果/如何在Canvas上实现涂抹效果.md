@@ -1,6 +1,6 @@
 # 如何在Canvas上实现涂抹效果
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1060
 
@@ -18,8 +18,8 @@
 #### 背景知识
 
 - [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-drawing-customization-on-canvas)：提供画布组件，用于自定义绘制图形，开发者使用CanvasRenderingContext2D对象和OffscreenCanvasRenderingContext2D对象在Canvas组件上进行绘制，绘制对象可以是基础形状、文本、图片等。
-- [lineTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#lineto)：从当前点到指定点进行路径连接。
-- [globalCompositeOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#globalcompositeoperation)：设置合成操作的方式，默认值为source-over。
+- [lineTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#lineto)：从当前点到指定点进行路径连接。
+- [globalCompositeOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#globalcompositeoperation)：设置合成操作的方式，默认值为source-over。
 - [onTouch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch#ontouch)：手指触摸动作触发该回调。可以获取滑动过的路径坐标点。
 - [PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)：滑动手势事件，当滑动的最小距离达到设定的最小值时触发滑动手势事件。
 
@@ -125,7 +125,7 @@ struct CanvasPanGesture {
   实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/1ZVYwS3VSRqmwaKrt3eYHQ/zh-cn_image_0000002658926415.png?HW-CC-KV=V1&HW-CC-Date=20260811T005701Z&HW-CC-Expire=86400&HW-CC-Sign=9611B4BAE3D3BEC547589A081194B69386FAC27153E3D64C083A06A1F95AF050)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/EX83OEmCTaWG2d3nCrWFXQ/zh-cn_image_0000002658926415.png?HW-CC-KV=V1&HW-CC-Date=20260818T063535Z&HW-CC-Expire=86400&HW-CC-Sign=A83F99184539A7A79B62EF360F52221AF0EBE85A3344CFCE5C7712753B399FAE)
 
 
  - 场景二：撤销绘制的路径。在一些签名场景，如果用户绘制错误需要重新绘制，直接使用clearRect方法清空画布体验不够友好，需要仅撤销最新的绘制路径，这时可以使用数组来存储绘制过程中的路径，然后点击撤销时移除最新路径，最后重绘剩余路径，这样即可实现撤销绘制功能。示例代码参考如下：
@@ -226,7 +226,7 @@ struct CanvasCancelDraw {
   实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/kVQLFwoCRM2cvByE4spNeA/zh-cn_image_0000002628407212.png?HW-CC-KV=V1&HW-CC-Date=20260811T005701Z&HW-CC-Expire=86400&HW-CC-Sign=0FC6CF04000D163514EC4749E126040E09F6759A22D150E886C660472C7BEE6F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/mcrzocgTRe-gw4W48So7og/zh-cn_image_0000002628407212.png?HW-CC-KV=V1&HW-CC-Date=20260818T063535Z&HW-CC-Expire=86400&HW-CC-Sign=EDDCE0DD02C6539382572B847D932E5118591CBE110E8AA63F7A0BED5E595E44)
 
 - 场景三：擦除部分绘制内容。在一些绘图场景，可能需要在原有的线条基础上进行擦除而不是撤销，这时就需要globalCompositeOperation实现。Canvas是增量绘制，在原有的基础上进行擦除，可以通过设置globalCompositeOperation属性为destination-out来实现，示例代码参考如下：
 
@@ -295,7 +295,7 @@ struct CanvasEraseDraw {
   实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/H90Iu-kDQxSd_taClv0bAg/zh-cn_image_0000002658806469.png?HW-CC-KV=V1&HW-CC-Date=20260811T005701Z&HW-CC-Expire=86400&HW-CC-Sign=30C89D933C12D623D13F15E101C3923F28A1107D6EEB8D4007739A1ADAEDE696)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/T0AHrIKFTnye5O1twy_TlQ/zh-cn_image_0000002658806469.png?HW-CC-KV=V1&HW-CC-Date=20260818T063535Z&HW-CC-Expire=86400&HW-CC-Sign=5D5C749578EE7CFAFBD8A2A0F9C549FAF9CA83A5E3590333938AEF2FA62A86BD)
 
 
  

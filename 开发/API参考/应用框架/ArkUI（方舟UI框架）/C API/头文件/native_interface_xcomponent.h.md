@@ -1,6 +1,6 @@
 # native_interface_xcomponent.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-xcomponent-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2194,6 +2194,12 @@ int32_t OH_ArkUI_XComponent_SetAutoInitialize(ArkUI_NodeHandle node, bool autoIn
  
 设置XComponent组件是否需要自动初始化Surface的标志位。
  
+配置依赖：
+ 
+- 当autoInitialize为true（默认值）时，Surface会在组件挂树/下树时自动初始化和销毁，无需手动调用[OH_ArkUI_XComponent_Initialize](#oh_arkui_xcomponent_initialize)和[OH_ArkUI_XComponent_Finalize](#oh_arkui_xcomponent_finalize)。
+- 当autoInitialize设置为false时，开发者必须手动调用[OH_ArkUI_XComponent_Initialize](#oh_arkui_xcomponent_initialize)初始化Surface，并在不再使用时调用[OH_ArkUI_XComponent_Finalize](#oh_arkui_xcomponent_finalize)销毁Surface。
+
+ 
 **起始版本：** 19
  
 **参数：**
@@ -2225,6 +2231,13 @@ int32_t OH_ArkUI_XComponent_Initialize(ArkUI_NodeHandle node)
  
 初始化XComponent组件持有的Surface。
  
+配对调用：
+ 
+- 调用此接口初始化Surface后，必须在Surface不再使用时调用[OH_ArkUI_XComponent_Finalize](#oh_arkui_xcomponent_finalize)销毁Surface。
+- 若Surface已经处于初始化状态，再次调用将返回ARKUI_ERROR_CODE_XCOMPONENT_STATE_INVALID。
+- 可通过[OH_ArkUI_XComponent_IsInitialized](#oh_arkui_xcomponent_isinitialized)查询当前初始化状态。
+
+ 
 **起始版本：** 19
  
 **参数：**
@@ -2254,6 +2267,12 @@ int32_t OH_ArkUI_XComponent_Finalize(ArkUI_NodeHandle node)
 **描述：**
  
 销毁XComponent组件持有的Surface。
+ 
+配对调用：
+ 
+- 此接口用于销毁由[OH_ArkUI_XComponent_Initialize](#oh_arkui_xcomponent_initialize)初始化的Surface，必须在Initialize之后调用。
+- 若Surface尚未初始化或已被销毁，调用将返回ARKUI_ERROR_CODE_XCOMPONENT_STATE_INVALID。
+
  
 **起始版本：** 19
  

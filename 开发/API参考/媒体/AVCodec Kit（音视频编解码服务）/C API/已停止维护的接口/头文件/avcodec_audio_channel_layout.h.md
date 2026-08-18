@@ -1,6 +1,6 @@
 # avcodec_audio_channel_layout.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avcodec-audio-channel-layout-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,8 +37,8 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| AudioChannelSet | 音频声道数集合，将每一个声道数映射为int64的变量。(API11废弃) |
-| AudioChannelLayout | 音频声道数类型，将用户申请的解码器输出格式表示为编解码器的声道类型。(API11废弃) |
+| AudioChannelSet | 音频声道数集合，将每一个声道数映射为uint64_t的变量。(API11废弃) |
+| AudioChannelLayout | 音频声道布局类型，将用户申请的解码器输出格式表示为编解码器的声道布局类型。(API11废弃) |
  
  
   
@@ -59,7 +59,7 @@ enum AudioChannelSet : uint64_t
  
 **描述**
  
-音频声道数集合，将每一个声道数映射为int64的变量。
+音频声道数集合，将每一个声道数映射为uint64_t的变量。
  
 **系统能力：** SystemCapability.Multimedia.Media.CodecBase
  

@@ -1,6 +1,6 @@
 # Interface (AudioStreamManager)
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiostreammanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -505,7 +505,7 @@ isActiveSync(volumeType: AudioVolumeType): boolean
 获取指定音频流是否为活跃状态。同步返回结果。
 
 > [!WARNING]
-> 从API版本9开始支持，从API版本20开始废弃，建议使用 isStreamActive 替代。注意替代接口与原接口入参存在差异，例如 StreamUsage 中提供了STREAM_USAGE_MUSIC、STREAM_USAGE_MOVIE、STREAM_USAGE_AUDIOBOOK、STREAM_USAGE_GAME等更细分的类型，而 AudioVolumeType 中这些类型统一归入MEDIA类型。具体映射关系请参考 音量控制 中常见的播放流类型与音量类型的对应关系，迁移时根据实际业务场景选择对应的StreamUsage值。
+> 从API version 10开始支持，从API version 20开始废弃，建议使用 isStreamActive 替代。注意替代接口与原接口入参存在差异，例如 StreamUsage 中提供了STREAM_USAGE_MUSIC、STREAM_USAGE_MOVIE、STREAM_USAGE_AUDIOBOOK、STREAM_USAGE_GAME等更细分的类型，而 AudioVolumeType 中这些类型统一归入MEDIA类型。具体映射关系请参考 音量控制 中常见的播放流类型与音量类型的对应关系，迁移时根据实际业务场景选择对应的StreamUsage值。
 
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer

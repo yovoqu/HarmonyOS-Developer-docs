@@ -1,6 +1,6 @@
 # 使用Socket访问网络
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/socket-connection
 
@@ -134,7 +134,7 @@ tcpClient.on('close', () => {
         hilog.info(0x0000, 'testTag', 'send success');
         // ···
       }).catch(() => {
-        hilog.info(0x0000, 'testTag', 'send fail');
+        hilog.error(0x0000, 'testTag', 'send fail');
         // ···
       });
     }).catch((err: BusinessError) => {
@@ -201,7 +201,7 @@ tcpServer.listen(ipAddress).then(() => {
   hilog.info(0x0000, 'testTag', 'listen success');
   // ···
 }).catch(() => {
-  hilog.info(0x0000, 'testTag', 'listen fail');
+  hilog.error(0x0000, 'testTag', 'listen fail');
   // ···
 });
 ```
@@ -257,7 +257,7 @@ class SocketInfo {
       hilog.info(0x0000, 'testTag', 'close success');
     // ···
     }).catch((err: BusinessError) => {
-      hilog.info(0x0000, 'testTag', 'close fail');
+      hilog.error(0x0000, 'testTag', 'close fail');
     // ···
     });
 
@@ -447,10 +447,10 @@ client.connect(connectOpt).then(() => {
   client.send(sendOpt).then(() => {
     hilog.info(0x0000, 'testTag', `send success`);
   }).catch((err: Object) => {
-    hilog.info(0x0000, 'testTag', `send failed: ` + JSON.stringify(err));
+    hilog.error(0x0000, 'testTag', `send failed: ` + JSON.stringify(err));
   });
 }).catch((err: Object) => {
-  hilog.info(0x0000, 'testTag', `connect fail: ` + JSON.stringify(err));
+  hilog.error(0x0000, 'testTag', `connect fail: ` + JSON.stringify(err));
 });
 ```
 
@@ -524,7 +524,7 @@ server.listen(listenAddr).then(() => {
 server.on('connect', (connection: socket.LocalSocketConnection) => {
   // 订阅LocalSocketConnection相关的事件。
   connection.on('error', (err: Object) => {
-    hilog.info(0x0000, 'testTag', 'on error success');
+    hilog.error(0x0000, 'testTag', 'on error received');
   });
 
   connection.on('message', (value: socket.LocalSocketMessageInfo) => {
@@ -890,7 +890,7 @@ tcpSocket.connect(tcpConnect).then(() => {
     hilog.info(0x0000, 'testTag', 'tls connect success');
     // ...
   }).catch((e: BusinessError) => {
-    hilog.info(0x0000, 'testTag', 'tls connect fail');
+    hilog.error(0x0000, 'testTag', 'tls connect fail');
     // ...
   });
 }).catch((e: BusinessError) => {

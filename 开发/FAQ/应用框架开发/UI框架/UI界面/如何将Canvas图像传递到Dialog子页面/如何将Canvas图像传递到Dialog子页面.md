@@ -1,6 +1,6 @@
 # 如何将Canvas图像传递到Dialog子页面
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-778
 
@@ -14,7 +14,7 @@
 
 @Prop装饰器[限制条件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop#限制条件)：@Prop装饰变量时会进行深拷贝，在拷贝的过程中除了基本类型、Map、Set、Date、Array外，都会丢失类型。例如[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)等通过NAPI提供的复杂类型，由于有部分实现在Native侧，因此无法在ArkTS侧通过深拷贝获得完整的数据。
  
-使用CanvasRenderingContext2D中[getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#getpixelmap)方法可将当前Canvas指定区域内的像素数据转换为PixelMap对象。
+使用CanvasRenderingContext2D中[getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#getpixelmap)方法可将当前Canvas指定区域内的像素数据转换为PixelMap对象。
  
  
 

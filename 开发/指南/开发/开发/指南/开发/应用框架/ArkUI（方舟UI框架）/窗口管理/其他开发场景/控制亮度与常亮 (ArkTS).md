@@ -1,6 +1,6 @@
 # 控制亮度与常亮 (ArkTS)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/brightness-control
 
@@ -43,7 +43,7 @@
 
 示例代码如下：
 
-```json
+```ArkTS
 import { window } from '@kit.ArkUI';
 import { common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';

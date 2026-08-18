@@ -1,6 +1,6 @@
 # ArkTS API错误码
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-service-support-kit
 **支持设备：** Phone | Tablet
@@ -83,7 +83,7 @@ Network error.
 
 **错误信息**
  
-HiviewCare privacy statement not accepted.
+Smart Diagnosis privacy statement not accepted.
  
 **错误描述**
  

@@ -1,6 +1,6 @@
 # @ohos.bundle (Bundle模块)
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -372,7 +372,7 @@ SystemCapability.BundleManager.BundleFramework
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 要查询的应用Bundle名称。 |
 | bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考BundleFlag说明中包信息相关flag。 |
-| options | BundleOptions | 否 | 包含userid的查询选项。 |
+| options | BundleOptions | 否 | 包含userId的查询选项。 |
 
 
 **返回值：**
@@ -482,7 +482,7 @@ SystemCapability.BundleManager.BundleFramework
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 要查询的应用Bundle名称。 |
 | bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考BundleFlag说明中包信息相关flag。 |
-| options | BundleOptions | 是 | 包含userid。 |
+| options | BundleOptions | 是 | 包含userId。 |
 | callback | AsyncCallback&lt;BundleInfo&gt; | 是 | 程序启动作为入参的回调函数，返回包信息。 |
 
 
@@ -856,7 +856,7 @@ bundle.getAbilityInfo(bundleName, abilityName, (err, data) => {
 
 
 
-#### bundle.getAbilityLabel8+ deprecated
+#### bundle.getAbilityLabeldeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -912,7 +912,7 @@ bundle.getAbilityLabel(bundleName, abilityName)
 
 
 
-#### bundle.getAbilityLabel8+ deprecated
+#### bundle.getAbilityLabeldeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -962,7 +962,7 @@ bundle.getAbilityLabel(bundleName, abilityName, (err, data) => {
 
 
 
-#### bundle.isAbilityEnabled8+ deprecated
+#### bundle.isAbilityEnableddeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1012,7 +1012,7 @@ bundle.getAbilityInfo(bundleName, abilityName).then((abilityInfo) => {
 
 
 
-#### bundle.isAbilityEnabled8+ deprecated
+#### bundle.isAbilityEnableddeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1057,7 +1057,7 @@ bundle.getAbilityInfo(bundleName, abilityName).then((abilityInfo) => {
 
 
 
-#### bundle.isApplicationEnabled8+ deprecated
+#### bundle.isApplicationEnableddeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1105,7 +1105,7 @@ bundle.isApplicationEnabled(bundleName)
 
 
 
-#### bundle.isApplicationEnabled8+ deprecated
+#### bundle.isApplicationEnableddeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1174,7 +1174,7 @@ SystemCapability.BundleManager.BundleFramework
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | want | Want | 是 | 包含要查询的应用Bundle名称的意图。 |
-| bundleFlags | number | 是 | 用于指定返回abilityInfo信息。取值范围：参考BundleFlag说明中Ability信息相关flag。 |
+| bundleFlags | number | 是 | 用于指定返回AbilityInfo信息。取值范围：参考BundleFlag说明中Ability信息相关flag。 |
 | userId | number | 否 | 用户ID。默认值：调用方所在用户，取值范围：大于等于0。 |
 
 
@@ -1236,7 +1236,7 @@ SystemCapability.BundleManager.BundleFramework
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | want | Want | 是 | 指示包含要查询的应用Bundle名称的意图。 |
-| bundleFlags | number | 是 | 用于指定返回abilityInfo信息。取值范围：参考BundleFlag说明中Ability信息相关flag。 |
+| bundleFlags | number | 是 | 用于指定返回AbilityInfo信息。取值范围：参考BundleFlag说明中Ability信息相关flag。 |
 | userId | number | 是 | 用户ID。取值范围：大于等于0。 |
 | callback | AsyncCallback<Array&lt;AbilityInfo&gt;> | 是 | 程序启动作为入参的回调函数，返回Ability信息。 |
 
@@ -1292,7 +1292,7 @@ SystemCapability.BundleManager.BundleFramework
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | want | Want | 是 | 指示包含要查询的应用Bundle名称的意图。 |
-| bundleFlags | number | 是 | 用于指定返回abilityInfo信息。取值范围：参考BundleFlag说明中Ability信息相关flag。 |
+| bundleFlags | number | 是 | 用于指定返回AbilityInfo信息。取值范围：参考BundleFlag说明中Ability信息相关flag。 |
 | callback | AsyncCallback<Array&lt;AbilityInfo&gt;> | 是 | 程序启动作为入参的回调函数，返回Ability信息。 |
 
 
@@ -1417,7 +1417,7 @@ bundle.getLaunchWantForBundle(bundleName, (err, data) => {
 
 
 
-#### bundle.getNameForUid8+ deprecated
+#### bundle.getNameForUiddeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1465,7 +1465,7 @@ bundle.getNameForUid(uid)
 
 
 
-#### bundle.getNameForUid8+ deprecated
+#### bundle.getNameForUiddeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1507,7 +1507,7 @@ bundle.getNameForUid(uid, (err, data) => {
 
 
 
-#### bundle.getAbilityIcon8+ deprecated
+#### bundle.getAbilityIcondeprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1563,7 +1563,7 @@ bundle.getAbilityIcon(bundleName, abilityName)
 
 
 
-#### bundle.getAbilityIcon8+ deprecated
+#### bundle.getAbilityIcon deprecated
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

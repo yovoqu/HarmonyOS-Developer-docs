@@ -1,6 +1,6 @@
 # Functions
 
-更新时间：2026-08-07 10:00:25
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1055,7 +1055,7 @@ createMediaSourceWithDirectory(path: string): Promise<MediaSource | undefined>
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 5411007 | The directory specified by the path parameter does not exist or unaccessed. |
+| 5411007 | The directory specified by the path parameter does not exist or inaccessible. |
 
 
 **示例：**

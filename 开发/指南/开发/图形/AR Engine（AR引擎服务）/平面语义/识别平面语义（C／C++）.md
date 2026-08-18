@@ -1,6 +1,6 @@
 # 识别平面语义（C/C++）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-get-semantics
 
@@ -48,39 +48,10 @@ CHECK(HMS_AREngine_ARSession_Configure(mArSession, arConfig));
 创建并初始化平面语义标签label，用于描述平面的语义。
 
 ```text
-AREngine_ARSemanticPlaneLabel label = ARENGINE_PLANE_UNKNOWN;
+AREngine_ARSemanticPlaneLabel planeLabel = ARENGINE_PLANE_UNKNOWN;
 ```
 
-平面语义标签定义为枚举类型，包括12种枚举值（1种未知类型+11种平面类型）。
-
-```text
-typedef enum {
-    /** Unknown type. */
-    ARENGINE_PLANE_UNKNOWN = 0,
-    /** Wall. */
-    ARENGINE_PLANE_WALL = 1,
-    /** Floor. */
-    ARENGINE_PLANE_FLOOR = 2,
-    /** Seat. */
-    ARENGINE_PLANE_SEAT = 3,
-    /** Table. */
-    ARENGINE_PLANE_TABLE = 4,
-    /** Ceiling. */
-    ARENGINE_PLANE_CEILING = 5,
-    /** Door. */
-    ARENGINE_PLANE_DOOR = 6,
-    /** Window. */
-    ARENGINE_PLANE_WINDOW = 7,
-    /** Bed. */
-    ARENGINE_PLANE_BED = 8,
-    /** Plane Space. */
-    ARENGINE_PLANE_SPACE = 9,
-    /** Cube Volume. */
-    ARENGINE_CUBE_VOLUME = 10,
-    /** Cube Space. */
-    ARENGINE_CUBE_SPACE = 11,
-} AREngine_ARSemanticPlaneLabel;
-```
+平面语义标签定义为枚举类型，包括12种枚举值（1种未知类型+11种平面类型）。 参考[AREngine_ARSemanticPlaneLabel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arsemanticplanelabel)
 
 
 
@@ -89,5 +60,5 @@ typedef enum {
 调用[HMS_AREngine_ARPlane_GetLabel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arplane_getlabel)函数，获取平面类型，结果存放在label中。平面的获取可以参考[获取平面实例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-get-plane#获取平面实例)。
 
 ```text
-HMS_AREngine_ARPlane_GetLabel(arSession, arPlane, &label);
+HMS_AREngine_ARPlane_GetLabel(arSession, arPlane, &planeLabel);
 ```

@@ -1,6 +1,6 @@
 # HarmonyOS中Navigation组件单栏与分栏模式动态切换及横屏布局异常解决方案
 
-更新时间：2026-07-31 00:56:37
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1644
 
@@ -105,7 +105,7 @@ struct NavPageOne {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/PydJbd40Sc6SBZUKLjA-mA/zh-cn_image_0000002663720495.png?HW-CC-KV=V1&HW-CC-Date=20260811T005642Z&HW-CC-Expire=86400&HW-CC-Sign=112794DC017A121B69DBD3D33E1355226C4C1892B5294FDD892F056AD3108BA8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/EBPWHPOMSMKSWR3e-Tj8JA/zh-cn_image_0000002663720495.png?HW-CC-KV=V1&HW-CC-Date=20260818T063534Z&HW-CC-Expire=86400&HW-CC-Sign=AF99666D3AF5ABBE82DE416C65867F3D19E60CBC0686B842CB69D1724120EEB7)
 
 - **场景二：跳转不同页面采用不同的模式设置。**在推送子页时修改 Navigation 模式，需要单栏显示的页面设置为 false，需要分栏显示的页面设置为 true。参考场景一，修改代码如下：
 
@@ -152,7 +152,7 @@ struct NavPageTwo {
   }
 }
 ```
- **注意**：以上方案未配置路由表，路由表配置相关官网：[系统路由表配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation#系统路由表)。在工程resources/base/profile中创建route_map.json文件，并在跳转目标模块的配置文件module.json5添加该路由表。route_map.json配置信息如下：
+ **注意**：以上方案未配置路由表，路由表配置相关官网：[系统路由表配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package#系统路由表)。在工程resources/base/profile中创建route_map.json文件，并在跳转目标模块的配置文件module.json5添加该路由表。route_map.json配置信息如下：
 
   
 ```ArkTS

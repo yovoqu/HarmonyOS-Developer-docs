@@ -1,6 +1,6 @@
 # 基于AVPlayer播放长视频实践
 
-更新时间：2026-08-11 11:13:24
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avplayer-long-video
 
@@ -1011,11 +1011,11 @@ this.windowUtil.setMainWindowOrientation(window.Orientation.USER_ROTATION_PORTRA
 用户在横竖屏切换后，视频保持原有进度继续播放。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/zyHeB-FrRL2gB7chUCp-MQ/zh-cn_image_0000002704273197.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095904Z&HW-CC-Expire=86400&HW-CC-Sign=82C98FD9AB86E5B95024EE18DB658E4C9E14F652C3BF149FBBBA080FBA574468)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/h_LfwxDdRpi6aReOJnuTGA/zh-cn_image_0000002709525601.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063158Z&HW-CC-Expire=86400&HW-CC-Sign=2C5FFF3FFD297347EAA9AA1B1ECDF168A587F745FDCDCC0297099748DE604870)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/pWTACMT4To-Tp64tZAIeKQ/zh-cn_image_0000002674473398.png?HW-CC-KV=V1&HW-CC-Date=20260813T095904Z&HW-CC-Expire=86400&HW-CC-Sign=1EA358A5D2C6322F30B2B2DBA462461308032978AF26C0DE14C5CE6D5F5C1743)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/zBrMdM1NT2u0Xvk-jEF0_g/zh-cn_image_0000002679965654.png?HW-CC-KV=V1&HW-CC-Date=20260818T063158Z&HW-CC-Expire=86400&HW-CC-Sign=8733507A61F54390B557BA464B0644C78DC971D51643B844E3E5F5D2BE31834F)
 
  
   

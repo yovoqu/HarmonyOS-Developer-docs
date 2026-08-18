@@ -1,6 +1,6 @@
 # Canvas绘制圆弧失败
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-668
 
@@ -53,7 +53,7 @@ export struct <span style="color: rgb(0,0,255);">ReceiptIcon </span><span style=
 
 #### 背景知识
 
-- [CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)组件可在Canvas画布组件上进行绘制，绘制对象可以是图形、文本、线段、图片等，该组件的[arc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#arc)方法用于绘制弧线路径。
+- [CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)组件可在Canvas画布组件上进行绘制，绘制对象可以是图形、文本、线段、图片等，该组件的[arc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#arc)方法用于绘制弧线路径。
 - 弧度是角的度量单位。它是由国际单位制导出的单位，英文缩写为rad。其定义为：弧长等于圆半径的弧所对应的圆心角为1rad。一个完整的圆所对应的弧度是2π。
 
  

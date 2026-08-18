@@ -1,6 +1,6 @@
 # Class (WebviewController)
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -10378,7 +10378,7 @@ getHitTest(): WebHitTestType
 获取当前被点击区域的元素类型。
 
 > [!NOTE]
-> 从API version11开始支持，从API version 18开始废弃。建议使用 getLastHitTest 替代。
+> 从API version 9开始支持，从API version 18开始废弃。建议使用 getLastHitTest 替代。
 
 
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -10439,7 +10439,7 @@ getHitTestValue(): HitTestValue
 获取当前被点击区域的元素信息。
 
 > [!NOTE]
-> 从API version11开始支持，从API version 18开始废弃。建议使用 getLastHitTest 替代。
+> 从API version 9开始支持，从API version 18开始废弃。建议使用 getLastHitTest 替代。
 
 
 **系统能力：** SystemCapability.Web.Webview.Core

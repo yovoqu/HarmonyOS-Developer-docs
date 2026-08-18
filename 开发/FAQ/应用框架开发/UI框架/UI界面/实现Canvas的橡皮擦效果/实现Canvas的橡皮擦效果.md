@@ -1,6 +1,6 @@
 # 实现Canvas的橡皮擦效果
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1542
 
@@ -13,7 +13,7 @@ Canvas如何实现橡皮擦效果，清除已绘制的路径？
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/2GNZo5_8SZSCR6OiEq80yA/zh-cn_image_0000002628769120.png?HW-CC-KV=V1&HW-CC-Date=20260811T005718Z&HW-CC-Expire=86400&HW-CC-Sign=758BC9F56F14D2022D05F63938259183CC2F7A25AB9170D3A266E5F7A797BD26)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/GDfTUwKhT_-nfIh38qa89w/zh-cn_image_0000002628769120.png?HW-CC-KV=V1&HW-CC-Date=20260818T063536Z&HW-CC-Expire=86400&HW-CC-Sign=635DAFCBC37FA9FB8539988C8F379CF6F5537B8F33D9770BA13BCC5C8C671113)
 
  
  
@@ -21,8 +21,8 @@ Canvas如何实现橡皮擦效果，清除已绘制的路径？
 #### 背景知识
 
 - [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)：提供画布组件，用于自定义绘制图形。
-- [globalCompositeOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#globalcompositeoperation)：通过设置不同合成模式，决定新绘制的图形与现有画布内容的叠加效果。
-- [clearRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#clearrect)：删除指定区域内的绘制内容。
+- [globalCompositeOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#globalcompositeoperation)：通过设置不同合成模式，决定新绘制的图形与现有画布内容的叠加效果。
+- [clearRect](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-canvas-rendering-context-2d#canvasrenderingcontext2dclearrect)：删除指定区域内的绘制内容。
 - [onReady](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas#onready)：Canvas组件初始化完成或者发生大小变化时的事件回调，支持attributeModifier动态设置属性方法。
 - [onTouch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch#ontouch)：手指触摸动作触发该回调。
 

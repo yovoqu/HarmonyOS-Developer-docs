@@ -1,6 +1,6 @@
 # Navigation导航模式根页面onPageShow生命周期触发问题
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-514
 
@@ -84,7 +84,7 @@ export struct MainPage {
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/WudotJI3Rd6ZPx90_nzQ-A/zh-cn_image_0000002628548522.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005645Z&HW-CC-Expire=86400&HW-CC-Sign=B401A78DF7FA8E7E57D45F3A08D7B5B39540BD23428A625E6911FDD5F00E6D11)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/sKagxLDRRnSGmU1O9-z09Q/zh-cn_image_0000002628548522.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063534Z&HW-CC-Expire=86400&HW-CC-Sign=D49D9719DB86E205E28F68C30C612BCBBCC4D9F1369BCC412BC2361326AAE26B)
 
  
  
@@ -94,7 +94,7 @@ export struct MainPage {
 退出到后台，重新进入页面后不会重新创建子页面。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/96gUA8x0SECKVfr4bsiw7w/zh-cn_image_0000002658907837.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005645Z&HW-CC-Expire=86400&HW-CC-Sign=DC1A020A98CF955D5D0015238734D091D74D008B9DAFDA17C21DB94426EDAEB0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/crrTynT1SuuyVS-vC81iHQ/zh-cn_image_0000002658907837.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063534Z&HW-CC-Expire=86400&HW-CC-Sign=678E8377C97AD9AB4591C4C8CAEFF18B243E8C203E110FC212B3529A0469916A)
 
  
  
@@ -106,7 +106,7 @@ export struct MainPage {
 生命周期差异：
  
 - Navigation组件所在页面生命周期遵从@Entry修饰的页面的生命周期原则。
-- NavDestination组件的生命周期参考：[子页面生命周期](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation#页面生命周期)。该生命周期本质是子组件的生命周期，不是页面级的，当NavDestination页面显示在Navigation页面上时，并不会触发Navigation所在页面的[onPageShow()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#onpageshow)事件。
+- NavDestination组件的生命周期参考：[子页面生命周期](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navdestination#页面生命周期)。该生命周期本质是子组件的生命周期，不是页面级的，当NavDestination页面显示在Navigation页面上时，并不会触发Navigation所在页面的[onPageShow()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#onpageshow)事件。
 
  
  

@@ -1,6 +1,6 @@
 # 检测环境中的平面（C/C++）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-get-plane
 
@@ -34,7 +34,7 @@
   
 ```text
 AREngine_ARTrackableList *planeList = nullptr;
-// Create a list of trackable objects.
+// 创建可跟踪对象列表。
 CHECK(HMS_AREngine_ARTrackableList_Create(arSession, &planeList));
 ```
 
@@ -64,7 +64,7 @@ CHECK(HMS_AREngine_ARSession_GetAllTrackables(arSession, planeTrackedType, plane
 
 ```text
 int32_t planeListSize = 0;
-// Obtain the number of trackable objects in the list.
+// 获取列表中可跟踪对象的数量。
 CHECK(HMS_AREngine_ARTrackableList_GetSize(arSession, planeList, &planeListSize));
 ```
 
@@ -84,7 +84,7 @@ CHECK(HMS_AREngine_ARTrackableList_GetSize(arSession, planeList, &planeListSize)
 
 ```text
 for (int i = 0; i < planeListSize; ++i) {
-    // 遍历所有平面对象，根据您的应用进行处理。
+    // ...
 }
 ```
 
@@ -92,7 +92,7 @@ for (int i = 0; i < planeListSize; ++i) {
 
 ```text
 AREngine_ARTrackable *arTrackable = nullptr;
-// Obtain the object at a specified index from the trackable object list.
+// 从可跟踪对象列表中获取指定索引的对象。
 CHECK(HMS_AREngine_ARTrackableList_AcquireItem(arSession, planeList, i, &arTrackable));
 AREngine_ARPlane *arPlane = reinterpret_cast<AREngine_ARPlane *>(arTrackable);
 ```

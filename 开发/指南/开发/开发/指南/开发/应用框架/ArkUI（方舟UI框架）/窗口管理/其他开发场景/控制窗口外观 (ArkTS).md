@@ -1,6 +1,6 @@
 # 控制窗口外观 (ArkTS)
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-appearance
 
@@ -200,12 +200,12 @@ struct SliderDemo {
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/G_VjR3f7Rp2gjzPeiPj10w/zh-cn_image_0000002704392831.gif?HW-CC-KV=V1&HW-CC-Date=20260813T095902Z&HW-CC-Expire=86400&HW-CC-Sign=6A426C81F0677E0201423E3DC8A11BB4AC4D82F98078157FD8C05D0AF609657D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/sggej12wT-y25lpA92v9HQ/zh-cn_image_0000002709644919.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063552Z&HW-CC-Expire=86400&HW-CC-Sign=12FE92AEA5BF791BF329191B105361CDFFA9AE47CAC528A195650C6C7A44F84D)
 
 
 示例代码如下：
 
-```json
+```ArkTS
 import { ColorMetrics, window } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -223,10 +223,6 @@ struct Index {
   @State statusText: string = 'Move the sliders to change the current window background color.';
   @State applyModeText: string = 'Current mode: string (#AARRGGBB)';
 
-  aboutToAppear(): void {
-    this.applyWindowBackgroundColor();
-  }
-
   // 将0~255的通道值转换成两位十六进制字符串，用于拼接 #AARRGGBB。
   private toHex(value: number): string {
     return Math.round(value).toString(16).padStart(2, '0').toUpperCase();
@@ -236,7 +232,7 @@ struct Index {
   private getColorValue(): string {
     return `#${this.toHex(this.alpha)}${this.toHex(this.red)}${this.toHex(this.green)}${this.toHex(this.blue)}`;
   }
- // ...
+  // ...
   // 直接用ColorMetrics.rgba(...)设置窗口背景色。
   private applyByColorMetrics(): void {
     if (!this.mainWindow) {
@@ -258,6 +254,6 @@ struct Index {
     }
   }
 
- // ...
+  // ...
 }
 ```

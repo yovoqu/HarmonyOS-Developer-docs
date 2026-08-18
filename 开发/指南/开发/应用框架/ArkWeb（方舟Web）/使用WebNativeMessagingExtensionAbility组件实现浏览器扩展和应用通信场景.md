@@ -1,6 +1,6 @@
 # 使用WebNativeMessagingExtensionAbility组件实现浏览器扩展和应用通信场景
 
-更新时间：2026-07-09 02:26:55
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-native-messaging
 
@@ -38,6 +38,7 @@
  - WebNativeMessagingExtensionAbility组件内不支持调用[Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window)相关API。
  - WebNativeMessagingExtensionAbility仅支持拉起本应用的[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)，不支持拉起其他应用UIAbility或者其他类型ExtensionAbility。
  - WebNativeMessagingExtensionAbility仅用于浏览器扩展与应用通信场景，不支持如后台服务等其他场景使用。
+ - 应用包名仅允许使用小写英文字母、数字、下划线（_）、点（.）。
 
 
 
@@ -49,7 +50,7 @@
 #### 整体流程
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/XYFShErpRVuFFjfkV7CG3g/zh-cn_image_0000002677825989.png?HW-CC-KV=V1&HW-CC-Date=20260723T012142Z&HW-CC-Expire=86400&HW-CC-Sign=6A0190EAB8E4753B125EB96D7B7D678981F870AEDC36A858E35101EFBB42D7D4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/j_iUl2GcRYqSpgMuImEZxg/zh-cn_image_0000002709525117.png?HW-CC-KV=V1&HW-CC-Date=20260818T063543Z&HW-CC-Expire=86400&HW-CC-Sign=EBA81EF2776FF9E5BFCA703A2D0315B439554E6FB4680F6FD34CC1A2D23EF943)
 
 
  - **流程：**

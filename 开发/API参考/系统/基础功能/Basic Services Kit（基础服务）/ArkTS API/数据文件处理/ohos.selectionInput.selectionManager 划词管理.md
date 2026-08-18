@@ -1,6 +1,6 @@
 # @ohos.selectionInput.selectionManager (划词管理)
 
-更新时间：2026-08-07 10:00:25
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-selectioninput-selectionmanager
 **支持设备：** PC/2in1
@@ -153,7 +153,7 @@ getSelectionContent(): Promise&lt;string&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 33600001 | Selection service exception. |
+| 33600001 | Selection service invocation exception. |
 | 33600004 | The interface is called too frequently. |
 | 33600005 | The interface is called at the wrong time. |
 | 33600006 | The current application is prohibited from accessing content. |

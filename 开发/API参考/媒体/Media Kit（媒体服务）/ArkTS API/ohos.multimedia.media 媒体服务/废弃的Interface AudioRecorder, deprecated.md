@@ -1,6 +1,6 @@
 # 废弃的Interface (AudioRecorder, deprecated)
 
-更新时间：2026-08-07 10:00:25
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-audiorecorder
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,7 @@
 > 从API version 6开始支持，从API version 9开始废弃，建议使用 AVRecorder 替代。
 
 
-音频录制管理类，用于录制音频媒体。在调用AudioRecorder的方法前，需要先通过[createAudioRecorder()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateaudiorecorderdeprecated) 构建一个AudioRecorder实例。
+音频录制管理接口，用于录制音频媒体，支持音频录制的准备、开始、暂停、恢复、停止、释放和重置等操作，适用于语音备忘录、通话录音、音乐录制等需要录制音频的场景。在调用AudioRecorder的方法前，需要先通过[createAudioRecorder()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateaudiorecorderdeprecated) 构建一个AudioRecorder实例。
 
 
 #### 导入模块
@@ -28,7 +28,7 @@ import { media } from '@kit.MediaKit';
 
 prepare(config: AudioRecorderConfig): void
 
-录音准备。
+录制准备，根据传入的配置参数初始化录制资源（包括编码器、采样率、声道数等），完成录制前的准备工作。
 
 > [!NOTE]
 > 从API version 6开始支持，从API version 9开始废弃，建议使用 AVRecorder.prepare 替代。
@@ -42,7 +42,7 @@ prepare(config: AudioRecorderConfig): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| config | AudioRecorderConfig | 是 | 配置录音的相关参数，包括音频输出URI、编码格式、采样率、声道数、输出格式等。 |
+| config | AudioRecorderConfig | 是 | 配置录制的相关参数，包括音频输出URI、编码格式、采样率、声道数、输出格式等。 |
 
 
 **错误码：**
@@ -63,7 +63,7 @@ let audioRecorderConfig: media.AudioRecorderConfig = {
   audioSampleRate : 44100,
   numberOfChannels : 2,
   format : media.AudioOutputFormat.AAC_ADTS,
-  uri : 'fd://1',       // 文件需先由调用者创建，并给予适当的权限。
+  uri : 'fd://1',       // fd通过fs.open()获取。文件需先由调用者创建，并给予适当的权限。
   location : { latitude : 30, longitude : 130},
 };
 audioRecorder.on('prepare', () => {    // 设置'prepare'事件回调。
@@ -80,7 +80,7 @@ audioRecorder.prepare(audioRecorderConfig);
 
 start(): void
 
-开始录制，需在'prepare'事件成功触发后，才能调用start方法。
+开始录制。需在'prepare'事件成功触发后，才能调用start方法。
 
 > [!NOTE]
 > 从API version 6开始支持，从API version 9开始废弃，建议使用 AVRecorder.start 替代。
@@ -105,7 +105,7 @@ audioRecorder.start();
 
 pause():void
 
-暂停录制，需要在'start'事件成功触发后，才能调用pause方法。
+暂停录制。需在'start'事件成功触发后，才能调用pause方法。
 
 > [!NOTE]
 > 从API version 6开始支持，从API version 9开始废弃，建议使用 AVRecorder.pause 替代。
@@ -130,7 +130,7 @@ audioRecorder.pause();
 
 resume():void
 
-恢复录制，需要在'pause'事件成功触发后，才能调用resume方法。
+恢复录制。需在'pause'事件成功触发后，才能调用resume方法。
 
 > [!NOTE]
 > 从API version 6开始支持，从API version 9开始废弃，建议使用 AVRecorder.resume 替代。
@@ -155,7 +155,7 @@ audioRecorder.resume();
 
 stop(): void
 
-停止录音。
+停止录制，并保存已录制的音频数据到文件。需在'start'事件成功触发后，才能调用stop方法。
 
 > [!NOTE]
 > 从API version 6开始支持，从API version 9开始废弃，建议使用 AVRecorder.stop 替代。
@@ -180,7 +180,7 @@ audioRecorder.stop();
 
 release(): void
 
-释放录音资源。
+释放录制资源。释放资源后，不能再调用其它录制方法。
 
 > [!NOTE]
 > 从API version 6开始支持，从API version 9开始废弃，建议使用 AVRecorder.release 替代。
@@ -206,9 +206,9 @@ audioRecorder = undefined;
 
 reset(): void
 
-重置录音。
+重置录制。
 
-进行重置录音之前，需要先调用stop()停止录音。重置录音之后，需要调用prepare()设置录音参数项，才能再次进行录音。
+进行重置录制之前，需要先调用stop()停止录制。重置录制之后，需要调用prepare()设置录制参数项，才能再次进行录制。
 
 > [!NOTE]
 > 从API version 6开始支持，从API version 9开始废弃，建议使用 AVRecorder.reset 替代。
@@ -233,7 +233,7 @@ audioRecorder.reset();
 
 on(type: 'prepare' | 'start' | 'pause' | 'resume' | 'stop' | 'release' | 'reset', callback: () => void): void
 
-开始订阅音频录制事件。
+订阅音频录制事件。
 
 > [!NOTE]
 > 从API version 6开始支持，从API version 9开始废弃，建议使用 AVRecorder.on('stateChange') 替代。
@@ -245,7 +245,7 @@ on(type: 'prepare' | 'start' | 'pause' | 'resume' | 'stop' | 'release' | 'reset'
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 录制事件回调类型，支持的事件包括：'prepare' \| 'start' \| 'pause' \| 'resume' \| 'stop' \| 'release' \| 'reset'。 - 'prepare' ：完成prepare调用，音频录制参数设置完成，触发该事件。 - 'start' ：完成start调用，音频录制开始，触发该事件。 - 'pause': 完成pause调用，音频暂停录制，触发该事件。 - 'resume': 完成resume调用，音频恢复录制，触发该事件。 - 'stop' ：完成stop调用，音频停止录制，触发该事件。 - 'release' ：完成release调用，音频释放录制资源，触发该事件。 - 'reset'：完成reset调用，音频重置为初始状态，触发该事件。 |
+| type | string | 是 | 录制事件回调类型，支持的事件包括：'prepare' \| 'start' \| 'pause' \| 'resume' \| 'stop' \| 'release' \| 'reset'。 - 'prepare' ：完成prepare调用，音频录制参数设置完成，触发该事件。 - 'start' ：完成start调用，音频录制开始，触发该事件。 - 'pause' ：完成pause调用，音频暂停录制，触发该事件。 - 'resume' ：完成resume调用，音频恢复录制，触发该事件。 - 'stop' ：完成stop调用，音频停止录制，触发该事件。 - 'release' ：完成release调用，音频释放录制资源，触发该事件。 - 'reset' ：完成reset调用，音频重置为初始状态，触发该事件。 |
 | callback | ()=>void | 是 | 录制事件回调方法。 |
 
 
@@ -261,11 +261,11 @@ let audioRecorderConfig: media.AudioRecorderConfig = {
   audioSampleRate : 44100,
   numberOfChannels : 2,
   format : media.AudioOutputFormat.AAC_ADTS,
-  uri : 'fd://xx',  // 文件需先由调用者创建，并给予适当的权限。
+  uri : 'fd://xx',  // fd通过fs.open()获取。文件需先由调用者创建，并给予适当的权限。
   location : { latitude : 30, longitude : 130}
 };
 audioRecorder.on('error', (error: BusinessError) => {  // 设置'error'事件回调。
-  console.error(`audio error called, error: ${error}`);
+  console.error(`audio error called, error code: ${error.code}, message: ${error.message}`);
 });
 audioRecorder.on('prepare', () => {  // 设置'prepare'事件回调。
   console.info('prepare called');
@@ -289,7 +289,7 @@ audioRecorder.on('release', () => {  // 设置'release'事件回调。
 audioRecorder.on('reset', () => {  // 设置'reset'事件回调。
   console.info('audio recorder reset called');
 });
-audioRecorder.prepare(audioRecorderConfig)  // 设置录制参数 ，并触发'prepare'事件回调。
+audioRecorder.prepare(audioRecorderConfig);  // 设置录制参数 ，并触发'prepare'事件回调。
 ```
 
 
@@ -300,7 +300,7 @@ audioRecorder.prepare(audioRecorderConfig)  // 设置录制参数 ，并触发'p
 
 on(type: 'error', callback: ErrorCallback): void
 
-开始订阅音频录制错误事件，当上报error错误事件后，用户需处理error事件，退出录制操作。
+订阅音频录制错误事件，收到错误回调后，需处理错误、释放资源并退出当前录制。
 
 > [!NOTE]
 > 从API version 6开始支持，从API version 9开始废弃，建议使用 AVRecorder.on('error') 替代。
@@ -327,11 +327,11 @@ let audioRecorderConfig: media.AudioRecorderConfig = {
   audioSampleRate : 22050,
   numberOfChannels : 2,
   format : media.AudioOutputFormat.AAC_ADTS,
-  uri : 'fd://xx',   // 文件需先由调用者创建，并给予适当的权限。
+  uri : 'fd://xx',   // fd通过fs.open()获取。文件需先由调用者创建，并给予适当的权限。
   location : { latitude : 30, longitude : 130}
 };
 audioRecorder.on('error', (error: BusinessError) => {  // 设置'error'事件回调。
-  console.error(`audio error called, error: ${error}`);
+  console.error(`audio error called, error code: ${error.code}, message: ${error.message}`);
 });
-audioRecorder.prepare(audioRecorderConfig);  // prepare不设置参数，触发'error'事件。
+audioRecorder.prepare(audioRecorderConfig);  // prepare设置无效参数，触发'error'事件。
 ```

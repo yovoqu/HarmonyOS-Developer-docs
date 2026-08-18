@@ -1,6 +1,6 @@
 # Class (Array)
 
-更新时间：2026-08-04 06:06:24
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-array
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -502,7 +502,7 @@ lastIndexOf(searchElement: T, fromIndex?: number): number
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | searchElement | T | 是 | 待索引的值。 |
-| fromIndex | number | 否 | 搜索的起始下标。默认值为-1。如果下标大于等于ArkTS Array的长度，则返回-1。如果fromIndex < 0，则会从fromIndex + array.length位置开始搜索。 |
+| fromIndex | number | 否 | 搜索的起始下标。默认值为ArkTS Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Array的长度，则返回-1。如果fromIndex < 0，则会从fromIndex + array.length位置开始搜索。 |
 
 
 **返回值：**

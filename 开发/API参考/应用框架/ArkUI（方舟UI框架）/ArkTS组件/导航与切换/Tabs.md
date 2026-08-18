@@ -1,6 +1,6 @@
 # Tabs
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -60,7 +60,7 @@ Tabs组件参数，设置Tabs的页签位置，当前显示页签的索引，Tab
 | barPosition7+ | BarPosition | 否 | 是 | 设置Tabs的页签位置。页签的具体位置受vertical属性影响：vertical为true时Start位于左侧、End位于右侧；vertical为false时Start位于顶部、End位于底部。 默认值：BarPosition.Start。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | index7+ | number | 否 | 是 | 设置当前显示页签的索引。 默认值：0 说明： 设置为小于0的值时按默认值显示。 可选值为[0, TabContent子节点数量-1]。 直接修改index跳页时，切换动效不生效。 使用TabsController的changeIndex时，默认生效切换动效，可以设置animationDuration为0关闭动画。 从API version 10开始，该参数支持$$双向绑定变量。 Tabs重建、系统资源切换（如系统字体切换、系统深浅色切换）或者组件属性变化时，会跳转到index对应的页面。若需要在上述情况下不跳转，建议使用双向绑定。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | controller7+ | TabsController | 否 | 是 | 设置Tabs控制器。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| barModifier15+ | CommonModifier | 否 | 是 | 设置TabBar的通用属性，用于通过CommonModifier统一管理TabBar的样式、布局等通用属性。当需要动态修改TabBar的通用属性或实现属性的状态管理时传入此参数，不传入时TabBar使用默认样式和布局，无额外通用属性设置。 说明： 动态置为undefined时会保持当前状态不变，不会重置各通用属性。 由一个CommonModifier切换为另一个CommonModifier时，重复属性会进行覆盖，非重复属性会同时生效，不会重置前一个CommonModifier的通用属性。 Tabs的barWidth、barHeight、barBackgroundColor、barBackgroundBlurStyle、barBackgroundEffect属性会覆盖CommonModifier的width、height、backgroundColor、backgroundBlurStyle、backgroundEffect属性。 align属性仅在BarMode.Scrollable模式下生效，且Tabs为横向时还需nonScrollableLayoutStyle未设置或设置为异常值时才能生效。 TabContent组件的tabBar属性为底部页签样式时不支持拖拽功能。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
+| barModifier | CommonModifier | 否 | 是 | 设置TabBar的通用属性，用于通过CommonModifier统一管理TabBar的样式、布局等通用属性。当需要动态修改TabBar的通用属性或实现属性的状态管理时传入此参数，不传入时TabBar使用默认样式和布局，无额外通用属性设置。 说明： 动态置为undefined时会保持当前状态不变，不会重置各通用属性。 由一个CommonModifier切换为另一个CommonModifier时，重复属性会进行覆盖，非重复属性会同时生效，不会重置前一个CommonModifier的通用属性。 Tabs的barWidth、barHeight、barBackgroundColor、barBackgroundBlurStyle、barBackgroundEffect属性会覆盖CommonModifier的width、height、backgroundColor、backgroundBlurStyle、backgroundEffect属性。 align属性仅在BarMode.Scrollable模式下生效，且Tabs为横向时还需nonScrollableLayoutStyle未设置或设置为异常值时才能生效。 TabContent组件的tabBar属性为底部页签样式时不支持拖拽功能。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
 
 
 
@@ -3788,7 +3788,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/y2TC-BwORCGJzlmf338H2A/zh-cn_image_0000002685928163.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071503Z&HW-CC-Expire=86400&HW-CC-Sign=4038C67055E6CC41B5BCDD38DDAE2968265BDCB307F2CBAA39E946692528819F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/OrhBFRU1ToiME5ZRD-JcaA/zh-cn_image_0000002709646717.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063503Z&HW-CC-Expire=86400&HW-CC-Sign=D2E23E032D6F62F1FFA4476FF1403E61D847B9D4A4BC9AED8DCF90FAC183FCC0)
 
 
 
@@ -3844,4 +3844,4 @@ struct TabsFloatingStyleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/vkgn6K6MS3iOl2iQUhxbFg/zh-cn_image_0000002656008486.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071503Z&HW-CC-Expire=86400&HW-CC-Sign=C0356C28DA47DDBE577FA1B1EF13898C07BBCE346DEEF8AAFAD94F294BE56E67)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/pbcqAnycTnSjAnCweOEBJA/zh-cn_image_0000002679807046.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063503Z&HW-CC-Expire=86400&HW-CC-Sign=CB4E77E2368641423034B55A5C8114688909ED8F690D09D833BF97F65D62B877)

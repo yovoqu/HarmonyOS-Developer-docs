@@ -1,6 +1,6 @@
 # native_audiorenderer.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1103,7 +1103,7 @@ OH_AudioStream_Result OH_AudioRenderer_SetDefaultOutputDevice(OH_AudioRenderer* 
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AudioStream_Result | AUDIOSTREAM_SUCCESS：函数执行成功。 AUDIOSTREAM_ERROR_INVALID_PARAM： 1. 参数renderer为nullptr; 2. 参数deviceType无效。 AUDIOSTREAM_ERROR_ILLEGAL_STATE：执行状态异常。 AUDIOSTREAM_ERROR_SYSTEM：出现系统错误。 |
+| OH_AudioStream_Result | AUDIOSTREAM_SUCCESS：函数执行成功。 AUDIOSTREAM_ERROR_INVALID_PARAM： 1. 参数renderer为nullptr。 2. 参数deviceType无效。 AUDIOSTREAM_ERROR_ILLEGAL_STATE：执行状态异常。 AUDIOSTREAM_ERROR_SYSTEM：出现系统错误。 |
  
  
   

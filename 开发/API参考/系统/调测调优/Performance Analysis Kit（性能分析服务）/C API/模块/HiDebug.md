@@ -1,6 +1,6 @@
 # HiDebug
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hidebug
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供调试功能。本模块函数可用于获取cpu usage、memory、heap、capture trace等。
+提供调试功能。本模块函数可用于获取CPU usage、memory、heap、capture trace等。
  
 **起始版本：** 12
  

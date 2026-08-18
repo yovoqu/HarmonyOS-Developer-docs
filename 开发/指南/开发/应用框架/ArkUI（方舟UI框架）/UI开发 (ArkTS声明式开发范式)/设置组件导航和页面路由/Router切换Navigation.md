@@ -1,6 +1,6 @@
 # Router切换Navigation
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-router-to-navigation
 
@@ -664,7 +664,7 @@ struct mainPage {
 
 #### 生命周期监听
 
-Router可以通过observer实现注册监听，接口定义请参考Router无感监听[uiObserver.on('routerPageUpdate')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-observer#uiobserveronrouterpageupdate11)。
+Router可以通过observer实现注册监听，接口定义请参考Router无感监听[uiObserver.on('routerPageUpdate')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-observer#uiobserveronrouterpageupdate)。
 
 ```ArkTS
 import { UIContext, uiObserver } from '@kit.ArkUI';

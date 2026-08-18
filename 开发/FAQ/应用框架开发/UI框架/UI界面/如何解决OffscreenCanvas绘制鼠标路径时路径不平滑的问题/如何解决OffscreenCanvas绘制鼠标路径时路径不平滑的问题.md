@@ -1,6 +1,6 @@
 # 如何解决OffscreenCanvas绘制鼠标路径时路径不平滑的问题
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-996
 
@@ -11,7 +11,7 @@ PC应用使用OffscreenCanvas离屏画布绘制鼠标路径，绘制路径不平
 问题效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/STVktlPySGmZ52O189ip9w/zh-cn_image_0000002658801089.png?HW-CC-KV=V1&HW-CC-Date=20260811T005713Z&HW-CC-Expire=86400&HW-CC-Sign=13FE2F61F85FF658D576BB7C9D3DA79DEE8DEC21CAA80FCCB54A3F9621A7CE49)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/Mi5mS1SHQFmjq5Y8mtJK2Q/zh-cn_image_0000002658801089.png?HW-CC-KV=V1&HW-CC-Date=20260818T063536Z&HW-CC-Expire=86400&HW-CC-Sign=041BA154CD1F74AD8A30372C1A752250B49FCF37FD8E82AF6B82FDC6320326AA)
 
  
 问题代码如下：
@@ -168,7 +168,7 @@ struct Index {
 
 #### 问题定位
 
-问题代码中主要通过onMouse获取鼠标路径中的各个点的坐标，通过[lineTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#lineto)方法将这些点连接起来，进而实现了绘制鼠标移动路径的方法。其中，onMouse的回调频率与屏幕刷新率相关，刷新率越高，触发频率越高。通过GPU进行绘制的OffscreenCanvas在绘制速度上不如使用CPU进行绘制CanvasRenderingContext2D。
+问题代码中主要通过onMouse获取鼠标路径中的各个点的坐标，通过[lineTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#lineto)方法将这些点连接起来，进而实现了绘制鼠标移动路径的方法。其中，onMouse的回调频率与屏幕刷新率相关，刷新率越高，触发频率越高。通过GPU进行绘制的OffscreenCanvas在绘制速度上不如使用CPU进行绘制CanvasRenderingContext2D。
  
  
 
@@ -181,19 +181,19 @@ struct Index {
 120Hz刷新率+离屏渲染：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/7pLrwyV-RBWRE5UE72Rktw/zh-cn_image_0000002628401816.png?HW-CC-KV=V1&HW-CC-Date=20260811T005713Z&HW-CC-Expire=86400&HW-CC-Sign=D14FBA7C7439887337ABF703F53802BBC6E820F5AE9DDE9071E5ED40A0A163FB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/t3PcVAS2TvS91E1FKO4l7Q/zh-cn_image_0000002628401816.png?HW-CC-KV=V1&HW-CC-Date=20260818T063536Z&HW-CC-Expire=86400&HW-CC-Sign=9508D81A3EDDD1FD98C00DDFF4AF993C194D2A4658A5E14358E6C78DC538F1DF)
 
  
 60Hz刷新率+在屏渲染：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/_YDdrAgPQUa-BE40aRVxJQ/zh-cn_image_0000002628561724.png?HW-CC-KV=V1&HW-CC-Date=20260811T005713Z&HW-CC-Expire=86400&HW-CC-Sign=7B60660FFEFCA9E3B2B8518CE4126B288615E5E7CF5BD759B92157EA5A8B4905)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/y0MPoKR2TLiO_mpETUp2Qw/zh-cn_image_0000002628561724.png?HW-CC-KV=V1&HW-CC-Date=20260818T063536Z&HW-CC-Expire=86400&HW-CC-Sign=AE2E9B272085A95D47D3E3F92CB8CFD600C6CFFDDE68C32857863D62E8CF4B64)
 
  
 120Hz刷新率+在屏渲染：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/twPonIcxSPWI5lJuUI6MhQ/zh-cn_image_0000002658921037.png?HW-CC-KV=V1&HW-CC-Date=20260811T005713Z&HW-CC-Expire=86400&HW-CC-Sign=CCB3BF9288D2FA0B9C8396E4694BC914D9F3331375E8A76A216FF2F3F214F289)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/bXiRKAk_RdqnXL-tvuY_Cw/zh-cn_image_0000002658921037.png?HW-CC-KV=V1&HW-CC-Date=20260818T063536Z&HW-CC-Expire=86400&HW-CC-Sign=67C16354C99C7A76C4278867B12699E7C7732A748977C94A4A07167EC66384AC)
 
  
  

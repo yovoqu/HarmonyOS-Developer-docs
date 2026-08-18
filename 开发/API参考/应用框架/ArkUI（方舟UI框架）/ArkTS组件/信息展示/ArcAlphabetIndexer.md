@@ -1,6 +1,6 @@
 # ArcAlphabetIndexer
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arc-alphabet-indexer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -528,7 +528,7 @@ struct ArcListAndIndexer {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/JRuxo0y0SAWy-CBTdNGViw/zh-cn_image_0000002686088231.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071508Z&HW-CC-Expire=86400&HW-CC-Sign=8B98F78B7376A2C1EF58B547310C17CF37D6816CFCCC6598ECE38CA9580070F2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/OTmLg7_dSnGaCiH16Azb6g/zh-cn_image_0000002679967144.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063503Z&HW-CC-Expire=86400&HW-CC-Sign=CF1EC227F3C3BE9FCAE9DB3FC7C3C152671543528AE32F5C5CEC36ED037784D7)
 
 
 
@@ -630,4 +630,4 @@ struct ArcListAndIndexer {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/CZ_W9cWqSR6fU7ohhI73mg/zh-cn_image_0000002685928401.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071508Z&HW-CC-Expire=86400&HW-CC-Sign=FE6E91137C70B303BA56FF2BAEB4B7691B089703D9E8AC34129B69681CD523AF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/kx0PfGTRRrm0is-eM_SwnQ/zh-cn_image_0000002709646953.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063503Z&HW-CC-Expire=86400&HW-CC-Sign=E101A732AA8C6BBD2C16D9CC105A6FED9DA32DCEFD45C97FC540BAA554D5F95E)

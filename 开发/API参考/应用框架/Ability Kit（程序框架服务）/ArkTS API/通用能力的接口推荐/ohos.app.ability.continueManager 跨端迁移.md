@@ -1,6 +1,6 @@
 # @ohos.app.ability.continueManager (跨端迁移)
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-continuemanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -46,7 +46,7 @@ on(type: 'prepareContinue', context: Context, callback: AsyncCallback&lt;Continu
 | --- | --- | --- | --- |
 | type | string | 是 | 固定值：prepareContinue。 |
 | context | Context | 是 | Ability的Context。 |
-| callback | AsyncCallback&lt;ContinueResultInfo&gt; | 是 | 回调函数。当快速拉起结果获取成功，err为undefined，ContinueResultInfo为获取到的快速启动结果。否则为错误对象。 |
+| callback | AsyncCallback&lt;ContinueResultInfo&gt; | 是 | 回调函数。当快速拉起结果获取成功，err为undefined，ContinueResultInfo为获取到的快速拉起结果。否则为错误对象。 |
 
 
 **错误码：**

@@ -1,6 +1,6 @@
 # 使用MindSpore Lite进行端侧训练 (C/C++)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-lite-train-guidelines
 
@@ -288,7 +288,7 @@ int GenerateInputDataWithRandom(OH_AI_TensorHandleArray inputs) {
   return OH_AI_STATUS_SUCCESS;
 }
 
-int ModelPredict(char* model_file) {
+int ModelPredict(const char* model_file) {
   // Create and init context, add CPU device info
   OH_AI_ContextHandle context = OH_AI_ContextCreate();
   if (context == NULL) {

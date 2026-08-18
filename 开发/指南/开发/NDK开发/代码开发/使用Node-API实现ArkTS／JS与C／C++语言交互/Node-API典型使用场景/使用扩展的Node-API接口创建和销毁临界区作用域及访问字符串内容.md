@@ -1,6 +1,6 @@
 # 使用扩展的Node-API接口创建和销毁临界区作用域及访问字符串内容
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-critical
 
@@ -33,7 +33,7 @@ Node-API扩展接口napi_open_critical_scope用于打开临界区作用域，nap
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/oxvLtwV2SxKepZ4_x_BTRA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030204Z&HW-CC-Expire=86400&HW-CC-Sign=B19EA9DC2F65DE5BDF14C14051E5E4CF3CD475F6840CFCC49680EB4FD81DC559)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/ZLsOhGpsR1CJlDWQe7MFkQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260818T063551Z&HW-CC-Expire=86400&HW-CC-Sign=4AADAC2A224A0AFBA445237E3F4A606AE97544780B418B70A75B4C61A25BA2F2)
  
  
 1.当ArkTS String以UTF-16编码存储时，napi_get_buffer_string_utf16_in_critical_scope才能正确获取其内存缓冲区，否则该函数返回错误。
@@ -103,8 +103,10 @@ static std::vector<char16_t> GetValueStringUtf16(napi_env env, napi_value value)
    if (napi_get_value_string_utf16(env, value, nullptr, 0, &strLength) != napi_ok) {
       return {};
    }
-   /* Node-API接口要求缓冲区长度大于字符串内容长度，用于写入c字符串结束标记。
-      因此，需要获取完整字符串内容时，缓冲区大小应为字符串长度 + 1。 */
+   /*
+    * Node-API接口要求缓冲区长度大于字符串内容长度，用于写入C字符串结束标记。
+    * 因此，需要获取完整字符串内容时，缓冲区大小应为字符串长度 + 1。
+    */
    std::vector<char16_t> result(strLength + 1);
    if (napi_get_value_string_utf16(env, value, result.data(), result.size(), &strLength) != napi_ok) {
       return {};

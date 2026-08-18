@@ -1,6 +1,6 @@
 # @ohos.sensor (传感器)
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -51,7 +51,7 @@ import { sensor } from '@kit.SensorServiceKit';
 
 on(type: SensorId.ACCELEROMETER, callback: Callback&lt;AccelerometerResponse&gt;, options?: Options): void
 
-订阅加速度传感器数据。加速度传感器用于测量设备在X、Y、Z三个方向上的加速度，包含重力加速度分量。适用于需要感知设备运动状态、实现屏幕旋转、游戏操控、计步等场景的场景。调用后，系统会按设定频率通过callback持续上报加速度数据。
+订阅加速度传感器数据。加速度传感器用于测量设备在X、Y、Z三个方向上的加速度，包含重力加速度分量。适用于需要感知设备运动状态、实现屏幕旋转、游戏操控、计步等场景。调用后，系统会按设定频率通过callback持续上报加速度数据。
 
 **需要权限**：ohos.permission.ACCELEROMETER
 
@@ -119,7 +119,7 @@ on(type: SensorId.FUSION_PRESSURE, callback: Callback&lt;FusionPressureResponse&
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | SensorId.FUSION_PRESSURE | 是 | 传感器类型，该值固定为SensorId.FUSION_PRESSURE |
+| type | SensorId.FUSION_PRESSURE | 是 | 传感器类型，该值固定为SensorId.FUSION_PRESSURE。 |
 | callback | Callback&lt;FusionPressureResponse&gt; | 是 | 回调函数，异步上报的传感器数据固定为FusionPressureResponse。 |
 | options | Options | 否 | 可选参数列表，用于设置传感器上报频率，默认值为200000000ns（即200ms）。 |
 
@@ -384,7 +384,7 @@ try {
 
 on(type: SensorId.GRAVITY, callback: Callback&lt;GravityResponse&gt;, options?: Options): void
 
-订阅重力传感器数据。重力传感器用于测量设备在X、Y、Z三个方向上受到的重力加速度分量，适用于需要分离重力分量进行运动分析的的场景，如游戏操控、运动检测。调用后，系统会按设定频率通过callback持续上报重力分量数据。
+订阅重力传感器数据。重力传感器用于测量设备在X、Y、Z三个方向上受到的重力加速度分量，适用于需要分离重力分量进行运动分析的场景，如游戏操控、运动检测。调用后，系统会按设定频率通过callback持续上报重力分量数据。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -570,7 +570,7 @@ on(type: SensorId.HALL, callback: Callback&lt;HallResponse&gt;, options?: Option
 | --- | --- | --- | --- |
 | type | SensorId.HALL | 是 | 传感器类型，该值固定为SensorId.HALL。 |
 | callback | Callback&lt;HallResponse&gt; | 是 | 回调函数，异步上报的传感器数据固定为HallResponse。 |
-| options | Options | 否 | 可选参数列表，当霍尔事件被触发的很频繁时，用于设置传感器上报频率，默认值为200000000ns。 |
+| options | Options | 否 | 可选参数列表，当霍尔事件被触发的很频繁时，用于设置传感器上报频率，默认值为200000000ns（即200ms）。 |
 
 
 **错误码**：
@@ -1076,7 +1076,7 @@ on(type: SensorId.PROXIMITY, callback: Callback&lt;ProximityResponse&gt;, option
 | --- | --- | --- | --- |
 | type | SensorId.PROXIMITY | 是 | 传感器类型，该值固定为SensorId.PROXIMITY。 |
 | callback | Callback&lt;ProximityResponse&gt; | 是 | 回调函数，异步上报的传感器数据固定为ProximityResponse。 |
-| options | Options | 否 | 可选参数列表，用于设置传感器上报频率，默认值为200000000ns。当接近光事件被触发的很频繁时，该参数用于限定事件上报的频率。 |
+| options | Options | 否 | 可选参数列表，用于设置传感器上报频率，默认值为200000000ns（即200ms）。当接近光事件被触发的很频繁时，该参数用于限定事件上报的频率。 |
 
 
 **错误码**：
@@ -1173,7 +1173,7 @@ try {
 
 on(type: SensorId.SIGNIFICANT_MOTION, callback: Callback&lt;SignificantMotionResponse&gt;, options?: Options): void
 
-订阅有效运动传感器数据，用于检测用户拿起设备、明显移动或剧烈摇晃等有效运动事件。适用于需要根据用户活动状态唤醒设备、启动应用或切换模式的场景。
+订阅有效运动传感器数据，用于检测用户拿起设备、明显移动或剧烈摇晃等有效运动事件。适用于需要根据用户活动状态唤醒设备、启动应用或切换模式的场景。调用后，系统会通过callback持续上报有效运动事件数据。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -1283,7 +1283,7 @@ on(type: 'sensorStatusChange', callback: Callback&lt;SensorStatusEvent&gt;): voi
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 固定传入'sensorStatusChange', 状态监听固定参数。 |
+| type | string | 是 | 固定传入'sensorStatusChange'，状态监听固定参数。 |
 | callback | Callback&lt;SensorStatusEvent&gt; | 是 | 回调函数，异步上报的传感器事件数据SensorStatusEvent。 |
 
 
@@ -2378,7 +2378,7 @@ off(type: SensorId.ACCELEROMETER, callback?: Callback&lt;AccelerometerResponse&g
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.ACCELEROMETER | 是 | 传感器类型，该值固定为SensorId.ACCELEROMETER。 |
-| callback | Callback&lt;AccelerometerResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;AccelerometerResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -2441,7 +2441,7 @@ off(type: SensorId.ACCELEROMETER, sensorInfoParam?: SensorInfoParam, callback?: 
 | --- | --- | --- | --- |
 | type | SensorId.ACCELEROMETER | 是 | 传感器类型，该值固定为SensorId.ACCELEROMETER。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;AccelerometerResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;AccelerometerResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -2533,7 +2533,7 @@ off(type: SensorId.ACCELEROMETER_UNCALIBRATED, callback?: Callback&lt;Accelerome
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.ACCELEROMETER_UNCALIBRATED | 是 | 传感器类型，该值固定为SensorId.ACCELEROMETER_UNCALIBRATED。 |
-| callback | Callback&lt;AccelerometerUncalibratedResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;AccelerometerUncalibratedResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -2685,7 +2685,7 @@ off(type: SensorId.ACCELEROMETER_UNCALIBRATED, sensorInfoParam?: SensorInfoParam
 | --- | --- | --- | --- |
 | type | SensorId.ACCELEROMETER_UNCALIBRATED | 是 | 传感器类型，该值固定为SensorId.ACCELEROMETER_UNCALIBRATED。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;AccelerometerUncalibratedResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;AccelerometerUncalibratedResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -2775,7 +2775,7 @@ off(type: SensorId.AMBIENT_LIGHT, callback?: Callback&lt;LightResponse&gt;): voi
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.AMBIENT_LIGHT | 是 | 传感器类型，该值固定为SensorId.AMBIENT_LIGHT。 |
-| callback | Callback&lt;LightResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;LightResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -2833,7 +2833,7 @@ off(type: SensorId.AMBIENT_LIGHT, sensorInfoParam?: SensorInfoParam, callback?: 
 | --- | --- | --- | --- |
 | type | SensorId.AMBIENT_LIGHT | 是 | 传感器类型，该值固定为SensorId.AMBIENT_LIGHT。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;LightResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;LightResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -2922,7 +2922,7 @@ off(type: SensorId.AMBIENT_TEMPERATURE, callback?: Callback&lt;AmbientTemperatur
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.AMBIENT_TEMPERATURE | 是 | 传感器类型，该值固定为SensorId.AMBIENT_TEMPERATURE。 |
-| callback | Callback&lt;AmbientTemperatureResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;AmbientTemperatureResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -2980,7 +2980,7 @@ off(type: SensorId.AMBIENT_TEMPERATURE, sensorInfoParam?: SensorInfoParam, callb
 | --- | --- | --- | --- |
 | type | SensorId.AMBIENT_TEMPERATURE | 是 | 传感器类型，该值固定为SensorId.AMBIENT_TEMPERATURE。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;AmbientTemperatureResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;AmbientTemperatureResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -3069,7 +3069,7 @@ off(type: SensorId.BAROMETER, callback?: Callback&lt;BarometerResponse&gt;): voi
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.BAROMETER | 是 | 传感器类型，该值固定为SensorId.BAROMETER。 |
-| callback | Callback&lt;BarometerResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;BarometerResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -3127,7 +3127,7 @@ off(type: SensorId.BAROMETER, sensorInfoParam?: SensorInfoParam, callback?: Call
 | --- | --- | --- | --- |
 | type | SensorId.BAROMETER | 是 | 传感器类型，该值固定为SensorId.BAROMETER。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;BarometerResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;BarometerResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -3216,7 +3216,7 @@ off(type: SensorId.GRAVITY, callback?: Callback&lt;GravityResponse&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.GRAVITY | 是 | 传感器类型，该值固定为SensorId.GRAVITY。 |
-| callback | Callback&lt;GravityResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;GravityResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -3274,7 +3274,7 @@ off(type: SensorId.GRAVITY, sensorInfoParam?: SensorInfoParam, callback?: Callba
 | --- | --- | --- | --- |
 | type | SensorId.GRAVITY | 是 | 传感器类型，该值固定为SensorId.GRAVITY。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;GravityResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;GravityResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -3367,7 +3367,7 @@ off(type: SensorId.GYROSCOPE, callback?: Callback&lt;GyroscopeResponse&gt;): voi
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.GYROSCOPE | 是 | 传感器类型，该值固定为SensorId.GYROSCOPE。 |
-| callback | Callback&lt;GyroscopeResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;GyroscopeResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -3430,7 +3430,7 @@ off(type: SensorId.GYROSCOPE, sensorInfoParam?: SensorInfoParam, callback?: Call
 | --- | --- | --- | --- |
 | type | SensorId.GYROSCOPE | 是 | 传感器类型，该值固定为SensorId.GYROSCOPE。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;GyroscopeResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;GyroscopeResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -3522,7 +3522,7 @@ off(type: SensorId.GYROSCOPE_UNCALIBRATED, callback?: Callback&lt;GyroscopeUncal
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.GYROSCOPE_UNCALIBRATED | 是 | 传感器类型，该值固定为SensorId.GYROSCOPE_UNCALIBRATED。 |
-| callback | Callback&lt;GyroscopeUncalibratedResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;GyroscopeUncalibratedResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -3583,7 +3583,7 @@ off(type: SensorId.GYROSCOPE_UNCALIBRATED, sensorInfoParam?: SensorInfoParam, ca
 | --- | --- | --- | --- |
 | type | SensorId.GYROSCOPE_UNCALIBRATED | 是 | 传感器类型，该值固定为SensorId.GYROSCOPE_UNCALIBRATED。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;GyroscopeUncalibratedResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;GyroscopeUncalibratedResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -3673,7 +3673,7 @@ off(type: SensorId.HALL, callback?: Callback&lt;HallResponse&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.HALL | 是 | 传感器类型，该值固定为SensorId.HALL。 |
-| callback | Callback&lt;HallResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;HallResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -3731,7 +3731,7 @@ off(type: SensorId.HALL, sensorInfoParam?: SensorInfoParam, callback?: Callback&
 | --- | --- | --- | --- |
 | type | SensorId.HALL | 是 | 传感器类型，该值固定为SensorId.HALL。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;HallResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;HallResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -3822,7 +3822,7 @@ off(type: SensorId.HEART_RATE, callback?: Callback&lt;HeartRateResponse&gt;): vo
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.HEART_RATE | 是 | 传感器类型，该值固定为SensorId.HEART_RATE。 |
-| callback | Callback&lt;HeartRateResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;HeartRateResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -3883,7 +3883,7 @@ off(type: SensorId.HEART_RATE, sensorInfoParam?: SensorInfoParam, callback?: Cal
 | --- | --- | --- | --- |
 | type | SensorId.HEART_RATE | 是 | 传感器类型，该值固定为SensorId.HEART_RATE。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;HeartRateResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;HeartRateResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -3973,7 +3973,7 @@ off(type: SensorId.HUMIDITY, callback?: Callback&lt;HumidityResponse&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.HUMIDITY | 是 | 传感器类型，该值固定为SensorId.HUMIDITY。 |
-| callback | Callback&lt;HumidityResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;HumidityResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -4031,7 +4031,7 @@ off(type: SensorId.HUMIDITY, sensorInfoParam?: SensorInfoParam, callback?: Callb
 | --- | --- | --- | --- |
 | type | SensorId.HUMIDITY | 是 | 传感器类型，该值固定为SensorId.HUMIDITY。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;HumidityResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;HumidityResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -4122,7 +4122,7 @@ off(type: SensorId.LINEAR_ACCELEROMETER, callback?: Callback&lt;LinearAccelerome
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.LINEAR_ACCELEROMETER | 是 | 传感器类型，该值固定为SensorId.LINEAR_ACCELEROMETER。 |
-| callback | Callback&lt;LinearAccelerometerResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;LinearAccelerometerResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -4183,7 +4183,7 @@ off(type: SensorId.LINEAR_ACCELEROMETER, sensorInfoParam?: SensorInfoParam, call
 | --- | --- | --- | --- |
 | type | SensorId.LINEAR_ACCELEROMETER | 是 | 传感器类型，该值固定为SensorId.LINEAR_ACCELEROMETER。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;LinearAccelerometerResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;LinearAccelerometerResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -4273,7 +4273,7 @@ off(type: SensorId.MAGNETIC_FIELD, callback?: Callback&lt;MagneticFieldResponse&
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.MAGNETIC_FIELD | 是 | 传感器类型，该值固定为SensorId.MAGNETIC_FIELD。 |
-| callback | Callback&lt;MagneticFieldResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;MagneticFieldResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -4331,7 +4331,7 @@ off(type: SensorId.MAGNETIC_FIELD, sensorInfoParam?: SensorInfoParam, callback?:
 | --- | --- | --- | --- |
 | type | SensorId.MAGNETIC_FIELD | 是 | 传感器类型，该值固定为SensorId.MAGNETIC_FIELD。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;MagneticFieldResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;MagneticFieldResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -4420,7 +4420,7 @@ off(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED, callback?: Callback&lt;MagneticF
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.MAGNETIC_FIELD_UNCALIBRATED | 是 | 传感器类型，该值固定为SensorId.MAGNETIC_FIELD_UNCALIBRATED。 |
-| callback | Callback&lt;MagneticFieldUncalibratedResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;MagneticFieldUncalibratedResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -4478,7 +4478,7 @@ off(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED, sensorInfoParam?: SensorInfoPara
 | --- | --- | --- | --- |
 | type | SensorId.MAGNETIC_FIELD_UNCALIBRATED | 是 | 传感器类型，该值固定为SensorId.MAGNETIC_FIELD_UNCALIBRATED。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;MagneticFieldUncalibratedResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;MagneticFieldUncalibratedResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -4569,7 +4569,7 @@ off(type: SensorId.ORIENTATION, callback?: Callback&lt;OrientationResponse&gt;):
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.ORIENTATION | 是 | 传感器类型，该值固定为SensorId.ORIENTATION。 |
-| callback | Callback&lt;OrientationResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;OrientationResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -4629,7 +4629,7 @@ off(type: SensorId.ORIENTATION, sensorInfoParam?: SensorInfoParam, callback?: Ca
 | --- | --- | --- | --- |
 | type | SensorId.ORIENTATION | 是 | 传感器类型，该值固定为SensorId.ORIENTATION。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;OrientationResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;OrientationResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -4720,7 +4720,7 @@ off(type: SensorId.PEDOMETER, callback?: Callback&lt;PedometerResponse&gt;): voi
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.PEDOMETER | 是 | 传感器类型，该值固定为SensorId.PEDOMETER。 |
-| callback | Callback&lt;PedometerResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;PedometerResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -4781,7 +4781,7 @@ off(type: SensorId.PEDOMETER, sensorInfoParam?: SensorInfoParam, callback?: Call
 | --- | --- | --- | --- |
 | type | SensorId.PEDOMETER | 是 | 传感器类型，该值固定为SensorId.PEDOMETER。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;PedometerResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;PedometerResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -4873,7 +4873,7 @@ off(type: SensorId.PEDOMETER_DETECTION, callback?: Callback&lt;PedometerDetectio
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.PEDOMETER_DETECTION | 是 | 传感器类型，该值固定为SensorId.PEDOMETER_DETECTION。 |
-| callback | Callback&lt;PedometerDetectionResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;PedometerDetectionResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -4934,7 +4934,7 @@ off(type: SensorId.PEDOMETER_DETECTION, sensorInfoParam?: SensorInfoParam, callb
 | --- | --- | --- | --- |
 | type | SensorId.PEDOMETER_DETECTION | 是 | 传感器类型，该值固定为SensorId.PEDOMETER_DETECTION。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;PedometerDetectionResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;PedometerDetectionResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -5024,7 +5024,7 @@ off(type: SensorId.PROXIMITY, callback?: Callback&lt;ProximityResponse&gt;): voi
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.PROXIMITY | 是 | 传感器类型，该值固定为SensorId.PROXIMITY。 |
-| callback | Callback&lt;ProximityResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;ProximityResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -5082,7 +5082,7 @@ off(type: SensorId.PROXIMITY, sensorInfoParam?: SensorInfoParam, callback?: Call
 | --- | --- | --- | --- |
 | type | SensorId.PROXIMITY | 是 | 传感器类型，该值固定为SensorId.PROXIMITY。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;ProximityResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;ProximityResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -5171,7 +5171,7 @@ off(type: SensorId.ROTATION_VECTOR, callback?: Callback&lt;RotationVectorRespons
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.ROTATION_VECTOR | 是 | 传感器类型，该值固定为SensorId.ROTATION_VECTOR。 |
-| callback | Callback&lt;RotationVectorResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;RotationVectorResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -5229,7 +5229,7 @@ off(type: SensorId.ROTATION_VECTOR, sensorInfoParam?: SensorInfoParam, callback?
 | --- | --- | --- | --- |
 | type | SensorId.ROTATION_VECTOR | 是 | 传感器类型，该值固定为SensorId.ROTATION_VECTOR。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;RotationVectorResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;RotationVectorResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -5318,7 +5318,7 @@ off(type: SensorId.SIGNIFICANT_MOTION, callback?: Callback&lt;SignificantMotionR
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.SIGNIFICANT_MOTION | 是 | 传感器类型，该值固定为SensorId.SIGNIFICANT_MOTION。 |
-| callback | Callback&lt;SignificantMotionResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;SignificantMotionResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -5376,7 +5376,7 @@ off(type: SensorId.SIGNIFICANT_MOTION, sensorInfoParam?: SensorInfoParam, callba
 | --- | --- | --- | --- |
 | type | SensorId.SIGNIFICANT_MOTION | 是 | 传感器类型，该值固定为SensorId.SIGNIFICANT_MOTION。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;SignificantMotionResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;SignificantMotionResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -5465,7 +5465,7 @@ off(type: SensorId.WEAR_DETECTION, callback?: Callback&lt;WearDetectionResponse&
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorId.WEAR_DETECTION | 是 | 传感器类型，该值固定为SensorId.WEAR_DETECTION。 |
-| callback | Callback&lt;WearDetectionResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;WearDetectionResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -5523,7 +5523,7 @@ off(type: SensorId.WEAR_DETECTION, sensorInfoParam?: SensorInfoParam, callback?:
 | --- | --- | --- | --- |
 | type | SensorId.WEAR_DETECTION | 是 | 传感器类型，该值固定为SensorId.WEAR_DETECTION。 |
 | sensorInfoParam | SensorInfoParam | 否 | 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。 |
-| callback | Callback&lt;WearDetectionResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;WearDetectionResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -5611,8 +5611,8 @@ off(type: 'sensorStatusChange', callback?: Callback&lt;SensorStatusEvent&gt;): v
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 固定传入'sensorStatusChange',状态监听固定参数。 |
-| callback | Callback&lt;SensorStatusEvent&gt; | 否 | sensor.on传入的回调函数，不传则取消所有监听。 |
+| type | string | 是 | 固定传入'sensorStatusChange'，状态监听固定参数。 |
+| callback | Callback&lt;SensorStatusEvent&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **错误码**：
@@ -5664,7 +5664,7 @@ try {
 
 getSensorListByDeviceSync(deviceId?: number): Array&lt;Sensor&gt;
 
-同步获取设备的所有传感器信息。
+同步获取设备的所有传感器信息。getSensorListByDeviceSync返回设备上所有传感器信息，getSingleSensorByDeviceSync返回指定单个传感器信息。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -5753,7 +5753,7 @@ try {
 
 getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: number, callback: AsyncCallback&lt;GeomagneticResponse&gt;): void
 
-获取某时刻地球上特定位置的地磁场信息，使用Callback异步方式返回结果。
+获取某时刻地球上特定位置的地磁场信息。使用callback异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -5762,7 +5762,7 @@ getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: number, callbac
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | locationOptions | LocationOptions | 是 | 地理位置，包括经度、纬度和海拔高度。 |
-| timeMillis | number | 是 | 获取磁偏角的时间，unix时间戳。单位：ms（毫秒）。取值范围：正整数。 |
+| timeMillis | number | 是 | 获取磁偏角的时间，unix时间戳，表示自1970-01-01 00:00:00 UTC以来的毫秒数。单位：ms（毫秒）。取值范围：正整数。 |
 | callback | AsyncCallback&lt;GeomagneticResponse&gt; | 是 | 回调函数，异步返回地磁场信息。 |
 
 
@@ -5812,7 +5812,7 @@ try {
 
 getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: number): Promise&lt;GeomagneticResponse&gt;
 
-获取某时刻地球上特定位置的地磁场信息，使用Promise异步方式返回结果。
+获取某时刻地球上特定位置的地磁场信息。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -5821,7 +5821,7 @@ getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: number): Promis
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | locationOptions | LocationOptions | 是 | 地理位置，包括经度、纬度和海拔高度。 |
-| timeMillis | number | 是 | 获取磁偏角的时间，unix时间戳。单位：ms（毫秒）。取值范围：正整数。 |
+| timeMillis | number | 是 | 获取磁偏角的时间，unix时间戳，表示自1970-01-01 00:00:00 UTC以来的毫秒数。单位：ms（毫秒）。取值范围：正整数。 |
 
 
 **返回值**：
@@ -5875,7 +5875,7 @@ try {
 
 getDeviceAltitude(seaPressure: number, currentPressure: number, callback: AsyncCallback&lt;number&gt;): void
 
-根据气压值获取海拔高度，使用Callback异步方式返回结果。
+根据气压值获取海拔高度。使用callback异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -5883,9 +5883,9 @@ getDeviceAltitude(seaPressure: number, currentPressure: number, callback: AsyncC
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| seaPressure | number | 是 | 海平面气压值，单位为hPa。 |
-| currentPressure | number | 是 | 指定的气压值，单位为hPa。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数，异步返回指定的气压值对应的海拔高度，单位为米。 |
+| seaPressure | number | 是 | 海平面气压值，单位：hPa（百帕）。 |
+| currentPressure | number | 是 | 指定的气压值，单位：hPa（百帕）。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数，异步返回指定的气压值对应的海拔高度，单位：m（米）。 |
 
 
 **错误码**：
@@ -5929,7 +5929,7 @@ try {
 
 getDeviceAltitude(seaPressure: number, currentPressure: number): Promise&lt;number&gt;
 
-根据气压值获取海拔高度，使用Promise异步方式返回结果。
+根据气压值获取海拔高度。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -5937,15 +5937,15 @@ getDeviceAltitude(seaPressure: number, currentPressure: number): Promise&lt;numb
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| seaPressure | number | 是 | 海平面气压值，单位为hPa。 |
-| currentPressure | number | 是 | 指定的气压值，单位为hPa。 |
+| seaPressure | number | 是 | 海平面气压值，单位：hPa（百帕）。 |
+| currentPressure | number | 是 | 指定的气压值，单位：hPa（百帕）。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | Promise对象，使用异步方式返回指定的气压值对应的海拔高度，单位为米。 |
+| Promise&lt;number&gt; | Promise对象，使用异步方式返回指定的气压值对应的海拔高度，单位：m（米）。 |
 
 
 **错误码**：
@@ -5988,7 +5988,7 @@ try {
 
 getInclination(inclinationMatrix: Array&lt;number&gt;, callback: AsyncCallback&lt;number&gt;): void
 
-根据倾斜矩阵计算地磁倾角，使用Callback异步方式返回结果。
+根据倾斜矩阵计算地磁倾角。使用callback异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -5997,7 +5997,7 @@ getInclination(inclinationMatrix: Array&lt;number&gt;, callback: AsyncCallback&l
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | inclinationMatrix | Array&lt;number&gt; | 是 | 倾斜矩阵。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数，异步返回地磁倾角，单位为弧度。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数，异步返回地磁倾角，单位：rad（弧度）。 |
 
 
 **错误码**：
@@ -6045,7 +6045,7 @@ try {
 
 getInclination(inclinationMatrix: Array&lt;number&gt;): Promise&lt;number&gt;
 
-根据倾斜矩阵计算地磁倾角，使用Promise异步方式返回结果。
+根据倾斜矩阵计算地磁倾角。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -6060,7 +6060,7 @@ getInclination(inclinationMatrix: Array&lt;number&gt;): Promise&lt;number&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | Promise对象，使用异步方式返回地磁倾斜角，单位为弧度。 |
+| Promise&lt;number&gt; | Promise对象，使用异步方式返回地磁倾斜角，单位：rad（弧度）。 |
 
 
 **错误码**：
@@ -6107,7 +6107,7 @@ try {
 
 getAngleVariation(currentRotationMatrix: Array&lt;number&gt;, preRotationMatrix: Array&lt;number&gt;, callback: AsyncCallback<Array&lt;number&gt;>): void
 
-计算两个旋转矩阵之间的角度变化，使用Callback异步方式返回结果。
+计算两个旋转矩阵之间的角度变化。使用callback异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -6117,7 +6117,7 @@ getAngleVariation(currentRotationMatrix: Array&lt;number&gt;, preRotationMatrix:
 | --- | --- | --- | --- |
 | currentRotationMatrix | Array&lt;number&gt; | 是 | 当前旋转矩阵。 |
 | preRotationMatrix | Array&lt;number&gt; | 是 | 相对旋转矩阵。 |
-| callback | AsyncCallback<Array&lt;number&gt;> | 是 | 回调函数，异步返回绕z、x、y轴方向的旋转角度，单位度（°）。 |
+| callback | AsyncCallback<Array&lt;number&gt;> | 是 | 回调函数，异步返回绕z、x、y轴方向的旋转角度，单位：°（度）。 |
 
 
 **错误码**：
@@ -6176,7 +6176,7 @@ try {
 
 getAngleVariation(currentRotationMatrix: Array&lt;number&gt;, preRotationMatrix: Array&lt;number&gt;): Promise<Array&lt;number&gt;>
 
-得到两个旋转矩阵之间的角度变化，使用Promise异步方式返回结果。
+得到两个旋转矩阵之间的角度变化。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -6192,7 +6192,7 @@ getAngleVariation(currentRotationMatrix: Array&lt;number&gt;, preRotationMatrix:
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<Array&lt;number&gt;> | Promise对象，使用异步方式返回绕z、x、y轴方向的旋转角度，单位度（°）。 |
+| Promise<Array&lt;number&gt;> | Promise对象，使用异步方式返回绕z、x、y轴方向的旋转角度，单位：°（度）。 |
 
 
 **错误码**：
@@ -6250,7 +6250,7 @@ try {
 
 getRotationMatrix(rotationVector: Array&lt;number&gt;, callback: AsyncCallback<Array&lt;number&gt;>): void
 
-根据旋转矢量获取旋转矩阵，使用Callback异步方式返回结果。
+根据旋转矢量获取旋转矩阵。使用callback异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -6304,7 +6304,7 @@ try {
 
 getRotationMatrix(rotationVector: Array&lt;number&gt;): Promise<Array&lt;number&gt;>
 
-根据旋转矢量获取旋转矩阵，使用Promise异步方式返回结果。
+根据旋转矢量获取旋转矩阵。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -6363,7 +6363,7 @@ try {
 
 transformRotationMatrix(inRotationVector: Array&lt;number&gt;, coordinates: CoordinatesOptions, callback: AsyncCallback<Array&lt;number&gt;>): void
 
-根据指定坐标系映射旋转矩阵，使用Callback异步方式返回结果。
+根据指定坐标系映射旋转矩阵。使用callback异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -6422,7 +6422,7 @@ try {
 
 transformRotationMatrix(inRotationVector: Array&lt;number&gt;, coordinates: CoordinatesOptions): Promise<Array&lt;number&gt;>
 
-根据指定坐标系映射旋转矩阵，使用Promise异步方式返回结果。
+根据指定坐标系映射旋转矩阵。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -6486,7 +6486,7 @@ try {
 
 getQuaternion(rotationVector: Array&lt;number&gt;, callback: AsyncCallback<Array&lt;number&gt;>): void
 
-根据旋转向量计算归一化四元数，使用Callback异步方式返回结果。
+根据旋转向量计算归一化四元数。使用callback异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -6540,7 +6540,7 @@ try {
 
 getQuaternion(rotationVector: Array&lt;number&gt;): Promise<Array&lt;number&gt;>
 
-根据旋转向量计算归一化四元数，使用Promise异步方式返回结果。
+根据旋转向量计算归一化四元数。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -6599,7 +6599,7 @@ try {
 
 getOrientation(rotationMatrix: Array&lt;number&gt;, callback: AsyncCallback<Array&lt;number&gt;>): void
 
-根据旋转矩阵计算设备方向，使用Callback异步方式返回结果。
+根据旋转矩阵计算设备方向。使用callback异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -6608,7 +6608,7 @@ getOrientation(rotationMatrix: Array&lt;number&gt;, callback: AsyncCallback<Arra
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | rotationMatrix | Array&lt;number&gt; | 是 | 旋转矩阵。 |
-| callback | AsyncCallback<Array&lt;number&gt;> | 是 | 回调函数，异步返回围绕z、x、y轴方向的旋转角度，单位度（°）。 |
+| callback | AsyncCallback<Array&lt;number&gt;> | 是 | 回调函数，异步返回围绕z、x、y轴方向的旋转角度，单位：°（度）。 |
 
 
 **错误码**：
@@ -6660,7 +6660,7 @@ try {
 
 getOrientation(rotationMatrix: Array&lt;number&gt;): Promise<Array&lt;number&gt;>
 
-根据旋转矩阵计算设备的方向，使用Promise异步方式返回结果。
+根据旋转矩阵计算设备的方向。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -6675,7 +6675,7 @@ getOrientation(rotationMatrix: Array&lt;number&gt;): Promise<Array&lt;number&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<Array&lt;number&gt;> | Promise对象，使用异步方式返回围绕z、x、y轴方向的旋转角度，单位度（°）。 |
+| Promise<Array&lt;number&gt;> | Promise对象，使用异步方式返回围绕z、x、y轴方向的旋转角度，单位：°（度）。 |
 
 
 **错误码**：
@@ -6723,7 +6723,7 @@ try {
 
 getRotationMatrix(gravity: Array&lt;number&gt;, geomagnetic: Array&lt;number&gt;, callback: AsyncCallback&lt;RotationMatrixResponse&gt;): void
 
-根据重力矢量和地磁矢量计算旋转矩阵，使用Callback异步方式返回结果。
+根据重力矢量和地磁矢量计算旋转矩阵。使用callback异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -6777,7 +6777,7 @@ try {
 
 getRotationMatrix(gravity: Array&lt;number&gt;, geomagnetic: Array&lt;number&gt;): Promise&lt;RotationMatrixResponse&gt;
 
-根据重力矢量和地磁矢量计算旋转矩阵，使用Promise异步方式返回结果。
+根据重力矢量和地磁矢量计算旋转矩阵。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -6836,7 +6836,7 @@ try {
 
 getSensorList(callback: AsyncCallback<Array&lt;Sensor&gt;>): void
 
-获取设备上的所有传感器信息，使用Callback异步方式返回结果。
+获取设备上的所有传感器信息。使用callback异步回调。如果需要同步获取传感器列表，请使用getSensorListSync。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -6888,7 +6888,7 @@ try {
 
 getSensorList(): Promise<Array&lt;Sensor&gt;>
 
-获取设备上的所有传感器信息，使用Promise异步方式返回结果。
+获取设备上的所有传感器信息。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -6984,7 +6984,7 @@ try {
 
 getSingleSensor(type: SensorId, callback: AsyncCallback&lt;Sensor&gt;): void
 
-获取指定传感器类型的属性信息，使用Callback异步方式返回结果。
+获取指定传感器类型的属性信息。使用callback异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -7044,7 +7044,7 @@ try {
 
 getSingleSensor(type: SensorId): Promise&lt;Sensor&gt;
 
-获取指定类型的传感器信息，使用Promise异步方式返回结果。
+获取指定类型的传感器信息。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -7388,9 +7388,9 @@ try {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| alpha | number | 否 | 否 | 设备围绕Z轴的旋转角度，即方位角。单位：degree（度）；取值范围：[0, 360]。 |
-| beta | number | 否 | 否 | 设备围绕X轴的旋转角度，即俯仰角。单位：degree（度）；取值范围：[-180, 180]。 |
-| gamma | number | 否 | 否 | 设备围绕Y轴的旋转角度，即翻转角。单位：degree（度）；取值范围：[-90, 90]。 |
+| alpha | number | 否 | 否 | 设备围绕Z轴的旋转角度，即方位角。单位：°（度）；取值范围：[0, 360]。 |
+| beta | number | 否 | 否 | 设备围绕X轴的旋转角度，即俯仰角。单位：°（度）；取值范围：[-180, 180]。 |
+| gamma | number | 否 | 否 | 设备围绕Y轴的旋转角度，即翻转角。单位：°（度）；取值范围：[-90, 90]。 |
 
 
 
@@ -7408,7 +7408,7 @@ try {
 | x | number | 否 | 否 | 旋转矢量的x轴分量，表示设备旋转状态在x轴方向的投影。 |
 | y | number | 否 | 否 | 旋转矢量的y轴分量，表示设备旋转状态在y轴方向的投影。 |
 | z | number | 否 | 否 | 旋转矢量的z轴分量，表示设备旋转状态在z轴方向的投影。 |
-| w | number | 否 | 否 | 旋转矢量的标量分量，描述设备相对于某个参考方向的旋转状态。单位：弧度（rad）。 |
+| w | number | 否 | 否 | 旋转矢量的标量分量，描述设备相对于某个参考方向的旋转状态。单位：rad（弧度）。 |
 
 
 
@@ -7740,8 +7740,8 @@ type SensorFrequency = 'game' | 'ui' | 'normal'
 | x | number | 否 | 否 | 地磁场X方向分量（北分量）。单位：nT（纳特斯拉）。 |
 | y | number | 否 | 否 | 地磁场Y方向分量（东分量）。单位：nT（纳特斯拉）。 |
 | z | number | 否 | 否 | 地磁场Z方向分量（垂直分量）。单位：nT（纳特斯拉）。 |
-| geomagneticDip | number | 否 | 否 | 磁倾角，即地球磁场线与水平面的夹角。单位：degree（度）。 |
-| deflectionAngle | number | 否 | 否 | 磁偏角，即地磁北方向与正北方向在水平面上的角度。单位：degree（度）。 |
+| geomagneticDip | number | 否 | 否 | 磁倾角，即地球磁场线与水平面的夹角。单位：°（度）。 |
+| deflectionAngle | number | 否 | 否 | 磁偏角，即地磁北方向与正北方向在水平面上的角度。单位：°（度）。 |
 | levelIntensity | number | 否 | 否 | 水平磁场强度，即地磁场在水平面上的总强度。单位：nT（纳特斯拉）。 |
 | totalIntensity | number | 否 | 否 | 总磁场强度，即地磁场三维空间的总强度。单位：nT（纳特斯拉）。 |
 
@@ -7758,8 +7758,8 @@ type SensorFrequency = 'game' | 'ui' | 'normal'
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| latitude | number | 否 | 否 | 纬度。取值范围：[-90, 90]。单位：degree（度）。 |
-| longitude | number | 否 | 否 | 经度。取值范围：[-180, 180]。单位：degree（度）。 |
+| latitude | number | 否 | 否 | 纬度。取值范围：[-90, 90]。单位：°（度）。 |
+| longitude | number | 否 | 否 | 经度。取值范围：[-180, 180]。单位：°（度）。 |
 | altitude | number | 否 | 否 | 海拔高度。单位：m（米）。 |
 
 
@@ -9332,7 +9332,7 @@ off(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback?: Callback&lt;Accele
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_ACCELEROMETER | 是 | 要取消订阅的加速度传感器类型为SENSOR_TYPE_ID_ACCELEROMETER。 |
-| callback | Callback&lt;AccelerometerResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;AccelerometerResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -9372,7 +9372,7 @@ off(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, callback?: Callb
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED | 是 | 要取消订阅的未校准加速度计传感器类型为SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED。 |
-| callback | Callback&lt;AccelerometerUncalibratedResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;AccelerometerUncalibratedResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -9413,7 +9413,7 @@ off(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback?: Callback&lt;LightR
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT | 是 | 要取消订阅的环境光传感器类型为SENSOR_TYPE_ID_AMBIENT_LIGHT。 |
-| callback | Callback&lt;LightResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;LightResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -9449,7 +9449,7 @@ off(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback?: Callback&lt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE | 是 | 要取消订阅的环境温度传感器类型为SENSOR_TYPE_ID_AMBIENT_TEMPERATURE。 |
-| callback | Callback&lt;AmbientTemperatureResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;AmbientTemperatureResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -9485,7 +9485,7 @@ off(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback?: Callback&lt;BarometerR
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_BAROMETER | 是 | 要取消订阅的气压计传感器类型为SENSOR_TYPE_ID_BAROMETER。 |
-| callback | Callback&lt;BarometerResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;BarometerResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -9521,7 +9521,7 @@ off(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback?: Callback&lt;GravityRespo
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_GRAVITY | 是 | 要取消订阅的重力传感器类型为SENSOR_TYPE_ID_GRAVITY。 |
-| callback | Callback&lt;GravityResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;GravityResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -9561,7 +9561,7 @@ off(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback?: Callback&lt;GyroscopeR
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_GYROSCOPE | 是 | 要取消订阅的陀螺仪传感器类型为SENSOR_TYPE_ID_GYROSCOPE。 |
-| callback | Callback&lt;GyroscopeResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;GyroscopeResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -9601,7 +9601,7 @@ off(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback?: Callback&
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED | 是 | 要取消订阅的未校准陀螺仪传感器类型为SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED。 |
-| callback | Callback&lt;GyroscopeUncalibratedResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;GyroscopeUncalibratedResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -9639,7 +9639,7 @@ off(type: SensorType.SENSOR_TYPE_ID_HALL, callback?: Callback&lt;HallResponse&gt
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_HALL | 是 | 要取消订阅的霍尔传感器类型为SENSOR_TYPE_ID_HALL。 |
-| callback | Callback&lt;HallResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;HallResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -9677,7 +9677,7 @@ off(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback?: Callback&lt;HeartRate
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_HEART_RATE | 是 | 要取消订阅的心率传感器类型为SENSOR_TYPE_ID_HEART_RATE。 |
-| callback | Callback&lt;HeartRateResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;HeartRateResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -9713,7 +9713,7 @@ off(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback?: Callback&lt;HumidityRes
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_HUMIDITY | 是 | 要取消订阅的湿度传感器类型为SENSOR_TYPE_ID_HUMIDITY。 |
-| callback | Callback&lt;HumidityResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;HumidityResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -9751,7 +9751,7 @@ off(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback?: Callback&lt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION | 是 | 要取消订阅的线性加速度传感器类型为SENSOR_TYPE_ID_LINEAR_ACCELERATION。 |
-| callback | Callback&lt;LinearAccelerometerResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;LinearAccelerometerResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -9789,7 +9789,7 @@ off(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback?: Callback&lt;Magne
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD | 是 | 要取消订阅的磁场传感器类型为SENSOR_TYPE_ID_MAGNETIC_FIELD。 |
-| callback | Callback&lt;MagneticFieldResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;MagneticFieldResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -9827,7 +9827,7 @@ off(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback?: Call
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED | 是 | 要取消订阅的未校准磁场传感器类型为SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED。 |
-| callback | Callback&lt;MagneticFieldUncalibratedResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;MagneticFieldUncalibratedResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -9868,7 +9868,7 @@ off(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback?: Callback&lt;Orientat
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_ORIENTATION | 是 | 要取消订阅的方向传感器类型为SENSOR_TYPE_ID_ORIENTATION。 |
-| callback | Callback&lt;OrientationResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;OrientationResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -9908,7 +9908,7 @@ off(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback?: Callback&lt;PedometerR
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_PEDOMETER | 是 | 要取消订阅的计步传感器类型为SENSOR_TYPE_ID_PEDOMETER。 |
-| callback | Callback&lt;PedometerResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;PedometerResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -9946,7 +9946,7 @@ off(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback?: Callback&lt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION | 是 | 要取消订阅的计步检测传感器类型为SENSOR_TYPE_ID_PEDOMETER_DETECTION。 |
-| callback | Callback&lt;PedometerDetectionResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;PedometerDetectionResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -9982,7 +9982,7 @@ off(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback?: Callback&lt;ProximityR
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_PROXIMITY | 是 | 要取消订阅的接近光传感器类型为SENSOR_TYPE_ID_PROXIMITY。 |
-| callback | Callback&lt;ProximityResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;ProximityResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -10018,7 +10018,7 @@ off(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback?: Callback&lt;Rota
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR | 是 | 要取消订阅的旋转矢量传感器类型为SENSOR_TYPE_ID_ROTATION_VECTOR。 |
-| callback | Callback&lt;RotationVectorResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;RotationVectorResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -10057,7 +10057,7 @@ off(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback?: Callback&lt;S
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION | 是 | 要取消订阅的有效运动传感器类型为SENSOR_TYPE_ID_SIGNIFICANT_MOTION。 |
-| callback | Callback&lt;SignificantMotionResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;SignificantMotionResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -10093,7 +10093,7 @@ off(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback?: Callback&lt;WearD
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | SensorType.SENSOR_TYPE_ID_WEAR_DETECTION | 是 | 要取消订阅的佩戴检测传感器类型为SENSOR_TYPE_ID_WEAR_DETECTION。 |
-| callback | Callback&lt;WearDetectionResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | Callback&lt;WearDetectionResponse&gt; | 否 | 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
 **示例**：
@@ -10116,7 +10116,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, accCallback);
 
 transformCoordinateSystem(inRotationVector: Array&lt;number&gt;, coordinates: CoordinatesOptions, callback: AsyncCallback<Array&lt;number&gt;>): void
 
-旋转提供的旋转矩阵，使其可以以不同的方式表示坐标系，使用Callback异步方式返回结果。
+旋转提供的旋转矩阵，使其可以以不同的方式表示坐标系。使用callback异步回调。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.transformRotationMatrix 替代。
@@ -10160,7 +10160,7 @@ sensor.transformCoordinateSystem([1, 0, 0, 0, 1, 0, 0, 0, 1], { x: 2, y: 3 },
 
 transformCoordinateSystem(inRotationVector: Array&lt;number&gt;, coordinates: CoordinatesOptions): Promise<Array&lt;number&gt;>
 
-旋转提供的旋转矩阵，使其可以以不同的方式表示坐标系，使用Promise异步方式返回结果。
+旋转提供的旋转矩阵，使其可以以不同的方式表示坐标系。使用Promise异步回调。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.transformRotationMatrix 替代。
@@ -10208,7 +10208,7 @@ promise.then((data: Array<number>) => {
 
 getGeomagneticField(locationOptions: LocationOptions, timeMillis: number, callback: AsyncCallback&lt;GeomagneticResponse&gt;): void
 
-获取地球上特定位置的地磁场，使用callback异步方式返回结果。
+获取地球上特定位置的地磁场。使用callback异步回调。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getGeomagneticInfo 替代。
@@ -10221,7 +10221,7 @@ getGeomagneticField(locationOptions: LocationOptions, timeMillis: number, callba
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | locationOptions | LocationOptions | 是 | 地理位置。 |
-| timeMillis | number | 是 | 表示获取磁偏角的时间，单位为毫秒。 |
+| timeMillis | number | 是 | 表示获取磁偏角的时间，单位：ms（毫秒）。 |
 | callback | AsyncCallback&lt;GeomagneticResponse&gt; | 是 | 异步返回磁场信息。 |
 
 
@@ -10251,7 +10251,7 @@ sensor.getGeomagneticField({ latitude: 80, longitude: 0, altitude: 0 }, 15804864
 
 getGeomagneticField(locationOptions: LocationOptions, timeMillis: number): Promise&lt;GeomagneticResponse&gt;
 
-获取地球上特定位置的地磁场，使用Promise异步方式返回结果。
+获取地球上特定位置的地磁场。使用Promise异步回调。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getGeomagneticInfo 替代。
@@ -10264,7 +10264,7 @@ getGeomagneticField(locationOptions: LocationOptions, timeMillis: number): Promi
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | locationOptions | LocationOptions | 是 | 地理位置。 |
-| timeMillis | number | 是 | 表示获取磁偏角的时间，单位为毫秒。 |
+| timeMillis | number | 是 | 表示获取磁偏角的时间，单位：ms（毫秒）。 |
 
 
 **返回值**：
@@ -10298,7 +10298,7 @@ promise.then((data: sensor.GeomagneticResponse) => {
 
 getAltitude(seaPressure: number, currentPressure: number, callback: AsyncCallback&lt;number&gt;): void
 
-根据气压值获取设备所在的海拔高度，使用Callback异步方式返回结果。
+根据气压值获取设备所在的海拔高度。使用callback异步回调。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getDeviceAltitude 替代。
@@ -10310,9 +10310,9 @@ getAltitude(seaPressure: number, currentPressure: number, callback: AsyncCallbac
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| seaPressure | number | 是 | 表示海平面气压值，单位为hPa。 |
-| currentPressure | number | 是 | 表示设备所在高度的气压值，单位为hPa。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 异步返回设备所在的海拔高度，单位为米。 |
+| seaPressure | number | 是 | 表示海平面气压值，单位：hPa（百帕）。 |
+| currentPressure | number | 是 | 表示设备所在高度的气压值，单位：hPa（百帕）。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 异步返回设备所在的海拔高度，单位：m（米）。 |
 
 
 **示例**：
@@ -10338,7 +10338,7 @@ sensor.getAltitude(0, 200, (err: BusinessError, data: number) => {
 
 getAltitude(seaPressure: number, currentPressure: number): Promise&lt;number&gt;
 
-根据气压值获取设备所在的海拔高度，使用Promise异步方式返回结果。
+根据气压值获取设备所在的海拔高度。使用Promise异步回调。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getDeviceAltitude 替代。
@@ -10350,15 +10350,15 @@ getAltitude(seaPressure: number, currentPressure: number): Promise&lt;number&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| seaPressure | number | 是 | 表示海平面气压值，单位为hPa。 |
-| currentPressure | number | 是 | 表示设备所在高度的气压值，单位为hPa。 |
+| seaPressure | number | 是 | 表示海平面气压值，单位：hPa（百帕）。 |
+| currentPressure | number | 是 | 表示设备所在高度的气压值，单位：hPa（百帕）。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 使用异步方式返回设备所在的海拔高度（单位：米）。 |
+| Promise&lt;number&gt; | 使用异步方式返回设备所在的海拔高度，单位：m（米）。 |
 
 
 **示例**：
@@ -10383,7 +10383,7 @@ promise.then((data: number) => {
 
 getGeomagneticDip(inclinationMatrix: Array&lt;number&gt;, callback: AsyncCallback&lt;number&gt;): void
 
-根据倾斜矩阵计算地磁倾斜角，使用Callback异步方式返回结果。
+根据倾斜矩阵计算地磁倾斜角。使用callback异步回调。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getInclination 替代。
@@ -10396,7 +10396,7 @@ getGeomagneticDip(inclinationMatrix: Array&lt;number&gt;, callback: AsyncCallbac
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | inclinationMatrix | Array&lt;number&gt; | 是 | 表示倾斜矩阵。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 异步返回地磁倾斜角，单位为弧度。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 异步返回地磁倾斜角，单位：rad（弧度）。 |
 
 
 **示例**：
@@ -10422,7 +10422,7 @@ sensor.getGeomagneticDip([1, 0, 0, 0, 1, 0, 0, 0, 1], (err: BusinessError, data:
 
 getGeomagneticDip(inclinationMatrix: Array&lt;number&gt;): Promise&lt;number&gt;
 
-根据倾斜矩阵计算地磁倾斜角，使用Promise异步方式返回结果。
+根据倾斜矩阵计算地磁倾斜角。使用Promise异步回调。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getInclination 替代。
@@ -10441,7 +10441,7 @@ getGeomagneticDip(inclinationMatrix: Array&lt;number&gt;): Promise&lt;number&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 使用异步方式返回地磁倾斜角，单位为弧度。 |
+| Promise&lt;number&gt; | 使用异步方式返回地磁倾斜角，单位：rad（弧度）。 |
 
 
 **示例**：
@@ -10466,7 +10466,7 @@ promise.then((data: number) => {
 
 getAngleModify(currentRotationMatrix: Array&lt;number&gt;, preRotationMatrix: Array&lt;number&gt;, callback: AsyncCallback<Array&lt;number&gt;>): void
 
-获取两个旋转矩阵之间的角度变化，使用Callback异步方式返回结果。
+获取两个旋转矩阵之间的角度变化。使用callback异步回调。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getAngleVariation 替代。
@@ -10480,7 +10480,7 @@ getAngleModify(currentRotationMatrix: Array&lt;number&gt;, preRotationMatrix: Ar
 | --- | --- | --- | --- |
 | currentRotationMatrix | Array&lt;number&gt; | 是 | 表示当前旋转矩阵。 |
 | preRotationMatrix | Array&lt;number&gt; | 是 | 表示旋转矩阵。 |
-| callback | AsyncCallback<Array&lt;number&gt;> | 是 | 异步返回z、x、y轴方向的旋转角度变化，单位度（°）。 |
+| callback | AsyncCallback<Array&lt;number&gt;> | 是 | 异步返回z、x、y轴方向的旋转角度变化，单位：°（度）。 |
 
 
 **示例**：
@@ -10509,7 +10509,7 @@ sensor.getAngleModify([1, 0, 0, 0, 1, 0, 0, 0, 1], [1, 0, 0, 0, 0.87, -0.50, 0, 
 
 getAngleModify(currentRotationMatrix: Array&lt;number&gt;, preRotationMatrix: Array&lt;number&gt;): Promise<Array&lt;number&gt;>
 
-获取两个旋转矩阵之间的角度变化，使用Promise异步方式返回结果。
+获取两个旋转矩阵之间的角度变化。使用Promise异步回调。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getAngleVariation 替代。
@@ -10529,7 +10529,7 @@ getAngleModify(currentRotationMatrix: Array&lt;number&gt;, preRotationMatrix: Ar
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<Array&lt;number&gt;> | 使用异步方式返回z、x、y轴方向的旋转角度变化，单位度（°）。 |
+| Promise<Array&lt;number&gt;> | 使用异步方式返回z、x、y轴方向的旋转角度变化，单位：°（度）。 |
 
 
 **示例**：
@@ -10542,11 +10542,11 @@ const promise = sensor.getAngleModify([1, 0, 0, 0, 1, 0, 0, 0, 1], [1, 0, 0, 0, 
 promise.then((data: Array<number>) => {
   console.info('Succeeded in getting AngleModify_promise.');
   for (let i = 0; i < data.length; i++) {
-    console.info("Succeeded in getting data[" + i + "]: " + data[i]);
+    console.info('Succeeded in getting data[' + i + ']: ' + data[i]);
   }
 }).catch((reason: BusinessError) => {
   let e: BusinessError = reason as BusinessError;
-  console.info("Succeeded in getting promise::catch", e);
+  console.info('Succeeded in getting promise::catch', e);
 })
 ```
 
@@ -10558,7 +10558,7 @@ promise.then((data: Array<number>) => {
 
 createRotationMatrix(rotationVector: Array&lt;number&gt;, callback: AsyncCallback<Array&lt;number&gt;>): void
 
-将旋转矢量转换为旋转矩阵，使用Callback异步方式返回结果。
+将旋转矢量转换为旋转矩阵。使用callback异步回调。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getRotationMatrix 替代。
@@ -10600,7 +10600,7 @@ sensor.createRotationMatrix([0.20046076, 0.21907, 0.73978853, 0.60376877],
 
 createRotationMatrix(rotationVector: Array&lt;number&gt;): Promise<Array&lt;number&gt;>
 
-将旋转矢量转换为旋转矩阵，使用Promise异步方式返回结果。
+将旋转矢量转换为旋转矩阵。使用Promise异步回调。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getRotationMatrix 替代。
@@ -10632,10 +10632,10 @@ const promise = sensor.createRotationMatrix([0.20046076, 0.21907, 0.73978853, 0.
 promise.then((data: Array<number>) => {
   console.info('Succeeded in getting createRotationMatrix_promise');
   for (let i = 0; i < data.length; i++) {
-    console.info("data[" + i + "]: " + data[i]);
+    console.info('data[' + i + ']: ' + data[i]);
   }
 }).catch((reason: BusinessError) => {
-  console.info("Succeeded in getting promise::catch", reason);
+  console.info('Succeeded in getting promise::catch', reason);
 })
 ```
 
@@ -10647,7 +10647,7 @@ promise.then((data: Array<number>) => {
 
 createQuaternion(rotationVector: Array&lt;number&gt;, callback: AsyncCallback<Array&lt;number&gt;>): void
 
-将旋转矢量转换为四元数，使用Callback异步方式返回结果。
+将旋转矢量转换为四元数。使用callback异步回调。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getQuaternion 替代。
@@ -10689,7 +10689,7 @@ sensor.createQuaternion([0.20046076, 0.21907, 0.73978853, 0.60376877],
 
 createQuaternion(rotationVector: Array&lt;number&gt;): Promise<Array&lt;number&gt;>
 
-将旋转矢量转换为四元数，使用Promise异步方式返回结果。
+将旋转矢量转换为四元数。使用Promise异步回调。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getQuaternion 替代。
@@ -10721,7 +10721,7 @@ const promise = sensor.createQuaternion([0.20046076, 0.21907, 0.73978853, 0.6037
 promise.then((data: Array<number>) => {
   console.info('Succeeded in getting createQuaternion_promise');
   for (let i = 0; i < data.length; i++) {
-    console.info("data[" + i + "]: " + data[i]);
+    console.info('data[' + i + ']: ' + data[i]);
   }
 }).catch((err: BusinessError) => {
   console.error(`Failed to get promise.`);
@@ -10736,7 +10736,7 @@ promise.then((data: Array<number>) => {
 
 getDirection(rotationMatrix: Array&lt;number&gt;, callback: AsyncCallback<Array&lt;number&gt;>): void
 
-根据旋转矩阵计算设备的方向，使用Callback异步方式返回结果。
+根据旋转矩阵计算设备的方向。使用callback异步回调。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getOrientation 替代。
@@ -10749,7 +10749,7 @@ getDirection(rotationMatrix: Array&lt;number&gt;, callback: AsyncCallback<Array&
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | rotationMatrix | Array&lt;number&gt; | 是 | 表示旋转矩阵。 |
-| callback | AsyncCallback<Array&lt;number&gt;> | 是 | 异步返回围绕z、x、y轴方向的旋转角度，单位度（°）。 |
+| callback | AsyncCallback<Array&lt;number&gt;> | 是 | 异步返回围绕z、x、y轴方向的旋转角度，单位：°（度）。 |
 
 
 **示例**：
@@ -10778,7 +10778,7 @@ sensor.getDirection([1, 0, 0, 0, 1, 0, 0, 0, 1], (err: BusinessError, data: Arra
 
 getDirection(rotationMatrix: Array&lt;number&gt;): Promise<Array&lt;number&gt;>
 
-根据旋转矩阵计算设备的方向，使用Promise异步方式返回结果。
+根据旋转矩阵计算设备的方向。使用Promise异步回调。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getOrientation 替代。
@@ -10797,7 +10797,7 @@ getDirection(rotationMatrix: Array&lt;number&gt;): Promise<Array&lt;number&gt;>
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<Array&lt;number&gt;> | 使用异步方式返回围绕z、x、y轴方向的旋转角度，单位度（°）。 |
+| Promise<Array&lt;number&gt;> | 使用异步方式返回围绕z、x、y轴方向的旋转角度，单位：°（度）。 |
 
 
 **示例**：
@@ -10810,7 +10810,7 @@ const promise = sensor.getDirection([1, 0, 0, 0, 1, 0, 0, 0, 1]);
 promise.then((data: Array<number>) => {
   console.info('Succeeded in getting sensor_getDirection_Promise', data);
   for (let i = 1; i < data.length; i++) {
-    console.info("Succeeded in getting sensor_getDirection_promise" + data[i]);
+    console.info('Succeeded in getting sensor_getDirection_promise' + data[i]);
   }
 }).catch((err: BusinessError) => {
   console.error(`Failed to get promise.`);
@@ -10825,7 +10825,7 @@ promise.then((data: Array<number>) => {
 
 createRotationMatrix(gravity: Array&lt;number&gt;, geomagnetic: Array&lt;number&gt;, callback: AsyncCallback&lt;RotationMatrixResponse&gt;): void
 
-根据重力矢量和地磁矢量计算旋转矩阵，使用Callback异步方式返回结果。
+根据重力矢量和地磁矢量计算旋转矩阵。使用callback异步回调。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getRotationMatrix 替代。
@@ -10866,7 +10866,7 @@ sensor.createRotationMatrix([-0.27775216, 0.5351276, 9.788099], [210.87253, -78.
 
 createRotationMatrix(gravity: Array&lt;number&gt;, geomagnetic: Array&lt;number&gt;): Promise&lt;RotationMatrixResponse&gt;
 
-根据重力矢量和地磁矢量计算旋转矩阵，使用Promise异步方式返回结果。
+根据重力矢量和地磁矢量计算旋转矩阵。使用Promise异步回调。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getRotationMatrix 替代。

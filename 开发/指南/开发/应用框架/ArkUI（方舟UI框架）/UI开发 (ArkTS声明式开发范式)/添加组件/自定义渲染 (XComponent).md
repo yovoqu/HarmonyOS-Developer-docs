@@ -1,6 +1,6 @@
 # 自定义渲染 (XComponent)
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-xcomponent-guidelines
 
@@ -117,7 +117,7 @@ XComponent推荐使用两种方式获取XComponent持有Surface的生命周期�
 
  - OnSurfaceDestroyed回调
 
-  触发时刻：组件下树且autoInitialize=true 或者调用 [OH_ArkUI_XComponent_Finalize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-xcomponent-h#oh_arkui_xcomponent_finalize)后触发。
+  触发时刻：组件下树且autoInitialize=true 或者调用[OH_ArkUI_XComponent_Finalize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-xcomponent-h#oh_arkui_xcomponent_finalize)后触发。
 
   Native侧OnSurfaceDestroyed的时序图：
 
@@ -763,7 +763,7 @@ if (nodeAPI->registerNodeEvent(handle, NODE_TOUCH_EVENT, 0, nullptr)) { // 用C�
 | 接口名 | 描述 |
 | --- | --- |
 | OH_ArkUI_QueryModuleInterfaceByName(ArkUI_NativeAPIVariantKind type, const char* structName) | 获取指定类型的Native模块接口集合。 |
-| OH_ArkUI_XComponent_GetNativeWindow(OH_ArkUI_SurfaceHolder* surfaceHolder) | 获取与OH_ArkUI_SurfaceHolder实例关联的nativeWindow。 |
+| OH_ArkUI_XComponent_GetNativeWindow(OH_ArkUI_SurfaceHolder* surfaceHolder) | 获取与OH_ArkUI_SurfaceHolder实例关联的NativeWindow。 |
 | OH_ArkUI_SurfaceHolder_RemoveSurfaceCallback(OH_ArkUI_SurfaceHolder* surfaceHolder, OH_ArkUI_SurfaceCallback* callback) | 从OH_ArkUI_SurfaceHolder实例中移除先前添加的Surface生命周期回调。 |
 | OH_ArkUI_SurfaceCallback_Dispose(OH_ArkUI_SurfaceCallback* callback) | 释放OH_ArkUI_SurfaceCallback对象。 |
 | OH_ArkUI_SurfaceHolder_Dispose(OH_ArkUI_SurfaceHolder* surfaceHolder) | 释放OH_ArkUI_SurfaceHolder对象。 |
@@ -1720,7 +1720,7 @@ target_link_libraries(nativerender PUBLIC ${EGL-lib} ${GLES-lib} ${hilog-lib} ${
 上述用例具体实现可参考[NativeXComponent](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/ArkUISample/NativeXComponentSample)。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/Jp3yI5WuTpaKrA0C9kuZnQ/zh-cn_image_0000002704392433.jpeg?HW-CC-KV=V1&HW-CC-Date=20260813T095713Z&HW-CC-Expire=86400&HW-CC-Sign=8E35FB411112DA35354EEC26803561B23E37EF2CB46791BA77600BCFF1F6CB97)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/dpLaju8dTnOpm3C3wyvyvQ/zh-cn_image_0000002709644525.jpeg?HW-CC-KV=V1&HW-CC-Date=20260818T063542Z&HW-CC-Expire=86400&HW-CC-Sign=C5FD4E45907AEAFCFA6E113097D6EB1968C67860DDF24426E57FC285751EDA17)
 
 
 
@@ -1730,7 +1730,7 @@ target_link_libraries(nativerender PUBLIC ${EGL-lib} ${GLES-lib} ${hilog-lib} ${
 完整使用SurfaceId进行渲染绘制的示例及其主要开发场景如下：
 
  - 在ArkTS侧创建XComponent组件，并使用XComponentController来管理其持有的Surface生命周期。
- - 在OnSurfaceCreated回调内获取surfaceId并将其传递给AVPlayer。
+ - 在onSurfaceCreated回调内获取surfaceId并将其传递给AVPlayer。
  - 使用surfaceId初始化AVPlayer，并为其设置必要信息，实现视频的播放。
 
 

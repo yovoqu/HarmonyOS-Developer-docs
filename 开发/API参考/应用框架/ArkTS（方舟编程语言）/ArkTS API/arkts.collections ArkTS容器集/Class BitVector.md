@@ -1,6 +1,6 @@
 # Class (BitVector)
 
-更新时间：2026-08-11 11:13:24
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-bitvector
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -231,7 +231,7 @@ setBitsByRange(element: number, fromIndex: number, toIndex: number): void
 | --- | --- | --- | --- |
 | element | number | 是 | 待设置的bit值，0表示0，其余值表示1。 |
 | fromIndex | number | 是 | 范围起始索引，包含本索引值。fromIndex < 0或者fromIndex >= toIndex时，则会抛出错误。 |
-| toIndex | number | 是 | 范围终止索引，不包含本索引值。toIndex < 0或者toIndex > length时，则会抛出错误。 |
+| toIndex | number | 是 | 范围终止索引，不包含本索引值。toIndex < 0或者toIndex >= length时，则会抛出错误。 |
  
  
 **错误码：**
@@ -319,7 +319,7 @@ getBitsByRange(fromIndex: number, toIndex: number): BitVector
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | fromIndex | number | 是 | 范围起始索引，包含本索引值。fromIndex < 0或者fromIndex >= toIndex时，则会抛出错误。 |
-| toIndex | number | 是 | 范围终止索引，不包含本索引值。toIndex < 0或者toIndex > length时，则会抛出错误。 |
+| toIndex | number | 是 | 范围终止索引，不包含本索引值。toIndex < 0或者toIndex >= length时，则会抛出错误。 |
  
  
 **返回值：**
@@ -423,7 +423,7 @@ getBitCountByRange(element: number, fromIndex: number, toIndex: number): number
 | --- | --- | --- | --- |
 | element | number | 是 | 待统计的bit值，0表示0，其余值表示1。 |
 | fromIndex | number | 是 | 范围起始索引，包含本索引值。fromIndex < 0或者fromIndex >= toIndex时，则会抛出错误。 |
-| toIndex | number | 是 | 范围终止索引，不包含本索引值。toIndex < 0或者toIndex > length时，则会抛出错误。 |
+| toIndex | number | 是 | 范围终止索引，不包含本索引值。toIndex < 0或者toIndex >= length时，则会抛出错误。 |
  
  
 **返回值：**
@@ -477,7 +477,7 @@ getIndexOf(element: number, fromIndex: number, toIndex: number): number
 | --- | --- | --- | --- |
 | element | number | 是 | 待查找的bit值，0表示0，其余值表示1。 |
 | fromIndex | number | 是 | 范围起始索引，包含本索引值。fromIndex < 0或者fromIndex >= toIndex时，则会抛出错误。 |
-| toIndex | number | 是 | 范围终止索引，不包含本索引值。toIndex < 0或者toIndex > length时，则会抛出错误。 |
+| toIndex | number | 是 | 范围终止索引，不包含本索引值。toIndex < 0或者toIndex >= length时，则会抛出错误。 |
  
  
 **返回值：**

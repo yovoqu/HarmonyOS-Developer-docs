@@ -1,6 +1,6 @@
 # 高精几何重建（ArkTS）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-volume-measurement
 
@@ -147,6 +147,10 @@ struct ARSemanticDense {
       context.init().then(() => {
         this.arContext = context;
         // ...
+      });
+    })
+  }
+}
 ```
 
 

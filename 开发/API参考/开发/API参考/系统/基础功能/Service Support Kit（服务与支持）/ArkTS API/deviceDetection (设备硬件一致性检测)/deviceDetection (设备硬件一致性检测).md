@@ -1,6 +1,6 @@
 # deviceDetection (设备硬件一致性检测)
 
-更新时间：2026-08-07 10:00:25
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicesupport-api-devicedetection
 **支持设备：** Phone | Tablet
@@ -54,7 +54,7 @@ getDeviceComponentVerificationDetails(): Promise&lt;DeviceComponentVerificationR
 | 1029600001 | Insufficient memory. |
 | 1029600101 | Service exception. |
 | 1029600301 | Network error. |
-| 1029600302 | HiviewCare privacy statement not accepted. |
+| 1029600302 | Smart Diagnosis privacy statement not accepted. |
  
  
 **示例**：

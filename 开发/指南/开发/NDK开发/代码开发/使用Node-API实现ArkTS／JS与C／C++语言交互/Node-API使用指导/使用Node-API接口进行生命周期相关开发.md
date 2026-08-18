@@ -1,6 +1,6 @@
 # 使用Node-API接口进行生命周期相关开发
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-life-cycle
 
@@ -316,7 +316,7 @@ static napi_value CreateWeakReference(napi_env env, napi_callback_info info)
 
 static napi_value GetWeakReferenceValue(napi_env env, napi_callback_info info)
 {
-    napi_value weakValue;
+    napi_value weakValue = nullptr;
     napi_status status = napi_get_reference_value(env, g_weakRef, &weakValue);
     if (status != napi_ok) {
         napi_throw_error(env, nullptr, "Failed to get reference value");

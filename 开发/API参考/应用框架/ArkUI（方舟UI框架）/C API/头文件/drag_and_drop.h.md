@@ -1,6 +1,6 @@
 # drag_and_drop.h
 
-更新时间：2026-08-07 10:00:25
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drag-and-drop-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2123,7 +2123,7 @@ int32_t OH_ArkUI_NotifyDragResult(int32_t requestIdentify, ArkUI_DragResult resu
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-int32_t OH_ArkUI_NotifySuggestedDropOperation(int32_t requestIdentify, ArkUI_DropOperation operation)
+int32_t OH_ArkUI_NotifySuggestedDropOperation(int32_t requestIdentity, ArkUI_DropOperation operation)
 ```
 
 **描述：**
@@ -2136,7 +2136,7 @@ int32_t OH_ArkUI_NotifySuggestedDropOperation(int32_t requestIdentify, ArkUI_Dro
 
 | 参数项 | 描述 |
 | --- | --- |
-| int32_t requestIdentify | 由OH_ArkUI_DragEvent_RequestDragEndPending返回的标识符，用来标识本次拖拽事件。 |
+| int32_t requestIdentity | 由OH_ArkUI_DragEvent_RequestDragEndPending返回的标识符，用来标识本次拖拽事件。 |
 | ArkUI_DropOperation operation | 落入行为类型ArkUI_DropOperation。 |
 
 
@@ -2167,7 +2167,7 @@ int32_t OH_ArkUI_NotifyDisableDefaultDropAnimation(int32_t requestIdentity, bool
 
 | 参数项 | 描述 |
 | --- | --- |
-| int32_t requestIdentify | 由OH_ArkUI_DragEvent_RequestDragEndPending返回的标识符，用来标识本次拖拽事件。 |
+| int32_t requestIdentity | 由OH_ArkUI_DragEvent_RequestDragEndPending返回的标识符，用来标识本次拖拽事件。 |
 | bool disable | 通知是否禁用系统默认落入动画。true表示禁用系统默认落入动画，false表示使用系统默认落入动画。 |
 
 

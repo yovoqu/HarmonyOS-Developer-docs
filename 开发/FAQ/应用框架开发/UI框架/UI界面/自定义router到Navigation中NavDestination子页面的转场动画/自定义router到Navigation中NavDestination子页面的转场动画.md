@@ -1,6 +1,6 @@
 # 自定义router到Navigation中NavDestination子页面的转场动画
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-780
 
@@ -147,7 +147,7 @@ struct TargetInterfacePage {
 }
 ```
  
-还需在module.json5和route_map.json文件添加路由表配置，详细参考：[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation#系统路由表)。
+还需在module.json5和route_map.json文件添加路由表配置，详细参考：[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package#系统路由表)。
  
 ```ArkTS
 {

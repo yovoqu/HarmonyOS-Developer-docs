@@ -1,6 +1,6 @@
 # OH_AudioBuffer
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture-oh-audiobuffer
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -39,6 +39,6 @@ typedef struct OH_AudioBuffer {...} OH_AudioBuffer
 | 名称 | 描述 |
 | --- | --- |
 | uint8_t* buf | 指向音频缓冲区内存的指针。由系统分配和释放，开发者无需手动管理。音频缓冲区用于存储录制的音频采样数据，数据格式为PCM原始字节流，需配合size字段确定数据长度。 |
-| int32_t size | 音频缓冲区内存大小，单位为字节（Byte），表示buf指针所指音频数据的字节长度。取值范围大于等于0，传入负数时将报错。 |
-| int64_t timestamp | 音频缓冲区时间戳。单位为纳秒（ns）。 |
+| int32_t size | 音频缓冲区内存大小，单位为字节（Byte），表示buf指针所指音频数据的字节长度。取值范围大于等于0，由系统填充，值为负数时将报错。 |
+| int64_t timestamp | 音频缓冲区时间戳，表示该音频帧的时间位置。单位为纳秒（ns）。 |
 | OH_AudioCaptureSourceType type | 音频录制源类型。其值由OH_AudioCaptureInfo中配置的OH_AudioCaptureSourceType决定。 |

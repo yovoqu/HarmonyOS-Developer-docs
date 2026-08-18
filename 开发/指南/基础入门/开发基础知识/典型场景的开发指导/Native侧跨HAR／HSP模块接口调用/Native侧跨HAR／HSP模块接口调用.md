@@ -1,6 +1,6 @@
 # Native侧跨HAR/HSP模块接口调用
 
-更新时间：2026-08-11 11:13:24
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-cross-har-hsp-interface-call
 
@@ -32,7 +32,7 @@
 **图 1** Native侧跨HAR/HSP模块调用原理图
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/S0f_N0GXRT-5jB9ndogq_g/zh-cn_image_0000002704391777.png?HW-CC-KV=V1&HW-CC-Date=20260813T100027Z&HW-CC-Expire=86400&HW-CC-Sign=567A2B46935B21990365BF8AEE5DE6B7EF1A5B4D11FDFD9FB5C95FF3CCB39199)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/6gGW-WwTQI-FjswXeTmpnw/zh-cn_image_0000002709643723.png?HW-CC-KV=V1&HW-CC-Date=20260818T063538Z&HW-CC-Expire=86400&HW-CC-Sign=E9A86C5263A9A293835E462890AC7A6B4FF34A992323A2515493771E4F04F643)
 
  
   
@@ -44,7 +44,7 @@
 **图 2** Native侧跨HAR/HSP模块调用Native方法
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/aAKXP79rR2a_AyF-uTd9UQ/zh-cn_image_0000002674631656.png?HW-CC-KV=V1&HW-CC-Date=20260813T100027Z&HW-CC-Expire=86400&HW-CC-Sign=A4D8AAAAA808545B605333586C84CAEF8DC5C96A467B4FA3998DF8E6E29102D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/SyeuSJEMSdW7gef7l5eujQ/zh-cn_image_0000002679804052.png?HW-CC-KV=V1&HW-CC-Date=20260818T063538Z&HW-CC-Expire=86400&HW-CC-Sign=3DA00DE613CCAC7BCF9234D580F30CDD68C95833CF77F5A4017C732A11247D2F)
 
  
   
@@ -194,7 +194,7 @@ Button($r('app.string.call_har_native_method'))
 **图 3** Native侧调用HAR模块的Native方法
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/7yLB8_2zQTuOeMFoAUbz1Q/zh-cn_image_0000002704271611.gif?HW-CC-KV=V1&HW-CC-Date=20260813T100027Z&HW-CC-Expire=86400&HW-CC-Sign=802C38F6377CA69A0009B14162679CBE387C008297A14D6C11E222F03DED278A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/gaO3Z9i3TvCgAO1NudQsOQ/zh-cn_image_0000002709523869.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063538Z&HW-CC-Expire=86400&HW-CC-Sign=0277E031E925738AE0E095D860B899B111EB817C89FDFD0DA3C869EB842133F8)
 
  
   
@@ -206,7 +206,7 @@ Button($r('app.string.call_har_native_method'))
 **图 4** Native侧跨HAR/HSP模块调用ArkTS方法
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/ycElaLy_TzmMQ9YalzSLaA/zh-cn_image_0000002674471810.png?HW-CC-KV=V1&HW-CC-Date=20260813T100027Z&HW-CC-Expire=86400&HW-CC-Sign=A0834737B2F2BEA08B98992A9A8F9DC17D353C8F72FA2B22ACD861DF66406C34)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/afRwCDydSpiW7ge4mX3Xng/zh-cn_image_0000002679963922.png?HW-CC-KV=V1&HW-CC-Date=20260818T063538Z&HW-CC-Expire=86400&HW-CC-Sign=5CAA8010F6D5841B2B854EE0C339E61BB9F61CDDB97931A0D63D6D526A7E2E17)
 
  
   
@@ -242,7 +242,7 @@ void setHarEnv(napi_env env) {
 3. 在Module1中的napi_init.cpp中的Init()方法中调用setHarEnv()方法将Module1中的napi_env传递到Module2中。
 
   
-```text
+```cpp
 EXTERN_C_START
 static napi_value Init(napi_env env, napi_value exports)
 {
@@ -302,7 +302,7 @@ export function add(a: number, b: number): number {
   napi_har.cpp代码如下所示。
 
   
-```text
+```cpp
 napi_value harArkTSAdd(double a, double b) {
     napi_env env = g_main_env;
     napi_value module;
@@ -374,7 +374,7 @@ Button($r('app.string.call_har_ArkTS_method'))
 **图 5** Native侧调用HAR模块的ArkTS方法
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/auf8_KxHS1WiU1ytlfXvSA/zh-cn_image_0000002704391779.gif?HW-CC-KV=V1&HW-CC-Date=20260813T100027Z&HW-CC-Expire=86400&HW-CC-Sign=5D9AB3D831FF1324B94BA37A3B60CE8E2CB76CE2915F3095C85174E8B3706E7B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/iFWZOBvSQky5cLStEZFWnQ/zh-cn_image_0000002709643725.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063538Z&HW-CC-Expire=86400&HW-CC-Sign=1F4B053D06D03A181722888F7CFB82316A791F2C3C76B8496920D22371F91308)
 
  
   

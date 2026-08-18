@@ -1,6 +1,6 @@
 # native_avcodec_audiocodec.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-audiocodec-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,7 +37,7 @@
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| MediaKeySession | MediaKeySession | MediaKeySession字段。 |
+| MediaKeySession | MediaKeySession | MediaKeySession结构。 |
  
  
   
@@ -718,7 +718,7 @@ OH_AVErrCode OH_AudioCodec_QueryOutputBuffer(struct OH_AVCodec *codec, uint32_t 
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AVErrCode | AV_ERR_OK：执行成功。 AV_ERR_INVALID_VAL：执行失败，输入参数错误。 AV_ERR_INVALID_STATE：执行失败，状态非法，没有启动编解码器等。 AV_ERR_OPERATE_NOT_PERMIT：执行失败，不允许非同步模式下调用。 AV_ERR_STREAM_CHANGED：解码输出流格式发生变化, 可以通过调用OH_AudioCodec_GetOutputDescription接口获取新的流信息。 AV_ERR_TRY_AGAIN_LATER：执行失败，超时时间内获取不到可用的缓冲区。 |
+| OH_AVErrCode | AV_ERR_OK：执行成功。 AV_ERR_INVALID_VAL：执行失败，输入参数错误。 AV_ERR_INVALID_STATE：执行失败，状态非法，没有启动编解码器等。 AV_ERR_OPERATE_NOT_PERMIT：执行失败，不允许非同步模式下调用。 AV_ERR_STREAM_CHANGED：解码输出流格式发生变化，可以通过调用OH_AudioCodec_GetOutputDescription接口获取新的流信息。 AV_ERR_TRY_AGAIN_LATER：执行失败，超时时间内获取不到可用的缓冲区。 |
  
  
   

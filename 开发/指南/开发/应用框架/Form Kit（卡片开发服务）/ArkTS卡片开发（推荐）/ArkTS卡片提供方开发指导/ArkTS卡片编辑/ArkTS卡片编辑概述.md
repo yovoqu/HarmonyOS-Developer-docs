@@ -1,6 +1,6 @@
 # ArkTS卡片编辑概述
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-03 11:34:29（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-event-formeditextensionability-overview
 

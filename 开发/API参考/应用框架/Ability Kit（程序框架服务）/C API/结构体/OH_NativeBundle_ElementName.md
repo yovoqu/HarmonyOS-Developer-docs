@@ -1,6 +1,6 @@
 # OH_NativeBundle_ElementName
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-bundle-oh-nativebundle-elementname
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -38,4 +38,4 @@ elementName信息。
 | --- | --- |
 | char* bundleName | 应用包名。 |
 | char* moduleName | 模块名称。 |
-| char* abilityName | 组件名。 |
+| char* abilityName | Ability名称。 |

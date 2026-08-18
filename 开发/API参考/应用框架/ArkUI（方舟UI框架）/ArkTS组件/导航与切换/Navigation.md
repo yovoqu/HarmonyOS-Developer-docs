@@ -1,6 +1,6 @@
 # Navigation
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -988,7 +988,7 @@ Navigation导航控制器，以栈的数据结构管理Navigation中所有的子
 
 
 
-#### constructor
+#### constructor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2009,7 +2009,7 @@ setPathStack(pathStack: Array&lt;NavPathInfo&gt;, animated?: boolean): void
 
 
 
-#### constructor
+#### constructor10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

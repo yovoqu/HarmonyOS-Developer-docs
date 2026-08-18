@@ -1,6 +1,6 @@
-# 开发使用SCSI协议的设备驱动
+# 开发适用SCSI协议的设备驱动
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scsi-peripheral-ddk-guidelines
 

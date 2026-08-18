@@ -1,6 +1,6 @@
 # buffer_common.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-buffer-common-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -119,7 +119,7 @@ API version 12之前，使用该枚举请引用native_buffer.h头文件；从API
 | OH_COLORSPACE_DISPLAY_BT2020_HLG | 等同于 OH_COLORSPACE_BT2020_HLG_FULL。 |
 | OH_COLORSPACE_DISPLAY_BT2020_PQ | 等同于OH_COLORSPACE_BT2020_PQ_FULL。 |
 | OH_COLORSPACE_BT2020_LOG_FULL | 色域范围为BT2020，传递函数为PRIV_LOG，转换矩阵为BT2020，数据范围为RANGE_FULL。 起始版本： 26.0.0 |
-| OH_COLORSPACE_BT2020_LOG_LIMIT | 色域范围为BT2020，传递函数为PRIV_LOG，转换矩阵为BT2020，数据范围为RANGE_LIMIT。 起始版本： 26.0.0 |
+| OH_COLORSPACE_BT2020_LOG_LIMIT | 色域范围为BT2020，传递函数为PRIV_LOG，转换矩阵为BT2020，数据范围为RANGE_LIMITED。 起始版本： 26.0.0 |
 
 
 

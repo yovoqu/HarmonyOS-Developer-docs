@@ -1,6 +1,6 @@
 # Web组件拦截能力的使用
 
-更新时间：2026-08-11 11:13:24
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-component-intercept-capab-usage
 
@@ -84,7 +84,7 @@ Web组件在加载URL前会触发[onLoadIntercept()](https://developer.huawei.co
 **图 1** 基于onLoadIntercept()的请求拦截流程图
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/cmOvREVoS8WQ3hr5_aU14A/zh-cn_image_0000002674632732.png?HW-CC-KV=V1&HW-CC-Date=20260813T095909Z&HW-CC-Expire=86400&HW-CC-Sign=CE518ABDEDB45D80B1FE8DC2424377437F1F5BB7CA795AABF92768CA23AB11AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/-tEpQSITR_WJXnFaKsj4CA/zh-cn_image_0000002679805270.png?HW-CC-KV=V1&HW-CC-Date=20260818T063553Z&HW-CC-Expire=86400&HW-CC-Sign=B0B3AB6C07945F9D2670D82C085ABE53DF32C758EE38559B5667203421AA03E5)
 
  
   
@@ -98,7 +98,7 @@ Web组件在加载URL前会触发[onLoadIntercept()](https://developer.huawei.co
 **图 2** 请求重定向
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/7gLrab7MRP-b94lqYKNqmg/zh-cn_image_0000002704272685.png?HW-CC-KV=V1&HW-CC-Date=20260813T095909Z&HW-CC-Expire=86400&HW-CC-Sign=068B3C815A1BAE1565A4F377BB686671394339CDF699B310ABA97D9E66343907)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/gUi5r0-0R8KTGNGVfQ0baA/zh-cn_image_0000002709525087.png?HW-CC-KV=V1&HW-CC-Date=20260818T063553Z&HW-CC-Expire=86400&HW-CC-Sign=EBD5AD262DDDAB56865323DAF6222E5D9CA4DEC508F871C499A4E54B83BDE59D)
 
  
 **实现原理**
@@ -195,7 +195,7 @@ Web组件在加载URL前会触发[onLoadIntercept()](https://developer.huawei.co
 **图 3** 页面白名单配置
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/e4lerQyIQ4um5FotoBFq7A/zh-cn_image_0000002674472888.png?HW-CC-KV=V1&HW-CC-Date=20260813T095909Z&HW-CC-Expire=86400&HW-CC-Sign=81E564E4DE9ACD11F6A4234C3813B1DDA93E7DCE76F9B29A5635C1B47BA45212)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/5XnjvUYrQ66jUkzzpwRm1A/zh-cn_image_0000002679965140.png?HW-CC-KV=V1&HW-CC-Date=20260818T063553Z&HW-CC-Expire=86400&HW-CC-Sign=1CC202D5DF523C80EE252997C987D71A0C98AA92688D84E80413BE474F1E0562)
 
  
 **实现原理**
@@ -333,7 +333,7 @@ Web组件在加载URL之前会触发[onInterceptRequest()](https://developer.hua
 **图 4** 基于onInterceptRequest()的请求拦截流程图
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/Soqf5SdoQ-GBOpo_2fBy8w/zh-cn_image_0000002704392855.png?HW-CC-KV=V1&HW-CC-Date=20260813T095909Z&HW-CC-Expire=86400&HW-CC-Sign=7E2320A05E6EA96113C94DC3920CBC0E22969B31B9B555C249D1537DF52FD624)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/Bt9QbTqWRCKIgyfOZzEXgQ/zh-cn_image_0000002709644943.png?HW-CC-KV=V1&HW-CC-Date=20260818T063553Z&HW-CC-Expire=86400&HW-CC-Sign=6D1A6244F76335C344B6DBB5E6D5E250BB9C399B500AB4E29AA64C29C18CA000)
 
  
   
@@ -347,7 +347,7 @@ Web组件在加载URL之前会触发[onInterceptRequest()](https://developer.hua
 **图 5** 本地资源替换
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/UznjkVFDR9q0qlGv2n6i_Q/zh-cn_image_0000002674632734.png?HW-CC-KV=V1&HW-CC-Date=20260813T095909Z&HW-CC-Expire=86400&HW-CC-Sign=4CAD2DCEBEF866E45899A745C6169390896EB9847074B4B20EBD76B55CD5A44C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/Z8CbLdFBSGqWhyQ2xdlcnA/zh-cn_image_0000002679805272.png?HW-CC-KV=V1&HW-CC-Date=20260818T063553Z&HW-CC-Expire=86400&HW-CC-Sign=E7F070B73FAA46EAAB76D39E64A6FECAB20D75981310173130C3FCAACC26E2B1)
 
  
 **实现原理**
@@ -506,13 +506,13 @@ Web组件在加载URL之前会触发[onInterceptRequest()](https://developer.hua
 **图 6** Wi-Fi网络环境下加载图片资源
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/oG2NKoOZRcSiDofYeUrBjA/zh-cn_image_0000002704272687.png?HW-CC-KV=V1&HW-CC-Date=20260813T095909Z&HW-CC-Expire=86400&HW-CC-Sign=AE4AE132E9635FAB28EF994AA264B00578516261998BE6D7522182FBC7D7DCB1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/LuCBob2LTnO8si800gm9sA/zh-cn_image_0000002709525089.png?HW-CC-KV=V1&HW-CC-Date=20260818T063553Z&HW-CC-Expire=86400&HW-CC-Sign=3E9107530CC9CA87D7D595B8C8C47CC625F3DE088CD55FC3EB37B29350287C43)
 
  
 **图 7** 非Wi-Fi网络环境下加载本地占位图
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/uMNTiMm7TvGA5B5Ry9dPJg/zh-cn_image_0000002674472890.png?HW-CC-KV=V1&HW-CC-Date=20260813T095909Z&HW-CC-Expire=86400&HW-CC-Sign=69557733FD1B5E5BFABC8191F13F8895968E6D6B948B70B1BC0301E1586F3B78)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/JN3oLSl4SWq8mDXm7IflBA/zh-cn_image_0000002679965142.png?HW-CC-KV=V1&HW-CC-Date=20260818T063553Z&HW-CC-Expire=86400&HW-CC-Sign=A9F0B6ABAD4DACCE715936C90459CB9DFBEB1A60487E8B72A77132B7B2742F7B)
 
  
 **实现原理**
@@ -638,7 +638,7 @@ Web组件在加载URL之前会触发[onInterceptRequest()](https://developer.hua
 **图 8** 基于WebSchemeHandler的请求拦截流程图
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/4hYcXDUkQ82cD2smirbkHQ/zh-cn_image_0000002704392857.png?HW-CC-KV=V1&HW-CC-Date=20260813T095909Z&HW-CC-Expire=86400&HW-CC-Sign=2C1411DE3FBFDD754CCA78E1D619C167FA05B9525C7931E1EF80C8A9AEC4F541)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/2QM0gOHzSf2cAecPN6gYAw/zh-cn_image_0000002709644945.png?HW-CC-KV=V1&HW-CC-Date=20260818T063553Z&HW-CC-Expire=86400&HW-CC-Sign=076499C36D81AB8E02F915DEF3F6EBB8B4A2B16EFF891E906F0A5B4D9D90CC5C)
 
  
   
@@ -652,7 +652,7 @@ Web组件在加载URL之前会触发[onInterceptRequest()](https://developer.hua
 **图 9** 配置公共请求头
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/KrB9bLP3Qou-W_2AYnQpEg/zh-cn_image_0000002674632736.png?HW-CC-KV=V1&HW-CC-Date=20260813T095909Z&HW-CC-Expire=86400&HW-CC-Sign=0013412008222552CAB7EF2E690C8BAF605120411BD49B40A90BA4A72ECF8B4E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/6cxPGzbDSAW3WhA0BIj4nA/zh-cn_image_0000002679805274.png?HW-CC-KV=V1&HW-CC-Date=20260818T063553Z&HW-CC-Expire=86400&HW-CC-Sign=908B5A8CDC220938E51DBF715D8727F7160F449B0072163AA4C9EA0982D85893)
 
  
 **实现原理**

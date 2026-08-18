@@ -1,6 +1,6 @@
 # Interface (AVScreenCaptureRecorder)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avscreencapturerecorder
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -38,7 +38,7 @@ init(config: AVScreenCaptureRecordConfig): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| config | AVScreenCaptureRecordConfig | 是 | 配置屏幕录制的相关参数。关键配置项包括：fd（文件描述符）、frameWidth（视频宽度）、frameHeight（视频高度）等。详细配置说明请参考AVScreenCaptureRecordConfig。文件（通常是MP4）需要先由开发者创建，并赋予写权限，再将文件fd传给此参数。 |
+| config | AVScreenCaptureRecordConfig | 是 | 配置录屏的相关参数。关键配置项包括：fd（文件描述符）、frameWidth（视频宽度）、frameHeight（视频高度）等。详细配置说明请参考AVScreenCaptureRecordConfig。文件（通常是MP4）需要先由开发者创建，并赋予写权限，再将文件fd传给此参数。 |
 
 
 **返回值：**
@@ -54,16 +54,15 @@ init(config: AVScreenCaptureRecordConfig): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. Return by promise. Suggestion: Please check that all required parameters are correctly passed and their types conform to the interface requirements. |
-| 5400103 | IO error. Return by promise. Possible cause: File path does not exist, insufficient read/write permissions, or insufficient storage space. Suggestion: Please check the file path, permissions, and available storage space. |
-| 5400105 | Service died. Return by promise. Possible cause: System service terminated unexpectedly. Suggestion: Please release resources and retry. If the issue persists, restart the application. |
+| 401 | Parameter error. |
+| 5400103 | IO error. Return by promise. |
+| 5400105 | Service died. Return by promise. |
 
 
 **示例：**
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
-import { image } from '@kit.ImageKit';
 import { media } from '@kit.MediaKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -207,7 +206,7 @@ pauseRecording(): Promise&lt;void&gt;
 
 暂停录屏。使用Promise异步回调。在录制过程中需要临时中断录制时调用此接口，例如用户临时离开或需要切换应用时。
 
-在使用前需要先调用[startRecording](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avscreencapturerecorder#startrecording12)接口且录屏需处于录制状态。
+在使用前需要先调用[startRecording](#startrecording12)接口且录屏需处于录制状态。
 
 **起始版本：** 26.0.0
 
@@ -228,9 +227,9 @@ pauseRecording(): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 5400102 | Operation not allowed. Return by promise. Possible cause: This operation is not allowed in the current state (e.g., pausing before initialization). Suggestion: Please ensure the interfaces are called in the correct sequence. |
-| 5400103 | IO error. Return by promise. Possible cause: File path does not exist, insufficient read/write permissions, or insufficient storage space. Suggestion: Please check the file path, permissions, and available storage space. |
-| 5400105 | Service died. Return by promise. Possible cause: System service terminated unexpectedly. Suggestion: Please release resources and retry. If the issue persists, restart the application. |
+| 5400102 | Operation not allowed. Return by promise. |
+| 5400103 | IO error. Return by promise. |
+| 5400105 | Service died. Return by promise. |
 
 
 **示例：**
@@ -287,9 +286,9 @@ resumeRecording(): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 5400102 | Operation not allowed. Return by promise. Possible cause: This operation is not allowed in the current state (e.g., pausing before pauseRecording). Suggestion: Please ensure the interfaces are called in the correct sequence. |
-| 5400103 | IO error. Return by promise. Possible cause: File path does not exist, insufficient read/write permissions, or insufficient storage space. Suggestion: Please check the file path, permissions, and available storage space. |
-| 5400105 | Service died. Return by promise. Possible cause: System service terminated unexpectedly. Suggestion: Please release resources and retry. If the issue persists, restart the application. |
+| 5400102 | Operation not allowed. Return by promise. |
+| 5400103 | IO error. Return by promise. |
+| 5400105 | Service died. Return by promise. |
 
 
 **示例：**
@@ -356,10 +355,10 @@ addWatermark(watermark: image.PixelMap, config: WatermarkConfiguration): Promise
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 5400102 | Operation not allowed. Return by promise. Possible cause: Called before startRecording or exceeded 5 watermarks. Suggestion: Please ensure proper timing of the call, and keep watermark count within 5. |
-| 5400103 | IO error. Return by promise. Possible cause: Watermark image resource unavailable or insufficient storage space. Suggestion: Please check watermark image validity and storage space. |
-| 5400105 | Service died. Return by promise. Possible cause: System service terminated abnormally. Suggestion: Please release resources and retry. If the problem persists, restart the application. |
-| 5400108 | The parameter check failed, parameter value out of range. Possible cause: Watermark configuration parameters out of valid range. Suggestion: Please check if top, left, width, height parameter values are valid. |
+| 5400102 | Operation not allowed. Return by promise. |
+| 5400103 | IO error. Return by promise. |
+| 5400105 | Service died. Return by promise. |
+| 5400108 | The parameter check failed, parameter value out of range. |
 
 
 **示例：**
@@ -462,7 +461,7 @@ setMicEnabled(enable: boolean): Promise&lt;void&gt;
 设置麦克风开关。使用Promise异步回调。
 
 > [!NOTE]
-> 在需要录制或静音麦克风音频时调用此接口，例如用户需要临时关闭麦克风或重新开启麦克风录制。 需在 startRecording 接口调用前调用此接口。
+> 在需要录制或静音麦克风音频时调用此接口，例如用户需要临时关闭麦克风或重新开启麦克风录制。
 
 
 **系统能力：** SystemCapability.Multimedia.Media.AVScreenCapture
@@ -525,11 +524,6 @@ setPickerMode(pickerMode: PickerMode): Promise&lt;void&gt;
 设置Picker显示模式，在下一次显示Picker时生效。使用Promise异步回调。
 
 可根据录制需求选择不同模式。
-
- - SCREEN_ONLY适用于只需要录制整个屏幕的场景。
- - WINDOW_ONLY适用于只需要录制特定应用窗口的场景。
- - SCREEN_AND_WINDOW适用于需要让用户自由选择录制屏幕或窗口的场景。
-
 
 **系统能力：** SystemCapability.Multimedia.Media.AVScreenCapture
 
@@ -744,7 +738,6 @@ setContentAutoRotation(enable: boolean): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Capability not supported. Return by promise. |
 | 5400102 | Operation not allowed. Return by promise. |
 | 5400105 | Service died. Return by promise. |
 
@@ -849,7 +842,6 @@ on(type: 'stateChange', callback: Callback&lt;AVScreenCaptureStateCode&gt;): voi
 **示例：**
 
 ```text
-import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
 
 async function testOnStateChange() {
@@ -893,9 +885,9 @@ on(type: 'error', callback: ErrorCallback): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | permission denied. Possible cause: Missing required permissions. Suggestion: Please check and apply for the necessary permissions. |
-| 5400103 | IO error. Return by ErrorCallback. Possible cause: System I/O operation failed. Suggestion: Please retry the operation. If the issue persists, restart the application. |
-| 5400105 | Service died. Return by ErrorCallback. Possible cause: System service terminated unexpectedly. Suggestion: Please release resources and retry. If the issue persists, restart the application. |
+| 201 | permission denied. |
+| 5400103 | IO error. Return by ErrorCallback. |
+| 5400105 | Service died. Return by ErrorCallback. |
 
 
 **示例：**
@@ -942,7 +934,6 @@ off(type: 'stateChange', callback?: Callback&lt;AVScreenCaptureStateCode&gt;): v
 **示例：**
 
 ```text
-import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
 
 async function testOffStateChange() {
@@ -981,7 +972,6 @@ off(type: 'error', callback?: ErrorCallback): void
 **示例：**
 
 ```text
-import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
 
 async function testOffError() {

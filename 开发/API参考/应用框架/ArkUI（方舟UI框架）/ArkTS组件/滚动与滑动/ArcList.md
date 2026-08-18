@@ -1,6 +1,6 @@
 # ArcList
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -284,7 +284,7 @@ scrollBarColor(color: Optional&lt;ColorMetrics&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | Optional&lt;ColorMetrics&gt; | 是 | 设置滚动条颜色。 默认值：ColorMetrics.numeric(0xA9FFFFFF) |
+| color | Optional&lt;ColorMetrics&gt; | 是 | 设置滚动条颜色。 默认值：ColorMetrics.numeric(0xA9FFFFFF) 异常值undefined和null按照无效值处理，本次设置不生效。 |
 
 
 
@@ -305,7 +305,7 @@ flingSpeedLimit(speed: Optional&lt;number&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| speed | Optional&lt;number&gt; | 是 | 惯性滚动动效开始时的最大初始速度。设置为小于等于0的值时，按默认值处理。 默认值：9000 单位：vp/s 取值范围：(0, +∞) |
+| speed | Optional&lt;number&gt; | 是 | 惯性滚动动效开始时的最大初始速度。设置为小于等于0的值时，按默认值处理。 默认值：9000 单位：vp/s 取值范围：(0, +∞) 异常值undefined和null按照无效值处理，本次设置不生效。 |
 
 
 
@@ -619,4 +619,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/ikDWd4c-S_mnHSQTnglWkw/zh-cn_image_0000002685928089.png?HW-CC-KV=V1&HW-CC-Date=20260730T071500Z&HW-CC-Expire=86400&HW-CC-Sign=49707EB5B6C7FC477D0C147818C95893DD7EDCA5AAFB4622E2D5114C47C42A24)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/oXNqpU2hRRa7Za1yRQ8GRA/zh-cn_image_0000002709646643.png?HW-CC-KV=V1&HW-CC-Date=20260818T063503Z&HW-CC-Expire=86400&HW-CC-Sign=3775267E78FA95BDDFD9353749052B345A782763051D4ABFB8A5590EA589D981)

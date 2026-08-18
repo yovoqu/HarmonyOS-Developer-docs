@@ -1,6 +1,6 @@
 # 使用AVRecorder录制音频(C/C++)
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ndk-avrecorder-for-audio-recording
 
@@ -16,7 +16,7 @@ AVRecorder支持开发音频或视频单独录制，集成了音频捕获、音�
 ![](assets/使用AVRecorder录制音频(C／C++)/file-20260514131552346-0.png)
 
 
-状态的详细说明请参考[AVRecorderState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#avrecorderstate9)。
+状态的详细说明请参考[OH_AVRecorder_State](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-base-h#oh_avrecorder_state)。
 
 
 #### 申请权限
@@ -101,8 +101,11 @@ g_recorder = OH_AVRecorder_Create();
 2. 设置业务需要的监听事件，监听状态变化及错误上报。
 
 | 事件类型 | 说明 |
+
 | --- | --- |
+
 | OnStateChange | 监听AVRecorder的状态改变。 |
+
 | OnError | 监听AVRecorder的错误信息。 |
 
   

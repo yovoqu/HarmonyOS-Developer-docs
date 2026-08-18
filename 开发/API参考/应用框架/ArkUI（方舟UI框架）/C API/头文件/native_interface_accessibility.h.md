@@ -1,6 +1,6 @@
 # native_interface_accessibility.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-accessibility-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -392,6 +392,12 @@ void OH_ArkUI_SendAccessibilityAsyncEvent(ArkUI_AccessibilityProvider* provider,
 **描述：**
 
 主动上报事件接口，通知无障碍服务。
+
+使用流程：
+1. 先通过[OH_ArkUI_CreateAccessibilityEventInfo](#oh_arkui_createaccessibilityeventinfo)创建事件信息对象。
+2. 通过[OH_ArkUI_AccessibilityEventSetEventType](#oh_arkui_accessibilityeventseteventtype)、[OH_ArkUI_AccessibilityEventSetTextAnnouncedForAccessibility](#oh_arkui_accessibilityeventsettextannouncedforaccessibility)等方法配置事件类型及相关信息。
+3. 调用本接口发送事件。
+4. 发送完成后通过[OH_ArkUI_DestoryAccessibilityEventInfo](#oh_arkui_destoryaccessibilityeventinfo)释放事件信息对象。
 
 **起始版本：** 13
 

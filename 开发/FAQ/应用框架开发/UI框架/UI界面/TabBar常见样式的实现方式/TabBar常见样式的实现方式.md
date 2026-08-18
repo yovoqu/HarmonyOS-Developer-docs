@@ -1,6 +1,6 @@
 # HarmonyOS应用侧基于Tabs组件实现胶囊样式、悬浮留空及重叠毛玻璃等常见TabBar自定义样式
 
-更新时间：2026-07-31 00:56:37
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1101
 
@@ -51,7 +51,7 @@
 | 场景七：在页签被选中时使页签超出TabBar区域显示。 | 通过barModifier设置TabBar的clip属性实现。 |
  
  
-- **场景一：实现自顶到底效果。**由于Tabs组件无法实现自顶到底的效果，可以通过自定义组件来达到此效果，导航栏可使用List实现。解决方案：参考[Tabs实现自顶到底效果](https://developer.huawei.com/consumer/cn/doc/architecture-guides/purchase-v1_2-ts_3-0000002298448753)。
+- **场景一：实现自顶到底效果。**由于Tabs组件无法实现自顶到底的效果，可以通过自定义组件来达到此效果，导航栏可使用List实现。解决方案：参考[Tabs实现自顶到底效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-809)。
 - **场景二：在页签被选中时改变字体颜色。**在页签被选中时改变字体颜色，可通过自定义页签实现。解决方案：参考[示例3（自定义页签切换联动）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例3自定义页签切换联动)。
 - **场景三：实现胶囊页签样式。**
 方案一：使用SegmentButton与Tabs实现。将SegmentButton作为页签，将Tabs的属性barHeight设置为0。参考代码如下所示：
@@ -110,7 +110,7 @@ struct CapsuleOne {
  效果图如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/UP5p9bAoQ7OXygrk2Tj6gQ/zh-cn_image_0000002680323059.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=15F03EB53E501315C27B0E7C0FD0734764E9AFC825C8122260049E3AC013307E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/LwnqO1z_Sg6dzBkNV60uww/zh-cn_image_0000002680323059.png?HW-CC-KV=V1&HW-CC-Date=20260818T063534Z&HW-CC-Expire=86400&HW-CC-Sign=0079FF4ED50C53229058F1F1C6AEE7BB14BC9D8C5951F0FA5F33E4E142E8F388)
 
 - 方案二：使用自定义页签实现。设置单个页签的宽度在(页签宽度/页签数-padding值*页签数，页签宽度/页签数)之间。参考代码如下所示：
 
@@ -176,7 +176,7 @@ struct CapsuleTwo {
  效果图如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/ixOuiLs2QVa6io1LMLzbow/zh-cn_image_0000002650243726.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=D11449476350FD705CCCB82F4B2B0571D5B629DF38B061227B7A3D04F4E0F39F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/z-UH_7hrSQef-4foAr6iuQ/zh-cn_image_0000002650243726.png?HW-CC-KV=V1&HW-CC-Date=20260818T063534Z&HW-CC-Expire=86400&HW-CC-Sign=88B62A37439A1EB8489771B22076B829A5966439292BA3360B0B1EF290DD6F82)
 
 
  - **场景四：实现页签栏和内容区重叠，并启用毛玻璃效果。**通过设置Tabs的barOverlap为true，并设置barBackgroundBlurStyle为BlurStyle.Thin，实现页签栏和内容区的重叠及毛玻璃效果。设置底部组件的padding值大于TabBar的高度防止遮挡。参考代码如下所示：
@@ -235,7 +235,7 @@ struct BarOverlapPage {
  效果图如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/J0ZidTjPTxaU2KBHX9ZlSQ/zh-cn_image_0000002680163711.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=845A55776BCD8A64CB2439D1C6E727E9A83834C04945D463CFCDBE1DD142C853)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/wYopQ8vnTLmg2u1LGiavOA/zh-cn_image_0000002680163711.png?HW-CC-KV=V1&HW-CC-Date=20260818T063534Z&HW-CC-Expire=86400&HW-CC-Sign=D08462D2C7757087695C98ED7DC2774B2CB04C2C220EA93A058EE7CB74FFA1DF)
 
 - **场景五：实现悬浮式、两端留空的Tab栏样式。**
 方案一：使用自定义组件实现。通过自定义组件实现，使用Stack容器将Tabs与自定义页签堆叠，实现悬浮式、两端留空的Tab栏样式，参考代码如下所示：
@@ -332,7 +332,7 @@ struct SuspensionPage {
   效果图如下所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/yeKozyEOQ1-tJMb-_C0MJw/zh-cn_image_0000002680163987.png?HW-CC-KV=V1&HW-CC-Date=20260811T005648Z&HW-CC-Expire=86400&HW-CC-Sign=EE10B95E44330CD9C684D5F28F48F2400A1CA058536F50AE9548C0B1324A97E0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/fL6vQGfBS9yiJUbrvYdfog/zh-cn_image_0000002680163987.png?HW-CC-KV=V1&HW-CC-Date=20260818T063534Z&HW-CC-Expire=86400&HW-CC-Sign=59C7FB46840A019D88F05861755FEFB64FED5E2DBFDAD3B10A0F438BFF9647C4)
 
 
  - **场景六：处理页签数较多时的TabBar的样式。**通过设置barMode为BarMode.Scrollable，当标签数量较多或内容超出屏幕宽度时，用户可以通过滑动来切换标签。解决方案：参考[示例2（设置Scrollable模式下的TabBar的布局样式）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例2设置scrollable模式下的tabbar的布局样式)。

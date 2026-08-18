@@ -1,6 +1,6 @@
 # model.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-model-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -40,6 +40,17 @@
 | OH_AI_CallBackParam | OH_AI_CallBackParam | 回调函数中传入的算子信息。 |
 | void * | OH_AI_ModelHandle | 指向模型对象的指针。 |
 | void * | OH_AI_TrainCfgHandle | 指向训练配置对象的指针。 |
+ 
+ 
+  
+
+#### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+ 
+| 名称 | 描述 |
+| --- | --- |
+| OH_AI_MAX_SHAPE_NUM 32 | 张量最大维度数。 起始版本： 9 |
  
  
   

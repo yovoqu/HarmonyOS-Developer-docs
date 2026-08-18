@@ -1,6 +1,6 @@
 # 识别目标形状（C/C++）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-get-plane-shape
 
@@ -24,16 +24,12 @@
 创建AR会话并配置为物体语义识别模式。
 
 ```text
-AREngine_ARSession *arSession = nullptr;
-// 创建AR会话。
-HMS_AREngine_ARSession_Create(nullptr, nullptr, &arSession);
+CHECK(HMS_AREngine_ARSession_Create(nullptr, nullptr, &mArSession));
+// 配置AREngine_ARSession。
 AREngine_ARConfig *arConfig = nullptr;
-// 创建AR会话配置器。
-HMS_AREngine_ARConfig_Create(arSession, &arConfig);
-// 设置语义识别模式为物体语义识别。
-HMS_AREngine_ARConfig_SetSemanticMode(arSession, arConfig, ARENGINE_SEMANTIC_MODE_TARGET);
-// 配置器设置给AR会话。
-HMS_AREngine_ARSession_Configure(arSession, arConfig);
+CHECK(HMS_AREngine_ARConfig_Create(mArSession, &arConfig));
+// ...
+CHECK(HMS_AREngine_ARSession_Configure(mArSession, arConfig));
 ```
 
 
@@ -43,8 +39,9 @@ HMS_AREngine_ARSession_Configure(arSession, arConfig);
 创建一个可跟踪对象列表targetList，用于存放AR Engine运行过程中检测到的所有可跟踪对象。
 
 ```text
-AREngine_ARTrackableList *targetList = nullptr;
-HMS_AREngine_ARTrackableList_Create(arSession, &targetList);
+AREngine_ARTrackableList *planeList = nullptr;
+// 创建可跟踪对象列表。
+CHECK(HMS_AREngine_ARTrackableList_Create(arSession, &planeList));
 ```
 
 
@@ -54,7 +51,7 @@ HMS_AREngine_ARTrackableList_Create(arSession, &targetList);
 调用[HMS_AREngine_ARSession_GetAllTrackables](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_getalltrackables)函数，检测当前环境中的所有可跟踪对象，并将结果存放在targetList中。
 
 ```text
-HMS_AREngine_ARSession_GetAllTrackables(arSession, ARENGINE_TRACKABLE_TARGET, targetList);
+CHECK(HMS_AREngine_ARSession_GetAllTrackables(arSession, planeTrackedType, planeList));
 ```
 
 
@@ -64,8 +61,9 @@ HMS_AREngine_ARSession_GetAllTrackables(arSession, ARENGINE_TRACKABLE_TARGET, ta
 调用[HMS_AREngine_ARTrackableList_GetSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_artrackablelist_getsize)函数获取当前可跟踪对象数量，结果存放在targetSize中。
 
 ```text
-int32_t targetSize = 0;
-HMS_AREngine_ARTrackableList_GetSize(arSession, targetList, &targetSize);
+int32_t planeListSize = 0;
+// 获取列表中可跟踪对象的数量。
+CHECK(HMS_AREngine_ARTrackableList_GetSize(arSession, planeList, &planeListSize));
 ```
 
 当targetSize等于0时，代表当前环境中无可跟踪对象。
@@ -81,8 +79,8 @@ HMS_AREngine_ARTrackableList_GetSize(arSession, targetList, &targetSize);
 
   
 ```text
-for (int i = 0; i < targetSize; ++i) {
-    // 遍历可跟踪对象，进行形状识别。
+for (int i = 0; i < planeListSize; ++i) {
+    // ...
 }
 ```
 
@@ -90,8 +88,10 @@ for (int i = 0; i < targetSize; ++i) {
 
   
 ```text
-AREngine_ARTrackable *target = nullptr;
-HMS_AREngine_ARTrackableList_AcquireItem(arSession, targetList, i, &target);
+AREngine_ARTrackable *arTrackable = nullptr;
+// 从可跟踪对象列表中获取指定索引的对象。
+CHECK(HMS_AREngine_ARTrackableList_AcquireItem(arSession, planeList, i, &arTrackable));
+AREngine_ARPlane *arPlane = reinterpret_cast<AREngine_ARPlane *>(arTrackable);
 ```
 
 3. 获取该实例跟踪状态，仅当跟踪状态为[ARENGINE_TRACKING_STATE_TRACKING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_artrackingstate)时，才可进行形状识别。
@@ -99,8 +99,8 @@ HMS_AREngine_ARTrackableList_AcquireItem(arSession, targetList, i, &target);
   
 ```text
 AREngine_ARTrackingState outTrackingState;
-HMS_AREngine_ARTrackable_GetTrackingState(arSession, target, &outTrackingState);
-
+CHECK(HMS_AREngine_ARTrackable_GetTrackingState(arSession, arTrackable, &outTrackingState));
+// ...
 if (AREngine_ARTrackingState::ARENGINE_TRACKING_STATE_TRACKING != outTrackingState) {
     continue;
 }
@@ -108,17 +108,12 @@ if (AREngine_ARTrackingState::ARENGINE_TRACKING_STATE_TRACKING != outTrackingSta
 
 4. 获取该实例目标形状，识别结果存放在label中。
 
-  
-```text
-AREngine_ARTargetShapeLabel label = ARENGINE_TARGET_SHAPE_UNKNOWN;
-HMS_AREngine_ARTarget_GetShapeType(arSession, reinterpret_cast<AREngine_ARTarget *>(target), &label);
-```
-其中，[AREngine_ARTargetShapeLabel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_artargetshapelabel)为枚举类型，描述了目标物体形状。
+  参考[HMS_AREngine_ARTarget_GetShapeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_artarget_getshapetype)。[AREngine_ARTargetShapeLabel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_artargetshapelabel)为枚举类型，描述了目标物体形状。
 
 
 
 #### 销毁可跟踪对象列表
 
 ```text
-HMS_AREngine_ARTrackableList_Destroy(targetList);
+HMS_AREngine_ARTrackableList_Destroy(planeList);
 ```

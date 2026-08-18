@@ -1,6 +1,6 @@
 # CanvasRenderingContext2D是否可以绘制GIF动画
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1317
 
@@ -13,7 +13,7 @@ CanvasRenderingContext2D对象中的drawImage方法是否可以绘制GIF动画�
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/b55tvD7PQ5e8AwCHSswlPw/zh-cn_image_0000002628599106.png?HW-CC-KV=V1&HW-CC-Date=20260811T005640Z&HW-CC-Expire=86400&HW-CC-Sign=4626964EF04F046CF5D83B4EAE7B0B1CB9B33AFF4AECACD65E704911444CF5C4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/K3IVCHbmS-qKwP0u1ARGEA/zh-cn_image_0000002628599106.png?HW-CC-KV=V1&HW-CC-Date=20260818T063534Z&HW-CC-Expire=86400&HW-CC-Sign=3A19112EE4ABC5F5C5BC114ED7F2779F45D0D2EAA243AD9404D4AD991495D94D)
 
  
  
@@ -21,7 +21,7 @@ CanvasRenderingContext2D对象中的drawImage方法是否可以绘制GIF动画�
 #### 背景知识
 
 - [CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)可用于在[Canvas画布组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)上进行绘制，绘制对象可以是图形、文本、线段、图片等。
-- CanvasRenderingContext2D中[drawImage方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#drawimage)用于在Canvas上绘制图片。它可以接受多种参数形式的图片资源，包括[ImageBitmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-imagebitmap)、[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-image)、[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)等。CanvasRenderingContext2D中[getPixelMap方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#getpixelmap)可以以当前Canvas指定区域内的像素创建PixelMap对象。
+- CanvasRenderingContext2D中[drawImage方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#drawimage)用于在Canvas上绘制图片。它可以接受多种参数形式的图片资源，包括[ImageBitmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-imagebitmap)、[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-image)、[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)等。CanvasRenderingContext2D中[getPixelMap方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#getpixelmap)可以以当前Canvas指定区域内的像素创建PixelMap对象。
 - [packToFileFromPixelmapSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagepacker#packtofilefrompixelmapsequence18)可以将多个PixelMap编码成GIF文件。
 
  

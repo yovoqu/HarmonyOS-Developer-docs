@@ -1,6 +1,6 @@
 # Canvas实现量角器功能
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-704
 
@@ -13,14 +13,14 @@
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/GnvjG_yUTxqRdwbEfyem0g/zh-cn_image_0000002628554890.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005641Z&HW-CC-Expire=86400&HW-CC-Sign=A29AA9C8ABF9103E9349E2F9E81AE6551D5EC4AC25705031F459F669FD2528A0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/js0GTL3iQGWDLkcNLarSUQ/zh-cn_image_0000002628554890.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063534Z&HW-CC-Expire=86400&HW-CC-Sign=0601D5BFCB9A14225D864D36CB35AC85CF17B502893FCE8B2017F33146DD5E42)
 
  
  
 
 #### 背景知识
 
-- [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-drawing-customization-on-canvas)提供画布组件，用于自定义绘制图形，开发者使用[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)对象和[OffscreenCanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d)对象在Canvas组件上进行绘制，支持绘制形状、文本、图像及复杂动画。[CanvasRenderingContext2D.arc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#arc)方法可以绘制弧线。
+- [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-drawing-customization-on-canvas)提供画布组件，用于自定义绘制图形，开发者使用[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)对象和[OffscreenCanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d)对象在Canvas组件上进行绘制，支持绘制形状、文本、图像及复杂动画。[CanvasRenderingContext2D.arc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#arc)方法可以绘制弧线。
 - [onTouch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch#ontouch)是一种触摸事件，手指触摸动作会触发该回调函数。
 
  

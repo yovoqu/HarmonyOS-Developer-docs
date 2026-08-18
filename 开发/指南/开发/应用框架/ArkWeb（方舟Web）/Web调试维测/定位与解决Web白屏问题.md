@@ -1,6 +1,6 @@
 # 定位与解决Web白屏问题
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-white-screen
 
@@ -32,11 +32,17 @@ Web页面出现白屏的原因众多，本文列举了若干常见白屏问题�
  - 开启相关权限：
 
 | 名称 | 说明 |
+
 | --- | --- |
+
 | domStorageAccess | 设置是否开启文档对象模型存储接口（DOM Storage API）权限。若不开启，无法使用localStorage存储数据，任何调用localStorage的代码都将失效，依赖本地存储的功能会异常。 |
-| fileAccess | 设置是否开启应用中文件系统的访问。‌若不开启，文件读写功能完全被阻断，依赖文件的模块会崩溃。 |
+
+| fileAccess | 设置是否开启应用中文件系统的访问。‌若不开启，文件读写功能完全被阻断，依赖文件读写的模块会遇到访问被拒绝的错误。 |
+
 | imageAccess | 设置是否允许自动加载图片资源。 |
+
 | onlineImageAccess | 设置是否允许从网络加载图片资源（通过HTTP和HTTPS访问的资源）。 |
+
 | javaScriptAccess | 设置是否允许执行JavaScript脚本。 |
 
   
@@ -337,11 +343,17 @@ body.appendChild(element);
  - 查看onErrorReceive、onHttpErrorReceive、onSslErrorEvent、onHttpAuthRequest、onClientAuthenticationRequest等错误上报接口是否有被调用。请根据返回的错误码，对照[网络协议栈错误列表](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-neterrorlist)进行排查。
 
 | 名称 | 说明 |
+
 | --- | --- |
+
 | onErrorReceive | 资源加载失败会上报该回调，比如访问内核不支持的scheme， 会报302(UNKNOWN_URL_SCHEME)。 |
+
 | onHttpErrorReceive | 服务器返回HTTP错误码，这类问题一般需要跟服务器进行联调。 |
+
 | onHttpAuthRequest | 服务器返回407需要端侧提供用户名密码认证，如果不正确处理，可能会导致加载异常、白屏。 |
+
 | onClientAuthenticationRequest | 服务器向端侧请求证书，如果不正确处理，会导致页面加载异常。 |
+
 | onSslErrorEvent | 证书错误，需要应用根据证书错误信息进行排查，是证书配错了？还是过期了。 |
 
 
@@ -409,10 +421,12 @@ Web组件提供了自适应页面布局的能力，详情见[ Web组件大小自
  - 若H5页面调用tel:、mailto:等协议导致白屏，需通过onInterceptRequest拦截并调用系统拨号能力：       
 ```text
 .onInterceptRequest((event) => {
-    if (event.request.url.startsWith('tel:')) {
+    if (event.request.getRequestUrl().startsWith('tel:')) {
         // 调用系统拨号能力
-        call.makeCall({ phoneNumber: '123456' });
-        return { responseCode: 404 }; // 阻止默认行为
+        call.makeCall('123456');
+        let response = new WebResourceResponse();
+        response.setResponseCode(404);
+        return response; // 阻止默认行为
     }
     return null;
 })

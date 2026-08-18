@@ -1,6 +1,6 @@
 # @ohos.base (公共回调信息)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -133,4 +133,4 @@ BusinessError<T = void> extends Error { code: number; data?: T; }
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | code | number | 否 | 否 | 接口调用失败返回的错误码信息。 |
-| data | T | 否 | 是 | 接口调用失败时返回的附加错误信息。如果不填，则错误对象不包含附加数据。 |
+| data9+ | T | 否 | 是 | 接口调用失败时返回的附加错误信息。如果不填，则错误对象不包含附加数据。 |

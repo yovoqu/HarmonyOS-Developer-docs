@@ -1,6 +1,6 @@
 # native_audio_converter.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-converter-h
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -253,7 +253,7 @@ OH_AudioConverter_Result OH_AudioConverter_SetInputCallback(OH_AudioConverter* c
 | --- | --- |
 | OH_AudioConverter* converter | 由OH_AudioConverter_Create函数创建转换器。 |
 | OH_AudioConverter_RequestDataCallback callback | 回调函数用于写入音频数据。 |
-| userData | 指向将传递给回调函数的应用程序数据结构的指针。 |
+| void* userData | 指向将传递给回调函数的应用程序数据结构的指针。 |
  
  
 **返回：**
@@ -287,7 +287,7 @@ OH_AudioConverter_Result OH_AudioConverter_Process(OH_AudioConverter* converter,
 | OH_AudioConverter* converter | 由OH_AudioConverter_Create函数创建转换器。 |
 | void* outputData | 指向调用者分配的输出缓冲区的指针。 |
 | int32_t outputCapacity | 调用者指定的输出缓冲区大小。 |
-| outputSize | 系统实际写入输出缓冲区数据的大小。 |
+| int32_t* outputSize | 系统实际写入输出缓冲区数据的大小。 |
  
  
 **返回：**

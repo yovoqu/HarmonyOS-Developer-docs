@@ -1,6 +1,6 @@
 # OH_AVRecorder_Location
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-oh-avrecorder-location
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct OH_AVRecorder_Location {...} OH_AVRecorder_Location
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-OH_AVRecorder_Location用于提供媒体资源的地理位置信息，支持在音视频录制过程中标注纬度和经度，适用于需要在录制结果中嵌入地理位置的场景，如在视频拍摄时标记拍摄地点、运动记录应用中标记轨迹位置、旅行日记应用中记录行程坐标等场景，便于后续按位置检索和分类管理媒体资源。
+OH_AVRecorder_Location用于提供媒体资源的地理位置信息，支持在音视频录制过程中标注纬度和经度。该结构体通过AVRecorder的[OH_AVRecorder_Prepare](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-h#oh_avrecorder_prepare)接口将经纬度信息写入录制文件的元数据中，开发者需在录制前设置该结构体的latitude和longitude参数，录制过程中地理位置信息将自动嵌入到生成的媒体文件中。适用于需要在录制结果中嵌入地理位置的场景，如在视频拍摄时标记拍摄地点、运动记录应用中标记轨迹位置、旅行日记应用中记录行程坐标等，便于后续按位置检索和分类管理媒体资源。
  
 **起始版本：** 18
  

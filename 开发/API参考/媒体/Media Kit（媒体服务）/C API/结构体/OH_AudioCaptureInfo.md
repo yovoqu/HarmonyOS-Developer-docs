@@ -1,6 +1,6 @@
 # OH_AudioCaptureInfo
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture-oh-audiocaptureinfo
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -42,4 +42,4 @@ typedef struct OH_AudioCaptureInfo {...} OH_AudioCaptureInfo
 | --- | --- |
 | int32_t audioSampleRate | 音频采样率，支持列表请查阅Audio Kit的AudioSamplingRate。单位为赫兹（Hz）。当audioSampleRate与audioChannels同时为0时，将忽略该类型音频相关参数。 |
 | int32_t audioChannels | 音频声道数，用于配置音频录制的声道数量。取值范围为1或2，1表示单声道，2表示双声道。具体支持的范围请参考相关音频设备的能力AudioChannel。当audioSampleRate与audioChannels同时为0时，将忽略该类型音频相关参数。 |
-| OH_AudioCaptureSourceType audioSource | 音频源，用于指定录制的音频来源，如内录音频或麦克风录音等。可选值请参考OH_AudioCaptureSourceType。 |
+| OH_AudioCaptureSourceType audioSource | 音频源，用于指定录制的音频来源，如系统音频或麦克风录音等。可选值请参考OH_AudioCaptureSourceType。 |

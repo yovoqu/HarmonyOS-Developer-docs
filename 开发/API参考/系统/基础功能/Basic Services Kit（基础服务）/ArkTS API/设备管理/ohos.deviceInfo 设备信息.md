@@ -1,6 +1,6 @@
 # @ohos.deviceInfo (设备信息)
 
-更新时间：2026-08-11 11:13:24
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-device-info
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -46,7 +46,7 @@ import { deviceInfo } from '@kit.BasicServicesKit';
 | softwareModel | string | 是 | 内部软件子型号。 示例：ALN-AL00 |
 | hardwareModel | string | 是 | 硬件版本号。 示例：HL1CMSM |
 | hardwareProfile(deprecated) | string | 是 | 硬件Profile。 说明： 从API version 6 开始支持，从API version 9 开始废弃，建议使用系统能力SystemCapability使用指南查询相关信息。 示例：default |
-| serial | string | 是 | 设备序列号SN(Serial Number)。 说明：可作为设备唯一识别码。 需要权限：ohos.permission.sec.ACCESS_UDID(该权限只允许系统应用及企业类应用申请) 示例：序列号随设备差异 |
+| serial | string | 是 | 设备序列号SN(Serial Number)，该接口在执行期间会拉起临时进程，当系统负载较高时，可能引发阻塞风险。为确保应用主线程的响应性能，建议避免在主线程中调用。设备信息因设备而异且固定不变，可在首次获取后缓存在本地，避免每次使用时重复获取，以提升性能。 说明：可作为设备唯一识别码。 需要权限：ohos.permission.sec.ACCESS_UDID(该权限只允许系统应用及企业类应用申请) 示例：序列号随设备差异 |
 | bootloaderVersion | string | 是 | Bootloader版本号。 示例：bootloader |
 | abiList | string | 是 | 应用二进制接口（Abi）。 示例：arm64-v8a |
 | securityPatchTag | string | 是 | 安全补丁级别。 示例：2024/1/1 |
@@ -59,8 +59,8 @@ import { deviceInfo } from '@kit.BasicServicesKit';
 | featureVersion | number | 是 | Feature版本号，标识规划的新特性版本，值为osFullName中的第三位数值，建议直接使用deviceInfo.featureVersion获取，可提升效率，不建议开发者自主解析osFullName获取。 示例：0 |
 | buildVersion | number | 是 | Build版本号，标识编译构建的版本号，值为osFullName中的第四位数值，建议直接使用deviceInfo.buildVersion获取，可提升效率，不建议开发者自主解析osFullName获取。 示例：1 |
 | sdkApiVersion | number | 是 | 系统软件API版本。 元服务API：从API版本14开始，该接口支持在元服务中使用。 示例：12 |
-| sdkMinorApiVersion | number | 是 | 系统软件Minor API版本。从 API 26.0.0 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。 模型约束： 此接口仅可在Stage模型下使用。 起始版本：26.0.0 元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。 示例：0 |
-| sdkPatchApiVersion | number | 是 | 系统软件Patch API版本。从 API 26.0.0 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。 模型约束： 此接口仅可在Stage模型下使用。 起始版本：26.0.0 元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。 示例：0 |
+| sdkMinorApiVersion | number | 是 | 系统软件Minor API版本。从API 26.0.0 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。 模型约束： 此接口仅可在Stage模型下使用。 起始版本：26.0.0 元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。 示例：0 |
+| sdkPatchApiVersion | number | 是 | 系统软件Patch API版本。从API 26.0.0 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。 模型约束： 此接口仅可在Stage模型下使用。 起始版本：26.0.0 元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。 示例：0 |
 | firstApiVersion | number | 是 | 首个版本系统软件API版本。 示例：3 |
 | versionId | string | 是 | 版本ID。由deviceType、manufacture、brand、productSeries、osFullName、productModel、softwareModel、sdkApiVersion、incrementalVersion、buildType拼接组成。 |
 | buildType | string | 是 | 构建类型。 示例：default |
@@ -68,20 +68,21 @@ import { deviceInfo } from '@kit.BasicServicesKit';
 | buildHost | string | 是 | 构建主机。 示例：default |
 | buildTime | string | 是 | 构建时间。 示例：default |
 | buildRootHash | string | 是 | 构建版本Hash。 示例：default |
-| udid7+ | string | 是 | 设备Udid。 说明：数据长度为65字节。可作为设备唯一识别码。 需要权限：ohos.permission.sec.ACCESS_UDID(该权限只允许系统应用及企业类应用申请) 示例：9D6AABD147XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXE5536412 |
+| udid7+ | string | 是 | 设备Udid，该接口在执行期间会拉起临时进程，当系统负载较高时，可能引发阻塞风险。为确保应用主线程的响应性能，建议避免在主线程中调用。设备信息因设备而异且固定不变，可在首次获取后缓存在本地，避免每次使用时重复获取，以提升性能。 说明：数据长度为65字节(包含结束符)。可作为设备唯一识别码。 需要权限：ohos.permission.sec.ACCESS_UDID(该权限只允许系统应用及企业类应用申请) 示例：9D6AABD147XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXE5536412 |
 | distributionOSName10+ | string | 是 | 发行版系统名称。 示例：HarmonyOS |
 | distributionOSVersion10+ | string | 是 | 发行版系统版本号。格式为x.x.x，x是数字 示例：5.0.0 |
 | distributionOSApiVersion10+ | number | 是 | 发行版系统API版本。 示例：50001 |
 | distributionOSApiName13+ | string | 是 | 发行版系统API版本名称。 说明：不建议用于版本号判断。 示例：5.0.1 |
 | distributionOSReleaseType10+ | string | 是 | 发行版系统类型。 示例：Release |
 | ODID12+ | string | 是 | ODID（Open Developer Identifier，开发者匿名设备标识符）。 ODID值会在以下场景重新生成： 手机恢复出厂设置。 同一设备上同一个开发者(developerId相同)的应用全部卸载后重新安装时。 ODID生成规则： 根据签名信息里developerId解析出的groupId生成，developerId规则为groupId.developerId，若无groupId则取整个developerId作为groupId。 同一设备上运行的同一个开发者(developerId相同)的应用，ODID相同。 同一个设备上不同开发者(developerId不同)的应用，ODID不同。 不同设备上同一个开发者(developerId相同)的应用，ODID不同。 不同设备上不同开发者(developerId不同)的应用，ODID不同。 说明：数据长度为37字节(包含结束符)。 示例：1234a567-XXXX-XXXX-XXXX-XXXXXXXXXXXX |
-| diskSN15+ | string | 是 | 硬盘序列号。 说明 ：该字段只能在部分2in1设备上进行查询，其他设备查询结果为空。 需要权限：ohos.permission.ACCESS_DISK_PHY_INFO 示例：2502EM400567 |
+| diskSN15+ | string | 是 | 硬盘序列号，该接口在执行期间会拉起临时进程，当系统负载较高时，可能引发阻塞风险。为确保应用主线程的响应性能，建议避免在主线程中调用。设备信息因设备而异且固定不变，可在首次获取后缓存在本地，避免每次使用时重复获取，以提升性能。 说明 ：该字段只能在部分2in1设备上进行查询，其他设备查询结果为空。 需要权限：ohos.permission.ACCESS_DISK_PHY_INFO 示例：2502EM400567 |
 | performanceClass19+ | PerformanceClassLevel | 是 | 描述设备能力等级，基于CPU、内存、存储读写性能和屏幕分辨率等因素综合评估。 使用场景：用于根据设备能力进行性能适配，如调整动画复杂度、选择不同质量的资源、动态控制功能特性等。 示例：0 |
 | chipType21+ | string | 是 | 当前设备CPU芯片型号。 示例：xxxxx |
 | bootCount21+ | number | 是 | 当前设备重启次数，获取失败时返回-1。 示例：100 |
 | deviceColor | string | 是 | 当前设备颜色。如果无法获取，则返回空字符串 模型约束： 此接口仅可在Stage模型下使用。 起始版本：26.0.0 示例：gold |
-| 错误码： |  |  |  |
 
+
+**错误码：**
 
 以下错误码的详细介绍请参见[deviceInfo错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-info)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 

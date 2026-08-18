@@ -1,6 +1,6 @@
 # 基于PixelMap与Canvas实现图片编辑
 
-更新时间：2026-08-10 06:55:01
+更新时间：2026-08-17 09:32:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-canvas-image-editing
 
@@ -48,7 +48,7 @@
 获取图片信息展示在页面中。如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/N13oVQM2R1iACBTfyKO1zw/zh-cn_image_0000002701055813.png?HW-CC-KV=V1&HW-CC-Date=20260811T010220Z&HW-CC-Expire=86400&HW-CC-Sign=DD63B2E80FE00C3AED1AB05F57769E9405B2476664DF3ACA06207BBCE2CC5072)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/fST4JmJrR0qmSVZjrLH6Vw/zh-cn_image_0000002701055813.png?HW-CC-KV=V1&HW-CC-Date=20260818T063558Z&HW-CC-Expire=86400&HW-CC-Sign=025F3E1BB66F9D9860D627D44DF8A5141D763F0F710DC15AB9AD7B2320314EAA)
 
  
  
@@ -74,7 +74,7 @@
 将图片按照1:1、4:3或16:9进行裁剪。实现效果如下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/0DAuOzJYR2ehk8AguaIqaQ/zh-cn_image_0000002671336004.gif?HW-CC-KV=V1&HW-CC-Date=20260811T010220Z&HW-CC-Expire=86400&HW-CC-Sign=7A4C3D1D1154C82C0C9E394F4973B65FACB4B346F5B9DAFE8AFD53D7A7CB65B2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/jmKm76VWT8-3N0N9mSVl9w/zh-cn_image_0000002671336004.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063558Z&HW-CC-Expire=86400&HW-CC-Sign=294ADC8CACA5C2AAD21F9A2C878EF0E993C5C2E11D0CDFB333988064CB1CCC23)
 
  
  
@@ -100,7 +100,7 @@
 通过滑动Slider，在横向/纵向调节图片位置。实现效果如下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/NgfYOwYGTSmEp8MQpui1pw/zh-cn_image_0000002671176148.gif?HW-CC-KV=V1&HW-CC-Date=20260811T010220Z&HW-CC-Expire=86400&HW-CC-Sign=846E1C097836E5A116022F210484B5A63DD02749D26025B2C5738F4B5DD00F7E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/52_E5R8EQxyixPu7Wy2ahw/zh-cn_image_0000002671176148.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063558Z&HW-CC-Expire=86400&HW-CC-Sign=2801AF6A24544F47FD8840C28C543AA62EECD96E12D23EA5AE7A6B02E3BE5BE7)
 
  
  
@@ -195,7 +195,7 @@ drawImageOnCanvas() {
 点击图片旋转按钮，改变图片显示方向。实现效果如下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/JjZozw3sQh6V273ZRfgqzA/zh-cn_image_0000002701095735.gif?HW-CC-KV=V1&HW-CC-Date=20260811T010220Z&HW-CC-Expire=86400&HW-CC-Sign=7C5FE0142AFB50C12B8A4BE9D4DA1FF604992C170786BC3271A2B41A107EAFDB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/2ngSPIMGQ3mFl70S5Oaj_Q/zh-cn_image_0000002701095735.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063558Z&HW-CC-Expire=86400&HW-CC-Sign=BDA890DF2A6BEEAEA14631AEF92DE857519A91ED72EF232F51C11636046F62B4)
 
  
  
@@ -341,7 +341,7 @@ this.previewPixelMap?.getImageInfo().then((info) => {
   点击镜像翻转按钮，使图片进行水平翻转。实现效果如下图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/zrncAl7sSXK6Kw_wUQuWcg/zh-cn_image_0000002701055815.gif?HW-CC-KV=V1&HW-CC-Date=20260811T010220Z&HW-CC-Expire=86400&HW-CC-Sign=D977CD8ABEF213FD840D5481E474A356AA7B8FDFE22A8CF8B824C56A23E62822)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/UkZdHVGtRHuW6xrqvmloyw/zh-cn_image_0000002701055815.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063558Z&HW-CC-Expire=86400&HW-CC-Sign=62F16EBA56A076787AAFBEC08BBC6EF0379034C36ECBBE29D73F7441B9F0A507)
 
 
   
@@ -395,7 +395,7 @@ mirrorImage() {
 滑动Slider，图片按照比例进行缩小或放大。实现效果如下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/UbLVkPrjRHG8qbFPQY7NMQ/zh-cn_image_0000002671336006.gif?HW-CC-KV=V1&HW-CC-Date=20260811T010220Z&HW-CC-Expire=86400&HW-CC-Sign=1C5C729C34980DFB233BC4BB696F859C44E37A41B03F60B48DC2F5A6444DC82B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/JqiAcvipRn6b_5WmL0Nz2Q/zh-cn_image_0000002671336006.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063558Z&HW-CC-Expire=86400&HW-CC-Sign=84119F8A045471658D6F4F065DC80BBE9ED4756692E0D1E72E53EB9861EDB41A)
 
  
  
@@ -448,7 +448,7 @@ async sliderZoomChange(value: number, mode: SliderChangeMode) {
   滑动Slider，调节图片显示亮度。实现效果如下图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/h7MGWNunRSmxNdvGfcCWCw/zh-cn_image_0000002671176158.gif?HW-CC-KV=V1&HW-CC-Date=20260811T010220Z&HW-CC-Expire=86400&HW-CC-Sign=54B61000E480D7B3FB46AEF99B6C6F9B70B28A79608F2185EEF78E8FFC7F62F9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/rCIv_bMTRaaEmejhzLH0pA/zh-cn_image_0000002671176158.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063558Z&HW-CC-Expire=86400&HW-CC-Sign=2F583AB72E4E303CD320E21725C8C0F82761615AB578A9CBFB8D3537284FAF97)
 
 
   
@@ -607,7 +607,7 @@ async sliderChange(value: number, mode: SliderChangeMode) {
 滑动Slider，调节图片透明度。实现效果如下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/YNj3LOpYSRuOEwHaZWx55w/zh-cn_image_0000002701095807.gif?HW-CC-KV=V1&HW-CC-Date=20260811T010220Z&HW-CC-Expire=86400&HW-CC-Sign=398E9633AF00A866AD313D52528AFFF4DBF55EBEDA8B43D0292A30B25BCF5CE1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/g580p1VMR5KOnz41WbHixA/zh-cn_image_0000002701095807.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063558Z&HW-CC-Expire=86400&HW-CC-Sign=F428E83F62F59B8E8D3161F99568066C517DB19E1D4C9154A6456FB788341A48)
 
  
  
@@ -633,7 +633,7 @@ async sliderChange(value: number, mode: SliderChangeMode) {
 滑动Slider，调节图片饱和度。实现效果如下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/d7jE2JEZSxa84qgEurF2vg/zh-cn_image_0000002701055983.gif?HW-CC-KV=V1&HW-CC-Date=20260811T010220Z&HW-CC-Expire=86400&HW-CC-Sign=2A22C6E7A05D7111A026B84FABEA4D219EB73B38F2E3FBCB6EC0AA6743783C88)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/s69_6YuyTPer81P9Gdqvcg/zh-cn_image_0000002701055983.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063558Z&HW-CC-Expire=86400&HW-CC-Sign=8589686AE0FA0E6954B04329586AE73BC4B500945F4919A190F9021258AD26ED)
 
  
  
@@ -748,7 +748,7 @@ async adjustImage(currentAdjustData: number[]) {
 选中黑白滤镜，图片显示黑白效果。实现效果如下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/v1SMn5qAQjeU_TevkF4D3g/zh-cn_image_0000002671336186.png?HW-CC-KV=V1&HW-CC-Date=20260811T010220Z&HW-CC-Expire=86400&HW-CC-Sign=F1A30A148C3497BE4CD7B501E80C41D2FB52FD683A6AA929F48575294B438E1D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/HHiOjVwlRx6CEJx3Qa_vQw/zh-cn_image_0000002671336186.png?HW-CC-KV=V1&HW-CC-Date=20260818T063558Z&HW-CC-Expire=86400&HW-CC-Sign=DB9BCCB847B8CDA2F1911F06861FBD0BBCDFD79A6B5343C0C5BC2DD5F60C0229)
 
  
  
@@ -828,7 +828,7 @@ ForEach(this.filterData, (item: filterDataType, index) => {
 选中高亮滤镜，图片显示高亮效果。实现效果如下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/gKIFY-InShyKaYpl637e0A/zh-cn_image_0000002671176350.png?HW-CC-KV=V1&HW-CC-Date=20260811T010220Z&HW-CC-Expire=86400&HW-CC-Sign=4A8A3DF2665D456522DFCB9C857C4E0FD0C421774E34F65A4ACF6C10D7432405)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/cdT7jPLzSJeM98VymW2ehg/zh-cn_image_0000002671176350.png?HW-CC-KV=V1&HW-CC-Date=20260818T063558Z&HW-CC-Expire=86400&HW-CC-Sign=D831A1BE64D71EEA947A2D82B370DEAC51A7C3EADD00245612A50BD62C96622F)
 
  
  
@@ -854,7 +854,7 @@ ForEach(this.filterData, (item: filterDataType, index) => {
 选中反转滤镜，图片显示反转效果。实现效果如下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/jARdE5gdRBSPFA2kpPgDrA/zh-cn_image_0000002701095969.png?HW-CC-KV=V1&HW-CC-Date=20260811T010220Z&HW-CC-Expire=86400&HW-CC-Sign=2A9957899B6303C0FF6A5EB1AF4BBD80CAAED93E907D9A201DE498E6F57AA5FD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/JcmHfTYORAinV7a095UxCQ/zh-cn_image_0000002701095969.png?HW-CC-KV=V1&HW-CC-Date=20260818T063558Z&HW-CC-Expire=86400&HW-CC-Sign=CD6F5FD223143A022DC0D0F634136DD17A71D62197E1317E61055C8E09CC5486)
 
  
  
@@ -880,7 +880,7 @@ ForEach(this.filterData, (item: filterDataType, index) => {
 选中模糊滤镜，图片显示模糊效果。实现效果如下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/a4ucs01gTgOAUtlR3T9SYg/zh-cn_image_0000002701056087.png?HW-CC-KV=V1&HW-CC-Date=20260811T010220Z&HW-CC-Expire=86400&HW-CC-Sign=0DFD07BDC71DF617BAEFE80B72458B3BFE39CA1F878FE0AA8AB4FE046AC2EF50)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/1FeA14_kRCaZM10f1bPcTQ/zh-cn_image_0000002701056087.png?HW-CC-KV=V1&HW-CC-Date=20260818T063558Z&HW-CC-Expire=86400&HW-CC-Sign=4A64DB8659145D759F37CCF7B303E30C2B9E140C91B99A62B91A7857D9CD97F6)
 
  
  
@@ -906,14 +906,14 @@ ForEach(this.filterData, (item: filterDataType, index) => {
 点击水印编辑，在弹窗中输入水印内容为图片添加水印，同时可以调整水印的位置、大小、透明度、旋转角度、选择是否重复等。实现效果如下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/55zQ4OsrTheYrpVv3xOsBA/zh-cn_image_0000002671336272.gif?HW-CC-KV=V1&HW-CC-Date=20260811T010220Z&HW-CC-Expire=86400&HW-CC-Sign=C99F313131DF5A3B295AD53664754A12130A6CFF77789E8ABBD1111EE4620D43)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/biu0CwqpQvKGntulMExAZg/zh-cn_image_0000002671336272.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063558Z&HW-CC-Expire=86400&HW-CC-Sign=0E9FF267FF3F88444A2F53FB33F638BF01E72B491D4F9861F85C056383C4B27C)
 
  
  
 
 #### 实现原理
 
-通过[OffscreenCanvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-offscreencanvas)将原图绘制到Canvas，利用[OffscreenCanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d)设置水印字体/透明度/旋转后，通过[fillText()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#filltext)绘制水印文字，最后获取合成后的PixelMap更新预览。重复水印则是在Canvas上按照固定间距进行循环绘制。
+通过[OffscreenCanvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-offscreencanvas)将原图绘制到Canvas，利用[OffscreenCanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d)设置水印字体/透明度/旋转后，通过[fillText()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#filltext)绘制水印文字，最后获取合成后的PixelMap更新预览。重复水印则是在Canvas上按照固定间距进行循环绘制。
  
  
 
@@ -930,7 +930,7 @@ const imageHeight = uiContext.px2vp(size?.height);
 ```
 
 
-2. 通过[OffscreenCanvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-offscreencanvas)创建离屏画，调用[getContext()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-offscreencanvas#getcontext10)创建二维渲染上下文的OffscreenCanvasRenderingContext2D对象，以及通过[drawImage()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#drawimage-1)将原图绘制到Canvas上，并设置水印字体、填充色、透明度。
+2. 通过[OffscreenCanvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-offscreencanvas)创建离屏画，调用[getContext()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-offscreencanvas#getcontext10)创建二维渲染上下文的OffscreenCanvasRenderingContext2D对象，以及通过[drawImage()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#drawimage-1)将原图绘制到Canvas上，并设置水印字体、填充色、透明度。
 ```ArkTS
 // Create offscreenCanvas.
 const offscreenCanvas = new OffscreenCanvas(imageWidth, imageHeight);
@@ -945,14 +945,14 @@ offscreenCanvasContext.globalAlpha = config.opacity;
 ```
 
 
-3. 通过[measureText()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#measuretext)测量水印文本尺寸，并调用calculateWatermarkPosition()计算水印位置。通过rotation判断水印文字是否有旋转：
+3. 通过[measureText()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#measuretext)测量水印文本尺寸，并调用calculateWatermarkPosition()计算水印位置。通过rotation判断水印文字是否有旋转：
 
   
 有旋转时：保存当前的绘图上下文，移动坐标至水印文字中心，顺时针旋转坐标轴，以水印内容为原点进行绘制，并将保存的绘图上下文进行恢复。
 
-4. 无旋转时：直接通过[fillText()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#filltext)进行绘制。
+4. 无旋转时：直接通过[fillText()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#filltext)进行绘制。
 
-5. 通过[getPixelMap()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#getpixelmap)方法从Canvas中获取绘制后的PixelMap后，更新预览，并保存PixelMap。
+5. 通过[getPixelMap()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#getpixelmap)方法从Canvas中获取绘制后的PixelMap后，更新预览，并保存PixelMap。
 ```ArkTS
 const watermarkedPixelMap = offscreenCanvasContext.getPixelMap(0, 0, imageWidth, imageHeight);
 Logger.info(TAG, 'Watermark added successfully');

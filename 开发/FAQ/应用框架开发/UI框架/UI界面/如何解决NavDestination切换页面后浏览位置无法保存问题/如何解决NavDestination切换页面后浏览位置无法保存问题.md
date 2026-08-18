@@ -1,6 +1,6 @@
 # 如何解决NavDestination切换页面后浏览位置无法保存问题
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1402
 
@@ -140,7 +140,7 @@ struct <span style="color: rgb(0,0,255);">PageTwoS1 </span><span style="color: r
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/Dx2ULfRLR5SpJwVkc4nDWg/zh-cn_image_0000002628763134.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005713Z&HW-CC-Expire=86400&HW-CC-Sign=611E1AF6E01DE8043372A8B87FF4F3381BBDFE6705B9AB85A7DA3D4CC60264BB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/yXDJAXp3QBGxKf6W-K8Nvw/zh-cn_image_0000002628763134.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063536Z&HW-CC-Expire=86400&HW-CC-Sign=A2057469471AFCC2B6727345275A7EA9DF9F6C8718ABA874F488BB567A32A8F5)
 
 - **方案二**：手动保存与恢复滚动状态。若必须销毁页面，可通过以下步骤实现状态持久化：
 
@@ -285,7 +285,7 @@ struct <span style="color: rgb(0,0,255);">PageTwoS2 </span><span style="color: r
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/WiChkDylQoaB9vaSy_sGhg/zh-cn_image_0000002658962449.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005713Z&HW-CC-Expire=86400&HW-CC-Sign=B0C6C117313D48AA0FCB3F3CE06F801A299B6C5339677C377C31630F205CADE2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/QxVQvMppTOagseb-Lew2lw/zh-cn_image_0000002658962449.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063536Z&HW-CC-Expire=86400&HW-CC-Sign=790D746FA5D58E5CE6DC4BB3526FA7F838D9196B6C9C1AAB428AFEF261520B45)
 
 
  
@@ -295,7 +295,7 @@ struct <span style="color: rgb(0,0,255);">PageTwoS2 </span><span style="color: r
 
 Q：NavDestination生命周期执行顺序是什么？
  
-A：执行顺序为onWillAppear-->onReady-->onAppear-->onWillShow，具体可参考[页面生命周期](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation#页面生命周期)。
+A：执行顺序为onWillAppear-->onReady-->onAppear-->onWillShow，具体可参考[页面生命周期](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navdestination#页面生命周期)。
  
 Q：Navigation组件中如何实现单例模式？
  

@@ -1,6 +1,6 @@
 # 人脸跟踪（ArkTS）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-face
 
@@ -53,7 +53,7 @@ import {arrayBufferFloat32ToNumber, arrayBufferInt32ToNumber, generateFaceMeshIn
 ```text
 let face: arEngine.ARFace = trackables[i] as arEngine.ARFace;
 // ...
-// Data Process
+// 数据处理。
 let faceGeometry: arEngine.ARGeometry = face.getGeometry();
 let faceBlendShapes: arEngine.ARBlendShapes = face.getBlendShapes();
 ```
@@ -211,7 +211,7 @@ class ARViewCallbackImpl extends arViewController.ARViewCallback {
       let vertexArray: Vec3[][] = [];
       let indexArray: Map<number, number[]> = new Map;
 
-      // Acquire face data
+      // 获取人脸数据。
       let trackables: arEngine.ARTrackable[] = session.getAllTrackables(arEngine.ARTrackableType.FACE);
       logger.debug(`the faceList length is ${trackables.length}`);
       for (let i = 0; i < trackables.length; ++i) {
@@ -223,7 +223,7 @@ class ARViewCallbackImpl extends arViewController.ARViewCallback {
           logger.error(`Face not in tracking state`);
           continue;
         }
-        // Data Process
+        // 数据处理。
         let faceGeometry: arEngine.ARGeometry = face.getGeometry();
         let faceBlendShapes: arEngine.ARBlendShapes = face.getBlendShapes();
         let tmpVert = faceGeometry.getVertices();
@@ -233,7 +233,7 @@ class ARViewCallbackImpl extends arViewController.ARViewCallback {
         vertexArray.push(getFaceFrontVertices(viewMatrix, faceVertices));
         indexArray.set(i, faceIndices);
 
-        // BlendShapes Print
+        // BlendShapes打印。
         logger.info('the count of blendShapes is' + faceBlendShapes.count);
         logger.info('the data of blendShapes is' + arrayBufferFloat32ToNumber(faceBlendShapes.getData()));
         logger.info('the types of blendShapes is' + faceBlendShapes.getTypes());

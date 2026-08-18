@@ -1,6 +1,6 @@
 # ExceptionPromptV2
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-exceptionpromptv2
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -264,7 +264,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/rYWtGEZ3QDqWLawVMuEXXA/zh-cn_image_0000002668463238.png?HW-CC-KV=V1&HW-CC-Date=20260811T005507Z&HW-CC-Expire=86400&HW-CC-Sign=1B6EA48E2E0114DF20DB0C6DECC9598E528C9509E4CD4B790D89F1CEE1E8A0A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/N1YE8fbgTHWSUd0F3UHyAw/zh-cn_image_0000002679807484.png?HW-CC-KV=V1&HW-CC-Date=20260818T063532Z&HW-CC-Expire=86400&HW-CC-Sign=EB54C00828EFA49E174CA81FD99723A4AC241E4DD66A34C559E34131DBB2081B)
 
 
 
@@ -274,7 +274,6 @@ struct Index {
 从API版本26.0.0开始，该示例使用自定义弹窗设置弹窗类型的异常提示。
 
 ```json
-import { promptAction } from '@kit.ArkUI';
 import { ExceptionPromptV2, MarginTypeV2, PromptOptionsV2 } from '@kit.ArkUI';
 
 @Entry
@@ -322,7 +321,7 @@ struct Index1 {
         .margin({ top: 420 })
         .zIndex(999)
         .onClick(() => {
-          promptAction.openCustomDialog({
+          this.getUIContext().getPromptAction().openCustomDialog({
             builder: () => {
               this.customDialogComponent()
             },
@@ -392,7 +391,7 @@ struct Index1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/yZAqLsyyR4SPvk027xDA-A/zh-cn_image_0000002698223119.gif?HW-CC-KV=V1&HW-CC-Date=20260811T005507Z&HW-CC-Expire=86400&HW-CC-Sign=17DC6D658D764F6E1A4B68B8935105A5A65727276A26061019F828968AA236A2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/SZl5u1k6TNWM1xNN_mYNIw/zh-cn_image_0000002709527299.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063532Z&HW-CC-Expire=86400&HW-CC-Sign=82BF915FC93F438238DE6DA7823B12070F4EF9769EE71A7DD7E2E249AD943398)
 
 
 
@@ -440,4 +439,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/2ZvECtaOSzio7Mh6ASET3g/zh-cn_image_0000002698143027.png?HW-CC-KV=V1&HW-CC-Date=20260811T005507Z&HW-CC-Expire=86400&HW-CC-Sign=C0064DB7D53CCB9CD89D0D57D1A6AD836A2577F5338EA049F957A128A390D1C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/e2r3W9WBSjqaeOEGpmBwgg/zh-cn_image_0000002679967348.png?HW-CC-KV=V1&HW-CC-Date=20260818T063532Z&HW-CC-Expire=86400&HW-CC-Sign=BA51F6C2AAC00FA3261FB55EEBA7468ADFE7696755DC8CC3413BA4923AE96384)

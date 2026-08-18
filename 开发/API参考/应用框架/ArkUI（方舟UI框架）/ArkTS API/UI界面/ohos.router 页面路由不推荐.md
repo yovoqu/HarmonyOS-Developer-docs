@@ -1,6 +1,6 @@
 # @ohos.router (页面路由)(不推荐)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
@@ -1850,7 +1850,7 @@ struct Second {
       Text(this.text)
         .fontSize(30)
         .onClick(() => {
-          this.secondData = (this.data['array'][1]).toString();
+          this.secondData = (this.data.array[1]).toString();
         })
         .margin({ top: 20 })
       Text(`第一页传来的数值:${this.secondData}`)
@@ -2232,4 +2232,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/AhvgtOayS2OagC4mILjooQ/zh-cn_image_0000002655848282.gif?HW-CC-KV=V1&HW-CC-Date=20260730T071447Z&HW-CC-Expire=86400&HW-CC-Sign=30BB5AAECE1A22E07DEBBB6A17DA7B38329B682B23B3280550FF381581646648)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/bsLbdY6yT9O8NMHiZR1Arg/zh-cn_image_0000002679806760.gif?HW-CC-KV=V1&HW-CC-Date=20260818T063502Z&HW-CC-Expire=86400&HW-CC-Sign=95A03E059356B21AAB61F5943CFC33F9C1BB3B806564415EA421154D7C42EE93)

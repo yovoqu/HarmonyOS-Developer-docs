@@ -1,6 +1,6 @@
 # 人体跟踪与骨骼关键点识别（C/C++）
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-body
 
@@ -318,6 +318,8 @@ CHECK(HMS_AREngine_ARTrackableList_GetSize(mArSession, arTrackableList, &trackab
 
 #### 获取骨骼点相关信息
 
+创建一个骨骼点信息列表skeletonValid2Ds，用于存放骨骼点信息数据。
+
 ```text
 for (int i = 0; i < trackableListSize; i++) {
     AREngine_ARTrackable *arTrackable = nullptr;
@@ -354,6 +356,12 @@ for (int i = 0; i < trackableListSize; i++) {
     LOGI("ArBodyApp bodyTrackId = %{public}d, timeStampNanoSec = %{public}ld", outBodyTrackId, timeStampNanoSec);
 }
 ```
+
+
+
+#### 获取骨骼点之间的连接关系数据
+
+创建一个骨骼点连接关系数据列表connections，用于存放骨骼点之间相连关系数据。
 
 ```text
 for (int i = 0; i < trackableListSize; i++) {

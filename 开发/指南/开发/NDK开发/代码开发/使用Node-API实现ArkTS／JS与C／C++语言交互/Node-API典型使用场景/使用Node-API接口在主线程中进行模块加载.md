@@ -1,6 +1,6 @@
 # 使用Node-API接口在主线程中进行模块加载
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-load-module
 
@@ -125,6 +125,8 @@ export {value, test};
       ]
     }
   },
+// ...
+},
 ```
 
 2. 使用napi_load_module加载Test文件，调用函数test以及获取变量value：

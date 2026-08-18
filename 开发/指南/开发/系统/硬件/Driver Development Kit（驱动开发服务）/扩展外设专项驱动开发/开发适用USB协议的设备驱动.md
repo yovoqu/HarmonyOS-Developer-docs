@@ -1,6 +1,6 @@
 # 开发适用USB协议的设备驱动
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/usb-ddk-guidelines
 
@@ -136,7 +136,7 @@ if (!res) {
     OH_LOG_ERROR(LOG_APP, "GetInterfaceAndEndpoint failed");
     return false;
 }
-// 释放配置描述符，防止内存泄露
+// 释放配置描述符，防止内存泄漏
 OH_Usb_FreeConfigDescriptor(config);
 g_dataEp = endpoint;
 g_maxPktSize = maxPktSize;

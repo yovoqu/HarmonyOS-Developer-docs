@@ -1,6 +1,6 @@
 # Web深色模式适配
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-set-dark-mode
 
@@ -181,7 +181,7 @@ darkModePage.html页面在深色模式关闭、深色模式开启及强制深色
 **图3** Web深色模式和强制深色模式效果图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/vnYAOH2vRGazOKpy11KZvA/zh-cn_image_0000002674632712.png?HW-CC-KV=V1&HW-CC-Date=20260813T095734Z&HW-CC-Expire=86400&HW-CC-Sign=DD5833531444AD449E28ED763726EC5E2EC993EE59C5234CE15363F859B55D5E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/K18hhpjmSLaYeiJSUGzRjA/zh-cn_image_0000002679805252.png?HW-CC-KV=V1&HW-CC-Date=20260818T063543Z&HW-CC-Expire=86400&HW-CC-Sign=0F2D1E3F6090A1A4F119F3CE7C031DEFCDB8AC9ADD66C176D743D0AD9864252E)
 
 
 
@@ -218,6 +218,7 @@ struct WebComponent {
 
   
 ```ArkTS
+import { window } from '@kit.ArkUI';
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want, Configuration } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 

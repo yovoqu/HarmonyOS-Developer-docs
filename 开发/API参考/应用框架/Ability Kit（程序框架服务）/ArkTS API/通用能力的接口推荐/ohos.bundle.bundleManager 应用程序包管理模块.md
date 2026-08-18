@@ -1,6 +1,6 @@
 # @ohos.bundle.bundleManager (应用程序包管理模块)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1047,7 +1047,7 @@ getBundleInfo(bundleName: string, bundleFlags: number, userId: number, callback:
 | bundleName | string | 是 | 表示要查询的应用Bundle名称。 |
 | bundleFlags | number | 是 | 指定返回的BundleInfo所包含的信息。 |
 | userId | number | 是 | 表示用户ID，可以通过getOsAccountLocalId获取。 |
-| callback | AsyncCallback&lt;BundleInfo&gt; | 是 | AsyncCallback，当获取成功时，err为undefined，data为获取到的bundleInfo；否则为错误对象。 |
+| callback | AsyncCallback&lt;BundleInfo&gt; | 是 | AsyncCallback，当获取成功时，err为undefined，data为获取到的BundleInfo；否则为错误对象。 |
 
 
 **错误码：**

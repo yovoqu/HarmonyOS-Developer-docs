@@ -1,6 +1,6 @@
 # 穿戴侧应用开发方案及ArkTS语言支持情况
 
-更新时间：2026-07-31 00:56:37
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1520
 
@@ -49,7 +49,7 @@ A：Watch5系列是支持的。当前Watch5系列已支持ArkTS开发，并且�
  
 Q：如何将使用JS构建的轻量级智能穿戴项目迁移到智能穿戴设备上继续使用，实现功能的延续与适配？
  
-A：以轻量级智能穿戴开发实践同源工程为例，按照如下步骤，可以将使用JS构建的项目迁移到智能穿戴设备上：[FA工程迁移指导](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-smartwatch#section1219382121110)。
+A：以轻量级智能穿戴开发实践同源工程为例，按照如下步骤，可以将使用JS构建的项目迁移到智能穿戴设备上：[FA工程迁移指导](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-smartwatch#section14111733132515)。
  
 Q：智能穿戴设备上可以开发哪些场景的APP功能？
  

@@ -1,6 +1,6 @@
 # OH_AVRecorder_Range
 
-更新时间：2026-08-03 11:34:29
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-oh-avrecorder-range
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct OH_AVRecorder_Range {...} OH_AVRecorder_Range;
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-表示AVRecorder相关参数（如比特率、帧率等）的取值范围，用于限定录制参数的可配置范围，开发者应在min和max所界定的范围内设置参数值以确保配置有效。
+表示AVRecorder相关参数（如比特率、帧率等）的取值范围，用于限定录制参数的可配置范围。开发者可通过[OH_AVRecorder_GetAvailableEncoder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-h#oh_avrecorder_getavailableencoder)接口获取编码器相关参数取值范围，并在min和max所界定的范围内设置参数值，以确保配置有效。
  
 **起始版本：** 18
  

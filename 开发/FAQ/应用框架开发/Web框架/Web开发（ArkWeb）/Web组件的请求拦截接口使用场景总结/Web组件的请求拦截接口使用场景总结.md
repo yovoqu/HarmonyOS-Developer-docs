@@ -1,6 +1,6 @@
 # Web组件的请求拦截接口使用场景总结
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-195
 
@@ -36,8 +36,8 @@ Web组件中onLoadIntercept、onInterceptRequest、WebSchemeHandler、onOverride
 **接口常用使用场景：**
  
 - onLoadIntercept常用于拦截请求重定向、拉起应用等场景，如拦截请求，跳转ArkTS页面；拦截支付链接拉起支付应用。实现方式可参考：
-拦截请求跳转ArkTS页面，参考文档：[ArkWeb页面与ArkTS页面互相跳转](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-app-jump-and-pull-up#section486263931112)。
-- 拦截请求跳转应用，参考文档：[ArkWeb页面指定应用跳转](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-app-jump-and-pull-up#section37419543116)。
+拦截请求跳转ArkTS页面，参考文档：[ArkWeb页面与ArkTS页面互相跳转](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/navigating-between-web-and-apps#arkweb页面与arkts页面互相跳转)。
+- 拦截请求跳转应用，参考文档：[ArkWeb页面指定应用跳转](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/navigating-between-web-and-apps#arkweb页面指定应用跳转)。
 
  - onInterceptRequest可拦截所有跳转请求并返回响应数据，但无法访问POST请求体（Body）内容，且不支持分片缓冲（buffer）类型数据获取。此类场景需改用[WebSchemeHandler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webschemehandler)实现。onInterceptRequest常用于拦截请求进行本地资源替换，提升加载速度；解决本地资源跨域等问题。实现方式可参考：
 拦截请求进行本地资源替换，提升加载速度，参考文档：[资源拦截替换的JavaScript生成字节码缓存](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-develop-optimization#section1495115588211)。

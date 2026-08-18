@@ -1,6 +1,6 @@
 # 高性能Protobuf解析
 
-更新时间：2026-03-19 08:43:01
+更新时间：2026-08-17 09:32:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-high-performance-protobuf-parsing
 
@@ -65,19 +65,19 @@ ohpm install @hadss/turbo-trans-protobuf
 
 3. 插件生效还需在工程根目录的 hvigorfile.ts 文件中添加相关插件配置，参考如下：
 ```ts
-import { turboTransProtobufPlugin } from "@hadss/turbo-trans-protobuf-plugin";
+import { turboTransProtobufPlugin } from '@hadss/turbo-trans-protobuf-plugin';
 
 export default {
   system: appTasks,
   plugins: [
     // ...
     turboTransProtobufPlugin({
-      saveDir: 'src/main/ets/model',   // Save directory for generated code
-      scanDir: ['protofile'],          // Directories to scan for .proto files
-      sendable: true,                  // Whether to enable @Sendable support
+      saveDir: 'src/main/ets/model', // Save directory for generated code
+      scanDir: ['protofile'], // Directories to scan for .proto files
+      sendable: true, // Whether to enable @Sendable support
     }),
-  ]
-}
+  ],
+};
 ```
 
 
@@ -139,19 +139,19 @@ Sendable对象转换：通过TurboTransProtobufPlugin插件，生成[@Sendable�
 
 1. 配置[插件和第三方库](#li139972026192313)依赖后，确保在工程根目录下的 hvigorfile.ts 文件内将sendable属性设置为true：
 ```ts
-import { turboTransProtobufPlugin } from "@hadss/turbo-trans-protobuf-plugin";
+import { turboTransProtobufPlugin } from '@hadss/turbo-trans-protobuf-plugin';
 
 export default {
   system: appTasks,
   plugins: [
     // ...
     turboTransProtobufPlugin({
-      saveDir: 'src/main/ets/model',   // Save directory for generated code
-      scanDir: ['protofile'],          // Directories to scan for .proto files
-      sendable: true,                  // Whether to enable @Sendable support
+      saveDir: 'src/main/ets/model', // Save directory for generated code
+      scanDir: ['protofile'], // Directories to scan for .proto files
+      sendable: true, // Whether to enable @Sendable support
     }),
-  ]
-}
+  ],
+};
 ```
  使用DevEco Studio编译或者使用hvigorw命令编译后，将生成带有@Sendable装饰器的类。
 2. 通过@Concurrent装饰器定义子线程任务，在任务内部调用步骤1中插件自动生成代码中暴露的静态方法encode()，以完成相应的数据处理逻辑。
@@ -169,13 +169,13 @@ function encodeUser(obj: UserProfile): ArrayBuffer | undefined {
 
 3. 通过TurboTransProtobuf生成的代码创建的业务对象天然支持Sendable特性。此类对象在跨线程传输时，系统将以内存共享方式传递数据，避免跨线程拷贝导致的性能损耗。
 ```ArkTS
-let message_simple = new UserProfile();
-message_simple.age = 25;
-message_simple.name = 'Alice';
-message_simple.birth_year = 1999;
-message_simple.height = 175;
-message_simple.is_student = true;
-let res = await taskpool.execute(encodeUser, message_simple) as ArrayBuffer | undefined;
+let messageSimple = new UserProfile();
+messageSimple.age = 25;
+messageSimple.name = 'Alice';
+messageSimple.birth_year = 1999;
+messageSimple.height = 175;
+messageSimple.is_student = true;
+let res = await taskpool.execute(encodeUser, messageSimple) as ArrayBuffer | undefined;
 ```
 
  
@@ -211,24 +211,24 @@ let res = await taskpool.execute(encodeUser, message_simple) as ArrayBuffer | un
 #### 开发步骤
 1. 配置插件和第三方库依赖后，确保在工程根目录下的 hvigorfile.ts 文件内将sendable属性设置为true：
 ```ts
-import { turboTransProtobufPlugin } from "@hadss/turbo-trans-protobuf-plugin";
+import { turboTransProtobufPlugin } from '@hadss/turbo-trans-protobuf-plugin';
 
 export default {
   system: appTasks,
   plugins: [
     // ...
     turboTransProtobufPlugin({
-      saveDir: 'src/main/ets/model',   // Save directory for generated code
-      scanDir: ['protofile'],          // Directories to scan for .proto files
-      sendable: true,                  // Whether to enable @Sendable support
+      saveDir: 'src/main/ets/model', // Save directory for generated code
+      scanDir: ['protofile'], // Directories to scan for .proto files
+      sendable: true, // Whether to enable @Sendable support
     }),
-  ]
-}
+  ],
+};
 ```
  使用DevEco Studio编译或者使用hvigorw命令编译后，将生成带有@Sendable装饰器的类。
 2. 服务端生成数据后，在子线程中进行序列化操作，并通过分片处理将数据拆分为可并行传输的片段，随后将数据分片发送至客户端。
 ```ArkTS
-workerInstance = new worker.ThreadWorker('entry/ets/workers/ServerWorker.ets');
+private workerInstance = new worker.ThreadWorker('entry/ets/workers/ServerWorker.ets');
 // ...
         let arrayBuffer: ArrayBuffer | undefined;
         // ...
@@ -241,7 +241,7 @@ workerInstance = new worker.ThreadWorker('entry/ets/workers/ServerWorker.ets');
           } catch (err) {
             Logger.error(`Failed to post message to worker: ${JSON.stringify(err)}`);
           }
-          this.workerInstance.onmessage = (e: MessageEvents) => {
+          this.workerInstance.onmessage = (e: MessageEvents): void => {
             let data: ArrayBuffer = e.data;
             this.sendBigData(client, data);
           };
@@ -250,7 +250,7 @@ workerInstance = new worker.ThreadWorker('entry/ets/workers/ServerWorker.ets');
 
 3. 客户端接收到分片数据后，在子线程中通过重组合并数据，待所有分片接收完成后，统一进行反序列化操作。生成的Sendable对象无需拷贝，通过内存共享机制直接传递至主线程。
 ```ArkTS
-workerPort.onmessage = (event: MessageEvents) => {
+workerPort.onmessage = (event: MessageEvents): void => {
   const data: ArrayBuffer = event.data;
   const unpackedChunk = unpackArrayBuffer(data);
   // ...

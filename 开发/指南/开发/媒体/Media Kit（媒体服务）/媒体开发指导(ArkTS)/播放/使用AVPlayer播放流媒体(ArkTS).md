@@ -1,6 +1,6 @@
 # 使用AVPlayer播放流媒体(ArkTS)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/streaming-media-playback-development-guide
 
@@ -28,15 +28,25 @@
 2. 设置业务需要的监听事件，搭配全流程场景使用。支持的监听事件包括：
 
 | 事件类型 | 说明 |
+
 | --- | --- |
+
 | stateChange | 必要事件，监听播放器的state属性改变。 需要播放器在idle状态下、未调用设置资源接口前完成设置监听，若在调用设置资源接口后再设置监听，可能导致无法收到资源设置过程中上报的stateChange事件。 |
+
 | error | 必要事件，监听播放器的错误信息。 需要播放器在idle状态下、未调用设置资源接口前完成设置监听，若在调用设置资源接口后再设置监听，可能导致无法收到资源设置过程中上报的error事件。 |
+
 | durationUpdate | 监听进度条长度，刷新资源时长。 |
+
 | timeUpdate | 监听进度条当前位置，刷新当前时间。 |
+
 | seekDone | 监听seek()请求完成情况。 当使用seek()跳转到指定播放位置后，如果seek操作成功，将上报该事件。 |
+
 | speedDone | 监听setSpeed()请求完成情况。 当使用setSpeed()设置播放倍速后，如果setSpeed操作成功，将上报该事件。 |
+
 | volumeChange | 监听setVolume()请求完成情况。 当使用setVolume()调节播放音量后，如果setVolume操作成功，将上报该事件。 |
+
 | bufferingUpdate | 监听网络播放缓冲信息，上报缓冲百分比以及缓存播放进度。 |
+
 | audioInterrupt | 监听音频焦点切换信息，搭配属性audioInterruptMode使用。 如果当前设备存在多个音频正在播放，音频焦点被切换（即播放其他媒体如通话等）时将上报该事件，应用可以及时处理。 |
 3. 设置资源：[使用AVPlayer设置播放URL](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/playback-url-setting-method)，使AVPlayer进入initialized状态。
 
@@ -107,6 +117,7 @@ this.avPlayer.on('availableBitrates', (bitrates: Array<number>) => {
 import { media } from '@kit.MediaKit';
 // 类成员定义avPlayer
 private avPlayer: media.AVPlayer | null = null;
+private bitrate: number = 0;
 
 // 创建avPlayer实例对象。
 this.avPlayer = await media.createAVPlayer();
@@ -115,7 +126,7 @@ this.avPlayer.on('bitrateDone', (bitrate: number) => {
   console.info('bitrateDone called, and bitrate value is: ' + bitrate);
 })
 // 设置播放码率。
-this.bitrate: number = 96000;
+this.bitrate = 96000;
 this.avPlayer.setBitrate(this.bitrate);
 ```
 

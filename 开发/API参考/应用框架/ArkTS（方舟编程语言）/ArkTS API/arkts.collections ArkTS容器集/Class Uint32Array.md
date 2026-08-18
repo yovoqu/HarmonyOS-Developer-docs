@@ -1,6 +1,6 @@
 # Class (Uint32Array)
 
-更新时间：2026-08-11 11:13:24
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-uint32array
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -219,7 +219,7 @@ constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number)
 | --- | --- | --- | --- |
 | buffer | ArrayBuffer | 是 | 用于构造ArkTS Uint32Array的ArrayBuffer对象。buffer所占的字节数需是4的整数倍。 |
 | byteOffset | number | 否 | 指定buffer的字节偏移，需为非负整数且为4的整数倍。默认值为0。 |
-| length | number | 否 | 指定ArkTS Uint32Array的长度，需为非负整数。默认值为0，此时表示从byteOffset开始到buffer末尾的全部元素。 |
+| length | number | 否 | 指定ArkTS Uint32Array的长度，需为非负整数。默认值为0。 |
  
  
 **错误码：**

@@ -1,6 +1,6 @@
 # 如何解决Canvas绘制文本进行缩放后，内容模糊问题
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-914
 
@@ -48,7 +48,7 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(2
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/yv_EW9lLRAeNBwXne_4Kog/zh-cn_image_0000002628399762.png?HW-CC-KV=V1&HW-CC-Date=20260811T005712Z&HW-CC-Expire=86400&HW-CC-Sign=8DD76CE4AAEAA553826584A76C669D1415709D87E43408EFF7A02DEC2C6292FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/igFEZNJNQcWFS0_WkwjeAg/zh-cn_image_0000002628399762.png?HW-CC-KV=V1&HW-CC-Date=20260818T063536Z&HW-CC-Expire=86400&HW-CC-Sign=22F3A7F23624054D9AC28274902FC8FC072A31B8865C45CB2A4C27723EC54588)
 
  
  
@@ -56,7 +56,7 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(2
 #### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/_tiLkGp5QuWMwLZ6ejpzPg/zh-cn_image_0000002658799031.png?HW-CC-KV=V1&HW-CC-Date=20260811T005712Z&HW-CC-Expire=86400&HW-CC-Sign=0D2681EF097032D95B041571047E2B4F1C94529B6BEAE40A6784E257F205E549)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/SDTAuqj_TE25zjf64iwMUA/zh-cn_image_0000002658799031.png?HW-CC-KV=V1&HW-CC-Date=20260818T063536Z&HW-CC-Expire=86400&HW-CC-Sign=FCA99B03FF5C654A6B7278430A645C5D4089E1BD792EBECCC24BE1CA79B2E942)
 
  
  
@@ -69,7 +69,7 @@ struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(2
 
 #### 解决方案
 
-上述现象的出现是由于对Canvas画布进行了整体缩放操作，导致文字显示模糊。为解决此问题，需先使用[clearRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#clearrect)方法清除当前画布内容，随后在放大比例下重新绘制文字内容，从而保证文字的清晰度。
+上述现象的出现是由于对Canvas画布进行了整体缩放操作，导致文字显示模糊。为解决此问题，需先使用[clearRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#clearrect)方法清除当前画布内容，随后在放大比例下重新绘制文字内容，从而保证文字的清晰度。
  
 ```text
 <span style="color: rgb(181,106,1);">@Entry</span>

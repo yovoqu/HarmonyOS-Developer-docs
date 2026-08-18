@@ -1,6 +1,6 @@
 # Interface (AVDownloaderManager)
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avdownloadermanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -58,7 +58,7 @@ async function test() {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-setRequestTimeout(expired: number): void
+setRequestTimeout(timeout: number): void
  
 设置HTTP请求的网络超时时间。超时后下载任务将失败。
  
@@ -72,7 +72,7 @@ setRequestTimeout(expired: number): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| expired | number | 是 | 超时时间，单位为毫秒。 取值限定为整数。 - 若不设置，使用默认超时时间，默认时间为60000毫秒。 - 若值小于等于0，表示无超时限制。 |
+| timeout | number | 是 | 超时时间，单位为毫秒。 取值限定为整数。 - 若不设置，使用默认超时时间，默认时间为60000毫秒。 - 若值小于等于0，表示无超时限制。 |
  
  
 **示例：**

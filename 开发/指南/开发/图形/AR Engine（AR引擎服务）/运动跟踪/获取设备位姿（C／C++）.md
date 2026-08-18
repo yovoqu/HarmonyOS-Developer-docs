@@ -1,6 +1,6 @@
 # 获取设备位姿（C/C++）
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-get-pose
 
@@ -25,23 +25,14 @@
   
 ```text
 AREngine_ARPose *cameraPose = nullptr;
-HMS_AREngine_ARPose_Create(arSession, nullptr, 0, &cameraPose);
+CHECK(HMS_AREngine_ARPose_Create(arSession, nullptr, 0, &cameraPose));
 ```
 
 2. 获取当前时刻相机位姿信息，并存储在cameraPose变量中。
 
   
 ```text
-// 创建一个新的AREngine_ARFrame对象。
-AREngine_ARFrame *arFrame = nullptr;
-HMS_AREngine_ARFrame_Create(arSession, &arFrame);
-// 更新当前帧的结果到arFrame。
-HMS_AREngine_ARSession_Update(arSession, arFrame);
-// 获取当前帧的相机参数对象。
-AREngine_ARCamera *arCamera = nullptr;
-HMS_AREngine_ARFrame_AcquireCamera(arSession, arFrame, &arCamera);
-// 获取当前时刻相机位姿信息。
-HMS_AREngine_ARCamera_GetPose(arSession, arCamera, cameraPose);
+CHECK(HMS_AREngine_ARCamera_GetPose(arSession, arCamera, cameraPose));
 ```
 
 3. 从cameraPose中获取相机位姿的不同分量，包括平移分量和旋转分量。

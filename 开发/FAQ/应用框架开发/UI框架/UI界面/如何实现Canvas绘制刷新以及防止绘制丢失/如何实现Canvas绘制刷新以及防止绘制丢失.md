@@ -1,6 +1,6 @@
 # 如何实现Canvas绘制刷新以及防止绘制丢失
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1049
 
@@ -24,14 +24,19 @@ Canvas动态绘制时，如何实现内容实时刷新与防止绘制丢失是�
 - **场景一**：Canvas绘制如何刷新。Canvas无自动重绘机制，需要手动触发绘制刷新，共有4种实现方式，对比如下：
 
 | 实现方式 | 触发机制 | 适用场景 |
+
 | --- | --- | --- |
+
 | 利用clearRect方法清空画布。 | 开发者手动调用。 | 局部刷新场景（如擦除部分区域）。 |
+
 | 利用reset方法重置画布。 | 开发者手动调用。 | 全部重绘场景（如重置Canvas路径、样式）。 |
+
 | 利用@Watch装饰器监听变量，根据变量变化刷新。 | 数据变量变更时自动触发。 | 数据驱动的动态内容（如实时进度条、图表）、需要与UI状态强绑定的场景，用状态管理V1实现。 |
+
 | 利用@Monitor装饰器监听变量，根据变量变化刷新。 | 数据变量变更时自动触发。 | 数据驱动的动态内容（如实时进度条、图表）、需要与UI状态强绑定的场景，用状态管理V2实现。 |
 
   
-**方式一**：利用[clearRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#clearrect)方法清空画布，进而重新绘制，代码示例如下：
+**方式一**：利用[clearRect](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-canvas-rendering-context-2d#canvasrenderingcontext2dclearrect)方法清空画布，进而重新绘制，代码示例如下：
 ```text
 @Entry
 @Component
@@ -74,9 +79,9 @@ struct CanvasClearRect {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/6sHJ8yvXTnOPFnsN15GY9Q/zh-cn_image_0000002628565454.png?HW-CC-KV=V1&HW-CC-Date=20260811T005702Z&HW-CC-Expire=86400&HW-CC-Sign=C3008EE5CD96D6A755E453E8D435BBAB540022051583A04F1AB544361ECF6205)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/nMEP6PLoTBGvJWOrt41tIg/zh-cn_image_0000002628565454.png?HW-CC-KV=V1&HW-CC-Date=20260818T063535Z&HW-CC-Expire=86400&HW-CC-Sign=5B663606290A3D98AB602A5010D7154E520287ECC73018DAA777ACE23B8A5DC4)
 
-- **方式二**：利用[reset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#reset12)方法重置画布状态，清空绘制路径，代码示例如下：
+- **方式二**：利用[reset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#reset12)方法重置画布状态，清空绘制路径，代码示例如下：
 ```text
 @Entry
 @Component
@@ -124,7 +129,7 @@ struct CanvasReset {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/gPhGqc3IR76cUfCC1GgSQg/zh-cn_image_0000002658924761.png?HW-CC-KV=V1&HW-CC-Date=20260811T005702Z&HW-CC-Expire=86400&HW-CC-Sign=80CF9C4128D1DC6E968F2AC02314DACE6BE590C73800E673FB7CF258C89BF0BB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/Nd3YS6KXRbSYNpyVpa9kqQ/zh-cn_image_0000002658924761.png?HW-CC-KV=V1&HW-CC-Date=20260818T063535Z&HW-CC-Expire=86400&HW-CC-Sign=7DDC2484D1498A0809DA173E32C9B28617788E095D753CA4C1A10058DA5AF67F)
 
 - **方式三**：利用[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)装饰器监听状态变量，当数据刷新时，触发重新绘制逻辑，示例参考：[Canvas绘制内容如何动态更新](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-225)。
 - **方式四**：利用@Monitor装饰器监听嵌套Class对象属性的变化，代码示例如下：
@@ -183,14 +188,17 @@ struct CanvasMonitor {
  实现效果如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/TPt5l8Z0RteXQSoTYYAwIQ/zh-cn_image_0000002628405556.png?HW-CC-KV=V1&HW-CC-Date=20260811T005702Z&HW-CC-Expire=86400&HW-CC-Sign=08F8D371F6CF4067F4AB21FF4B03FDC1829CA0EDEBF3AC6B7095A1AA7653F656)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/078VejpcTIyo5mIpLhMDGw/zh-cn_image_0000002628405556.png?HW-CC-KV=V1&HW-CC-Date=20260818T063535Z&HW-CC-Expire=86400&HW-CC-Sign=1AF29134B1CFC6359825C46FBF509D1CB9A1290FD6C0BABD9370449DE1331400)
 
 
  - **场景二**：Canvas绘制防止丢失。Canvas的onReady方法在Canvas组件初始化完成或者发生大小变化时会触发。比如折叠屏展开场景、横竖屏切换场景以及动态扩展Canvas组件宽高场景，可能会触发onReady方法，这时在onReady方法之外绘制的内容就会丢失，需要恢复绘制，共有2种实现方式，对比如下：
 
 | 实现方式 | 触发机制 | 适用场景 |
+
 | --- | --- | --- |
+
 | 在onReady中恢复绘制。 | Canvas初始化完成时或者发生大小变化时。 | 绘制内容较少时，不涉及监听尺寸变化场景。 |
+
 | 在onAreaChange事件恢复绘制。 | Canvas尺寸发生大小变化时。 | 需要精确根据尺寸变化进行绘制的场景。 |
 
   
@@ -239,7 +247,7 @@ struct CanvasOnAreaChange {
  效果预览：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/vSoI6FsZRTGd1FjKCxlbqA/zh-cn_image_0000002658804829.png?HW-CC-KV=V1&HW-CC-Date=20260811T005702Z&HW-CC-Expire=86400&HW-CC-Sign=6A849E0802EBF5CA995DBB534D5C7728611D35E9BD848555C0703ECB92B906BF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/8BOBoWreRQStM9WuM7yqKg/zh-cn_image_0000002658804829.png?HW-CC-KV=V1&HW-CC-Date=20260818T063535Z&HW-CC-Expire=86400&HW-CC-Sign=4E96C49493A17F37F1AD45FB55BAA74023A909895BDB088D3D3846B13CA6DC6A)
 
 
  

@@ -28,5 +28,11 @@
     "name": "Sensor Service Kit术语",
     "file": "硬件/Sensor Service Kit（传感器服务）/Sensor Service Kit术语/Sensor Service Kit术语.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sensor-glossary"
+  },
+  {
+    "slug": "stationary-glossary",
+    "name": "Multimodal Awareness Kit术语",
+    "file": "硬件/Multimodal Awareness Kit（多模态融合感知服务）/Multimodal Awareness Kit术语/Multimodal Awareness Kit术语.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/stationary-glossary"
   }
 ]

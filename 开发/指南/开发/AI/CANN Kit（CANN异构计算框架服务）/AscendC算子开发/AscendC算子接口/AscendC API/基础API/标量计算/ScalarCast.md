@@ -1,6 +1,6 @@
 # ScalarCast
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-scalarcast
 
@@ -28,7 +28,7 @@ __aicore__ inline dstT ScalarCast(srcT valueIn)
 | valueIn | 输入 | 被转换的scalar。 |
 | srcT | 输入 | valueIn的数据类型，支持float。 |
 | dstT | 输入 | 转换后的数据类型，支持half、int32_t。 |
-| roundMode | 输入 | 精度转换处理模式，类型是RoundMode。 RoundMode为枚举类型，用以控制精度转换处理模式，具体取值为：CAST_NONE、CAST_RINT、CAST_FLOOR、CAST_ROUND、CAST_TRUNC、CAST_ODD。 对于ScalarCast，转换类型仅支持float转half(f32 tof16)与float转int32_t(f32 tos32)，相应支持的RoundMode如下。 - f32 tof16：CAST_ODD - f32 tos32：CAST_ROUND、CAST_CEIL、CAST_FLOOR、CAST_RINT ScalarCast的精度转换规则与Cast保持一致，具体可参考Cast函数功能下的表1。 |
+| roundMode | 输入 | 精度转换处理模式，类型是RoundMode。 RoundMode为枚举类型，用以控制精度转换处理模式，具体取值为：CAST_NONE、CAST_RINT、CAST_FLOOR、CAST_ROUND、CAST_TRUNC、CAST_ODD。 对于ScalarCast，转换类型仅支持float转half(f32 to f16)与float转int32_t(f32 to s32)，相应支持的RoundMode如下。 - f32 to f16：CAST_ODD - f32 to s32：CAST_ROUND、CAST_CEIL、CAST_FLOOR、CAST_RINT ScalarCast的精度转换规则与Cast保持一致，具体可参考Cast函数功能下的表1。 |
  
  
   

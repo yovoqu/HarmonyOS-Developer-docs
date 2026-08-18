@@ -1,6 +1,6 @@
 # 实现Grid组件中特定GridItem的点击效果
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1215
 
@@ -13,7 +13,7 @@
 #### 背景知识
 
 - [Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)是HarmonyOS提供的一种网格容器，由行和列分割的单元格所组成，通过指定项目所在的单元格做出各种各样的布局。网格布局具有较强的页面均分能力，子组件占比控制能力，是一种重要的自适应布局。
-- [scale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#scale)属性用于设置canvas画布的缩放变换属性，后续的绘制操作将按照缩放比例进行缩放。
+- [scale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#scale)属性用于设置canvas画布的缩放变换属性，后续的绘制操作将按照缩放比例进行缩放。
 
  
  
@@ -134,4 +134,4 @@ struct GridClick {
 运行效果图如下所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/j-hY987vS3Sj9qbi5BAbWw/zh-cn_image_0000002628593594.png?HW-CC-KV=V1&HW-CC-Date=20260811T005718Z&HW-CC-Expire=86400&HW-CC-Sign=578BC88EFFD0FEAD6F50781C1D1402AB5B01A94542DBCEDB26AFD89E7D7F1578)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/75i5ZdyGReGBTygk03_dRw/zh-cn_image_0000002628593594.png?HW-CC-KV=V1&HW-CC-Date=20260818T063536Z&HW-CC-Expire=86400&HW-CC-Sign=DEC36932C2BD4EB0E35AB4906340BA469ADDACC899FC3F3BE63461CAC52A02B2)

@@ -1,6 +1,6 @@
 # native_type.h
 
-更新时间：2026-08-11 11:13:24
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -4055,7 +4055,7 @@ uint32_t OH_ArkUI_SelectedDragPreviewStyle_GetColor(ArkUI_SelectedDragPreviewSty
 
 | 类型 | 说明 |
 | --- | --- |
-| uint32_t color | 选中态拖拽文本预览样式的背景，格式为RGBA。 |
+| uint32_t | 选中态拖拽文本预览样式的背景，格式为RGBA。 |
 
 
 
@@ -4393,7 +4393,7 @@ ArkUI_ErrorCode OH_ArkUI_TextDataDetectorConfig_RegisterOnDetectResultUpdateCall
 | --- | --- |
 | OH_ArkUI_TextDataDetectorConfig* config | 指向OH_ArkUI_TextDataDetectorConfig对象的指针。 |
 | void* userData | 用户数据。 |
-| void (*callback)(const char* result | 识别结果更新回调。result 识别到的文本实体内容。length 选中文本的结束位置。userData 用户自定义数据，对应OH_ArkUI_TextDataDetectorConfig_RegisterOnDetectResultUpdateCallback接口的入参userData。 |
+| void (*callback)(const char* result, int32_t length, void* userData) | 识别结果更新回调。result 识别到的文本实体内容。length 选中文本的结束位置。userData 用户自定义数据，对应OH_ArkUI_TextDataDetectorConfig_RegisterOnDetectResultUpdateCallback接口的入参userData。 |
 
 
 **返回：**
@@ -6956,7 +6956,7 @@ ArkUI_ErrorCode OH_ArkUI_TextEditorSelectionMenuOptions_RegisterOnMenuShowCallba
 | --- | --- |
 | OH_ArkUI_TextEditorSelectionMenuOptions* options | 指向OH_ArkUI_TextEditorSelectionMenuOptions对象的指针。 |
 | void* userData | 用户数据。 |
-| void (*callback)(int32_t start | 菜单显示的回调函数。start 选中内容的起始偏移量。end 选中内容的结束偏移量。callbackUserData 用户数据。 |
+| void (*callback)(int32_t start, int32_t end, void* callbackUserData) | 菜单显示的回调函数。start 选中内容的起始偏移量。end 选中内容的结束偏移量。callbackUserData 用户数据。 |
 
 
 **返回：**
@@ -6988,7 +6988,7 @@ ArkUI_ErrorCode OH_ArkUI_TextEditorSelectionMenuOptions_RegisterOnMenuHideCallba
 | --- | --- |
 | OH_ArkUI_TextEditorSelectionMenuOptions* options | 指向OH_ArkUI_TextEditorSelectionMenuOptions对象的指针。 |
 | void* userData | 用户数据。 |
-| void (*callback)(int32_t start | 菜单隐藏的回调函数。start 选中内容的起始偏移量。end 选中内容的结束偏移量。callbackUserData 用户数据。 |
+| void (*callback)(int32_t start, int32_t end, void* callbackUserData) | 菜单隐藏的回调函数。start 选中内容的起始偏移量。end 选中内容的结束偏移量。callbackUserData 用户数据。 |
 
 
 **返回：**
@@ -7020,7 +7020,7 @@ ArkUI_ErrorCode OH_ArkUI_TextEditorSelectionMenuOptions_RegisterOnMenuAppearCall
 | --- | --- |
 | OH_ArkUI_TextEditorSelectionMenuOptions* options | 指向OH_ArkUI_TextEditorSelectionMenuOptions对象的指针。 |
 | void* userData | 用户数据。 |
-| void (*callback)(int32_t start | 菜单出现的回调函数。start 选中内容的起始偏移量。end 选中内容的结束偏移量。callbackUserData 用户数据。 |
+| void (*callback)(int32_t start, int32_t end, void* callbackUserData) | 菜单出现的回调函数。start 选中内容的起始偏移量。end 选中内容的结束偏移量。callbackUserData 用户数据。 |
 
 
 **返回：**

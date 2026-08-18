@@ -1,6 +1,6 @@
 # arkweb_scheme_handler.h
 
-更新时间：2026-07-28 11:23:46
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-scheme-handler-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -38,7 +38,7 @@ arkweb_scheme_handler.h是ArkWeb中用于拦截和自定义网络请求的完整
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | ArkWeb_SchemeHandler_ | ArkWeb_SchemeHandler | 该类用于拦截指定scheme的请求。 |
-| ArkWeb_ResourceHandler_ | ArkWeb_ResourceHandler | 用于被拦截的URL请求。可以通过ArkWeb_ResourceHandler发送自定义请求头以及自定义请求体。 |
+| ArkWeb_ResourceHandler_ | ArkWeb_ResourceHandler | 用于被拦截的URL请求。可以通过ArkWeb_ResourceHandler发送自定义响应头以及自定义响应体。 |
 | ArkWeb_Response_ | ArkWeb_Response | 为被拦截的请求构造一个ArkWeb_Response。 |
 | ArkWeb_ResourceRequest_ | ArkWeb_ResourceRequest | 对应内核的一个请求，可以通过OH_ArkWebResourceRequest_系列接口获取请求的URL、method、post data以及其他信息。如通过OH_ArkWebResourceRequest_GetUrl获取请求的URL。 |
 | ArkWeb_RequestHeaderList_ | ArkWeb_RequestHeaderList | 请求头列表。 |
@@ -2207,7 +2207,7 @@ int32_t OH_ArkWebResourceHandler_DidFailWithError(const ArkWeb_ResourceHandler* 
   
 | 参数项 | 描述 |
 | --- | --- |
-| const ArkWeb_ResourceHandler* resourceHandler | 用于被拦截的URL请求。可以通过ArkWeb_ResourceHandler发送自定义请求头以及自定义请求体。 |
+| const ArkWeb_ResourceHandler* resourceHandler | 用于被拦截的URL请求。可以通过ArkWeb_ResourceHandler发送自定义响应头以及自定义响应体。 |
 | ArkWeb_NetError errorCode | 该请求的错误码。请参考arkweb_net_error_list.h。 |
  
  
@@ -2240,7 +2240,7 @@ int32_t OH_ArkWebResourceHandler_DidFailWithErrorV2(const ArkWeb_ResourceHandler
   
 | 参数项 | 描述 |
 | --- | --- |
-| const ArkWeb_ResourceHandler* resourceHandler | 用于被拦截的URL请求。可以通过ArkWeb_ResourceHandler发送自定义请求头以及自定义请求体。 |
+| const ArkWeb_ResourceHandler* resourceHandler | 用于被拦截的URL请求。可以通过ArkWeb_ResourceHandler发送自定义响应头以及自定义响应体。 |
 | ArkWeb_NetError errorCode | 该请求的错误码。请参考arkweb_net_error_list.h。 |
 | bool completeIfNoResponse | 若之前未调用过OH_ArkWebResourceHandler_DidReceiveResponse，调用OH_ArkWebResourceHandler_DidFailWithErrorV2时，此次网络请求是否完成；值为true时，若之前未调用过OH_ArkWebResourceHandler_DidReceiveResponse，则会自动生成一个response以完成此次网络请求，网络错误码为-104；值为false时，将等待应用调用OH_ArkWebResourceHandler_DidReceiveResponse并传入response，不会直接完成此次网络请求。 |
  

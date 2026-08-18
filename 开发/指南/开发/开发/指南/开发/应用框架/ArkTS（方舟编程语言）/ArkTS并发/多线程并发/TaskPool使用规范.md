@@ -1,6 +1,6 @@
 # TaskPool使用规范
 
-更新时间：2026-08-11 11:13:24
+更新时间：2026-08-14 11:17:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/task-pool-usage-guidelines
 
@@ -336,7 +336,7 @@ taskpool.execute(task)
  
 同时合理划分业务粒度，对于一组相关联的任务，可以使用任务组TaskGroup。等待所有子任务都处理完再继续向下处理，从而保证业务代码整体性和可维护性。对于某些不紧急的查询任务，则可以将这些任务收集起来，在一些较为空闲的时间段再抛到任务池中执行。
  
-在合适的场景下也可以使用[SequenceRunner](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-taskpool#sequencerunner-11)()等API，以避免短时间内大量任务连续进入任务池，使线程数瞬间提升到最大。主线程连续处理大量任务密集返回时的回调和微任务会阻塞UI，影响用户体验。
+在合适的场景下也可以使用[SequenceRunner](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-taskpool#sequencerunner11)()等API，以避免短时间内大量任务连续进入任务池，使线程数瞬间提升到最大。主线程连续处理大量任务密集返回时的回调和微任务会阻塞UI，影响用户体验。
  
 
 ![](assets/TaskPool使用规范/file-202607081036508f7b66ef.png)

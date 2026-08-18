@@ -1,6 +1,6 @@
 # Canvas绘制时如何使fillStyle可以使用Resource颜色资源
 
-更新时间：2026-06-26 09:07:13
+更新时间：2026-08-13 14:12:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-971
 
@@ -13,7 +13,7 @@
 #### 背景知识
 
 - [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)是画布组件，规定用于绘制的区域。
-- [CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)是画笔，用于绘制内容到Canvas上。[fillStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#fillstyle)是CanvasRenderingContext2D的属性，用于设置画笔的颜色。
+- [CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)是画笔，用于绘制内容到Canvas上。[fillStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-property#fillstyle)是CanvasRenderingContext2D的属性，用于设置画笔的颜色。
 - [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)是资源引用类型，fillStyle无法接受Resource作为参数类型。
 - [getColorSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getcolorsync10)是[@ohos.resourceManager (资源管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)中的方法，可以将一个Resource类型的颜色资源变成一个number类型。
 
